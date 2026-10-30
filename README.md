@@ -13,7 +13,7 @@ Start with [CATALOG.md](CATALOG.md) for every selected problem and its proof ent
 | Statistics problems | 83 selected results: 41 single-file proofs and 42 Deep developments, covering estimation, inference, regression, concentration, survival analysis, and related topics | [statistics-benchmark/](statistics-benchmark/README.md) |
 | IMO problems | Six guided results, with exact run inputs, mathematical guides, and Lean proofs; P3 targets `V_eq` | [imo-2026/](imo-2026/README.md) |
 | Paper theorems | Gaussian approximation, two HMC targets, data thinning, EILLS, and the CQR and BH/FDR curated examples listed below | [papers/](papers/README.md) |
-| Neural-network approximation | Reference paper, summary of the Statlib contribution, and an interface exposing the network depth and approximation-error dependence on resolution | [statlib-contributions/neural-network-approximation/](statlib-contributions/neural-network-approximation/SUMMARY.md) |
+| Neural-network approximation | Reference paper, seven Lean source modules, a Statlib contribution summary, and an interface exposing the network depth and approximation-error dependence on resolution | [statlib-contributions/neural-network-approximation/](statlib-contributions/neural-network-approximation/SUMMARY.md) |
 
 The paper developments and examples are organized as follows:
 
@@ -27,7 +27,7 @@ The paper developments and examples are organized as follows:
 | CQR — lower-coverage core under explicit score/quantile assumptions | [papers/cqr/](papers/cqr/README.md) |
 | BH/FDR — Dobriban certificates and Lei leave-one-out interfaces | [papers/bh-fdr/](papers/bh-fdr/README.md) |
 
-The neural-network result is an approximation component. [AtResolution.lean](statlib-contributions/neural-network-approximation/AtResolution.lean) exposes explicit depth and error bounds for every sufficiently large resolution; it does not claim the full statistical regression-risk theorem.
+The seven neural-network source modules are available under [Statlib/Nonparametric/](statlib-contributions/neural-network-approximation/Statlib/Nonparametric/), including [ShallowReLUApproximation.lean](statlib-contributions/neural-network-approximation/Statlib/Nonparametric/Approximation/ShallowReLUApproximation.lean). The neural-network result is an approximation component. [AtResolution.lean](statlib-contributions/neural-network-approximation/AtResolution.lean) exposes explicit depth and error bounds for every sufficiently large resolution; it does not claim the full statistical regression-risk theorem.
 
 ## File organization
 
@@ -64,6 +64,7 @@ papers/
 statlib-contributions/neural-network-approximation/
   materials/                       # Reference paper and author materials
   SUMMARY.md                       # Contribution and interface summary
+  Statlib/Nonparametric/            # Seven published neural-network Lean modules
   AtResolution.lean                # Explicit resolution/depth/error interface
 
 verification/
@@ -96,7 +97,7 @@ make replay  # Kernel-replay eligible declarations in the supplied Statlib cache
 
 `make verify` is the complete proof-compilation entry point. Separate cases retain their own module namespaces, including multiple `Main` modules, so plain `lake build` does not enumerate the collection. Verification commands write new reports; `make check` checks the published snapshot before those reports are regenerated. See [verification/README.md](verification/README.md) for details.
 
-Only the required **144 compiled Statlib modules** are supplied. Statlib implementation source is not included. Public Lean/Mathlib and these version-matched binary dependencies are sufficient for the recorded reproduction procedure.
+The required **144 compiled Statlib modules** are supplied, together with the **seven neural-network Lean source modules** linked in the [source inventory](statlib-contributions/neural-network-approximation/README.md). Other Statlib implementation sources are not included. Public Lean/Mathlib and these version-matched binary dependencies are sufficient for the recorded reproduction procedure.
 
 ## Validation and assumptions
 

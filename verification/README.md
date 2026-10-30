@@ -1,4 +1,4 @@
-# Reproduction without Statlib source
+# Reproduction with selected Statlib dependencies
 
 The original archived proof sources are unchanged. `minimal-sources/` contains derivatives with narrowed imports and redundant `open _root_.Statlib` scaffold lines removed. All other nonblank lines, including theorem statements, definitions and proof bodies, are preserved. `minimization.json` maps originals to derivatives and records hashes and candidate-build results. Historical measurements still describe the originals.
 
@@ -25,3 +25,5 @@ Official references: [Lean compilation and kernel checking](https://lean-lang.or
 The directory layout replaces the former generated delivery archives without changing any binary or proof-source bytes. `directory-layout.json` records the cache location and local-only private-source relocations. To preserve the hash binding of prior compilation receipts, `binary-manifest.json` remains byte-identical: its `archive*` fields are historical metadata, while the per-module `files` records are authoritative and checked against `statlib-cache/`. No archive is read by either verification command. `clean-build-before-directory-layout.json` preserves the pre-migration receipt report. The layout check reuses hash-matched case receipts and freshly compiles/checks the neural wrapper; it does not claim another full case recompilation.
 
 Only runtime verification tools remain in `scripts/`: case indexing, binary hashing, source compilation, axiom inspection and kernel replay. One-time collection, minimization and report-generation tools were moved outside the project. The index/import functions were preserved exactly and compared for all 96 cases and 753 derived modules. See [cleanup records](cleanup.json).
+
+The seven neural-network implementation modules are now published under [Statlib/](../statlib-contributions/neural-network-approximation/Statlib/) with hashes from their original `metrics.json`. Other Statlib source is not included. The existing proof-verification and kernel-replay receipts continue to describe the binary-based procedure; this source publication does not claim a new rebuild of all seven modules.

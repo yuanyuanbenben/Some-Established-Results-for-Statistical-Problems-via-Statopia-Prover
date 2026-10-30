@@ -4,8 +4,8 @@
   "module_count": 144,
   "files": 144,
   "total_binary_bytes": 213165544,
-  "note": "Unpacked file bytes and manifest are unchanged. Legacy archive fields in binary-manifest.json describe the historical compilation snapshot, not a required deliverable. Historical source-provenance destinations for private sources refer to relocated local-only snapshots.",
-  "local_only_relocations": [
+  "note": "Unpacked file bytes and manifest are unchanged. Legacy archive fields in binary-manifest.json describe the historical compilation snapshot, not a required deliverable. Historical source-provenance destinations for private sources refer to relocated local-only snapshots. The seven neural-network source modules have subsequently been copied back under explicit authorization; the backup copies are retained.",
+  "historical_relocations": [
     {
       "former_project_path": "statlib-contributions/neural-network-approximation/Statlib",
       "local_backup": "/home/ai4stat/lean-extern/.Established-results-local-provenance/Statlib"
@@ -14,5 +14,12 @@
       "former_project_path": "statlib-contributions/neural-network-approximation/public-import-surface.lean",
       "local_backup": "/home/ai4stat/lean-extern/.Established-results-local-provenance/public-import-surface.lean"
     }
-  ]
+  ],
+  "source_publication": {
+    "directory": "statlib-contributions/neural-network-approximation/Statlib",
+    "inventory": "statlib-contributions/neural-network-approximation/metrics.json",
+    "modules": 7,
+    "total_lines": 55922,
+    "scope": "Only these seven neural-network modules; other Statlib implementation sources remain excluded. Original backup files are retained."
+  }
 }

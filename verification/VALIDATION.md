@@ -1,6 +1,6 @@
 # Archive validation — 2026-10-30
 
-Validation used Linux and Lean 4.28.0-rc1 with Mathlib revision 5352afccd6866369be9de43f5b7ec47203555f44. No upload, deployment, proof-job restart, or Statlib source modification was performed.
+Validation used Linux and Lean 4.28.0-rc1 with Mathlib revision 5352afccd6866369be9de43f5b7ec47203555f44. The initial validation did not upload, deploy, restart proof jobs, or modify the original Statlib workspace. The collection has since been published on GitHub; the source-publication update is recorded below.
 
 ## Results
 
@@ -28,18 +28,18 @@ Gaussian retains three actual citation assumptions and HMC 2.2 retains one. Thes
 ## Source and material repairs
 
 Original run sources remain unchanged. Derivatives narrow imports and remove redundant `open _root_.Statlib` scaffolding. One reconstructed BH-FDR file included English YAML instructions and alternative tactic examples after its complete proof; the derivative comments out that prose. The original raw reconstruction and its historical physical-line measurement remain visible as provenance, not as a claim that its original bytes compile.
-The neural wrapper returns an existing compiled theorem constant through normal term elaboration; its full explicit target is still checked by Lean. It adds no axiom and publishes no Statlib implementation source. The original public signature and library files were preserved.
+The neural wrapper returns an existing compiled theorem constant through normal term elaboration; its full explicit target is still checked by Lean. The wrapper itself adds no axiom. The original public signature and library files were preserved.
 Paper PDFs and provenance were added. Data Thinning/EILLS PDFs correspond to byte-identical archived TeX. HMC v5 includes the corrigendum. Gaussian and neural author-TeX previews are `pdf-with-errors` because of recorded reference/layout or missing-character diagnostics; original reference PDFs are the reading copies. Retrieved references do not retroactively establish the exact version supplied to every historical experiment.
 
 ## Code-quality review
 
 Functional correctness: complete input/entry mappings, actual import graphs, source preservation/explicit repair hashes, isolated compilation, target axiom boundaries, binary-file hashes and private-source exclusions are checked. This is not an exhaustive mathematical faithfulness audit against every original natural-language question or paper.
 Memory verdict: OK. The final compiler has a global 12-process limit (roughly 72 GiB at observed 6 GiB per process, within available memory); cache/hash operations stream files. Independent jobs use separate build roots, and dependency-ready modules are bounded within each case.
-Other issues: these scripts do not open provider-key files or make proof-provider requests; no live job workspaces are overwritten. The standalone project excludes Statlib source snapshots; local build outputs and Python caches are ignored. Its verification binds the exact compiled-source receipts, binary files, checker and neural wrapper. Cross-platform portability and a from-source rebuild of private Statlib are outside this validation.
+Other issues: these scripts do not open provider-key files or make proof-provider requests; no live job workspaces are overwritten. Only the seven explicitly authorized neural-network source modules are published; other Statlib implementation sources remain excluded. Local build outputs and Python caches are ignored. Its verification binds the exact compiled-source receipts, binary files, checker and neural wrapper. Cross-platform portability and a from-source rebuild of private Statlib are outside this validation.
 
 ## Standalone directory check
 
-The generated outer delivery archive and compressed binary-cache archive were removed. The selected `.olean` files now live directly in `verification/statlib-cache/`, with unchanged bytes and unchanged binary manifest. Private source snapshots were preserved outside the project, with relocation records in `directory-layout.json`. The root Lake configuration uses only public git dependencies and pins the same Lean/Mathlib versions. The root verification and replay commands were exercised on Linux, reusing local caches of those public packages rather than a fresh network download. Case compilation receipts were revalidated by source/binary hashes using `--resume`; the neural wrapper was freshly compiled and inspected, and all selected eligible binary declarations were replayed again. No second full case recompilation is claimed.
+The generated outer delivery archive and compressed binary-cache archive were removed. The selected `.olean` files now live directly in `verification/statlib-cache/`, with unchanged bytes and unchanged binary manifest. At that earlier stage, private source snapshots were preserved outside the project, with relocation records in `directory-layout.json`. The seven neural-network modules have now been copied back under the explicit source-publication authorization below. The root Lake configuration uses only public git dependencies and pins the same Lean/Mathlib versions. The root verification and replay commands were exercised on Linux, reusing local caches of those public packages rather than a fresh network download. Case compilation receipts were revalidated by source/binary hashes using `--resume`; the neural wrapper was freshly compiled and inspected, and all selected eligible binary declarations were replayed again. No second full case recompilation is claimed.
 
 ## Delivery cleanup
 
@@ -47,3 +47,7 @@ One-time collection/minimization/report-generation scripts, report TeX and revis
 
 Functional correctness: the runtime case index and import reader were extracted unchanged and compared for all 96 cases and 753 derived modules. Proof sources and all binary hashes are unchanged. Inventory/receipt checks cover the retained cases and dependencies; no new full Lean compilation is claimed by this cleanup.
 Memory verdict: OK. Cleanup operations move files on the same filesystem, and the retained hash checker streams binary data. Other issues: the runtime verifier imports only retained standard-library Python modules; no collection script or private workspace source is needed.
+
+## Neural-network source publication
+
+The seven neural-network Lean modules listed in `statlib-contributions/neural-network-approximation/metrics.json` are now included at their original module-relative paths. All seven match their archived SHA-256 hashes and line counts (55,922 lines in total). Only this source subset is published; other Statlib dependencies remain binary-only. `make check` enforces the exact seven-file source inventory and hashes, while existing binary-manifest and proof-compilation receipts remain unchanged. No complete source rebuild of these seven modules is claimed by this publication step.

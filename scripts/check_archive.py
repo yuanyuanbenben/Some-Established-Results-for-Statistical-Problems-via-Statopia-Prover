@@ -109,6 +109,15 @@ replay=load('verification/kernel-replay.json')
 assert replay['status']=='passed' and replay['binary_manifest_sha256']==verification['binary_manifest_sha256']
 assert replay['checker_sha256']==sha(ROOT/'scripts/replay_statlib.lean')
 assert all(p['type']=='git' for p in load('lake-manifest.json')['packages'])
-assert not (ROOT/'statlib-contributions/neural-network-approximation/Statlib').exists()
+neural_root=ROOT/'statlib-contributions/neural-network-approximation'
+neural_sources=load('statlib-contributions/neural-network-approximation/metrics.json')
+expected_neural_sources={m['module'] for m in neural_sources['modules']}
+assert len(expected_neural_sources)==7
+assert {p.relative_to(neural_root).as_posix() for p in (neural_root/'Statlib').rglob('*') if p.is_file()}==expected_neural_sources
+for module in neural_sources['modules']:
+    source=neural_root/module['module']
+    assert source.is_file() and not source.is_symlink()
+    assert sha(source)==module['sha256'] and count(source)==module['lines']
+assert sum(m['lines'] for m in neural_sources['modules'])==neural_sources['total_lines']==55922
 assert not (ROOT/'statlib-contributions/neural-network-approximation/public-import-surface.lean').exists()
-print('PASS: standalone project binary inventory, source/receipt bindings, replay bindings and private-source exclusions.')
+print('PASS: standalone project binary inventory, source/receipt bindings, replay bindings and exact seven-module neural source publication.')

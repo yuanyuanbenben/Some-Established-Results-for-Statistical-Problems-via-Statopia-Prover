@@ -8,6 +8,8 @@ The cleanup review checked that one-time collection/report tools and redundant e
 
 Final delivery checks: all 57 relocated files have matching backup hashes; local Markdown navigation has no missing targets. `make check` checks the refreshed published manifest, case inventories, cost calculations and proof/binary/receipt bindings. This cleanup does not claim another Lean compilation.
 
-Memory verdict: OK. Hashing streams binary files, and indexing/receipt data is bounded by the existing corpus. No private Statlib implementation source, new provider calls, live-job mutations or deployment were introduced.
+Memory verdict: OK. Hashing streams binary files, and indexing/receipt data is bounded by the existing corpus. Source publication is restricted to the seven explicitly authorized neural-network modules; no other Statlib implementation source, new provider calls, live-job mutations or deployment was introduced.
 
 Limits: the tested platform is Linux; public Lean/Mathlib is trusted, and private Statlib is not rebuilt from source. Library replay skips three unsafe/partial runtime helpers and deduplicates four identical equation theorems. Axiom inspection and successful compilation do not establish exhaustive mathematical fidelity to the original questions or papers.
+
+The later neural-network source-publication update restores the seven modules with their original hashes and adds direct source links. Existing proof and compiled-dependency bytes remain unchanged; verification continues to distinguish source publication from a full library source rebuild.

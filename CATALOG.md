@@ -119,7 +119,7 @@ The original candidate list has 90 problems; this archive selects 83 results. Th
 
 ## Neural-network approximation
 
-[Reference materials](statlib-contributions/neural-network-approximation/materials/), [interface and contribution summary](statlib-contributions/neural-network-approximation/SUMMARY.md). The binary directory contains the needed compiled modules; private Statlib source snapshots are preserved outside this project.
+[Reference materials](statlib-contributions/neural-network-approximation/materials/), [interface and contribution summary](statlib-contributions/neural-network-approximation/SUMMARY.md). The [seven neural-network Lean modules](statlib-contributions/neural-network-approximation/Statlib/) are published with their original paths and hashes. Other Statlib dependencies are supplied as compiled modules only.
 
 Original sources can contain private, unused skeleton placeholders. Final theorem axiom checks and compilation results are separate from this static catalogue audit.
 
