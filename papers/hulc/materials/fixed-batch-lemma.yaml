@@ -1,0 +1,127 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:8d946c31-8723-4951-aaee-d394bba21f55
+    title: paper_6093c8cdedac44ebaae3246c2f49ba3b
+    kind: lemma
+    latex_statement: |-
+      For each \(1\le j\le B\), define the median bias
+      \[
+      \operatorname{Med\text{-}Bias}_{\theta_0}(\widehat{\theta}_j)
+      :=
+      \left(
+      \frac12
+      -
+      \min\left\{
+      \mathbb{P}(\widehat{\theta}_j-\theta_0\ge 0),\,
+      \mathbb{P}(\widehat{\theta}_j-\theta_0\le 0)
+      \right\}
+      \right)_+,
+      \]
+      where \((x)_+=\max\{x,0\}\). The non-strict inequalities in the definition of median bias are important: the events are \(\widehat{\theta}_j-\theta_0\ge 0\) and \(\widehat{\theta}_j-\theta_0\le 0\).
+
+      Put
+      \[
+      \Delta
+      :=
+      \max_{1\le j\le B}\operatorname{Med\text{-}Bias}_{\theta_0}(\widehat{\theta}_j)
+      \in[0,1/2].
+      \]
+      The function \(P(B;\Delta)\) is exactly
+      \[
+      P(B;\Delta)
+      :=
+      \left(\frac12-\Delta\right)^B
+      +
+      \left(\frac12+\Delta\right)^B.
+      \]
+
+      <!-- formalization-clarifications:v1:34a17d6ea75361fd00d01e58249a84be1fbf79b4dc0dbc670745743420b991c5 -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The selected target is the fixed-\(B\) coverage lemma in main.tex, labeled Lemma \ref{lem:fixed-B-coverage-result}: “If \(\widehat{\theta}_j,1\le j\le B\) are independent random variables and \(\Delta:=\max_{1\le j\le B}\mathrm{Med\mbox{-}Bias}_{\theta_0}(\widehat{\theta}_j)\in[0,1/2]\), then…”. Its intended order is: fix an integer \(B\ge1\), fix deterministic \(\theta_0\in\mathbb R\), take independent real-valued \(\widehat{\theta}_1,\dots,\widehat{\theta}_B\), define \(\Delta\) from their laws and \(\theta_0\), and then assert the finite-sample probability inequality. \(B\) is a deterministic parameter in this lemma; the random \(B^*\) of Algorithm \ref{alg:confidence-known-Delta} is outside the target. \(\Delta\) is not a universal constant and may depend on \(B\), \(\theta_0\), the joint law of the estimators, and the individual \(j\)’s through the maximum; the source explicitly remarks after the lemma that “\(\Delta\) in general depends on \(\theta_0\), the distribution of the data \(X_1,\ldots,X_n\) as well as the batch sizes \(|S_1|,\ldots,|S_B|\). For simplicity, we do not index \(\Delta\) with these quantities.” The numerical constants \(1/2,1,0\) are fixed; the bound \(P(B;\Delta)\) is parameter-dependent through \(B\) and \(\Delta\). The target lemma contains no dimension \(d\), no random vector, no sample size \(n\), and no sets \(S_j\) in its hypotheses, and the source leaves any uniformity over those objects unspecified/absent for this lemma. An implicit Lean parameter for \(\theta_0\), the laws, or \(B\) remains pointwise in the source; it does not turn the lemma into a uniform bound over those parameters. Later constants such as \(\mathfrak C_X\) or \(\mathfrak D_X\) occur in other results of the paper, not in the selected target lemma, and should not be imported into it.
+
+      2. Norms and mathematical objects. The selected target lives entirely in the real line: \(\theta_0\in\mathbb R\), each \(\widehat{\theta}_j\) is real-valued, and \(\min_{1\le j\le B}\widehat{\theta}_j\) and \(\max_{1\le j\le B}\widehat{\theta}_j\) are the ordinary order-theoretic minimum and maximum of \(B\) real numbers. The confidence set in the lemma is the closed real interval \([\min_j\widehat{\theta}_j,\max_j\widehat{\theta}_j]\). No Euclidean \(l_2\), sup, operator, Frobenius, or normalized norm is used; there is no ambient vector space beyond \(\mathbb R\). The symbol \((x)_+\) is defined in main.tex as \(\max\{x,0\}\), not as a norm or absolute value. The exponent \(B\) in \((1/2-\Delta)^B+(1/2+\Delta)^B\) is an integer power with \(B\ge1\). The source definition of median bias is exactly \((1/2-\min\{\mathbb P(\widehat\theta_j-\theta_0\ge0),\mathbb P(\widehat\theta_j-\theta_0\le0)\})_+\), and the source stresses that the non-strict inequalities are important: “it allows for \(\mathbb P(\widehat\theta_j-\theta_0\ge0)\) and \(\mathbb P(\widehat\theta_j-\theta_0\le0)\) to be equal to \(1\) or be larger than \(1/2\)” (main.tex, immediately after the median-bias definition). Consequently one should not replace this object by a merely related expression such as an absolute tail probability unless extra assumptions are added; such a replacement is not justified by the source.
+
+      3. Asymptotics. The selected target lemma is non-asymptotic and finite-sample: it has ordinary probability \(P\) under the joint law of the fixed finite list \(\widehat\theta_1,\dots,\widehat\theta_B\), and the conclusion is an exact inequality, not an asymptotic inequality. There is no limiting variable, filter, \(O\), \(o\), \(O_p\), \(o_p\), or convergence-in-probability notion in the target statement, and the proof in supp.tex, “Proof of Lemma \ref{lem:fixed-B-coverage-result},” uses only an exact event decomposition plus independence. The source discusses asymptotic median bias and asymptotic coverage elsewhere, for example in the paragraph defining “asymptotically median unbiased” and in Theorem \ref{thm:infinite-order-coverage}, but those are separate results and do not add asymptotic hypotheses to Lemma \ref{lem:fixed-B-coverage-result}. In particular, no uniformity over distributions, parameter values, sample sizes, or growing \(B\) is stated for the target lemma; if one wants such uniformity, it must come from a different source statement.
+
+      4. Potentially omitted definitions and side conditions. The probability space and law are not named in the selected statement, but they are implicit in \(P\). \(\theta_0\) is a deterministic real parameter, \(B\) is a positive integer, the index set is \(\{1,\dots,B\}\), and the \(\widehat\theta_j\)’s are independent real-valued random variables; the source requires independence for the product step. The target proof-based decomposition is \(\{\theta_0\notin[\min_j\widehat\theta_j,\max_j\widehat\theta_j]\}=\{\theta_0<\min_j\widehat\theta_j\}\cup\{\max_j\widehat\theta_j<\theta_0\}\), with the two events disjoint and equal respectively to \(\bigcap_j\{\widehat\theta_j>\theta_0\}\) and \(\bigcap_j\{\widehat\theta_j<\theta_0\}\). The supplement’s proof confirms this exact product form:
+      \[
+      \prod_{j=1}^B\mathbb P(\widehat\theta_j>\theta_0)+\prod_{j=1}^B\mathbb P(\widehat\theta_j<\theta_0),
+      \]
+      then rewrites using complements. No zero-atom, continuity, symmetry, moment, identically-distributed, equal-batch-size, or sample-size condition is required for the lemma. Mass at \(\theta_0\) is allowed; the strict inequalities \(>\!,\!<\) in the miscoverage decomposition naturally ignore the event \(\widehat\theta_j=\theta_0\), while the definition of median bias uses the non-strict events \(\ge,\le\). The partition \(S_1,\dots,S_B\) and the condition that the number of splits be less than the sample size appear in the surrounding algorithm discussion, but they are not hypotheses of the selected fixed-\(B\) lemma. The statement in the selected proof that the coverage inequality becomes strict when \(\mathbb P(\widehat\theta_j<\theta_0)+\mathbb P(\widehat\theta_j>\theta_0)<1\) is a proof-level observation, not a hypothesis of the theorem. The selected target and its reference section cite no external theorem; external results such as Wendel’s theorem, Lanke’s interval result, Berry–Esseen bounds, or Chernoff-type results later in the paper belong to other statements and should not restrict or augment this lemma.
+      <!-- /formalization-clarifications -->
+
+      Then
+      \[
+      \mathbb{P}\left(
+      \theta_0\notin
+      \left[
+      \min_{1\le j\le B}\widehat{\theta}_j,\,
+      \max_{1\le j\le B}\widehat{\theta}_j
+      \right]
+      \right)
+      \le
+      \left(\frac12-\Delta\right)^B
+      +
+      \left(\frac12+\Delta\right)^B.
+      \]
+      Equivalently, with
+      \[
+      P(B;\Delta)
+      :=
+      \left(\frac12-\Delta\right)^B
+      +
+      \left(\frac12+\Delta\right)^B,
+      \]
+      the conclusion is
+      \[
+      \mathbb{P}\left(
+      \theta_0\notin
+      \left[
+      \min_{1\le j\le B}\widehat{\theta}_j,\,
+      \max_{1\le j\le B}\widehat{\theta}_j
+      \right]
+      \right)
+      \le
+      P(B;\Delta).
+      \]
+    assumptions:
+      - Let \(B\ge 1\), let \(\theta_0\in\mathbb{R}\), and let \(\widehat{\theta}_1,\ldots,\widehat{\theta}_B\) be independent real-valued random variables serving as estimators of \(\theta_0\).
+    proof_body: |-
+      It is clear that
+      \[
+      \begin{aligned}
+      \mathbb{P}\left(\theta_0 \notin
+      \left[\min_{1\le j\le B}\widehat{\theta}_j,\,
+      \max_{1\le j\le B}\widehat{\theta}_j\right]\right)
+      &= \mathbb{P}\left(\theta_0 < \min_{1\le j\le B}\widehat{\theta}_j\right)
+      + \mathbb{P}\left(\max_{1\le j\le B}\widehat{\theta}_j < \theta_0\right)\\
+      &= \prod_{j=1}^B \mathbb{P}(\widehat{\theta}_j > \theta_0)
+      + \prod_{j=1}^B \mathbb{P}(\widehat{\theta}_j < \theta_0)\\
+      &= \prod_{j=1}^B \left\{1 - \mathbb{P}(\widehat{\theta}_j \le \theta_0)\right\}
+      + \prod_{j=1}^B \left\{1 - \mathbb{P}(\widehat{\theta}_j \ge \theta_0)\right\}.
+      \end{aligned}
+      \]
+      The second equality uses the independence of \(\widehat{\theta}_1,\ldots,\widehat{\theta}_B\). The result now follows from the definition of
+      \[
+      \Delta
+      =
+      \max_{1\le j\le B}\operatorname{Med\text{-}Bias}_{\theta_0}(\widehat{\theta}_j)
+      \in[0,1/2].
+      \]
+      The inequality in the conclusion stems from the fact that \(\Delta\) is the maximum value over all estimators, and from the fact that
+      \[
+      \mathbb{P}(\widehat{\theta}_j < \theta_0)
+      +
+      \mathbb{P}(\widehat{\theta}_j > \theta_0)
+      \le 1.
+      \]
+      If this inequality is strict, then the inequality in the coverage bound is strict.
+    lean_name: paper_6093c8cdedac44ebaae3246c2f49ba3b
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: main.tex

@@ -3,6 +3,7 @@
 import hashlib,json
 from pathlib import Path
 from cache_store import checked_cache, sha
+from case_index import jobs
 ROOT=Path(__file__).resolve().parents[1]
 def load(p):return json.loads((ROOT/p).read_text())
 def count(p):return len(p.read_text().splitlines())
@@ -25,7 +26,7 @@ for k,row in enumerate(i,1):
     provenance=json.loads((folder/'actual-run-input/provenance.json').read_text())
     actual=folder/'actual-run-input'/Path(provenance['inputPath']).name
     assert hashlib.sha256(actual.read_bytes()).hexdigest()==provenance['inputHash']
-paths={'gaussian':'gaussian','hmc_22':'hmc/theorem-2.2','hmc_v5':'hmc/theorem-5.14','data_thinning':'data-thinning','eills':'eills'}
+paths={'gaussian':'gaussian','hmc_22':'hmc/theorem-2.2','hmc_v5':'hmc/theorem-5.14','data_thinning':'data-thinning','eills':'eills','hulc':'hulc'}
 for row in p:
     folder=ROOT/'papers'/paths[row['case']]
     assert sum(count(x) for x in (folder/'integrated').rglob('*.lean'))==row['lean_lines']
@@ -70,7 +71,9 @@ for label,rows in [('combined',stats),('single_file',[x for x in stats if x['mod
     usd=sum(x['offpeak_usd'] for x in rows);lines=sum(x['lean_lines'] for x in rows)
     assert abs(report[label]['offpeak_usd']-usd)<1e-9
     assert abs(report[label]['usd_per_line']-usd/lines)<1e-12
-sizes=load('evaluation/paper-code-sizes.json');assert len(sizes)==7
+sizes=load('evaluation/paper-code-sizes.json')
+assert {row['case'] for row in sizes}==set(paths)|{'cqr','bh-fdr'}
+assert len(sizes)==len(paths)+2
 for row in sizes:
     folder=ROOT/'papers'/row['case']/'proof' if row['case'] in ('cqr','bh-fdr') else ROOT/'papers'/paths[row['case']]/'integrated'
     files=list(folder.rglob('*.lean'))
@@ -85,15 +88,17 @@ for key,filename,field in [('gaussian-main-dag','main-graph.json','nodes'),('gau
         assert node['dependencies']==actual['dependencies'] and node['phase']==actual['phase']
         expected.extend([[d,node['id']] for d in actual['dependencies']])
     assert sorted(expected)==sorted(mapping[key]['edges'])
-print('PASS: normalized costs for 83 statistics and 6 IMO cases; seven paper package sizes; both Gaussian dependency projections.')
+print(f'PASS: normalized costs for 83 statistics and 6 IMO cases; {len(sizes)} paper package sizes; both Gaussian dependency projections.')
 
 binary=load('verification/binary-manifest.json')
 checked_cache(binary)
 verification=load('verification/clean-build.json')
-assert verification['complete'] and len(verification['results'])==96
+expected_cases={job['key'] for job in jobs()}
+assert verification['complete'] and len(verification['results'])==verification['expected_cases']==len(expected_cases)
 assert verification['binary_manifest_sha256']==sha(ROOT/'verification/binary-manifest.json')
 sources={r['key']:r for r in load('verification/minimization.json')}
 assert set(sources)=={r['key'] for r in verification['results']}
+assert set(sources)==expected_cases
 for result in verification['results']:
     assert result['status']=='compiled'
     files={f['module']:f for f in sources[result['key']]['files']}
@@ -101,6 +106,7 @@ for result in verification['results']:
     for module in result['modules']:
         source=files[module['module']]
         assert module['exit_code']==0
+        assert sha(ROOT/source['original'])==source['original_sha256']
         assert sha(ROOT/source['derivative'])==module['source_sha256']==source['derivative_sha256']
 wrapper=verification['neural']['wrapper']
 assert wrapper['status']=='compiled-and-axioms-checked'

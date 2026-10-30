@@ -109,6 +109,7 @@ The original candidate list has 90 problems; this archive selects 83 results. Th
 
 | Development | Input materials and proof | Retained citation assumptions |
 | --- | --- | ---: |
+| HulC — Theorem 1 and fixed-batch coverage lemma | [materials](papers/hulc/materials/), [proof and scope](papers/hulc/README.md) | 0 external citations; explicit modeling hypotheses retained |
 | Theorem 1 (Main theorem; thm:generalized-thinning) | [materials](papers/data-thinning/materials/), [entry instructions](papers/data-thinning/integrated/README.md) | 0 |
 | Theorem 4.2 (Strong Convexity with respect to beta-star; thm:global-strong-convexity-main) | [materials](papers/eills/materials/), [entry instructions](papers/eills/integrated/README.md) | 1 |
 | Theorem 3.1 (Gaussian approximation; THM:G) | [materials](papers/gaussian/materials/), [entry instructions](papers/gaussian/integrated/README.md) | 3 |

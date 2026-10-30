@@ -1,5 +1,5 @@
 {
-  "workspace": "/tmp/established-clean-gtbupn1i",
+  "workspace": "/tmp/established-clean-48lvajf4",
   "binary_manifest_sha256": "c57f818a8a48ea1f33558d7fefcf7dd2db942907310f045171cb621ab01afcec",
   "compiler_options": {
     "maxHeartbeats": 2000000
@@ -2872,6 +2872,100 @@
         }
       ],
       "resumed_compilation_receipt": true,
+      "retained_external_axioms": [],
+      "actual_external_axioms": [],
+      "retained_but_not_used": []
+    },
+    {
+      "key": "papers/hulc",
+      "status": "compiled",
+      "modules": [
+        {
+          "module": "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.Vocabulary",
+          "exit_code": 0,
+          "source_sha256": "cdadfe454d0a6f716f30d9cb95d517eff03adfb8fbf529a37e28afa101e26302"
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.Vocabulary",
+          "exit_code": 0,
+          "source_sha256": "eefbcb036a361be8183a8165dbbabbd9f12be60467caab91240d41a963ef534a"
+        },
+        {
+          "module": "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.Base",
+          "exit_code": 0,
+          "source_sha256": "469be7027339a27aeb549138387d883346f4f75dff82e7c0012a32f7a34394c4"
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.Base",
+          "exit_code": 0,
+          "source_sha256": "a17dfc052ca0f11066115c70f7872807a4ce07b065cafbf48df374c20b75bb8e"
+        },
+        {
+          "module": "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.ProvedNodes.Node_1024464762_c87d6fc0_a568f946",
+          "exit_code": 0,
+          "source_sha256": "ed9d7bd3326a8a70eb2afd53b9a5665b33dc4cc90b8b374ba6ab6e0efa85602a"
+        },
+        {
+          "module": "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.ProvedNodes.Node_3135439720_9bebc028_77bf57ee",
+          "exit_code": 0,
+          "source_sha256": "7e58726d5093fe1a6b4fb0c4d1bd3731cfa9d53bb734f8ab6e84aa4dfbf03629"
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_1460261823_45140d86_8dc8b477",
+          "exit_code": 0,
+          "source_sha256": "8628ddc6ec42beb09b016211cd6a736c0161a0bca197ec73790a0fff991bb25e"
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_3519240212_d3830931_82d98ed5",
+          "exit_code": 0,
+          "source_sha256": "2bcd11b1c60bf65aaf29435b60a4e2e960ee9474e8e0e3c9d8f5e10e5f663080"
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_411957280_656443f1_12135cce",
+          "exit_code": 0,
+          "source_sha256": "87799c91b8316cbfb2d2a979e94d88182bf6734340d66a72ae299dbc33caa629"
+        },
+        {
+          "module": "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.ProvedNodes",
+          "exit_code": 0,
+          "source_sha256": "c7a4a748cb32fda25b0b0052e0b1fd4ff2abd176a0af688ca2f4cf3e8a50029f"
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_6db03351f5d34ffeb979aa1f3d18ae44",
+          "exit_code": 0,
+          "source_sha256": "b66229ad193ef9d3cc652da571aeda16786371277b396d50cc36c73c77b05364"
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ExternalNodes.Node_797c756d42274b989c69",
+          "exit_code": 0,
+          "source_sha256": "17c781e56c2118ca13100f44e1799a0842b8e3e0d0f3820bae269307cb9634f3"
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_1727152864_9ef8801e_d19f31cd",
+          "exit_code": 0,
+          "source_sha256": "859742eaef281bdc23aad48e6b6e0b07061c35f79603612253a51609570d7029"
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes",
+          "exit_code": 0,
+          "source_sha256": "3bfb4380e8b6e571867328d9cb9aba8d8e1d02e67af8ffad64a8a2f3d71aa5ce"
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_f59ddd7685054a2c91a43999dd384b62",
+          "exit_code": 0,
+          "source_sha256": "b713797fc1db6521d0227ceb91196f5cf584c77cddfbf5cd3df764e0a1306354"
+        }
+      ],
+      "axioms": [
+        {
+          "axioms": [
+            "propext",
+            "Quot.sound",
+            "Classical.choice"
+          ],
+          "declaration": "PaperProofTasks.paper_fresh_20261030t143835550708z_hulc.Statlib.Imported.Theorem_1_thm_coverage_algorithm_known_Delta_HulC_finite_sample_coverage_and_exact_coverage_under_the_stated_additional"
+        }
+      ],
       "retained_external_axioms": [],
       "actual_external_axioms": [],
       "retained_but_not_used": []
@@ -6702,12 +6796,12 @@
       "retained_but_not_used": []
     }
   ],
-  "expected_cases": 96,
+  "expected_cases": 97,
   "complete": true,
   "resumed_from": {
-    "workspace": "/tmp/established-clean-s9vlfzp0",
-    "report_sha256": "ac8c205d73684e6e74dbf62dad93bfa9d71c1b00f1e07d1fb91a684eb9953bd1",
-    "report": "verification/receipt-history/ac8c205d73684e6e74dbf62dad93bfa9d71c1b00f1e07d1fb91a684eb9953bd1.json"
+    "workspace": "/tmp/established-clean-gtbupn1i",
+    "report_sha256": "64fe6033d21081f0b53b84a5f5f844aab7478b1b48b69232b91395ae6779ac23",
+    "report": "verification/receipt-history/64fe6033d21081f0b53b84a5f5f844aab7478b1b48b69232b91395ae6779ac23.json"
   },
   "neural": {
     "status": "interface-and-axioms-checked",

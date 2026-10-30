@@ -2,7 +2,7 @@
 
 This repository showcases a selection of statistical problems and paper theorems formalized and verified using **Statopia Prover**, together with their Lean proofs, input materials, and verification evidence. It also includes six guided IMO problem results and a neural-network approximation contribution to Statlib.
 
-The collection contains 83 selected statistics problems, six IMO results, five timed paper developments, two curated paper examples, and a neural-network approximation interface. The results come from selected proof runs and curated examples; supplied mathematical guides, theorem assumptions, and historical provenance are recorded alongside the proofs.
+The collection contains 83 selected statistics problems, six IMO results, six paper-theorem developments, two curated paper examples, and a neural-network approximation interface. The results come from selected proof runs and curated examples; supplied mathematical guides, theorem assumptions, and historical provenance are recorded alongside the proofs.
 
 Start with [CATALOG.md](CATALOG.md) for every selected problem and its proof entry, or [SIGNATURES.md](statistics-benchmark/SIGNATURES.md) for the complete Lean theorem signatures of the 83 statistics problems.
 
@@ -12,7 +12,7 @@ Start with [CATALOG.md](CATALOG.md) for every selected problem and its proof ent
 | --- | --- | --- |
 | Statistics problems | 83 selected results: 41 single-file proofs and 42 Deep developments, covering estimation, inference, regression, concentration, survival analysis, and related topics | [statistics-benchmark/](statistics-benchmark/README.md) |
 | IMO problems | Six guided results, with exact run inputs, mathematical guides, and Lean proofs; P3 targets `V_eq` | [imo-2026/](imo-2026/README.md) |
-| Paper theorems | Gaussian approximation, two HMC targets, data thinning, EILLS, and the CQR and BH/FDR curated examples listed below | [papers/](papers/README.md) |
+| Paper theorems | Gaussian approximation, HulC coverage, two HMC targets, data thinning, EILLS, and the CQR and BH/FDR curated examples listed below | [papers/](papers/README.md) |
 | Neural-network approximation | Reference paper, seven Lean source modules, a Statlib contribution summary, and an interface exposing the network depth and approximation-error dependence on resolution | [statlib-contributions/neural-network-approximation/](statlib-contributions/neural-network-approximation/SUMMARY.md) |
 
 The paper developments and examples are organized as follows:
@@ -20,6 +20,7 @@ The paper developments and examples are organized as follows:
 | Result | Materials and Lean proofs |
 | --- | --- |
 | Gaussian approximation — Theorem 3.1 | [papers/gaussian/](papers/gaussian/README.md) |
+| HulC — Theorem 1 and its fixed-batch coverage lemma | [papers/hulc/](papers/hulc/README.md) |
 | HMC — Theorem 2.2 (i), (ii) | [papers/hmc/theorem-2.2/](papers/hmc/theorem-2.2/README.md) |
 | HMC — Theorem 5.14, v5 corrigendum version | [papers/hmc/theorem-5.14/](papers/hmc/theorem-5.14/README.md) |
 | Data thinning — Theorem 1 | [papers/data-thinning/](papers/data-thinning/README.md) |
@@ -50,7 +51,7 @@ imo-2026/
     evidence/                      # Run and usage evidence
 
 papers/
-  gaussian/ | hmc/ | data-thinning/ | eills/
+  gaussian/ | hulc/ | hmc/ | data-thinning/ | eills/
     source/                        # Original input TeX
     materials/                     # Paper PDFs and structured theorem inputs
     Main.lean                      # Original main-task reading snapshot
@@ -91,7 +92,7 @@ Requirements: elan, Python 3.12+, GNU Make, and the pinned public Mathlib depend
 ```sh
 make check   # Check published file hashes, case inventories, and validation bindings
 make setup   # Fetch pinned public Mathlib dependencies and their compiled cache
-make verify  # Compile all 96 case developments and the neural wrapper; inspect target axioms
+make verify  # Compile all 97 case developments and the neural wrapper; inspect target axioms
 make replay  # Kernel-replay eligible declarations in the supplied Statlib cache
 ```
 
@@ -101,9 +102,9 @@ The required **144 compiled Statlib modules** are supplied, together with the **
 
 ## Validation and assumptions
 
-The [validation record](verification/VALIDATION.md) documents successful isolated compilation of **96 case developments / 753 derived Lean modules**, plus the neural wrapper. The 96 cases comprise 83 statistics problems, six IMO results, five timed paper developments, and two curated paper examples. Kernel replay accepted **5,915 eligible safe, non-partial declarations** from the selected library subset. Linux with the pinned toolchain is the tested environment.
+The [validation record](verification/VALIDATION.md) documents successful isolated compilation of **97 case developments / 768 derived Lean modules**, plus the neural wrapper. The 97 cases comprise 83 statistics problems, six IMO results, six paper-theorem developments, and two curated paper examples. Kernel replay accepted **5,915 eligible safe, non-partial declarations** from the selected library subset. Linux with the pinned toolchain is the tested environment.
 
-The Gaussian final target retains **three citation assumptions**, and HMC Theorem 2.2 retains **one**. The other inspected case roots have no nonstandard axioms. These assumptions remain explicit: successful compilation does not prove the cited results. Compilation and axiom inspection also do not replace an independent mathematical comparison with the original question or paper.
+The Gaussian final target retains **three citation assumptions**, and HMC Theorem 2.2 retains **one**. The other inspected case roots, including HulC, have no nonstandard axioms. HulC retains explicit modeling hypotheses and the pipeline's auto-adoption flag; see its [formalization scope](papers/hulc/FORMALIZATION.md). These assumptions remain explicit: successful compilation does not prove the cited results. Compilation and axiom inspection also do not replace an independent mathematical comparison with the original question or paper.
 
 [Independent review](verification/REVIEW.md), the [binary manifest](verification/binary-manifest.json), and [source provenance](evaluation/source-provenance.json) retain the supporting evidence. Historical manifests may refer to editorial artifacts moved out of the project; [cleanup records](verification/cleanup.json) identify those paths and hashes.
 

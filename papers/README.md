@@ -5,6 +5,7 @@ Each selected development preserves the source paper, organized materials, origi
 | Target | Files | Lines |
 | --- | ---: | ---: |
 | gaussian | 88 | 15,388 |
+| [hulc](hulc/README.md) | 15 | 1,468 |
 | eills | 11 | 2,141 |
 | data_thinning | 5 | 160 |
 | hmc_22 | 22 | 4,103 |
@@ -25,4 +26,8 @@ These two examples are reconstructed from embedded proofs in the existing curate
 
 Use `make verify` from the project root to build the corresponding sources in `verification/minimal-sources/`. Original `Main.lean`, task reading snapshots and integrated module trees remain unchanged. Each case retains its original input TeX/YAML and paper PDFs; available proof reports remain as PDFs. Duplicate integrated-proof ZIPs, workflow TODO projections and report TeX were moved outside the project.
 
-[Current validation](../verification/VALIDATION.md) reports actual recursive root axioms separately from retained registry entries: Gaussian has three citation assumptions, HMC 2.2 has one, and the remaining five case roots have none. Input skeletons and unused historical support declarations can still contain placeholders.
+[Current validation](../verification/VALIDATION.md) reports actual recursive root axioms separately from retained registry entries: Gaussian has three citation assumptions, HMC 2.2 has one, and the remaining inspected case roots have none. Input skeletons and unused historical support declarations can still contain placeholders.
+
+## Additional HulC result
+
+[HulC — Theorem 1](hulc/README.md) adds finite-sample coverage and exact coverage under the stated conditions, together with its proved fixed-batch lemma. The new archive includes the paper PDF, original Main/Supp TeX, structured inputs, 15 integrated Lean modules, report PDF and verification/provenance evidence. Its explicit modeling hypotheses and automatic-condition-adoption flag are disclosed in [FORMALIZATION.md](hulc/FORMALIZATION.md). HULC's later run remains outside the original five-paper timing/cost aggregate.

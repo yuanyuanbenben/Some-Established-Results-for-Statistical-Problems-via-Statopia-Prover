@@ -1,0 +1,83 @@
+{
+  "name": "hulc",
+  "label": "HulC \u2014 Theorem 1",
+  "paperTitle": "The HulC: Confidence Regions from Convex Hulls",
+  "paperVersion": "arXiv:2105.14577v2",
+  "theorem": "Theorem 1 (thm:coverage-algorithm-known-Delta; HulC finite-sample coverage and exact coverage under the stated additional conditions)",
+  "jobId": "paper_fresh_20261030t143835550708z_hulc",
+  "sourceRunDirectory": "/home/ai4stat/prover_long_test/.tmp/paper_group_hulc_fresh_20261030T143835550708Z/cases/hulc/run",
+  "sourceCampaign": "/home/ai4stat/prover_long_test/.tmp/paper_group_hulc_fresh_20261030T143835550708Z/manifest.json",
+  "mainSha256": "6c1ee359ee3819999fea7c27c50943b87038e030242e5cf8044e9f99b9e65ebe",
+  "entryModule": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_f59ddd7685054a2c91a43999dd384b62",
+  "rootDeclaration": "PaperProofTasks.paper_fresh_20261030t143835550708z_hulc.Statlib.Imported.Theorem_1_thm_coverage_algorithm_known_Delta_HulC_finite_sample_coverage_and_exact_coverage_under_the_stated_additional",
+  "closureRef": "pc/ceGuhTz/r.json",
+  "groupStorageRevision": 23,
+  "proofPassed": true,
+  "rootSummaryRemainingSorry": 0,
+  "e2ePassed": true,
+  "reportStatus": "completed",
+  "actualRetainedAssumptions": [],
+  "registeredRetainEntries": [],
+  "assumptionsAutoAdopted": true,
+  "integratedArchiveSha256": "3075797642e612fae97a909b1317b3cb8ea4808bcdccc1c7d37b533cca97c61f",
+  "integratedLeanFiles": 15,
+  "integratedLeanLines": 1468,
+  "tasks": [
+    {
+      "resultId": "paper_fresh_20261030t143835550708z_hulc",
+      "jobId": "paper_fresh_20261030t143835550708z_hulc",
+      "kind": "root",
+      "phase": "verified",
+      "interface": {
+        "revision": 1,
+        "moduleName": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_f59ddd7685054a2c91a43999dd384b62",
+        "declarationName": "PaperProofTasks.paper_fresh_20261030t143835550708z_hulc.Statlib.Imported.Theorem_1_thm_coverage_algorithm_known_Delta_HulC_finite_sample_coverage_and_exact_coverage_under_the_stated_additional",
+        "sourceDeclarationName": "Statlib.Imported.Theorem_1_thm_coverage_algorithm_known_Delta_HulC_finite_sample_coverage_and_exact_coverage_under_the_stated_additional",
+        "artifactRef": "PaperProofInterfaces/paper_fresh_20261030t143835550708z_hulc_r1.json"
+      },
+      "dependencies": [
+        "paper_6093c8cdedac44ebaae3246c2f49ba3b"
+      ]
+    },
+    {
+      "resultId": "paper_6093c8cdedac44ebaae3246c2f49ba3b",
+      "jobId": "job_paper_6093c8cdedac44ebaae3246c2f49ba3b",
+      "kind": "article",
+      "phase": "verified",
+      "interface": {
+        "revision": 1,
+        "moduleName": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_6db03351f5d34ffeb979aa1f3d18ae44",
+        "declarationName": "PaperProofTasks.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.Statlib.Imported.paper_6093c8cdedac44ebaae3246c2f49ba3b",
+        "sourceDeclarationName": "Statlib.Imported.paper_6093c8cdedac44ebaae3246c2f49ba3b",
+        "artifactRef": "PaperProofInterfaces/paper_6093c8cdedac44ebaae3246c2f49ba3b_r1.json"
+      },
+      "dependencies": []
+    }
+  ],
+  "sources": {
+    "main.tex": {
+      "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_hulc_fresh_20261030T143835550708Z/sources/hulc/main.tex",
+      "sha256": "54ac8536afd0b55368c4e8a77ccd8e8af3f5b9dbeac96ba72da1d47cd461f001"
+    },
+    "supp.tex": {
+      "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_hulc_fresh_20261030T143835550708Z/sources/hulc/supp.tex",
+      "sha256": "21cbb48af15cee1fc400132482c07b7e07e6290c1f03de52d6c0de40ec61c547"
+    }
+  },
+  "report": {
+    "path": "report/report.pdf",
+    "sha256": "230faf3248fb9b681b2390a26d40c1f4e7c4c9117b52607d6ae13db70c946aab"
+  },
+  "archivePolicy": "Unpacked proof sources and PDF retained; no workflow TODO, duplicate proof ZIP, database, credentials, raw trace or report TeX copied.",
+  "archived_on": "2026-10-31",
+  "validation": {
+    "fresh_compiled_modules": 15,
+    "actual_external_axioms": [],
+    "axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "evidence": "evidence/verification.json"
+  }
+}

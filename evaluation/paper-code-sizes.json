@@ -33,5 +33,10 @@
     "case": "bh-fdr",
     "lean_files": 19,
     "lean_lines": 2988
+  },
+  {
+    "case": "hulc",
+    "lean_files": 15,
+    "lean_lines": 1468
   }
 ]

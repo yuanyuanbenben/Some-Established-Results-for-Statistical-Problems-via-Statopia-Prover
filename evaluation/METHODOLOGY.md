@@ -53,3 +53,7 @@ For any cost-observed cohort, pooled USD/line is total recorded cost divided by 
 The measurement checks verify copy hashes, source inventory, local import closure, input hashes, existing terminal evidence and aggregation; they do not replay provider calls. Separate current compilation and kernel-replay evidence is described in [VALIDATION.md](../verification/VALIDATION.md). The neural public endpoint received a current compiled-interface check with `lake env lean`; its axiom report contains only `propext`, `Classical.choice`, and `Quot.sound`. That check loads the existing compiled library rather than rebuilding the seven source modules. Source placeholder scans are separate evidence. Original source documents and fixed specifications still require mathematical fidelity review.
 
 Report-writing sources, earlier revisions and previews were moved outside this proof project. The data tables and original measurement evidence remain. See [cleanup records](../verification/cleanup.json).
+
+## Later paper addition: HulC
+
+HulC Theorem 1 and its fixed-batch lemma were archived on 2026-10-31 as a subsequent result. [Per-case metrics](../papers/hulc/metrics.json) record 15 integrated modules, 1,468 lines and the case-launcher-to-final-exit interval. HULC is included in the current package-size inventory and source verification, while the original five-paper timing/fee tables and their historical aggregates remain unchanged. No HULC fee estimate was reconstructed; the main-payload and group-summary token counters have different scopes and are not summed.

@@ -8080,5 +8080,184 @@
         "exit_code": 0
       }
     ]
+  },
+  {
+    "key": "papers/hulc",
+    "entry": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_f59ddd7685054a2c91a43999dd384b62",
+    "entries": [
+      "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_f59ddd7685054a2c91a43999dd384b62"
+    ],
+    "status": "compiled",
+    "environment_hash": "binary-manifest:c57f818a8a48ea1f33558d7fefcf7dd2db942907310f045171cb621ab01afcec",
+    "files": [
+      {
+        "module": "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.Base",
+        "original": "papers/hulc/integrated/ProverJobs/job_paper_6093c8cdedac44ebaae3246c2f49ba3b/Base.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/job_paper_6093c8cdedac44ebaae3246c2f49ba3b/Base.lean",
+        "original_sha256": "2c9308e33a7b1adead06acfd979bb01167f6a0fb3a2236309cd160d61a22dad8",
+        "derivative_sha256": "469be7027339a27aeb549138387d883346f4f75dff82e7c0012a32f7a34394c4",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": true,
+        "olean_sha256": "071075a82a988959659dad6cf3382f6f208fbdc55e71979182a7570fd0c1567a"
+      },
+      {
+        "module": "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.ProvedNodes.Node_1024464762_c87d6fc0_a568f946",
+        "original": "papers/hulc/integrated/ProverJobs/job_paper_6093c8cdedac44ebaae3246c2f49ba3b/ProvedNodes/Node_1024464762_c87d6fc0_a568f946.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/job_paper_6093c8cdedac44ebaae3246c2f49ba3b/ProvedNodes/Node_1024464762_c87d6fc0_a568f946.lean",
+        "original_sha256": "8b474bb45649906a1f1e849104140931cceaf48a07a2f23750d93bb0cba5fcc8",
+        "derivative_sha256": "ed9d7bd3326a8a70eb2afd53b9a5665b33dc4cc90b8b374ba6ab6e0efa85602a",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": true,
+        "olean_sha256": "1201565744dc0e809949ba5cdf80ed346734a82595cc4c4c51acafba12349a5d"
+      },
+      {
+        "module": "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.ProvedNodes.Node_3135439720_9bebc028_77bf57ee",
+        "original": "papers/hulc/integrated/ProverJobs/job_paper_6093c8cdedac44ebaae3246c2f49ba3b/ProvedNodes/Node_3135439720_9bebc028_77bf57ee.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/job_paper_6093c8cdedac44ebaae3246c2f49ba3b/ProvedNodes/Node_3135439720_9bebc028_77bf57ee.lean",
+        "original_sha256": "38de7fcb71c24c5c16774baf4e29773d49803ca09fa1cad35f9c2f49215cb948",
+        "derivative_sha256": "7e58726d5093fe1a6b4fb0c4d1bd3731cfa9d53bb734f8ab6e84aa4dfbf03629",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": true,
+        "olean_sha256": "3dd6f74dd6324ac9c81b7ff68e0950ca2db85bb933ca42c52b570101af7d51c1"
+      },
+      {
+        "module": "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.ProvedNodes",
+        "original": "papers/hulc/integrated/ProverJobs/job_paper_6093c8cdedac44ebaae3246c2f49ba3b/ProvedNodes.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/job_paper_6093c8cdedac44ebaae3246c2f49ba3b/ProvedNodes.lean",
+        "original_sha256": "c7a4a748cb32fda25b0b0052e0b1fd4ff2abd176a0af688ca2f4cf3e8a50029f",
+        "derivative_sha256": "c7a4a748cb32fda25b0b0052e0b1fd4ff2abd176a0af688ca2f4cf3e8a50029f",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": false,
+        "olean_sha256": "3a23393b9201d8518920bdb4105f609f4ad6a44de7268c36c13b2a444865539e"
+      },
+      {
+        "module": "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.Vocabulary",
+        "original": "papers/hulc/integrated/ProverJobs/job_paper_6093c8cdedac44ebaae3246c2f49ba3b/Vocabulary.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/job_paper_6093c8cdedac44ebaae3246c2f49ba3b/Vocabulary.lean",
+        "original_sha256": "cdadfe454d0a6f716f30d9cb95d517eff03adfb8fbf529a37e28afa101e26302",
+        "derivative_sha256": "cdadfe454d0a6f716f30d9cb95d517eff03adfb8fbf529a37e28afa101e26302",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": false,
+        "olean_sha256": "a24e518d129f8d083688af77a6ded48b5340ff73ed89f1180a9e44bb6f20ef73"
+      },
+      {
+        "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.Base",
+        "original": "papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/Base.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/Base.lean",
+        "original_sha256": "c7264f049ad4cd058f973f3bfaaa2e4cbcd9e84c6635dbc68a550cb2fbbaf99c",
+        "derivative_sha256": "a17dfc052ca0f11066115c70f7872807a4ce07b065cafbf48df374c20b75bb8e",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": true,
+        "olean_sha256": "c6375f5dcca8f8f3ef81f1fcc6662ca076d19e4a2f03db88ac403931c7dc00a1"
+      },
+      {
+        "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ExternalNodes.Node_797c756d42274b989c69",
+        "original": "papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ExternalNodes/Node_797c756d42274b989c69.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ExternalNodes/Node_797c756d42274b989c69.lean",
+        "original_sha256": "17c781e56c2118ca13100f44e1799a0842b8e3e0d0f3820bae269307cb9634f3",
+        "derivative_sha256": "17c781e56c2118ca13100f44e1799a0842b8e3e0d0f3820bae269307cb9634f3",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": false,
+        "olean_sha256": "43b091a3a3a9cd76904155fe7e3bf796506a429d5d1bce9691747c8e5a4d01c7"
+      },
+      {
+        "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_6db03351f5d34ffeb979aa1f3d18ae44",
+        "original": "papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/PaperProofInterfaces/Result_r1_6db03351f5d34ffeb979aa1f3d18ae44.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/PaperProofInterfaces/Result_r1_6db03351f5d34ffeb979aa1f3d18ae44.lean",
+        "original_sha256": "3063d2edd81ec719f610164c6efebc8fa554149a1ffc3cedaef5af34352606e5",
+        "derivative_sha256": "b66229ad193ef9d3cc652da571aeda16786371277b396d50cc36c73c77b05364",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": true,
+        "olean_sha256": "ffca3af327d2c506c67b0e011b55edf28e67834205336f3024ef0012e8f1cb85"
+      },
+      {
+        "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_f59ddd7685054a2c91a43999dd384b62",
+        "original": "papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/PaperProofInterfaces/Result_r1_f59ddd7685054a2c91a43999dd384b62.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/PaperProofInterfaces/Result_r1_f59ddd7685054a2c91a43999dd384b62.lean",
+        "original_sha256": "ef804bb3e91461f839bc5dab8bf383ca8fea107ba8473e2db0f68ddd6c907f45",
+        "derivative_sha256": "b713797fc1db6521d0227ceb91196f5cf584c77cddfbf5cd3df764e0a1306354",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": true,
+        "olean_sha256": "e407f3dda84d1cf148b7e5bbdeb4f67746cd63e91b9178abf30c2693c3786a29"
+      },
+      {
+        "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_1460261823_45140d86_8dc8b477",
+        "original": "papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ProvedNodes/Node_1460261823_45140d86_8dc8b477.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ProvedNodes/Node_1460261823_45140d86_8dc8b477.lean",
+        "original_sha256": "c7f907ef37f89dc2753fc33ab42316712f549afb0c4aab5b53ec77bf5ef455ae",
+        "derivative_sha256": "8628ddc6ec42beb09b016211cd6a736c0161a0bca197ec73790a0fff991bb25e",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": true,
+        "olean_sha256": "b418677f1a15bc80e4db20382f3f907b7e4cdaa5fd65375afa27b1a2530ba5f8"
+      },
+      {
+        "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_1727152864_9ef8801e_d19f31cd",
+        "original": "papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ProvedNodes/Node_1727152864_9ef8801e_d19f31cd.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ProvedNodes/Node_1727152864_9ef8801e_d19f31cd.lean",
+        "original_sha256": "82f4b2f23e2b466f16b3fc63a030d3b49479cdb4bb7c35a111f421b2f726e4aa",
+        "derivative_sha256": "859742eaef281bdc23aad48e6b6e0b07061c35f79603612253a51609570d7029",
+        "statlib_imports": [
+          "Statlib.StatFoundation.BasicAnalysis.measure_le_ofReal_of_measureReal_le"
+        ],
+        "exit_code": 0,
+        "removed_namespace_opens": true,
+        "olean_sha256": "11480c774695dc6f2fab483c2f37d080e1918e2ffb9fe36f785a5f7199870453"
+      },
+      {
+        "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_3519240212_d3830931_82d98ed5",
+        "original": "papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ProvedNodes/Node_3519240212_d3830931_82d98ed5.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ProvedNodes/Node_3519240212_d3830931_82d98ed5.lean",
+        "original_sha256": "9199751ca7cae975105bee417ea82039645a71a356a1dc1bc98d826e145ac81c",
+        "derivative_sha256": "2bcd11b1c60bf65aaf29435b60a4e2e960ee9474e8e0e3c9d8f5e10e5f663080",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": true,
+        "olean_sha256": "609220bbc42a251500ecef7caf31b46cc48199180c98788df649f441011c27a5"
+      },
+      {
+        "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_411957280_656443f1_12135cce",
+        "original": "papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ProvedNodes/Node_411957280_656443f1_12135cce.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ProvedNodes/Node_411957280_656443f1_12135cce.lean",
+        "original_sha256": "1512ffcee72b13feb9722ef2ab1ca65706176c820c42c01aaf21a9704e3089bb",
+        "derivative_sha256": "87799c91b8316cbfb2d2a979e94d88182bf6734340d66a72ae299dbc33caa629",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": true,
+        "olean_sha256": "e9aeec448b1055a1942a3d1f41db7ea16649d90139f2a63b7a9e57bb38ad5f8f"
+      },
+      {
+        "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes",
+        "original": "papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ProvedNodes.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/ProvedNodes.lean",
+        "original_sha256": "3bfb4380e8b6e571867328d9cb9aba8d8e1d02e67af8ffad64a8a2f3d71aa5ce",
+        "derivative_sha256": "3bfb4380e8b6e571867328d9cb9aba8d8e1d02e67af8ffad64a8a2f3d71aa5ce",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": false,
+        "olean_sha256": "a101e0a2b209b9397255c9591164ec9edc3cde016b4efb1c547bc44c52ce19fd"
+      },
+      {
+        "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.Vocabulary",
+        "original": "papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/Vocabulary.lean",
+        "derivative": "verification/minimal-sources/papers/hulc/integrated/ProverJobs/paper_fresh_20261030t143835550708z_hulc/Vocabulary.lean",
+        "original_sha256": "eefbcb036a361be8183a8165dbbabbd9f12be60467caab91240d41a963ef534a",
+        "derivative_sha256": "eefbcb036a361be8183a8165dbbabbd9f12be60467caab91240d41a963ef534a",
+        "statlib_imports": [],
+        "exit_code": 0,
+        "removed_namespace_opens": false,
+        "olean_sha256": "bf08658cc72361ca1b5a340ce26a49f4a4ee7060690a4a1c30ee81248bea37dc"
+      }
+    ],
+    "validation": "Fresh isolated HULC source compilation and recursive root axiom inspection in verification/clean-build.json; existing 144-module binary subset unchanged."
   }
 ]

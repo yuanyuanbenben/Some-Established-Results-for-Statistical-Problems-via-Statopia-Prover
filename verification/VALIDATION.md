@@ -1,4 +1,6 @@
-# Archive validation — 2026-10-30
+# Archive validation
+
+Current update: **2026-10-31**, adding HulC. The original baseline below covers 96 cases; the current combined report covers **97 cases / 768 modules**. See the final section for the fresh-versus-reused compilation split.
 
 Validation used Linux and Lean 4.28.0-rc1 with Mathlib revision 5352afccd6866369be9de43f5b7ec47203555f44. The initial validation did not upload, deploy, restart proof jobs, or modify the original Statlib workspace. The collection has since been published on GitHub; the source-publication update is recorded below.
 
@@ -51,3 +53,17 @@ Memory verdict: OK. Cleanup operations move files on the same filesystem, and th
 ## Neural-network source publication
 
 The seven neural-network Lean modules listed in `statlib-contributions/neural-network-approximation/metrics.json` are now included at their original module-relative paths. All seven match their archived SHA-256 hashes and line counts (55,922 lines in total). Only this source subset is published; other Statlib dependencies remain binary-only. `make check` enforces the exact seven-file source inventory and hashes, while existing binary-manifest and proof-compilation receipts remain unchanged. No complete source rebuild of these seven modules is claimed by this publication step.
+
+## HulC addition — 2026-10-31
+
+The later HULC v2 Theorem 1 run and its fixed-batch coverage lemma are archived in `papers/hulc/`: 15 byte-identical integrated Lean source modules / 1,468 physical lines, the original Main/Supp TeX, structured inputs, combined paper PDF, generated report PDF, and whitelisted completion/provenance evidence. The case ran from 2026-10-30 14:41:30.627 UTC through 16:14:44.918 UTC (5,594.291 seconds, including report delivery), with exit 0, both tasks verified, canonical group closure/export completed, and report delivery completed. Its timing/cost data is kept outside the original five-paper aggregate; no fee estimate was reconstructed.
+
+All 15 new HULC reproduction modules were **freshly compiled in isolation**. The first Mathlib-only candidate exposed one missing measure-bridge declaration. The final derivative adds only `Statlib.StatFoundation.BasicAnalysis.measure_le_ofReal_of_measureReal_le`, which was already in the existing 144-module cache. No binary manifest or cached file changed. Proof statements/bodies are preserved; allowed changes are narrowed imports and redundant root-namespace openings. The original sources, including two unused Base skeleton placeholders, remain intact.
+
+Recursive inspection of the final integrated root found only `propext`, `Quot.sound` and `Classical.choice`: no external citation axioms or `sorryAx`. The historical Main-stage audit listed the proved child as an approved interface; the integrated-root result resolves it using the child's proof. This was not inferred from process exit, task counts or the absence of placeholder text.
+
+The previous 96 case compilations were **reused after validating their source hashes and the unchanged binary manifest**; they were not all recompiled during this addition. Their complete prior report is preserved in hash-bound receipt history. The combined report has 97 passing cases / 768 modules, with HULC marked as a fresh case. The neural wrapper was freshly compiled and checked again. The existing kernel-replay receipt is unchanged because its binary and checker bytes are unchanged.
+
+The pipeline records `assumptionsAutoAdopted: true`. HULC's actual Lean statement contains explicit modeling hypotheses for measurability, estimator independence, uniform randomization and randomizer independence, partition properties, and data/partition linkage. `papers/hulc/FORMALIZATION.md` makes these visible. No new exhaustive original-paper mathematical-equivalence audit is claimed.
+
+Functional correctness: input/export/provenance hashes, exact 15-module import closure, statement preservation, fresh source compilation and actual root axioms were checked. The expanded resume path compiles the new case and preserves all old cases; the archive check now binds original as well as derivative source hashes. Memory verdict: OK. This addition used two compiler slots (roughly 12 GiB at prior observed process sizes), within the measured available memory. Other issues: no source run, live job, credential, database or runtime checkpoint was modified or copied into the archive; PDF/Lean/material fields were allowlisted.

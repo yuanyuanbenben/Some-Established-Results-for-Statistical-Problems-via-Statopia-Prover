@@ -13,3 +13,7 @@ Memory verdict: OK. Hashing streams binary files, and indexing/receipt data is b
 Limits: the tested platform is Linux; public Lean/Mathlib is trusted, and private Statlib is not rebuilt from source. Library replay skips three unsafe/partial runtime helpers and deduplicates four identical equation theorems. Axiom inspection and successful compilation do not establish exhaustive mathematical fidelity to the original questions or papers.
 
 The later neural-network source-publication update restores the seven modules with their original hashes and adds direct source links. Existing proof and compiled-dependency bytes remain unchanged; verification continues to distinguish source publication from a full library source rebuild.
+
+## HulC follow-up — 2026-10-31
+
+The independent reviewer checked all source/provenance records against the original run, exported ZIP members and snapshot fields; exact 15-module closure and 1,468-line inventory; unchanged proof content outside import/scaffold changes; available narrow dependencies; historical completion/delivery state; and the auto-adopted-condition disclosure. The final report contains 97 unique cases / 768 modules: the 15 HULC modules are freshly compiled, while the old 96 cases reuse matching receipts. HULC's final root uses only the three standard axioms. The original five-paper timing/fee cohort and all cached library binaries remain unchanged. The backup record and report evidence distinguish validation state, modeling assumptions and original-paper faithfulness.

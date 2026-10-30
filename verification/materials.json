@@ -89,5 +89,13 @@
     "destination": "papers/bh-fdr/materials/lei-paper-v1.pdf",
     "sha256": "a95e6e8e4a5c2475c7ba8fc4163ed10028795840f58a83296745a20b6c14b5b9",
     "kind": "retrieved reference PDF"
+  },
+  {
+    "destination": "papers/hulc/materials/paper.pdf",
+    "source": "/home/ai4stat/prover_long_test/docs/arxiv-statistics-proof-completeness-organized/additional-papers/2105.14577-hulc/paper.pdf",
+    "sha256": "830f1929fb36726880e754e95d75f36731099195690e93d1a9c7e8bdad6a88bf",
+    "kind": "Original combined paper PDF already provided with the selected v2 Main/Supp source material; not newly recompiled",
+    "url": "https://arxiv.org/pdf/2105.14577v2",
+    "material_provenance": "papers/hulc/materials/provenance.json"
   }
 ]

@@ -1,0 +1,19 @@
+{
+  "case": "hulc",
+  "cohort": "Additional paper result; excluded from the original five-paper timing/cost aggregate",
+  "job_id": "paper_fresh_20261030t143835550708z_hulc",
+  "title": "Theorem 1 (thm:coverage-algorithm-known-Delta; HulC finite-sample coverage and exact coverage under the stated additional conditions)",
+  "tasks": 2,
+  "lean_files": 15,
+  "lean_lines": 1468,
+  "root_closure_lean_files": 15,
+  "root_closure_lean_lines": 1468,
+  "started_at_utc": "2026-10-30T14:41:30.627Z",
+  "exit_at_utc": "2026-10-30T16:14:44.918Z",
+  "seconds": 5594.291,
+  "time_basis": "Case launcher startedAt through final exit, including proof, child integration and report delivery",
+  "proof_passed": true,
+  "e2e_passed": true,
+  "cost_usd": null,
+  "cost_basis": "Not reconstructed for this archival addition; historical payload token counters have different scopes and are not summed"
+}

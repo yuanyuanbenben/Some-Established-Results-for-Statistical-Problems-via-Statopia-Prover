@@ -70,7 +70,7 @@ def main():
         resumed_from = dict(workspace=previous['workspace'], report_sha256=sha(report_path))
         assert previous['complete'] and previous['binary_manifest_sha256'] == manifest_digest
         previous_by_key = {r['key']: r for r in previous['results']}
-        assert set(previous_by_key) == set(work)
+        assert set(previous_by_key) <= set(work), 'Previously verified cases must remain in the collection'
         receipt = ROOT / 'verification/receipt-history' / (resumed_from['report_sha256'] + '.json')
         receipt.parent.mkdir(exist_ok=True)
         receipt.write_bytes(report_path.read_bytes())
@@ -193,8 +193,9 @@ def main():
         declarations=declarations, olean_sha256=sha(neural_build / 'AtResolution.olean'))
     output['complete'] = True
     (ROOT / 'verification/clean-build.json').write_text(json.dumps(output, indent=2) + '\n')
-    mode = 'hash-matched compilation receipts' if previous_by_key else 'fresh case builds'
-    print(f'PASS: {len(results)} {mode}; neural wrapper freshly compiled; no original Statlib/ProverJobs path.')
+    reused = sum(bool(r.get('resumed_compilation_receipt')) for r in results)
+    print(f'PASS: {len(results) - reused} fresh case builds, {reused} hash-matched compilation receipts; '
+          'neural wrapper freshly compiled; no original Statlib/ProverJobs path.')
 
 
 if __name__ == '__main__':

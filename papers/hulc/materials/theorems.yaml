@@ -1,0 +1,151 @@
+version: v1
+theorem_set: document-goal
+source_tag: document-processing
+theorems:
+  - id: entry:selected:799d1e73-1148-4e2e-8483-d4bf5058b6cf
+    title: Theorem 1 (thm:coverage-algorithm-known-Delta; HulC finite-sample coverage and exact coverage under the stated additional conditions)
+    kind: theorem
+    latex_statement: |-
+      Suppose \(\theta_0\in\mathbb{R}\) is a parameter or functional of interest. Let \(X_1, \ldots, X_n\) be independent random variables from some measurable space \(\mathcal{X}\). For \(B\ge1\), let \(\widehat{\theta}_1, \ldots, \widehat{\theta}_B\) be independent estimators of \(\theta_0\). These can be obtained by splitting the data \(X_1, \ldots, X_n\) into \(B\) batches and computing an estimate from each batch. Formally, let \(S_1, \ldots, S_B\) be a (random) partition of \(\{1, 2, \ldots, n\}\) into \(B\) subsets. For \(1\le j\le B\), let \(\widehat{\theta}_j\) be the estimator computed on \(j\)-th batch of observations \(\{X_k:\, k\in S_j\}\). Define the median bias of the estimator \(\widehat{\theta}_j\) for \(\theta_0\) as
+      \begin{equation}\label{definition:median-bias}
+      \mbox{Med-Bias}_{\theta_0}(\widehat{\theta}_j) ~:=~ \left(\frac{1}{2} - \min\left\{\mathbb{P}(\widehat{\theta}_j - \theta_0 \ge 0), \mathbb{P}(\widehat{\theta}_j - \theta_0 \le 0)\right\}\right)_+,
+      \end{equation}
+      where \((x)_+ = \max\{x, 0\}\) for any \(x\in\mathbb{R}\). From the definition, it is clear that \(\mbox{Med-Bias}_{\theta_0}(\widehat{\theta}_j)\) lies in \([0, 1/2]\).
+
+      For any \(B\ge1\) and \(\Delta \ge 0\), set the upper bound on the miscoverage probability as
+      \begin{equation}\label{eq:miscoverage-function-B-Delta}
+      P(B; \Delta) ~:=~ \left(\frac{1}{2} - \Delta\right)^B + \left(\frac{1}{2} + \Delta\right)^B.
+      \end{equation}
+      Let \(B_{\alpha,\Delta}\ge1\) be the smallest integer \(B\) such that \(P(B; \Delta) \le \alpha\).
+
+      To randomize the choice of \(B\), generate a random variable \(U\) from the uniform distribution on \([0,1]\) and set
+      \begin{equation}\label{eq:definition-tau}
+      \tau_{\alpha,\Delta} := \frac{\alpha - P(B_{\alpha,\Delta}; \Delta)}{P(B_{\alpha,\Delta} - 1; \Delta) - P(B_{\alpha,\Delta};\Delta)}\quad\mbox{and}\quad B^* := \begin{cases} B_{\alpha,\Delta} - 1, &\mbox{if }U \le \tau_{\alpha,\Delta},\\
+      B_{\alpha,\Delta}, &\mbox{if }U > \tau_{\alpha,\Delta}.
+      \end{cases} 
+      \end{equation}
+      If \(\tau_{\alpha,\Delta} = 0\), then \(B^* = B_{\alpha,\Delta}\).
+
+      Algorithm~\ref{alg:confidence-known-Delta} is the following procedure. Input is data \(X_1, \ldots, X_n\), coverage probability \(1 - \alpha\), a value \(\Delta\), and an estimation procedure \(\mathcal{A}(\cdot)\) that takes as input observations and returns an estimator with a median bias of at most \(\Delta\). 
+      \begin{enumerate}
+      \item Find the smallest integer \(B = B_{\alpha,\Delta}\ge1\) such that \(P(B;\Delta) \le \alpha\), where \(P(B; \Delta)\) is from~\eqref{eq:miscoverage-function-B-Delta}.
+      \item Fix \(B^*\) as defined in~\eqref{eq:definition-tau}.
+      \item Randomly split the data \(X_1, \ldots, X_n\) into \(B^*\) disjoint sets \(\{\{X_i:i\in S_j\}: 1\le j\le B^*\}\). These need not be equal sized sets, but having approximately equal sizes yields good width properties.
+      \item Compute estimators \(\widehat{\theta}_j := \mathcal{A}(\{X_i:\,i\in S_j\})\), for \(1\le j\le B^*\).
+      \item Return the confidence interval 
+      \begin{equation}\label{eq:confidence-interval-known-Delta}
+      \widehat{\mathrm{CI}}_{\alpha, \Delta} ~:=~ \left[\min_{1\le j\le B^*}\widehat{\theta}_j, \max_{1\le j\le B^*}\widehat{\theta}_j\right].
+      \end{equation}
+      \end{enumerate}
+
+      <!-- formalization-clarifications:v1:80bd8878ce3fafb7887db067aaaffa21ddea085832cf043140d45be50766b151 -->
+      Formalization clarifications from source and proof:
+      These notes concern the selected result Theorem 1 (thm:coverage-algorithm-known-Delta) and its cited Lemma R1 (lem:fixed-B-coverage-result). Later asymptotic and multivariate parts of the paper are not part of the selected finite-sample univariate claim unless explicitly invoked.
+
+      1. Constants, dependencies, and quantifier order. In Theorem 1 the source fixes alpha with “0 < alpha < 1”, Delta with “0 <= Delta < 1/2”, the scalar target theta_0, independent data X_1,...,X_n, and a sample size satisfying “n >= B_{alpha,Delta}” (Assumptions for thm:coverage-algorithm-known-Delta). The number B_{alpha,Delta} is the deterministic smallest integer B >= 1 with “P(B; Delta) <= alpha”; it depends only on alpha and Delta, not on the data, U, the partition, or n (except that n must be large enough). The threshold tau_{alpha,Delta} is likewise deterministic from alpha and Delta through the displayed formula; B^* is random only through U and equals either B_{alpha,Delta}-1 or B_{alpha,Delta}, with the explicit convention “If tau_{alpha,Delta}=0, then B^*=B_{alpha,Delta}.” The randomization variable U is explicitly assumed independent of the data and the random partition. There is no dimension d, no vector parameter, and no extra universal constant in Theorem 1 or Lemma R1. The source explicitly warns that Delta in general depends on theta_0, the distribution of X_1,...,X_n, and the batch sizes |S_j|: “Observe that Delta in general depends on theta_0, the distribution ... as well as the batch sizes ... For simplicity, we do not index Delta with these quantities.” Thus Delta must not be silently treated as a distribution-free universal constant; if Delta is a Lean parameter placed after a data-law parameter, dependence on the law is allowed. If one fixes Delta independently of the law, that is a stronger uniformity assumption not asserted by the source. The source does not fully specify how Delta is interpreted when the random partition makes batch sizes random; this is an unresolved formalization detail. Lemma R1 is owned by the source’s Lemma “fixed-B-coverage-result” (Reference R1). It is a general finite-B statement for independent scalar estimators with “Delta := max_{1<=j<=B} Med-Bias_{theta_0}(hat theta_j) in [0,1/2]”; its actual assumptions are independence of the estimators and the max-median-bias definition, not the Algorithm 1 randomization. The theorem’s use of this lemma for B_{alpha,Delta}-1 and B_{alpha,Delta} estimators does not add restrictions to the universal lemma itself. Exact coverage is not supplied by Lemma R1; it is the additional clause of Theorem 1 requiring exact median bias Delta, equality of the probabilities P(hat theta_j <= theta_0), and zero mass at theta_0.
+
+      2. Norms and mathematical objects. The selected result is entirely scalar: theta_0 in R, estimators hat theta_j real-valued, and the confidence interval is the real interval “[min_{1<=j<=B^*} hat theta_j, max_{1<=j<=B^*} hat theta_j]”. No Euclidean l2, sup, operator, Frobenius, or normalized norm occurs in Theorem 1 or Lemma R1. The only absolute value is in the source-defined clipping “(x)_+ = max{x,0}” in the median-bias definition. The median bias is exactly
+      “(1/2 - min{P(hat theta_j - theta_0 >= 0), P(hat theta_j - theta_0 <= 0)})_+”,
+      and the source explicitly emphasizes the non-strict inequalities: “The non-strict inequality in the definition ... is important.” The function P(B;Delta) is exactly “(1/2-Delta)^B + (1/2+Delta)^B”, an ordinary integer power, with no rescaling or normalization. U is uniform on [0,1], and B^* is an integer. Do not replace the scalar interval by a multivariate convex or rectangular hull; those belong to later sections, not to Theorem 1. The exact-coverage conditions are probabilistic equalities of scalar tail probabilities, not requirements that the estimators be identically distributed or symmetric.
+
+      3. Asymptotics. Theorem 1 is finite-sample. It contains no O, o, probability-limit, n -> infinity, alpha -> 0, or other filter; the coverage inequalities are ordinary probability inequalities under the stated finite-n assumptions. The phrase “median bias of at most Delta” in Theorem 1 is a finite-sample assumption, not an asymptotic median-unbiasedness assumption; the exact-coverage clause requires the stronger finite-sample “median bias of exactly Delta”. The parameters alpha and Delta are fixed under the stated quantifiers, and B_{alpha,Delta} is not an asymptotic sequence. The paper’s later discussion of asymptotic median bias, Berry-Esseen constants, and O_p/o_p statements is outside the selected theorem and must not be imported into it. The paper also says its general focus is pointwise validity with the data distribution fixed as n grows, but Theorem 1 itself is just a fixed-finite-sample statement; it does not assert uniform coverage over all distributions, parameter values, partitions, or sample sizes.
+
+      4. Omitted definitions and side conditions. The selected source does not spell out the probability space, sigma-algebras, or measurability of A and the estimators; for Lean these must be supplied separately to make the events meaningful. Independence of X_1,...,X_n is explicit, and U is explicitly independent of the data and random partition. The partition S_1,...,S_B is described as a “(random) partition” of {1,...,n}, but the selected assumptions do not fully specify its sampling law or all independence side conditions. This matters because the proof invokes Lemma R1, whose hypothesis is independence of the estimators hat theta_j; the definitions say the estimators are independent and are computed from disjoint batches, but the exact role of a random partition is left implicit rather than fully formalized. The confidence interval includes its endpoints; noncoverage means theta_0 is strictly below the minimum or strictly above the maximum. The proof’s product decomposition, such as the displayed product of P(hat theta_j > theta_0) and 1-P(hat theta_j > theta_0), is a proof intermediate using zero mass at theta_0 and independence; it should not be promoted to an additional hypothesis. The theorem statement says “for all j” in the exact-coverage assumptions without visibly specifying the index range; from the proof, only the finite relevant batches up to B_{alpha,Delta} are used, and the source does not clearly settle whether this means all relevant j or all j>=1. The cited external/universal result here is the source’s Lemma fixed-B-coverage-result (Reference R1), attributed in the extraction to Kuchibhotla, Balakrishnan, and Wasserman; it supplies the overcoverage bound only, not the exact-coverage equality, and its universal independent-estimator scope should not be narrowed to the Algorithm-specific estimates when it is cited.
+      <!-- /formalization-clarifications -->
+
+      If \(X_1, \ldots, X_n\) are independent random variables and the estimation procedure \(\mathcal{A}(\cdot)\) in Algorithm~\ref{alg:confidence-known-Delta} returns estimates that have a median bias of at most \(\Delta\), then the confidence interval \(\widehat{\mathrm{CI}}_{\alpha,\Delta}\) returned by Algorithm~\ref{alg:confidence-known-Delta} satisfies
+      \begin{equation}\label{eq:over-coverage-in-general}
+      \mathbb{P}\left(\theta_0 \in \widehat{\mathrm{CI}}_{\alpha,\Delta}\right) \ge 1 - \alpha.
+      \end{equation}
+      Further, if \(\mathbb{P}(\widehat{\theta}_j \le \theta_0) = \mathbb{P}(\widehat{\theta}_1 \le \theta_0)\), \(\mathbb{P}(\widehat{\theta}_j = \theta_0) = 0\) for all \(j\), and the estimation procedure \(\mathcal{A}(\cdot)\) in Algorithm~\ref{alg:confidence-known-Delta} returns estimates that have a median bias of exactly \(\Delta\), then
+      \begin{equation}\label{eq:exact-coverage-same-median-bias}
+      \mathbb{P}\left(\theta_0 \in \widehat{\mathrm{CI}}_{\alpha,\Delta}\right) = 1 - \alpha.
+      \end{equation}
+    assumptions:
+      - |-
+        - 0 < alpha < 1.
+        - 0 <= Delta < 1/2.
+        - n >= B_{alpha,Delta} (equivalently B^* <= n almost surely).
+        - The uniform randomization variable U defining B^* is independent of X_1,...,X_n and of the random partition used to form the batches.
+    proof_body: |-
+      The confidence interval from the \hulc is either based on \(B_{\alpha,\Delta}\) estimators or based on \(B_{\alpha,\Delta} - 1\) estimators. The number of estimators used depends on the realization of the uniform random variable \(U\) in step 2 of the \hulcnospace. With probability \(\tau_{\alpha,\Delta}\), the confidence interval will be based on \(B_{\alpha,\Delta} - 1\) estimators and with probability \(1 - \tau_{\alpha,\Delta}\), the confidence interval will be based on \(B_{\alpha,\Delta}\) estimators. Hence from [ref:R1], we obtain
+      \begin{equation}\label{eq:miscoverage-randomized}
+      \begin{split}
+      \mathbb{P}\left(\theta_0\notin\widehat{\mathrm{CI}}_{\alpha,\Delta}\right) &= \tau_{\alpha,\Delta}\mathbb{P}\left(\theta_0 \notin \left[\min_{1\le j\le B_{\alpha,\Delta}-1}\widehat{\theta}_j, \max_{1\le j\le B_{\alpha,\Delta}-1}\widehat{\theta}_j\right]\right)\\
+      &\quad+ (1-\tau_{\alpha,\Delta})\mathbb{P}\left(\theta_0\notin\left[\min_{1\le j\le B_{\alpha,\Delta}}\widehat{\theta}_j, \max_{1\le j\le B_{\alpha,\Delta}}\widehat{\theta}_j\right]\right)\\
+      &\le \tau_{\alpha,\Delta} P(B_{\alpha,\Delta} - 1; \Delta) + (1-\tau_{\alpha,\Delta}) P(B_{\alpha,\Delta}; \Delta) ~=~ \alpha.
+      \end{split}
+      \end{equation}
+      This proves~\eqref{eq:over-coverage-in-general}. 
+
+      Under the additional assumptions for~\eqref{eq:exact-coverage-same-median-bias}, the only inequality in~\eqref{eq:miscoverage-randomized} becomes equality. Firstly, \(\mathbb{P}(\widehat{\theta}_j = \theta_0) = 0\) for all \(j\ge1\) implies that
+      \[
+      \mathbb{P}\left(\theta_0 \notin \left[\min_{1\le j\le B}\widehat{\theta}_j, \max_{1\le j\le B}\widehat{\theta}_j\right]\right) = \prod_{j=1}^B \mathbb{P}(\widehat{\theta}_j > \theta_0) + \prod_{j=1}^B (1 - \mathbb{P}(\widehat{\theta}_j > \theta_0)).
+      \]
+      Secondly, the assumption that all the estimators have a median bias of \(\Delta\) exactly, implies that this probability is exactly \((1/2 - \Delta)^B + (1/2 + \Delta)^B\). This proves~\eqref{eq:exact-coverage-same-median-bias}.
+
+      ### References
+      #### Reference R1
+      Target: Lemma~\ref{lem:fixed-B-coverage-result}
+
+      Citation: Hence from Lemma~\ref{lem:fixed-B-coverage-result}, we obtain
+      \begin{equation}\label{eq:miscoverage-randomized}
+      \begin{split}
+      \mathbb{P}\left(\theta_0\notin\widehat{\mathrm{CI}}_{\alpha,\Delta}\right) &= \tau_{\alpha,\Delta}\mathbb{P}\left(\theta_0 \notin \left[\min_{1\le j\le B_{\alpha,\Delta}-1}\widehat{\theta}_j, \max_{1\le j\le B_{\alpha,\Delta}-1}\widehat{\theta}_j\right]\right)\\
+      &\quad+ (1-\tau_{\alpha,\Delta})\mathbb{P}\left(\theta_0\notin\left[\min_{1\le j\le B_{\alpha,\Delta}}\widehat{\theta}_j, \max_{1\le j\le B_{\alpha,\Delta}}\widehat{\theta}_j\right]\right)\\
+      &\le \tau_{\alpha,\Delta} P(B_{\alpha,\Delta} - 1; \Delta) + (1-\tau_{\alpha,\Delta}) P(B_{\alpha,\Delta}; \Delta) ~=~ \alpha.
+      \end{split}
+      \end{equation}
+      This proves~\eqref{eq:over-coverage-in-general}.
+
+      Bibliography: main
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The cited result is stated in D2 (`main.tex`), Section 2.1, as Lemma \(\ref{lem:fixed-B-coverage-result}\), attributed to Kuchibhotla, Balakrishnan, and Wasserman in *The HulC: Confidence Regions from Convex Hulls*. The source passage states the bound used in the Citation for the two noncoverage probabilities with \(B_{\alpha,\Delta}-1\) and \(B_{\alpha,\Delta}\) estimators, and hence for the overcoverage inequality. The exact-coverage conclusion in the current theorem is not supplied by this lemma; the supplied source states exact coverage as part of its Theorem 1, which is the current target itself, so it is not imported here as an external premise. The lemma’s proof is relegated in the source to the supplement, Section \(\ref{appsec:fixed-B-coverage-result}\).
+
+      ##### Lemma \(\ref{lem:fixed-B-coverage-result}\)
+      ###### Definitions and notation
+      Suppose \(\theta_0\in\mathbb{R}\) is a parameter or functional of interest. For \(B\ge1\), let \(\widehat{\theta}_1,\ldots,\widehat{\theta}_B\) be independent estimators of \(\theta_0\). Define the median bias of the estimator \(\widehat{\theta}_j\) for \(\theta_0\) as
+      \begin{equation}\label{definition:median-bias}
+      \operatorname{Med-Bias}_{\theta_0}(\widehat{\theta}_j) := \left(\frac{1}{2} - \min\left\{\mathbb{P}(\widehat{\theta}_j-\theta_0\ge0),\,\mathbb{P}(\widehat{\theta}_j-\theta_0\le0)\right\}\right)_+,
+      \end{equation}
+      where \((x)_+=\max\{x,0\}\) for any \(x\in\mathbb{R}\). From the definition, \(\operatorname{Med-Bias}_{\theta_0}(\widehat{\theta}_j)\) lies in \([0,1/2]\).
+
+      For the lemma, the parameter \(\Delta\) is defined by
+      \begin{equation}\label{eq:delta-definition-main-lemma}
+      \Delta := \max_{1\le j\le B}\operatorname{Med-Bias}_{\theta_0}(\widehat{\theta}_j)\in[0,1/2].
+      \end{equation}
+
+      The right-hand side of the lemma is denoted in the source, for any \(B\ge1\) and \(\Delta\ge0\), by
+      \begin{equation}\label{eq:miscoverage-function-B-Delta}
+      P(B;\Delta) := \left(\frac{1}{2}-\Delta\right)^B + \left(\frac{1}{2}+\Delta\right)^B.
+      \end{equation}
+
+      ###### Assumptions
+      Let \(B\ge1\), let \(\theta_0\in\mathbb{R}\), and let \(\widehat{\theta}_1,\ldots,\widehat{\theta}_B\) be independent random variables serving as estimators of \(\theta_0\). Let
+      \[
+      \Delta := \max_{1\le j\le B}\operatorname{Med-Bias}_{\theta_0}(\widehat{\theta}_j)\in[0,1/2],
+      \]
+      where \(\operatorname{Med-Bias}_{\theta_0}(\widehat{\theta}_j)\) is defined by \(\eqref{definition:median-bias}\).
+
+      ###### Statement
+      If \(\widehat{\theta}_j\), \(1\le j\le B\), are independent random variables and
+      \begin{equation}\label{eq:delta-definition-main-lemma-restated}
+      \Delta := \max_{1\le j\le B}\operatorname{Med-Bias}_{\theta_0}(\widehat{\theta}_j)\in[0,1/2],
+      \end{equation}
+      then
+      \[
+      \mathbb{P}\left(\theta_0\notin\left[\min_{1\le j\le B}\widehat{\theta}_j,\,\max_{1\le j\le B}\widehat{\theta}_j\right]\right)\le \left(\frac{1}{2}-\Delta\right)^B+\left(\frac{1}{2}+\Delta\right)^B.
+      \]
+    lean_name: Theorem_1_thm_coverage_algorithm_known_Delta_HulC_finite_sample_coverage_and_exact_coverage_under_the_stated_additional
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics

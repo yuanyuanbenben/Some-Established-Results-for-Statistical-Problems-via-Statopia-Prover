@@ -1,0 +1,12 @@
+{
+  "jobId": "paper_fresh_20261030t143835550708z_hulc",
+  "integrityVerified": true,
+  "buildStatus": "passed",
+  "assumptionsAutoAdopted": true,
+  "statementAmended": false,
+  "finalizationStatus": "verified",
+  "scope": "Historical pipeline metadata; locked-signature preservation does not by itself establish mathematical equivalence to the unamended paper.",
+  "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_hulc_fresh_20261030T143835550708Z/cases/hulc/run/app-output/result-payload.json",
+  "source_sha256": "d15b088edda6412b3adef12cbe50a6c4ec5dbca8217d94e607c9bbc0376fe2e4",
+  "derivation": "Whitelist projection of jobId, integrityVerified, buildStatus, assumptionsAutoAdopted, statementAmended and finalizationStatus; leanCode and other application fields omitted."
+}

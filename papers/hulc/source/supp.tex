@@ -1,0 +1,615 @@
+\documentclass{article}
+\usepackage{fullpage,diagbox}
+\usepackage{mathtools, appendix}
+\let\bar\widebar
+\mathtoolsset{showonlyrefs}
+\renewcommand{\P}{\mbox{$\mathbb{P}$}}
+\newcommand{\E}{\mbox{$\mathbb{E}$}}
+\newcommand{\clr}{\color{black}}
+\newcommand{\hulc}{\textsc{HulC}~}
+\newcommand{\hulcnospace}{\textsc{HulC}}
+\newcommand{\ahulc}{\textsc{Adaptive HulC}~}
+\newcommand{\ahulcnospace}{\textsc{Adaptive HulC}}
+\newcommand{\uhulc}{\textsc{Unimodal HulC}~}
+\newcommand{\uhulcnospace}{\textsc{Unimodal HulC}}
+
+\newcommand{\clb}{\color{blue}}
+\usepackage[ruled,linesnumbered, vlined, noend]{algorithm2e}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\sbcomment}[1]{{\bf{{\red{{SB --- #1}}}}}}
+\def\baselinestretch{1.2}
+\usepackage{amsthm, amsfonts, amssymb, amsmath,enumitem, bbm, mathabx}
+\usepackage{natbib}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+\newtheorem{defi}{Definition}
+\newcounter{myalgctr}
+\newenvironment{rem}{%      define a custom environment
+   \vskip1mm\indent%         create a vertical offset to previous material
+   \refstepcounter{myalgctr}% increment the environment's counter
+   \textbf{Remark \themyalgctr}% or \textbf, \textit, ...
+   }{\hfill$\diamond$\par}  %          create a vertical offset to following material
+\RequirePackage[colorlinks=true, pdfstartview=FitV,
+linkcolor=blue, citecolor=blue, urlcolor=blue,hypertexnames=false]{hyperref}
+\numberwithin{myalgctr}{section}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareRobustCommand{\rchi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[2]{\raisebox{\depth}{$#1\chi$}}
+\usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{color, float,authblk}
+\title{\bf The \hulcnospace: Confidence Regions from Convex Hulls}
+\author{Arun Kumar Kuchibhotla}
+    % \thanks{Email: {\tt arunku@cmu.edu}}}
+\author{Sivaraman Balakrishnan}
+    % \thanks{Email: {\tt siva@stat.cmu.edu}}}
+\author{Larry Wasserman}
+    % \thanks{Email: {\tt larry@stat.cmuedu}}}
+\affil{\texttt{\{arunku,\,siva,\,larry\}@stat.cmu.edu}}
+\affil{Department of Statistics \& Data Science, Carnegie Mellon University,\\ 5000 Forbes Ave, Pittsburgh, PA 15213, USA.}
+\date{}
+\begin{document}
+\setcounter{section}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\setcounter{section}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\renewcommand{\thesection}{S.\arabic{section}}
+\renewcommand{\theequation}{E.\arabic{equation}}
+\renewcommand{\thefigure}{S.\arabic{figure}}
+% \setcounter{page}{1}
+% \cftsetindents{section}{1em}{2.5em}
+% \cftsetindents{subsection}{1.5em}{3em}
+\begin{center}
+\Large {\bf Supplement to\\ ``The \hulcnospace: Confidence Regions from Convex Hulls''}
+\end{center}
+       
+\begin{abstract}
+This supplement contains the proofs of all the main results in the paper. 
+\end{abstract}
+
+\section{Union bound with Wald intervals}\label{subsec:union-bound-Wald}
+If, for each $1\le k\le d$, the estimators $e_k^{\top}\widehat{\theta}_j$ are asymptotically normal, then asymptotic normality implies that for all $\gamma\in(0, 1)$,
+\[
+\left|\mathbb{P}\left(e_k^{\top}\theta_0 \in \widehat{\mathrm{CI}}_{\gamma}^{\texttt{Wald}, k}\right) - (1 - \gamma)\right| \le \delta_n,
+\]
+for some $\delta_n$ converging to zero as $n\to\infty$; an example is~\eqref{eq:BE-bound-general}. First order accurate confidence intervals (such as Wald's) satisfy $\delta_n = O(n^{-1/2})$, second order accurate ones satisfy $\delta_n = O(n^{-1})$ and so on. Taking $\gamma = \alpha/d$ and applying the union bound, we only obtain
+\[
+\mathbb{P}\left(\bigcup_{k=1}^d\left\{e_k^{\top}\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha/d}^{\texttt{Wald}, k}\right\}\right) \le \sum_{k=1}^d \mathbb{P}\left(e_k^{\top}\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha/d}^{\texttt{Wald}, k}\right) \le \alpha + d\delta_n.
+\]
+In order for the right hand side to be $\alpha$ asymptotically, one needs $d\delta_n = o(1)$. This is a very stringent requirement, especially when the dimension $d$ grows faster than the sample size $n$. 
+
+There is a simple way to resolve this issue following our proposed methodology. The idea is to construct $1/2$ Wald confidence regions for each coordinate $e_k^{\top}\theta_0$ from each of $e_k^{\top}\widehat{\theta}_j, 1\le j\le B$ and then take the union of these regions. Formally, set $\widebar{B}_{d,\alpha} = \lceil\log(d/\alpha)/\log(2)\rceil$. For $1\le j\le \widebar{B}_{d,\alpha}$, suppose $\widehat{\mathrm{CI}}_{j}^{\texttt{Wald}, k}$ is the Wald confidence region of coverage $1/2$ based on $e_k^{\top}\widehat{\theta}_j$. This means that
+\[
+\left|\mathbb{P}\left(e_k^{\top}\theta_0 \in \widehat{\mathrm{CI}}_{j}^{\texttt{Wald}, k}\right) - \frac{1}{2}\right| \le \delta_{n,d},\quad\mbox{for all}\quad 1\le j\le \widebar{B}_{d,\alpha}, 1\le k\le d.
+\]
+The right hand side $\delta_{n,d}$ here depends on the dimension $d$ because $\widehat{\theta}_j$ is computed based on $n/\widebar{B}_{d/\alpha}$ many observations. 
+Under these conditions, the following result provides a valid $1 - \alpha$ confidence regions using Wald's confidence intervals and a union bound. The interesting aspect (similar to~\eqref{eq:infinite-order-coverage}) is that the coverage implied by Proposition~\ref{prop:Wald-union-bound} is eventually finite sample (i.e., holds after some sample size) even though the coverage of $\widehat{\mathrm{CI}}_j^{\texttt{Wald}, k}$ is asymptotic.
+\begin{prop}\label{prop:Wald-union-bound}
+If
+\begin{equation}\label{eq:Wald-sample-size-condition}
+\widebar{B}_{d,\alpha}\delta_{n,d} ~\le~ \widebar{B}_{d,\alpha}\left[\left(\frac{\alpha}{d}\right)^{1/\widebar{B}_{d,\alpha}} - \frac{1}{2}\right],
+\end{equation}
+then
+\[
+\mathbb{P}\left(\theta_0 \notin \bigotimes_{k=1}^d\bigcup_{j=1}^{\widebar{B}_{d,\alpha}}\widehat{\mathrm{CI}}_{j}^{\texttt{Wald}, k}\right) ~\le~ \alpha.
+\]
+\end{prop}
+\begin{proof}%[Proof of Proposition~\ref{prop:Wald-union-bound}]
+Following the proof of Lemma~\ref{lem:fixed-B-coverage-result}, we obtain
+\[
+\mathbb{P}\left(e_k^{\top}\theta_0 \notin \bigcup_{j=1}^{\widebar{B}_{d,\alpha}} \widehat{\mathrm{CI}}_{j}^{\texttt{Wald}, k}\right) ~\le~ \left(\frac{1}{2} + \delta_{n,d}\right)^{\widebar{B}_{d,\alpha}} \le \frac{\alpha}{d}.
+\]
+The last inequality here follows from~\eqref{eq:Wald-sample-size-condition}. Hence the union bound applies and proves the result.
+\end{proof}
+Similar to the right hand side of~\eqref{eq:consistency-subsampling}, the right hand side of~\eqref{eq:Wald-sample-size-condition} is be bounded away from zero unless $d/\alpha$ is a power of $2$. It is worth noting that, unlike~\eqref{eq:infinite-order-coverage}, the construction of the confidence region $\otimes_{k=1}^d\cup_{j=1}^{\widebar{B}_{d,\alpha}}\widehat{\mathrm{CI}}_{j}^{\texttt{Wald}, k}$ requires estimation of variance of the estimators and its validity requires (marginal) distributional convergence of the estimators $e_k^{\top}\widehat{\theta}_j$.
+% \appendix
+\section{Proof of Lemma~\ref{lem:fixed-B-coverage-result}}\label{appsec:fixed-B-coverage-result}
+It is clear that
+\begin{align*}
+    \mathbb{P}\left(\theta_0 \notin \left[\min_{1\le j\le B}\widehat{\theta}_j,\,\max_{1\le j\le B}\widehat{\theta}_j\right]\right) &= \mathbb{P}\left(\theta_0 < \min_{1\le j\le B}\widehat{\theta}_j(k)\right) + \mathbb{P}\left(\max_{1\le j\le B}\widehat{\theta}_j < \theta_0\right)\\
+    &= \prod_{j=1}^B \mathbb{P}(\widehat{\theta}_j > \theta_0) + \prod_{j=1}^B \mathbb{P}(\widehat{\theta}_j < \theta_0)\\
+    &= \prod_{j=1}^B \left\{1 - \mathbb{P}(\widehat{\theta}_j \le \theta_0)\right\} + \prod_{j=1}^B \left\{1 - \mathbb{P}(\widehat{\theta}_j \ge \theta_0)\right\}.
+\end{align*}
+The result now follows from the definition~\eqref{eq:delta-definition-main-lemma} of $\Delta$. Note that the inequality in result stems from the fact that $\Delta$ in~\eqref{eq:delta-definition-main-lemma} is the maximum value over all estimators. Furthermore, we use the fact that $\mathbb{P}(\widehat{\theta}_j < \theta_0) + \mathbb{P}(\widehat{\theta}_j > \theta_0) \le 1$. If this inequality is strict, then the inequality in the coverage is strict.
+\section{Proof of Theorem~\ref{thm:coverage-algorithm-known-Delta}}\label{appsec:coverage-algorithm-known-Delta}
+The confidence interval from the \hulc is either based on $B_{\alpha,\Delta}$ estimators or based on $B_{\alpha,\Delta} - 1$ estimators. The number of estimators used depends on the realization of the uniform random variable $U$ in step 2 of the \hulcnospace. With probability $\tau_{\alpha,\Delta}$, the confidence interval will be based on $B_{\alpha,\Delta} - 1$ estimators and with probability $1 - \tau_{\alpha,\Delta}$, the confidence interval will be based on $B_{\alpha,\Delta}$ estimators. Hence from Lemma~\ref{lem:fixed-B-coverage-result}, we obtain
+\begin{equation}\label{eq:miscoverage-randomized}
+\begin{split}
+\mathbb{P}\left(\theta_0\notin\widehat{\mathrm{CI}}_{\alpha,\Delta}\right) &= \tau_{\alpha,\Delta}\mathbb{P}\left(\theta_0 \notin \left[\min_{1\le j\le B_{\alpha,\Delta}-1}\widehat{\theta}_j, \max_{1\le j\le B_{\alpha,\Delta}-1}\widehat{\theta}_j\right]\right)\\
+&\quad+ (1-\tau_{\alpha,\Delta})\mathbb{P}\left(\theta_0\notin\left[\min_{1\le j\le B_{\alpha,\Delta}}\widehat{\theta}_j, \max_{1\le j\le B_{\alpha,\Delta}}\widehat{\theta}_j\right]\right)\\
+&\le \tau_{\alpha,\Delta} P(B_{\alpha,\Delta} - 1; \Delta) + (1-\tau_{\alpha,\Delta}) P(B_{\alpha,\Delta}; \Delta) ~=~ \alpha.
+\end{split}
+\end{equation}
+This proves~\eqref{eq:over-coverage-in-general}. 
+Under the additional assumptions for~\eqref{eq:exact-coverage-same-median-bias}, the only inequality in~\eqref{eq:miscoverage-randomized} becomes equality. Firstly, $\mathbb{P}(\widehat{\theta}_j = \theta_0) = 0$ for all $j\ge1$ implies that
+\[
+\mathbb{P}\left(\theta_0 \notin \left[\min_{1\le j\le B}\widehat{\theta}_j, \max_{1\le j\le B}\widehat{\theta}_j\right]\right) = \prod_{j=1}^B \mathbb{P}(\widehat{\theta}_j > \theta_0) + \prod_{j=1}^B (1 - \mathbb{P}(\widehat{\theta}_j > \theta_0)).
+\]
+Secondly, the assumption that all the estimators have a median bias of $\Delta$ exactly, implies that this probability is exactly $(1/2 - \Delta)^B + (1/2 + \Delta)^B$. This proves~\eqref{eq:exact-coverage-same-median-bias}.
+\section{Proof of Proposition~\ref{prop:approximate-to-exact-validity}}\label{appsec:approximate-to-exact-validity}
+% {\clr 
+% \begin{proof}[New Proof]
+If $\widetilde{\Delta} = \Delta$, then the conclusion is obvious. Consider the case, $\widetilde{\Delta} \neq \Delta$.
+Note that $P(B; \Delta)$ is an increasing function of $\Delta$. Hence, for any $0 \le \Delta \le \widetilde{\Delta} < 1/2$, we have
+\begin{equation}\label{eq:simple-ratio-inequality}
+\begin{split}
+1 \le \frac{P(B; \widetilde{\Delta})}{P(B; \Delta)} &= \frac{(1 + 2\widetilde{\Delta})^B + (1 - 2\widetilde{\Delta})^B}{(1 + 2\Delta)^B + (1 - 2\Delta)^B}\\
+&\le \max\left\{\frac{(1 + 2\widetilde{\Delta})^B}{(1 + 2\Delta)^B},\,\frac{(1 - 2\widetilde{\Delta})^B}{(1 - 2\Delta)^B}\right\} = \left(\frac{1 + 2\widetilde{\Delta}}{1 + 2\Delta}\right)^B = \left(1 + \frac{2(\widetilde{\Delta} - \Delta)}{(1 + 2\Delta)}\right)^B\\ 
+&\le \left(1 + 2(\widetilde{\Delta} - \Delta)\right)^B.
+\end{split}
+\end{equation}
+Reversing the roles of $\widetilde{\Delta}$ and $\Delta$, we conclude that if $0 \le \widetilde{\Delta} \le \Delta < 1/2$, then
+\[
+\left(1 + 2(\Delta - \widetilde{\Delta})\right)^{-B} \le \frac{P(B; \widetilde{\Delta})}{P(B; \Delta)} \le 1.
+\]
+Hence, for all $\widetilde{\Delta}, \Delta\in[0,1/2)$, and all $B\ge1$, we have
+\begin{equation}\label{eq:main-inequality-P-B-Delta}
+P(B; \Delta)\left(1 + 2|\Delta - \widetilde{\Delta}|\right)^{-B} ~\le~ P(B; \widetilde{\Delta}) ~\le~ P(B; \Delta)\left(1 + 2|\Delta - \widetilde{\Delta}|\right)^B. 
+\end{equation}
+Because $P(B_{\alpha,\Delta};\Delta) < \alpha$, using~\eqref{eq:main-inequality-P-B-Delta} with $B = B_{\alpha,\Delta}$, we get $P(B_{\alpha,\Delta}; \widetilde{\Delta}) \le \alpha$ if
+\begin{equation}\label{eq:upper-bound}
+\left(1 + 2|\Delta - \widetilde{\Delta}|\right)^{B_{\alpha,\Delta}} \le \frac{\alpha}{P(B_{\alpha,\Delta}; \Delta)}.
+\end{equation}
+Similarly, $P(B_{\alpha,\Delta} - 1; \Delta) > \alpha$, using~\eqref{eq:main-inequality-P-B-Delta} with $B = B_{\alpha,\Delta} - 1$, we get $P(B_{\alpha,\Delta} - 1; \widetilde{\Delta}) > \alpha$ if
+\begin{equation}\label{eq:lower-bound}
+\left(1 + 2|\Delta - \widetilde{\Delta}|\right)^{B_{\alpha,\Delta} - 1} < \frac{P(B_{\alpha,\Delta} - 1; \Delta)}{\alpha}.
+\end{equation}
+Note that both the ratios on the right hand side of~\eqref{eq:upper-bound} and~\eqref{eq:lower-bound} are at least $1$. Furthermore, inequality~\eqref{eq:lower-bound} will be satisfied if $(1 + 2|\Delta - \widetilde{\Delta}|)^{B_{\alpha,\Delta}} \le {P(B_{\alpha,\Delta} - 1; \Delta)}/{\alpha}.$
+Combining inequalities~\eqref{eq:upper-bound} and~\eqref{eq:lower-bound}, we get that if~\eqref{eq:consistency-subsampling} holds true, then $P(B_{\alpha,\Delta}; \widetilde{\Delta}) \le \alpha < P(B_{\alpha,\Delta}-1;\widetilde{\Delta})$ and hence $B_{\alpha,\Delta} = B_{\alpha,\widetilde{\Delta}}$.
+
+Note that in inequality~\eqref{eq:simple-ratio-inequality}, we used an inequality for the ratio $P(B;\widetilde{\Delta})/P(B;\Delta)$. Observe that if $\Delta = 0$, then $P(B; \widetilde{\Delta})/P(B; \Delta)$ has zero derivative at $\widetilde{\Delta} = 0$. Observe that, with $\Delta = 0$, 
+\begin{align*}
+1\le \frac{P(B; \widetilde{\Delta})}{P(B; \Delta)} &= \frac{(1 + 2\widetilde{\Delta})^B + (1 - 2\widetilde{\Delta})^B}{2}\\ 
+&= 1 + 0\widetilde{\Delta} + 2B(B-1)\widetilde{\Delta}^2\left[\frac{(1 + 2\widetilde{\Delta}^*)^{B - 2} + (1 - 2\widetilde{\Delta}^*)^{B - 2}}{2}\right],
+\end{align*}
+for some $\widetilde{\Delta}^*\in[0, \widetilde{\Delta}]$. For $B = 1$, the right most term is zero and for $B \ge 2,$ we have that
+\[
+\frac{(1 + 2\widetilde{\Delta}^*)^{B - 2} + (1 - 2\widetilde{\Delta}^*)^{B - 2}}{2} \le (1 + 2\widetilde{\Delta}^*)^{B - 2}.
+\] 
+Because $\widetilde{\Delta}^* \le \Delta$, we obtain for all $B \ge 1$, 
+\begin{equation}\label{eq:Delta-zero-inequality}
+1 ~\le~ \frac{P(B; \widetilde{\Delta})}{P(B; 0)} ~\le~ 1 + 2B(B-1)\widetilde{\Delta}^2(1 + 2\widetilde{\Delta})^{(B - 2)_+}.
+\end{equation}
+By definition $P(B_{\alpha,0} - 1; 0) > \alpha$. Taking $B = B_{\alpha,0} - 1$ in~\eqref{eq:Delta-zero-inequality}, we obtain
+\begin{equation}\label{eq:lower-bound-zero-Delta}
+P(B_{\alpha,0} - 1; \widetilde{\Delta}) \ge P(B_{\alpha,0} - 1; 0) > \alpha \quad\Rightarrow\quad P(B_{\alpha, 0} - 1; \widetilde{\Delta}) > \alpha.
+\end{equation}
+Again by definition $P(B_{\alpha,0}; 0) \le \alpha$. Taking $B = B_{\alpha,0}$ in~\eqref{eq:Delta-zero-inequality}, we obtain
+\begin{equation}\label{eq:upper-bound-zero-Delta}
+P(B_{\alpha,0}; \widetilde{\Delta}) \le \alpha,\quad\mbox{if}\quad 2B_{\alpha,0}(B_{\alpha,0} - 1)\widetilde{\Delta}^2(1 + 2\widetilde{\Delta})^{(B_{\alpha,0} - 2)_+} \le \frac{\alpha}{P(B_{\alpha,0};0)} - 1.
+\end{equation}
+Combining~\eqref{eq:lower-bound-zero-Delta} and~\eqref{eq:upper-bound-zero-Delta}, we obtain~\eqref{eq:consistency-subsampling-asymptotic-median-unbiased}.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth, height=2.9in]{requirement_proposition_part_1_final.pdf}
+\vspace{-0.2in}
+\caption{The plots show the right hand side of~\eqref{eq:consistency-subsampling} on the $y$-axis as $\alpha$ changes from $0$ to $0.15$ and $\Delta\in\{0, 0.1, 0.2, 0.3, 0.4\}$. In the left panel, we show the plot for $\alpha\in(0, 0.15)$ and in the right panel, we show the plot for $\alpha\in(0, 0.005)$. The $y$-axis limits remain the same for both plots.}
+\label{fig:right-hand-side-of-consistency-subsampling-scaled}
+\end{figure}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=\textwidth, height=2.9in]{requirement_prop_1_part_2_new_plot.pdf}
+% wrong requirement {Codes_and_Plots/requirement_proposition_1_part_2_final.pdf}
+\vspace{-0.2in}
+\caption{The plots show the right hand side of~\eqref{eq:relaxed-requirement-median-unbiased} on the $y$-axis as $\alpha$ changes from $0$ to $0.15$. In the left panel, we show the plot for $\alpha\in(0, 0.15)$ and in the right panel, we show the plot for $\alpha\in(0, 0.004)$. The $y$-axis limits remain the same for both plots.}
+\label{fig:right-hand-side-of-consistency-subsampling-median-unbiased}
+\end{figure}
+
+\section{Proof of Theorem~\ref{thm:infinite-order-coverage}}\label{appsec:infinite-order-coverage}
+Because the median bias of estimators from $\mathcal{A}(\cdot)$ is $\widetilde{\Delta}$, we set
+\[
+\widetilde{\Delta} ~\ge~ \max_{1\le j\le B^*}\left(\frac{1}{2} - \max\left\{\mathbb{P}(\widehat{\theta}_j \ge \theta_0),\,\mathbb{P}(\widehat{\theta}_j \le \theta_0)\right\}\right)_+.
+\]
+Lemma~\ref{lem:fixed-B-coverage-result} implies that
+\[
+\mathbb{P}(\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha,0}) \le \mathbb{E}\left[\left(\frac{1}{2} + \widetilde{\Delta}\right)^{B^*} + \left(\frac{1}{2} - \widetilde{\Delta}\right)^{B^*}\right].
+\]
+The right hand side involves an expectation because $B^*$ is a random variable satisfying
+\[
+\mathbb{P}(B^* = B_{\alpha,0}) = 1 - \tau_{\alpha,0},\quad\mbox{and}\quad \mathbb{P}(B^* = B_{\alpha,0} - 1) = \tau_{\alpha,0}.
+\]
+This follows from~\eqref{eq:definition-tau}. Therefore,
+\begin{equation}\label{eq:penultimate-asymptotic-coverage}
+\mathbb{P}(\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha,0}) \le \tau_{\alpha,0}P(B_{\alpha,0} - 1; \widetilde{\Delta}) + (1 - \tau_{\alpha,0})P(B_{\alpha,0}; \widetilde{\Delta}).
+\end{equation}
+From the proof of Proposition~\ref{prop:approximate-to-exact-validity} (in particular~\eqref{eq:Delta-zero-inequality}), it follows that
+\begin{equation}\label{eq:ratio-inequality-median-unbiased}
+\max\left\{\frac{P(B_{\alpha,0}; \widetilde{\Delta})}{P(B_{\alpha,0}; 0)},\,\frac{P(B_{\alpha,0} - 1; \widetilde{\Delta})}{P(B_{\alpha,0}-1;0)}\right\} \le 1 + 2B_{\alpha,0}(B_{\alpha,0} - 1)\widetilde{\Delta}^2(1 + 2\widetilde{\Delta})^{(B_{\alpha,0} - 2)_+}.
+\end{equation}
+Substituting this inequality in~\eqref{eq:penultimate-asymptotic-coverage} yields
+\begin{align*}
+\mathbb{P}(\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha,0}) &\le \tau_{\alpha,0}P(B_{\alpha,0} - 1; 0)\left(1 + 2B_{\alpha,0}(B_{\alpha,0} - 1)\widetilde{\Delta}^2(1 + 2\widetilde{\Delta})^{(B_{\alpha,0} - 2)_+}\right)\\ 
+&\qquad+ (1-\tau_{\alpha,0})P(B_{\alpha,0}; 0)\left(1 + 2B_{\alpha,0}(B_{\alpha,0} - 1)\widetilde{\Delta}^2(1 + 2\widetilde{\Delta})^{(B_{\alpha,0} - 2)_+}\right)\\
+&= \left[\tau_{\alpha,0}P(B_{\alpha,0}-1;0) + (1-\tau_{\alpha,0})P(B_{\alpha,0}; 0)\right]\left(1 + 2B_{\alpha,0}(B_{\alpha,0} - 1)\widetilde{\Delta}^2(1 + 2\widetilde{\Delta})^{(B_{\alpha,0} - 2)_+}\right)\\
+&= \alpha\left(1 + 2B_{\alpha,0}(B_{\alpha,0} - 1)\widetilde{\Delta}^2(1 + 2\widetilde{\Delta})^{(B_{\alpha,0} - 2)_+}\right).
+\end{align*}
+The last equality follows from the definition~\eqref{eq:definition-tau} of $\tau_{\alpha,0}$. This completes the proof of upper bound in~\eqref{eq:some-order-coverage-upper-bound}. 
+
+From the proof of Lemma~\ref{lem:fixed-B-coverage-result}, it follows, under the assumption of $\mathbb{P}(\widehat{\theta}_j = \theta_0) = 0$ and the exact median bias of $\widetilde{\Delta}$, that
+\[
+\mathbb{P}(\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha,\Delta}) = \mathbb{E}\left[\left(\frac{1}{2} - \widetilde{\Delta}\right)^{B^*} + \left(\frac{1}{2} - \widetilde{\Delta}\right)^{B^*}\right] \ge \mathbb{E}\left[\frac{2}{2^{B^* - 1}}\right] = \alpha,
+\]
+the last equality follows again from the definition of $\tau_{\alpha,0}$ in~\eqref{eq:definition-tau}. This completes the proof of~\eqref{eq:some-order-coverage-lower-bound}.
+
+For the case where the estimators have an asymptotic median bias of $\Delta$ ($\neq 0$), we use the \hulc to obtain $\widehat{\mathrm{CI}}_{\alpha,\Delta}$, while the true finite sample median bias is bounded by $\widetilde{\Delta}$. In this case, to prove the upper bound, we use the inequality
+\[
+\max\left\{\frac{P(B_{\alpha,\Delta}; \widetilde{\Delta})}{P(B_{\alpha,\Delta}; \Delta)},\,\frac{P(B_{\alpha,\Delta}-1; \widetilde{\Delta})}{P(B_{\alpha,\Delta} - 1; \Delta)}\right\} \le \left(1 + 2|\widetilde{\Delta} - \Delta|\right)^{B_{\alpha,\Delta}},
+\]
+in place of~\eqref{eq:ratio-inequality-median-unbiased}. Using this inequality in~\eqref{eq:penultimate-asymptotic-coverage} (with $\tau_{\alpha,0}$ replaced by $\tau_{\alpha,\Delta}$), we obtain
+\begin{align*}
+\mathbb{P}(\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha,\Delta}) &\le \left[\tau_{\alpha,\Delta}P(B_{\alpha,\Delta} - 1; \Delta) + (1 - \tau_{\alpha,\Delta})P(B_{\alpha,\Delta}; \Delta)\right]\left(1 + 2|\widetilde{\Delta} - \Delta|\right)^{B_{\alpha,\Delta}}\\ 
+&= \alpha\left(1 + 2|\widetilde{\Delta} - \Delta|\right)^{B_{\alpha,\Delta}}.
+\end{align*}
+From the proof of Lemma~\ref{lem:fixed-B-coverage-result}, it follows, under the assumption of $\mathbb{P}(\widehat{\theta}_j = \theta_0) = 0$ and the exact median bias of $\widetilde{\Delta}$, that
+\begin{align*}
+\mathbb{P}(\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha,\Delta}) 
+&= P(B_{\alpha,\Delta}; \widetilde{\Delta})(1 - \tau_{\alpha,\Delta}) + P(B_{\alpha,\Delta} - 1; \widetilde{\Delta})\tau_{\alpha,\Delta}\\
+&\ge \left[P(B_{\alpha,\Delta}; \Delta)(1 - \tau_{\alpha,\Delta}) + P(B_{\alpha,\Delta} - 1; \Delta)\tau_{\alpha,\Delta}\right]\left(1 + 2|\widetilde{\Delta} - \Delta|\right)^{-B_{\alpha,\Delta}},\quad\mbox{using~\eqref{eq:main-inequality-P-B-Delta},}\\
+&= \alpha\left(1 + 2|\widetilde{\Delta} - \Delta|\right)^{-B_{\alpha,\Delta}}.
+\end{align*}
+This proves the upper and lower bounds for a non-zero asymptotic median bias of $\Delta$.
+\section{Proof of Lemma~\ref{lem:fixed-B-coverage-result-multivariate}}\label{appsec:fixed-B-coverage-result-multivariate}
+Equality~\eqref{eq:half-space-symmetry-coverage} follows from Theorem 3 of~\cite{hayakawa2021estimating}. This result was originally proved in~\cite{wendel1962problem} under symmetry of $\widehat{\theta}_j - \theta_0$. \cite{wagner2001continuous} proved that the miscoverage probability is lower bounded by the quantity on the right hand side whenever $\widehat{\theta}_j - \theta_0$ has an absolutely continuous distribution; this does not require the assumption of $\mathbb{P}(c^{\top}(\widehat{\theta}_j - \theta_0) \le 0) = 1/2$ for all $c\in\mathbb{R}^d\setminus\{0\}$.
+
+Equality~\eqref{eq:each-coordinate-median-bias-coverage} follows readily from Lemma~\ref{lem:fixed-B-coverage-result} and union bound. Formally,
+\begin{align*}
+\mathbb{P}\left(\theta_0 \notin \mbox{RectHull}(\{\widehat{\theta}_j: 1\le j\le B\})\right) &= \mathbb{P}\left(\bigcup_{k=1}^d \left\{e_k^{\top}\theta_0 \notin \left[\min_{1\le j\le B}e_k^{\top}\widehat{\theta}_j,\,\max_{1\le j\le B}e_k^{\top}\widehat{\theta}_j\right]\right\}\right)\\
+&\le \sum_{k=1}^d \mathbb{P}\left(e_k^{\top}\theta_0 \notin \left[\min_{1\le j\le B}e_k^{\top}\widehat{\theta}_j,\,\max_{1\le j\le B}e_k^{\top}\widehat{\theta}_j\right]\right)\\
+&\le \sum_{k=1}^d \left\{\left(\frac{1}{2} - \Delta_k\right)^{B} + \left(\frac{1}{2} + \Delta_k\right)^B\right\},
+\end{align*}
+where $\Delta_k$ is an upper bound on the median bias of $e_k^{\top}\widehat{\theta}_j$ for $1\le j\le B$. Hence inequality~\eqref{eq:each-coordinate-median-bias-coverage} follows.
+
+
+\section{Proof of Proposition~\ref{prop:median-bias-mean-square}}\label{appsec:median-bias-mean-square}
+
+For notational convenience and without loss of generality, we will prove the result when $\widehat{\theta}_j$ is computed based on $n$ observations. Set
+\[
+\widehat{T} = \frac{1}{\binom{n}{2}} \sum_{i < j} X_i X_j. 
+\]
+This can be rewritten as
+\[
+\widehat{T} = \frac{n}{(n-1)} \left( \frac{1}{n} \sum_{i=1}^n X_i \right)^2 - \frac{1}{(n-1)} \left( \frac{1}{n} \sum_{i=1}^n X_i^2  \right).
+\]
+In terms of $\xi_i$ and $Z = n^{-1/2}\sum_{i=1}^n \xi_i$, this becomes
+\[
+\widehat{T} - \mu^2 = \frac{2 \mu \sigma Z}{\sqrt{n}} + \frac{\sigma^2}{n-1} \left[ Z^2 - 1 \right] + \frac{\sigma^2}{n-1}\left[ 1 - \frac{1}{n} \sum_{i=1}^n \xi_i^2\right].
+\]
+It is clear that
+\[
+\frac{\widehat{T}}{\sigma^2} - \frac{\mu^2}{\sigma^2} ~=~ 2\frac{\mu}{\sigma}\frac{Z}{\sqrt{n}} + \frac{Z^2 - 1}{n-1} + \frac{1}{\sqrt{n}(n-1)}\left[\sqrt{n}\left(\frac{1}{n}\sum_{i=1}^n {\xi_i^2} - 1\right)\right].
+\]
+Set $W = \sqrt{n}(n^{-1}\sum_{i=1}^n \xi_i^2 - 1) = O_p(1)$. By the univariate Berry--Esseen bound, we get
+\begin{equation}\label{eq:BE-bound-quadratic}
+\left|\mathbb{P}\left(W \le t\right) - \mathbb{P}\left(N(0, \mathbb{E}[\xi^4]) \le t\right)\right| \le \frac{\mathbb{E}[\xi^6]}{(\mathbb{E}[\xi^4])^{3/2}\sqrt{n}}.
+\end{equation}
+Similarly,
+\begin{equation}\label{eq:BE-bound-Z}
+\left|\mathbb{P}(Z \le t) - \mathbb{P}(N(0, 1) \le t)\right| \le \frac{\mathbb{E}[|\xi|^3]}{(\mathbb{E}[\xi^2])^{3/2}\sqrt{n}}.
+\end{equation}
+Inequality~\eqref{eq:BE-bound-quadratic} implies that 
+\[
+\mathbb{P}\left(|W| > (3\mathbb{E}[\xi^4]\log n)^{1/2}\right) \le \frac{1}{n} + \frac{\mathbb{E}[\xi^6]}{(\mathbb{E}[\xi^4])^{3/2}\sqrt{n}}.
+\]
+Clearly, 
+\begin{equation}\label{eq:less-median-bias}
+\begin{split}
+\mathbb{P}\left(\widehat{T} \le \mu^2\right) &= \mathbb{P}\left(2\frac{\mu}{\sigma} Z + \frac{\sqrt{n}}{n-1}(Z^2 - 1) + \frac{W}{n-1} \le 0\right)\\
+&= \mathbb{P}\left(2\frac{\mu}{\sigma} Z + \frac{\sqrt{n}}{n-1}(Z^2 - 1) + \frac{W}{n-1} \le 0,\, |W| \le (3\mathbb{E}[\xi^4]\log n)^{1/2}\right)\\
+&\quad+ \mathbb{P}\left(2\frac{\mu}{\sigma} Z + \frac{\sqrt{n}}{n-1}(Z^2 - 1) + \frac{W}{n-1} \le 0,\, |W| > (3\mathbb{E}[\xi^4]\log n)^{1/2}\right)\\
+&\le \mathbb{P}\left(2\frac{\mu}{\sigma} Z + \frac{\sqrt{n}}{n-1}(Z^2 - 1) \le \frac{(2\mathbb{E}[\xi^4]\log n)^{1/2}}{n-1}\right)\\ 
+&\quad+ \mathbb{P}(|W| > (3\mathbb{E}[\xi^4]\log n)^{1/2}).
+\end{split}
+\end{equation}
+Similarly,
+\begin{equation}\label{eq:more-median-bias}
+\begin{split}
+\mathbb{P}(\widehat{T} \le \mu^2) &\ge \mathbb{P}\left(2\frac{\mu}{\sigma} Z + \frac{\sqrt{n}}{n-1}(Z^2 - 1) \le -\frac{(3\mathbb{E}[\xi^4]\log n)^{1/2}}{n-1}\right)\\ 
+&\quad- \mathbb{P}(|W| > (3\mathbb{E}[\xi^4]\log n)^{1/2}).
+\end{split}
+\end{equation}
+Note that
+\begin{equation}\label{eq:event-equivalence}
+\begin{split}
+\{a Z + b(Z^2 - 1) \le c\} &\equiv \left\{\frac{-a - \sqrt{a^2 + 4b(b+c)}}{2b} \le Z \le \frac{-a + \sqrt{a^2 + 4b(b+c)}}{2b}\right\}\\
+&\equiv \left\{\left|Z + \frac{a}{2b}\right| \le \frac{\sqrt{a^2 + 4b(b + c)}}{2b}\right\}.
+\end{split}
+\end{equation}
+Using inequality~\eqref{eq:BE-bound-Z}, we obtain
+\begin{align*}
+\mathbb{P}\left(a Z + b(Z^2 - 1) \le c\right) &= \mathbb{P}\left(\left|Z + \frac{a}{2b}\right| \le \frac{\sqrt{a^2 + 4b(b + c)}}{2b}\right)\\
+&= \mathbb{P}\left(\left|N(0, 1) + \frac{a}{2b}\right| \le \frac{\sqrt{a^2 + 4b(b + c)}}{2b}\right) \pm \frac{\mathbb{E}[\xi^3]}{(\mathbb{E}[\xi^2])^{3/2}\sqrt{n}}\\
+&= \Phi\left(\frac{-a + \sqrt{a^2 + 4b(b+c)}}{2b}\right) - \Phi\left(\frac{-a-\sqrt{a^2 + 4b(b+c)}}{2b}\right)\\ 
+&\quad\pm \frac{\mathbb{E}[|\xi|^3]}{(\mathbb{E}[\xi^2])^{3/2}\sqrt{n}}.
+\end{align*}
+Finally, note that
+\begin{align*}
+\left|\Phi\left(\frac{-a \pm \sqrt{a^2 + 4b(b\pm c)}}{2b}\right) - \Phi\left(\frac{-a \pm \sqrt{a^2 + 4b^2}}{2b}\right)\right| &\le \frac{1}{\sqrt{2\pi}}\left|\sqrt{\frac{a^2 + 4b^2 \pm 4bc}{4b^2}} - \sqrt{\frac{a^2 + 4b^2}{4b^2}}\right|\\
+&\le \frac{1}{\sqrt{2\pi}}\times\frac{|c|}{b}. 
+\end{align*}
+Combining the two inequalities above, we get
+\begin{equation}\label{eq:final-inequality-quadratic}
+\begin{split}
+\mathbb{P}\left(a Z + b(Z^2 - 1) \le c\right) &= \Phi\left(\frac{-a + \sqrt{a^2 + 4b^2}}{2b}\right) - \Phi\left(\frac{-a-\sqrt{a^2 + 4b^2}}{2b}\right)\\
+&\quad\pm \frac{2}{\sqrt{2\pi}}\frac{|c|}{b} \pm \frac{\mathbb{E}[|\xi|^3]}{(\mathbb{E}[\xi^2])^{3/2}\sqrt{n}}\\
+&= \mathbb{P}(aZ + b(Z^2 - 1) \le 0) \pm \frac{2}{\sqrt{2\pi}}\frac{|c|}{b} \pm \frac{\mathbb{E}[|\xi|^3]}{(\mathbb{E}[\xi^2])^{3/2}\sqrt{n}}.
+\end{split}
+\end{equation}
+Substituting these inequalities in~\eqref{eq:less-median-bias} and~\eqref{eq:more-median-bias}, we conclude
+\begin{equation}\label{eq:final-bound-median-bias}
+\begin{split}
+&\left|\mathbb{P}(\widehat{T} \le \mu^2) - \left\{\Phi\left(\frac{-a + \sqrt{a^2 + 4b^2}}{2b}\right) - \Phi\left(\frac{-a-\sqrt{a^2 + 4b^2}}{2b}\right)\right\}\right|\\ 
+&\quad\le \sqrt{\frac{2}{\pi}}\frac{|c|}{b} + \frac{\mathbb{E}[|\xi|^3]}{(\mathbb{E}[\xi^2])^{3/2}\sqrt{n}} + \frac{2}{n} + \frac{\mathbb{E}[\xi^6]}{(\mathbb{E}[\xi^4])^{3/2}\sqrt{n}}.
+\end{split}
+\end{equation}
+% The last term $1/n$ follows as a bound on $\mathbb{P}(|W| > (2\mathbb{E}[\xi^4]\log n)^{1/2})$. 
+Here 
+\[
+a = 2\frac{\mu}{\sigma},\quad b = \frac{\sqrt{n}}{n-1},\quad\mbox{and}\quad c = \pm\frac{\sqrt{3\mathbb{E}[\xi^4]\log n}}{n-1}.
+\]
+This implies
+\[
+\frac{|c|}{b} = \sqrt{\frac{3\mathbb{E}[\xi^4]\log n}{n}}.
+\]
+Note that the right hand side of~\eqref{eq:final-bound-median-bias} is of order $n^{-1/2}$ and does not depend on $\mu$; it only depends on $\mathbb{E}[|\xi|^j], j = 3, 4, 6$. Inequality~\eqref{eq:final-bound-median-bias} implies that the median bias of $\widehat{T}$ can be obtained by taking the maximum over all $\theta\in\mathbb{R}$ of
+\begin{align*}
+&\left|\frac{1}{2} - \left\{\Phi\left(\frac{-2\theta + \sqrt{4\theta^2 + 4n/(n-1)^2}}{2\sqrt{n}/(n-1)}\right) - \Phi\left(\frac{-2\theta-\sqrt{4\theta^2 + 4n/(n-1)^2}}{2\sqrt{n}/(n-1)}\right)\right\}\right|\\
+&\quad= \left|\frac{1}{2} - \left\{\Phi\left(\frac{-\theta + \sqrt{\theta^2 + n/(n-1)^2}}{\sqrt{n}/(n-1)}\right) - \Phi\left(\frac{-\theta-\sqrt{\theta^2 + n/(n-1)^2}}{\sqrt{n}/(n-1)}\right)\right\}\right|.
+\end{align*}
+It seems the maximum is attained at $\theta = 0$ for any $n$. 
+% \end{proof}
+\section{Proof of Theorem~\ref{thm:subsampling-hull-validity}}\label{appsec:subsampling-hull-validity}
+Throughout the proof, we write $\widehat{\Delta}$ instead of $\Delta$ for convenience. 
+Define the event
+\[
+\mathcal{E} := \{B_{\alpha,\widehat{\Delta}_n} = B_{\alpha,\Delta}\}.
+\]
+and set
+\begin{equation}\label{eq:CIs-under-with-true-Delta}
+\widetilde{\mathrm{CI}}_{\alpha}^{(0)} := \left[\min_{1\le j\le B_{\alpha,\Delta} - 1}\widehat{\theta}_j, \min_{1\le j\le B_{\alpha,\Delta} - 1}\widehat{\theta}_j\right],\quad\mbox{and}\quad \widetilde{\mathrm{CI}}_{\alpha}^{(1)} := \left[\min_{1\le j\le B_{\alpha,\Delta}}\widehat{\theta}_j, \min_{1\le j\le B_{\alpha,\Delta}}\widehat{\theta}_j\right].
+\end{equation}
+Recall $\tau_{\alpha,\Delta}$ from~\eqref{eq:definition-tau}. On the event $\mathcal{E}$, we get that 
+\[
+\tau_{\alpha,\widehat{\Delta}} = \frac{\alpha - P(B_{\alpha,\Delta}; \widehat{\Delta})}{P(B_{\alpha,\Delta} - 1; \widehat{\Delta}) - P(B_{\alpha,\Delta}; \widehat{\Delta})},\quad\mbox{and}\quad \widehat{\mathrm{CI}}_{\alpha}^{(0)} = \widetilde{\mathrm{CI}}_{\alpha}^{(0)},\quad \widehat{\mathrm{CI}}_{\alpha}^{(1)} = \widetilde{\mathrm{CI}}_{\alpha}^{(1)}.
+\]
+We first bound the miscoverage probabilities of $\widehat{\mathrm{CI}}_{\alpha}^{(0)}$ and $\widehat{\mathrm{CI}}_{\alpha}^{(1)}$ when event $\mathcal{E}$ occurs. From the definition of $\Delta_{n,\alpha}$ and Lemma~\ref{lem:fixed-B-coverage-result},
+\begin{equation}\label{eq:miscoverage-B-minus-1-subsampling}
+\begin{split}
+\mathbb{P}(\{\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha}^{(0)}\}\cap\mathcal{E}) &\le \mathbb{P}(\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(0)})\\
+&\le P(B_{\alpha,\Delta} - 1; \Delta_{n,\alpha})\\
+&= \frac{P(B_{\alpha,\Delta} - 1; \Delta_{n,\alpha})}{P(B_{\alpha,\Delta} - 1; \Delta)}P(B_{\alpha,\Delta} - 1; \Delta)\\
+&\le P(B_{\alpha,\Delta} - 1; \Delta)\times\begin{cases}(1 + 2(B_{\alpha,0} - 1)(B_{\alpha,0} - 2)\Delta_{n,\alpha}^2(1 + 2\Delta_{n,\alpha})^{B_{\alpha,0}}), &\mbox{if }\Delta = 0,\\
+(1 + 2|\Delta_{n,\alpha} - \Delta|)^{B_{\alpha,\Delta} - 1}, &\mbox{if }\Delta \neq 0\end{cases}\\ 
+&\le {2\alpha}\times\begin{cases}(1 + 2(B_{\alpha,0} - 1)(B_{\alpha,0} - 2)\Delta_{n,\alpha}^2(1 + 2\Delta_{n,\alpha})^{B_{\alpha,0}}), &\mbox{if }\Delta = 0,\\
+(1 + 2|\Delta_{n,\alpha} - \Delta|)^{B_{\alpha,\Delta} - 1}, &\mbox{if }\Delta \neq 0\end{cases}.
+\end{split}
+\end{equation}
+The first inequality follows from proof of Proposition~\ref{prop:approximate-to-exact-validity} (in particular~\eqref{eq:main-inequality-P-B-Delta}) while the second inequality follows from the fact that $P(B_{\alpha,\Delta}; \Delta) \le \alpha$ and $P(B_{\alpha,\Delta} - 1; \Delta)/P(B_{\alpha,\Delta}; \Delta) \le 2$ for any $\Delta\in[0, 1/2]$. Similarly,
+\begin{equation}\label{eq:miscoverage-B-subsampling}
+\begin{split}
+&\mathbb{P}(\{\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha}^{(1)}\}\cap\mathcal{E})\\
+&\le P(B_{\alpha,\Delta}; \Delta_{n,\alpha})\\ 
+&= P(B_{\alpha,\Delta}; \Delta)\frac{P(B_{\alpha,\Delta}; \Delta_{n,\alpha})}{P(B_{\alpha,\Delta}; \Delta)} \le \alpha\times\begin{cases}(1 + 2B_{\alpha,0}(B_{\alpha,0} - 1)\Delta_{n,\alpha}^2(1 + 2\Delta_{n,\alpha})^{B_{\alpha,0}}), &\mbox{if }\Delta = 0,\\
+(1 + 2|\Delta_{n,\alpha} - \Delta|)^{B_{\alpha,\Delta}}, &\mbox{if }\Delta \neq 0\end{cases}.
+\end{split}
+\end{equation}
+This completes the proof of~\eqref{eq:fixed-choice-B-unknown-Delta}. 
+We will now prove a bound on the miscoverage probability of $\widehat{\mathrm{CI}}_{\alpha}^{\mathrm{sub}}$.
+Writing $\mathbb{E}_{U}[\cdot]$ to represent the expectation with respect to $U$ which is a uniform random variable independent of the data, we get
+\begin{equation}\label{eq:miscoverage-subsampling}
+\mathbb{E}_U[\mathbbm{1}\{\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha}^{\mathrm{sub}}\}]\mathbbm{1}\{\mathcal{E}\} ~=~ \tau_{\alpha,\widehat{\Delta}}\mathbbm{1}\{\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha}^{(0)}\}\mathbbm{1}\{\mathcal{E}\} + (1 - \tau_{\alpha,\widehat{\Delta}})\mathbbm{1}\{\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha}^{(1)}\}\mathbbm{1}\{\mathcal{E}\}.
+\end{equation}
+Note that the miscoverage probability of $\widehat{\mathrm{CI}}_{\alpha}^{\mathrm{sub}}$ is $\mathbb{E}[\mathbb{E}_{U}[\mathbbm{1}\{\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha}^{\mathrm{sub}}\}]]$. Using inequalities~\eqref{eq:miscoverage-B-minus-1-subsampling} and~\eqref{eq:miscoverage-B-subsampling}, we can readily obtain
+\[
+\mathbb{P}(\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha}^{\mathrm{sub}}) \le \mathbb{P}(\mathcal{E}^c) + 3\alpha\times\begin{cases}(1 + 2B_{\alpha,0}(B_{\alpha,0} - 1)\Delta_{n,\alpha}^2(1 + 2\Delta_{n,\alpha})^{B_{\alpha,0}}), &\mbox{if }\Delta = 0,\\
+(1 + 2|\Delta_{n,\alpha} - \Delta|)^{B_{\alpha,\Delta}}, &\mbox{if }\Delta \neq 0\end{cases}.
+\]
+If $\Delta = 0$, this only implies approximately $3\alpha$ miscoverage probability. If $\widehat{\Delta} - \Delta$ converges to zero in probability, then $\tau_{\alpha,\widehat{\Delta}} - \tau_{\alpha,\Delta}$ converges to zero and we obtain asymptotically $\alpha$ miscoverage probability for $\widehat{\mathrm{CI}}_{\alpha}^{\mathrm{sub}}$. This is the aim in proving~\eqref{eq:random-choice-B-unknown-Delta}. For this, we cannot readily use inequality~\eqref{eq:fixed-choice-B-unknown-Delta} because $\tau_{\alpha,\widehat{\Delta}}$ depend on the same data as $\widehat{\mathrm{CI}}_{\alpha}^{(0)},$ and $\widehat{\mathrm{CI}}_{\alpha}^{(1)}$. In order to overcome this, we show $\tau_{\alpha,\widehat{\Delta}}$ is close to $\tau_{\alpha,\Delta}$ in a relative error sense. For this, it is not sufficient to know $B_{\alpha,\widehat{\Delta}}=B_{\alpha,\Delta}$. We need $|\widehat{\Delta} - \Delta|$ to be small. Consider the event
+\[
+\mathcal{E}_0 ~:=~ \{|\widehat{\Delta} - \Delta| \le \eta\},
+\]
+for some $\eta \in [0, C_{\alpha,\Delta}]$. Recall from Proposition~\ref{prop:approximate-to-exact-validity} implies that if $|\widehat{\Delta} - \Delta| \le C_{\alpha,\Delta}$, then $B_{\alpha,\widehat{\Delta}} = B_{\alpha,\Delta}$. Hence, if $\eta \le C_{\alpha,\Delta}$, then $\mathcal{E}_0\subseteq\mathcal{E}$ and $\mathbb{P}(\mathcal{E}^c) \le \mathbb{P}(\mathcal{E}_0^c)$. To control the difference between $\tau_{\alpha,\widehat{\Delta}}$ and $\tau_{\alpha,\Delta}$, we write $\tau_{\alpha,\widehat{\Delta}}$ as
+\[
+\tau_{\alpha,\widehat{\Delta}} = \frac{1 - \widehat{a}}{\widehat{b} - \widehat{a}},
+\]
+where $\widehat{a} = P(B_{\alpha,\Delta}; \widehat{\Delta})/\alpha$ and $\widehat{b} = P(B_{\alpha,\Delta} - 1; \widehat{\Delta})/\alpha$. Similarly, we can write $\tau_{\alpha,\Delta} = (1 - a)/(b - a)$ for $a, b$ defined similar to $\widehat{a}, \widehat{b}$ with $\Delta$ replacing $\widehat{\Delta}$. From inequalities~\eqref{eq:main-inequality-P-B-Delta} and~\eqref{eq:Delta-zero-inequality}, we get that
+\begin{align*}
+(1 + 2|\widehat{\Delta} - \Delta|)^{-B_{\alpha,\Delta}} &\le \frac{\widehat{a}}{a} = \frac{P(B_{\alpha,\Delta}; \widehat{\Delta})}{P(B_{\alpha,\Delta}; \Delta)} \le (1 + 2|\widehat{\Delta} - \Delta|)^{B_{\alpha,\Delta}},\quad\mbox{if }\Delta\neq 0,\\
+1 &\le \frac{\widehat{a}}{a} = \frac{P(B_{\alpha,\Delta}; \widehat{\Delta})}{P(B_{\alpha,\Delta}; \Delta)} \le (1 + 2B_{\alpha,0}(B_{\alpha,0} - 1)\widehat{\Delta}^2(1 + 2\widehat{\Delta})^{B_{\alpha,0}}),\quad\mbox{if }\Delta = 0.
+\end{align*}
+The same inequalities also hold true for $\widehat{b}/b$. For notational convenience, let us write $\ell \le \widehat{a}/a \le u$ and the same for $\widehat{b}/b$. It is easy to verify that $\tau_{\alpha,\widehat{\Delta}}$ is a decreasing function of $\widehat{a}$ and $\widehat{b}$ and hence
+\[
+\frac{1/u - a}{(b-a)} \le \tau_{\alpha,\widehat{\Delta}} \le \frac{1/\ell - a}{(b-a)}\quad\Rightarrow\quad \frac{1 - 1/u}{b - a} \le \tau_{\alpha,\widehat{\Delta}} - \tau_{\alpha,\Delta} \le \frac{1/\ell - 1}{b - a}.
+\]
+Recall that $b = P(B_{\alpha,\Delta} - 1; \Delta)/\alpha$ and $a = P(B_{\alpha,\Delta}; \Delta)/\alpha$. It follows that
+\[
+\left(1/2 - \Delta\right) \le \frac{P(B_{\alpha,\Delta} - 1; \Delta)}{\alpha}\left(\frac{1}{2} - \Delta\right) ~\le~ b - a ~\le~ \frac{P(B_{\alpha,\Delta}; \Delta)}{\alpha} \le 1.
+\]
+This yields
+\[
+(1 - 1/u) \le \tau_{\alpha,\widehat{\Delta}} - \tau_{\alpha,\Delta} \le \frac{(1/\ell - 1)}{(1/2 - \Delta)}.
+\]
+Hence, on event $\mathcal{E}_0$,
+\begin{equation}\label{eq:tau-difference-inequality}
+|\tau_{\alpha,\widehat{\Delta}} - \tau_{\alpha,\Delta}| ~\le~ D_{\tau} ~:=~ \begin{cases}2B_{\alpha,0}(B_{\alpha,0} - 1)\eta^2(1 + 2\eta)^{B_{\alpha,0}}, &\mbox{if }\Delta = 0,\\
+(1/2 - \Delta)^{-1}|(1 + 2\eta)^{B_{\alpha,\Delta}} - 1|, &\mbox{if }\Delta \neq 0.
+\end{cases}
+\end{equation}
+Note that $D_{\tau}$ is non-random and only depends on $\eta$ in the event $\mathcal{E}_0$. Inequality~\eqref{eq:tau-difference-inequality} can be alternatively written as $|\tau_{\alpha,\widehat{\Delta}} - \tau_{\alpha,\Delta}|\mathbbm{1}\{\mathcal{E}_0\} \le D_{\tau}$.
+
+From~\eqref{eq:miscoverage-subsampling} and the fact that $\widehat{\mathrm{CI}}_{\alpha}^{(j)} = \widetilde{\mathrm{CI}}_{\alpha}^{(j)}$ for $j = 0, 1$ on the event $\mathcal{E}_0$ (when $\eta \le C_{\alpha,\Delta}$), we get
+\begin{equation}\label{eq:decomposition-subsampling-miscoverage-exact}
+\begin{split}
+\mathbb{E}_U[\mathbbm{1}\{\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha}^{\mathrm{sub}}\}]\mathbbm{1}\{\mathcal{E}_0\} &= \tau_{\alpha,\widehat{\Delta}}\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(0)}\}\mathbbm{1}\{\mathcal{E}_0\} + (1 - \tau_{\alpha,\widehat{\Delta}})\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(1)}\}\mathbbm{1}\{\mathcal{E}_0\}\\
+&= \tau_{\alpha,\Delta}\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(0)}\}\mathbbm{1}\{\mathcal{E}_0\} + (1 - \tau_{\alpha,\Delta})\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(1)}\}\mathbbm{1}\{\mathcal{E}_0\}\\
+&\quad+ (\tau_{\alpha,\widehat{\Delta}} - \tau_{\alpha,\Delta})\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(0)}\}\mathbbm{1}\{\mathcal{E}_0\} - (\tau_{\alpha,\widehat{\Delta}} - \tau_{\alpha,\Delta})\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(1)}\}\mathbbm{1}\{\mathcal{E}_0\}\\
+&= \tau_{\alpha,\Delta}\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(0)}\} + (1 - \tau_{\alpha,\Delta})\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(1)}\}\\
+&\quad- \tau_{\alpha,\Delta}\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(0)}\}\mathbbm{1}\{\mathcal{E}_0^c\} - (1 - \tau_{\alpha,\Delta})\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(1)}\}\mathbbm{1}\{\mathcal{E}_0^c\}\\
+&\quad+ (\tau_{\alpha,\widehat{\Delta}} - \tau_{\alpha,\Delta})\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(0)}\}\mathbbm{1}\{\mathcal{E}_0\} - (\tau_{\alpha,\widehat{\Delta}} - \tau_{\alpha,\Delta})\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(1)}\}\mathbbm{1}\{\mathcal{E}_0\}.
+\end{split}
+\end{equation}
+Because 
+\[
+\mathbb{P}(\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha,\Delta}) = \mathbb{E}[\tau_{\alpha,\Delta}\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(0)}\} + (1 - \tau_{\alpha,\Delta})\mathbbm{1}\{\theta_0 \notin \widetilde{\mathrm{CI}}_{\alpha}^{(1)}\}],
+\]
+it follows from~\eqref{eq:decomposition-subsampling-miscoverage-exact} and~\eqref{eq:tau-difference-inequality} that
+\begin{equation}\label{eq:final-inequality-subsampling-exact-interval}
+\left|\mathbb{P}(\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha}^{\mathrm{sub}}) - \mathbb{P}(\theta_0 \notin \widehat{\mathrm{CI}}_{\alpha,\Delta})\right| \le 2\mathbb{P}(\mathcal{E}_0^c) + D_{\tau}\mathbb{E}[\mathbbm{1}\{\theta_0\notin\widetilde{\mathrm{CI}}_{\alpha}^{(0)}\} + \mathbbm{1}\{\theta_0\notin\widetilde{\mathrm{CI}}_{\alpha}^{(1)}\}].
+\end{equation} 
+The second reminder term in~\eqref{eq:final-inequality-subsampling-exact-interval} is controlled using the definition of $D_{\tau}$ in~\eqref{eq:tau-difference-inequality} and the bounds~\eqref{eq:miscoverage-B-minus-1-subsampling},~\eqref{eq:miscoverage-B-subsampling} for $\mathbb{P}(\theta_0\notin\widetilde{\mathrm{CI}}_{\alpha}^{(0)})$ and $\mathbb{P}(\theta_0 \notin\widetilde{\mathrm{CI}}_{\alpha}^{(1)})$. Finally, we use the fact that $2\eta B_{\alpha,\Delta} \le 2C_{\alpha,\Delta}B_{\alpha,\Delta} \le 1/2$ (from $\eta \le C_{\alpha,\Delta}$ and Figure~\ref{fig:right-hand-side-of-consistency-subsampling-scaled}) to bound $D_{\tau}$ for $\Delta \neq 0$ as 
+\[
+(1 + 2\eta)^{B_{\alpha,\Delta}} - 1 \le e^{2\eta B_{\alpha,\Delta}} - 1 \le 2\eta B_{\alpha,\Delta}e^{2\eta B_{\alpha,\Delta}} \le 2\sqrt{e}\eta B_{\alpha,\Delta}.
+\]
+This completes the proof of~\eqref{eq:random-choice-B-unknown-Delta}. 
+\section{Proof of Lemma~\ref{lem:subsampling-delta-control}}\label{appsec:subsampling-delta-control}
+Set $J(x) = \mathbb{P}(W \le x)$ and $J_b(x) = \mathbb{P}(r_b(\widehat{\theta}_b - \theta_0) \le x)$.
+Note that by the triangle inequality, $|\widehat{\Delta}_n - \Delta| \leq |L_n(0) - J(0)|$, so we obtain that,
+\begin{align*}
+|\widehat{\Delta}_n - \Delta| &\leq \left|\frac{1}{K_n}\sum_{j=1}^{K_n} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \widehat{\theta}_n) \le 0\} - J(0)\right|\\
+&\le \left|\frac{1}{K_n}\sum_{j=1}^{K_n} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \widehat{\theta}_n) \le 0\} - \frac{1}{\binom{n}{b}}\sum_{s=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \widehat{\theta}_n) \le 0\}\right|
+\\
+&\quad
++ \left|\frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \widehat{\theta}_n) \le 0\} - J(0)\right|\\
+&\le \left|\frac{1}{K_n}\sum_{j=1}^{K_n} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \widehat{\theta}_n) \le 0\} - \frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \widehat{\theta}_n) \le 0\}\right|\\
+&\quad+\left|\frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \theta_0) \le r_b(\widehat{\theta} - \theta_0)\} - J(0)\right|.
+\end{align*}
+Fix $t > 0$ such that $r_bt/r_n \le r^*$. Define the event 
+\[
+\mathcal{E} := \{r_b(\widehat{\theta}_n - \theta_0) \le r_bt/r_n\}.
+\]
+On the event $\mathcal{E}$, we have
+\begin{equation}
+\begin{split}
+&\left|\frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \theta_0) \le r_b(\widehat{\theta} - \theta_0)\} - J(0)\right|\\
+&\quad\le \left|\frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \theta_0) \le r_bt/r_n\} - J(0)\right|\\
+&\qquad+ \left|\frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \theta_0) \le -r_bt/r_n\} - J(0)\right|\\
+&\quad\le \left|\frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \theta_0) \le r_bt/r_n\} - J_b(r_bt/r_n)\right| + \left|J_b(r_bt/r_n) - J(r_bt/r_n)\right| + \left|J(r_bt/r_n) - J(0)\right|\\
+&\qquad+ \left|\frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \theta_0) \le -r_bt/r_n\} - J_b(-r_bt/r_n)\right| + \left|J_b(-r_bt/r_n) - J(-r_bt/r_n)\right| + \left|J(-r_bt/r_n) - J(0)\right|.
+\end{split}
+\end{equation}
+Because $r_bt/r_n \le r^*$, assumption~\ref{eq:continuity-distribution} implies that
+\[
+\max\{|J(r_bt/r_n) - J(0)|, |J(-r_bt/r_n) - J(0)|\} \le \mathfrak{C}r_bt/r_n.
+\]
+From assumption~\ref{eq:limiting-distribution}, we conclude
+\[
+\max\{|J_b(r_bt/r_n) - J(r_bt/r_n)|, |J_b(-r_bt/r_n) - J(-r_bt/r_n)|\} \le \delta_b.
+\]
+Therefore, on the event $\mathcal{E}$,
+\begin{equation}
+\begin{split}
+|\widehat{\Delta}_n - \Delta| &\le \left|\frac{1}{K_n}\sum_{j=1}^{K_n} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \widehat{\theta}_n) \le 0\} - \frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \widehat{\theta}_n) \le 0\}\right|\\
+&\quad+ \left|\frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \theta_0) \le r_bt/r_n\} - J_b(r_bt/r_n)\right|\\
+&\quad+ \left|\frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \theta_0) \le -r_bt/r_n\} - J_b(-r_bt/r_n)\right|\\
+&\quad+ 2\delta_b + 2\mathfrak{C}r_bt/r_n.
+\end{split}
+\end{equation}
+Observe that $\widehat{\theta}_b^{(j)}, 1\le j\le K_n$ are independent and identically distributed random variables conditional on the data drawn from the finite population $\widehat{\theta}_b^{(j)}, 1\le j\le \binom{n}{b}$. Corollary 1 of~\cite{massart1990tight} implies that
+\[
+\mathbb{P}\left(\left|\frac{1}{K_n}\sum_{j=1}^{K_n} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \widehat{\theta}_n) \le 0\} - \frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \widehat{\theta}_n) \le 0\}\right| \ge \sqrt{\frac{\log(2n)}{2K_n}}\right) \le \frac{1}{n}.
+\]
+Furthermore, note that $\binom{n}{b}\sum_{j=1}^{\binom{n}{b}}\mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \theta_0) \le -r_bt/r_n\}$ is a non-degenerate $U$-statistics of order $b$ and with a kernel bounded between $0$ and $1$. Hence, Hoeffding's inequality for $U$-statistics \citep[inequality (5.7)]{hoeffding1963probability} implies that
+\[
+\mathbb{P}\left(\left|\frac{1}{\binom{n}{b}}\sum_{j=1}^{\binom{n}{b}} \mathbbm{1}\{r_b(\widehat{\theta}_b^{(j)} - \theta_0) \le r_bt/r_n\} - J_b(r_bt/r_n)\right| \ge \sqrt{\frac{\log(2n/b)}{2[n/b]}}\right) \le \frac{b}{n}.
+\] 
+Hence, with probability at least $1 - \mathbb{P}(\mathcal{E}^c) - (b + 1)/n$,
+\[
+|\widehat{\Delta}_n - \Delta| \le \sqrt{\frac{\log(2n)}{2K_n}} + \sqrt{\frac{\log(2n/b)}{2[n/b]}} + 2\delta_b + 2\mathfrak{C}r_bt/r_n.
+\]
+Now, note that 
+\begin{align*}
+\mathbb{P}(\mathcal{E}^c) &= \mathbb{P}(r_b|\widehat{\theta}_n - \theta_0| > r_bt/r_n) \le 2\delta_n + \mathbb{P}(|W| > t).
+\end{align*}
+Therefore, with probability at least $1 - 2\delta_n - (b + 1)/n - \mathbb{P}(|W| > t)$,
+\[
+|\widehat{\Delta}_n - \Delta| \le \sqrt{\frac{\log(2n)}{2K_n}} + \sqrt{\frac{\log(2n/b)}{2[n/b]}} + 2\delta_b + 2\mathfrak{C}\frac{r_bt}{r_n}.
+\]
+\section{Proof of Theorem~\ref{thm:unimodal-CI-coverage}}\label{appsec:unimodal-CI-coverage}
+Define
+\[
+\widehat{\theta}_{\max}^{(B)} ~:=~ \max_{1\le j\le B}\widehat{\theta}_j,\quad\mbox{and}\quad \widehat{\theta}_{\min}^{(B)} ~:=~ \min_{1\le j\le B}\widehat{\theta}_j.
+\]
+Similarly, define $\widehat{\theta}_{\max}^{(B-1)}$ and $\widehat{\theta}_{\min}^{(B-1)}$.
+Set
+\[
+F_{n,j}(u) = \mathbb{P}(r_{n,\alpha}(\widehat{\theta}_j - \theta_0) \le u),\quad\mbox{and}\quad F_W(u) = \mathbb{P}(W \le u).
+\]
+The assumed hypothesis implies that $|F_{n,j}(u) - F_W(u)| \le \delta_{n,\alpha}$ for all $u$ and all $1\le j\le B$. Finally, define the miscoverage probability
+\[
+M_B := \mathbb{P}\left(\theta_0 \notin \left[\widehat{\theta}_{\max}^{(B)} - t(\widehat{\theta}_{\max}^{(B)} - \widehat{\theta}_{\min}^{(B)}), \widehat{\theta}_{\max}^{(B)} + t(\widehat{\theta}_{\max}^{(B)} - \widehat{\theta}_{\min}^{(B)})\right]\right).
+\]
+We will prove that for all $B\ge1$, $t\ge0$, and $\Delta\in[0, 1/2]$,
+\begin{equation}\label{eq:required-inequality-miscoverage-unimodal}
+\frac{M_B}{Q(B; t, \Delta)} \le \frac{1}{(1 - 10B(1 + t)\delta_{n,\alpha})_+}.
+\end{equation}
+The same bound holds true for $M_{B-1}/Q(B-1;t, \Delta)$. The definition of $\eta_{\alpha,t}$ implies that $$\eta_{\alpha,t}Q(B_{\alpha,t,\Delta}; t, \Delta) + (1 - \eta_{\alpha,t})Q(B_{\alpha,t,\Delta}-1; t, \Delta) = \alpha.$$ Combining this with the inequalities for $M_B$ and $M_{B-1},$ the result is proved.
+Note that
+\begin{align*}
+M_B &= \mathbb{P}(\theta_0 < \widehat{\theta}_{\min}^{(B)} - t (\widehat{\theta}_{\max}^{(B)} - \widehat{\theta}_{\min}^{(B)})) + \mathbb{P}(\theta_0 > \widehat{\theta}_{\max}^{(B)} + t (\widehat{\theta}_{\max}^{(B)} - \widehat{\theta}_{\min}^{(B)}))\\
+&= \mathbb{P}\left(r_{n,\alpha}(\widehat{\theta}_{\min}^{(B)} - \theta_0) > \frac{t}{1+t}  r_{n,\alpha}(\widehat{\theta}_{\max}^{(B)} - \theta_0)\right) + \mathbb{P}\left(r_{n,\alpha}(\widehat{\theta}_{\max}^{(B)} - \theta_0) <  \frac{t}{1+t} r_{n,\alpha}(\widehat{\theta}_{\min}^{(B)} - \theta_0)\right)\\
+&= \mathbf{I}_B + \mathbf{II}_B.
+\end{align*}
+This implies that $M_B$ can be written in terms of the smallest and largest order statistic of $r_{n,\alpha}(\widehat{\theta}_j - \theta_0)$, $1\le j\le B$. Bounding $\mathbf{I}_B$ will also provide a bound for $\mathbf{II}_B$ by taking negative random variables $r_{n,\alpha}(\theta_0 - \widehat{\theta}_j)$. Under the assumption of continuous distribution for $r_{n,\alpha}(\widehat{\theta}_j - \theta_0)$, we get following the proof of~\citet[Theorem 1]{lanke1974interval} that
+\begin{equation}\label{eq:exact-expression-I-B}
+\mathbf{I}_B = \sum_{j=1}^{B} \int_0^{\infty} \prod_{i\neq j} (F_{n,i}(x) - F_{n,i}(tx/(1 + t)))dF_j(x) .
+% for identical distributions, it is
+% \int_{0}^{\infty} B(F_n(x) - F_n(tx/(1 + t)))^{B-1}dF_n(x).
+\end{equation}
+Recall that $F_{n,i}(x)$ and $F_W(x)$ are close and satisfy
+\[
+F_{n,i}(x) - F_{n,i}(tx/(1 + t)) \le F_W(x) - F_W(tx/(1 + t)) + 2\delta_{n,\alpha},
+\]
+and because the distribution of $W$ is unimodal at $0$, we get 
+\[
+F_{n,i}(x) - F_{n,i}(tx/(1 + t)) \le \frac{F_W(x) - F_W(0)}{1 + t} + 2\delta_{n,\alpha}.
+\]
+This follows from the fact that unimodality implies $F_W(\cdot)$ is convex below $0$ and concave above $0$ implying $F(\lambda x) \ge F(0) + \lambda(F(x) - F(0))$ for $\lambda\in[0, 1]$ and $x\ge0$. Finally, using the closeness of $F_{n,j}(\cdot)$ and $F_W(\cdot)$ once again, we conclude
+\[
+0 \le F_{n,i}(x) - F_{n,i}(tx/(1 + t)) \le \frac{F_{n,j}(x) - F_{n,j}(0)}{1 + t} + 4\delta_{n,\alpha}.
+\]
+Substituting this inequality in~\eqref{eq:exact-expression-I-B}, we obtain
+\begin{align*}
+\mathbf{I}_B &\le \sum_{j=1}^B \int_0^{\infty} \left(\frac{F_{n,j}(x) - F_{n,j}(0)}{1 + t} + 4\delta_{n,\alpha}\right)^{B-1}dF_{n,j}(x)\\
+&= \frac{1}{(1 + t)^{B-1}}\sum_{j=1}^B\int_0^{\infty} \left(F_{n,j}(x) - F_{n,j}(0) + 4(1 + t)\delta_{n,\alpha}\right)^{B-1}dF_{n,j}(x)\\
+&= \frac{1}{(1 + t)^{B-1}}\sum_{j=1}^B\int_{F_{n,j}(0)}^{1} \left(u - F_{n,j}(0) + 4(1 + t)\delta_{n,\alpha}\right)^{B-1}du\\ 
+&\le \frac{1}{B(1 + t)^{B-1}}\sum_{j=1}^B \left[\left(1 - F_{n,j}(0) + 4(1 + t)\delta_{n,\alpha}\right)^{B}\right].
+\end{align*}
+Applying the same calculations with $r_{n,\alpha}(\theta_0 - \widehat{\theta}_j)$ which has the distribution function $G_n(t) = 1 - F_n(-t)$ would yield
+\[
+\mathbf{II}_B \le \frac{1}{B(1 + t)^{B-1}}\sum_{j=1}^B \left[\left(F_{n,j}(0) + 4(1 + t)\delta_{n,\alpha}\right)^{B}\right].
+\]
+Therefore,
+\begin{equation}\label{eq:almost-final-inequality-M-B}
+\begin{split}
+M_B &\le \frac{1}{B(1 + t)^{B-1}}\sum_{j=1}^B \left[(1 - F_{n,j}(0) + 4(1 + t)\delta_{n,\alpha})^{B} + (F_{n,j}(0) + 4(1 + t)\delta_{n,\alpha})^{B}\right]\\
+&\le \frac{1}{(1 + t)^{B-1}}\left[(1 - F_W(0) + 5(1 + t)\delta_{n,\alpha})^B + (F_W(0) + 5(1 + t)\delta_{n,\alpha})^B\right].
+\end{split}
+\end{equation}
+The second inequality here follows again from the closeness of $F_{n,j}(0)$ and $F_W(0)$.
+From the continuous distribution assumption, the asymptotic median bias is given by $\Delta = |1/2 - \mathbb{P}(W \le 0)|$. Hence, it follows that
+\begin{equation}\label{eq:final-inequality-M-B}
+M_B \le (1 + t)^{-B+1}\left[\left(\frac{1}{2} + 5(1 + t)\delta_{n,\alpha} - \Delta\right)^B + \left(\frac{1}{2} + 5(1 + t)\delta_{n,\alpha} + \Delta\right)^B\right].
+\end{equation}
+Now consider $M_B/Q(B; t, \Delta)$. 
+\[
+\frac{M_B}{Q(B; t, \Delta)} ~\le~ \frac{(1 - 2\Delta + 10(1 + t)\delta_{n,\alpha})^B + (1 + 2\Delta + 10(1 + t)\delta_{n,\alpha})^B}{(1 - 2\Delta)^B + (1 + 2\Delta)^B}.
+\]
+To bound the right hand side, consider the function $g(x) = (x + 1-2\Delta)^B + (x + 1 + 2\Delta)^B$ for $x \ge 0$. It is clear that
+\[
+0 ~\le~ g(x) - g(0) ~\le~ \int_0^x g'(t)dt ~\le~ Bx\left[(x + 1 - 2\Delta)^{B-1} + (x + 1 + 2\Delta)^{B-1}\right].
+\]
+Furthermore,
+\[
+\frac{(x + 1 - 2\Delta)^{B-1} + (x + 1 + 2\Delta)^{B-1}}{(x + 1 - 2\Delta)^{B} + (x + 1 + 2\Delta)^B} \le \frac{1}{x + 1}.
+\]
+Hence, we conclude that $g(x) \le g(0)/(1 - Bx/(x + 1))_+$ and
+\[
+\frac{M_B}{Q(B; t, \Delta)} ~\le~ \frac{1}{(1 - 10B(1 + t)\delta_{n,\alpha})_+}.
+\]
+This completes the proof of~\eqref{eq:required-inequality-miscoverage-unimodal} and implies~\eqref{eq:coverage-mode}.
+% \end{proof}
+\end{document}
