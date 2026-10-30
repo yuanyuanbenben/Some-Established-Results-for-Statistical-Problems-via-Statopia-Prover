@@ -1,0 +1,70 @@
+{
+  "id": "q40",
+  "case": "extrinsic_sample_mean_on_unit_sphere",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q40",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q40/experiment/runs/20261018T055725Z-extrinsic_sample_mean_on_unit_sphere-fc2e20b3",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "fc7dca4840856102fa77c648b68e396d1260f57794d9ff912325453377b30416",
+  "signatureLockSha256": "1983d459364a59f450630d28b62cae8a45fe6e9cf43cc8244e62851059c92a82",
+  "rootTheorem": "extrinsic_sample_mean_on_unit_sphere",
+  "inputRootSignature": "theorem extrinsic_sample_mean_on_unit_sphere (d n : ℕ) (hd : 2 ≤ d) (hn : 1 ≤ n) (x : Fin n → Fin d → ℝ) (hx : ∀ i, dotProduct (x i) (x i) = 1) : let xBar : Fin d → ℝ := (n : ℝ)⁻¹ • ∑ i, x i xBar ≠ 0 → let objective : (Fin d → ℝ) → ℝ := fun p ↦ (n : ℝ)⁻¹ * ∑ i, dotProduct (x i - p) (x i - p) {p : Fin d → ℝ | dotProduct p p = 1 ∧ ∀ q, dotProduct q q = 1 → objective p ≤ objective q} = {((Real.sqrt (dotProduct xBar xBar))⁻¹ : ℝ) • xBar}",
+  "lockedRootSignature": "theorem extrinsic_sample_mean_on_unit_sphere (d n : ℕ) (hd : 2 ≤ d) (hn : 1 ≤ n) (x : Fin n → Fin d → ℝ) (hx : ∀ i, dotProduct (x i) (x i) = 1) : let xBar : Fin d → ℝ := (n : ℝ)⁻¹ • ∑ i, x i xBar ≠ 0 → let objective : (Fin d → ℝ) → ℝ := fun p ↦ (n : ℝ)⁻¹ * ∑ i, dotProduct (x i - p) (x i - p) {p : Fin d → ℝ | dotProduct p p = 1 ∧ ∀ q, dotProduct q q = 1 → objective p ≤ objective q} = {((Real.sqrt (dotProduct xBar xBar))⁻¹ : ℝ) • xBar}",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.8dd7a3b3b0b1ee5b69098312.json",
+      "receiptId": "job-final.8dd7a3b3b0b1ee5b69098312",
+      "receiptHash": "3644128ec132e0457172acc6b40bf9961a697d580989ee4c5e3e40b2cd161e42",
+      "finalizedAt": 1792305375438,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "848cfe7640bbf8656319f92f804fe4f5773a7e3dd0223a71192eafac1501e523"
+    }
+  ],
+  "slot": 2,
+  "keyIndex": 4,
+  "nodes": 5,
+  "auxiliaryNodes": 4,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 5
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.5b5690f6eeeb7fca9801ba3a7903f3ae",
+      "detail": "unified Writer dependency support changed during repeated unlocked allocation validation"
+    },
+    {
+      "proofNodeId": "proof.node.c6cd849c4935bda88951035c90e31888",
+      "detail": "unified Writer dependency support changed during repeated unlocked allocation validation"
+    }
+  ],
+  "completedActions": 15
+}

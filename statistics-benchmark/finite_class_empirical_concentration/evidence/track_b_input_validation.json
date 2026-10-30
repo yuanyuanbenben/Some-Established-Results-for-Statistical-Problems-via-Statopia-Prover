@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "finite_class_empirical_concentration"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 44318
+}

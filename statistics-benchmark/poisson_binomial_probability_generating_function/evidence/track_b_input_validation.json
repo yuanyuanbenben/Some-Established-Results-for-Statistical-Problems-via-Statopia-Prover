@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "poisson_binomial_probability_generating_function"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 55463
+}

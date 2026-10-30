@@ -1,0 +1,258 @@
+{
+  "status": "proved",
+  "engineStatus": "COMPLETE",
+  "reason": null,
+  "failureStage": null,
+  "legacyPlanningStatus": "cancelled",
+  "terminal": null,
+  "cancellationReason": null,
+  "cancellationSignal": null,
+  "stopAfter": null,
+  "checkpointKind": null,
+  "checkpointStageReport": null,
+  "publishedCheckpointDir": null,
+  "iterations": 2,
+  "revision": 82,
+  "unifiedCompletedActions": 29,
+  "unifiedFailedActions": [
+    {
+      "proofNodeId": "proof.node.6bc6eaa70789faf35a1d723b446c9827",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "remainingSorry": 0,
+  "usage": {
+    "legacyPlanning": {
+      "mathGuide": {
+        "inputTokens": 87484,
+        "outputTokens": 105067,
+        "costUsd": 0.152896224
+      },
+      "search": {
+        "inputTokens": 14627,
+        "outputTokens": 5919,
+        "costUsd": 0.011509333
+      },
+      "writer": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0
+      },
+      "diagnose": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0
+      }
+    },
+    "unified": [
+      {
+        "inputTokens": 40394,
+        "outputTokens": 2629,
+        "cacheReadTokens": 27008,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.015435048
+      },
+      {
+        "inputTokens": 45381,
+        "outputTokens": 3965,
+        "cacheReadTokens": 54784,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.018701004
+      },
+      {
+        "inputTokens": 46083,
+        "outputTokens": 5795,
+        "cacheReadTokens": 55808,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.021113748
+      },
+      {
+        "inputTokens": 51650,
+        "outputTokens": 6547,
+        "cacheReadTokens": 59008,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.023705447999999997
+      },
+      {
+        "inputTokens": 67650,
+        "outputTokens": 23714,
+        "cacheReadTokens": 11776,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.048822456
+      },
+      {
+        "inputTokens": 190177,
+        "outputTokens": 35586,
+        "cacheReadTokens": 14848,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.099845388
+      },
+      {
+        "inputTokens": 180897,
+        "outputTokens": 38935,
+        "cacheReadTokens": 24448,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.101137788
+      },
+      {
+        "inputTokens": 53124,
+        "outputTokens": 4861,
+        "cacheReadTokens": 57856,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.022117536
+      },
+      {
+        "inputTokens": 60170,
+        "outputTokens": 10460,
+        "cacheReadTokens": 62720,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.03097932
+      },
+      {
+        "inputTokens": 31099,
+        "outputTokens": 23467,
+        "cacheReadTokens": 5632,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.037523891999999996
+      },
+      {
+        "inputTokens": 222196,
+        "outputTokens": 47095,
+        "cacheReadTokens": 14976,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.12326265600000001
+      },
+      {
+        "inputTokens": 506071,
+        "outputTokens": 146681,
+        "cacheReadTokens": 187008,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.328960548
+      },
+      {
+        "inputTokens": 5966,
+        "outputTokens": 24076,
+        "cacheReadTokens": 4480,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 296680,
+        "outputTokens": 53172,
+        "cacheReadTokens": 37120,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.15303312000000002
+      },
+      {
+        "inputTokens": 670214,
+        "outputTokens": 98628,
+        "cacheReadTokens": 398464,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.321808584
+      },
+      {
+        "inputTokens": 9781,
+        "outputTokens": 7708,
+        "cacheReadTokens": 896,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 35393,
+        "outputTokens": 3677,
+        "cacheReadTokens": 73216,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.015469596
+      },
+      {
+        "inputTokens": 34524,
+        "outputTokens": 6454,
+        "cacheReadTokens": 80000,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.018581999999999998
+      },
+      {
+        "inputTokens": 791718,
+        "outputTokens": 8006,
+        "cacheReadTokens": 49664,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.24742058399999997
+      },
+      {
+        "inputTokens": 38275,
+        "outputTokens": 24046,
+        "cacheReadTokens": 83840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.04084074
+      },
+      {
+        "inputTokens": 157685,
+        "outputTokens": 3605,
+        "cacheReadTokens": 43264,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.051891084
+      },
+      {
+        "inputTokens": 166248,
+        "outputTokens": 3784,
+        "cacheReadTokens": 77824,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.054882144
+      },
+      {
+        "inputTokens": 134787,
+        "outputTokens": 16229,
+        "cacheReadTokens": 7808,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.059957748000000005
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      }
+    ]
+  },
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q11/experiment/runs/20261017T172410Z-functional_pca_reconstruction_mean_squared_error-6fe4ec5f",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q11",
+  "resumeJobId": null
+}

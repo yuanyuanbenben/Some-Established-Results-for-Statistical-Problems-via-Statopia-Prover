@@ -1,0 +1,51 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62F/unbiasedness_and_mse_poisson_estimator.tex
+msc: 62F10
+topic: Poisson estimator unbiasedness and MSE
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: unbiasedness_and_mse_poisson_estimator
+    kind: theorem
+    lean_name: unbiasedness_and_mse_poisson_estimator
+    latex_statement: >-
+      \begin{theorem}[Unbiasedness and MSE of a Poisson estimator]
+
+      Let $(\Omega,\mathcal F,P)$ be a probability space. Let $\theta>0$ and
+
+      $a>0$, and let $(X_i)_{i\in\mathbb N}$ be measurable, mutually
+      independent,
+
+      integer-valued random variables. Let $n\in\mathbb N$ satisfy $a<n$, and
+
+      define $\operatorname{rate}=\theta$, viewed as a nonnegative real number.
+
+      Assume that every $X_i$ has the Poisson distribution with this rate.
+
+      Define
+
+      \[
+       S(\omega)=\sum_{i=0}^{n-1}X_i(\omega),\qquad
+       T(\omega)=\left(1-\frac an\right)^{S(\omega)}.
+      \]
+
+      Then
+
+      \[
+       \mathbb E_P[T]=e^{-a\theta}
+      \]
+
+      and
+
+      \[
+       \mathbb E_P\!\left[(T-e^{-a\theta})^2\right]
+       =e^{-2a\theta}\left(e^{a^2\theta/n}-1\right).
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

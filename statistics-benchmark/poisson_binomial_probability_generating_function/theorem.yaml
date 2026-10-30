@@ -1,0 +1,34 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62E/poisson_binomial_probability_generating_function.tex
+msc: "62E10"
+topic: Poisson-binomial generating functions
+track_a_difficulty: hard
+track_b_difficulty: hard
+theorems:
+  - id: poisson_binomial_probability_generating_function
+    kind: theorem
+    lean_name: poisson_binomial_probability_generating_function
+    latex_statement: |-
+      \begin{theorem}[Probability Generating Function of a Poisson-Binomial Sum]
+      Let $(\Omega,\mathcal A,P)$ be a probability space, let
+      $n\in\mathbb N$ with $n\ge1$, and let $p_1,\ldots,p_n\in[0,1]$.
+      Let $X_1,\ldots,X_n:\Omega\to\{\mathrm{false},\mathrm{true}\}$ be
+      measurable and jointly independent, with
+      \[
+       P\{X_i=\mathrm{true}\}=p_i,
+       \qquad
+       P\{X_i=\mathrm{false}\}=1-p_i
+      \]
+      for every $i$.  Then, for every $z\in\mathbb R$,
+      \[
+       \int z^{\sum_{i=1}^n\mathbf 1\{X_i=\mathrm{true}\}}\,dP
+       =
+       \prod_{i=1}^n\bigl((1-p_i)+p_i z\bigr).
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

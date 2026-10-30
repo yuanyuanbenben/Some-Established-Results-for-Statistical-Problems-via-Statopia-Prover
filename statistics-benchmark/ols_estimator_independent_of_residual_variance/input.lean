@@ -1,0 +1,25 @@
+import Mathlib
+
+open MeasureTheory Matrix ProbabilityTheory
+
+theorem ols_estimator_independent_of_residual_variance
+    {Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P]
+    (n p : ℕ) (hnp : p < n) (hp : 1 ≤ p)
+    (X : Matrix (Fin n) (Fin p) ℝ)
+    (hX : Function.Injective X.mulVec)
+    (betaStar : Fin p → ℝ)
+    (sigma : ℝ) (hsigma : 0 < sigma)
+    (epsilon : Ω → Fin n → ℝ)
+    (hgaussian : ∀ a : Fin n → ℝ,
+      HasLaw (fun ω ↦ dotProduct a (epsilon ω))
+        (gaussianReal 0
+          (Real.toNNReal (sigma ^ 2 * dotProduct a a))) P) :
+    let y : Ω → Fin n → ℝ := fun ω ↦ X *ᵥ betaStar + epsilon ω
+    let betaHat : Ω → Fin p → ℝ := fun ω ↦
+      (X.transpose * X)⁻¹ *ᵥ (X.transpose *ᵥ y ω)
+    let sigmaHatSq : Ω → ℝ := fun ω ↦
+      dotProduct (y ω - X *ᵥ betaHat ω)
+          (y ω - X *ᵥ betaHat ω) / ((n - p : ℕ) : ℝ)
+    IndepFun betaHat sigmaHatSq P := by
+  sorry

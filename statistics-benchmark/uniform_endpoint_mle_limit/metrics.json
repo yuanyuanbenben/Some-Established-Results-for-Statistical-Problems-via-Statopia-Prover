@@ -1,0 +1,15 @@
+{
+  "case": "uniform_endpoint_mle_limit",
+  "msc": "62F12",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": 2.365485339,
+  "unknown_reservation_usd": 0.0,
+  "cost_coverage": "completed journal usage; unresolved reservations separate",
+  "mode": "deep",
+  "seconds": 5483.0,
+  "lean_files": 10,
+  "lean_lines": 1077,
+  "nodes": 7,
+  "job_id": "deep_benchmark42_3p_2k5_20261017T100521Z_q13"
+}

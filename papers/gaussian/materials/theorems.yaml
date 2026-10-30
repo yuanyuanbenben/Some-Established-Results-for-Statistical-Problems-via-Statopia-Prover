@@ -1,0 +1,449 @@
+version: v1
+theorem_set: document-goal
+source_tag: document-processing
+theorems:
+  - id: entry:selected:5a344e63-f2c7-4761-9f15-157ce9e5fb8f
+    title: Theorem 3.1 (Gaussian approximation; THM:G)
+    kind: theorem
+    latex_statement: |-
+      For the max statistic context, \(S_{n,j}\) is the \(j\)th coordinate of the sum
+      \[
+      S_n=\frac{1}{\sqrt n}\sum_{i=1}^n (X_i-\mathbb E[X_i]),
+      \]
+      involving i.i.d. vectors \(X_1,\dots,X_n\) in \(\mathbb R^p\). If we let
+      \[
+      \sigma_j^2=\operatorname{Var}(X_{1,j}) \quad \text{for each } 1\leq j\leq p,
+      \]
+      and write \(\sigma_{(1)}\geq \dots \geq \sigma_{(p)}\), these are the ordered standard deviations.
+
+      If we let \(\tau_n\in [0,1]\) be a free parameter, then we can consider the partially standardized statistic
+      \begin{equation}\label{eqn:mdef}
+      M=\max_{1\leq j\leq p} S_{n,j}/\sigma_j^{\tau_n}.
+      \end{equation}
+
+      Let \(\tilde S_n\sim N(0,\Sigma)\) and define the Gaussian counterpart of the partially standardized statistic \(M\) (\ref{eqn:mdef}) according to
+      \begin{equation}\label{eqn:Mtildedef}
+      \tilde M=\max_{1\leq j\leq p} \tilde{S}_{n,j}/\sigma_j^{\tau_n}.
+      \end{equation}
+
+      Recall that for any random variables \(U\) and \(V\), the Kolmogorov distance is given by
+      \[
+      d_{\mathrm K}(\mathcal{L}(U),\mathcal{L}(V))=\sup_{t\in\mathbb R}|\mathbb P(U\leq t)-\mathbb P(V\leq t)|.
+      \]
+
+      To state the structural assumptions, for any \(d\in\{1,\dots,p\}\), let \(\J(d)\) denote a set of indices corresponding to the \(d\) largest values among \(\sigma_1,\dots,\sigma_p\), i.e.,
+      \[
+      \{\sigma_{(1)},\dots,\sigma_{(d)}\}= \{\sigma_j| \ j\in\J(d)\}.
+      \]
+      In addition, let \(R(d)\in\mathbb R^{d\times d}\) denote the correlation matrix of the random variables
+      \(\{X_{1,j}\,|\, j\in\J(d)\}\). Write \(R_{i,j}(d)\) for the \((i,j)\)-entry of \(R(d)\), and set \(R_{i,j}^+(d)=\max\{R_{i,j}(d),0\}\).
+
+      Lastly, let \(a\in(0,\frac{1}{2})\) be a constant fixed with respect to \(n\), and define the integers \(\ell_n\) and \(k_n\) according to
+      \begin{align}
+      \ell_n&=\big\lceil (1\vee \log(n)^3)\wedge p\big\rceil\\[0.2cm]
+      k_n&=\big\lceil \big(\ell_n\vee n^{\frac{1}{\log(n)^{a}}}\big)\wedge p\big\rceil.\label{eqn:kndef}
+      \end{align}
+      Note that both \(\ell_n\) and \(k_n\) grow slower than any fractional power of \(n\), and always satisfy \(1\leq \ell_n\leq k_n\leq p\).
+
+      The symbol \(\lesssim\) is used in the usual asymptotic sense, with an implied constant not depending on \(n\).
+
+      <!-- formalization-clarifications:v1:36b0fac17b9391099f2417ea89ca79286d17d3c0ce5190787b668b7f73c49763 -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order (owner: Theorem 3.1, Section 2 “Setting and preliminaries,” and the Notation paragraph). The source explicitly treats a sequence of models indexed by \(n\): “all parameters depending on \(n\), except for those that are stated to be fixed,” with \(p=p(n)\), and it adds that “if a constant does not depend on \(n\), then it does not depend on \(p\) either.” Thus the intended reading of Theorem 3.1 is: fix \(\delta\in(0,1/2)\) and the fixed parameter \(a\in(0,1/2)\); consider an \(n\)-indexed model satisfying Assumptions 2.1 and 2.2 and the \(\tau_n\) condition; the bound is an eventual \(n\to\infty\) statement. The \( \lesssim \) notation is defined by the source as the existence of a constant \(c>0\) not depending on \(n\), and \(n_0\ge1\), such that the inequality holds for all \(n\ge n_0\). Consequently the implicit constant in \(n^{-1/2+\delta}\) cannot depend on \(n\), cannot depend on \(p(n)\), and should not be allowed in Lean to depend on implicit parameters such as \(n,p,\Sigma,\sigma_j,R(d),J(d),\tau_n\), or the sample, merely because they are Lean parameters. The source only explicitly excludes dependence on \(n\); it does not explicitly list whether the implied constant may depend on fixed quantities such as \(\delta,a,\alpha,c,c_0,c_\circ,\varepsilon_0,C\), so that finer dependence is left unspecified and should not be invented. The constants \(c_0>0\) in Assumption 2.1, \(c>0\) and \(c_\circ\in(0,1)\) in Assumption 2.2(i), and \(C>0\) in Assumption 2.2(ii) are all stated to be “not depending on \(n\)”; \(c_0\) and \(c_\circ\) are different constants, and none of these is the hidden constant in \(\lesssim\). The condition “\((1-\tau_n)\sqrt{\log(n)}\gtrsim1\)” is itself an eventual lower-bound condition with a constant not depending on \(n\); it does not require \(\tau_n\) to be constant, only eventually not too close to \(1\). There is no theorem-level constant quantified after \(p\) or after a random vector in this result; if a proof introduces a constant after \(d\) or \(J(d)\), the source does not thereby make it uniform in \(d\) or \(p\) unless it says so.
+
+      2. Norms and mathematical objects (owner: Definitions and Assumptions of Theorem 3.1; Assumption 2.1). The only vector norm used in the selected theorem is the Euclidean \(\ell_2\) norm, written \(\|u\|_2\) in \(\sup_{\|u\|_2=1}\|Z_1^\top u\|_{\psi_1}\le c_0\). The Orlicz norm is explicitly defined in the Notation paragraph by \(\|\xi\|_{\psi_1}=\inf\{t>0:\mathbb E[\exp(|\xi|/t)]\le2\}\), and the condition applies to the scalar \(Z_1^\top u\) with \(u\) Euclidean unit. No sup norm, Frobenius norm, or operator norm replaces these objects in Theorem 3.1; the paper defines an operator norm elsewhere, but it is not part of this theorem’s hypotheses. The source defines \(\sigma_j^2=\operatorname{Var}(X_{1,j})\) and then writes \(\sigma_{(1)}\ge\cdots\ge\sigma_{(p)}\) as the “ordered standard deviations,” so \(\sigma_j\) and \(\sigma_{(j)}\) are standard deviations, not variances; the decay assumptions in Assumption 2.2 are on \(\sigma_{(j)}\), not \(\sigma_{(j)}^2\). The statistic \(S_n=n^{-1/2}\sum_{i=1}^n(X_i-\mathbb E[X_i])\) is already root-\(n\) scaled and centered by the population mean, and \(S_{n,j}\) is its coordinate. The Gaussian vector is \(\tilde S_n\sim N(0,\Sigma)\) with covariance \(\Sigma\), not \(\Sigma/n\); Assumption 2.1 only requires \(\Sigma\) positive semidefinite, so no full-rank condition should be added. The statistic \(M\) is the maximum of the scalar coordinates \(S_{n,j}/\sigma_j^{\tau_n}\), not a vector norm, and \(\sigma_j>0\) from Assumption 2.2 makes the denominators meaningful; the exponent is \(\tau_n\in[0,1)\) in the theorem, although the preliminary definition says \([0,1]\). For \(J(d)\), the source says it is “a set of indices corresponding to the \(d\) largest values among \(\sigma_1,\dots,\sigma_p\),” and \(R(d)\) is the correlation matrix of the \(X_{1,j}\) with \(j\in J(d)\); the entries \(R_{i,j}(d)\) are entries in this \(d\times d\) local matrix, not automatically the original coordinate indices. The source calls \(R(d)\) a correlation matrix without displaying the entry formula; it should not be replaced by the covariance matrix, by a sample correlation, or by the correlation of \(Z_1\). The matrix \(R^+(d)\) has entrywise positive part \(\max\{R_{i,j}(d),0\}\); it is not the absolute-value matrix or \(R^\top R\). The source does not specify a tie-breaking rule for \(J(d)\) when the top \(d\) standard deviations are not unique; this is an unresolved ambiguity, and different tie choices could in principle change the displayed \(J(d),R(d),M_d,\widetilde M_d\) unless a deterministic convention is added.
+
+      3. Asymptotics (owner: Notation paragraph and Theorem 3.1). The source defines \(a_n\lesssim b_n\) for nonnegative sequences as: there exist \(c>0\) not depending on \(n\) and \(n_0\ge1\) such that \(a_n\le c\,b_n\) for all \(n\ge n_0\). Theorem 3.1 asserts the Kolmogorov-distance bound eventually in \(n\), with \(p=p(n)\) allowed to vary; it does not use \(O,o,\asymp\), or a probability qualifier. In particular, the theorem’s inequality is not an event holding with high probability; the high-probability statement belongs to the separate bootstrap theorem, not to Theorem 3.1. The asymptotic variable is \(n\), while \(p(n)\), \(\Sigma(n)\), the \(\sigma_j(n)\), \(R(d)\), and \(\tau_n\) may vary subject to Assumptions 2.1–2.2 and the \(\tau_n\) condition. The source explicitly says “no constraints are placed on the ratio \(p/n\)”; no such ratio condition should be added. The supplementary propositions labelled prop:bentkus and prop:IandIII use the same \(\lesssim\) convention and are proof-level supplement results; their inequalities for \(II_n\) and for \(I_n,III_n\) are not additional hypotheses of Theorem 3.1. The source does not fully specify the allowed dependence of the hidden asymptotic constants on the fixed constants or on \(\delta\), beyond excluding dependence on \(n\).
+
+      4. Potentially omitted definitions and side conditions (owner: Theorem 3.1 proof, Assumptions 2.1–2.2, and References R1–R2). \(\mathcal L(U)\) denotes the law, and \(d_{\mathrm K}\) is explicitly the supremum over scalar thresholds \(t\in\mathbb R\) of the absolute difference of CDFs, so it is not a vector-CDF distance. In Assumption 2.1, \(X_i=\mu+\Sigma^{1/2}Z_i\) with \(Z_1,\dots,Z_n\) i.i.d., \(\mathbb E[Z_1]=0\), \(\mathbb E[Z_1Z_1^\top]=\mathbf I_p\); there is no Gaussian requirement on \(Z_1\), and no constraint on \(p/n\). Assumption 2.2(i) requires all \(\sigma_1,\dots,\sigma_p\) positive and states the upper and lower decay bounds on the ranges \(\{k_n,\dots,p\}\) and \(\{1,\dots,k_n\}\), with overlap at \(k_n\), for constants independent of \(n\). The integers are defined using ceilings and \(\vee,\wedge\) by \(\ell_n=\lceil(1\vee\log(n)^3)\wedge p\rceil\) and \(k_n=\lceil(\ell_n\vee n^{1/\log(n)^a})\wedge p\rceil\), with \(a\in(0,1/2)\) fixed; the source leaves the logarithm base unspecified, and the notation \(\log(n)^3,\log(n)^a\) is naturally read as powers of \(\log n\). For \(d\in\{1,\dots,p\}\), \(M_d=\max_{j\in J(d)}S_{n,j}/\sigma_j^{\tau_n}\) and \(\widetilde M_d=\max_{j\in J(d)}\widetilde S_{n,j}/\sigma_j^{\tau_n}\), with \(M=M_p\) and \(\widetilde M=\widetilde M_p\). The proof writes \(I_n=d_K(\mathcal L(M_p),\mathcal L(M_{k_n}))\), \(II_n=d_K(\mathcal L(M_{k_n}),\mathcal L(\widetilde M_{k_n}))\), and \(III_n=d_K(\mathcal L(\widetilde M_{k_n}),\mathcal L(\widetilde M_p))\); these are proof-level definitions, not new hypotheses. The appendix conventions that \(n\) is sufficiently large and that proofs implicitly assume \(p>k_n\) are proof-level; the theorem itself should not acquire \(p>k_n\) as a hypothesis. The source notes that if \(p\le k_n\), then \(p=k_n\), so \(I_n=III_n=0\) and the proof reduces to \(II_n\). The supplemental results R1 (prop:bentkus) and R2 (prop:IandIII) are owned by the supplement proof of Theorem 3.1: R1 bounds \(II_n\), and R2 bounds \(I_n\) and \(III_n\), under the conditions of Theorem 3.1 as expanded there; they are not independent external universal theorems. External proof dependencies such as Bentkus’s multivariate Berry–Esseen theorem, Rosenthal’s inequality, and Slepian’s lemma are universal tools owned by those cited results; the target-specific variance-decay, \(J(d)\), and \(p>k_n\) conventions should not be imposed on the external theorem unless the local lemma explicitly restates them.
+      <!-- /formalization-clarifications -->
+
+      Fix any number \(\delta\in(0,1/2)\), and suppose that Assumptions~\ref{A:model} and~\ref{A:cor} hold. In addition, suppose that \(\tau_n\in [0,1)\) with \((1-\tau_n)\sqrt{\log(n)}\gtrsim 1\). Then,
+      \begin{equation}\label{eqn:thmG}
+      d_{\mathrm K}\big(\mathcal{L}(M) \, , \, \mathcal{L}(\tilde M)\big) \ \lesssim \  n^{-\frac 12+\delta}.
+      \end{equation}
+    assumptions:
+      - |-
+        We consider a sequence of models indexed by \(n\), with all parameters depending on \(n\), except for those that are stated to be fixed. In particular, the dimension \(p=p(n)\) is regarded as a function of \(n\), and hence, if a constant does not depend on \(n\), then it does not depend on \(p\) either.
+
+        **Assumption 2.1 (Data-generating model) [A:model]**
+
+        (i). There is a vector \(\mu=\mu(n)\in\mathbb R^p\) and positive semi-definite matrix \(\Sigma=\Sigma(n)\in\mathbb R^{p\times p}\), such that the observations \(X_1,\dots,X_n\in\mathbb R^p\) are generated as
+        \[
+        X_i=\mu+\Sigma^{1/2}Z_i
+        \]
+        for each \(1\leq i\leq n\), where the random vectors \(Z_1,\dots,Z_n\in\mathbb R^p\) are i.i.d.
+
+        (ii). The random vector \(Z_1\) satisfies \(\mathbb E[Z_1]=0\) and \(\mathbb E[Z_1Z_1^\top]=\mathbf{I}_p\), as well as
+        \[
+        \sup_{\|u\|_2=1}\|Z_1^\top u\|_{\psi_1}\leq c_0,
+        \]
+        for some constant \(c_0>0\) that does not depend on \(n\), where \(\|\cdot\|_{\psi_1}\) is the sub-exponential Orlicz norm.
+
+        Note that no constraints are placed on the ratio \(p/n\).
+
+        **Assumption 2.2 (Structural assumptions) [A:cor]**
+
+        (i). The parameters \(\sigma_1,\dots,\sigma_p\) are positive, and there are positive constants \(\alpha\), \(c\), and \(c_{\circ}\in(0,1)\), not depending on \(n\), such that
+        \begin{equation}\label{eqn:varcond1}
+        \sigma_{(j)} \leq c \, j^{-\alpha} \quad \text{for all } j\in\{k_n,\dots,p\},
+        \end{equation}
+        \begin{equation}\label{eqn:varcond2}
+        \sigma_{(j)} \geq c_{\circ} \, j^{-\alpha} \quad \text{for all } j\in\{1,\dots,k_n\}.
+        \end{equation}
+
+        (ii). There is a constant \(\varepsilon_0\in(0,1)\), not depending on \(n\), such that
+        \begin{equation}\label{eqn:cormax}
+        \max_{i\neq j}R_{i,j}(\ell_n)\leq 1-\varepsilon_0.
+        \end{equation}
+        Also, the matrix \(R^+(\ell_n)\) with \((i,j)\) entry given by \(\max\{R_{i,j}(\ell_n),0\}\) is positive semi-definite, and there is a constant \(C>0\) not depending on \(n\) such that
+        \begin{equation}\label{eqn:corbound}
+        \sum_{1\leq i<j\leq \ell_n}\!\!R_{i,j}^+(\ell_n) \ \leq \ C \ell_n.
+        \end{equation}
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      To fix some notation that will be used in the appendices, let \(d\in\{1,\dots,p\}\), and define a generalized version of \(M\) as
+      \[
+      M_d=\max_{j\in\J(d)}S_{n,j}/\sigma_j^{\tau_n}.
+      \]
+      In particular, the statistic \(M\) defined in equation~\eqref{eqn:mdef} is the same as \(M_p\). Similarly, the Gaussian version of \(M_d\) is defined as
+      \[
+      \tilde M_d=\max_{j\in\J(d)}\tilde S_{n,j}/\sigma_j^{\tau_n}.
+      \]
+
+      Based on the formulation of the theorems, it is sufficient to show that the results hold for all large values of \(n\), and it will simplify some of the proofs to make use of this reduction. For this reason, it is understood going forward that \(n\) is sufficiently large for any given expression to make sense. Another convention is that all proofs in the appendices will implicitly assume that \(p>k_n\) (unless otherwise stated), because once the proofs are given for this case, it will follow that the low-dimensional case where \(p\leq k_n\) can be handled as a direct consequence.
+
+      ### Proof
+      Consider the inequality
+      \begin{equation}
+      d_{\mathrm K}(\mathcal{L}(M_p),\mathcal{L}(\tilde M_p)) \, \leq \, I_n+II_n+III_n,
+      \end{equation}
+      where we define
+      \begin{align}
+      I_n &= d_{\mathrm K}\Big(\mathcal{L}(M_p) \, , \, \mathcal{L}(M_{k_n})\Big)\\[0.2cm]
+      II_n &=d_{\mathrm K}\Big( \mathcal{L}(M_{k_n})\, , \, \mathcal{L}(\tilde M_{k_n})\Big)\\[0.2cm]
+      III_n &=d_{\mathrm K}\Big( \mathcal{L}(\tilde M_{k_n})\, ,\, \mathcal{L}(\tilde M_p)\Big).\label{eqn:IIIdef}
+      \end{align}
+
+      Below, we show that the term \(II_n\) is at most of order \(n^{-\frac{1}{2}+\delta}\) in [ref:R1]. Later on, we establish a corresponding result for \(I_n\) and \(III_n\) in [ref:R2]. Taken together, these results complete the proof of Theorem~\ref{THM:G} for the case \(p>k_n\).
+
+      In the low-dimensional case \(p\leq k_n\), the previous proofs relied on the condition \(p>k_n\) only insofar as this implies \(k_n\geq n^{\frac{1}{\log(n)^a}}\) and \(\ell_n\geq \log(n)^3\). However, if \(p\leq k_n\), then the definition of \(k_n\) implies that \(p=k_n\), which causes the quantities \(I_n\) and \(III_n\) to become exactly \(0\). In this case, the proof of Theorem~\ref{THM:G} reduces to bounding \(II_n\), and this argument can be repeated as before.
+
+      ### References
+      #### Reference R1
+      Target: Proposition~\ref{prop:bentkus}
+
+      Citation: Below, we show that the term \(\II_n\) is at most of order \(n^{-\frac{1}{2}+\delta}\) in Proposition~\ref{prop:bentkus}.
+
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D1 (`supp.tex`), Appendix “Proof of Theorem~\ref{THM:G},” where the result is locally labelled `prop:bentkus`. The proposition is a numbered restatement in the supplement, not an independently confirmed article-original theorem. It supports precisely the current target’s conclusion that \(\II_n\lesssim n^{-1/2+\delta}\). The definition of \(\II_n\) and the generalized statistics \(M_d,\tilde M_d\) are taken from the preceding proof and appendix notation. The proposition invokes “the conditions of Theorem~\ref{THM:G}”; those conditions are expanded in Assumptions below from the current theorem and the supplement. The appendix also declares proof-level conventions that \(n\) is sufficiently large and that proofs assume \(p>k_n\) unless otherwise stated; these are not displayed as hypotheses of `prop:bentkus`. No additional source result is needed for this specific proposition statement; Bentkus’ theorem and other lemmas are proof dependencies, not part of the proposition’s statement.
+
+      ##### Proposition~\ref{prop:bentkus}: bound for \(\II_n\)
+      ###### Definitions and notation
+      For the max-statistic setting, \(S_{n,j}\) is the \(j\)th coordinate of
+      \[
+      S_n=\frac1{\sqrt n}\sum_{i=1}^n (X_i-\E[X_i]),
+      \]
+      where \(X_1,\dots,X_n\) are i.i.d. random vectors in \(\R^p\). Let
+      \[
+      \sigma_j^2=\var(X_{1,j}),\qquad 1\le j\le p,
+      \]
+      and write the ordered standard deviations as
+      \[
+      \sigma_{(1)}\ge \sigma_{(2)}\ge\cdots\ge \sigma_{(p)}.
+      \]
+
+      For a free parameter \(\tau_n\in[0,1]\), define
+      \[
+      M=\max_{1\le j\le p} \frac{S_{n,j}}{\sigma_j^{\tau_n}}
+      \qquad\text{(source label \texttt{eqn:mdef}).}
+      \]
+      Let \(\tilde S_n\sim N(0,\Sigma)\), and define the Gaussian counterpart
+      \[
+      \tilde M=\max_{1\le j\le p}\frac{\tilde S_{n,j}}{\sigma_j^{\tau_n}}
+      \qquad\text{(source label \texttt{eqn:Mtildedef}).}
+      \]
+
+      For random variables \(U,V\), the Kolmogorov distance is
+      \[
+      d_{\mathrm K}\big(\mathcal L(U),\mathcal L(V)\big)
+      =\sup_{t\in\R}\big|\P(U\le t)-\P(V\le t)\big|.
+      \]
+
+      For each \(d\in\{1,\dots,p\}\), let \(J(d)\) denote a set of indices corresponding to the \(d\) largest values among \(\sigma_1,\dots,\sigma_p\), i.e.
+      \[
+      \{\sigma_{(1)},\dots,\sigma_{(d)}\}=\{\sigma_j:j\in J(d)\}.
+      \]
+      Let \(R(d)\in\R^{d\times d}\) denote the correlation matrix of the random variables
+      \[
+      \{X_{1,j}:j\in J(d)\}.
+      \]
+      The entries of \(R(d)\) are written \(R_{i,j}(d)\), and \(R^+(d)\) denotes the matrix with \((i,j)\) entry
+      \[
+      R^+_{i,j}(d)=\max\{R_{i,j}(d),0\}.
+      \]
+
+      For \(d\in\{1,\dots,p\}\), define the generalized statistic
+      \[
+      M_d=\max_{j\in J(d)}\frac{S_{n,j}}{\sigma_j^{\tau_n}},
+      \]
+      so that \(M=M_p\). Similarly,
+      \[
+      \tilde M_d=\max_{j\in J(d)}\frac{\tilde S_{n,j}}{\sigma_j^{\tau_n}},
+      \]
+      so that \(\tilde M=\tilde M_p\). In particular, for the integer \(k_n\) defined below,
+      \[
+      M_{k_n}=\max_{j\in J(k_n)}\frac{S_{n,j}}{\sigma_j^{\tau_n}},
+      \qquad
+      \tilde M_{k_n}=\max_{j\in J(k_n)}\frac{\tilde S_{n,j}}{\sigma_j^{\tau_n}}.
+      \]
+
+      The quantity \(\II_n\) is defined by
+      \[
+      \II_n
+      =d_{\mathrm K}\Big(\mathcal L(M_{k_n}),\mathcal L(\tilde M_{k_n})\Big).
+      \]
+
+      Let \(a\in(0,\frac12)\) be fixed with respect to \(n\), and define the integers
+      \[
+      \ell_n=\big\lceil (1\vee \log(n)^3)\wedge p\big\rceil,
+      \]
+      \[
+      k_n=\Big\lceil \big(\ell_n\vee n^{\frac1{\log(n)^a}}\big)\wedge p\Big\rceil
+      \qquad\text{(source label \texttt{eqn:kndef}).}
+      \]
+      The source notes that both \(\ell_n\) and \(k_n\) grow slower than any fractional power of \(n\), and always satisfy
+      \[
+      1\le \ell_n\le k_n\le p.
+      \]
+
+      The symbol \(\lesssim\) is used in the source’s usual asymptotic sense, with an implied constant not depending on \(n\).
+
+      ###### Assumptions
+      Fix \(\delta\in(0,\frac12)\).
+
+      We consider a sequence of models indexed by \(n\), with all parameters depending on \(n\) except those stated to be fixed. In particular, \(p=p(n)\) is regarded as a function of \(n\); if a constant does not depend on \(n\), it does not depend on \(p\) either.
+
+      **Assumption 2.1 (Data-generating model) [`A:model`].**
+
+      (i) There is a vector \(\mu=\mu(n)\in\R^p\) and a positive semi-definite matrix \(\Sigma=\Sigma(n)\in\R^{p\times p}\) such that the observations \(X_1,\dots,X_n\in\R^p\) are generated as
+      \[
+      X_i=\mu+\Sigma^{1/2}Z_i,\qquad 1\le i\le n,
+      \]
+      where the random vectors \(Z_1,\dots,Z_n\in\R^p\) are i.i.d.
+
+      (ii) The random vector \(Z_1\) satisfies
+      \[
+      \E[Z_1]=0,\qquad \E[Z_1Z_1^{\top}]=\mathbf I_p,
+      \]
+      and
+      \[
+      \sup_{\|u\|_2=1}\|Z_1^{\top}u\|_{\psi_1}\le c_0
+      \]
+      for some constant \(c_0>0\) that does not depend on \(n\), where \(\|\cdot\|_{\psi_1}\) is the sub-exponential Orlicz norm. No constraint is placed on the ratio \(p/n\).
+
+      **Assumption 2.2 (Structural assumptions) [`A:cor`].**
+
+      (i) The parameters \(\sigma_1,\dots,\sigma_p\) are positive, and there are positive constants \(\alpha\), \(c\), and \(c_\circ\in(0,1)\), not depending on \(n\), such that
+      \[
+      \sigma_{(j)}\le c\,j^{-\alpha}\qquad\text{for all }j\in\{k_n,\dots,p\}
+      \qquad\text{(source label \texttt{eqn:varcond1}),}
+      \]
+      and
+      \[
+      \sigma_{(j)}\ge c_\circ\,j^{-\alpha}\qquad\text{for all }j\in\{1,\dots,k_n\}
+      \qquad\text{(source label \texttt{eqn:varcond2}).}
+      \]
+
+      (ii) There is a constant \(\varepsilon_0\in(0,1)\), not depending on \(n\), such that
+      \[
+      \max_{i\ne j}R_{i,j}(\ell_n)\le 1-\varepsilon_0
+      \qquad\text{(source label \texttt{eqn:cormax}).}
+      \]
+      Also, the matrix \(R^+(\ell_n)\), with \((i,j)\) entry
+      \[
+      \max\{R_{i,j}(\ell_n),0\},
+      \]
+      is positive semi-definite, and there is a constant \(C>0\), not depending on \(n\), such that
+      \[
+      \sum_{1\le i<j\le \ell_n} R^+_{i,j}(\ell_n)\le C\ell_n
+      \qquad\text{(source label \texttt{eqn:corbound}).}
+      \]
+
+      **Theorem~\ref{THM:G} condition on \(\tau_n\).** In addition,
+      \[
+      \tau_n\in[0,1)
+      \qquad\text{and}\qquad
+      (1-\tau_n)\sqrt{\log(n)}\gtrsim 1.
+      \]
+
+      The supplement’s asymptotic convention is that it suffices to prove the stated bound for all sufficiently large \(n\); this convention is used in the appendix.
+
+      ###### Statement
+      Fix any number \(\delta\in(0,\frac12)\), and suppose that the conditions of Theorem~\ref{THM:G} hold, as spelled out in Assumptions above. Then,
+      \[
+      \II_n\ \lesssim\ n^{-\frac12+\delta}
+      \qquad\text{(source label \texttt{eqn:IInbound}).}
+      \]
+
+      #### Reference R2
+      Target: Proposition~\ref{prop:IandIII}
+
+      Citation: Later on, we establish a corresponding result for \(\I_n\) and \(\III_n\) in Proposition~\ref{prop:IandIII}.
+
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+
+      Source extraction. The result is Proposition~\ref{prop:IandIII} in D1 (`supp.tex`), in the appendix proof of Theorem~\ref{THM:G}, immediately after Proposition~\ref{prop:bentkus}. The supplementary material is the source cited in the bibliography for the paper of Lopes, Lin, and Müller. This proposition supplies both bounds used in the current Theorem~3.1 proof, namely the bounds for \(\I_n\) and \(\III_n\). The inherited conditions from Theorem~\ref{THM:G} have been expanded from the supplied statement of Assumptions~2.1 and~2.2 and the stated condition on \(\tau_n\). No extra source theorem is combined with this proposition. The proposition’s proof uses later technical lemmas, but those are proof dependencies and are not restated here. No mathematical supplementation was needed; the external article page or equation provenance was not independently checked.
+
+      ##### Proposition~\ref{prop:IandIII}
+
+      ###### Definitions and notation
+      Let \(X_1,\dots,X_n\) be i.i.d. vectors in \(\R^p\), and for the max statistic context let \(S_{n,j}\) be the \(j\)th coordinate of
+      \[
+      S_n=\frac{1}{\sqrt n}\sum_{i=1}^n (X_i-\E[X_i]).
+      \]
+      Let
+      \[
+      \sigma_j^2=\var(X_{1,j}) \qquad \text{for each }1\leq j\leq p,
+      \]
+      and write \(\sigma_{(1)}\geq \cdots \geq \sigma_{(p)}\) for the ordered standard deviations.
+
+      Let \(\tau_n\in[0,1]\) be the free partial-standardization parameter, and define
+      \begin{equation}\label{eqn:mdef}
+      M=\max_{1\leq j\leq p} S_{n,j}/\sigma_j^{\tau_n}.
+      \end{equation}
+      Let \(\tilde S_n\sim N(0,\Sigma)\), and define the Gaussian counterpart
+      \begin{equation}\label{eqn:Mtildedef}
+      \tilde{M}=\max_{1\leq j\leq p} \tilde{S}_{n,j}/\sigma_j^{\tau_n}.
+      \end{equation}
+      For random variables \(U\) and \(V\), the Kolmogorov distance is
+      \[
+      d_{\textup K}(\mathcal{L}(U),\mathcal{L}(V))
+      =\sup_{t\in\R}\left|\P(U\leq t)-\P(V\leq t)\right|.
+      \]
+
+      For any \(d\in\{1,\dots,p\}\), let \(\J(d)\) denote a set of indices corresponding to the \(d\) largest values among \(\sigma_1,\dots,\sigma_p\), i.e.
+      \[
+      \{\sigma_{(1)},\dots,\sigma_{(d)}\}
+      =
+      \{\sigma_j:\ j\in\J(d)\}.
+      \]
+      Let \(R(d)\in\R^{d\times d}\) denote the correlation matrix of the random variables
+      \[
+      \{X_{1,j}:\ j\in\J(d)\}.
+      \]
+
+      Let \(a\in(0,\tfrac12)\) be a constant fixed with respect to \(n\), and define the integers \(\ell_n\) and \(k_n\) by
+      \begin{align}
+      \ell_n&=\big\lceil (1\vee \log(n)^3)\wedge p\big\rceil,\\[0.2cm]
+      k_n&=\big\lceil \big(\ell_n\vee n^{\frac{1}{\log(n)^{a}}}\big)\wedge p\big\rceil
+      \label{eqn:kndef}.
+      \end{align}
+      Both \(\ell_n\) and \(k_n\) grow slower than any fractional power of \(n\), and
+      \[
+      1\leq \ell_n\leq k_n\leq p.
+      \]
+
+      For \(d\in\{1,\dots,p\}\), define the generalized statistic
+      \[
+      M_d=\max_{j\in\J(d)}S_{n,j}/\sigma_j^{\tau_n},
+      \]
+      so that \(M=M_p\), and define its Gaussian analog
+      \[
+      \tilde M_d=\max_{j\in\J(d)}\tilde S_{n,j}/\sigma_j^{\tau_n}.
+      \]
+      The quantities appearing in the statement are
+      \begin{align}
+      \I_n &= d_{\textup K}\Big(\mathcal{L}(M_p),\mathcal{L}(M_{k_n})\Big),\\[0.2cm]
+      \III_n &= d_{\textup K}\Big(\mathcal{L}(\tilde M_{k_n}),\mathcal{L}(\tilde M_p)\Big)
+      \label{eqn:IIIdef}.
+      \end{align}
+
+      ###### Assumptions
+      The result is stated for a sequence of models indexed by \(n\), with all parameters depending on \(n\) except those stated to be fixed. In particular, \(p=p(n)\) is regarded as a function of \(n\), and constants that do not depend on \(n\) do not depend on \(p\) either.
+
+      Fix any number \(\delta\in(0,1/2)\). The proposition assumes that the conditions of Theorem~\ref{THM:G} hold. These conditions are as follows.
+
+      **Assumption 2.1 (Data-generating model) [A:model]**
+
+      (i) There is a vector \(\mu=\mu(n)\in\R^p\) and a positive semidefinite matrix \(\Sigma=\Sigma(n)\in\R^{p\times p}\), such that the observations \(X_1,\dots,X_n\in\R^p\) are generated as
+      \[
+      X_i=\mu+\Sigma^{1/2}Z_i
+      \qquad\text{for each }1\leq i\leq n,
+      \]
+      where the random vectors \(Z_1,\dots,Z_n\in\R^p\) are i.i.d.
+
+      (ii) The random vector \(Z_1\) satisfies
+      \[
+      \E[Z_1]=0,
+      \qquad
+      \E[Z_1Z_1^\top]=\mathbf{I}_p,
+      \]
+      and
+      \[
+      \sup_{\|u\|_2=1}\|Z_1^\top u\|_{\psi_1}\leq c_0,
+      \]
+      for some constant \(c_0>0\) that does not depend on \(n\). No constraint is placed on the ratio \(p/n\).
+
+      **Assumption 2.2 (Structural assumptions) [A:cor]**
+
+      (i) The parameters \(\sigma_1,\dots,\sigma_p\) are positive, and there are positive constants \(\alpha\), \(c\), and \(c_{\circ}\in(0,1)\), not depending on \(n\), such that
+      \begin{equation}\label{eqn:varcond1}
+      \sigma_{(j)} \leq c\, j^{-\alpha}
+      \qquad\text{for all }j\in\{k_n,\dots,p\},
+      \end{equation}
+      and
+      \begin{equation}\label{eqn:varcond2}
+      \sigma_{(j)} \geq c_{\circ}\, j^{-\alpha}
+      \qquad\text{for all }j\in\{1,\dots,k_n\}.
+      \end{equation}
+
+      (ii) There is a constant \(\epsilon_0\in(0,1)\), not depending on \(n\), such that
+      \begin{equation}\label{eqn:cormax}
+      \max_{i\neq j}R_{i,j}(\ell_n)\leq 1-\epsilon_0.
+      \end{equation}
+      Also, the matrix \(R^+(\ell_n)\), with \((i,j)\) entry given by
+      \[
+      \max\{R_{i,j}(\ell_n),0\},
+      \]
+      is positive semidefinite, and there is a constant \(C>0\), not depending on \(n\), such that
+      \begin{equation}\label{eqn:corbound}
+      \sum_{1\leq i<j\leq \ell_n} R_{i,j}^+(\ell_n)\leq C\ell_n.
+      \end{equation}
+
+      In addition, \(\tau_n\in[0,1)\) and
+      \[
+      (1-\tau_n)\sqrt{\log(n)}\gtrsim 1.
+      \]
+
+      The appendix’s general convention says that proofs implicitly assume \(p>k_n\) unless otherwise stated. The source separately notes that when \(p\leq k_n\), one has \(p=k_n\), so that \(\I_n\) and \(\III_n\) become exactly \(0\); this low-dimensional case is handled as a direct consequence.
+
+      ###### Statement
+      Under the assumptions above, i.e. for fixed \(\delta\in(0,1/2)\) and under the conditions of Theorem~\ref{THM:G},
+      \begin{equation}\label{IandIII}
+      \I_n \ \lesssim \ n^{-\frac12+\delta}
+      \qquad\text{and}\qquad
+      \III_n \ \lesssim \ n^{-\frac12+\delta}.
+      \end{equation}
+    lean_name: Theorem_3_1_Gaussian_approximation_THM_G
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics

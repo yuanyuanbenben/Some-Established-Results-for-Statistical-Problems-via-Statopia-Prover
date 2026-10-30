@@ -1,0 +1,19 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=sample_maximum_sufficient
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:169:12: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+<stdin>:184:12: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'sample_maximum_sufficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

@@ -1,0 +1,9 @@
+{
+  "finishedAt": "2026-10-18T03:02:50.127Z",
+  "finalStatus": "proved",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q28/experiment/runs/20261018T015543Z-axial_extrinsic_mean_leading_eigenvector-c8060e1b",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q28",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q28",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q28/experiment/runs/20261018T015543Z-axial_extrinsic_mean_leading_eigenvector-c8060e1b/job_snapshot",
+  "publishedCheckpointDir": null
+}

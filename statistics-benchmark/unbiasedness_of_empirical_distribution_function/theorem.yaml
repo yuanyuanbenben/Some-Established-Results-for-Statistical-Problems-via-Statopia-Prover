@@ -1,0 +1,41 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/unbiasedness_of_empirical_distribution_function.tex
+msc: 62G30
+topic: Order statistics; empirical distribution functions
+track_a_difficulty: hard
+track_b_difficulty: medium
+theorems:
+  - id: unbiasedness_of_empirical_distribution_function
+    kind: theorem
+    lean_name: unbiasedness_of_empirical_distribution_function
+    latex_statement: >-
+      \begin{theorem}[Unbiasedness of the Empirical Distribution Function]
+
+      Let $n \in \mathbb{N}$ with $n \ge 1$. Let $X_1,\ldots,X_n$ be identically
+
+      distributed random variables with distribution function $F$. Let $t \in
+      \mathbb{R}$.
+
+      Define
+
+      \[
+
+      F_n(t)=\frac{1}{n}\sum_{i=1}^n \mathbf{1}\{X_i \le t\}.
+
+      \]
+
+      Then
+
+      \[
+
+      \mathbb{E}[F_n(t)]=F(t).
+
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

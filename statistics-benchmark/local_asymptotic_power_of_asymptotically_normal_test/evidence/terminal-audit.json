@@ -1,0 +1,66 @@
+{
+  "id": "q36",
+  "case": "local_asymptotic_power_of_asymptotically_normal_test",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q36",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q36/experiment/runs/20261018T042558Z-local_asymptotic_power_of_asymptotically_normal_test-305e50c2",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "752991280620145e6f481f5d79fdb9c4696d978864b8453155916ec6c568fcc0",
+  "signatureLockSha256": "cc5168944cafda08f19f346970341d6cf9bfca0e9d4601fd11fad59cf27debcd",
+  "rootTheorem": "local_asymptotic_power_of_asymptotically_normal_test",
+  "inputRootSignature": "theorem local_asymptotic_power_of_asymptotically_normal_test {Ω : Type*} [MeasurableSpace Ω] (P : ℕ → ProbabilityMeasure Ω) (thetaHat : ℕ → Ω → ℝ) (theta₀ h c sigma : ℝ) (hsigma : 0 < sigma) (hthetaHat : ∀ n, Measurable (thetaHat n)) (hasymptotic_normality : Tendsto (fun n ↦ ProbabilityMeasure.map (P (n + 1)) (show AEMeasurable (fun ω ↦ Real.sqrt (n + 1 : ℝ) * (thetaHat (n + 1) ω - (theta₀ + h / Real.sqrt (n + 1 : ℝ))) / sigma) (P (n + 1)) by fun_prop)) atTop (𝓝 (⟨gaussianReal 0 1, inferInstance⟩ : ProbabilityMeasure ℝ))) : Tendsto (fun n ↦ ENNReal.toReal ((P (n + 1) : Measure Ω) {ω | Real.sqrt (n + 1 : ℝ) * (thetaHat (n + 1) ω - theta₀) / sigma > c})) atTop (𝓝 (1 - cdf (gaussianReal 0 1) (c - h / sigma)))",
+  "lockedRootSignature": "theorem local_asymptotic_power_of_asymptotically_normal_test {Ω : Type*} [MeasurableSpace Ω] (P : ℕ → ProbabilityMeasure Ω) (thetaHat : ℕ → Ω → ℝ) (theta₀ h c sigma : ℝ) (hsigma : 0 < sigma) (hthetaHat : ∀ n, Measurable (thetaHat n)) (hasymptotic_normality : Tendsto (fun n ↦ ProbabilityMeasure.map (P (n + 1)) (show AEMeasurable (fun ω ↦ Real.sqrt (n + 1 : ℝ) * (thetaHat (n + 1) ω - (theta₀ + h / Real.sqrt (n + 1 : ℝ))) / sigma) (P (n + 1)) by fun_prop)) atTop (𝓝 (⟨gaussianReal 0 1, inferInstance⟩ : ProbabilityMeasure ℝ))) : Tendsto (fun n ↦ ENNReal.toReal ((P (n + 1) : Measure Ω) {ω | Real.sqrt (n + 1 : ℝ) * (thetaHat (n + 1) ω - theta₀) / sigma > c})) atTop (𝓝 (1 - cdf (gaussianReal 0 1) (c - h / sigma)))",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.f82f21d1f911f0cf8063ed0f.json",
+      "receiptId": "job-final.f82f21d1f911f0cf8063ed0f",
+      "receiptHash": "0a2e7bd06119fcbae6215fbeacc6a93aeb17b183c5c54368dbbe92f238a0489b",
+      "finalizedAt": 1792300647808,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "3510d14593d525e0f56596f6afffa8b4792a248860134e7d91414f7db0694490"
+    }
+  ],
+  "slot": 1,
+  "keyIndex": 2,
+  "nodes": 3,
+  "auxiliaryNodes": 2,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 3
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.eb15ffd4c38598087a6dc9d89628656c",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 10
+}

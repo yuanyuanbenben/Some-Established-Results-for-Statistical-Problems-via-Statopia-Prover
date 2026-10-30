@@ -1,0 +1,58 @@
+{
+  "modules": [
+    {
+      "module": "Statlib/Nonparametric/Vocabulary/NeuralNetwork.lean",
+      "lines": 447,
+      "sha256": "40181e4739064e437500f5f5dc236a6433b4622a9f5d96d2f6425babdc26e7c4",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/NeuralNetworkAlgebra.lean",
+      "lines": 35028,
+      "sha256": "8851842b4b3c1b6e8f368ae9230d8be6379fd2c1ab36953b34c97a327a6ecfa4",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/ReLUNetworkConstruction.lean",
+      "lines": 7713,
+      "sha256": "1c324dde97dad3299b6fc5a50b9a391f1b78e7e676e0ed749f785d582a1c1fd5",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/ReLUStateMachine.lean",
+      "lines": 8466,
+      "sha256": "c0b88c4882cfb9cb95af9903e698d07819959f641eee41a5f5d63a1cd3067824",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/ShallowReLUApproximationGeometry.lean",
+      "lines": 3781,
+      "sha256": "412dd3610deea8ad66d8caabb2d96d29cf5558a309adb2b16cd5ca1874f6d97d",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/ShallowReLUApproximation.lean",
+      "lines": 380,
+      "sha256": "d4b5443169dc76c094b3692804328667d99051c9e49f6744f66189d84128031c",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/NeuralNetwork.lean",
+      "lines": 107,
+      "sha256": "cf47c2efd31f6508ec74e1f5711e9e0d558703f2bcc185cd41f7a95b44487b85",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    }
+  ],
+  "total_lines": 55922,
+  "cost_usd": null,
+  "seconds": null,
+  "git_head": "174dc885c573f55a3fff5e2c7d0bdfd88b382377",
+  "public_theorem": "Statlib.Nonparametric.Approximation.holder_smooth_shallow_relu_neural_network_approximation"
+}

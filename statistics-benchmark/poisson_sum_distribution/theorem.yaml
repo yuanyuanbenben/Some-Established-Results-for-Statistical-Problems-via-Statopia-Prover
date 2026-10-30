@@ -1,0 +1,39 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62E/poisson_sum_distribution.tex
+msc: "62E15"
+topic: Exact distribution theory
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: poisson_sum_distribution
+    kind: theorem
+    lean_name: poisson_sum_distribution
+    latex_statement: |-
+      \begin{theorem}[Sum of Independent Poisson Variables]
+      Let $n\in\mathbb{N}$ with $n\ge 1$. For $i=1,\ldots,n$, let
+      $\lambda_i\in\mathbb{R}$ satisfy
+      \[
+      \lambda_i>0.
+      \]
+      Let $X_1,\ldots,X_n$ be independent $\mathbb{N}$-valued random variables
+      such that, for every $m\in\mathbb{N}$,
+      \[
+      P(X_i=m)=e^{-\lambda_i}\frac{\lambda_i^m}{m!}.
+      \]
+      Define
+      \[
+      S=\sum_{i=1}^n X_i,
+      \qquad
+      \Lambda=\sum_{i=1}^n\lambda_i.
+      \]
+      Then, for every $k\in\mathbb{N}$,
+      \[
+      P(S=k)=e^{-\Lambda}\frac{\Lambda^k}{k!}.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

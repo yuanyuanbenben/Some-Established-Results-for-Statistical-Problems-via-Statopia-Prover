@@ -1,0 +1,150 @@
+version: v1
+theorem_set: showcase_cqr_theorem1_step_006
+source_tag: romano-patterson-candes-cqr-2019-theorem1
+setting:
+  depth: 0
+defaults:
+  lean_namespace: Statlib.Workspace.Conformal
+  target_dir: ProverJobs
+  allow_axiom: false
+theorems:
+  - id: cqr.006.romano_patterson_candes_cqr_finite_sample_miscoverage_bound
+    title: "Romano-Patterson-Candes CQR Theorem 1, finite-sample miscoverage form"
+    kind: theorem
+    lean_name: cqr_006_romano_patterson_candes_cqr_finite_sample_miscoverage_bound
+    lean_namespace: Statlib.Workspace.Conformal
+    priority: 1
+    layer: cqr-final-assembly
+    target_file: ProverJobs/cqr_006_romano_patterson_candes_cqr_finite_sample_miscoverage_bound/Main.lean
+    dependencies:
+      - cqr.005.split_conformal_score_miscoverage_bound_of_exchangeable
+      - statlib.Statlib.Nonparametric.ConformalQuantileRegression.cqr_miscoverage_bound_of_score_miscoverage
+    workspace_siblings:
+      - cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable
+    required_workspace_decls:
+      - cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable
+    imports:
+      - Statlib
+      - ProverJobs.cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable.Main
+    latex_statement: |
+      Let \(q_{\mathrm{lo}}\) and \(q_{\mathrm{hi}}\) be arbitrary measurable
+      trained lower and upper quantile functions, and let the calibration
+      sample, new covariate, response, conformal threshold, and resulting
+      miscoverage event be measurable.  Assume the CQR calibration scores and
+      the held-out CQR score form an exchangeable appended score vector, and
+      assume the inflated
+      empirical-quantile count condition with index \(k\) satisfies
+      \((n+1-k)/(n+1)\le \alpha\).  Then the CQR prediction interval
+      \[
+        [q_{\mathrm{lo}}(X_{n+1})-\widehat q,\,
+         q_{\mathrm{hi}}(X_{n+1})+\widehat q]
+      \]
+      has marginal miscoverage probability at most \(\alpha\).
+    assumptions:
+      - This is the finite-sample CQR coverage core, not a training-algorithm theorem.
+      - The learned quantile functions are arbitrary fixed measurable functions.
+      - The split-conformal score theorem is imported as a workspace sibling.
+      - "`hn : 0 < n` is an explicit regularity hypothesis for the calibration sample size."
+      - "`[MeasurableSpace X]`, `hqlo_meas`, `hqhi_meas`, and `hXnew_meas` are explicit regularity hypotheses for the CQR prediction event."
+      - "`hXcal_meas` and `hYcal_meas` are explicit regularity hypotheses for the calibration data."
+      - "`hYnew_meas : Measurable Ynew` is an explicit regularity hypothesis for the response event."
+      - "`hthreshold_meas : Measurable threshold` is an explicit regularity hypothesis for the conformal threshold."
+      - "`hmiscoverage_meas` is an explicit regularity hypothesis for the final CQR miscoverage event."
+    proof_block:
+      theorem_shape: |
+        import Statlib
+        import ProverJobs.cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable.Main
+
+        open MeasureTheory
+        open Statlib.StatFoundation.Vocabulary
+        open Statlib.Nonparametric.Vocabulary
+        open Statlib.Nonparametric.ConformalQuantileRegression
+
+        namespace Statlib.Workspace.Conformal
+
+        theorem cqr_006_romano_patterson_candes_cqr_finite_sample_miscoverage_bound {Ω X : Type*}
+            [MeasurableSpace Ω] [MeasurableSpace X] (μ : Measure Ω) [IsProbabilityMeasure μ]
+            {n k : ℕ} (hn : 0 < n) (alpha : ℝ)
+            (qlo qhi : X → ℝ)
+            (Xcal : Fin n → Ω → X) (Ycal : Fin n → Ω → ℝ)
+            (Xnew : Ω → X) (Ynew threshold : Ω → ℝ)
+            (hqlo_meas : Measurable qlo)
+            (hqhi_meas : Measurable qhi)
+            (hXcal_meas : ∀ i : Fin n, Measurable (Xcal i))
+            (hYcal_meas : ∀ i : Fin n, Measurable (Ycal i))
+            (hXnew_meas : Measurable Xnew)
+            (hYnew_meas : Measurable Ynew)
+            (hthreshold_meas : Measurable threshold)
+            (hmiscoverage_meas :
+              MeasurableSet
+                {ω | Ynew ω ∉ cqrInterval qlo qhi (threshold ω) (Xnew ω)})
+            (hquantile :
+              HasAtLeastKCalibrationScoresLE
+                (cqrCalibrationScores qlo qhi Xcal Ycal)
+                threshold k)
+            (hscore_meas :
+              ∀ i : Fin (n + 1),
+                Measurable
+                  ((appendCalibrationTestScoreProcess
+                    (cqrCalibrationScores qlo qhi Xcal Ycal)
+                    (cqrTestScore qlo qhi Xnew Ynew)) i))
+            (hscore_exch :
+              IsExchangeable
+                (appendCalibrationTestScoreProcess
+                  (cqrCalibrationScores qlo qhi Xcal Ycal)
+                  (cqrTestScore qlo qhi Xnew Ynew)) μ)
+            (hk_alpha : (((n + 1 - k : ℕ) : ℝ) / ((n + 1 : ℕ) : ℝ)) ≤ alpha) :
+            MarginalEventBound μ
+              {ω | Ynew ω ∉ cqrInterval qlo qhi (threshold ω) (Xnew ω)}
+              alpha := by
+          sorry
+
+        end Statlib.Workspace.Conformal
+    proof_body: |
+      DIRECT DEPTH-0 REPLACEMENT PROOF.  Replace the single `sorry` with exactly
+      the Lean code below.  First try this proof verbatim with `replace_sorry`;
+      do not call search and do not reprove rank-counting, exchangeability, or
+      split-conformal mathematics.
+
+      Statement-integrity guard: `hn : 0 < n`, `[MeasurableSpace X]`,
+      `hqlo_meas : Measurable qlo`, `hqhi_meas : Measurable qhi`,
+      `hXcal_meas : ∀ i : Fin n, Measurable (Xcal i)`,
+      `hYcal_meas : ∀ i : Fin n, Measurable (Ycal i)`,
+      `hXnew_meas : Measurable Xnew`, `hYnew_meas : Measurable Ynew`, and
+      `hthreshold_meas : Measurable threshold`, plus the final event
+      measurability hypothesis `hmiscoverage_meas`, are already explicit
+      regularity hypotheses in the YAML theorem_shape.  Do not add any
+      training-algorithm hypothesis.
+
+      ```
+      have _hqlo_regular : Measurable qlo := hqlo_meas
+      have _hqhi_regular : Measurable qhi := hqhi_meas
+      have _hXcal_regular : ∀ i : Fin n, Measurable (Xcal i) := hXcal_meas
+      have _hYcal_regular : ∀ i : Fin n, Measurable (Ycal i) := hYcal_meas
+      have _hXnew_regular : Measurable Xnew := hXnew_meas
+      have _hYnew_regular : Measurable Ynew := hYnew_meas
+      have _hmiscoverage_regular :
+          MeasurableSet {ω | Ynew ω ∉ cqrInterval qlo qhi (threshold ω) (Xnew ω)} :=
+        hmiscoverage_meas
+      have hscore_bound :
+          HasScoreMiscoverageBound μ (cqrTestScore qlo qhi Xnew Ynew) threshold alpha := by
+        exact cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable μ hn alpha
+          (cqrCalibrationScores qlo qhi Xcal Ycal)
+          (cqrTestScore qlo qhi Xnew Ynew) threshold
+          hthreshold_meas hquantile hscore_meas hscore_exch hk_alpha
+      exact cqr_miscoverage_bound_of_score_miscoverage μ alpha qlo qhi Xnew Ynew threshold
+        hscore_bound
+      ```
+
+      Meaning of the node: this is the final CQR Theorem 1 miscoverage-form
+      assembly.  It must reference the registered workspace theorem
+      `cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable` and the
+      reusable Statlib bridge `cqr_miscoverage_bound_of_score_miscoverage`.  Do
+      not add assumptions about the training algorithm; this theorem is
+      conditional on score exchangeability and the empirical-quantile count
+      condition.
+    acceptance:
+      - lake build passes
+      - theorem contains no sorry/admit/axiom
+      - final proof references the cqr.005 workspace theorem
+      - statement remains the CQR interval miscoverage bound

@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "exit_code": 0,
+  "modules": 144,
+  "binary_manifest_sha256": "c57f818a8a48ea1f33558d7fefcf7dd2db942907310f045171cb621ab01afcec",
+  "checker_sha256": "e71bd1c50297d52f043df2920b8dba2140b0df0c9e6e68dd408d99f61593b197",
+  "statistics": {
+    "axiomDeclarations": [],
+    "eligibleDeclarations": 5915,
+    "identicalDuplicateTheorems": 4,
+    "modules": 144,
+    "skippedUnsafeOrPartial": [
+      "Statlib.Nonparametric.Approximation.NeuralNetworkAlgebra.fixedDirectionAppend._unsafe_rec",
+      "Statlib.Nonparametric.Vocabulary.centeredMonomialFixedWidthBound._unsafe_rec",
+      "Statlib.Nonparametric.Vocabulary.centeredMonomialWidthBound._unsafe_rec"
+    ],
+    "uniqueDeclarations": 5918
+  },
+  "scope": "Eligible safe non-partial declarations checked over public Mathlib/Lean imports; axiom declarations admitted, public dependencies not replayed"
+}

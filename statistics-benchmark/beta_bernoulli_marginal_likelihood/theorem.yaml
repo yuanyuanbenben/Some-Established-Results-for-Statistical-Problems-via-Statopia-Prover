@@ -1,0 +1,38 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62F/beta_bernoulli_marginal_likelihood.tex
+msc: 62F15
+topic: Beta-Bernoulli marginal likelihood
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: beta_bernoulli_marginal_likelihood
+    kind: theorem
+    lean_name: beta_bernoulli_marginal_likelihood
+    latex_statement: |-
+      \begin{theorem}[Beta--Bernoulli marginal likelihood]
+      Let $\alpha>0$ and $\beta>0$, let $n\geq1$, and let
+      $x_0,\ldots,x_{n-1}\in\{0,1\}$. Define
+      \[
+       s=\sum_{i=0}^{n-1}x_i,
+       \qquad
+       \pi(t)=\frac{t^{\alpha-1}(1-t)^{\beta-1}}{B(\alpha,\beta)},
+       \qquad
+       L(t)=t^s(1-t)^{n-s},
+      \]
+      where successful Boolean values are identified with $1$ and failures with
+      $0$, and $B$ is the beta function. Define the marginal likelihood by the
+      Lebesgue integral
+      \[
+       m(x)=\int_{[0,1]}L(t)\pi(t)\,dt.
+      \]
+      Then
+      \[
+       m(x)=\frac{B(\alpha+s,\beta+n-s)}{B(\alpha,\beta)}.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

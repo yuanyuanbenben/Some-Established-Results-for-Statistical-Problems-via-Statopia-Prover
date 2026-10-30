@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "ma1_autocovariance"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 43949
+}

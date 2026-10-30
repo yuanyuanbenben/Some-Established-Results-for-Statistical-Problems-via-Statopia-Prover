@@ -1,0 +1,18 @@
+\begin{theorem}[Clipping Dominates under Squared Loss]
+Let $(\Omega,\mathcal A)$ be a measurable space, let $a,b\in\mathbb R$
+with $a\le b$, and let $(P_\theta)_{\theta\in[a,b]}$ be a family of
+probability measures on $\Omega$.  Let
+$\delta:\Omega\to\mathbb R$ be measurable, and assume that
+$\delta^2$ is integrable under $P_\theta$ for every
+$\theta\in[a,b]$.  Define the clipped estimator
+\[
+  \delta_{\mathrm{clip}}(\omega)
+  =\max\{a,\min\{\delta(\omega),b\}\}.
+\]
+Then, for every $\theta\in[a,b]$ and every $\omega\in\Omega$,
+\[
+  \bigl(\delta_{\mathrm{clip}}(\omega)-\theta\bigr)^2
+  \le
+  \bigl(\delta(\omega)-\theta\bigr)^2.
+\]
+\end{theorem}

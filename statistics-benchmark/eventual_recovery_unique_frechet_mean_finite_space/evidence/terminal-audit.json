@@ -1,0 +1,70 @@
+{
+  "id": "q39",
+  "case": "eventual_recovery_unique_frechet_mean_finite_space",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q39",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q39/experiment/runs/20261018T052213Z-eventual_recovery_unique_frechet_mean_finite_space-8e035f68",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "a60178e7ac8bc9a196ac2d7d454836f4bf840d058861b53ce28d4f754650cde0",
+  "signatureLockSha256": "bd5db043ffdd516a5454072c87cc74e565174a5cfce68f40996a227df237c034",
+  "rootTheorem": "eventual_recovery_unique_frechet_mean_finite_space",
+  "inputRootSignature": "theorem eventual_recovery_unique_frechet_mean_finite_space {Ω 𝓧 : Type*} [MeasurableSpace Ω] [MeasurableSpace 𝓧] [MeasurableSingletonClass 𝓧] [Fintype 𝓧] [LinearOrder 𝓧] [MetricSpace 𝓧] [Nonempty 𝓧] (P : Measure Ω) [IsProbabilityMeasure P] (X : ℕ → Ω → 𝓧) (hXmeas : ∀ i, Measurable (X i)) (hindep : iIndepFun X P) (hident : ∀ i, IdentDistrib (X i) (X 0) P P) (mu : 𝓧) (hunique : ∀ z, z ≠ mu → (∑ x, (P {ω | X 0 ω = x}).toReal * dist mu x ^ 2) < ∑ x, (P {ω | X 0 ω = x}).toReal * dist z x ^ 2) (muHat : ℕ → Ω → 𝓧) (hmuHatmeas : ∀ n, Measurable (muHat n)) (hmin : ∀ n, 1 ≤ n → ∀ ω z, (∑ i ∈ Finset.range n, dist (muHat n ω) (X i ω) ^ 2) ≤ ∑ i ∈ Finset.range n, dist z (X i ω) ^ 2) (hsmallest : ∀ n, 1 ≤ n → ∀ ω z, (∑ i ∈ Finset.range n, dist z (X i ω) ^ 2) = ∑ i ∈ Finset.range n, dist (muHat n ω) (X i ω) ^ 2 → muHat n ω ≤ z) : P {ω | ∃ N ≥ 1, ∀ n ≥ N, muHat n ω = mu} = 1",
+  "lockedRootSignature": "theorem eventual_recovery_unique_frechet_mean_finite_space {Ω 𝓧 : Type*} [MeasurableSpace Ω] [MeasurableSpace 𝓧] [MeasurableSingletonClass 𝓧] [Fintype 𝓧] [LinearOrder 𝓧] [MetricSpace 𝓧] [Nonempty 𝓧] (P : Measure Ω) [IsProbabilityMeasure P] (X : ℕ → Ω → 𝓧) (hXmeas : ∀ i, Measurable (X i)) (hindep : iIndepFun X P) (hident : ∀ i, IdentDistrib (X i) (X 0) P P) (mu : 𝓧) (hunique : ∀ z, z ≠ mu → (∑ x, (P {ω | X 0 ω = x}).toReal * dist mu x ^ 2) < ∑ x, (P {ω | X 0 ω = x}).toReal * dist z x ^ 2) (muHat : ℕ → Ω → 𝓧) (hmuHatmeas : ∀ n, Measurable (muHat n)) (hmin : ∀ n, 1 ≤ n → ∀ ω z, (∑ i ∈ Finset.range n, dist (muHat n ω) (X i ω) ^ 2) ≤ ∑ i ∈ Finset.range n, dist z (X i ω) ^ 2) (hsmallest : ∀ n, 1 ≤ n → ∀ ω z, (∑ i ∈ Finset.range n, dist z (X i ω) ^ 2) = ∑ i ∈ Finset.range n, dist (muHat n ω) (X i ω) ^ 2 → muHat n ω ≤ z) : P {ω | ∃ N ≥ 1, ∀ n ≥ N, muHat n ω = mu} = 1",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.341bd1496f5961b9f6d52adb.json",
+      "receiptId": "job-final.341bd1496f5961b9f6d52adb",
+      "receiptHash": "20c0a767998ba44f198e3b45ab05486f8be88d8e47aefd7580a1c8ed49ea2532",
+      "finalizedAt": 1792303370652,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "8e4d558c6c2347621c7bf6c45fa74fe7d7c5bc089f06b3edcd6df8d3e0294829"
+    }
+  ],
+  "slot": 1,
+  "keyIndex": 2,
+  "nodes": 5,
+  "auxiliaryNodes": 4,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 5
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.cffd38cc9461ab18dd8ce0d8d868cc64",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.cffd38cc9461ab18dd8ce0d8d868cc64",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 14
+}

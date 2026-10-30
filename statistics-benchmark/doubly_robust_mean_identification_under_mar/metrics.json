@@ -1,0 +1,15 @@
+{
+  "case": "doubly_robust_mean_identification_under_mar",
+  "msc": "62D10",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": 1.089116405,
+  "unknown_reservation_usd": 0.0,
+  "cost_coverage": "completed journal usage; unresolved reservations separate",
+  "mode": "deep",
+  "seconds": 4119.0,
+  "lean_files": 8,
+  "lean_lines": 531,
+  "nodes": 5,
+  "job_id": "deep_benchmark42_3p_2k5_20261017T100521Z_q17"
+}

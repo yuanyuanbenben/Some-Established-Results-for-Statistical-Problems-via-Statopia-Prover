@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "arma11_mean_recursion"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 44622
+}

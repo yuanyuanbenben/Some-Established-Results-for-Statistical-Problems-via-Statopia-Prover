@@ -1,0 +1,69 @@
+version: v1
+theorem_set: showcase_bh_fdr_step_003_lei31_tail_ratio
+source_tag: dobriban-theorem1-lei-theorem31-four-node-app-showcase-2026-07-30
+setting:
+  depth: 0
+defaults:
+  lean_namespace: Statlib.MultipleTesting.Lei
+  target_dir: ProverJobs
+  allow_axiom: false
+theorems:
+  - id: bh.fdr.showcase.app.lei31_tail_ratio_excess
+    title: "Lei Theorem 3.1: Gaussian tail-ratio common-factor excess input"
+    kind: theorem
+    lean_name: app_lei31_tail_ratio_excess
+    lean_namespace: Statlib.MultipleTesting.Lei
+    priority: 3
+    layer: app-showcase-lei31-hexcess
+    target_file: ProverJobs/app_lei31_tail_ratio_excess/Main.lean
+    dependencies: []
+    workspace_siblings:
+      - bh_showcase_workspace_seed_01
+      - bh_showcase_workspace_seed_07
+    required_workspace_decls:
+      - lei_common_factor_excess_bound_of_tail_ratio_components
+    imports:
+      - Mathlib
+      - Statlib
+      - ProverJobs.bh_showcase_workspace_seed_01.Main
+      - ProverJobs.bh_showcase_workspace_seed_07.Main
+    latex_statement: |
+      Lei Theorem 3.1 Gaussian tail-ratio/common-factor excess input. The
+      explicit tail-ratio component package implies
+      excess <= pi0 * ((1 - q) / 2 + u_q / sqrt(2*pi)).
+    assumptions:
+      - "This node packages the common-factor tail-ratio excess bound as a visible theorem for the app DAG."
+      - "The proof must reuse `lei_common_factor_excess_bound_of_tail_ratio_components`."
+    statement_hint: |
+      Restate the checked tail-ratio component endpoint under the app theorem
+      name and call the workspace theorem directly. A single root `sorry`
+      skeleton is acceptable; Phase B should close it with the workspace
+      theorem call.
+    proof_block:
+      theorem_shape: |
+        import Mathlib
+        import Statlib
+        import ProverJobs.bh_showcase_workspace_seed_01.Main
+        import ProverJobs.bh_showcase_workspace_seed_07.Main
+
+        namespace Statlib.MultipleTesting.Lei
+
+        theorem app_lei31_tail_ratio_excess
+            (q pi0 u_q excess tailLoss scaleLoss : Real)
+            (hcomponents :
+              leiTailRatioExcessComponents q pi0 u_q excess tailLoss scaleLoss) :
+            excess <= leiCommonFactorExcessBudget q pi0 u_q := by
+          sorry
+
+        end Statlib.MultipleTesting.Lei
+    proof_body: |
+      Close the root `sorry` directly. The final Lean proof must visibly
+      contain the workspace declaration name
+      `lei_common_factor_excess_bound_of_tail_ratio_components`.
+
+        exact lei_common_factor_excess_bound_of_tail_ratio_components
+          q pi0 u_q excess tailLoss scaleLoss hcomponents
+    acceptance:
+      - lake build passes
+      - theorem contains no sorry/admit/axiom
+      - final proof references the tail-ratio workspace declaration

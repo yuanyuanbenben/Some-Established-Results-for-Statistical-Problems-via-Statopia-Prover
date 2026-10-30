@@ -1,0 +1,29 @@
+\begin{theorem}[Sufficiency of the Sample Maximum for a Uniform Endpoint]
+Let $n\in\mathbb N$ with $n\ge 1$, let
+$\Theta=(0,\infty)$, and give $\mathbb R^n$ the product Lebesgue measure
+$\nu$.  For $\theta\in\Theta$ and $x=(x_1,\ldots,x_n)\in\mathbb R^n$,
+define the extended nonnegative density
+\[
+  f_\theta(x)=\prod_{i=1}^n
+  \begin{cases}
+    \theta^{-1},&0<x_i<\theta,\\
+    0,&\text{otherwise},
+  \end{cases}
+\]
+and let $P_\theta$ be the measure having density $f_\theta$ with respect to
+$\nu$.  Define
+\[
+  M(x)=\sup\{x_1,\ldots,x_n\},\qquad
+  h(x)=\begin{cases}1,&x_i>0\text{ for every }i,\\0,&\text{otherwise},\end{cases}
+\]
+and
+\[
+  g_\theta(m)=\begin{cases}\theta^{-n},&m<\theta,\\0,&\text{otherwise}.\end{cases}
+\]
+Then $M$ is measurable, for every $\theta\in\Theta$ the function
+$f_\theta$ is measurable and $P_\theta$ is a probability measure, and
+\[
+  f_\theta(x)=h(x)g_\theta(M(x))
+\]
+for every $\theta\in\Theta$ and every $x\in\mathbb R^n$.
+\end{theorem}

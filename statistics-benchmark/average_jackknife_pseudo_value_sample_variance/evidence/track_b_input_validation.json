@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "average_jackknife_pseudo_value_sample_variance"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 46960
+}

@@ -1,0 +1,33 @@
+\begin{theorem}[Unbiased Prevalence Estimation under Randomized Response]
+Let $n\ge 1$ and let $x_i\in\{0,1\}$ be fixed private bits for
+$i=1,\ldots,n$. Let $q\in\mathbb R$ satisfy $1/2<q\le 1$. A reported vector
+$y\in\{0,1\}^n$ has probability
+\[
+\prod_{i=1}^n
+\begin{cases}
+q, & y_i=x_i,\\
+1-q, & y_i\ne x_i .
+\end{cases}
+\]
+Define
+\[
+\pi=\frac1n\sum_{i=1}^n x_i,\qquad
+\bar y=\frac1n\sum_{i=1}^n y_i,
+\]
+and the debiased randomized-response estimator
+\[
+\widehat\pi(y)=\frac{\bar y-(1-q)}{2q-1}.
+\]
+Then
+\[
+\sum_{y\in\{0,1\}^n}
+\left[
+\prod_{i=1}^n
+\begin{cases}
+q, & y_i=x_i,\\
+1-q, & y_i\ne x_i
+\end{cases}
+\right]\widehat\pi(y)
+=\pi .
+\]
+\end{theorem}

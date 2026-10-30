@@ -1,0 +1,67 @@
+{
+  "id": "q38",
+  "case": "mse_gap_two_normal_variance_estimators",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q38",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q38/experiment/runs/20261018T051058Z-mse_gap_two_normal_variance_estimators-e06a0145",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "55d4a67cc92ee40b4aa7cbceb87d8513e0ddbf98c37e7a90a6352e2c2e25a768",
+  "signatureLockSha256": "537b29fff1a0e15ac4381cccc7302a1fea9fb4c67a983360a90f094aa8d20112",
+  "rootTheorem": "mse_gap_two_normal_variance_estimators",
+  "inputRootSignature": "theorem mse_gap_two_normal_variance_estimators {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (n : ℕ) (hn : 2 ≤ n) (mean sigma : ℝ) (hsigma : 0 < sigma) (X : Fin n → Ω → ℝ) (hX_meas : ∀ i, Measurable (X i)) (hX_indep : iIndepFun X P) (hX_law : ∀ i, IdentDistrib (X i) id P (gaussianReal mean ⟨sigma ^ 2, sq_nonneg sigma⟩)) : let Xbar : Ω → ℝ := fun ω ↦ (n : ℝ)⁻¹ * ∑ i : Fin n, X i ω let sigmaHatSq : Ω → ℝ := fun ω ↦ (n : ℝ)⁻¹ * ∑ i : Fin n, (X i ω - Xbar ω) ^ 2 let sampleVar : Ω → ℝ := fun ω ↦ (((n - 1 : ℕ) : ℝ)⁻¹) * ∑ i : Fin n, (X i ω - Xbar ω) ^ 2 (∫ ω, (sampleVar ω - sigma ^ 2) ^ 2 ∂P) - (∫ ω, (sigmaHatSq ω - sigma ^ 2) ^ 2 ∂P) = (3 * (n : ℝ) - 1) * sigma ^ 4 / ((n : ℝ) ^ 2 * ((n - 1 : ℕ) : ℝ))",
+  "lockedRootSignature": "theorem mse_gap_two_normal_variance_estimators {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (n : ℕ) (hn : 2 ≤ n) (mean sigma : ℝ) (hsigma : 0 < sigma) (X : Fin n → Ω → ℝ) (hX_meas : ∀ i, Measurable (X i)) (hX_indep : iIndepFun X P) (hX_law : ∀ i, IdentDistrib (X i) id P (gaussianReal mean ⟨sigma ^ 2, sq_nonneg sigma⟩)) : let Xbar : Ω → ℝ := fun ω ↦ (n : ℝ)⁻¹ * ∑ i : Fin n, X i ω let sigmaHatSq : Ω → ℝ := fun ω ↦ (n : ℝ)⁻¹ * ∑ i : Fin n, (X i ω - Xbar ω) ^ 2 let sampleVar : Ω → ℝ := fun ω ↦ (((n - 1 : ℕ) : ℝ)⁻¹) * ∑ i : Fin n, (X i ω - Xbar ω) ^ 2 (∫ ω, (sampleVar ω - sigma ^ 2) ^ 2 ∂P) - (∫ ω, (sigmaHatSq ω - sigma ^ 2) ^ 2 ∂P) = (3 * (n : ℝ) - 1) * sigma ^ 4 / ((n : ℝ) ^ 2 * ((n - 1 : ℕ) : ℝ))",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.35e232f30d7784ce297ed39b.json",
+      "receiptId": "job-final.35e232f30d7784ce297ed39b",
+      "receiptHash": "758ae78ff7017387e612979b19412dfae0cca10e4b850c05c23e8a682b37648a",
+      "finalizedAt": 1792304361339,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "fad3cff38bb2de50a96091045f4e53d8906d8bb10ecd09c420402ba69b7c1b8e"
+    }
+  ],
+  "slot": 0,
+  "keyIndex": 0,
+  "nodes": 7,
+  "auxiliaryNodes": 6,
+  "writerAddedNodes": 1,
+  "creationSources": {
+    "MIGRATED": 6,
+    "WRITER_REQUEST": 1
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.1c254b818759731ddabd348d7f718149",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 23
+}

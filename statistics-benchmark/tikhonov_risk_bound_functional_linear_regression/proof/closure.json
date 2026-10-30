@@ -1,0 +1,49 @@
+{
+  "entry": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.Main",
+  "files": [
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.Base",
+      "lines": 36,
+      "sha256": "59c541322cb0de1e28fc258af9b496dbf8c9adcb9f911cc40cfaf5cfa84384e0"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.Main",
+      "lines": 47,
+      "sha256": "632d6cbc149b6fa2ad1a05613caea829a1961bd0d1ae2eb16396a8ac932271ed"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.ProvedNodes",
+      "lines": 5,
+      "sha256": "d6edf9a80d559797abb332f038f5c5bf8a9034bfc78a24f02b9c9874338792b3"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.ProvedNodes.Node_1755229075_e929082f_40c6d88b",
+      "lines": 61,
+      "sha256": "a2486f7744dee38857375a635939e5b730c53e87c018d7eb4b0ddb649b7cb3b3"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.ProvedNodes.Node_2066443448_6390c552_29af2dbc",
+      "lines": 96,
+      "sha256": "f16b2ffa6d2db04b761df30401c9679d645a7e19d7e7935d7b612f86c15f6cb9"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.ProvedNodes.Node_2203294958_aa644ea9_93f6db00",
+      "lines": 96,
+      "sha256": "d323afd45e805d398cbf5996f3279a7c2a861d9d71193230f00807f30064df99"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.ProvedNodes.Node_2528240439_5c8c990f_ad21f294",
+      "lines": 65,
+      "sha256": "f1e2baf970fff4e17453273873b96c515aaa5eb6829e658a6dc9efe024f25426"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.Vocabulary",
+      "lines": 4,
+      "sha256": "3db6badd2bbd0a01935c655dfeae6ea5a428e960215a5c29899d4f97a1e22a05"
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Statlib"
+  ]
+}

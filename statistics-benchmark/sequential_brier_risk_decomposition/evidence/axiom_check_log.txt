@@ -1,0 +1,31 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=sequential_brier_risk_decomposition
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:202:12: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+<stdin>:233:12: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+<stdin>:250:6: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+<stdin>:11:13: warning: unused variable `hT`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:13:5: warning: unused variable `hfiltration`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:24:5: warning: unused variable `hqint`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'sequential_brier_risk_decomposition' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

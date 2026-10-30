@@ -1,0 +1,37 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62J/ols_estimator_independent_of_residual_variance.tex
+msc: 62J20
+topic: Gaussian OLS independence
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: ols_estimator_independent_of_residual_variance
+    kind: theorem
+    lean_name: ols_estimator_independent_of_residual_variance
+    latex_statement: |-
+      \begin{theorem}[Independence of the OLS estimator and residual variance]
+      Let $(\Omega,\mathcal F,P)$ be a probability space, let $1\le p<n$, and
+      let $X\in\mathbb R^{n\times p}$ have an injective linear map
+      $b\mapsto Xb$.  Let $\beta^\star\in\mathbb R^p$ and $\sigma>0$.  Let
+      $\varepsilon:\Omega\to\mathbb R^n$ be such that, for every
+      $a\in\mathbb R^n$, the random variable $a^\top\varepsilon$ has the
+      Gaussian law $N(0,\sigma^2a^\top a)$ under $P$.  Define
+      \[
+        y(\omega)=X\beta^\star+\varepsilon(\omega),
+        \qquad
+        \widehat\beta(\omega)=(X^\top X)^{-1}X^\top y(\omega),
+      \]
+      and
+      \[
+        \widehat\sigma^2(\omega)
+        =\frac{\|y(\omega)-X\widehat\beta(\omega)\|_2^2}{n-p}.
+      \]
+      Then the random vector $\widehat\beta$ and the random variable
+      $\widehat\sigma^2$ are independent under $P$.
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

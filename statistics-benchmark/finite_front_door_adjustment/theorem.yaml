@@ -1,0 +1,55 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62D/finite_front_door_adjustment.tex
+msc: 62D20
+topic: Front-door adjustment
+track_a_difficulty: hard
+track_b_difficulty: hard
+theorems:
+  - id: finite_front_door_adjustment
+    kind: theorem
+    lean_name: finite_front_door_adjustment
+    latex_statement: |-
+      \begin{theorem}[Finite Front-Door Adjustment]
+      Let $\mathcal U,\mathcal X,\mathcal Z,\mathcal Y$ be finite nonempty
+      sets.  Let
+      \[
+       p_U:\mathcal U\to\mathbb R,\quad
+       p_{X\mid U}:\mathcal X\times\mathcal U\to\mathbb R,\quad
+       p_{Z\mid X}:\mathcal Z\times\mathcal X\to\mathbb R,
+      \]
+      and
+      $p_{Y\mid Z,U}:\mathcal Y\times\mathcal Z\times\mathcal U\to\mathbb R$
+      be strictly positive functions satisfying
+      \[
+       \sum_u p_U(u)=1,\quad
+       \sum_x p_{X\mid U}(x,u)=1,\quad
+       \sum_z p_{Z\mid X}(z,x)=1,\quad
+       \sum_y p_{Y\mid Z,U}(y,z,u)=1
+      \]
+      for every applicable fixed value of the remaining arguments.  Define
+      \[
+       p_X(x)=\sum_u p_U(u)p_{X\mid U}(x,u),
+      \]
+      \[
+       p_{Y\mid X,Z}(y,x,z)=
+       \frac{\sum_u p_U(u)p_{X\mid U}(x,u)p_{Y\mid Z,U}(y,z,u)}
+       {p_X(x)},
+      \]
+      and
+      \[
+       p_{\mathrm{do}}(x,y)=
+       \sum_z\sum_u p_U(u)p_{Z\mid X}(z,x)p_{Y\mid Z,U}(y,z,u).
+      \]
+      Then, for every $x\in\mathcal X$ and $y\in\mathcal Y$,
+      \[
+       p_{\mathrm{do}}(x,y)=
+       \sum_z p_{Z\mid X}(z,x)
+       \sum_{x'}p_{Y\mid X,Z}(y,x',z)p_X(x').
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

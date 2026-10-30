@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "inverse_probability_weighting_identity"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 42749
+}

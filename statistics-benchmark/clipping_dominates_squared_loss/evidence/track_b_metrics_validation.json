@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "validatedAt": "2026-08-20T03:44:44.571Z",
+  "status": "mismatch",
+  "metricsComplete": false,
+  "lineageEvidence": "session_checkpoints",
+  "reasons": [
+    "proof_log.jsonl has malformed line(s): 215",
+    "expected complete outer-pipeline usage evidence in every proof session; found coverage for 0 of 1 session(s)",
+    "expected structured token accounting in every proof session; found 0 of 1 session(s)",
+    "session checkpoints fail schema, completion-state, numbering, or session-identity validation",
+    "session checkpoints do not reconcile with proof_log.jsonl counters or tokens",
+    "inputTokens: reported 83001, evidence 84308",
+    "outputTokens: reported 73657, evidence 72577"
+  ],
+  "corrections": {},
+  "checks": {
+    "proofIterations": true,
+    "proofDispatches": true,
+    "proofTurnsUsed": true,
+    "dispatchStatuses": true,
+    "dispatchTokens": true,
+    "pipelineTokens": false,
+    "proofSessions": true,
+    "resumeCount": true,
+    "sessionIdentity": false,
+    "networkRecovery": true,
+    "rowConsistency": true,
+    "timingConsistency": true
+  },
+  "evidenceHashes": {
+    "proof_log.jsonl": "07b21262d10674b6015facc46e097842cbba5fb0d0bb5d813dfec967cc1e4bff",
+    "track_b_statement_source.json": "f75bbae86aca9baecf1d9245279110944ce18120d3af8e3520b88d3c726ab602",
+    "proof_session_1.json": "37e2b28aacd73218d451d66d3a9e39d075667da720ece265f2307722fb4917a7"
+  },
+  "evidence": {
+    "proofSessions": 1,
+    "proofSessionIds": [
+      "full_comparison_b_after_main_20260820T033054Z_clipping_dominates_squared_loss_native-b:clipping_dominates_squared_loss:1:6498b75c-9873-4737-ae9c-c6483ed88709"
+    ],
+    "proofSessionNumbers": [
+      1
+    ],
+    "proofIterations": 2,
+    "proofDispatches": 1,
+    "proofTurnsUsed": 3,
+    "proverAgentStatuses": [
+      "proved"
+    ],
+    "dispatchStatusCounts": {
+      "proved": 1
+    },
+    "dispatchInputTokens": 84308,
+    "dispatchOutputTokens": 72577,
+    "outerPipelineUsageCalls": 0,
+    "sessionsWithOuterPipelineUsage": 0,
+    "sessionsWithCompleteUsageEvidence": 0,
+    "sessionsWithStructuredTokenAccounting": 0,
+    "usageCallbackCalls": 12,
+    "callbackInputTokens": 83001,
+    "callbackOutputTokens": 73657,
+    "outerPipelineInputTokens": 0,
+    "outerPipelineOutputTokens": 0,
+    "unmeteredOuterPipelineEvents": 0,
+    "networkInterruptedSessions": 0,
+    "automaticNetworkResumes": 0,
+    "malformedLines": [
+      215
+    ],
+    "checkpointCount": 1,
+    "resumedFrom": null,
+    "timingPolicy": "internally_consistent_not_independently_reconstructed"
+  },
+  "reportedBefore": {
+    "proofIterations": 2,
+    "proofDispatches": 1,
+    "proofTurnsUsed": 3,
+    "proofSessions": 1,
+    "resumeCount": 0,
+    "inputTokens": 83001,
+    "outputTokens": 73657,
+    "totalAttemptMs": 688498,
+    "wallAttemptMs": 688498,
+    "metricsComplete": false
+  },
+  "validatedValues": {
+    "proofIterations": 2,
+    "proofDispatches": 1,
+    "proofTurnsUsed": 3,
+    "proofSessions": 1,
+    "resumeCount": 0,
+    "inputTokens": 83001,
+    "outputTokens": 73657,
+    "totalTokens": 156658,
+    "metricsComplete": false
+  }
+}

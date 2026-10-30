@@ -1,0 +1,37 @@
+{
+  "target": {
+    "theoremName": "imo2026_problem6",
+    "inputSha256": "c917c94a5ef5f33677b8147908dd6a603bd210581ba927c588ccade78fa701c9"
+  },
+  "progress": {
+    "schemaVersion": 1,
+    "difficulty": "VERY_HIGH",
+    "entries": [
+      {
+        "route": {
+          "title": "Finite minimal prime supports and periodic greedy enumeration",
+          "mathematicalIdea": "Use proof-complete.md: strong induction shows every term support contains an actual support consisting of primes at most a(0). Earlier induction witnesses and all-pairs intersection imply that removing a large prime leaves a prefix-admissible cofactor; powers of that cofactor realize an earlier term. Minimal supports are consequently finite. Their prime product gives a modulus, and exact enumeration above a(0) gives additive periodicity at every index.",
+          "orderedMilestones": [
+            "Prove strict growth, all-pairs nontrivial gcd, and exact enumeration of the admissible integers above the initial term.",
+            "Prove prefix enumeration and admissible-cofactor descent using the least positive power above the previous term; no first-occurrence assumption is needed.",
+            "Prove by strong induction that every support contains an actual small-prime support. Use earlier induction witnesses and all-pairs gcd to prove cofactor admissibility, then descend to an earlier term. Deduce finiteness of actual minimal supports.",
+            "Build a positive modulus from the finite supports and prove admissibility is invariant under its translation.",
+            "Transfer the translation of the admissible set to the increasing enumeration and obtain positive T and L for every index."
+          ],
+          "assumptionsUsed": [
+            "Every sequence term exceeds one, each next term is larger, and each next term is the smallest larger integer with nontrivial gcd against all earlier terms.",
+            "The source problem uses positive indices; input.lean uses zero-based indices with exactly the same terms."
+          ],
+          "mathematicalRisks": [
+            "Pairwise intersection alone does not imply the minimal-support family is finite; this is the central proof obligation.",
+            "Do not identify an arbitrary minimal support with a first-occurrence support or assume a minimal subsupport retains a designated prime. The complete induction repair is in proof-complete.md Sections 3-5.",
+            "Do not substitute eventual periodicity for the requested identity at every index.",
+            "Do not import a completed solution as an axiom or weaken the greedy minimality condition."
+          ]
+        },
+        "collectionDecision": "COMPLETE",
+        "collectionRationale": "A source-grounded mathematical guide replaces initial route generation only; Route/Search and all Lean proof obligations remain active."
+      }
+    ]
+  }
+}

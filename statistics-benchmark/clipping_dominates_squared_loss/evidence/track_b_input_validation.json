@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "clipping_dominates_squared_loss"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 43885
+}

@@ -1,0 +1,29 @@
+\begin{theorem}[Local-polynomial reproduction]
+Let $n\geq 1$ and $\ell\geq 0$ be integers, let
+$X_0,\ldots,X_{n-1}\in\mathbb R$, let $K:\mathbb R\to\mathbb R$ satisfy
+$K(u)\geq 0$ for every $u\in\mathbb R$, and fix $x\in\mathbb R$ and
+$h>0$.  For $u\in\mathbb R$ and $k=0,\ldots,\ell$, define
+\[
+  U_k(u)=\frac{u^k}{k!},
+\]
+and define the $(\ell+1)\times(\ell+1)$ matrix $B$ by
+\[
+  B_{ab}=\frac{1}{nh}\sum_{i=0}^{n-1}
+  U_a\!\left(\frac{X_i-x}{h}\right)
+  U_b\!\left(\frac{X_i-x}{h}\right)
+  K\!\left(\frac{X_i-x}{h}\right),
+  \qquad 0\leq a,b\leq\ell.
+\]
+Assume that $\det(B)$ is a unit in $\mathbb R$.  Define
+\[
+  W_i=\frac{1}{nh}
+  \left(\sum_{a=0}^{\ell}U_a(0)
+    \sum_{b=0}^{\ell}(B^{-1})_{ab}
+      U_b\!\left(\frac{X_i-x}{h}\right)\right)
+  K\!\left(\frac{X_i-x}{h}\right).
+\]
+Then every polynomial $Q\in\mathbb R[t]$ of degree at most $\ell$ satisfies
+\[
+  \sum_{i=0}^{n-1}W_i Q(X_i)=Q(x).
+\]
+\end{theorem}

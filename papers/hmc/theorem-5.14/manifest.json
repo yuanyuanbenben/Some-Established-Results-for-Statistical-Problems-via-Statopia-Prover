@@ -1,0 +1,138 @@
+{
+  "name": "hmc_v5",
+  "label": "HMC — Theorem 5.14（v5 勘误版）",
+  "folder": "hmc/theorem-5.14",
+  "paperTitle": "On the Geometric Ergodicity of Hamiltonian Monte Carlo (arXiv 1601.08057 v5 with corrigendum)",
+  "theorem": "Theorem 5.14 (corrected statement and replacement proof in the v5 corrigendum, Appendix D; original label thm:light). Use the corrected condition (18) with norm(y) >= 3 norm(x), not the superseded printed version.",
+  "jobId": "paper_fresh_20261028t151409527z_hmc_v5",
+  "sourceCampaign": "/home/ai4stat/prover_long_test/.tmp/paper_group_hmc_target_fix_fresh_20261028T151409527Z/manifest.json",
+  "sourceRunDirectory": "/home/ai4stat/prover_long_test/.tmp/paper_group_hmc_target_fix_fresh_20261028T151409527Z/cases/hmc_v5/run",
+  "mainSha256": "46d4fe9e6b4a539f2e495e0318587d0957cb0d548899d8b2e3212c72fe94fa39",
+  "mainLines": 199,
+  "integratedLeanFiles": 51,
+  "integratedLeanLines": 3345,
+  "integratedArchiveSha256": "d854881d7b2613c5081de6795afaad1425e0d9757029a133adc708b512bc79d8",
+  "entryModule": "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r2_388b741cbe374909a3f9937f201e99fc",
+  "rootDeclaration": "PaperProofTasks.paper_fresh_20261028t151409527z_hmc_v5.Statlib.Imported.Theorem_5_14_corrected_statement_and_replacement_proof_in_the_v5_corrigendum_Appendix_D_original_label_thm_light_Use_the",
+  "closureRef": "pc/cvUkWog/r.json",
+  "groupRevision": 152,
+  "proofPassed": true,
+  "rootSummaryRemainingSorry": 0,
+  "e2ePassed": true,
+  "reportStatus": "completed",
+  "registeredRetainEntries": [
+    {
+      "resultId": "paper_6ac1720d15ae46eb9cc770b0a5541a93",
+      "title": "paper_6ac1720d15ae46eb9cc770b0a5541a93",
+      "phase": "pending",
+      "kind": "external"
+    }
+  ],
+  "actualRetainedAssumptions": [],
+  "tasks": [
+    {
+      "resultId": "paper_fresh_20261028t151409527z_hmc_v5",
+      "jobId": "paper_fresh_20261028t151409527z_hmc_v5",
+      "title": "Theorem 5.14 (corrected statement and replacement proof in the v5 corrigendum, Appendix D; original label thm:light). Use the corrected condition (18) with norm(y) >= 3 norm(x), not the superseded printed version.",
+      "kind": "root",
+      "phase": "verified",
+      "main": "Main.lean",
+      "proofRef": "result:paper_fresh_20261028t151409527z_hmc_v5:e69d4a25-e810-4599-9fe5-11f0ba47b223",
+      "interfaceRevision": 2,
+      "sourceSha256": "46d4fe9e6b4a539f2e495e0318587d0957cb0d548899d8b2e3212c72fe94fa39"
+    },
+    {
+      "resultId": "paper_53e951f48c854f4db91e6ecda697ee2b",
+      "jobId": "job_paper_53e951f48c854f4db91e6ecda697ee2b",
+      "title": "Lemma 5.17",
+      "kind": "article",
+      "phase": "verified",
+      "main": "task-main/01-paper_53e951f48c854f4db91e6ecda697ee2b.lean",
+      "proofRef": "result:job_paper_53e951f48c854f4db91e6ecda697ee2b:b2faed6b-d098-44ce-8cd0-7a4279caaedd",
+      "interfaceRevision": 1,
+      "sourceSha256": "594c7f8670bfb220e4baffccd3426a4f543c05d62b43edac57d6231ffd13a2b8"
+    },
+    {
+      "resultId": "paper_4f562633bddc4ee9afee32ec40dfa0f0",
+      "jobId": "job_paper_4f562633bddc4ee9afee32ec40dfa0f0",
+      "title": "Definition 3.2",
+      "kind": "article",
+      "phase": "verified",
+      "main": "task-main/02-paper_4f562633bddc4ee9afee32ec40dfa0f0.lean",
+      "proofRef": "result:job_paper_4f562633bddc4ee9afee32ec40dfa0f0:bfa898b6-94b5-4b45-8696-34fd85f50455",
+      "interfaceRevision": 1,
+      "sourceSha256": "fd41605ee365315683795c10e00bf043f769419b618a340d3fa2e1ae135234dc"
+    },
+    {
+      "resultId": "paper_a9a2ab5d4e094509b2cdb371b3b02f1c",
+      "jobId": "job_paper_a9a2ab5d4e094509b2cdb371b3b02f1c",
+      "title": "Proposition 3.5",
+      "kind": "article",
+      "phase": "verified",
+      "main": "task-main/03-paper_a9a2ab5d4e094509b2cdb371b3b02f1c.lean",
+      "proofRef": "result:job_paper_a9a2ab5d4e094509b2cdb371b3b02f1c:c0083b4a-fb5b-49a9-9afe-5e6dc3be737b",
+      "interfaceRevision": 1,
+      "sourceSha256": "bd073540533cc61faf9f8536ee0e70aa17e400a94f114c9270567e866ed2c263"
+    },
+    {
+      "resultId": "paper_7ad7b898530c48b2be48d9fe88a3d538",
+      "jobId": "job_paper_7ad7b898530c48b2be48d9fe88a3d538",
+      "title": "Assumption A1",
+      "kind": "article",
+      "phase": "verified",
+      "main": "task-main/04-paper_7ad7b898530c48b2be48d9fe88a3d538.lean",
+      "proofRef": "result:job_paper_7ad7b898530c48b2be48d9fe88a3d538:d38ec01d-303f-487d-ba09-0d440ebed79e",
+      "interfaceRevision": 2,
+      "sourceSha256": "2ae4810b73577cf02c3beccd002fda19d03261e0120f144a0477b98c3f487896"
+    },
+    {
+      "resultId": "paper_a62240be95074e8caf07c24daf22159a",
+      "jobId": "job_paper_a62240be95074e8caf07c24daf22159a",
+      "title": "Lemma 5.16",
+      "kind": "article",
+      "phase": "verified",
+      "main": "task-main/05-paper_a62240be95074e8caf07c24daf22159a.lean",
+      "proofRef": "result:job_paper_a62240be95074e8caf07c24daf22159a:a9f799a1-c751-4b83-bfa3-2a2cf005916f",
+      "interfaceRevision": 1,
+      "sourceSha256": "717a628b870fe0fbdf7fd91309d93ec812a1155fc5debe593fdf34ae5ecbcc1a"
+    },
+    {
+      "resultId": "paper_b7909512ace54739b0ef8eae60aa82ed",
+      "jobId": "job_paper_b7909512ace54739b0ef8eae60aa82ed",
+      "title": "Lemma 5.15",
+      "kind": "article",
+      "phase": "verified",
+      "main": "task-main/06-paper_b7909512ace54739b0ef8eae60aa82ed.lean",
+      "proofRef": "result:job_paper_b7909512ace54739b0ef8eae60aa82ed:707b5402-003b-478c-8b71-75290ae30d38",
+      "interfaceRevision": 1,
+      "sourceSha256": "841c06756086865be927d7cdd6ab08b7a8b25dd1f5fe293c51160a92d73c6586"
+    }
+  ],
+  "sources": {
+    "main": {
+      "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_hmc_target_fix_fresh_20261028T151409527Z/sources/hmc_v5/main.tex",
+      "sha256": "bf02a80076e50595bb1c1beaf9d770632d6a0568c59f7bf1a44a46ba56e08006",
+      "bytes": 99898
+    },
+    "supp": {
+      "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_hmc_target_fix_fresh_20261028T151409527Z/sources/hmc_v5/supp.tex",
+      "sha256": "15cc70953795d21351c12f5c37f486e3ea35b8ca86cebd4106ee198e8e856a5c",
+      "bytes": 15031
+    },
+    "yaml": {
+      "source": "/home/ai4stat/statlib/ProverJobs/paper_fresh_20261028t151409527z_hmc_v5/theorems.yaml",
+      "sha256": "ba604f1b35e2a8cf09d8736df3e91bb2ce19784378e586421de7abf1cd723627",
+      "bytes": 31646
+    }
+  },
+  "reports": [
+    "report/report.pdf",
+    "report/report.tex"
+  ],
+  "reportNote": "已附该次运行交付的 PDF/TeX，属于该次运行的报告快照。",
+  "verifiedGeneratedImports": true,
+  "externalLibraryImports": [
+    "Mathlib",
+    "Statlib"
+  ]
+}

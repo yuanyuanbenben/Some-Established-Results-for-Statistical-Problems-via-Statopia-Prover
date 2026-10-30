@@ -1,0 +1,72 @@
+{
+  "id": "q33",
+  "case": "brier_score_calibration_decomposition",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q33",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q33/experiment/runs/20261018T033939Z-brier_score_calibration_decomposition-5a1be9be",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "fd3e696dfd3095953f546f9117c1a65351e111e544bfbb96f07af5a86960c6eb",
+  "signatureLockSha256": "8eb39b9b5ca30e074f5ae6a8ff7017b194fd70a0ebcd66c0595732ad24fb5eaa",
+  "rootTheorem": "brier_score_calibration_decomposition",
+  "inputRootSignature": "theorem brier_score_calibration_decomposition (N H : ℕ) (hN : 1 ≤ N) (hH : 1 ≤ H) (group : Fin N → Fin H) (forecast : Fin H → ℝ) (h_forecast_prob : ∀ g : Fin H, 0 ≤ forecast g ∧ forecast g ≤ 1) (outcome : Fin N → Bool) (h_nonempty : ∀ g : Fin H, 0 < (Finset.univ.filter (fun i : Fin N => group i = g)).card) : let bit : Bool → ℝ := fun b => if b then 1 else 0 let bin : Fin H → Finset (Fin N) := fun g => Finset.univ.filter (fun i : Fin N => group i = g) let binSize : Fin H → ℝ := fun g => ((bin g).card : ℝ) let ybar : ℝ := (1 / (N : ℝ)) * ∑ i : Fin N, bit (outcome i) let ybarBin : Fin H → ℝ := fun g => (1 / binSize g) * (bin g).sum (fun i => bit (outcome i)) let weight : Fin H → ℝ := fun g => binSize g / (N : ℝ) let brier : ℝ := (1 / (N : ℝ)) * ∑ i : Fin N, (forecast (group i) - bit (outcome i)) ^ 2 let reliability : ℝ := ∑ g : Fin H, weight g * (forecast g - ybarBin g) ^ 2 let resolution : ℝ := ∑ g : Fin H, weight g * (ybarBin g - ybar) ^ 2 let uncertainty : ℝ := ybar * (1 - ybar) brier = reliability - resolution + uncertainty",
+  "lockedRootSignature": "theorem brier_score_calibration_decomposition (N H : ℕ) (hN : 1 ≤ N) (hH : 1 ≤ H) (group : Fin N → Fin H) (forecast : Fin H → ℝ) (h_forecast_prob : ∀ g : Fin H, 0 ≤ forecast g ∧ forecast g ≤ 1) (outcome : Fin N → Bool) (h_nonempty : ∀ g : Fin H, 0 < (Finset.univ.filter (fun i : Fin N => group i = g)).card) : let bit : Bool → ℝ := fun b => if b then 1 else 0 let bin : Fin H → Finset (Fin N) := fun g => Finset.univ.filter (fun i : Fin N => group i = g) let binSize : Fin H → ℝ := fun g => ((bin g).card : ℝ) let ybar : ℝ := (1 / (N : ℝ)) * ∑ i : Fin N, bit (outcome i) let ybarBin : Fin H → ℝ := fun g => (1 / binSize g) * (bin g).sum (fun i => bit (outcome i)) let weight : Fin H → ℝ := fun g => binSize g / (N : ℝ) let brier : ℝ := (1 / (N : ℝ)) * ∑ i : Fin N, (forecast (group i) - bit (outcome i)) ^ 2 let reliability : ℝ := ∑ g : Fin H, weight g * (forecast g - ybarBin g) ^ 2 let resolution : ℝ := ∑ g : Fin H, weight g * (ybarBin g - ybar) ^ 2 let uncertainty : ℝ := ybar * (1 - ybar) brier = reliability - resolution + uncertainty",
+  "rootNamespace": [
+    "Msc62GroundTruth"
+  ],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.c55b1c2b96a15ae2a9e3a5b7.json",
+      "receiptId": "job-final.c55b1c2b96a15ae2a9e3a5b7",
+      "receiptHash": "d3510de668abc0c9be16b38c2e69036d4a6164ac0722cd15b7250b7e2dd05d47",
+      "finalizedAt": 1792297306143,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "86ff73f7887e5ed318ada0c9715788803a5f7ed206bcd2e7cf9e31262b0a992a"
+    }
+  ],
+  "slot": 1,
+  "keyIndex": 2,
+  "nodes": 5,
+  "auxiliaryNodes": 4,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 5
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.17e4d4f5111b11c149dfc3b10531e84d",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.17e4d4f5111b11c149dfc3b10531e84d",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 14
+}

@@ -1,0 +1,41 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62C/map_zero_one_optimal.tex
+msc: 62C10
+topic: MAP optimality under zero-one loss
+track_a_difficulty: medium
+track_b_difficulty: medium
+theorems:
+  - id: map_zero_one_optimal
+    kind: theorem
+    lean_name: map_zero_one_optimal
+    latex_statement: |-
+      \begin{theorem}[Optimality of a MAP rule under zero--one loss]
+      Let $\Theta$ be a finite nonempty parameter space for which equality is
+      decidable. Let $q:\Theta\to[0,1]$ satisfy
+      $\sum_{\theta\in\Theta}q(\theta)=1$. Let $\theta_{\mathrm{MAP}}\in\Theta$
+      satisfy
+      \[
+       q(\theta)\leq q(\theta_{\mathrm{MAP}})
+       \quad\text{for every }\theta\in\Theta.
+      \]
+      Define the zero--one loss and risk by
+      \[
+       \ell(\theta,a)=
+       \begin{cases}
+       1,&\theta\ne a,\\
+       0,&\theta=a,
+       \end{cases}
+       \qquad
+       R(a)=\sum_{\theta\in\Theta}q(\theta)\ell(\theta,a).
+      \]
+      Then, for every $a\in\Theta$,
+      \[
+       R(\theta_{\mathrm{MAP}})\leq R(a).
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

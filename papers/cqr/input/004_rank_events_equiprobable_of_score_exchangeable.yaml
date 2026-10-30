@@ -1,0 +1,126 @@
+version: v1
+theorem_set: showcase_cqr_theorem1_step_004
+source_tag: romano-patterson-candes-cqr-2019-theorem1
+setting:
+  depth: 0
+defaults:
+  lean_namespace: Statlib.Workspace.Conformal
+  target_dir: ProverJobs
+  allow_axiom: false
+theorems:
+  - id: cqr.004.rank_events_equiprobable_of_score_exchangeable
+    title: "Exchangeable score vectors give equiprobable rank events"
+    kind: theorem
+    lean_name: cqr_004_rank_events_equiprobable_of_score_exchangeable
+    lean_namespace: Statlib.Workspace.Conformal
+    priority: 1
+    layer: conformal-exchangeability
+    target_file: ProverJobs/cqr_004_rank_events_equiprobable_of_score_exchangeable/Main.lean
+    dependencies:
+      - statlib.Statlib.StatFoundation.Vocabulary.Conformal.StrictLowerRankEvent
+      - statlib.Statlib.StatFoundation.Vocabulary.Conformal.RankEventsEquiprobable
+      - statlib.Statlib.StatFoundation.Vocabulary.Conformal.strictLowerScoreCount
+      - statlib.IsExchangeable
+    imports:
+      - Statlib
+    latex_statement: |
+      If the full score vector has positive length and is exchangeable, then
+      the strict-lower-rank event has the same probability for every index.
+      This is the exchangeability-to-equiprobability step in split conformal
+      prediction.
+    assumptions:
+      - "`hm : 0 < m` is an explicit regularity hypothesis for the finite score vector indexed by `Fin m`."
+      - Do not add any further hypotheses beyond the theorem_shape.
+    proof_block:
+      theorem_shape: |
+        import Statlib
+
+        open MeasureTheory
+        open Statlib.StatFoundation.Vocabulary
+
+        namespace Statlib.Workspace.Conformal
+
+        theorem cqr_004_rank_events_equiprobable_of_score_exchangeable {Ω : Type*} [MeasurableSpace Ω]
+            (μ : Measure Ω) {m k : ℕ} (hm : 0 < m)
+            (score : Fin m → Ω → ℝ)
+            (hscore_meas : ∀ i : Fin m, Measurable (score i))
+            (hscore_exch : IsExchangeable score μ) :
+            RankEventsEquiprobable μ score k := by
+          sorry
+
+        end Statlib.Workspace.Conformal
+    proof_body: |
+      DIRECT DEPTH-0 REPLACEMENT PROOF.  Replace the single `sorry` with exactly
+      the Lean code below.  First try this proof verbatim with `replace_sorry`;
+      do not call search, do not prove any cardinality bound, and do not use
+      the measure-averaging theorem here.
+
+      Statement-integrity guard: `hm : 0 < m` is already an explicit hypothesis
+      in the YAML theorem_shape. Do not add any further hypothesis.
+
+      ```
+      classical
+      have _hscore_meas : ∀ i : Fin m, Measurable (score i) := hscore_meas
+      intro i j
+      let S : Set (Fin m → ℝ) := {v | k ≤ strictLowerScoreCount v j}
+      have hS_meas : MeasurableSet S := by
+        let countFun : (Fin m → ℝ) → ℕ :=
+          fun v => ∑ l : Fin m, if v l < v j then (1 : ℕ) else 0
+        have hcount_meas : Measurable countFun := by
+          dsimp [countFun]
+          apply Finset.measurable_fun_sum
+          intro l _
+          exact Measurable.ite
+            (measurableSet_lt (measurable_pi_apply l) (measurable_pi_apply j))
+            measurable_const measurable_const
+        have hset_eq : S = {v : Fin m → ℝ | k ≤ countFun v} := by
+          ext v
+          dsimp [S]
+          unfold strictLowerScoreCount
+          dsimp [countFun]
+          rw [Finset.card_filter]
+        rw [hset_eq]
+        exact measurableSet_le measurable_const hcount_meas
+      let σ : Equiv.Perm (Fin m) := Equiv.swap i j
+      have hdist := hscore_exch σ
+      have hmeasure := hdist.measure_mem_eq hS_meas
+      have hleft :
+          ((fun ω : Ω => fun l : Fin m => score l ω) ⁻¹' S) =
+            StrictLowerRankEvent score j k := by
+        ext ω
+        simp [S, StrictLowerRankEvent]
+      have hright :
+          ((fun ω : Ω => fun l : Fin m => score (σ l) ω) ⁻¹' S) =
+            StrictLowerRankEvent score i k := by
+        ext ω
+        dsimp [S, StrictLowerRankEvent]
+        have hcount_perm :
+            strictLowerScoreCount (fun l => score (σ l) ω) j =
+              strictLowerScoreCount (fun l => score l ω) (σ j) := by
+          unfold strictLowerScoreCount
+          refine Finset.card_bij (fun l _ => σ l) ?hi ?hinj ?hsurj
+          · intro l hl
+            rw [Finset.mem_filter] at hl ⊢
+            exact ⟨Finset.mem_univ _, hl.2⟩
+          · intro a _ b _ hab
+            exact σ.injective hab
+          · intro b hb
+            refine ⟨σ.symm b, ?_, ?_⟩
+            · rw [Finset.mem_filter] at hb ⊢
+              constructor
+              · exact Finset.mem_univ _
+              · simpa using hb.2
+            · simp
+        rw [hcount_perm]
+        simp [σ]
+      rw [hleft, hright] at hmeasure
+      exact hmeasure.symm
+      ```
+
+      Meaning of the node: this converts score-vector exchangeability into
+      equiprobability of rank events.  It does not use CQR definitions or the
+      cardinality/averaging lemmas.
+    acceptance:
+      - lake build passes
+      - theorem contains no sorry/admit/axiom
+      - proof uses `hscore_exch`; it must not assume equiprobability directly

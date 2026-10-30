@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "beta_bernoulli_marginal_likelihood"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 39374
+}

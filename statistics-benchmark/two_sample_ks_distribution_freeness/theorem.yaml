@@ -1,0 +1,87 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/two_sample_ks_distribution_freeness.tex
+msc: 62G10
+topic: Kolmogorov-Smirnov testing
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: two_sample_ks_distribution_freeness
+    kind: theorem
+    lean_name: two_sample_ks_distribution_freeness
+    latex_statement: >-
+      \begin{theorem}[Distribution-freeness of the two-sample
+      Kolmogorov--Smirnov statistic]
+
+      Let $(\Omega,\mathcal F,P)$ be a probability space and let
+      $m,n\geq1$.  Let
+
+      $F$ be a continuous, strictly increasing real Stieltjes function
+      satisfying
+
+      \[
+        \lim_{t\to-\infty}F(t)=0,
+        \qquad \lim_{t\to\infty}F(t)=1.
+      \]
+
+      On this probability space, let $X_0,\ldots,X_{m-1}$,
+
+      $Y_0,\ldots,Y_{n-1}$, $U_0,\ldots,U_{m-1}$, and
+
+      $V_0,\ldots,V_{n-1}$ be measurable real random variables.  Assume that
+      each
+
+      of the four samples is internally independent, that the random vector
+
+      $(X_0,\ldots,X_{m-1})$ is independent of
+
+      $(Y_0,\ldots,Y_{n-1})$, and that $(U_0,\ldots,U_{m-1})$ is independent of
+
+      $(V_0,\ldots,V_{n-1})$.  Assume in addition that the combined random
+      vector
+
+      $((X_i)_{i=0}^{m-1},(Y_j)_{j=0}^{n-1})$ is independent of
+
+      $((U_i)_{i=0}^{m-1},(V_j)_{j=0}^{n-1})$.
+
+      For every $i,j$ and every $t\in\mathbb R$, assume
+
+      \[
+        P(X_i\leq t)=F(t),
+        \qquad P(Y_j\leq t)=F(t),
+      \]
+
+      where probabilities are understood as the real values of the corresponding
+
+      measures.  Assume that every $U_i$ and every $V_j$ is uniform on $(0,1)$.
+
+      Define, for $t,u\in\mathbb R$,
+
+      \[
+        F_X(t)=\frac1m\sum_{i=0}^{m-1}\mathbf 1\{X_i\leq t\},
+        \quad
+        F_Y(t)=\frac1n\sum_{j=0}^{n-1}\mathbf 1\{Y_j\leq t\},
+      \]
+
+      \[
+        F_U(u)=\frac1m\sum_{i=0}^{m-1}\mathbf 1\{U_i\leq u\},
+        \quad
+        F_V(u)=\frac1n\sum_{j=0}^{n-1}\mathbf 1\{V_j\leq u\},
+      \]
+
+      and define the random variables
+
+      \[
+        D_{XY}=\sup_{t\in\mathbb R}|F_X(t)-F_Y(t)|,
+        \qquad
+        D_{UV}=\sup_{u\in[0,1]}|F_U(u)-F_V(u)|.
+      \]
+
+      Then $D_{XY}$ and $D_{UV}$ have identical distributions under $P$.
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

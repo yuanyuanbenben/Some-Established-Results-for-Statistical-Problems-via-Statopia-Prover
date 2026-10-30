@@ -1,0 +1,18 @@
+\begin{theorem}[Extrinsic sample mean on the unit sphere]
+Let $d\ge2$ and $n\ge1$, and let $x_1,\ldots,x_n\in\mathbb R^d$ satisfy
+$x_i^\top x_i=1$ for every $i$.  Define
+\[
+  \bar x=\frac1n\sum_{i=1}^n x_i.
+\]
+Assume $\bar x\ne0$, and define
+\[
+  Q(p)=\frac1n\sum_{i=1}^n\|x_i-p\|_2^2,
+  \qquad p\in\mathbb R^d.
+\]
+Then the set of unit vectors minimizing $Q$ over all unit vectors is exactly
+\[
+ \left\{p\in\mathbb R^d:p^\top p=1
+   \text{ and }Q(p)\le Q(q)\text{ for every }q^\top q=1\right\}
+ =\left\{\frac{\bar x}{\sqrt{\bar x^\top\bar x}}\right\}.
+\]
+\end{theorem}

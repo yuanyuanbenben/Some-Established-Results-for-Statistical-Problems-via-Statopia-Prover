@@ -1,0 +1,99 @@
+{
+  "entry": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.Main",
+  "files": [
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.Base",
+      "lines": 44,
+      "sha256": "7f37f606047870678a804fded427e67746c4301829688cf80b3ff99ecc19b9cf"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.Main",
+      "lines": 178,
+      "sha256": "5de2e6fdd38a54c6926189080ba6022261b5a4f808e95e25cd21c15392ac8aa1"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes",
+      "lines": 15,
+      "sha256": "511f3cf4b6e4b78ff89909895a95c21de6c46f8db79b1d92b5f309b0dbe64842"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_1894322428_a8d5bf89_48a8e5f7",
+      "lines": 249,
+      "sha256": "edf35bfe017f07600c49a24714e3b30d4c30cc41dcd8d61068acfa17cac46fab"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_2309641057_5900fd9f_1b234663",
+      "lines": 122,
+      "sha256": "2d677ff34c52b0bd3f21a66db96a32cd24d640416295032023ee1dfc4d96f88f"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_2828381066_e53af6ac_9d9f1e18",
+      "lines": 190,
+      "sha256": "aeb76d43cf00be37db801906ed3095e3b9dff5e83f621af27770a9bc1ac4a4a9"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_3499294657_adafef55_978ab895",
+      "lines": 133,
+      "sha256": "2afbf33fdc6c8e8e541eaeeac64259240a053ae5312148195807e79bf642d870"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_3678446978_c1498b57_7ef4111b",
+      "lines": 44,
+      "sha256": "4baeb35c724109f814278b945d857a54c67629705be835ff8f31342ca0fd7d51"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_3904179399_f59de535_8039d034",
+      "lines": 95,
+      "sha256": "187196b5a65705e286f7861b2f32c006229b65913ef22f530ffe382f3f56740d"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_393377813_944d1b82_888fa0c5",
+      "lines": 90,
+      "sha256": "da35334afe5d61be2d9d0d1658ad4579081c5c66bb613ef509c7690100ee08ef"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_4173097495_a654df71_78e5a325",
+      "lines": 126,
+      "sha256": "69162f12e8e575bd8fa8369c30e5206cd342b42c37c9ee9708545efc49364b61"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_4184677617_2d1d411b_fa2beade",
+      "lines": 147,
+      "sha256": "dafb32f4f37cbcb0621ff61d07cc9cdce2ee7832ef2005db81ea5aa5b7b43d7d"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_455327756_5baa9f36_d523241a",
+      "lines": 169,
+      "sha256": "b804dfb9565c129316c70920860e43a7d81967413e55c99d237d7516fe64a87f"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_467221787_65608b8a_2c042b1a",
+      "lines": 412,
+      "sha256": "175fb5f11a0551d31f880f28647e25e69d40426b266ef49021109e4afa0bfd48"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_859487190_88621b65_8a0d7230",
+      "lines": 133,
+      "sha256": "fcbfccebe27c554d0c1706a39ab09fb5cd51635a53f65db07c1d9b0282b699af"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_870075716_61295c54_6d06aba6",
+      "lines": 164,
+      "sha256": "844eb15318f9246c99aacffb0554a984814f54c5e275abbecdcb3c1040b35ef2"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.ProvedNodes.Node_924557408_b0ba29a0_ec009e92",
+      "lines": 375,
+      "sha256": "9d76425b41345797d67f9c20cf09e848aa94a71185afbb6e584cf1735be6cad7"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q03.Vocabulary",
+      "lines": 13,
+      "sha256": "c1d900e362767883c490dace22c2669cd82bb33238b7f56c64c59cbcf507e978"
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Statlib"
+  ]
+}

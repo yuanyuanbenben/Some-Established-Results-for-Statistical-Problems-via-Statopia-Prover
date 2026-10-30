@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "bounded_random_sum_mean"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 45727
+}

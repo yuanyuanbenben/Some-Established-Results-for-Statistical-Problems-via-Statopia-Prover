@@ -1,0 +1,63 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62K/paired_block_randomization_unbiased.tex
+msc: 62K10
+topic: Design of statistical experiments
+track_a_difficulty: medium
+track_b_difficulty: medium
+theorems:
+  - id: paired_block_randomization_unbiased
+    kind: theorem
+    lean_name: paired_block_randomization_unbiased
+    latex_statement: >-
+      \begin{theorem}[Paired Block Randomization Difference Estimator]
+
+      Let $b\in\mathbb{N}$ with $b\ge 1$. In each block $j=1,\ldots,b$ there are
+
+      two units, labeled $0$ and $1$. For unit $u\in\{0,1\}$ in block $j$, let
+
+      $Y_{j,u}(1)$ and $Y_{j,u}(0)$ be fixed potential outcomes. In every block,
+
+      exactly one unit is assigned to treatment and the other to control, with
+      the
+
+      two assignments equally likely; assignments are uniform over all $2^b$
+
+      blockwise assignment vectors.
+
+
+      Let $D_j$ be the observed treated outcome minus the observed control
+      outcome
+
+      in block $j$, and define
+
+      \[
+
+      \bar D=\frac{1}{b}\sum_{j=1}^b D_j.
+
+      \]
+
+      Then
+
+      \[
+
+      \mathbb E[\bar D]
+
+      =
+
+      \frac{1}{b}\sum_{j=1}^b
+
+      \frac{
+        \bigl(Y_{j,0}(1)-Y_{j,0}(0)\bigr)
+        +
+        \bigl(Y_{j,1}(1)-Y_{j,1}(0)\bigr)
+      }{2}.
+
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

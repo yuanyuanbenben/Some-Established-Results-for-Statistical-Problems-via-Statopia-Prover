@@ -1,0 +1,21 @@
+\begin{theorem}[Interior integrated risk rate for a product-kernel estimator]
+Let $d,n\ge1$, let $\alpha>0$, and let $f_0:[0,1]^d\to\mathbb R$ be bounded
+and $\alpha$-Hölder.  Let $X_0,\ldots,X_{n-1}$ have common uniform law on
+the cube, and let $Y_i=f_0(X_i)+\xi_i$, where the regression noises are
+centered and satisfy a common sub-exponential bound.  Let $K_h$ be a product
+kernel satisfying the usual boundedness, Hölder, normalization, energy, and
+measurability conditions.  Write
+\[
+  \widehat f_h(x)=\frac1n\sum_{i=0}^{n-1}K_h(x,X_i)Y_i,
+  \qquad h=n^{-1/(2\alpha+d)}.
+\]
+For the interior band $I_h=[h,1-h]^d$, let $\mu_I$ be a finite measure with
+$\mu_I(I_h)\le1$.  Assume the standard population-smoother identity, the
+kernel $L^2$ energy calculation, and the centered fluctuation bound, with all
+integrability obligations holding.  Then there is a constant $C>0$, depending
+only on the uniform bounds in these assumptions, such that
+\[
+  \int_{I_h}\mathbb E\bigl(\widehat f_h(x)-f_0(x)\bigr)^2\,d\mu_I(x)
+  \le C n^{-2\alpha/(2\alpha+d)}.
+\]
+\end{theorem}

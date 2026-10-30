@@ -1,0 +1,3 @@
+import Statlib.Nonparametric.Approximation.ShallowReLUApproximation
+#print axioms Statlib.Nonparametric.Approximation.holder_smooth_shallow_relu_neural_network_approximation
+#check Statlib.Nonparametric.Approximation.holder_smooth_shallow_relu_neural_network_approximation

@@ -1,0 +1,48 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62D/doubly_robust_mean_identification_under_mar.tex
+msc: 62D10
+topic: Doubly robust MAR identification
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: doubly_robust_mean_identification_under_mar
+    kind: theorem
+    lean_name: doubly_robust_mean_identification_under_mar
+    latex_statement: |-
+      \begin{theorem}[Doubly Robust Mean Identification under MAR]
+      Let $(\Omega,\mathcal A,P)$ be a probability space and let $\mathcal Z$ be
+      a finite measurable space in which every singleton is measurable.  Let
+      $R:\Omega\to\{\mathrm{false},\mathrm{true}\}$,
+      $Z:\Omega\to\mathcal Z$, and $Y:\Omega\to\mathbb R$ be measurable,
+      with $Y$ integrable.  Assume $P\{Z=z\}>0$ for every $z\in\mathcal Z$.
+      Assume also that, for every measurable $B\subseteq\mathbb R$, every
+      $r\in\{\mathrm{false},\mathrm{true}\}$, and every $z\in\mathcal Z$,
+      \[
+       P\{Y\in B,R=r,Z=z\}P\{Z=z\}
+       =
+       P\{Y\in B,Z=z\}P\{R=r,Z=z\}.
+      \]
+      Let $m:\mathcal Z\to\mathbb R$ and
+      $\pi:\mathcal Z\to\mathbb R$ satisfy $0<\pi(z)\le1$ for every $z$, and
+      define
+      \[
+       m_0(z)=\frac{\int_{\{Z=z\}}Y\,dP}{P\{Z=z\}},
+       \qquad
+       \pi_0(z)=\frac{P\{R=\mathrm{true},Z=z\}}{P\{Z=z\}}.
+      \]
+      If $\pi_0(z)>0$ for every $z$ and either $m=m_0$ or $\pi=\pi_0$, then
+      \[
+       \int\left[
+       m(Z)+\frac{\mathbf 1\{R=\mathrm{true}\}}{\pi(Z)}
+             \bigl(Y-m(Z)\bigr)
+       \right]dP
+       =
+       \int Y\,dP.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

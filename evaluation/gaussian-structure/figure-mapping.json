@@ -1,0 +1,265 @@
+{
+  "gaussian-main-dag": {
+    "nodes": [
+      {
+        "id": "proof.node.1eee90f0db4cdd14f37f775cc6447850",
+        "label": "B: term II",
+        "alias": "B",
+        "phase": "VERIFIED",
+        "style": "interface",
+        "dependencies": []
+      },
+      {
+        "id": "proof.node.20b4ba2d9e853dc9ea62916d4307c3e9",
+        "label": "Index bounds",
+        "alias": "index",
+        "phase": "VERIFIED",
+        "style": "verified",
+        "dependencies": []
+      },
+      {
+        "id": "proof.node.57d3fe3a8dcb9c66f5061c261a599e62",
+        "label": "Theorem 3.1\\\\Main",
+        "alias": "main",
+        "phase": "VERIFIED",
+        "style": "verified",
+        "dependencies": [
+          "proof.node.1eee90f0db4cdd14f37f775cc6447850",
+          "proof.node.20b4ba2d9e853dc9ea62916d4307c3e9",
+          "proof.node.753ee5f93b61cb65f19cd7c5c2aa8e81",
+          "proof.node.cb9615e3d5ed8beff1c20c2311304d0f",
+          "proof.node.writer.4224a3ed2b93f6898b45823f",
+          "proof.node.writer.acb74fbd535f29bc7b80d23f",
+          "proof.node.writer.f4515724cf851123db404a72"
+        ]
+      },
+      {
+        "id": "proof.node.753ee5f93b61cb65f19cd7c5c2aa8e81",
+        "label": "T: terms I, III",
+        "alias": "T",
+        "phase": "VERIFIED",
+        "style": "interface",
+        "dependencies": []
+      },
+      {
+        "id": "proof.node.cb9615e3d5ed8beff1c20c2311304d0f",
+        "label": "Distance\\\\triangle bound",
+        "alias": "triangle",
+        "phase": "VERIFIED",
+        "style": "verified",
+        "dependencies": []
+      },
+      {
+        "id": "proof.node.writer.4224a3ed2b93f6898b45823f",
+        "label": "Covariance\\\\identities",
+        "alias": "cov",
+        "phase": "VERIFIED",
+        "style": "verified",
+        "dependencies": []
+      },
+      {
+        "id": "proof.node.writer.96da7993db77c9e50fa2cd7d",
+        "label": "Gaussian\\\\characterization",
+        "alias": "char",
+        "phase": "VERIFIED",
+        "style": "verified",
+        "dependencies": []
+      },
+      {
+        "id": "proof.node.writer.acb74fbd535f29bc7b80d23f",
+        "label": "Gaussian law\\\\identification",
+        "alias": "law",
+        "phase": "VERIFIED",
+        "style": "verified",
+        "dependencies": [
+          "proof.node.writer.96da7993db77c9e50fa2cd7d"
+        ]
+      },
+      {
+        "id": "proof.node.writer.f4515724cf851123db404a72",
+        "label": "Orlicz bound\\\\to integrability",
+        "alias": "orlicz",
+        "phase": "VERIFIED",
+        "style": "verified",
+        "dependencies": []
+      }
+    ],
+    "edges": [
+      [
+        "proof.node.1eee90f0db4cdd14f37f775cc6447850",
+        "proof.node.57d3fe3a8dcb9c66f5061c261a599e62"
+      ],
+      [
+        "proof.node.20b4ba2d9e853dc9ea62916d4307c3e9",
+        "proof.node.57d3fe3a8dcb9c66f5061c261a599e62"
+      ],
+      [
+        "proof.node.753ee5f93b61cb65f19cd7c5c2aa8e81",
+        "proof.node.57d3fe3a8dcb9c66f5061c261a599e62"
+      ],
+      [
+        "proof.node.cb9615e3d5ed8beff1c20c2311304d0f",
+        "proof.node.57d3fe3a8dcb9c66f5061c261a599e62"
+      ],
+      [
+        "proof.node.writer.4224a3ed2b93f6898b45823f",
+        "proof.node.57d3fe3a8dcb9c66f5061c261a599e62"
+      ],
+      [
+        "proof.node.writer.acb74fbd535f29bc7b80d23f",
+        "proof.node.57d3fe3a8dcb9c66f5061c261a599e62"
+      ],
+      [
+        "proof.node.writer.f4515724cf851123db404a72",
+        "proof.node.57d3fe3a8dcb9c66f5061c261a599e62"
+      ],
+      [
+        "proof.node.writer.96da7993db77c9e50fa2cd7d",
+        "proof.node.writer.acb74fbd535f29bc7b80d23f"
+      ]
+    ]
+  },
+  "gaussian-task-group": {
+    "nodes": [
+      {
+        "id": "paper_fresh_20261028t224543381z_gaussian",
+        "label": "Theorem 3.1\\\\Main task",
+        "alias": "main",
+        "phase": "verified",
+        "style": "verified",
+        "dependencies": [
+          "paper_e9c0500526fe4a15b7473a5f9efc21ed",
+          "paper_82217ff9ed45452ea25ea7588fe2ef01"
+        ]
+      },
+      {
+        "id": "paper_e9c0500526fe4a15b7473a5f9efc21ed",
+        "label": "B: Bentkus\\\\step (term II)",
+        "alias": "B",
+        "phase": "verified",
+        "style": "verified",
+        "dependencies": [
+          "paper_939f6a24b4ee4e378c0de2ad4ed252f8"
+        ]
+      },
+      {
+        "id": "paper_82217ff9ed45452ea25ea7588fe2ef01",
+        "label": "T: truncation\\\\Terms I, III",
+        "alias": "T",
+        "phase": "verified",
+        "style": "verified",
+        "dependencies": [
+          "paper_cb04ce35a04d48a9bf96750470ca0eb0",
+          "paper_d731a49b3997405b944f72bca5b16eab"
+        ]
+      },
+      {
+        "id": "paper_cb04ce35a04d48a9bf96750470ca0eb0",
+        "label": "Bounds lemma",
+        "alias": "bounds",
+        "phase": "verified",
+        "style": "verified",
+        "dependencies": [
+          "paper_e9c0500526fe4a15b7473a5f9efc21ed",
+          "paper_d731a49b3997405b944f72bca5b16eab",
+          "paper_df5fdc450bf24d85b08215e07b20fdad"
+        ]
+      },
+      {
+        "id": "paper_d731a49b3997405b944f72bca5b16eab",
+        "label": "Slepian lemma",
+        "alias": "slepian",
+        "phase": "verified",
+        "style": "verified",
+        "dependencies": []
+      },
+      {
+        "id": "paper_df5fdc450bf24d85b08215e07b20fdad",
+        "label": "Moment lemma",
+        "alias": "moment",
+        "phase": "verified",
+        "style": "verified",
+        "dependencies": [
+          "paper_83c5bfd1c48a46908ad83ab8d1287d4f",
+          "paper_5e55a39414914735a42d679e7fe1d6d2"
+        ]
+      },
+      {
+        "id": "paper_939f6a24b4ee4e378c0de2ad4ed252f8",
+        "label": "Bentkus (2003)\\\\citation input",
+        "alias": "bentkus",
+        "phase": "pending",
+        "style": "citation",
+        "dependencies": []
+      },
+      {
+        "id": "paper_83c5bfd1c48a46908ad83ab8d1287d4f",
+        "label": "Zinn\\\\citation input",
+        "alias": "zinn",
+        "phase": "pending",
+        "style": "citation",
+        "dependencies": []
+      },
+      {
+        "id": "paper_5e55a39414914735a42d679e7fe1d6d2",
+        "label": "Vershynin\\\\citation input",
+        "alias": "vershynin",
+        "phase": "pending",
+        "style": "citation",
+        "dependencies": []
+      }
+    ],
+    "edges": [
+      [
+        "paper_e9c0500526fe4a15b7473a5f9efc21ed",
+        "paper_fresh_20261028t224543381z_gaussian"
+      ],
+      [
+        "paper_82217ff9ed45452ea25ea7588fe2ef01",
+        "paper_fresh_20261028t224543381z_gaussian"
+      ],
+      [
+        "paper_939f6a24b4ee4e378c0de2ad4ed252f8",
+        "paper_e9c0500526fe4a15b7473a5f9efc21ed"
+      ],
+      [
+        "paper_cb04ce35a04d48a9bf96750470ca0eb0",
+        "paper_82217ff9ed45452ea25ea7588fe2ef01"
+      ],
+      [
+        "paper_d731a49b3997405b944f72bca5b16eab",
+        "paper_82217ff9ed45452ea25ea7588fe2ef01"
+      ],
+      [
+        "paper_e9c0500526fe4a15b7473a5f9efc21ed",
+        "paper_cb04ce35a04d48a9bf96750470ca0eb0"
+      ],
+      [
+        "paper_d731a49b3997405b944f72bca5b16eab",
+        "paper_cb04ce35a04d48a9bf96750470ca0eb0"
+      ],
+      [
+        "paper_df5fdc450bf24d85b08215e07b20fdad",
+        "paper_cb04ce35a04d48a9bf96750470ca0eb0"
+      ],
+      [
+        "paper_83c5bfd1c48a46908ad83ab8d1287d4f",
+        "paper_df5fdc450bf24d85b08215e07b20fdad"
+      ],
+      [
+        "paper_5e55a39414914735a42d679e7fe1d6d2",
+        "paper_df5fdc450bf24d85b08215e07b20fdad"
+      ]
+    ]
+  },
+  "sources": [
+    {
+      "path": "/home/ai4stat/statlib/ProverJobs/paper_fresh_20261028t224543381z_gaussian/roadmap/unified-proof-graph.json",
+      "sha256": "ca37cf622176c8f6bf2943eac7a89fb6e26d4e1db1d8429b7f250e7af92f46d6"
+    },
+    {
+      "path": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/cases/gaussian/run/checkpoint/paper-output/paper-proof-group.json",
+      "sha256": "20a617daa226a71a43180071835c1c98407f734adce949a8adac33aba71dadd7"
+    }
+  ]
+}

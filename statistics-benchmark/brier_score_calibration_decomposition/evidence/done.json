@@ -1,0 +1,9 @@
+{
+  "finishedAt": "2026-10-18T04:25:44.909Z",
+  "finalStatus": "proved",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q33/experiment/runs/20261018T033939Z-brier_score_calibration_decomposition-5a1be9be",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q33",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q33",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q33/experiment/runs/20261018T033939Z-brier_score_calibration_decomposition-5a1be9be/job_snapshot",
+  "publishedCheckpointDir": null
+}

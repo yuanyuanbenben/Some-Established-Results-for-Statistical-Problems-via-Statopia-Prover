@@ -1,0 +1,47 @@
+import Mathlib
+
+open MeasureTheory ProbabilityTheory Filter
+
+theorem two_sample_ks_distribution_freeness
+    {Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P]
+    (m n : ℕ) (hm : 1 ≤ m) (hn : 1 ≤ n)
+    (F : StieltjesFunction ℝ)
+    (hF_cont : Continuous F)
+    (hF_strict : StrictMono F)
+    (hF_bot : Tendsto F Filter.atBot (nhds 0))
+    (hF_top : Tendsto F Filter.atTop (nhds 1))
+    (X : Fin m → Ω → ℝ) (Y : Fin n → Ω → ℝ)
+    (U : Fin m → Ω → ℝ) (V : Fin n → Ω → ℝ)
+    (hX_meas : ∀ i, Measurable (X i))
+    (hY_meas : ∀ j, Measurable (Y j))
+    (hU_meas : ∀ i, Measurable (U i))
+    (hV_meas : ∀ j, Measurable (V j))
+    (hX_indep : iIndepFun X P)
+    (hY_indep : iIndepFun Y P)
+    (hU_indep : iIndepFun U P)
+    (hV_indep : iIndepFun V P)
+    (hXY_indep : IndepFun
+      (fun ω ↦ fun i ↦ X i ω) (fun ω ↦ fun j ↦ Y j ω) P)
+    (hUV_indep : IndepFun
+      (fun ω ↦ fun i ↦ U i ω) (fun ω ↦ fun j ↦ V j ω) P)
+    (hXY_UV_indep : IndepFun
+      (fun ω ↦ (fun i ↦ X i ω, fun j ↦ Y j ω))
+      (fun ω ↦ (fun i ↦ U i ω, fun j ↦ V j ω)) P)
+    (hX_cdf : ∀ i t, (P {ω | X i ω ≤ t}).toReal = F t)
+    (hY_cdf : ∀ j t, (P {ω | Y j ω ≤ t}).toReal = F t)
+    (hU_uniform : ∀ i, MeasureTheory.pdf.IsUniform (U i) (Set.Ioo 0 1) P)
+    (hV_uniform : ∀ j, MeasureTheory.pdf.IsUniform (V j) (Set.Ioo 0 1) P) :
+    let FX : Ω → ℝ → ℝ := fun ω t ↦
+      (m : ℝ)⁻¹ * ∑ i, if X i ω ≤ t then 1 else 0
+    let FY : Ω → ℝ → ℝ := fun ω t ↦
+      (n : ℝ)⁻¹ * ∑ j, if Y j ω ≤ t then 1 else 0
+    let FU : Ω → ℝ → ℝ := fun ω u ↦
+      (m : ℝ)⁻¹ * ∑ i, if U i ω ≤ u then 1 else 0
+    let FV : Ω → ℝ → ℝ := fun ω u ↦
+      (n : ℝ)⁻¹ * ∑ j, if V j ω ≤ u then 1 else 0
+    let DXY : Ω → ℝ := fun ω ↦ ⨆ t : ℝ, |FX ω t - FY ω t|
+    let DUV : Ω → ℝ := fun ω ↦
+      ⨆ u : Set.Icc (0 : ℝ) 1, |FU ω u.1 - FV ω u.1|
+    IdentDistrib DXY DUV P P := by
+  sorry

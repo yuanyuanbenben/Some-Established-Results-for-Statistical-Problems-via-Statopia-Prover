@@ -1,0 +1,17 @@
+{
+  "case": "power_function_one_sided_gaussian_mean_test",
+  "msc": "62F03",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 2106.407,
+  "lean_files": 1,
+  "lean_lines": 165,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_power_function_one_sided_gaussian_mean_test_native-b",
+  "legacy_input_tokens": 742210,
+  "legacy_output_tokens": 248382
+}

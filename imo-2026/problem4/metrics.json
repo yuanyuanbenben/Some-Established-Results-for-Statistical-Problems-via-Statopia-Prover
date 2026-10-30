@@ -1,0 +1,14 @@
+{
+  "case": "IMO2026-P4",
+  "target": "main_theorem",
+  "job_id": "real_main_theorem_3393c3b8aa74",
+  "seconds": 2161.668,
+  "lean_files": 12,
+  "lean_lines": 549,
+  "cost_usd": 0.266116459,
+  "unknown_attempts": 0,
+  "unknown_reservation_usd": 0,
+  "cost_coverage": "completed recorded usage only; unresolved reservations separate",
+  "guidance": "supplied natural-language proof",
+  "proof_status": "proved"
+}

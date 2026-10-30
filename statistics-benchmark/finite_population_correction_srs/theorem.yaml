@@ -1,0 +1,57 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62D/finite_population_correction_srs.tex
+msc: 62D05
+topic: Sampling theory; sample surveys
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: finite_population_correction_srs
+    kind: theorem
+    lean_name: finite_population_correction_srs
+    latex_statement: >-
+      \begin{theorem}[Finite-Population Correction for Simple Random Sampling]
+
+      Let $N,n\in\mathbb{N}$ with $N\ge 2$ and $1\le n\le N$. Let
+
+      $y_1,\ldots,y_N\in\mathbb{R}$ be fixed population values. Let $S$ be
+      chosen
+
+      uniformly from all $n$-element subsets of $\{1,\ldots,N\}$.
+
+      Define
+
+      \[
+
+      \mu=\frac{1}{N}\sum_{i=1}^N y_i,\qquad
+
+      \bar y_S=\frac{1}{n}\sum_{i\in S}y_i,
+
+      \]
+
+      and the finite-population variance
+
+      \[
+
+      S_y^2=\frac{1}{N-1}\sum_{i=1}^N (y_i-\mu)^2.
+
+      \]
+
+      Then
+
+      \[
+
+      \operatorname{Var}(\bar y_S)
+
+      =
+
+      \left(1-\frac{n}{N}\right)\frac{S_y^2}{n}.
+
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

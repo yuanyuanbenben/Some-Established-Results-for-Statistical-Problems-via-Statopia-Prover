@@ -1,0 +1,9 @@
+{
+  "finishedAt": "2026-10-18T05:10:45.921Z",
+  "finalStatus": "proved",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q35/experiment/runs/20261018T040959Z-isotonic_cumulative_residual_certificate-ea6f97ff",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q35",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q35",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q35/experiment/runs/20261018T040959Z-isotonic_cumulative_residual_certificate-ea6f97ff/job_snapshot",
+  "publishedCheckpointDir": null
+}

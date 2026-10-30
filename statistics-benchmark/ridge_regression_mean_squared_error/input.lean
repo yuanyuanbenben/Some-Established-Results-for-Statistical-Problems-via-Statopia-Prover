@@ -1,0 +1,28 @@
+import Mathlib
+
+open MeasureTheory Matrix
+
+theorem ridge_regression_mean_squared_error
+    {Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P]
+    (n d : ℕ) (hn : 1 ≤ n) (hd : 1 ≤ d)
+    (X : Matrix (Fin n) (Fin d) ℝ)
+    (betaStar : Fin d → ℝ)
+    (epsilon : Ω → Fin n → ℝ)
+    (hε_L2 : MemLp epsilon 2 P)
+    (sigmaSq : ℝ) (hsigma : 0 ≤ sigmaSq)
+    (hmean : ∫ ω, epsilon ω ∂P = 0)
+    (hcov : ∀ i j, ∫ ω, epsilon ω i * epsilon ω j ∂P =
+      if i = j then sigmaSq else 0)
+    (lambda : ℝ) (hlambda : 0 < lambda) :
+    let A : Matrix (Fin d) (Fin d) ℝ :=
+      X.transpose * X + lambda • 1
+    let y : Ω → Fin n → ℝ := fun ω ↦ X *ᵥ betaStar + epsilon ω
+    let betaHat : Ω → Fin d → ℝ := fun ω ↦
+      A⁻¹ *ᵥ (X.transpose *ᵥ y ω)
+    ∫ ω, dotProduct (betaHat ω - betaStar)
+        (betaHat ω - betaStar) ∂P =
+      lambda ^ 2 *
+          dotProduct (A⁻¹ *ᵥ betaStar) (A⁻¹ *ᵥ betaStar) +
+        sigmaSq * (A⁻¹ * X.transpose * X * A⁻¹).trace := by
+  sorry

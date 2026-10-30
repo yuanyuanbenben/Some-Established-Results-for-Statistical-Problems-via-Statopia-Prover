@@ -1,0 +1,17 @@
+{
+  "case": "permutation_p_value_validity",
+  "msc": "62G10",
+  "difficulty": "hard",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 1146.807,
+  "lean_files": 1,
+  "lean_lines": 99,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_permutation_p_value_validity_native-b",
+  "legacy_input_tokens": 221045,
+  "legacy_output_tokens": 105806
+}

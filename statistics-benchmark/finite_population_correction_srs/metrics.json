@@ -1,0 +1,15 @@
+{
+  "case": "finite_population_correction_srs",
+  "msc": "62D05",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": 0.884798564,
+  "unknown_reservation_usd": 0.0,
+  "cost_coverage": "completed journal usage; unresolved reservations separate",
+  "mode": "deep",
+  "seconds": 3537.0,
+  "lean_files": 8,
+  "lean_lines": 561,
+  "nodes": 5,
+  "job_id": "deep_benchmark42_3p_2k5_20261017T100521Z_q21"
+}

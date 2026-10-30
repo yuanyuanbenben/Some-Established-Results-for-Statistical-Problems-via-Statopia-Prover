@@ -1,0 +1,37 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62M/sequential_brier_risk_decomposition.tex
+msc: 62M20
+topic: Sequential forecast risk
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: sequential_brier_risk_decomposition
+    kind: theorem
+    lean_name: sequential_brier_risk_decomposition
+    latex_statement: |-
+      \begin{theorem}[Sequential Brier-risk decomposition]
+      Let $(\Omega,\mathcal F,P)$ be a probability space, let $T\ge1$, and let
+      $(\mathcal F_t)_{t\ge0}$ be measurable structures such that
+      $\mathcal F_s\subseteq\mathcal F_t$ whenever $s\le t\le T$, and
+      $\mathcal F_t\subseteq\mathcal F$ for every $t\le T$.  Let
+      $Y_t,p_t,q_t:\Omega\to\mathbb R$.  For every $t=1,\ldots,T$, assume that
+      $Y_t$ is strongly $\mathcal F_t$-measurable, takes only the values $0$ and
+      $1$, and is integrable; assume that $q_t$ is strongly
+      $\mathcal F_{t-1}$-measurable and integrable; assume
+      \[
+        p_t=\mathbb E_P[Y_t\mid\mathcal F_{t-1}]
+        \quad P\text{-almost everywhere};
+      \]
+      and assume $0\le q_t\le1$ $P$-almost everywhere.  Then
+      \[
+       \int_\Omega\sum_{t=1}^T(Y_t-q_t)^2\,dP
+       =\int_\Omega\sum_{t=1}^T(Y_t-p_t)^2\,dP
+        +\int_\Omega\sum_{t=1}^T(q_t-p_t)^2\,dP.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

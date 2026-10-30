@@ -1,0 +1,37 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/median_minimizes_absolute_deviation.tex
+msc: 62G05
+topic: Nonparametric estimation
+track_a_difficulty: medium
+track_b_difficulty: medium
+theorems:
+  - id: median_minimizes_absolute_deviation
+    kind: theorem
+    lean_name: median_minimizes_absolute_deviation
+    latex_statement: |-
+      \begin{theorem}[Median Minimizes Absolute Deviations]
+      Let $n\in\mathbb{N}$ with $n\ge 1$, and let
+      $x_1,\ldots,x_n\in\mathbb{R}$. Counts below include multiplicity. A real
+      number $m$ is called a sample median if
+      \[
+      2\,\#\{i:x_i\le m\}\ge n
+      \qquad\text{and}\qquad
+      2\,\#\{i:x_i\ge m\}\ge n.
+      \]
+      Define
+      \[
+      L(a)=\sum_{i=1}^n |x_i-a|.
+      \]
+      Then every sample median $m$ minimizes $L$:
+      \[
+      L(m)\le L(a)
+      \qquad
+      \text{for every }a\in\mathbb{R}.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

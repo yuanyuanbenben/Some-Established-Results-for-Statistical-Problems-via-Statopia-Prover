@@ -1,0 +1,15 @@
+{
+  "case": "two_sample_multivariate_central_limit_theorem",
+  "msc": "62E20",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": 6.244868197,
+  "unknown_reservation_usd": 0.0,
+  "cost_coverage": "completed journal usage; unresolved reservations separate",
+  "mode": "deep",
+  "seconds": 18357.0,
+  "lean_files": 15,
+  "lean_lines": 2212,
+  "nodes": 12,
+  "job_id": "deep_benchmark42_3p_2k5_20261017T100521Z_q01"
+}

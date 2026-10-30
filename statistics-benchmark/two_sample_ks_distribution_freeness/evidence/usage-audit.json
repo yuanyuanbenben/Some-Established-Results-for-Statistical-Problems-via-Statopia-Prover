@@ -1,0 +1,164 @@
+{
+  "id": "q18",
+  "case": "two_sample_ks_distribution_freeness",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q18",
+  "status": "PROVED",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q18/experiment/runs/20261017T213929Z-two_sample_ks_distribution_freeness-40fc5d68",
+  "source": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q18/roadmap-usage/usage-journal.jsonl",
+  "sourceSha256": "4df6faf39bee6719dee582d85b7bfeda4fae97312948c4d0310e96fb7bfaa781",
+  "snapshot": {
+    "path": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q18/experiment/runs/20261017T213929Z-two_sample_ks_distribution_freeness-40fc5d68/job_snapshot/roadmap-usage/usage-journal.jsonl",
+    "sha256": "4df6faf39bee6719dee582d85b7bfeda4fae97312948c4d0310e96fb7bfaa781",
+    "byteEqualToLive": true
+  },
+  "checkpointCount": 0,
+  "eventSequence": 320,
+  "rawEventKinds": {
+    "CALL_INTENT": 107,
+    "USAGE_COMPLETION": 106,
+    "CLOSE_LOGICAL_CALL": 106,
+    "USAGE_UNKNOWN": 1
+  },
+  "compactedCompletedByAgent": {},
+  "retainedAttemptStatusCounts": {
+    "COMPLETED": 106,
+    "USAGE_UNKNOWN": 1
+  },
+  "retainedCompletionOutcomeCounts": {
+    "SUCCEEDED": 106
+  },
+  "retainedCompletedAfterUnknownCount": 0,
+  "unknownEventMarkersInStoredFile": 1,
+  "finalUnknownAttemptCount": 1,
+  "finalActiveAttemptCount": 0,
+  "unresolvedAttempts": [
+    {
+      "requestAttemptId": "call.writer.b638eddfcffc47fd877a31b63da84a45.71.attempt.1",
+      "agent": "WRITER",
+      "model": "deepseek-v4-flash",
+      "status": "USAGE_UNKNOWN",
+      "reason": "provider stream ended before terminal output usage was reported",
+      "reservation": {
+        "cacheReadTokens": 0,
+        "cacheWriteTokens": 0,
+        "costUsd": 0.5392848,
+        "inputTokens": 224752,
+        "outputTokens": 393216
+      }
+    }
+  ],
+  "totals": {
+    "completed": {
+      "inputTokens": 2759998,
+      "outputTokens": 656736,
+      "cacheReadTokens": 1400192,
+      "cacheWriteTokens": 0,
+      "costUsd": 1.624483764
+    },
+    "unresolvedReservation": {
+      "inputTokens": 224752,
+      "outputTokens": 393216,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "costUsd": 0.5392848
+    },
+    "billable": {
+      "inputTokens": 2984750,
+      "outputTokens": 1049952,
+      "cacheReadTokens": 1400192,
+      "cacheWriteTokens": 0,
+      "costUsd": 2.163768564
+    }
+  },
+  "totalCompletedInputIncludingCache": 4160190,
+  "completedByAgent": {
+    "MATH_PLANNER": {
+      "inputTokens": 520758,
+      "outputTokens": 211767,
+      "cacheReadTokens": 605952,
+      "cacheWriteTokens": 0,
+      "costUsd": 0.41398351899999986
+    },
+    "SEARCH": {
+      "inputTokens": 200790,
+      "outputTokens": 9032,
+      "cacheReadTokens": 4480,
+      "cacheWriteTokens": 0,
+      "costUsd": 0.071102281
+    },
+    "WRITER": {
+      "inputTokens": 2038450,
+      "outputTokens": 435937,
+      "cacheReadTokens": 789760,
+      "cacheWriteTokens": 0,
+      "costUsd": 1.139397964
+    }
+  },
+  "callbackUsage": {
+    "path": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q18/experiment/runs/20261017T213929Z-two_sample_ks_distribution_freeness-40fc5d68/usage.jsonl",
+    "sha256": "9fbe5a354fede4f95758641b348a2805fb4187988be2922c04be5e8e39a1ec66",
+    "rows": 94,
+    "summedFields": {
+      "inputTokens": 2759998,
+      "outputTokens": 656736,
+      "cacheReadTokens": 1400192,
+      "cacheWriteTokens": 0,
+      "costUsd": 0
+    },
+    "byEngine": {
+      "legacy-or-unspecified": {
+        "rows": 5,
+        "inputTokens": 114470,
+        "outputTokens": 158083,
+        "cacheReadTokens": 120448,
+        "cacheWriteTokens": 0,
+        "costUsd": 0
+      },
+      "unified-proof-graph": {
+        "rows": 89,
+        "inputTokens": 2645528,
+        "outputTokens": 498653,
+        "cacheReadTokens": 1279744,
+        "cacheWriteTokens": 0,
+        "costUsd": 0
+      }
+    },
+    "deltaFromCanonicalCompleted": {
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "costUsd": -1.624483764
+    }
+  },
+  "summaryProjection": {
+    "legacySum": {
+      "inputTokens": 114470,
+      "outputTokens": 158083,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "costUsd": 0.22476329
+    },
+    "unifiedSum": {
+      "inputTokens": 2466285,
+      "outputTokens": 498142,
+      "cacheReadTokens": 1278336,
+      "cacheWriteTokens": 0,
+      "costUsd": 1.345325916
+    },
+    "naiveCombinedSum": {
+      "inputTokens": 2580755,
+      "outputTokens": 656225,
+      "cacheReadTokens": 1278336,
+      "cacheWriteTokens": 0,
+      "costUsd": 1.570089206
+    },
+    "deltaFromCanonicalCompleted": {
+      "inputTokens": -179243,
+      "outputTokens": -511,
+      "cacheReadTokens": -121856,
+      "cacheWriteTokens": 0,
+      "costUsd": -0.05439455800000004
+    }
+  }
+}

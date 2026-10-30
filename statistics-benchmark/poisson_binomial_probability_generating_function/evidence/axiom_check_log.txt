@@ -1,0 +1,35 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=poisson_binomial_probability_generating_function
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:15:5: warning: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:18:5: warning: unused variable `hp1`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:22:5: warning: unused variable `hXzero`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:59:33: warning: This simp argument is unused:
+  hX
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵h̵X̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:59:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+<stdin>:59:41: warning: 'ring' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'poisson_binomial_probability_generating_function' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

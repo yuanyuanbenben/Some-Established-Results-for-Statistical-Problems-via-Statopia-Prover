@@ -1,0 +1,81 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62K/difference_in_means_unbiased_random_assignment.tex
+msc: 62K99
+topic: Design of statistical experiments, miscellaneous
+track_a_difficulty: medium
+track_b_difficulty: medium
+theorems:
+  - id: difference_in_means_unbiased_random_assignment
+    kind: theorem
+    lean_name: difference_in_means_unbiased_random_assignment
+    latex_statement: >-
+      \begin{theorem}[Unbiasedness of Difference-in-Means under Random
+      Assignment]
+
+      Let $n_1,n_0\in\mathbb{N}$ with $n_1\ge 1$ and $n_0\ge 1$, and let
+
+      $N=n_1+n_0$. For units $i=1,\ldots,N$, let $Y_i(1)$ and $Y_i(0)$ be fixed
+
+      real-valued potential outcomes. Let $W_i$ be the treatment indicator under
+      a
+
+      randomized assignment. Assume that $W_i$ and $1-W_i$ have finite
+      expectations,
+
+      and assume that
+
+      \[
+
+      \mathbb{E}[W_i]=\frac{n_1}{N},
+
+      \qquad
+
+      \mathbb{E}[1-W_i]=\frac{n_0}{N}
+
+      \]
+
+      for every $i$.
+
+      Define
+
+      \[
+
+      \widehat{\tau}
+
+      =
+
+      \frac{1}{n_1}\sum_{i=1}^N W_iY_i(1)
+
+      -
+
+      \frac{1}{n_0}\sum_{i=1}^N (1-W_i)Y_i(0),
+
+      \]
+
+      and
+
+      \[
+
+      \tau
+
+      =
+
+      \frac{1}{N}\sum_{i=1}^N \bigl(Y_i(1)-Y_i(0)\bigr).
+
+      \]
+
+      Then
+
+      \[
+
+      \mathbb{E}[\widehat{\tau}]=\tau.
+
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

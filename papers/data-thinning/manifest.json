@@ -1,0 +1,65 @@
+{
+  "name": "data_thinning",
+  "label": "Data Thinning — Theorem 1",
+  "folder": "data-thinning",
+  "paperTitle": "Generalized Data Thinning Using Sufficient Statistics",
+  "theorem": "Theorem 1 (Main theorem; thm:generalized-thinning)",
+  "jobId": "paper_fresh_20261028t224543381z_data_thinning",
+  "sourceCampaign": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/manifest.json",
+  "sourceRunDirectory": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/cases/data_thinning/run",
+  "mainSha256": "cae1705b1dba9b193306e42dc96a7af7867783df729c1d7f33ba61bbf453e1f4",
+  "mainLines": 30,
+  "integratedLeanFiles": 5,
+  "integratedLeanLines": 160,
+  "integratedArchiveSha256": "47949b7024181a2de39c72c8d85333d685629bea7472e0f927c7d85a71043337",
+  "entryModule": "ProverJobs.paper_fresh_20261028t224543381z_data_thinning.PaperProofInterfaces.Result_r1_4ef57bb18b204c33b27dd76a319b4312",
+  "rootDeclaration": "PaperProofTasks.paper_fresh_20261028t224543381z_data_thinning.Statlib.Imported.Theorem_1_Main_theorem_thm_generalized_thinning",
+  "closureRef": "pc/cf73GDL/r.json",
+  "groupRevision": 11,
+  "proofPassed": true,
+  "rootSummaryRemainingSorry": 0,
+  "e2ePassed": true,
+  "reportStatus": "completed",
+  "registeredRetainEntries": [],
+  "actualRetainedAssumptions": [],
+  "tasks": [
+    {
+      "resultId": "paper_fresh_20261028t224543381z_data_thinning",
+      "jobId": "paper_fresh_20261028t224543381z_data_thinning",
+      "title": "Theorem 1 (Main theorem; thm:generalized-thinning)",
+      "kind": "root",
+      "phase": "verified",
+      "main": "Main.lean",
+      "proofRef": "result:paper_fresh_20261028t224543381z_data_thinning:headless_0de250a2-f384-4547-8314-d5c326c6728f",
+      "interfaceRevision": 1,
+      "sourceSha256": "cae1705b1dba9b193306e42dc96a7af7867783df729c1d7f33ba61bbf453e1f4"
+    }
+  ],
+  "sources": {
+    "main": {
+      "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/sources/data_thinning/main.tex",
+      "sha256": "1b2f2a181c2698b2480e6efcdd6ba114c5526c97e154fc402ac48dea2be7f4d9",
+      "bytes": 77917
+    },
+    "supp": {
+      "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/sources/data_thinning/supp.tex",
+      "sha256": "d00dee9bdc0f3720800f75b12f047ea7360cd3647ebe4a13562ffe470f6e3394",
+      "bytes": 55968
+    },
+    "yaml": {
+      "source": "/home/ai4stat/statlib/ProverJobs/paper_fresh_20261028t224543381z_data_thinning/theorems.yaml",
+      "sha256": "8b04facadc68d0d7b3ed20c829f5d35bc7f0b2cd2058b99946695c63d9276d22",
+      "bytes": 9618
+    }
+  },
+  "reports": [
+    "report/report.pdf",
+    "report/report.tex"
+  ],
+  "reportNote": "已附该次运行交付的 PDF/TeX，属于该次运行的报告快照。",
+  "verifiedGeneratedImports": true,
+  "externalLibraryImports": [
+    "Mathlib",
+    "Statlib"
+  ]
+}

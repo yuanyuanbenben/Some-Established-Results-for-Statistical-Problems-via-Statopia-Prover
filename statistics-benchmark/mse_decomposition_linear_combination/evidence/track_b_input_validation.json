@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "mse_decomposition_linear_combination"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 47232
+}

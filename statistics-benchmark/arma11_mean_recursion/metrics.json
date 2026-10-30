@@ -1,0 +1,17 @@
+{
+  "case": "arma11_mean_recursion",
+  "msc": "62M10",
+  "difficulty": "medium",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 1109.406,
+  "lean_files": 1,
+  "lean_lines": 62,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_arma11_mean_recursion_native-b",
+  "legacy_input_tokens": 294772,
+  "legacy_output_tokens": 106813
+}

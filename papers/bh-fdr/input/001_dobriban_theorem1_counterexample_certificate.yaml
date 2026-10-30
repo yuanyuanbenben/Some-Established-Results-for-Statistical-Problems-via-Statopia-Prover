@@ -1,0 +1,122 @@
+version: v1
+theorem_set: showcase_bh_fdr_step_001_dobriban
+source_tag: dobriban-theorem1-lei-theorem31-four-node-app-showcase-2026-07-30
+setting:
+  depth: 0
+defaults:
+  lean_namespace: Statlib.MultipleTesting.Dobriban
+  target_dir: ProverJobs
+  allow_axiom: false
+theorems:
+  - id: bh.fdr.showcase.app.dobriban_theorem1_counterexample_certificate
+    title: "Dobriban Theorem 1: certified counterexample endpoint"
+    kind: theorem
+    lean_name: app_dobriban_theorem1_counterexample_certificate
+    lean_namespace: Statlib.MultipleTesting.Dobriban
+    priority: 3
+    layer: app-showcase-dobriban
+    target_file: ProverJobs/app_dobriban_theorem1_counterexample_certificate/Main.lean
+    dependencies: []
+    workspace_siblings:
+      - bh_showcase_workspace_seed_01
+      - bh_showcase_workspace_seed_02
+      - bh_showcase_workspace_seed_05
+    required_workspace_decls:
+      - dobriban_bh_fdr_counterexample_from_appendix_b_certificate
+      - dobriban_appendix_b_full_certificate_floor_closed
+    imports:
+      - Mathlib
+      - Statlib
+      - ProverJobs.bh_showcase_workspace_seed_01.Main
+      - ProverJobs.bh_showcase_workspace_seed_02.Main
+      - ProverJobs.bh_showcase_workspace_seed_05.Main
+    latex_statement: |
+      Dobriban Theorem 1 certificate endpoint. Under certified uniform
+      bracketing and FDP/FDR lower-bound assumptions from the Appendix B
+      certificate route, Lean proves that the limiting BH FDR is eventually
+      strictly above 0.01 with a positive margin. The same node also exposes
+      the checked Appendix B rational floor comparison above 0.0104 and 0.01.
+    assumptions:
+      - "The Dobriban branch remains conditional on the certified bracketing and FDP/FDR lower-bound hypotheses."
+      - "The Appendix B floor comparison is Lean-checked rational arithmetic."
+      - "The proof must reuse the workspace theorem `dobriban_bh_fdr_counterexample_from_appendix_b_certificate`."
+      - "The proof must reuse the workspace theorem `AppendixB.dobriban_appendix_b_full_certificate_floor_closed`."
+    statement_hint: |
+      State the endpoint exactly as a two-way conjunction: an eventual positive
+      margin above 0.01 for `fdrN`, and the Appendix B full-certificate floor
+      comparison above 0.0104 and 0.01.
+      A single root `sorry` skeleton is acceptable. Phase B should close it by
+      directly applying the two workspace certificate declarations, so the
+      final Lean text visibly cites both certificates. Do not use `True`,
+      `True /\ _`, or any placeholder conclusion in the skeleton; copy the
+      full conclusion from `theorem_shape` before calling `draft_apply`.
+    proof_block:
+      theorem_shape: |
+        import Mathlib
+        import Statlib
+        import ProverJobs.bh_showcase_workspace_seed_01.Main
+        import ProverJobs.bh_showcase_workspace_seed_02.Main
+        import ProverJobs.bh_showcase_workspace_seed_05.Main
+
+        open Filter
+
+        namespace Statlib.MultipleTesting.Dobriban
+
+        theorem app_dobriban_theorem1_counterexample_certificate
+            {H_N : Nat -> Real -> Real}
+            {H : Real -> Real}
+            {cutoff fdrN : Nat -> Real}
+            {cMinus cPlus eps : Real}
+            (h_eps : 0 < eps)
+            (h_left : H cMinus <= -eps)
+            (h_right : eps <= H cPlus)
+            (h_uniform :
+              Filter.Eventually
+                (fun N : Nat =>
+                  |H_N N cMinus - H cMinus| < eps /\
+                    |H_N N cPlus - H cPlus| < eps)
+                Filter.atTop)
+            (h_bracket_of_signs :
+              Filter.Eventually
+                (fun N : Nat =>
+                  (H_N N cMinus < 0 /\ 0 < H_N N cPlus) ->
+                    (cMinus <= cutoff N /\ cutoff N <= cPlus))
+                Filter.atTop)
+            (h_fdp_of_bracket :
+              Filter.Eventually
+                (fun N : Nat =>
+                  (cMinus <= cutoff N /\ cutoff N <= cPlus) ->
+                    (104168290704737131174725663852504915 : Real) /
+                      (10 : Real) ^ 37 <= fdrN N)
+                Filter.atTop) :
+            (exists margin : Real,
+              0 < margin /\
+                Filter.Eventually
+                  (fun N : Nat => (1 : Real) / 100 + margin < fdrN N)
+                  Filter.atTop) /\
+            ((104 : Real) / 10000 < AppendixB.dobribanAppendixBFullCertificateRealFloor /\
+              (1 : Real) / 100 < AppendixB.dobribanAppendixBFullCertificateRealFloor) := by
+          sorry
+
+        end Statlib.MultipleTesting.Dobriban
+    proof_body: |
+      Close the root `sorry` directly. Do not unfold the Appendix B constants
+      and do not reprove the threshold-bracketing algebra. The final Lean proof
+      must visibly contain both workspace declaration names.
+
+        exact And.intro
+          (dobriban_bh_fdr_counterexample_from_appendix_b_certificate
+            h_eps h_left h_right h_uniform h_bracket_of_signs h_fdp_of_bracket)
+          AppendixB.dobriban_appendix_b_full_certificate_floor_closed
+
+      If the prover has split the root goal into local subgoals, use the same
+      two workspace calls on the corresponding subgoal:
+
+        exact dobriban_bh_fdr_counterexample_from_appendix_b_certificate
+          h_eps h_left h_right h_uniform h_bracket_of_signs h_fdp_of_bracket
+
+        exact AppendixB.dobriban_appendix_b_full_certificate_floor_closed
+    acceptance:
+      - lake build passes
+      - theorem contains no sorry/admit/axiom
+      - final proof references both Dobriban certificate workspace declarations

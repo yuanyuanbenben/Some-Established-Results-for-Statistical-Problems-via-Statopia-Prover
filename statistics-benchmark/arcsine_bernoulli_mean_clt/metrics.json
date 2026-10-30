@@ -1,0 +1,15 @@
+{
+  "case": "arcsine_bernoulli_mean_clt",
+  "msc": "62F12",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": 1.802255172,
+  "unknown_reservation_usd": 0.0,
+  "cost_coverage": "completed journal usage; unresolved reservations separate",
+  "mode": "deep",
+  "seconds": 5010.0,
+  "lean_files": 9,
+  "lean_lines": 841,
+  "nodes": 6,
+  "job_id": "deep_benchmark42_3p_2k5_20261017T100521Z_q15"
+}

@@ -1,0 +1,778 @@
+\documentclass[aos,preprint]{imsart}
+
+
+
+% For figures
+\usepackage{graphicx} % more modern
+
+\usepackage{amsfonts,amssymb,float}
+
+\DeclareSymbolFont{sfletters}{OML}{cmbrm}{m}{it}
+
+\DeclareMathSymbol{\salpha}{\mathord}{sfletters}{"0B}
+
+\usepackage{mathrsfs}
+\RequirePackage{natbib}
+\RequirePackage[colorlinks,citecolor=blue,urlcolor=blue]{hyperref}
+
+\usepackage{xr}
+\usepackage{xcite}
+
+
+\externalcitedocument{boot_LLM_aos_galley_SUPP_18july2019}
+\externaldocument{boot_LLM_aos_galley_SUPP_18july2019}
+
+\usepackage{mathtools}
+%\usepackage{epsfig} % less modern
+\usepackage{subfigure} 
+% For citations
+\RequirePackage{natbib}
+\usepackage{comment}
+\usepackage{enumerate}
+% For algorithms
+%\usepackage[named]{algo}
+\usepackage{eufrak}
+
+\usepackage{array,varwidth}
+
+%
+%
+%
+
+\RequirePackage[OT1]{fontenc}
+\RequirePackage{amsthm,amsmath}
+
+
+% settings
+%\pubyear{2005}
+%\volume{0}
+%\issue{0}
+%\firstpage{1}
+%\lastpage{8}
+%\arxiv{arXiv:0000.0000}
+
+\startlocaldefs
+\numberwithin{equation}{section}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{assumption}{Assumption}[section]
+
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\bt}{\mathbf{t}}
+\newcommand{\C}{\mathbf{C}} 
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\renewcommand{\hat}[1]{\widehat{#1}}
+\renewcommand{\t}[1]{\widetilde{#1}}
+\newcommand{\ov}[1]{\overline{#1}}
+
+
+\newcommand{\I}{\textsc{I}}
+\newcommand{\II}{\textsc{II}}
+\newcommand{\III}{\textsc{III}}
+\newcommand{\bI}{\textup{\texttt{I}}}
+\newcommand{\bII}{\textup{\texttt{II}}}
+\newcommand{\bIII}{\textup{\texttt{III}}}
+
+%\newcommand{\I}[1]{\mathbbm{1}_{#1}}
+\newcommand{\dK}{d_{\textup{K}}}
+\newcommand{\dL}{d_{\textup{L}}}
+\newcommand{\dLP}{d_{\textup{LP}}}
+\newcommand{\dH}{d_{\textup{H}}}
+\newcommand{\dTV}{d_{\textup{TV}}}
+
+\newcommand{\Hil}{\mathcal{H}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
+\renewcommand{\H}{\mathbf{H}}
+%\newcommand{\sss}{\S}
+%\renewcommand{\SS}{\mathcal{A}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\X}{\mathbf{X}}
+\renewcommand{\S}{\mathcal{A}}
+\newcommand{\Pf}{{\bf{Proof: }}}
+%\renewcommand{\S}{\mathcal{A}}
+\newcommand{\T}{\mathcal{T}}
+%\renewcommand{\tsum}{\textstyle\sum}
+\newcommand{\ninf}{n \to \infty}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Z}{\mathbf{Z}}
+\renewcommand{\O}{\mathcal{O}}
+\newcommand{\myRe}{\text{Re}}
+\newcommand{\bo}{{\bf{0}}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\io}{\text{ i.o.}}
+\newcommand{\ult}{\text{ ult.}}
+\newcommand{\as}{\text{ a.s.}}
+\newcommand{\e}{\epsilon}
+\newcommand{\ve}{\varepsilon}
+\renewcommand{\d}{$\delta$}
+\newcommand{\cov}{\text{Cov}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\lmin}{\lambda_{\text{min}}}
+\newcommand{\lmax}{\lambda_{\text{max}}}
+\newcommand{\var}{\operatorname{var}}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\hh}{{\bf{H}}}
+\newcommand{\av}{{\text{av}}}
+\newcommand{\bard}{\overline{\Delta}}
+\newcommand{\ttop}{^{\top}}
+\newcommand{\invcov}{\text{\emph{invcov}}}
+\newcommand{\op}{_{\textup{op}}}
+\renewcommand{\dim}{{\text{dim}_*}}
+\newcommand{\n}{{\textstyle{\frac{1}{n}}}}
+\newcommand{\tsum}{\textstyle\sum}
+\newcommand{\ts}{\textstyle}
+\newcommand{\1}{{\bf{1}}}
+\newcommand{\err}{\text{err}}
+\newcommand{\argmin}{\text{argmin}}
+\newcommand{\ccirc}{^{\circ}}
+\newcommand{\med}{\text{median}}
+\newcommand{\opt}{\textup{opt}}
+\renewcommand{\dh}{d_{\text{H}}}
+\newcommand{\dt}{d_{\text{TV}}}
+\newcommand{\Id}{\text{Id}}
+\newcommand{\stable}{\text{stable}}
+\newcommand{\Log}{\text{Log}}
+\newcommand{\tpilot}{\hat{t}_{\text{pilot}}}
+\newcommand{\tadapt}{\hat{t}_{\text{adapt}}}
+\newcommand{\topt}{\hat{t}_{\text{opt}}}
+\newcommand{\bZ}{\mathbf{Z}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bSigma}{\mathbf{\Sigma}}
+\newcommand{\0}{\mathbf{0}}
+\newcommand{\diag}{\textup{diag}}
+
+%%%%%% commands from LIN %%%%%%%%%%%%%%
+\newcommand{\hilbert}{\mathcal{H}}
+\newcommand{\expect}{\mathbb{E}}
+\newcommand{\prob}{\mathrm{Pr}}
+\newcommand{\sci}{\hat{\mathcal{I}}}
+\newcommand{\innerprod}[2]{\langle#1,#2\rangle}
+\newcommand{\siglevel}{\varrho}
+\newcommand{\covarop}{\mathcal{C}}
+\newcommand{\asympeq}{\asymp}
+\newcommand{\transpose}{\textup{T}}
+\newcommand{\linrmk}[1]{\textcolor{red}{[LIN: #1]}}
+\newcommand{\linrev}[1]{\textcolor{red}{#1}}
+\newcommand{\melrmk}[1]{\textcolor{red}{[MEL: #1]}}
+
+%%%%%% END of commands from LIN %%%%%%%
+
+\endlocaldefs
+\def\red{\textcolor{red}}
+\def\ci{\cite}
+\def\cp{\citep}
+\bibliographystyle{imsart-nameyear}
+\def\references{\bibliography{decay_boot_bib_galley,fda_galley}}
+
+
+\begin{document}
+
+\begin{frontmatter}
+\title{Bootstrapping Max Statistics in High Dimensions: Near-Parametric Rates Under Weak Variance Decay and Application to Functional and Multinomial Data}
+\runtitle{Bootstrapping Max Statistics}
+%\thankstext{T1}{Footnote to the title with the ``thankstext'' command.}
+
+\begin{aug}
+\author{\fnms{Miles E.} \snm{Lopes}\thanksref{t1}\ead[label=e1]{melopes@ucdavis.edu}},
+\author{\fnms{Zhenhua} \snm{Lin}\thanksref{t2}\ead[label=e2]{zhnlin@ucdavis.edu}}
+\and
+\author{\fnms{Hans-Georg} \snm{M\"uller}\thanksref{t3}
+\ead[label=e3]{hgmueller@ucdavis.edu}}
+%\ead[label=u1,url]{http://www.foo.com}}
+
+\thankstext{t1}{Supported in part by NSF grant DMS 1613218}
+\thankstext{t2}{Supported in part by NIH grant  5UG3OD023313-03}
+\thankstext{t3}{Supported in part by NSF grant DMS 1712864 and NIH grant 5UG3OD023313-03}
+\runauthor{M.~E. Lopes et al.}
+
+\affiliation{University of California, Davis}
+
+\end{aug}
+
+%\address{Address of the First and Second authors\\
+%Usually a few lines long\\
+%\printead{e1}\\
+%\phantom{E-mail:\ }\printead*{e2}}
+
+%\address{Address of the Third author\\
+%Usually a few lines long\\
+%Usually a few lines long\\
+%\printead{e3}\\
+%\printead{u1}}
+%\end{aug}
+
+\begin{abstract}
+
+In recent years, bootstrap methods have drawn attention for their ability to
+approximate the laws of ``max statistics'' in high-dimensional problems.
+A leading example of such a statistic is the coordinate-wise maximum of a sample average of $n$ random vectors in $\R^p$. Existing results for this statistic show that the bootstrap can work when $n\ll p$, and rates of approximation (in Kolmogorov distance) have been obtained with only logarithmic dependence in $p$.
+Nevertheless, one of the challenging aspects of this setting is that established rates tend to scale like $n^{-1/6}$ as a function of $n$.
+
+
+The main purpose of this paper is to demonstrate that improvement in rate is possible when extra model structure is available. Specifically, we show that if the coordinate-wise variances of the observations exhibit decay, then a nearly $n^{-1/2}$ rate can be achieved, \emph{independent of $p$}. Furthermore, a surprising aspect of this dimension-free rate is that it holds even when the decay is \emph{very weak}. Lastly, we provide examples showing how these ideas can be applied to inference problems dealing with functional and multinomial data.
+
+\end{abstract}
+
+\begin{keyword}[class=MSC]
+\kwd[Primary]  { 62G09, 62G15; }
+\kwd[secondary] { 62G05, 62G20.} 
+\end{keyword}
+
+\begin{keyword}
+\kwd{bootstrap, high-dimensional statistics, rate of convergence, functional data analysis, multinomial data, confidence region, hypothesis test}
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+One of the current challenges in theoretical statistics is to understand when bootstrap methods work in high-dimensional problems. In this direction, there has been a surge of recent interest in connection with ``max statistics'' such as
+$$T=\max_{1\leq j\leq p} S_{n,j},$$
+where $S_{n,j}$ is the $j$th coordinate of the sum \mbox{$S_n=\frac{1}{\sqrt n}\sum_{i=1}^n (X_i-\E[X_i])$,} involving i.i.d.~vectors $X_1,\dots,X_n$ in $\R^p$.
+
+This type of statistic has been a focal point in the literature for at least two reasons. First, it is an example of a statistic for which bootstrap methods can succeed in high dimensions under mild assumptions, which was established 
+in several pathbreaking works~\cp{ArlotI:2010,ArlotII:2010,CCK:2013,CCK:AOP}. Second, the statistic $T$ is closely linked to several fundamental topics, such as suprema of empirical processes, nonparametric confidence regions, and multiple testing problems. Likewise, many applications of bootstrap methods for max statistics have ensued at a brisk pace in recent years 
+\cp[see, e.g.,][]{CCKAnti:2014,Wasserman:2014,ChenRidges:2015,Yao:2017,ChengJASA:2017,Dezeure:2017,ChenUstat:2018,fan:18,Belloni:2018}.
+
+One of the favorable aspects of bootstrap approximation results for the distribution $\mathcal{L}(T)$ is that rates have been established with only logarithmic dependence in $p$. For instance, the results in~\cite{CCK:AOP} imply that under certain conditions, the Kolmogorov distance $\dK$ between $\mathcal{L}(T)$ and its bootstrap counterpart $\mathcal{L}(T^*|X)$ satisfies the bound
+\begin{equation}\label{eqn:introrate}
+\dK\Big( \L(T) \, , \L(T^*|X)\Big) \ \leq  \frac{c \log(p)^{b}}{n^{1/6}}
+\end{equation}
+with high probability, where $c,b>0$ are constants not depending on $n$ or $p$, and $X$ denotes the matrix whose rows are $X_1,\dots,X_n$. (In the following, symbols such as $c$ will be often re-used to designate a positive constant not depending on $n$ or $p$, possibly with a different value at each occurrence.) Additional refinements of this result can be found in the same work, with regard to the choice of metric, or choice of bootstrap method. Also, recent progress in sharpening the exponent $b$ has been made by~\cite{Deng:2017}. However, this mild dependence on $p$ is offset by the $n^{-1/6}$ dependence on $n$, which differs from the $n^{-1/2}$ rate in the multivariate Berry-Esseen theorem when $p\ll n$.
+
+Currently, the general problem of determining the best possible rates for Gaussian and bootstrap approximations is largely open in the high-dimensional setting. In particular, if we let $\tilde T$ denote the counterpart of $T$ that arises from replacing $X_1,\dots,X_n$ with independent Gaussian vectors \mbox{$\tilde X_1,\dots,\tilde X_n$} satisfying $\text{cov}(X_i)=\text{cov}(\tilde X_i)$, then a conjecture of~\cite{CCK:AOP} indicates that a bound of the form $d_{\text{K}}(\L(T),\L(\tilde T))\leq cn^{-1/6}\log(p)^b$ is optimal under certain conditions. A related conjecture in the setting of high-dimensional U-statistics may also be found in~\cite{ChenUstat:2018}. (Further discussion of related work on Gaussian approximation is given in Appendix~\ref{app:Gaussian}.)
+Nevertheless, the finite-sample performance of bootstrap methods for max statistics is often more encouraging than what might be expected from the $n^{-1/6}$ dependence on $n$~\cite[see, e.g.][]{ChengJASA:2017, fan:18,Belloni:2018}. This suggests that improved rates are possible in at least some situations. 
+
+The purpose of this paper is to quantify an instance of such improvement when additional model structure is available. Specifically, we consider the case when the coordinates of $X_1,\dots,X_n$ have decaying variances. If we let $\sigma_j^2=\var(X_{1,j})$ for each $1\leq j\leq p$, and write $\sigma_{(1)}\geq \dots\geq \sigma_{(p)}$, then this condition may be formalized as
+\begin{equation}\label{eqn:varcondintro}
+\sigma_{(j)} \leq c \, j^{-\alpha} \ \ \ \ \text{for all} \ \ \ j\in\{1,\dots,p\},
+\end{equation}
+where $\alpha>0$ is a parameter not depending on $n$ or $p$. (A complete set of assumptions, including a weaker version of~\eqref{eqn:varcondintro}, is given in Section~\ref{sec:prelim}.) This type of condition arises in many contexts, and in Section~\ref{sec:prelim} we discuss examples related to principal component analysis, count data, and Fourier coefficients of functional data. Furthermore, this condition can be assessed in practice, due to the fact that the parameters $\sigma_1,\dots,\sigma_p$ can be accurately estimated, even in high dimensions (cf.~Lemma~\ref{lem:corbasic}).
+
+
+
+Within the setting of decaying variances, our main results show that a nearly parametric rate can be achieved for both Gaussian and bootstrap approximation of $\L(T)$. More precisely, this means that for any fixed \mbox{$\delta\in(0,1/2)$}, the bound $\dK( \L(T) , \L(\tilde T))\leq cn^{-1/2+\delta}$ holds, and similarly, the event
+\begin{equation}\label{eqn:improved}
+%
+\dK\Big( \L(T) \, , \L(T^*|X)\Big)  \ \leq  \ c\, n^{-1/2+\delta}
+\end{equation}
+holds with high probability.
+%
+Here, it is worth emphasizing a few basic aspects of these bounds. First, they are non-asymptotic and \emph{do not depend on $p$}. Second, the parameter $\alpha$ is allowed to be \emph{arbitrarily small}, and in this sense, the decay condition~\eqref{eqn:varcondintro} is very weak. Third, the result for $T^*$ holds when it is constructed using the standard multiplier bootstrap procedure~\citep{CCK:2013}.
+
+
+With regard to the existing literature, it is important to clarify that our near-parametric rate does not conflict with the conjectured optimality of the rate $n^{-1/6}$ for Gaussian approximation. The reason is that the $n^{-1/6}$ rate has been established in settings where the values $\sigma_1,\dots,\sigma_p$ are restricted from becoming too small. A basic version of such a requirement is that
+\begin{equation}\label{eqn:lower}
+\min_{1\leq j\leq p} \sigma_j \geq c.
+\end{equation}
+Hence, the conditions~\eqref{eqn:varcondintro} and~\eqref{eqn:lower} are complementary. Also, it is interesting to observe that the two conditions ``intersect'' in the limit $\alpha\to 0^+$, suggesting there is a phase transition in rates at the ``boundary'' corresponding to $\alpha=0$.
+
+Another important consideration that is related to the conditions~\eqref{eqn:varcondintro} and~\eqref{eqn:lower} is the use of standardized variables. Namely, it is of special interest to approximate the distribution of the statistic
+$$T'=\max_{1\leq j\leq p} S_{n,j}/\sigma_j,$$
+which is equivalent to approximating $\L(T)$ when each $X_{i,j}$ is standardized to have variance 1. Given that standardization eliminates variance decay, it might seem that the rate $n^{-1/2+\delta}$ has no bearing on approximating $\L(T')$. However, it is still possible to take advantage of variance decay, by using a basic notion that we refer to as ``partial standardization''.
+
+The idea of partial standardization is to slightly modify $T'$ by using a fractional power of each $\sigma_j$. Specifically, if we let $\tau_n\in [0,1]$ be a free parameter, then we can consider the partially standardized statistic
+ %
+\begin{equation}\label{eqn:mdef}
+M=\max_{1\leq j\leq p} S_{n,j}/\sigma_j^{\tau_n},
+\end{equation}
+%
+which interpolates between $T$ and $T'$ as $\tau_n$ ranges over $[0,1]$.
+This statistic has the following significant property: If $X_1,\dots,X_n$ satisfy the variance decay condition~\eqref{eqn:varcondintro}, and if $\tau_n$ is chosen to be slightly less than 1, then our main results show that the rate $n^{-1/2+\delta}$ holds for bootstrap approximations of $\L(M)$. In fact, this effect occurs even when $\tau_n\to 1$ as $n\to\infty$. Further details can be found in Section~\ref{sec:main}. Also note that our main results are formulated entirely in terms of $M$, which covers the statistic $T$ as a special case.
+
+In practice, simultaneous confidence intervals derived from approximations to $\L(M)$ are just as easy to use as those based on $\L(T')$. Although there is a slight difference between the quantiles of $M$ and $T'$ when $\tau_n<1$, the important point is that the quantiles of $\L(M)$ may be preferred, since faster rates of bootstrap approximation are available. (See also Figure~\ref{fig:tau} in Section~\ref{sec:expt}.)
+In this way, the statistic $M$ offers a simple way to blend the utility of standardized variables with the beneficial effects of variance decay. 
+
+
+
+\paragraph{Outline} 
+The remainder of the paper is organized as follows. In Section~\ref{sec:prelim}, we outline the problem setting, with a complete statement of the theoretical assumptions, as well as some motivating facts and examples. Our main results are given in Section 3, which consist of a Gaussian approximation result for $\L(M)$ (Theorem~\ref{THM:G}), and a corresponding bootstrap approximation result (Theorem~\ref{THM:BOOT}). To provide a numerical illustration of our results, we discuss  a problem in functional data analysis in Section~\ref{sec:expt},  where the variance decay condition naturally arises. Specifically, we show how bootstrap approximations to $\L(M)$ can be used to derive simultaneous confidence intervals for the Fourier coefficients of a mean function. A second application to high-dimensional multinomial models is described in Section~\ref{sec:multinomial}, which offers both a theoretical bootstrap approximation result, as well as some numerical results.
+  Lastly, our conclusions are summarized in Section~\ref{sec:conc}. All proofs are given in the appendices, found in the supplementary material.
+
+\paragraph{Notation} 
+ The standard basis vectors in $\R^p$ are denoted $e_1,\dots,e_p$, and the identity matrix of size $p\times p$ is denoted  $\mathbf{I}_p$. For any symmetric matrix $A\in\R^{p\times p}$, the ordered eigenvalues are denoted $\lambda(A)=(\lambda_1(A),\dots,\lambda_p(A))$, where $\lambda_{\max}(A)=\lambda_1(A)\geq \cdots \geq \lambda_p(A)=\lambda_{\min}(A)$. The operator norm of a matrix $A$, denoted $\|A\|_{\text{op}}$, is the same as its largest singular value.
+If $v\in\R^p$ is a fixed vector, and $r>0$, we write $\|v\|_r=(\sum_{j=1}^p |v_j|^r)^{1/r}$. In addition, the weak-$\ell_r$ (quasi) norm is given by $\|v\|_{w\ell_r}=\max_{1\leq j\leq p} j^{1/r}|v|_{(j)},$ where \mbox{$|v|_{(1)}\geq \cdots \geq |v|_{(p)}$} are the sorted absolute entries of $v$. Likewise, the notation $v_{(1)}\geq\cdots\geq v_{(p)}$ refers to the sorted entries.
+In  a slight abuse of notation, we write $\|\xi\|_r=\E[|\xi|^r]^{1/r}$ to refer to the $L^r$ norm of a scalar random variable $\xi$, with $r\geq 1$. The $\psi_1$-Orlicz norm is $\|\xi\|_{\psi_1}=\inf\{t>0\, | \, \E[\exp(|\xi|/t)]\leq 2\}$.  If $\{a_n\}$ and $\{b_n\}$ are sequences of non-negative real numbers, then the relation $a_n\lesssim b_n$ means that there is a constant $c>0$ not depending on $n$, and an integer $n_0\geq 1$, such that $a_n\leq c b_n$ for all $n\geq n_0$.  Also, we write $a_n\asymp b_n$ if $a_n\lesssim b_n$ and $b_n\lesssim a_n$.
+Lastly, define the abbreviations $a_n\vee b_n=\max\{a_n,b_n\}$ and $a_n\wedge b_n=\min\{a_n,b_n\}$. 
+
+
+
+
+\section{Setting and preliminaries}\label{sec:prelim}
+
+
+We consider a sequence of models indexed by $n$, with all parameters depending on $n$, except for those that are stated to be fixed. In particular, the dimension $p=p(n)$ is regarded as a function of $n$, and hence, if a constant does not depend on $n$, then it does not depend on $p$ either.
+%
+%
+%
+%
+
+
+\noindent \begin{assumption}[Data-generating model]\label{A:model}
+~\\[-0.3cm]
+\begin{enumerate}[(i).]
+\item There is a vector $\mu=\mu(n)\in\R^p$ and positive semi-definite matrix $\Sigma=\Sigma(n)\in\R^{p\times p}$, such that the observations $X_1,\dots,X_n\in\R^p$ are generated as $X_i=\mu+\Sigma^{1/2}Z_i$ for each $1\leq i\leq n$, where the random vectors $Z_1,\dots,Z_n\in\R^p$ are i.i.d.\\[-0.2cm]
+%
+%
+\item The random vector $Z_1$ satisfies $\E[Z_1]=0$ \!and $\E[Z_1Z_1\ttop]=\mathbf{I}_p$, as well as $\sup_{\|u\|_2=1}\|Z_1\ttop u\|_{\psi_1}\leq c_0$, for some constant $c_0>0$ that does not depend on $n$.
+%
+%
+\end{enumerate}
+\end{assumption}
+\paragraph{Remarks} Note that no constraints are placed on the ratio $p/n$.
+Also, the sub-exponential tail condition in part \emph{(ii)} is similar to other tail conditions that have been used in previous works on bootstrap methods for max statistics \cp[][]{CCK:2013,Deng:2017}.
+%
+
+ To state our next assumption, it is necessary to develop some notation. For any $d\in\{1,\dots,p\}$, let $\J(d)$  denote a set of indices corresponding to the $d$ largest values among $\sigma_1,\dots,\sigma_p$, i.e., 
+%
+ $\{\sigma_{(1)},\dots,\sigma_{(d)}\}= \{\sigma_j| \ j\in\J(d)\}$. In addition, let $R(d)\in\R^{d\times d}$ denote the correlation 
+ matrix of the random variables $\{X_{1,j}\,|\, j\in\J(d)\}$.
+%
+Lastly, let $a\in(0,\ts\frac{1}{2})$ be a constant fixed with respect to $n$, and define the integers $\ell_n$ and $k_n$ according to
+\begin{align}\
+\ell_n&=\big\lceil (1\vee \log(n)^3)\wedge p\big\rceil\\[0.2cm]
+k_n&=\big\lceil \big(\ell_n\vee n^{\frac{1}{\log(n)^{a}}}\big)\wedge p\big\rceil.\label{eqn:kndef}
+\end{align}
+Note that both $\ell_n$ and $k_n$ grow slower than any fractional power of $n$, and always satisfy $1\leq  \ell_n\leq k_n\leq p$. 
+
+
+
+\begin{assumption}[Structural assumptions]\label{A:cor}
+~\\[-0.3cm]
+\begin{enumerate}[(i).]
+ \item  The parameters $\sigma_1,\dots,\sigma_p$ are positive, and there are positive constants $\alpha$, $c$, and $c_{\circ}\in(0,1)$, not depending on $n$, such that
+\begin{equation}\label{eqn:varcond1}
+\ \sigma_{(j)} \leq c \, j^{-\alpha} \ \ \ \ \text{for all} \ \ \ j\in\{k_n,\dots,p\},
+\end{equation}
+%and
+\vspace{-0.5cm}
+\begin{equation}\label{eqn:varcond2}
+\ \sigma_{(j)} \geq \ts c_{\circ} \, j^{-\alpha}\  \ \ \text{for all} \ \ \ j\in\{1,\dots,k_n\}.
+\end{equation}
+
+\item There is a constant $\e_0\in(0,1)$, not depending on $n$, such that 
+\begin{equation}\label{eqn:cormax}
+\max_{i\neq j}R_{i,j}(\ell_n)\leq 1-\e_0.
+\end{equation}
+Also, the matrix $R^+(\ell_n)$ with $(i,j)$ entry given by $\max\{R_{i,j}(\ell_n),0\}$ is positive semi-definite, and there is
+%
+ a constant $C>0$ not depending on $n$ such that
+\begin{equation}\label{eqn:corbound}
+\sum_{1\leq i<j\leq \ell_n}\!\!R_{i,j}^+(\ell_n) \ \leq \ C \ell_n.
+\end{equation}
+%
+\end{enumerate}
+%
+\end{assumption}
+
+
+\paragraph{Remarks}
+Since $\ell_n,k_n\ll n$, it is possible to accurately estimate the parameters $\sigma_{(1)},\dots,\sigma_{(k_n)}$, as well as the matrix $R(\ell_n)$, even when $p$ is large (cf.~Lemmas~\ref{lem:cor} and~\ref{lem:corbasic}). In this sense, it is possible to empirically assess the conditions above.
+When considering the size of the decay parameter $\alpha$, note that if $\Sigma$ is viewed as a covariance operator acting on a Hilbert space, then the condition $\alpha>1/2$ essentially corresponds to the case of a trace-class operator --- a property that  is typically assumed in functional data analysis \cp{Hsing2015}.  From this perspective, the condition $\alpha>0$ is very weak, and allows the trace of $\Sigma$ to diverge as $p\to\infty$. 
+
+With regard to the conditions on the correlation matrix $R(\ell_n)$, it is important to keep in mind that they only apply to a small set of variables of size $\mathcal{O}(\log(n)^3)$ --- and the dependence among the variables outside of $\J(\ell_n)$ is \emph{completely unrestricted}.
+%
+The interpretation of~\eqref{eqn:corbound} is that it prevents excessive dependence among the coordinates with the largest variances. Meanwhile, the condition that $R^+(\ell_n)$ is positive semi-definite is more technical in nature, and is only used in order to apply a specialized version of Slepian's lemma (Lemma~\ref{lem:slepian}). Nevertheless, this condition always holds in the important case where $R(\ell_n)$ is non-negative. Perturbation arguments may also be used to obtain other examples where some entries of $R(\ell_n)$ are negative.
+
+
+\subsection{Examples of correlation matrices} 
+Some correlation matrices satisfying Assumption~\eqref{A:cor}(ii) are given below.
+%
+\small
+\begin{align*}
+\ \ \ \ \ \ & \text{$\bullet$ \emph{Autoregressive:}} && R_{i,j}=\rho_{0}^{|i-j|} \, , \quad\quad\quad\quad\quad\quad\quad \, \ \text{for any } \rho_0\in(0,1). &&& \\[0.7cm]
+%
+\ \ \ \ \ \ &\text{$\bullet$ \emph{Algebraic decay:}} &&  R_{i,j}=1\{i=j\}+\ts\frac{1\{i\neq j\}}{4|i-j|^{\gamma}} \, , \, \ \, \, \ \ \ \text{ for any} \ \gamma \geq 2.  &&&  \\[0.7cm]
+%
+%
+\ \ \ \ \ \ &\text{$\bullet$ \emph{Banded:}} && R_{i,j}=\Big(1-\ts\frac{|i-j|}{c_0}\Big)_+ \ ,\quad\quad\quad \,\ \  \text{ for any } c_0>0.\\[0.7cm]
+%
+\ \ \ \ \ \ &\text{$\bullet$ \emph{Multinomial:}} && R_{i,j}=1\{i=j\}-\sqrt{\ts\frac{\pi_i\pi_j}{(1-\pi_i)(1-\pi_j)}}1\{i\neq j\}\,\\[0.1cm]
+%
+ & \ && \text{where $(\pi_1,\dots,\pi_p)$ is a probability vector.}
+\end{align*}
+%
+\normalsize
+%
+By combining these types of correlation matrices with choices of $(\sigma_1,\dots,\sigma_p)$ that satisfy~\eqref{eqn:varcond1} and~\eqref{eqn:varcond2}, it is straightforward to construct examples of $\Sigma$ that satisfy all aspects of  Assumption~\ref{A:cor}.
+
+
+
+\subsection{Examples of variance decay}\label{sec:decayexamples}
+To provide additional context for the decay condition~\eqref{eqn:varcond1}, we describe some general situations where it occurs.
+
+\begin{itemize}
+\item \emph{Principal component analysis (PCA).} The broad applicability of PCA rests on the fact that many types of data have an underlying covariance matrix with weakly sparse eigenvalues. Roughly speaking, this means that most of the eigenvalues of $\Sigma$ are small in comparison to the top few. Similar to the condition~\eqref{eqn:varcond1}, this situation can be modeled with the decay condition
+\begin{equation}\label{eqn:eigdecay}
+\lambda_j(\Sigma) \leq c j^{-\gamma},
+\end{equation}
+for some parameter $\gamma>0$~\cite[e.g.][]{Bunea:Xiao:2015}. Whenever this holds, it can be shown that the variance decay condition \emph{must} hold for some associated parameter $\alpha>0$, and this is done in Proposition~\ref{PROP:DECAY} below. So, in a qualitative sense, this indicates that if a dataset is amenable to PCA, then it is also likely to fall within the scope of our setting.\\
+
+Another way to see the relationship between PCA and variance decay is through the measure of ``effective rank'', defined as
+\begin{equation}
+{\tt{r}}(\Sigma)=\ts\frac{\tr(\Sigma)}{\|\Sigma\|_{\text{op}}}.
+\end{equation}
+This quantity has played a key role in a substantial amount of recent work on PCA, because it offers a useful way to describe covariance matrices with an ``intermediate'' degree of complexity, which may be neither very low-dimensional, nor very high-dimensional. We refer to~\cite{Vershynin:2012},~\cite{Lounici:2014},~\cite{Bunea:Xiao:2015}, \cite{Reiss:2016},~\cite{Koltchinskii:Bernoulli:2017,Koltchinskii:2017}, \cite{Nickl:2017}, \cite{Naumov:2017}, and~\cite{Jung:2018}, among others.
+Many of these works have focused on regimes where
+\begin{equation}\label{eqn:effrank1}
+{\tt{r}}(\Sigma)=o(n),
+\end{equation}
+which conforms naturally with variance decay. Indeed, within a basic setup where $n\asymp p$ and $\|\Sigma\|\op\asymp 1$, the condition~\eqref{eqn:effrank1} holds under $\sigma_{(j)}\leq cj^{-\alpha}$ for any $\alpha>0$.\\[0.2cm]
+
+\item \emph{Count data.} Consider a multinomial model based on $p$ cells and $n$ trials, parameterized by a vector of cell proportions $\boldsymbol\pi=(\pi_1,\dots,\pi_p)$. If the $i$th trial is represented as a vector $X_i\in\R^p$ in the set of standard basis vectors $\{e_1,\dots,e_p\}$, then the marginal distributions of $X_i$ are binomial with $\sigma_j^2=\pi_j(1-\pi_j)$. In particular, it follows that \emph{all} multinomial models satisfy the variance decay condition~\eqref{eqn:varcond1}, because if we let $\boldsymbol \sigma=(\sigma_1,\dots,\sigma_p)$, then the weak-$\ell_2$ norm of $\boldsymbol \sigma$ must satisfy $\|\boldsymbol\sigma\|_{w\ell_2}\leq \|\boldsymbol\sigma\|_2\leq 1$, which implies
+\begin{equation}
+\sigma_{(j)} \ \leq \ j^{-1/2}
+\end{equation}
+for all $j\in\{1,\dots,p\}$. In order to study the consequences of this further, we offer some detailed examples in Section~\ref{sec:multinomial}.
+More generally, the variance decay condition also arises for other forms of count data. For instance, in the case of a high-dimensional distribution with sparse Poisson marginals, the relation $\var(X_{i,j})=\E[X_{i,j}]$ shows that sparsity in the mean vector can lead to variance decay.\\[-0.2cm]
+
+
+
+\item \emph{Fourier coefficients of functional data.} Let $Y_1,\dots,Y_n$ be an i.i.d.~sample of functional data, taking values in a separable Hilbert space $\mathcal{H}$. In addition, suppose that the covariance operator $\mathcal{C}=\text{cov}(Y_1)$ is trace-class, which implies an eigenvalue decay condition of the form~\eqref{eqn:eigdecay}.
+Lastly, for each $i\in\{1,\dots,n\}$, let $X_i\in\R^p$ denote the first $p$ generalized Fourier coefficients of $Y_i$ with respect to some fixed orthonormal basis $\{\psi_j\}$ for $\mathcal{H}$. That is,
+$X_i=(\langle Y_i,\psi_1\rangle,\dots,\langle Y_i,\psi_p\rangle).$
+
+\ \ \ \ Under the above conditions, it can be shown that no matter which basis $\{\psi_j\}$ is chosen, the vectors $X_1,\dots, X_n$ always satisfy the variance decay condition. (This follows from Proposition~\ref{PROP:DECAY} below.)
+ In Section~\ref{sec:expt}, we explore some consequences of this condition as it relates to simultaneous confidence intervals for the Fourier coefficients of the mean function $\E[Y_1]$.
+%
+\end{itemize}
+%
+%
+%
+%
+
+To conclude this section, we state a proposition that was used in the examples above. This basic result shows that decay among the eigenvalues $\lambda_1(\Sigma),\dots,\lambda_p(\Sigma)$ requires at least some decay among $\sigma_1,\dots,\sigma_p$. 
+%
+%
+%
+%
+%%
+%
+\begin{proposition}\label{PROP:DECAY}
+Fix two numbers $s\geq 1$, and $r\in(0,s)$. Then, there is a constant $c_{r,s}>0$ depending only on $r$ and $s$, such that for any symmetric matrix $A\in\R^{p\times p}$, we have
+$$\|\textup{diag}(A) \|_{w\ell_s}\leq c_{r,s} \| \lambda(A)\|_{w\ell_r}.$$
+In particular, if $A=\Sigma$, and if there is a constant $c_0>0$ such that the inequality
+$$\lambda_j(\Sigma)\leq c_0\, j^{-1/r}$$
+holds for all $1\leq j\leq p$,
+%
+%
+then the inequality
+$$\sigma_{(j)}^2 \, \leq \, c_0c_{r,s} \, j^{-1/s}$$
+holds for all $1\leq j\leq p$.
+\end{proposition}
+%
+\noindent The proof is given in Appendix~\ref{app:intro}, and follows essentially from the Schur-Horn majorization theorem, as well as inequalities relating $\|\cdot\|_r$ and $\|\cdot\|_{w\ell_r}$.
+
+
+
+
+\section{Main results}\label{sec:main}
+
+
+In this section, we present our main results on Gaussian approximation and bootstrap approximation.
+
+\subsection{Gaussian approximation}
+
+
+Let $\tilde S_n\sim N(0,\Sigma)$ and define 
+the Gaussian counterpart of the partially standardized statistic $M$  (\ref{eqn:mdef}) according to 
+\begin{equation}\label{eqn:Mtildedef}
+ \tilde{M}=\max_{1\leq j\leq p} \tilde{S}_{n,j}/\sigma_j^{\tau_n}.
+\end{equation}
+%
+%
+%
+Our first theorem shows that in the presence of variance decay, the distribution $\mathcal{L}(\tilde M)$ can approximate $\mathcal{L}(M)$ at a nearly parametric rate in Kolmogorov distance. Recall that for any random variables $U$ and $V$, this distance is given by $\dK(\L(U),\L(V))=\sup_{t\in\R}|\P(U\leq t)-\P(V\leq t)|$.
+
+%
+%
+%
+%
+%
+%
+%
+\begin{theorem}[Gaussian approximation]\label{THM:G}
+Fix any number $\delta\in(0,1/2)$, and suppose that Assumptions~\ref{A:model} and~\ref{A:cor} hold. In addition, suppose that $\tau_n\in [0,1)$ with $(1-\tau_n)\sqrt{\log(n)}\gtrsim 1$. Then, 
+\begin{equation}\label{eqn:thmG}
+d_{\textup{K}}\big(\mathcal{L}(M) \, , \, \mathcal{L}(\tilde{M})\big) \ \lesssim  \  n^{-\frac 12+\delta}.
+\end{equation}
+%
+\end{theorem}
+\paragraph{Remarks} As a basic observation, note that the result handles the ordinary max statistic $T$ as a special case with $\tau_n=0$. In addition, it is worth emphasizing that the rate does not depend on the dimension $p$, or the variance decay parameter $\alpha$, provided that it is positive. In this sense, the result shows that even a small amount of structure can have a substantial impact on Gaussian approximation (in relation to existing $n^{-1/6}$ rates that hold when $\alpha=0$). Lastly, the reason for imposing the lower bound on $1-\tau_n$ is that if $\tau_n$  quickly  approaches 1 as $n\to\infty$, then the variances $\var(S_{n,j}/\sigma_j^{\tau_n})$ will also quickly approach 1, thus eliminating the beneficial effect of variance decay. 
+
+
+\subsection{Multiplier bootstrap approximation}\label{sec:MB}
+
+In order to define the multiplier bootstrap counterpart of $\tilde M$, first define the sample covariance matrix 
+\begin{equation}\label{eqn:sighat}
+\hat\Sigma_n=\frac{1}{n}\sum_{i=1}^n(X_i-\bar X)(X_i-\bar X)\ttop,
+\end{equation}
+where $\bar X=\frac 1n \sum_{i=1}^n X_i$. Next, let $S_n^{\star}\sim N(0,\hat\Sigma_n)$,
+and define the associated max statistic as
+\begin{equation}\label{eqn:Mstardef}
+M^{\star}=\max_{1\leq j\leq p}S_{n,j}^{\star}/\hat\sigma_j^{\tau_n},
+\end{equation}
+where $(\hat\sigma_1^2,\dots,\hat\sigma_p^2)=\text{diag}(\hat\Sigma_n)$. 
+In the exceptional case when $\hat\sigma_j=0$ for some $j$, the expression $S_{n,j}^{\star}/\hat\sigma_j$ is understood to be 0. This convention is natural, because the event $S_{n,j}^{\star}=0$ holds with probability 1, conditionally on $\hat\sigma_j=0$.
+
+\paragraph{Remarks} 
+The above description of $M^{\star}$ differs from some previous works insofar as we have suppressed the role of ``multiplier variables'', and have defined $S_n^{\star}$ as a sample from $N(0,\hat\Sigma_n)$. From a mathematical standpoint, this is equivalent to the multiplier formulation~\citep{CCK:2013}, where $S_n^{\star}= \frac{1}{\sqrt n}\sum_{i=1}^n \xi_i^{\star}(X_i-\bar X)$ and $\xi_1^{\star},\dots,\xi_n^{\star}$ are i.i.d.~$N(0,1)$ random variables, generated independently of $X$.
+
+\begin{theorem}[Bootstrap approximation]\label{THM:BOOT} Fix any number $\delta\in(0,1/2)$, and suppose the conditions of Theorem~\ref{THM:G} hold. Then, there is a constant $c>0$ not depending on $n$, such that the event
+\begin{equation}
+d_{\textup{K}}\big(\L( \tilde M)\, ,\, \L(M^{\star}|X)\big) \ \leq c\, n^{-\frac 12+\delta}
+\end{equation}
+occurs with probability at least $1-\frac cn$.
+\end{theorem}
+
+\paragraph{Remarks} At a high level, the proofs of Theorems~\ref{THM:G} and~\ref{THM:BOOT} are based on the following observation: When the variance decay condition holds, there is a relatively small subset of $\{1,\dots,p\}$ that is likely to contain the  maximizing index for $M$. In other words, if $\hat\j\in\{1,\dots,p\}$ denotes a random index satisfying $M=S_{n,\hat \j}/\sigma_{\hat \j}^{\tau_n}$, then the ``effective range'' of \, $\hat \j$ \, is fairly small. Although this situation is quite intuitive when the decay parameter $\alpha$ is large, what is more surprising is that the effect persists even for small values of $\alpha$. 
+
+Once the maximizing index $\hat\j$ has been localized to a small set, it becomes possible to use tools that are specialized to the regime where $p\ll n$. For example, Bentkus' multivariate Berry-Esseen theorem~\citep{Bentkus:2003} (cf.~Lemma~\ref{lem:bentkus}) is helpful in this regard. Another technical aspect of the proofs worth mentioning is that they make essential use of the sharp constants in Rosenthal's inequality, as established in~\citep{Zinn:1985} (Lemma~\ref{lem:rosenthal}).
+
+
+\section{Numerical illustration with functional data}\label{sec:expt}
+
+Due to advances in technology and data collection, functional data have become ubiquitous
+in the past two decades, and statistical methods for their analysis have received growing interest. General references and surveys may be found in~\ci{Ramsay2005,Ferraty2006,horv:12,Hsing2015,Wang2016}. 
+%
+
+The purpose of this section is to present an illustration of how the partially standardized statistic $M$ and the bootstrap can be employed to do inference on functional
+data.
+%
+More specifically, we consider a one-sample test for a mean function, which proceeds by constructing simultaneous confidence intervals (SCI) for its Fourier coefficients. With regard to our theoretical results, this is a natural problem for illustration, because the Fourier coefficients of functional data typically satisfy the variance decay condition~\eqref{eqn:varcondintro}, as explained in the third example of Section~\ref{sec:decayexamples}. Additional background and recent results on mean testing for functional data may be found in \ci{Benko:2009,degras2011simultaneous,Cao:2012,horvath2013,zhen:14,Choi2018,zhan:18}, as well as the references therein.
+%
+
+\subsection{Tests for the mean function}
+To set the stage, let $\hilbert$ be a separable Hilbert space of functions, and
+let $Y\in \hilbert$ be a random function with mean $\E[Y]=\mu$.
+Given a sample $Y_{1},\ldots,Y_{n}$ of i.i.d.~realizations of $Y$,
+a basic goal  is to test 
+\begin{equation}\label{eqn:test}
+H_0: \mu=\mu^{\circ} \text{ \ \ \ \ \ versus \ \ \ \ \ } H_1: \mu\neq \mu^{\circ},
+\end{equation}
+where $\mu^{\circ}$ is a fixed function in $\hilbert$. 
+
+This testing problem can be naturally formulated in terms of  SCI, as follows.
+Let $\{\psi_j\}$ denote any fixed orthonormal basis for $\hilbert$. Also, let $\{u_j\}$ and $\{u_{j}^{\circ}\}$ respectively denote the generalized Fourier coefficients of $\mu$ and $\mu^{\circ}$ with respect to $\{\psi_j\}$, so that
+$$\mu=\tsum_{j=1}^{\infty}u_{j}\psi_{j} \text{\  \ \ \ \ and \ \ \ \ \ } \mu^{\circ}=\tsum_{j=1}^{\infty}u_{j}^{\circ}\,\psi_{j}.$$
+ Then, the null hypothesis is equivalent to
+$u_{j}=u_{j}^{\circ}$ for all $j\geq 1$.
+ To test this condition, one can construct a confidence interval $\sci_{j}$ for each $u_{j}$, and reject the null if $u_{j}^{\circ}\not\in \sci_{j}$ for at least one $j\geq 1$. In practice, due to the 
+infinite dimensionality of  $\hilbert$, one will choose a sufficiently large integer
+$p$, and reject the null if \smash{$u_{j}^{\circ}\not\in \sci_{j}$} for at least one $j\in\{1,\dots,p\}$.
+
+Recently, a similar  general strategy was pursued by  \cite{Choi2018}, hereafter CR, who developed a test for the problem~\eqref{eqn:test} based on a hyper-rectangular confidence region for $(u_1,\dots,u_p)$  --- which is equivalent to constructing SCI.  In the CR approach, the basis is taken to be the eigenfunctions $\{\psi_{\mathcal{C},j}\}$ of the covariance operator \smash{$\mathcal{C}=\text{cov}(Y)$}, and $p$  
+is chosen as the number of eigenfunctions $\psi_{\mathcal{C},1},\dots,\psi_{\mathcal{C},p}$ required to explain a certain fraction (say 99\%)  of variance in the data. However, since $\mathcal{C}$ is unknown, the eigenfunctions must be estimated from the available data. 
+
+When $p$ is large, estimating the eigenfunctions $\psi_{\mathcal{C},1},\dots,\psi_{\mathcal{C},p}$ is a well-known challenge in functional data analysis. For instance, a large choice of $p$ may be needed to explain 99\% of the variance if the sample paths of $Y_1,\dots, Y_n$ are not sufficiently smooth. Another example occurs when $H_1$ holds but $\mu$ and $\mu^{\circ}$ are not well separated,
+ which may require a large choice of $p$ in order to distinguish $(u_1,\dots,u_p)$ and $(u_1^{\circ},\dots,u_p^{\circ})$. 
+In light of these considerations, we will pursue an alternative approach to constructing SCI that does not require estimation of eigenfunctions. 
+
+\subsection{Applying the bootstrap}\label{sec:applyboot} Let $\{\psi_j\}$ be any pre-specified orthonormal basis for $\hilbert$. For instance, when $\hilbert=L^2[0,1]$, a natural option is the standard Fourier basis. For a sample $Y_1,\dots,Y_n\in\hilbert$ as considered before, define random vectors \smash{$X_1,\dots,X_n$} in $\R^p$ according to
+$$X_i=(\langle Y_i,\psi_{1}\rangle,\ldots, \langle Y_i,\psi_{p}\rangle),$$
+and note that $\E[X_1]=(u_{1},\ldots,u_{p})$.
+For simplicity, we retain the previous notations associated with $X_1,\dots,X_n$, so that $S_{n,j}=n^{-1/2}\sum_{i=1}^{n}(X_{i,j}-u_{j})$, and likewise for other quantities. In addition, for any $\tau_n\in[0,1]$, let
+\[
+L=\min_{1\leq j\leq p}S_{n,j}/\sigma_{j}^{\tau_{n}} \text{ \ \ \ and \ \ \  }M=\max_{1\leq j\leq p}S_{n,j}/\sigma_{j}^{\tau_{n}}.
+\]
+For a given significance level $\siglevel \in (0,1)$, the $\siglevel$-quantiles of $L$ and $M$ are denoted $q_L(\siglevel)$ and $q_M(\siglevel)$. Thus, the following event occurs with probability at least $1-\siglevel$,
+%
+\begin{equation}\label{eq:sci}
+\bigcap_{j=1}^{p}\bigg\{ \ts\frac{q_L(\siglevel/2)\sigma_{j}^{\tau_{n}}}{\sqrt{n}}\leq\bar{X}_{j}-u_{j}\leq \ts\frac{q_M(1-\siglevel/2) \sigma_{j}^{\tau_{n}}}{\sqrt{n}}\bigg\}, 
+\end{equation}
+which leads to theoretical SCI for $(u_1,\dots,u_p)$. 
+
+We now apply the bootstrap from Section~\ref{sec:MB} to estimate $q_L(\siglevel/2)$ and $q_M(1-\siglevel/2)$. Specifically, we generate $B\geq 1$ independent samples of $M^{\star}$ as in~\eqref{eqn:Mstardef}, and then  define $\hat q_M(1-\siglevel/2)$ to be the empirical $(1-\siglevel/2)$-quantile of the $B$ samples (and similarly for $\hat q_L(\siglevel/2)$), leading to the bootstrap SCI 
+%
+%
+%
+%
+\begin{equation}\label{eqn:SCIdef}
+\hat{\mathcal{I}}_j=\bigg[\bar X_j - \ts\frac{\hat q_M(1-\siglevel/2) \hat \sigma_{j}^{\tau_{n}}}{\sqrt{n}}  \ , \ \bar X_j-\ts\frac{\hat q_L(\siglevel/2) \hat \sigma_{j}^{\tau_{n}}}{\sqrt{n}}\bigg]
+\end{equation}
+for each $j\in\{1,\dots,p\}$.
+
+
+
+It remains to select the value of $\tau_n$, for which we adopt the following simple rule. For each choice of $\tau_n$ in a set of possible candidates, say $\mathcal{T}=\{0,0.1,\ldots,0.9,1\}$, we construct the associated intervals $\hat{\mathcal{I}}_1,\dots,\hat{\mathcal{I}}_p$ as in~\eqref{eqn:SCIdef}, and then select the value $\tau_n\in\mathcal{T}$ for which the average width $\frac 1p \sum_{j=1}^p |\,\hat{\mathcal{I}}_j|$ is the smallest, where  $|[a,b]|=b-a$.
+
+
+ In Figure \ref{fig:tau}, we illustrate the influence of $\tau_n$ on the shape of the SCI. There are two main points to notice: (1) The intervals change very gradually as a function of $\tau_n$, which shows that partial standardization is at most a mild adjustment of ordinary standardization. (2) The choice of $\tau_n$ involves a tradeoff, which controls the ``allocation of power'' among the $p$ intervals. When $\tau_n$ is close to 1, the intervals are wider for the leading coefficients (small $j$), and narrower for the subsequent coefficients (large $j$). However, as $\tau_n$ decreases from 1, the widths of the intervals gradually become more uniform, and the intervals for the leading coefficients become narrower. Hence, if the vectors $(u_1,\dots,u_p)$ and $(u_1^{\circ},\dots,u_p^{\circ})$ differ in the leading coefficients, then choosing a smaller value of $\tau_n$ may lead to a gain in power. One last interesting point to mention is that in the simulations reported below, the selection rule of ``minimizing the average width'' typically selected values of $\tau_n$ around 0.8, and hence strictly less than 1.
+ 
+ 
+
+ \begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.5\textwidth,height=\textheight,keepaspectratio]{tau-plot-2.pdf}
+\par\end{centering}
+\caption{Illustration of the impact of $\tau_n$ on the shape of simultaneous confidence intervals (SCI). The curves represent upper and lower endpoints of the respective SCI, where the Fourier coefficients are indexed by $j$. Overall, the plot shows that the SCI change very gradually as a function of $\tau_n$, and that there is a trade-off in the widths of the  intervals. Namely, as $\tau_n$ decreases, the intervals for the leading coefficients (small $j$) become tighter, while the intervals for the subsequent coefficients (large $j$) become wider. }
+\label{fig:tau}
+\end{figure}
+
+
+
+
+
+
+\subsection{Simulation settings}\label{sec:simstudy}
+To study the numerical performance of the SCI described above,
+we generated  i.i.d. samples from a Gaussian process
+on $[0,1]$, with population mean function 
+%
+$$\mu_{\omega,\rho,\theta}(t)=(1+\rho)\cdot\left(\exp[-\{g_{\omega}(t)+2\}^{2}]+\exp[-\{g_{\omega}(t)-2\}^{2}]\right)+\theta$$
+indexed by parameters $(\omega,\rho,\theta)$, where $g_{\omega}(t):=8h_{\omega}(t)-4$,
+and $h_{\omega}(t)$ denotes the Beta distribution function
+with shape parameters $(2+\omega,2)$. This family of functions was
+considered in \citet{Chen2012}. To interpret the parameters, note that $\omega$ determines
+the shape of the mean function (see Figure \ref{fig:mean-func-family}), whereas
+$\rho$ and $\theta$ are scale and shift parameters. In terms of these parameters, the null hypothesis corresponds to $\mu=\mu^{\circ}:=\mu_{0,0,0}$.
+
+ 
+ \begin{figure}[]
+\begin{centering}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{mean-func-family.pdf}
+\par\end{centering}
+\caption{Left: Mean functions for varying shape parameters $\omega$ with
+$\rho=\theta=0$. Middle: Mean functions for varying scale parameters
+$\rho$ with $\omega=\theta=0$. Right: Mean functions with different
+shift parameters $\theta$ with $\omega=\rho=0$.}
+\label{fig:mean-func-family}
+\end{figure}
+ 
+ 
+ 
+ 
+ The population covariance function was taken to be the Mat\'ern function 
+$$\covarop(s,t)=\ts\frac{(\sqrt{2\nu}|t-s|)^{\nu}}{16\Gamma(\nu)2^{\nu-1}}K_{\nu}(\sqrt{2\nu}|t-s|),$$
+which was previously considered in CR, with $K_\nu$ being a modified Bessel function of the second kind. 
+%
+%
+We set $\nu=0.1$, which results in relatively rough sample paths, as illustrated in the left panel of Figure \ref{fig:raw-data}. Also, the significant presence of variance decay is shown in the right panel.
+
+
+
+When implementing the bootstrap in Section~\ref{sec:applyboot}, we  used the first $p=100$ functions from the standard Fourier basis on [0,1]. (In principle, an even larger value $p$ could have been selected, but we chose $p=100$ to limit computation time.) For comparison purposes, we also implemented the `$R_{zs}$' version of the method proposed in CR, using the  accompanying R package~{\tt{fregion}}~\citep{fregion} under default settings, which typically utilized estimates of  the first $p\approx 50$ eigenfunctions of $\mathcal{C}$.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.45\textwidth,height=\textheight,keepaspectratio]{raw-data-50.pdf} \ \ \ \ \ \
+\includegraphics[width=0.45\textwidth,height=\textheight,keepaspectratio]{sigma-1.pdf}
+\par\end{centering}
+\caption{Left: A sample of the functional data $Y_1,\dots,Y_n$ in the simulation study. Right: The ordered values $\sigma_{(j)}=\sqrt{\var(X_{1,j})}$ are represented by dots, which are approximated by the decay profile $0.15j^{-0.69}$ (solid line).}
+\label{fig:raw-data}
+\end{figure}
+
+
+\paragraph{Results on type I error} The nominal significance level was set to $5\%$ in all simulations. To assess the actual type I error, we carried out 5,000 simulations under the null hypothesis, for both  $n=50$ and $n=200$. When $n=50$, the type I error was 6.7\% for the bootstrap method, and 1.6\% for CR. When $n=200$, the results were 5.7\% for the bootstrap method, and  2.6\% for CR. So, in these cases, the bootstrap respects the nominal significance level relatively well. In addition, our numerical results support the idea that partial standardization can be beneficial, because in the fully standardized case where $\tau_n=1$, we observed less accurate type I error rates of 7.0\% for $n=50$, and 6.4\% for $n=200$.
+
+
+\paragraph{Results on power} To  consider power,  we varied each of the parameters $\omega$, $\rho$ and $\theta$, one at a time, while keeping  the other two at their baseline value of zero. In each parameter setting, we carried out 1,000 simulations with sample size $n=50$. The results are summarized in Figure \ref{fig:power}, showing that the bootstrap achieves relative gains in power --- especially with respect to the shape ($\omega$) and scale ($\rho$) parameters. In particular, it seems that using a large number of basis functions can help to catch small differences in these parameters (see also Figure \ref{fig:mean-func-family}). 
+
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{power-analysis.pdf}
+\par\end{centering}
+\caption{Empirical power for the partially standardized bootstrap method (solid) and the CR method (dotted) Left: Empirical power for varying shape parameters $\omega$ while $\rho=\theta=0$. Middle: Empirical power for varying scale parameters
+$\rho$ while $\omega=\theta=0$. Right: Empirical power for varying   
+shift parameters $\theta$ while $\omega=\rho=0$.}
+\label{fig:power}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+\section{Examples with multinomial data}\label{sec:multinomial} 
+When multinomial models are used in practice, it is not uncommon for the number of cells $p$ to be quite large. Indeed, the challenges of this situation have been a topic of sustained interest, and many inferential questions remain unresolved~\citep[e.g.][]{Hoeffding:1965,Holst:1972,Fienberg:1973,cres:84,zelt:87,Paninski2008,Chafai:2009,Balakrishnan:2019}. A recent survey is~\citep{Balakrishnan:2018}. As one illustration of how our approach can be applied to such models, this section will look at the task of constructing SCI for the cell proportions. Although this type of problem has been studied from a variety of perspectives over the years~\citep[e.g.][]{Quesenberry:1964, Goodman:1965,Fitzpatrick:1987,Glaz:1995,Wang:2008,Chafai:2009}, relatively few theoretical results directly address the high-dimensional setting --- and in this respect, our example offers some progress. Lastly, it is notable that multinomial data are of a markedly different character than the functional data considered in Section~\ref{sec:expt}, which demonstrates how our approach has a broad scope of potential applications.
+
+
+\subsection{Theoretical example}\label{sec:M1}
+Recall from Section~\ref{sec:decayexamples} that we regard the observations in the multinomial model as lying in the set of standard basis vectors $\{e_1,\dots,e_p\}\subset\R^p$. In this context, we also write $\hat\pi_j=\bar{X}_j$ to indicate that the $j$th coordinate of the sample mean is an estimate of the $j$th cell proportion $\pi_j$. In addition, it is important to clarify that a variance decay condition of the form~\eqref{eqn:varcondintro} is automatically satisfied in this model (as explained in Section~\ref{sec:decayexamples}), and so it is not necessary to include this as a separate assumption. Below, we retain the definition of $k_n$ in~\eqref{eqn:kndef}.
+%
+\begin{assumption}[Multinomial model]\label{A:mult}
+~\\[-0.3cm]
+\begin{enumerate}[(i)]
+\item The observations $X_1,\dots,X_n\in\R^p$ are i.i.d.,~with $\P(X_1=e_j)=\pi_j$ for each $j\in\{1,\dots,p\}$, where $\boldsymbol\pi=(\pi_1,\dots,\pi_p)$ is a probability vector that may vary with $n$.\\[-0.2cm]
+%
+\item There are constants $\alpha>0$ and $\e_0\in(0,1)$, with neither depending on $n$, such that 
+%
+\begin{equation}
+\sigma_{(j)} \,  \geq \, \e_0 \, j^{-\alpha} \ \ \ \text{ for all } \ \ \ j\in \{1,\dots,(k_n+1)\wedge p\}.
+\end{equation}
+%
+%
+\end{enumerate}
+\end{assumption}
+\paragraph{Remarks}
+A concrete set of examples satisfying the conditions of Assumption~\ref{A:mult} is given by probability vectors of the form $\pi_{(j)}\propto j^{-\eta}$, with $\eta>1$. Furthermore, the condition $\eta>1$ is mild, since the inequality $\pi_{(j)}\leq j^{-1}$ is satisfied by every probability vector.
+
+
+\paragraph{Applying the bootstrap} In the high-dimensional setting, the multinomial model differs in an essential way from the model in Section~\ref{sec:prelim}, because there will often be many empty cells (indices) $j\in\{1,\dots,p\}$ for which $\hat\sigma_j=0$. For the indices where this occurs, the usual confidence intervals of the form~\eqref{eqn:SCIdef} have zero width, and thus cannot be used. More generally, if the number of observations in cell $j$ is small, then it is inherently difficult to construct a good confidence interval around $\pi_j$. Consequently, we will restrict our previous SCI~\eqref{eqn:SCIdef} by focusing on a set of cells that contain a sufficient number of observations.
+%
+For theoretical purposes, such a set may be defined as
+%
+\begin{equation}\label{eq:Jn}
+\hat{\mathcal{J}}_n=\Big\{j\in \{1,\dots,p\} \ \Big| \ \hat\pi_j\geq \sqrt{\ts\frac{\log(n)}{n}}\Big\}.
+\end{equation}
+Accordingly, the max statistic and its bootstrapped version are defined by taking maxima over the indices  in $\hat{\mathcal{J}}_n$, and we denote them as
+$$\M = \max_{j\in\hat\J_n} S_{n,j}/\sigma_j^{\tau_n}$$
+and 
+$$\M^{\star} = \max_{j\in\hat\J_n} S_{n,j}^{\star}/\hat\sigma_j^{\tau_n},$$
+where we arbitrarily take $\mathcal{M}$ and $\mathcal{M}^{\star}$ to be zero in the exceptional case when $\hat{\mathcal{J}}$ is empty.
+
+Although the presence of the random index set $\hat\J_n$ complicates the distributions of $\mathcal{M}$ and $\mathcal{M}^{\star}$, it is a virtue of the bootstrap that this source of randomness is automatically accounted for in the resulting inference.
+In addition, the following result shows that the bootstrap continues to achieve a near-parametric rate of approximation. 
+%
+\begin{theorem}\label{THM:M} Fix any $\delta\in(0,1/2)$, and suppose that Assumption~\ref{A:mult} holds. In addition, suppose that $\tau_n\in[0,1)$ with $(1-\tau_n)\sqrt{\log(n)}\gtrsim 1$. Then, there is a constant $c>0$ not depending on $n$ such that the event
+\begin{equation}
+ d_{\textup{K}}\big(\L(\M), \L(\M^{\star}|X)\big) \ \leq \ c \, n^{-1/2+\delta},
+\end{equation}
+occurs with probability at least $1-\frac cn$.
+\end{theorem}
+
+\paragraph{Remarks} The proof of this result shares much of the same structure as the proofs of Theorems~\ref{THM:G} and~\ref{THM:BOOT}, but there are a few differences. First, the use of the random index set $\hat\J_n$ in the definition of $\mathcal{M}$ and $\mathcal{M}^{\star}$ entails some extra technical considerations, which are handled with the help of Kiefer's inequality (Lemma~\ref{lem:Kiefer}). Second, we develop a lower bound for $\lambda_{\min}(\Sigma(k_n))$, where $\Sigma(k_n)$ is the covariance matrix of the variables indexed by $\J(k_n)$~(see Lemma~\ref{lem:lambdamin}). This bound may be of independent interest for problems involving multinomial distributions, and does not seem to be well known; see also~\citep{Benasseni:2012} for other related eigenvalue bounds.
+
+
+\subsection{Numerical example}\label{sec:M2}
+We illustrate the bootstrap procedure in the case of the model $\pi_j\propto j^{-1}$, which was considered in a recent numerical study of \cite{Balakrishnan:2018}. 
+Taking $p=1000$ and \mbox{$n\in\{500,1000\}$,} we applied the bootstrap method to construct 95\% SCI for the proportions $\pi_j$ corresponding to the cells with at least 5 observations. 
+The cutoff value of $5$ is based on a guideline that is commonly recommended in textbooks,~e.g.,~\cite[p.19]{Agresti:2003},~\cite[p.519]{Rice:2007}.
+%
+Lastly, the parameter $\tau_n$ was chosen in the same way as described in Section \ref{sec:applyboot}.
+
+Based on  5000 Monte Carlo runs, the average coverage probability was found to be 93.7\% for $n=500$, and 94.4\% for $n=1000$, demonstrating satisfactory performance. Regarding the parameter $\tau_n$, the selection rule typically produced values close to 0.8, for both $n=500$ and $n=1000$. As a point of comparison, it is also interesting to mention the coverage probabilities that occurred when $\tau_n$ was set to 1 (which eliminates all variance decay). In this case, the coverage probabilities became less accurate, with values of $92.7\%$ for $n=500$, and $93.1\%$ for $n=1000$. Hence, this shows that taking advantage of variance decay can enhance coverage probability. 
+
+
+
+
+\section{Conclusions}\label{sec:conc}
+
+
+The main conclusion to draw from our work is that a modest amount of variance decay in a high-dimensional model can substantially improve rates of bootstrap approximation for max statistics --- which helps to reconcile some of the empirical and theoretical results in the literature. In particular, there are three aspects of this type of model structure that are worth emphasizing. First, the variance decay condition~\eqref{eqn:varcondintro} is very weak, in the sense that the parameter $\alpha>0$ is allowed to be arbitrarily small. Second, the condition is approximately checkable in practice, since the parameters $\sigma_1,\dots,\sigma_p$ can be accurately estimated when $n\ll p$. Third, this type of structure arises naturally in a variety of contexts.
+
+Beyond our main theoretical focus on rates of bootstrap approximation, we have also shown that the technique of partial standardization leads to favorable numerical results. Specifically, this was illustrated with examples involving both functional and multinomial data, where variance decay is an inherent property that can be leveraged. 
+Finally, we note that these applications are by no means exhaustive, and the adaptation of the proposed approach to other types of data may provide further opportunities for future work.
+
+
+\references
+
+
+\end{document}

@@ -1,0 +1,3 @@
+import ProverJobs.real_imo2026_problem6_acf5714d7c7d.Main
+
+#print axioms IMO2026P6.imo2026_problem6

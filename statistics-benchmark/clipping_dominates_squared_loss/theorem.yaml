@@ -1,0 +1,35 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62C/clipping_dominates_squared_loss.tex
+msc: 62C15
+topic: Decision-rule clipping
+track_a_difficulty: medium
+track_b_difficulty: easy
+theorems:
+  - id: clipping_dominates_squared_loss
+    kind: theorem
+    lean_name: clipping_dominates_squared_loss
+    latex_statement: |-
+      \begin{theorem}[Clipping Dominates under Squared Loss]
+      Let $(\Omega,\mathcal A)$ be a measurable space, let $a,b\in\mathbb R$
+      with $a\le b$, and let $(P_\theta)_{\theta\in[a,b]}$ be a family of
+      probability measures on $\Omega$.  Let
+      $\delta:\Omega\to\mathbb R$ be measurable, and assume that
+      $\delta^2$ is integrable under $P_\theta$ for every
+      $\theta\in[a,b]$.  Define the clipped estimator
+      \[
+        \delta_{\mathrm{clip}}(\omega)
+        =\max\{a,\min\{\delta(\omega),b\}\}.
+      \]
+      Then, for every $\theta\in[a,b]$ and every $\omega\in\Omega$,
+      \[
+        \bigl(\delta_{\mathrm{clip}}(\omega)-\theta\bigr)^2
+        \le
+        \bigl(\delta(\omega)-\theta\bigr)^2.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

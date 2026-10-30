@@ -1,0 +1,9 @@
+{
+  "finishedAt": "2026-09-26T05:57:32.693Z",
+  "finalStatus": "proved",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_checkpoint_fresh_three_20260926T052914Z/imo2026_p6/experiment/runs/20260926T053541Z-imo2026_problem6-c917c94a",
+  "jobId": "real_imo2026_problem6_acf5714d7c7d",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/real_imo2026_problem6_acf5714d7c7d",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_checkpoint_fresh_three_20260926T052914Z/imo2026_p6/experiment/runs/20260926T053541Z-imo2026_problem6-c917c94a/job_snapshot",
+  "publishedCheckpointDir": null
+}

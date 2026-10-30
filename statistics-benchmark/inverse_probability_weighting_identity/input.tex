@@ -1,0 +1,22 @@
+\begin{theorem}[Inverse Probability Weighting Identity]
+Let $(\Omega,\mathcal A,P)$ be a probability space and let $\mathcal Z$ be
+a finite measurable space in which every singleton is measurable.  Let
+$T:\Omega\to\{\mathrm{false},\mathrm{true}\}$ and
+$Z:\Omega\to\mathcal Z$ be measurable, and fix
+$a\in\{\mathrm{false},\mathrm{true}\}$.  Assume
+$P\{Z=z\}>0$ for every $z\in\mathcal Z$ and
+\[
+  \frac{P\{T=a,Z=z\}}{P\{Z=z\}}>0
+  \qquad\text{for every }z\in\mathcal Z.
+\]
+Define
+\[
+  e(z)=\frac{P\{T=a,Z=z\}}{P\{Z=z\}}.
+\]
+Then, for every function $h:\mathcal Z\to\mathbb R$,
+\[
+  \int \frac{\mathbf 1\{T=a\}h(Z)}{e(Z)}\,dP
+  =
+  \int h(Z)\,dP.
+\]
+\end{theorem}

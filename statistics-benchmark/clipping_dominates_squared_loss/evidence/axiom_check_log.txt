@@ -1,0 +1,22 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=clipping_dominates_squared_loss
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:14:5: warning: unused variable `hP`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:16:5: warning: unused variable `hδmeas`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:17:5: warning: unused variable `hδ2`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'clipping_dominates_squared_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

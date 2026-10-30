@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "logistic_score_balance_with_intercept"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 39424
+}

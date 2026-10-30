@@ -1,0 +1,16 @@
+\begin{theorem}[Unbiased estimation of a squared mean]
+Let $(\Omega,\mathcal F,P)$ be a probability space and let $n\geq2$.
+Let $X_0,\ldots,X_{n-1}:\Omega\to\mathbb R$ be measurable and mutually
+independent. Assume that the $X_i$ are pairwise identically distributed,
+that each $X_i$ belongs to $L^2(P)$, and that
+$\mathbb E_P[X_i]=\mu$ for every $i$. Define
+\[
+ U(\omega)=\frac{1}{n(n-1)}
+ \sum_{i=0}^{n-1}\ \sum_{\substack{0\leq j<n\\j\ne i}}
+ X_i(\omega)X_j(\omega).
+\]
+Then
+\[
+ \mathbb E_P[U]=\mu^2.
+\]
+\end{theorem}

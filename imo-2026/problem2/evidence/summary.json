@@ -1,0 +1,1847 @@
+{
+  "status": "proved",
+  "engineStatus": "COMPLETE",
+  "legacyPlanningStatus": "cancelled",
+  "reason": "quiescent experiment checkpoint requested",
+  "cancellationReason": null,
+  "cancellationSignal": null,
+  "stopAfter": null,
+  "checkpointKind": null,
+  "checkpointStageReport": null,
+  "publishedCheckpointDir": null,
+  "iterations": 2,
+  "revision": 582,
+  "unifiedCompletedActions": 211,
+  "unifiedFailedActions": [
+    {
+      "proofNodeId": "proof.node.0a6ca843d8b36b4f8dd3571f247bef3b",
+      "detail": "unified Writer dependency support changed during repeated unlocked validation"
+    },
+    {
+      "proofNodeId": "proof.node.writer.dc22d2bbeb0d0804833fc98d",
+      "detail": "unified DAG Curator semantic polish did not accept a valid affected-neighborhood patch"
+    }
+  ],
+  "remainingSorry": 0,
+  "usage": {
+    "legacyPlanning": {
+      "mathGuide": {
+        "inputTokens": 97384,
+        "outputTokens": 165425,
+        "costUsd": 0.06020937899999999
+      },
+      "search": {
+        "inputTokens": 20334,
+        "outputTokens": 20766,
+        "costUsd": 0.008669844
+      },
+      "writer": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0
+      },
+      "diagnose": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0
+      }
+    },
+    "unified": [
+      {
+        "inputTokens": 56132,
+        "outputTokens": 10555,
+        "cacheReadTokens": 59136,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.0109794608
+      },
+      {
+        "inputTokens": 153212,
+        "outputTokens": 23832,
+        "cacheReadTokens": 444032,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 13,
+        "costUsd": 0.0293659296
+      },
+      {
+        "inputTokens": 67540,
+        "outputTokens": 23517,
+        "cacheReadTokens": 116992,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 6,
+        "costUsd": 0.0163679376
+      },
+      {
+        "inputTokens": 46913,
+        "outputTokens": 4278,
+        "cacheReadTokens": 123776,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 6,
+        "costUsd": 0.008112232799999999
+      },
+      {
+        "inputTokens": 47881,
+        "outputTokens": 9908,
+        "cacheReadTokens": 67840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.009667532
+      },
+      {
+        "inputTokens": 54087,
+        "outputTokens": 15964,
+        "cacheReadTokens": 75264,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.012252839200000002
+      },
+      {
+        "inputTokens": 58434,
+        "outputTokens": 15889,
+        "cacheReadTokens": 77056,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.012845436800000002
+      },
+      {
+        "inputTokens": 45576,
+        "outputTokens": 7613,
+        "cacheReadTokens": 66432,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.008698289600000002
+      },
+      {
+        "inputTokens": 171382,
+        "outputTokens": 43978,
+        "cacheReadTokens": 16640,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.036353912
+      },
+      {
+        "inputTokens": 183997,
+        "outputTokens": 59748,
+        "cacheReadTokens": 13824,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.042527727200000004
+      },
+      {
+        "inputTokens": 19448,
+        "outputTokens": 29639,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.011043144000000001
+      },
+      {
+        "inputTokens": 41021,
+        "outputTokens": 1536,
+        "cacheReadTokens": 92800,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.0064328599999999994
+      },
+      {
+        "inputTokens": 98188,
+        "outputTokens": 33486,
+        "cacheReadTokens": 8960,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.023147488
+      },
+      {
+        "inputTokens": 11632,
+        "outputTokens": 43179,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 372189,
+        "outputTokens": 157297,
+        "cacheReadTokens": 25216,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0962202248
+      },
+      {
+        "inputTokens": 19940,
+        "outputTokens": 6920,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.004750704
+      },
+      {
+        "inputTokens": 53401,
+        "outputTokens": 3033,
+        "cacheReadTokens": 76672,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.008540061600000001
+      },
+      {
+        "inputTokens": 298453,
+        "outputTokens": 85358,
+        "cacheReadTokens": 17664,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.06573311920000001
+      },
+      {
+        "inputTokens": 14171,
+        "outputTokens": 3804,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 45681,
+        "outputTokens": 4156,
+        "cacheReadTokens": 2816,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.007566904800000001
+      },
+      {
+        "inputTokens": 46622,
+        "outputTokens": 2830,
+        "cacheReadTokens": 37504,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.007424491200000001
+      },
+      {
+        "inputTokens": 29366,
+        "outputTokens": 16904,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.008865864000000001
+      },
+      {
+        "inputTokens": 81369,
+        "outputTokens": 711,
+        "cacheReadTokens": 5376,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0116057928
+      },
+      {
+        "inputTokens": 42672,
+        "outputTokens": 10608,
+        "cacheReadTokens": 2944,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.008952563200000001
+      },
+      {
+        "inputTokens": 683107,
+        "outputTokens": 239942,
+        "cacheReadTokens": 43264,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 6,
+        "costUsd": 0.1629398792
+      },
+      {
+        "inputTokens": 16091,
+        "outputTokens": 5891,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 30507,
+        "outputTokens": 15844,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.008728804
+      },
+      {
+        "inputTokens": 48579,
+        "outputTokens": 2039,
+        "cacheReadTokens": 40320,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.007484876
+      },
+      {
+        "inputTokens": 611566,
+        "outputTokens": 143979,
+        "cacheReadTokens": 54528,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.12608603840000002
+      },
+      {
+        "inputTokens": 400492,
+        "outputTokens": 79955,
+        "cacheReadTokens": 39936,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.07856810080000001
+      },
+      {
+        "inputTokens": 49224,
+        "outputTokens": 5807,
+        "cacheReadTokens": 3712,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0085277136
+      },
+      {
+        "inputTokens": 417813,
+        "outputTokens": 92122,
+        "cacheReadTokens": 20864,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.0843463992
+      },
+      {
+        "inputTokens": 19019,
+        "outputTokens": 30276,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 726205,
+        "outputTokens": 184546,
+        "cacheReadTokens": 34688,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.1534387064
+      },
+      {
+        "inputTokens": 34720,
+        "outputTokens": 32203,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.013899144000000002
+      },
+      {
+        "inputTokens": 20204,
+        "outputTokens": 11059,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 57259,
+        "outputTokens": 4244,
+        "cacheReadTokens": 45568,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.009332170400000001
+      },
+      {
+        "inputTokens": 384288,
+        "outputTokens": 139227,
+        "cacheReadTokens": 21888,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.09284516640000001
+      },
+      {
+        "inputTokens": 224239,
+        "outputTokens": 62323,
+        "cacheReadTokens": 16640,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.048890491999999994
+      },
+      {
+        "inputTokens": 53284,
+        "outputTokens": 1752,
+        "cacheReadTokens": 87296,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0081947488
+      },
+      {
+        "inputTokens": 510346,
+        "outputTokens": 187710,
+        "cacheReadTokens": 43520,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.12412909600000002
+      },
+      {
+        "inputTokens": 102778,
+        "outputTokens": 20584,
+        "cacheReadTokens": 7552,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.020173585600000002
+      },
+      {
+        "inputTokens": 111755,
+        "outputTokens": 1191,
+        "cacheReadTokens": 9472,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0160057016
+      },
+      {
+        "inputTokens": 22849,
+        "outputTokens": 17707,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 21995,
+        "outputTokens": 27136,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 127257,
+        "outputTokens": 1435,
+        "cacheReadTokens": 7936,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.018240000800000003
+      },
+      {
+        "inputTokens": 61090,
+        "outputTokens": 2696,
+        "cacheReadTokens": 99072,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0095848816
+      },
+      {
+        "inputTokens": 58100,
+        "outputTokens": 1867,
+        "cacheReadTokens": 96640,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.008927352000000001
+      },
+      {
+        "inputTokens": 103426,
+        "outputTokens": 17057,
+        "cacheReadTokens": 4096,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.019267068800000002
+      },
+      {
+        "inputTokens": 46325,
+        "outputTokens": 75051,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.027521284000000007
+      },
+      {
+        "inputTokens": 26512,
+        "outputTokens": 11972,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 689209,
+        "outputTokens": 206988,
+        "cacheReadTokens": 50048,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.15458603440000002
+      },
+      {
+        "inputTokens": 142629,
+        "outputTokens": 15916,
+        "cacheReadTokens": 11648,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0244571544
+      },
+      {
+        "inputTokens": 30771,
+        "outputTokens": 4549,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 444414,
+        "outputTokens": 144382,
+        "cacheReadTokens": 42880,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.102764984
+      },
+      {
+        "inputTokens": 66194,
+        "outputTokens": 2663,
+        "cacheReadTokens": 54912,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.010166553600000001
+      },
+      {
+        "inputTokens": 63156,
+        "outputTokens": 1811,
+        "cacheReadTokens": 106496,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.009647108800000002
+      },
+      {
+        "inputTokens": 265742,
+        "outputTokens": 79999,
+        "cacheReadTokens": 16384,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.05964947520000001
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 61691,
+        "outputTokens": 1144,
+        "cacheReadTokens": 54272,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.009109021600000001
+      },
+      {
+        "inputTokens": 152209,
+        "outputTokens": 2414,
+        "cacheReadTokens": 5632,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0220009496
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 113023,
+        "outputTokens": 1394,
+        "cacheReadTokens": 5248,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0162282344
+      },
+      {
+        "inputTokens": 79370,
+        "outputTokens": 733,
+        "cacheReadTokens": 8320,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.011340336000000001
+      },
+      {
+        "inputTokens": 1088986,
+        "outputTokens": 349432,
+        "cacheReadTokens": 167424,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.25076778720000004
+      },
+      {
+        "inputTokens": 539508,
+        "outputTokens": 195752,
+        "cacheReadTokens": 23424,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.1304072672
+      },
+      {
+        "inputTokens": 441509,
+        "outputTokens": 156902,
+        "cacheReadTokens": 30080,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.10582804400000001
+      },
+      {
+        "inputTokens": 33423,
+        "outputTokens": 24997,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 69489,
+        "outputTokens": 2318,
+        "cacheReadTokens": 60160,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.010545948
+      },
+      {
+        "inputTokens": 932228,
+        "outputTokens": 206037,
+        "cacheReadTokens": 74880,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.18841194400000003
+      },
+      {
+        "inputTokens": 585106,
+        "outputTokens": 172551,
+        "cacheReadTokens": 44160,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.130352768
+      },
+      {
+        "inputTokens": 251310,
+        "outputTokens": 14251,
+        "cacheReadTokens": 11904,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0392070112
+      },
+      {
+        "inputTokens": 69298,
+        "outputTokens": 46823,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.022833664
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 59825,
+        "outputTokens": 23975,
+        "cacheReadTokens": 8960,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.015113587999999999
+      },
+      {
+        "inputTokens": 747521,
+        "outputTokens": 162945,
+        "cacheReadTokens": 64896,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 9,
+        "costUsd": 0.1504592488
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 34743,
+        "outputTokens": 2393,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 67244,
+        "outputTokens": 1540,
+        "cacheReadTokens": 116736,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0101722208
+      },
+      {
+        "inputTokens": 891488,
+        "outputTokens": 285427,
+        "cacheReadTokens": 49024,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.20486514720000001
+      },
+      {
+        "inputTokens": 70059,
+        "outputTokens": 73915,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.030525964000000003
+      },
+      {
+        "inputTokens": 93614,
+        "outputTokens": 11681,
+        "cacheReadTokens": 12416,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0164114048
+      },
+      {
+        "inputTokens": 81819,
+        "outputTokens": 7500,
+        "cacheReadTokens": 187520,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 6,
+        "costUsd": 0.014079716000000003
+      },
+      {
+        "inputTokens": 76138,
+        "outputTokens": 39788,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.021821464000000002
+      },
+      {
+        "inputTokens": 76944,
+        "outputTokens": 2678,
+        "cacheReadTokens": 129920,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.011885775999999999
+      },
+      {
+        "inputTokens": 69941,
+        "outputTokens": 32405,
+        "cacheReadTokens": 9984,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.018893095200000005
+      },
+      {
+        "inputTokens": 437264,
+        "outputTokens": 208211,
+        "cacheReadTokens": 20736,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.1195741008
+      },
+      {
+        "inputTokens": 82462,
+        "outputTokens": 1461,
+        "cacheReadTokens": 8448,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.011977414400000002
+      },
+      {
+        "inputTokens": 180149,
+        "outputTokens": 43312,
+        "cacheReadTokens": 49536,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.037486920800000004
+      },
+      {
+        "inputTokens": 57270,
+        "outputTokens": 72589,
+        "cacheReadTokens": 47360,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 7
+      },
+      {
+        "inputTokens": 115421,
+        "outputTokens": 99191,
+        "cacheReadTokens": 11520,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.04396467600000001
+      },
+      {
+        "inputTokens": 429506,
+        "outputTokens": 150989,
+        "cacheReadTokens": 30592,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.1024934176
+      },
+      {
+        "inputTokens": 75500,
+        "outputTokens": 15363,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.014893144
+      },
+      {
+        "inputTokens": 248666,
+        "outputTokens": 8259,
+        "cacheReadTokens": 6912,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.0371451136
+      },
+      {
+        "inputTokens": 108693,
+        "outputTokens": 1025,
+        "cacheReadTokens": 7552,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.015525165600000003
+      },
+      {
+        "inputTokens": 60004,
+        "outputTokens": 50328,
+        "cacheReadTokens": 8576,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4
+      },
+      {
+        "inputTokens": 98089,
+        "outputTokens": 12086,
+        "cacheReadTokens": 10496,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0171459288
+      },
+      {
+        "inputTokens": 76206,
+        "outputTokens": 1912,
+        "cacheReadTokens": 130944,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0115708432
+      },
+      {
+        "inputTokens": 131629,
+        "outputTokens": 24019,
+        "cacheReadTokens": 7424,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.025174167200000007
+      },
+      {
+        "inputTokens": 139958,
+        "outputTokens": 2692,
+        "cacheReadTokens": 8576,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.020371892800000003
+      },
+      {
+        "inputTokens": 111973,
+        "outputTokens": 6591,
+        "cacheReadTokens": 13952,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0175607656
+      },
+      {
+        "inputTokens": 113462,
+        "outputTokens": 6508,
+        "cacheReadTokens": 8960,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.017732008000000004
+      },
+      {
+        "inputTokens": 124095,
+        "outputTokens": 9273,
+        "cacheReadTokens": 6144,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0199869432
+      },
+      {
+        "inputTokens": 147128,
+        "outputTokens": 10381,
+        "cacheReadTokens": 16896,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.023551908800000004
+      },
+      {
+        "inputTokens": 97836,
+        "outputTokens": 6110,
+        "cacheReadTokens": 7808,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.015429702400000002
+      },
+      {
+        "inputTokens": 100162,
+        "outputTokens": 6988,
+        "cacheReadTokens": 5248,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0159940144
+      },
+      {
+        "inputTokens": 199297,
+        "outputTokens": 46140,
+        "cacheReadTokens": 12800,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.04085662
+      },
+      {
+        "inputTokens": 41201,
+        "outputTokens": 20056,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 80761,
+        "outputTokens": 2509,
+        "cacheReadTokens": 138624,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0123972072
+      },
+      {
+        "inputTokens": 203018,
+        "outputTokens": 85318,
+        "cacheReadTokens": 11136,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.0523427408
+      },
+      {
+        "inputTokens": 224360,
+        "outputTokens": 48314,
+        "cacheReadTokens": 34944,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.04503616320000001
+      },
+      {
+        "inputTokens": 86077,
+        "outputTokens": 102436,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.04075436400000001
+      },
+      {
+        "inputTokens": 79155,
+        "outputTokens": 2615,
+        "cacheReadTokens": 137472,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0121988216
+      },
+      {
+        "inputTokens": 118325,
+        "outputTokens": 13083,
+        "cacheReadTokens": 6912,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0202480936
+      },
+      {
+        "inputTokens": 266237,
+        "outputTokens": 131426,
+        "cacheReadTokens": 11776,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.0741054328
+      },
+      {
+        "inputTokens": 44790,
+        "outputTokens": 17723,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 81431,
+        "outputTokens": 1193,
+        "cacheReadTokens": 143232,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0121354296
+      },
+      {
+        "inputTokens": 1567987,
+        "outputTokens": 380357,
+        "cacheReadTokens": 205568,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.3265937304
+      },
+      {
+        "inputTokens": 136056,
+        "outputTokens": 982,
+        "cacheReadTokens": 4608,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0193357024
+      },
+      {
+        "inputTokens": 72565,
+        "outputTokens": 97060,
+        "cacheReadTokens": 3456,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4
+      },
+      {
+        "inputTokens": 71991,
+        "outputTokens": 2607,
+        "cacheReadTokens": 7040,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.010828412000000003
+      },
+      {
+        "inputTokens": 63809,
+        "outputTokens": 4376,
+        "cacheReadTokens": 12288,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0101929464
+      },
+      {
+        "inputTokens": 93803,
+        "outputTokens": 195635,
+        "cacheReadTokens": 71040,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 8
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0,
+        "model": "server-target-writer-controller"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0,
+        "model": "server-target-writer-controller"
+      },
+      {
+        "inputTokens": 75081,
+        "outputTokens": 29661,
+        "cacheReadTokens": 6784,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0188354152
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0,
+        "model": "server-target-writer-controller"
+      },
+      {
+        "inputTokens": 73723,
+        "outputTokens": 2067,
+        "cacheReadTokens": 7552,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.010921125600000001
+      },
+      {
+        "inputTokens": 65041,
+        "outputTokens": 4003,
+        "cacheReadTokens": 12800,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.01026242
+      },
+      {
+        "inputTokens": 88669,
+        "outputTokens": 3564,
+        "cacheReadTokens": 153216,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0138405848
+      },
+      {
+        "inputTokens": 84110,
+        "outputTokens": 3890,
+        "cacheReadTokens": 16384,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.012910475200000004
+      },
+      {
+        "inputTokens": 94365,
+        "outputTokens": 1810,
+        "cacheReadTokens": 164608,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0141788024
+      },
+      {
+        "inputTokens": 91216,
+        "outputTokens": 1977,
+        "cacheReadTokens": 159744,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.013771083200000001
+      },
+      {
+        "inputTokens": 105667,
+        "outputTokens": 59574,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.03149560400000001
+      },
+      {
+        "inputTokens": 91137,
+        "outputTokens": 2114,
+        "cacheReadTokens": 159744,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.013798383199999998
+      },
+      {
+        "inputTokens": 88293,
+        "outputTokens": 2631,
+        "cacheReadTokens": 78592,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.0133177576
+      },
+      {
+        "inputTokens": 94853,
+        "outputTokens": 1542,
+        "cacheReadTokens": 7808,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0137330424
+      },
+      {
+        "inputTokens": 590901,
+        "outputTokens": 201869,
+        "cacheReadTokens": 44544,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.13937418320000003
+      },
+      {
+        "inputTokens": 366172,
+        "outputTokens": 77774,
+        "cacheReadTokens": 26496,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0731149888
+      },
+      {
+        "inputTokens": 92280,
+        "outputTokens": 61247,
+        "cacheReadTokens": 16384,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0301142352
+      },
+      {
+        "inputTokens": 85540,
+        "outputTokens": 3246,
+        "cacheReadTokens": 18816,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.012937164800000001
+      },
+      {
+        "inputTokens": 192020,
+        "outputTokens": 18848,
+        "cacheReadTokens": 11776,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.03219321280000001
+      },
+      {
+        "inputTokens": 117879,
+        "outputTokens": 50118,
+        "cacheReadTokens": 10368,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0305651304
+      },
+      {
+        "inputTokens": 16254,
+        "outputTokens": 21775,
+        "cacheReadTokens": 896,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 69909,
+        "outputTokens": 36102,
+        "cacheReadTokens": 33408,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.019989362400000002
+      },
+      {
+        "inputTokens": 17615,
+        "outputTokens": 23493,
+        "cacheReadTokens": 896,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 54382,
+        "outputTokens": 24554,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 19793,
+        "outputTokens": 45785,
+        "cacheReadTokens": 896,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 392503,
+        "outputTokens": 68201,
+        "cacheReadTokens": 23424,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.07411228720000002
+      },
+      {
+        "inputTokens": 96123,
+        "outputTokens": 2155,
+        "cacheReadTokens": 170368,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.014537650400000001
+      },
+      {
+        "inputTokens": 95135,
+        "outputTokens": 2455,
+        "cacheReadTokens": 167296,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0144747288
+      },
+      {
+        "inputTokens": 96330,
+        "outputTokens": 3720,
+        "cacheReadTokens": 170880,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.015006264000000002
+      },
+      {
+        "inputTokens": 93163,
+        "outputTokens": 2336,
+        "cacheReadTokens": 84096,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.013932368800000003
+      },
+      {
+        "inputTokens": 64695,
+        "outputTokens": 4724,
+        "cacheReadTokens": 4608,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0103929224
+      },
+      {
+        "inputTokens": 63276,
+        "outputTokens": 17003,
+        "cacheReadTokens": 4608,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0136323824
+      },
+      {
+        "inputTokens": 108393,
+        "outputTokens": 1681,
+        "cacheReadTokens": 4736,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.015658960800000003
+      },
+      {
+        "inputTokens": 92294,
+        "outputTokens": 2154,
+        "cacheReadTokens": 170240,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.014000952
+      },
+      {
+        "inputTokens": 160423,
+        "outputTokens": 27346,
+        "cacheReadTokens": 11136,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.030147280800000002
+      },
+      {
+        "inputTokens": 99614,
+        "outputTokens": 28562,
+        "cacheReadTokens": 87296,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.0221877488
+      },
+      {
+        "inputTokens": 56665,
+        "outputTokens": 15806,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 94251,
+        "outputTokens": 4524,
+        "cacheReadTokens": 88320,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.014709156000000001
+      },
+      {
+        "inputTokens": 100956,
+        "outputTokens": 2501,
+        "cacheReadTokens": 253312,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.0155433936
+      },
+      {
+        "inputTokens": 99390,
+        "outputTokens": 9038,
+        "cacheReadTokens": 267136,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.0171932208
+      },
+      {
+        "inputTokens": 56949,
+        "outputTokens": 11819,
+        "cacheReadTokens": 4608,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0112950824
+      },
+      {
+        "inputTokens": 158829,
+        "outputTokens": 37286,
+        "cacheReadTokens": 7168,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0326962104
+      },
+      {
+        "inputTokens": 61527,
+        "outputTokens": 6365,
+        "cacheReadTokens": 4608,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.010408882400000001
+      },
+      {
+        "inputTokens": 89127,
+        "outputTokens": 981,
+        "cacheReadTokens": 4736,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0127657208
+      },
+      {
+        "inputTokens": 865890,
+        "outputTokens": 191505,
+        "cacheReadTokens": 59776,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.1750133728
+      },
+      {
+        "inputTokens": 194010,
+        "outputTokens": 4773,
+        "cacheReadTokens": 15616,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.028541564800000002
+      },
+      {
+        "inputTokens": 1655269,
+        "outputTokens": 510984,
+        "cacheReadTokens": 210432,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 6,
+        "costUsd": 0.3754023896
+      },
+      {
+        "inputTokens": 468610,
+        "outputTokens": 145707,
+        "cacheReadTokens": 73600,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.10660944
+      },
+      {
+        "inputTokens": 753849,
+        "outputTokens": 179282,
+        "cacheReadTokens": 77312,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.15595429360000002
+      },
+      {
+        "inputTokens": 59065,
+        "outputTokens": 21965,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 58625,
+        "outputTokens": 8764,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 58393,
+        "outputTokens": 14082,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 99979,
+        "outputTokens": 3041,
+        "cacheReadTokens": 89216,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.015098344800000002
+      },
+      {
+        "inputTokens": 96591,
+        "outputTokens": 1417,
+        "cacheReadTokens": 88320,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.014166795999999999
+      },
+      {
+        "inputTokens": 97046,
+        "outputTokens": 1318,
+        "cacheReadTokens": 89344,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.0142056432
+      },
+      {
+        "inputTokens": 146095,
+        "outputTokens": 736,
+        "cacheReadTokens": 5504,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.020674791200000004
+      },
+      {
+        "inputTokens": 337981,
+        "outputTokens": 88908,
+        "cacheReadTokens": 28416,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0722911448
+      },
+      {
+        "inputTokens": 185116,
+        "outputTokens": 17124,
+        "cacheReadTokens": 16640,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.030757552000000007
+      },
+      {
+        "inputTokens": 100519,
+        "outputTokens": 689,
+        "cacheReadTokens": 8320,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.014288876000000002
+      },
+      {
+        "inputTokens": 64192,
+        "outputTokens": 4813,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 518697,
+        "outputTokens": 168865,
+        "cacheReadTokens": 25344,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.11997074320000001
+      },
+      {
+        "inputTokens": 101298,
+        "outputTokens": 2463,
+        "cacheReadTokens": 274432,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.015639769600000002
+      },
+      {
+        "inputTokens": 130958,
+        "outputTokens": 13893,
+        "cacheReadTokens": 7680,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.022245664000000005
+      },
+      {
+        "inputTokens": 520850,
+        "outputTokens": 230133,
+        "cacheReadTokens": 64896,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.1375379488
+      },
+      {
+        "inputTokens": 66747,
+        "outputTokens": 25051,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 105033,
+        "outputTokens": 1884,
+        "cacheReadTokens": 96384,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.0155020152
+      },
+      {
+        "inputTokens": 134343,
+        "outputTokens": 12538,
+        "cacheReadTokens": 7808,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0223405224
+      },
+      {
+        "inputTokens": 457390,
+        "outputTokens": 64822,
+        "cacheReadTokens": 21504,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0822449712
+      },
+      {
+        "inputTokens": 308724,
+        "outputTokens": 90459,
+        "cacheReadTokens": 28032,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.0686283696
+      },
+      {
+        "inputTokens": 68565,
+        "outputTokens": 11414,
+        "cacheReadTokens": 3840,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 1
+      },
+      {
+        "inputTokens": 104540,
+        "outputTokens": 1238,
+        "cacheReadTokens": 191616,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.015518764800000001
+      },
+      {
+        "inputTokens": 611726,
+        "outputTokens": 173500,
+        "cacheReadTokens": 46208,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.1343510224
+      },
+      {
+        "inputTokens": 72993,
+        "outputTokens": 596,
+        "cacheReadTokens": 7168,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.010405970399999999
+      },
+      {
+        "inputTokens": 694234,
+        "outputTokens": 197284,
+        "cacheReadTokens": 46720,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.15256309600000004
+      },
+      {
+        "inputTokens": 381936,
+        "outputTokens": 146425,
+        "cacheReadTokens": 26624,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.0945445872
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 1050134,
+        "outputTokens": 254989,
+        "cacheReadTokens": 99072,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.21869308160000006
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 1232273,
+        "outputTokens": 339244,
+        "cacheReadTokens": 254976,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.2682204728
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 1954553,
+        "outputTokens": 484091,
+        "cacheReadTokens": 225152,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 7,
+        "costUsd": 0.40981332560000006
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      }
+    ]
+  },
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_source_page_gate_fresh_four_20260928T080740Z/imo2026_p2/experiment/runs/20260928T080752Z-main_theorem-be278269",
+  "jobId": "real_main_theorem_e7f39350f194",
+  "resumeJobId": null
+}

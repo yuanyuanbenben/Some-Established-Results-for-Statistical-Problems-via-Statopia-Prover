@@ -1,0 +1,30 @@
+\begin{theorem}[Conditional Unbiasedness of the Complete-Case Mean under MCAR]
+Let $(\Omega,\mathcal A,P)$ be a probability space, let
+$n\in\mathbb N$ with $n\ge1$, and let $\mu\in\mathbb R$.  For
+$i=1,\ldots,n$, let $Y_i:\Omega\to\mathbb R$ be measurable and integrable
+with
+\[
+  \int Y_i\,dP=\mu,
+\]
+and let $R_i:\Omega\to\{\mathrm{false},\mathrm{true}\}$ be measurable.
+Assume that the random vector $(R_1,\ldots,R_n)$ is independent of
+$(Y_1,\ldots,Y_n)$.  Define
+\[
+ K(\omega)=\sum_{i=1}^n\mathbf 1\{R_i(\omega)=\mathrm{true}\}
+\]
+and
+\[
+ \widehat\mu(\omega)=
+ \begin{cases}
+ \displaystyle
+ \frac{\sum_{i=1}^n\mathbf 1\{R_i(\omega)=\mathrm{true}\}Y_i(\omega)}
+ {K(\omega)},&K(\omega)>0,\\[6pt]
+ 0,&K(\omega)=0.
+ \end{cases}
+\]
+If $P\{K>0\}>0$, then
+\[
+  \frac{\int \mathbf 1\{K(\omega)>0\}\widehat\mu(\omega)\,dP(\omega)}
+  {P\{K>0\}}=\mu.
+\]
+\end{theorem}

@@ -1,0 +1,35 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62J/least_squares_residual_sum.tex
+msc: 62J05
+topic: Linear regression; mixed models
+track_a_difficulty: medium
+track_b_difficulty: easy
+theorems:
+  - id: least_squares_residual_sum
+    kind: theorem
+    lean_name: least_squares_residual_sum
+    latex_statement: |-
+      \begin{theorem}[Least-Squares Residual Sum, 62J05]
+      Let $n \in \mathbb{N}$ with $n \ge 1$. Let
+      \[
+      x_1,\ldots,x_n,y_1,\ldots,y_n \in \mathbb{R}.
+      \]
+      For $a,b \in \mathbb{R}$, define
+      \[
+      Q(a,b)=\sum_{i=1}^n (y_i-a-bx_i)^2.
+      \]
+      Let $\hat a,\hat b \in \mathbb{R}$ minimize $Q$. Define
+      \[
+      e_i = y_i-\hat a-\hat b x_i.
+      \]
+      Then
+      \[
+      \sum_{i=1}^n e_i=0.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

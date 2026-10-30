@@ -1,0 +1,4 @@
+-- Convenience index only; original accepted sources are under integrated/.
+import ProverJobs.paper_fresh_20261028t224543381z_eills.PaperProofInterfaces.Result_r2_5caa9f2b59d84ff58e877f7752096e6d
+
+#check PaperProofTasks.paper_fresh_20261028t224543381z_eills.Statlib.Imported.Theorem_4_2_Strong_Convexity_with_respect_to_beta_star_thm_global_strong_convexity_main

@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "chebyshev_sample_mean_bound"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 47737
+}

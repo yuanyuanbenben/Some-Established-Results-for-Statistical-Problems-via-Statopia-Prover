@@ -1,0 +1,428 @@
+%% Corrigendum to Livingstone et al. (2019), Bernoulli 25(4A), 3109--3138.
+%% IMPORTANT: affiliations and email addresses below are those printed in the
+%% original 2019 article. Update them before submission if appropriate.
+
+%\documentclass[bj,authoryear,noshowframe]{imsart}
+%\documentclass[bj,numbers,noshowframe]{imsart}
+
+%\usepackage{amssymb}
+%\setcitestyle{open={[},close={]}}
+
+\startlocaldefs
+\theoremstyle{plain}
+\newtheorem*{lemma515}{Lemma 5.15}
+\newtheorem*{lemma516}{Lemma 5.16}
+\newtheorem*{lemma517}{Lemma 5.17}
+\newtheorem*{theorem514}{Theorem 5.14}
+\newtheorem*{corollary23}{Corollary 2.3(ii), $\beta>2$ case}
+\endlocaldefs
+
+%\begin{document}
+
+\begin{frontmatter}
+
+\title{Corrigendum to ``On the geometric ergodicity of Hamiltonian Monte Carlo''}
+\runtitle{Corrigendum: geometric ergodicity of HMC}
+
+\begin{aug}
+\author[A]{\inits{S.}\fnms{Samuel}~\snm{Livingstone}\ead[label=e1]{samuel.livingstone@ucl.ac.uk}}
+\author[B]{\inits{M.}\fnms{Michael}~\snm{Betancourt}\ead[label=e2]{betan@symplectomorphic.com}}
+\author[C]{\inits{S.}\fnms{Simon}~\snm{Byrne}\ead[label=e3]{simonbyrne@gmail.com}}
+\author[D]{\inits{M.}\fnms{Mark}~\snm{Girolami}\ead[label=e4]{mag92@cam.ac.uk}}
+
+\address[A]{Department of Statistical Science, University College London,
+Gower Street, London WC1E 6BT, United Kingdom\printead[presep={,\ }]{e1}}
+\address[B]{Symplectomorphic LLC, New York, NY, USA\printead[presep={,\ }]{e2}}
+\address[C]{NVIDIA Corporation, 2788 San Tomas Expressway,
+Santa Clara, CA 95051, USA\printead[presep={,\ }]{e3}}
+\address[D]{Department of Engineering, University of Cambridge, Trumpington Street, Cambridge CB2 1PZ, United Kingdom\printead[presep={,\ }]{e4}}
+
+
+\runauthor{S. Livingstone et al.}
+\end{aug}
+
+\begin{abstract}
+We correct a consequential typographical error in Theorem 5.14 of \cite{Livingstone2019}. Condition (18) should require
+$\|y\|\geq 3\|x\|$, rather than $\|y\|\geq 2\|x\|$, while retaining the
+requirement $\|\nabla U(y)\|\geq 3\|\nabla U(x)\|$. The original condition is
+not satisfied by the exponential family $E(\beta,\alpha)$ for every
+$\beta>2$, meaning Corollary 2.3 was incomplete as stated. We give replacement proofs of Lemmas 5.15--5.17 and
+Theorem 5.14 for completeness.  For
+$E(\beta,\alpha)$ the corrected condition holds for every $\beta>2$, meaning Corollary 2.3 remains valid as stated.
+\end{abstract}
+
+\begin{keyword}
+\kwd{geometric ergodicity}
+\kwd{Hamiltonian Monte Carlo}
+\kwd{leapfrog integrator}
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Details of the typographical error and correction}
+
+In \cite{Livingstone2019}, p.~3128, condition (18), used in Theorem 5.14 and
+then in part (i) of Theorem 2.2, states that there is a fixed $C<\infty$ such
+that whenever $\|y\|\geq2\|x\|\geq C$ then
+$\|\nabla U(y)\|\geq3\|\nabla U(x)\|$. For the one-dimensional exponential
+family $E(\beta,\alpha)$, for which $U(x)=\alpha|x|^\beta+\mathrm{const.}$ in
+the tails,
+\[
+ \frac{\|\nabla U(y)\|}{\|\nabla U(x)\|}
+ \geq 2^{\beta-1}
+\]
+whenever $|y|\geq2|x|$ and both points are in the tails.  The
+printed condition is therefore guaranteed only when
+$\beta\geq1+\log(3)/\log(2)$, rather than for every $\beta>2$. The proof
+of Corollary 2.3(ii) therefore has a gap for
+\[
+ 2<\beta<1+\frac{\log 3}{\log 2}.
+\]
+Condition (18) should instead read: there is a fixed $C<\infty$ such that
+whenever $\|y\|\geq3\|x\|\geq C$ then
+\begin{equation}
+ \|\nabla U(y)\|\geq3\|\nabla U(x)\|.
+ \tag{18}
+ \label{eq:18}
+\end{equation}
+Condition (19) can be left unchanged. With these updates Corollary 2.3(ii) is true as stated, lack of geometric ergodicity is proven for any $\beta > 2$.  The conclusion of Theorem 5.14, and therefore
+the conclusion used in Theorem 2.2, is unchanged. We thank the authors of \citep{gruffaz2026theoretical} for bringing the error to our attention.
+
+There is another (albeit inconsequential) typographical error in the printed proof.  Lemma 5.16 is stated under
+condition (17) alone, but its proof invokes condition (18). The following
+minimally-changed replacement proofs show directly that condition (17) alone is sufficient for the lemma.
+
+\section{Replacement proofs}
+
+Fix a leapfrog step size $\varepsilon>0$. The first leapfrog position update
+is
+\begin{equation}
+ x_{\varepsilon}
+ =x_0-\frac{\varepsilon^2}{2}\nabla U(x_0)+\varepsilon p_0.
+ \label{eq:firststep}
+\end{equation}
+For each $i\geq1$, eliminating the intermediate half-step momentum from two
+successive leapfrog position updates gives the exact recurrence
+\begin{equation}
+ x_{(i+1)\varepsilon}
+ =2x_{i\varepsilon}-x_{(i-1)\varepsilon}
+ -\varepsilon^2\nabla U(x_{i\varepsilon}).
+ \label{eq:recurrence}
+\end{equation}
+We retain condition (17) of \cite{Livingstone2019}, namely
+\begin{equation}
+ \lim_{\|x\|\to\infty}
+ \frac{\|\nabla U(x)\|}{\|x\|}=\infty.
+ \tag{17}
+ \label{eq:17}
+\end{equation}
+
+\begin{lemma515}
+If \eqref{eq:17} holds, then there exists an $\eta<\infty$ such that for all
+$\|x_0\|>\eta$ and any $\|p_0\|\leq\|x_0\|^\delta$ for any fixed $\delta<1$, it
+holds that
+\[
+ \|x_{\varepsilon}\|>3\|x_0\|.
+\]
+\end{lemma515}
+
+\begin{proof}
+Taking norms in \eqref{eq:firststep} gives
+\[
+ \|x_{\varepsilon}\|
+ \geq
+ \frac{\varepsilon^2}{2}\|\nabla U(x_0)\|
+ -\|x_0\|-\varepsilon\|p_0\|.
+\]
+Dividing by $\|x_0\|$ gives
+\begin{equation}
+ \frac{\|x_{\varepsilon}\|}{\|x_0\|}
+ \geq
+ \frac{\varepsilon^2}{2}
+ \frac{\|\nabla U(x_0)\|}{\|x_0\|}
+ -1-\varepsilon\frac{\|p_0\|}{\|x_0\|}.
+ \label{eq:firststepbound}
+\end{equation}
+The first term on the right-hand side tends to infinity by \eqref{eq:17},
+while the last term is bounded above by
+$\varepsilon\|x_0\|^{\delta-1}$ and tends to zero. Hence the right-hand side
+of \eqref{eq:firststepbound} is larger than $3$ for all sufficiently large
+$\|x_0\|$.
+\end{proof}
+
+\begin{lemma516}
+If \eqref{eq:17} holds, then there exists an $\eta<\infty$ such that for all
+$\|x_0\|>\eta$ and any $\|p_0\|\leq\|x_0\|^\delta$ for any fixed $\delta<1$, it
+holds that
+\begin{equation}
+ \|x_{i\varepsilon}\|\geq3\|x_{(i-1)\varepsilon}\|,
+ \qquad i=1,\ldots,L,
+ \label{eq:stepwiseexpansion}
+\end{equation}
+meaning
+\begin{equation}
+ \|x_{L\varepsilon}\|\geq3^L\|x_0\|.
+ \label{eq:3Lexpansion}
+\end{equation}
+\end{lemma516}
+
+\begin{proof}
+By \eqref{eq:17}, there is an $R<\infty$ such that
+\begin{equation}
+ \varepsilon^2\frac{\|\nabla U(x)\|}{\|x\|}
+ \geq\frac{16}{3}
+ \qquad\text{whenever }\|x\|\geq R.
+ \label{eq:gradientthreshold}
+\end{equation}
+The claim holds once $\|x_0\|$ is large enough. Choose $x_0$ such that $\|x_0\| \geq \max(R,\eta)$, meaning Lemma 5.15 applies and $\|x_0\|\geq R$.
+The case $i=1$ then follows from Lemma 5.15.  Now suppose, for some $i\in\{1,\ldots,L-1\}$, that
+$\|x_{i\varepsilon}\|\geq3\|x_{(i-1)\varepsilon}\|$. Taking norms in
+\eqref{eq:recurrence} gives
+\begin{align*}
+ \frac{\|x_{(i+1)\varepsilon}\|}{\|x_{i\varepsilon}\|}
+ &\geq
+ \varepsilon^2
+ \frac{\|\nabla U(x_{i\varepsilon})\|}{\|x_{i\varepsilon}\|}
+ -2-
+ \frac{\|x_{(i-1)\varepsilon}\|}{\|x_{i\varepsilon}\|}\\
+ &\geq
+ \varepsilon^2
+ \frac{\|\nabla U(x_{i\varepsilon})\|}{\|x_{i\varepsilon}\|}
+ -2-\frac13.
+\end{align*}
+The preceding steps of the induction imply
+$\|x_{i\varepsilon}\|\geq\|x_0\|\geq R$, and therefore
+\eqref{eq:gradientthreshold} gives
+\[
+ \frac{\|x_{(i+1)\varepsilon}\|}{\|x_{i\varepsilon}\|}
+ \geq\frac{16}{3}-\frac{7}{3}=3.
+\]
+This proves \eqref{eq:stepwiseexpansion} by induction, and
+\eqref{eq:3Lexpansion} follows immediately.
+\end{proof}
+
+We also retain condition (19): for the fixed number $L$ of leapfrog steps,
+\begin{equation}
+ \lim_{\substack{\|x\|\to\infty\\
+                  \|y\|\geq2^L\|x\|}}
+ \left(U(x)-U(y)-\frac12\|x\|^2\right)=-\infty.
+ \tag{19}
+ \label{eq:19}
+\end{equation}
+
+\begin{lemma517}
+If \eqref{eq:17}, \eqref{eq:18} and \eqref{eq:19} hold, then for any
+$\delta<1$ it holds that
+\[
+ \lim_{\substack{\|x_0\|\to\infty\\
+                  \|p_0\|\leq\|x_0\|^\delta}}
+ \alpha(x_0,x_{L\varepsilon})=0.
+\]
+\end{lemma517}
+
+\begin{proof}
+Take $\|x_0\|$ sufficiently large that Lemma 5.16 applies and that
+$3\|x_{i\varepsilon}\|\geq C$ for $i=0,\ldots,L-1$. Using
+\eqref{eq:stepwiseexpansion} and the corrected condition (18) then gives for $i \in \{0,...,L-1\}$
+\begin{equation}
+ \|\nabla U(x_{i\varepsilon})\|
+ \leq3^{-(L-i)}\|\nabla U(x_{L\varepsilon})\|.
+ \label{eq:gradientgeometric}
+\end{equation}
+Now, recall from equation (11) of \cite{Livingstone2019} that
+\[
+ p_{L\varepsilon}
+ =p_0-\frac{\varepsilon}{2}\nabla U(x_0)
+ -\varepsilon\sum_{i=1}^{L-1}\nabla U(x_{i\varepsilon})
+ -\frac{\varepsilon}{2}\nabla U(x_{L\varepsilon}).
+\]
+Using \eqref{eq:gradientgeometric} and the reverse triangle inequality,
+\begin{align*}
+ \|p_{L\varepsilon}\|
+ &\geq
+ \frac{\varepsilon}{2}\|\nabla U(x_{L\varepsilon})\|
+ -\varepsilon\sum_{i=1}^{L-1}\|\nabla U(x_{i\varepsilon})\|
+ -\frac{\varepsilon}{2}\|\nabla U(x_0)\|-\|p_0\|\\
+ &\geq
+ \frac{\varepsilon}{2}\|\nabla U(x_{L\varepsilon})\|
+ -\varepsilon\sum_{i=1}^{L}\left(\frac13\right)^i
+ \|\nabla U(x_{L\varepsilon})\|-\|p_0\|\\
+ &=
+ \frac{\varepsilon}{2}
+ \left\{1-2\sum_{i=1}^{L}\left(\frac13\right)^i\right\}
+ \|\nabla U(x_{L\varepsilon})\|-\|p_0\|\\
+ &=
+ \frac{\varepsilon}{2\cdot3^L}
+ \|\nabla U(x_{L\varepsilon})\|-\|p_0\|.
+\end{align*}
+Set $\gamma_L=3^{-L}$. Since \eqref{eq:17} holds and
+$\|x_{L\varepsilon}\|\geq3^L\|x_0\|$, for all sufficiently large
+$\|x_0\|$ the right-hand side above is positive. Squaring then gives
+\begin{align*}
+ \|p_{L\varepsilon}\|^2
+ &\geq
+ \left(
+ \frac{\varepsilon\gamma_L}{2}\|\nabla U(x_{L\varepsilon})\|
+ -\|p_0\|
+ \right)^2\\
+ &=
+ \frac{\varepsilon^2\gamma_L^2}{4}
+ \|\nabla U(x_{L\varepsilon})\|^2
+ +\|p_0\|^2
+ -\varepsilon\gamma_L
+ \|\nabla U(x_{L\varepsilon})\|\|p_0\|.
+\end{align*}
+It follows that
+\begin{equation}
+ \|p_0\|^2-\|p_{L\varepsilon}\|^2
+ \leq
+ \varepsilon\gamma_L\|\nabla U(x_{L\varepsilon})\|
+ \left(
+ \|p_0\|-\frac{\varepsilon\gamma_L}{4}
+ \|\nabla U(x_{L\varepsilon})\|
+ \right).
+ \label{eq:kineticbound}
+\end{equation}
+Again using \eqref{eq:17} and \eqref{eq:3Lexpansion}, uniformly over
+$\|p_0\|\leq\|x_0\|^\delta$ we may take $\|x_0\|$ sufficiently large that
+\[
+ \frac{\varepsilon\gamma_L}{4}
+ \|\nabla U(x_{L\varepsilon})\|\geq2\|x_0\|,
+ \qquad
+ \|p_0\|\leq\|x_0\|.
+\]
+The right-hand side of \eqref{eq:kineticbound} is then at most
+$-\|x_0\|^2$, which implies
+\[
+ U(x_0)-U(x_{L\varepsilon})
+ +\frac12\|p_0\|^2-\frac12\|p_{L\varepsilon}\|^2
+\leq
+ U(x_0)-U(x_{L\varepsilon})-\frac12\|x_0\|^2.
+\]
+By \eqref{eq:3Lexpansion},
+$\|x_{L\varepsilon}\|\geq3^L\|x_0\|\geq2^L\|x_0\|$, so the right-hand
+side tends to $-\infty$ by \eqref{eq:19}. Recalling equation (10) of
+\cite{Livingstone2019}, this proves
+$\alpha(x_0,x_{L\varepsilon})\to0$ uniformly over
+$\|p_0\|\leq\|x_0\|^\delta$.
+\end{proof}
+
+\begin{theorem514}
+If \eqref{eq:17}, \eqref{eq:18} and \eqref{eq:19} hold, then the Hamiltonian
+Monte Carlo method with fixed integration time $T=L\varepsilon$ does not
+produce a geometrically ergodic Markov chain for any choice $T>0$.
+\end{theorem514}
+
+\begin{proof}
+Fix any $\delta<1$. From Lemma 5.17,
+\[
+ \sup_{\|p_0\|\leq\|x_0\|^\delta}
+ \alpha(x_0,x_{L\varepsilon})\longrightarrow0
+ \qquad\text{as }\|x_0\|\to\infty.
+\]
+Moreover,
+\[
+ \mu_G\!\left(\left\{p_0:\|p_0\|>\|x_0\|^\delta\right\}\right)
+ \longrightarrow0.
+\]
+Therefore, writing $r(x_0)$ for the rejection probability as in Definition
+3.2 of \cite{Livingstone2019},
+\begin{align*}
+ 1-r(x_0)
+ &=\int\alpha(x_0,x_{L\varepsilon})\,\mu_G(dp_0)\\
+ &\leq
+ \sup_{\|p_0\|\leq\|x_0\|^\delta}
+ \alpha(x_0,x_{L\varepsilon})
+ +\mu_G\!\left(\left\{p_0:\|p_0\|>\|x_0\|^\delta\right\}\right)
+ \longrightarrow0.
+\end{align*}
+This implies that the rejection probability $r(x_0)\to1$ as $\|x_0\|\to\infty$, and Proposition 3.5 of
+\cite{Livingstone2019} then implies that the chain is not geometrically ergodic.
+\end{proof}
+
+When the number of leapfrog steps is drawn from a position-independent
+distribution $\mathcal{L}(\cdot)$ as in Assumption A1 of \cite{Livingstone2019}, the
+same conclusion follows provided the above argument is applied conditional on
+each fixed $L$. For each fixed $L$ the conditional acceptance probability
+tends to zero, while it is bounded by one. Since the law of $L$ does not
+depend on $x_0$, dominated convergence with respect to $\mathcal{L}(\cdot)$ shows that
+the unconditional acceptance probability also tends to zero.
+
+\section{Correction to Corollary 2.3}
+
+On p.~3127, the statement that Corollary 2.3(ii) is a direct consequence of
+Theorem 2.2 requires the following verification in the case $\beta>2$.
+
+\begin{corollary23}
+For the exponential family $E(\beta,\alpha)$ of \cite{Livingstone2019}, the
+Hamiltonian Monte Carlo method does not produce a geometrically ergodic
+Markov chain for every $\beta>2$ under Assumption A1.
+\end{corollary23}
+
+\begin{proof}
+For some $M<\infty$, when $|x|> M$ we have by assumption that
+$\pi(x)\propto\exp(-\alpha|x|^\beta)$,
+so
+\[
+ \nabla U(x)=\alpha\beta\operatorname{sgn}(x)|x|^{\beta-1}.
+\]
+When $\beta>2$,
+\[
+ \frac{\|\nabla U(x)\|}{\|x\|}
+ =\alpha\beta|x|^{\beta-2}\longrightarrow\infty,
+\]
+which is condition \eqref{eq:17}.
+
+Choose $C>3M$. If $|y|\geq3|x|\geq C$, then both $x$ and $y$ are in the tail
+region and
+\[
+ \frac{\|\nabla U(y)\|}{\|\nabla U(x)\|}
+ =\left(\frac{|y|}{|x|}\right)^{\beta-1}
+ \geq3^{\beta-1}>3.
+\]
+The corrected condition (18) therefore holds for every $\beta>2$.
+
+Finally, for each fixed $L\geq1$, if $|y|\geq2^L|x|$ and $|x|$ is
+sufficiently large, then
+\begin{align*}
+ U(x)-U(y)-\frac12|x|^2
+ &\leq
+ -\alpha\bigl(2^{L\beta}-1\bigr)|x|^\beta
+ -\frac12|x|^2
+ \longrightarrow-\infty,
+\end{align*}
+meaning condition \eqref{eq:19} holds for every fixed $L$. The corrected
+Theorem 5.14 applies conditional on each fixed $L$, and dominated convergence
+with respect to the position-independent distribution $\mathcal{L}(\cdot)$ gives the
+corresponding result under Assumption A1. The Hamiltonian Monte Carlo
+method therefore does not produce a geometrically ergodic Markov chain for every
+$\beta>2$.
+\end{proof}
+
+The $\beta<1$ part of Corollary 2.3(ii), and all parts of Corollary 2.3(i),
+are unaffected by this correction. Therefore Corollary 2.3 remains valid as
+stated. No other changes to the results of \cite{Livingstone2019} are
+required.
+
+%% Optional acknowledgement, if appropriate:
+%% \begin{acks}[Acknowledgments]
+%% The authors thank [NAME] for bringing the issue corrected here to their attention.
+%% \end{acks}
+
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Livingstone et al.}{2019}]{Livingstone2019}
+Livingstone, S., Betancourt, M., Byrne, S. and Girolami, M. (2019).
+On the geometric ergodicity of Hamiltonian Monte Carlo.
+\textit{Bernoulli} \textbf{25} 3109--3138.
+\href{https://doi.org/10.3150/18-BEJ1083}{doi:10.3150/18-BEJ1083}.
+
+\bibitem{gruffaz2026theoretical}
+Gruffaz, S., Kim, K., Guehtar, F., Duval-Decaix, H. and Trautmann, P. (2026).
+A theoretical comparison of No-U-Turn Sampler variants: Necessary and sufficient
+convergence conditions and mixing time analysis under Gaussian targets.
+Preprint. Available at arXiv:2603.18640.
+
+\end{thebibliography}
+
+%\end{document}

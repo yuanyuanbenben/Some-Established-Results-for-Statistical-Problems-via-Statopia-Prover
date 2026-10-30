@@ -1,0 +1,37 @@
+\begin{theorem}[Unbiasedness of the Bessel-Corrected Sample Covariance]
+Let $n,d\in\mathbb{N}$ with $n\ge 2$ and $d\ge 1$. Let
+$X_1,\ldots,X_n$ be $\mathbb{R}^d$-valued random vectors with finite second
+moments. For coordinates $a,b=1,\ldots,d$, assume that
+\[
+\mu_a=\mathbb{E}[X_{ia}]
+\]
+does not depend on $i$, and that
+\[
+\Sigma_{ab}
+=
+\mathbb{E}\left[(X_{ia}-\mu_a)(X_{ib}-\mu_b)\right]
+\]
+does not depend on $i$. Assume also that distinct observations are centered
+uncorrelated in every pair of coordinates:
+\[
+\mathbb{E}\left[(X_{ia}-\mu_a)(X_{jb}-\mu_b)\right]=0
+\qquad
+\text{whenever }i\ne j.
+\]
+Define
+\[
+\bar X_a=\frac{1}{n}\sum_{i=1}^n X_{ia}
+\]
+and the Bessel-corrected sample covariance entry
+\[
+S_{ab}
+=
+\frac{1}{n-1}
+\sum_{i=1}^n
+(X_{ia}-\bar X_a)(X_{ib}-\bar X_b).
+\]
+Then, for every $a,b=1,\ldots,d$,
+\[
+\mathbb{E}[S_{ab}]=\Sigma_{ab}.
+\]
+\end{theorem}

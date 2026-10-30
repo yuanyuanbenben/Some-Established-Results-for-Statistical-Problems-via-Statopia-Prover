@@ -1,0 +1,70 @@
+{
+  "id": "q34",
+  "case": "ipw_identification_under_ignorability",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q34",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q34/experiment/runs/20261018T040419Z-ipw_identification_under_ignorability-e01035e8",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "55ab810a74b1cdc13315b3094b722cc0ab6aa3f1d09fb29d5698221996562c50",
+  "signatureLockSha256": "ad421c3b0b501557a964eaae0e2becbcbe02e565743639eda84ee1e280d42124",
+  "rootTheorem": "ipw_identification_under_ignorability",
+  "inputRootSignature": "theorem ipw_identification_under_ignorability {Ω 𝒵 : Type*} [MeasurableSpace Ω] [Fintype 𝒵] [MeasurableSpace 𝒵] [MeasurableSingletonClass 𝒵] (P : Measure Ω) [IsProbabilityMeasure P] (T : Ω → Bool) (Z : Ω → 𝒵) (Y Y0 Y1 : Ω → ℝ) (hTmeas : Measurable T) (hZmeas : Measurable Z) (hYmeas : Measurable Y) (hY0meas : Measurable Y0) (hY1meas : Measurable Y1) (hYint : Integrable Y P) (hY0int : Integrable Y0 P) (hY1int : Integrable Y1 P) (hZpos : ∀ z, 0 < P {ω | Z ω = z}) (hObserved : Y =ᵐ[P] fun ω ↦ if T ω then Y1 ω else Y0 ω) (hIgnorable : ∀ (a : Bool) (B : Set ℝ), MeasurableSet B → ∀ t z, P {ω | (if a then Y1 ω else Y0 ω) ∈ B ∧ T ω = t ∧ Z ω = z} * P {ω | Z ω = z} = P {ω | (if a then Y1 ω else Y0 ω) ∈ B ∧ Z ω = z} * P {ω | T ω = t ∧ Z ω = z}) (hPositive : ∀ a z, 0 < (P {ω | T ω = a ∧ Z ω = z}).toReal / (P {ω | Z ω = z}).toReal) : let e : Bool → 𝒵 → ℝ := fun a z ↦ (P {ω | T ω = a ∧ Z ω = z}).toReal / (P {ω | Z ω = z}).toReal ∀ a : Bool, ∫ ω, (if a then Y1 ω else Y0 ω) ∂P = ∫ ω, (if T ω = a then (1 : ℝ) else 0) * Y ω / e a (Z ω) ∂P",
+  "lockedRootSignature": "theorem ipw_identification_under_ignorability {Ω 𝒵 : Type*} [MeasurableSpace Ω] [Fintype 𝒵] [MeasurableSpace 𝒵] [MeasurableSingletonClass 𝒵] (P : Measure Ω) [IsProbabilityMeasure P] (T : Ω → Bool) (Z : Ω → 𝒵) (Y Y0 Y1 : Ω → ℝ) (hTmeas : Measurable T) (hZmeas : Measurable Z) (hYmeas : Measurable Y) (hY0meas : Measurable Y0) (hY1meas : Measurable Y1) (hYint : Integrable Y P) (hY0int : Integrable Y0 P) (hY1int : Integrable Y1 P) (hZpos : ∀ z, 0 < P {ω | Z ω = z}) (hObserved : Y =ᵐ[P] fun ω ↦ if T ω then Y1 ω else Y0 ω) (hIgnorable : ∀ (a : Bool) (B : Set ℝ), MeasurableSet B → ∀ t z, P {ω | (if a then Y1 ω else Y0 ω) ∈ B ∧ T ω = t ∧ Z ω = z} * P {ω | Z ω = z} = P {ω | (if a then Y1 ω else Y0 ω) ∈ B ∧ Z ω = z} * P {ω | T ω = t ∧ Z ω = z}) (hPositive : ∀ a z, 0 < (P {ω | T ω = a ∧ Z ω = z}).toReal / (P {ω | Z ω = z}).toReal) : let e : Bool → 𝒵 → ℝ := fun a z ↦ (P {ω | T ω = a ∧ Z ω = z}).toReal / (P {ω | Z ω = z}).toReal ∀ a : Bool, ∫ ω, (if a then Y1 ω else Y0 ω) ∂P = ∫ ω, (if T ω = a then (1 : ℝ) else 0) * Y ω / e a (Z ω) ∂P",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.0f54f7be50ed31fdc12615c8.json",
+      "receiptId": "job-final.0f54f7be50ed31fdc12615c8",
+      "receiptHash": "e54581baa09f459930dcf77874fed919b2199db82e4918d7953c15c503845701",
+      "finalizedAt": 1792299933395,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "ed18ad323fa9dc4674a80f91a8543ec0a1c16d5333d5a0a7721683ca105a049d"
+    }
+  ],
+  "slot": 2,
+  "keyIndex": 4,
+  "nodes": 4,
+  "auxiliaryNodes": 3,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 4
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.92a37bbc6a021d1874f31238f0100484",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.92a37bbc6a021d1874f31238f0100484",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 11
+}

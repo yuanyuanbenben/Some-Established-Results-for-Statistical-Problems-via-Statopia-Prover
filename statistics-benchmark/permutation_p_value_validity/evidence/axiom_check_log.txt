@@ -1,0 +1,13 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=Msc62GroundTruth.permutation_p_value_validity
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+'Msc62GroundTruth.permutation_p_value_validity' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

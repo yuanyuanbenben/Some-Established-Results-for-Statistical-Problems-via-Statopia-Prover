@@ -1,0 +1,35 @@
+\begin{theorem}[Lasso restricted-eigenvalue rate]
+Let $m,n\ge1$, let $S\subseteq\{1,\ldots,n\}$, and let
+$x_0,\ldots,x_{m-1}\in\mathbb R^n$ be a realized design sample.  Define
+$X_{ij}=x_i(j)$ and
+\[
+  \widehat\Sigma=\frac1m\sum_{i=0}^{m-1}x_i x_i^\top.
+\]
+Assume that for some $\kappa,\Lambda,B,\sigma,\lambda>0$ the following
+hold: for every $v$ satisfying
+\[
+  \sum_{j\notin S}|v_j|\le3\sum_{j\in S}|v_j|,
+\]
+we have $\kappa^2\|v\|_2^2\le v^\top\widehat\Sigma v$; globally,
+$v^\top\widehat\Sigma v\le\Lambda\|v\|_2^2$; $m\Lambda\le B^2$; and the
+noise coordinates are measurable, integrable, independent, centered, and
+sub-Gaussian with proxy $\sigma$.  Let $\beta^\star$ be supported on $S$.
+For $y=X\beta^\star+\varepsilon$, let $\widehat\beta$ be any minimizer of
+the Lasso objective
+\[
+  \frac1{2m}\|y-X\beta\|_2^2+\lambda\|\beta\|_1.
+\]
+Then with probability at least
+\[
+  1-2n\exp\!\left\{-\frac{m^2(\lambda/2)^2}{2\sigma B^2}\right\}
+\]
+the score condition $\max_j|m^{-1}X_j^\top\varepsilon|\le\lambda/2$ holds,
+and on that same event every Lasso solution satisfies
+\[
+  m^{-1}\|X(\widehat\beta-\beta^\star)\|_2^2\le\frac{16\lambda^2|S|}{\kappa^2},
+  \quad
+  \|\widehat\beta-\beta^\star\|_1\le\frac{8\lambda|S|}{\kappa^2},
+  \quad
+  \|\widehat\beta-\beta^\star\|_2^2\le\frac{16\lambda^2|S|}{\kappa^4}.
+\]
+\end{theorem}

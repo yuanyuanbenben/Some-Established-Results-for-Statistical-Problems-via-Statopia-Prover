@@ -1,0 +1,62 @@
+[
+  {
+    "ts": 1793200717596,
+    "kind": "run.start",
+    "durationMs": null,
+    "status": null
+  },
+  {
+    "ts": 1793202283181,
+    "kind": "run.start",
+    "durationMs": null,
+    "status": null
+  },
+  {
+    "ts": 1793204260749,
+    "kind": "run.end",
+    "durationMs": 1977568,
+    "status": "cancelled"
+  },
+  {
+    "ts": 1793204260884,
+    "kind": "run.end",
+    "durationMs": 3543286,
+    "status": "paused"
+  },
+  {
+    "ts": 1793204680067,
+    "kind": "run.start",
+    "durationMs": null,
+    "status": null
+  },
+  {
+    "ts": 1793206166216,
+    "kind": "run.end",
+    "durationMs": 1486148,
+    "status": "paused"
+  },
+  {
+    "ts": 1793206744614,
+    "kind": "run.start",
+    "durationMs": null,
+    "status": null
+  },
+  {
+    "ts": 1793210777910,
+    "kind": "run.start",
+    "durationMs": null,
+    "status": null
+  },
+  {
+    "ts": 1793210794256,
+    "kind": "run.end",
+    "durationMs": 16345,
+    "status": "completed"
+  },
+  {
+    "ts": 1793210893179,
+    "kind": "run.end",
+    "durationMs": 4148564,
+    "status": "completed"
+  }
+]

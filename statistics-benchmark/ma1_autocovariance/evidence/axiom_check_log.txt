@@ -1,0 +1,19 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=Msc62GroundTruth.ma1_autocovariance
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:16:24: warning: unused variable `hsigma2`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:20:5: warning: unused variable `heps_mean`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Msc62GroundTruth.ma1_autocovariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

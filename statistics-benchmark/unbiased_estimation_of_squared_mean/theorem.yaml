@@ -1,0 +1,33 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/unbiased_estimation_of_squared_mean.tex
+msc: 62G05
+topic: Unbiased estimation of a squared mean
+track_a_difficulty: hard
+track_b_difficulty: hard
+theorems:
+  - id: unbiased_estimation_of_squared_mean
+    kind: theorem
+    lean_name: unbiased_estimation_of_squared_mean
+    latex_statement: |-
+      \begin{theorem}[Unbiased estimation of a squared mean]
+      Let $(\Omega,\mathcal F,P)$ be a probability space and let $n\geq2$.
+      Let $X_0,\ldots,X_{n-1}:\Omega\to\mathbb R$ be measurable and mutually
+      independent. Assume that the $X_i$ are pairwise identically distributed,
+      that each $X_i$ belongs to $L^2(P)$, and that
+      $\mathbb E_P[X_i]=\mu$ for every $i$. Define
+      \[
+       U(\omega)=\frac{1}{n(n-1)}
+       \sum_{i=0}^{n-1}\ \sum_{\substack{0\leq j<n\\j\ne i}}
+       X_i(\omega)X_j(\omega).
+      \]
+      Then
+      \[
+       \mathbb E_P[U]=\mu^2.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

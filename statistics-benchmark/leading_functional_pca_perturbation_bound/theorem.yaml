@@ -1,0 +1,59 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62R/leading_functional_pca_perturbation_bound.tex
+msc: 62R10
+topic: Functional PCA perturbation
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: leading_functional_pca_perturbation_bound
+    kind: theorem
+    lean_name: leading_functional_pca_perturbation_bound
+    latex_statement: |-
+      \begin{theorem}[Leading functional PCA perturbation bound]
+      Let $(\Omega,\mathcal F,P)$ be a probability space and let $H$ be a
+      complete, second-countable real inner-product space.  Let
+      $X:\Omega\to H$ be strongly measurable, satisfy
+      \[
+        \int_\Omega X(\omega)\,dP(\omega)=0,
+      \]
+      and have integrable squared norm.  Let $n\ge1$ and let
+      $x_1,\ldots,x_n\in H$.  Let $C,\widehat C:H\to H$ be continuous linear
+      maps satisfying, for every $h\in H$,
+      \[
+        Ch=\int_\Omega\langle X(\omega),h\rangle X(\omega)\,dP(\omega),
+        \qquad
+        \widehat Ch=\frac1n\sum_{i=1}^n\langle x_i,h\rangle x_i.
+      \]
+      Let $\phi,\widehat\phi\in H$ and
+      $\lambda_1,\lambda_2,\widehat\lambda\in\mathbb R$.  Assume
+      \[
+        \|\phi\|=\|\widehat\phi\|=1,
+        \qquad C\phi=\lambda_1\phi,
+        \qquad \lambda_2<\lambda_1,
+      \]
+      and assume that every unit vector $h\in H$ orthogonal to $\phi$ satisfies
+      \[
+        \langle Ch,h\rangle\le\lambda_2.
+      \]
+      Assume also
+      \[
+        \widehat C\widehat\phi=\widehat\lambda\widehat\phi
+      \]
+      and that every unit vector $h\in H$ satisfies
+      \[
+        \langle\widehat Ch,h\rangle\le\widehat\lambda.
+      \]
+      Define the eigengap $\delta=\lambda_1-\lambda_2$ and the operator-norm
+      error $\varepsilon=\|\widehat C-C\|$.  If
+      $\varepsilon\le\delta/2$, then
+      \[
+        \sqrt{1-\langle\widehat\phi,\phi\rangle^2}
+        \le\frac{\varepsilon}{\delta-\varepsilon}.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

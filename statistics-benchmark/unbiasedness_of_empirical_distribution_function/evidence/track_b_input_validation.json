@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "unbiasedness_of_empirical_distribution_function"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 48966
+}

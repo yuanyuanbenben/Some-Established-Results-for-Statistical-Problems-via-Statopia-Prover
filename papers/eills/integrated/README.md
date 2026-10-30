@@ -1,0 +1,13 @@
+# Integrated paper proof
+
+Entry module: ProverJobs.paper_fresh_20261028t224543381z_eills.PaperProofInterfaces.Result_r2_5caa9f2b59d84ff58e877f7752096e6d
+Root declaration: PaperProofTasks.paper_fresh_20261028t224543381z_eills.Statlib.Imported.Theorem_4_2_Strong_Convexity_with_respect_to_beta_star_thm_global_strong_convexity_main
+
+These are the isolated sources accepted by the task-group integration check. Individual task files remain separate snapshots.
+Extract into the matching Statlib project with the same Lean and Mathlib dependencies, then run:
+
+lake build ProverJobs.paper_fresh_20261028t224543381z_eills.PaperProofInterfaces.Result_r2_5caa9f2b59d84ff58e877f7752096e6d
+
+## Retained assumptions
+
+- PaperProofTasks.paper_fresh_20261028t224543381z_eills.ext_model_1 (consumer paper_fresh_20261028t224543381z_eills, result paper_2c08ddb98e7c4dc4993a0b23e7a07337)

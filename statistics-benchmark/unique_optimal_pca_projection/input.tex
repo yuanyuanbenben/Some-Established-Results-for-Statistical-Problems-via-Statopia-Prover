@@ -1,0 +1,31 @@
+\begin{theorem}[Unique optimal rank-$r$ PCA projection]
+Let $n\geq1$, $d\geq2$, and $1\leq r<d$.  Let
+$x_0,\ldots,x_{n-1}\in\mathbb R^d$ satisfy
+$\sum_{i=0}^{n-1}x_i=0$.  Let $v_0,\ldots,v_{d-1}\in\mathbb R^d$ and
+$\lambda_0,\ldots,\lambda_{d-1}\in\mathbb R$.  Assume that
+\[
+  v_j^{\mathsf T}v_k=
+  \begin{cases}1,&j=k,\\0,&j\ne k,\end{cases}
+\]
+for all $j,k$, and that the linear span of $\{v_0,\ldots,v_{d-1}\}$ is
+$\mathbb R^d$.  Define
+\[
+  S=\frac1n\sum_{i=0}^{n-1}x_i x_i^{\mathsf T},
+  \qquad
+  P_r=\sum_{j=0}^{r-1}v_jv_j^{\mathsf T}.
+\]
+Assume $Sv_j=\lambda_jv_j$ for every $j$, assume that the sequence
+$\lambda_j$ is nonincreasing in $j$, and assume
+$\lambda_i>\lambda_j$ whenever $i<r\leq j$.  Define
+\[
+  \mathcal P_r=\{P\in\mathbb R^{d\times d}:
+    P^{\mathsf T}=P,\ P^2=P,\ \operatorname{tr}(P)=r\}
+\]
+and
+\[
+  J(P)=\frac1n\sum_{i=0}^{n-1}
+    (x_i-Px_i)^{\mathsf T}(x_i-Px_i).
+\]
+Then the set of all $P\in\mathcal P_r$ satisfying
+$J(P)\leq J(Q)$ for every $Q\in\mathcal P_r$ is exactly $\{P_r\}$.
+\end{theorem}

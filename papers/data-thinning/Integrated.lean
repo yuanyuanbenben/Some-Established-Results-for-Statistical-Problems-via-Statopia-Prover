@@ -1,0 +1,4 @@
+-- Convenience index only; original accepted sources are under integrated/.
+import ProverJobs.paper_fresh_20261028t224543381z_data_thinning.PaperProofInterfaces.Result_r1_4ef57bb18b204c33b27dd76a319b4312
+
+#check PaperProofTasks.paper_fresh_20261028t224543381z_data_thinning.Statlib.Imported.Theorem_1_Main_theorem_thm_generalized_thinning

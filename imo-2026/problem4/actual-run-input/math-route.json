@@ -1,0 +1,35 @@
+{
+  "target": {
+    "theoremName": "main_theorem",
+    "inputSha256": "d98b6c0d798282acbb9b1dd3419b918e615face62f4673ce5bc785ff73664735"
+  },
+  "progress": {
+    "schemaVersion": 1,
+    "difficulty": "VERY_HIGH",
+    "entries": [
+      {
+        "route": {
+          "title": "Integral-angle finite strategies and integer-multiple avoidance",
+          "mathematicalIdea": "Use the complete proof.md. A triangle with angle k*t for positive natural k is winning by induction splitting off t. If180=n*t, cut to two integral angles using an open interval multiple, with the acute n=2 exception. Conversely, when180 is not in t*Z, a parent avoiding t*Z has an avoiding child under every cut; the equilateral triangle avoids t*Z and therefore cannot have an inductive finite winning tree.",
+          "orderedMilestones": [
+            "Prove legal cuts preserve valid angle multisets and enumerate cardinality-three multisets without losing multiplicity.",
+            "Induct on positive integral target multiples to construct finite winning trees.",
+            "For180=n*t produce a cut giving both children positive integral angles, including the acute n=2 case.",
+            "Prove the four-case avoidance invariant for integer multiples and use induction on MulanWins to exclude a win for the equilateral triangle when180 is not an integer multiple.",
+            "Convert the positive integer180/t into a natural n>=2 and close both directions of the original equivalence."
+          ],
+          "assumptionsUsed": [
+            "Only0<t<180 and the exact published IsTriangle,IsCut,MulanWins,MulanCanGuarantee definitions."
+          ],
+          "mathematicalRisks": [
+            "Open-interval cut legality, positivity of all children and natural integer coercions must be proved.",
+            "Winning requires BOTH children, not a favorable one.",
+            "No added rationality or geometric realization hypotheses; finite inductive strategies, not infinite-play claims."
+          ]
+        },
+        "collectionDecision": "COMPLETE",
+        "collectionRationale": "The detailed supplied mathematical proof replaces initial route generation only. Lean search,DAG construction and all proof gates stay active."
+      }
+    ]
+  }
+}

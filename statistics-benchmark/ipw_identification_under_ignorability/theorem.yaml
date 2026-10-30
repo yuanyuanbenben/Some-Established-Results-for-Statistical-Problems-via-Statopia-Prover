@@ -1,0 +1,56 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62D/ipw_identification_under_ignorability.tex
+msc: 62D20
+topic: Causal IPW identification
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: ipw_identification_under_ignorability
+    kind: theorem
+    lean_name: ipw_identification_under_ignorability
+    latex_statement: |-
+      \begin{theorem}[IPW Identification under Ignorability]
+      Let $(\Omega,\mathcal A,P)$ be a probability space and let $\mathcal Z$ be
+      a finite measurable space in which every singleton is measurable.  Let
+      $T:\Omega\to\{\mathrm{false},\mathrm{true}\}$,
+      $Z:\Omega\to\mathcal Z$, and
+      $Y,Y_0,Y_1:\Omega\to\mathbb R$ be measurable, with $Y,Y_0,Y_1$
+      integrable.  Assume $P\{Z=z\}>0$ for every $z\in\mathcal Z$, and assume
+      the observed-outcome relation
+      \[
+        Y(\omega)=
+        \begin{cases}Y_1(\omega),&T(\omega)=\mathrm{true},\\
+                       Y_0(\omega),&T(\omega)=\mathrm{false}
+        \end{cases}
+      \]
+      holds $P$-almost everywhere.  Assume that, for every
+      $a,t\in\{\mathrm{false},\mathrm{true}\}$, every measurable
+      $B\subseteq\mathbb R$, and every $z\in\mathcal Z$,
+      \[
+       P\{Y_a\in B,T=t,Z=z\}P\{Z=z\}
+       =
+       P\{Y_a\in B,Z=z\}P\{T=t,Z=z\},
+      \]
+      where $Y_{\mathrm{true}}=Y_1$ and $Y_{\mathrm{false}}=Y_0$.  Assume also
+      that
+      \[
+        \frac{P\{T=a,Z=z\}}{P\{Z=z\}}>0
+      \]
+      for every $a\in\{\mathrm{false},\mathrm{true}\}$ and
+      $z\in\mathcal Z$, and define
+      \[
+        e(a,z)=\frac{P\{T=a,Z=z\}}{P\{Z=z\}}.
+      \]
+      Then, for every $a\in\{\mathrm{false},\mathrm{true}\}$,
+      \[
+        \int Y_a\,dP
+        =
+        \int \frac{\mathbf 1\{T=a\}Y}{e(a,Z)}\,dP.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

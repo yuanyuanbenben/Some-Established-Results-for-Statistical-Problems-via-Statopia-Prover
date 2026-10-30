@@ -1,0 +1,38 @@
+import Mathlib
+
+open MeasureTheory Matrix ProbabilityTheory
+
+theorem exact_student_t_distribution_ols_contrast
+    {Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P]
+    (n p : ℕ) (hnp : p < n) (hp : 1 ≤ p)
+    (X : Matrix (Fin n) (Fin p) ℝ)
+    (hX : Function.Injective X.mulVec)
+    (betaStar : Fin p → ℝ)
+    (sigma : ℝ) (hsigma : 0 < sigma)
+    (epsilon : Ω → Fin n → ℝ)
+    (hgaussian : ∀ b : Fin n → ℝ,
+      HasLaw (fun ω ↦ dotProduct b (epsilon ω))
+        (gaussianReal 0
+          (Real.toNNReal (sigma ^ 2 * dotProduct b b))) P)
+    (a : Fin p → ℝ) (ha : a ≠ 0)
+    (c : ℝ) (hnull : dotProduct a betaStar = c) :
+    let y : Ω → Fin n → ℝ := fun ω ↦ X *ᵥ betaStar + epsilon ω
+    let betaHat : Ω → Fin p → ℝ := fun ω ↦
+      (X.transpose * X)⁻¹ *ᵥ (X.transpose *ᵥ y ω)
+    let sigmaHatSq : Ω → ℝ := fun ω ↦
+      dotProduct (y ω - X *ᵥ betaHat ω)
+          (y ω - X *ᵥ betaHat ω) / ((n - p : ℕ) : ℝ)
+    let statistic : Ω → ℝ := fun ω ↦
+      (dotProduct a (betaHat ω) - c) /
+        (Real.sqrt (sigmaHatSq ω) *
+          Real.sqrt (dotProduct a ((X.transpose * X)⁻¹ *ᵥ a)))
+    let nu : ℝ := ((n - p : ℕ) : ℝ)
+    let density : ℝ → ℝ := fun z ↦
+      Real.Gamma ((nu + 1) / 2) /
+          (Real.sqrt (nu * Real.pi) * Real.Gamma (nu / 2)) *
+        Real.rpow (1 + z ^ 2 / nu) (-(nu + 1) / 2)
+    let studentT : Measure ℝ :=
+      volume.withDensity (fun z ↦ ENNReal.ofReal (density z))
+    HasLaw statistic studentT P := by
+  sorry

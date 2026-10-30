@@ -1,0 +1,74 @@
+{
+  "name": "eills",
+  "label": "EILLS — Theorem 4.2",
+  "folder": "eills",
+  "paperTitle": "Environment Invariant Linear Least Squares",
+  "theorem": "Theorem 4.2 (Strong Convexity with respect to beta-star; thm:global-strong-convexity-main)",
+  "jobId": "paper_fresh_20261028t224543381z_eills",
+  "sourceCampaign": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/manifest.json",
+  "sourceRunDirectory": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/cases/eills/run",
+  "mainSha256": "cd632a607e1ff45c8dca314b8a307964e73356e54d54ac7a56b07131bd4fa33b",
+  "mainLines": 736,
+  "integratedLeanFiles": 11,
+  "integratedLeanLines": 2141,
+  "integratedArchiveSha256": "57d7c11c30c3b5e38aa01b83e9749fa1a893639d9fa54b6f71d291b18951fb5b",
+  "entryModule": "ProverJobs.paper_fresh_20261028t224543381z_eills.PaperProofInterfaces.Result_r2_5caa9f2b59d84ff58e877f7752096e6d",
+  "rootDeclaration": "PaperProofTasks.paper_fresh_20261028t224543381z_eills.Statlib.Imported.Theorem_4_2_Strong_Convexity_with_respect_to_beta_star_thm_global_strong_convexity_main",
+  "closureRef": "pc/cCcwNHz/r.json",
+  "groupRevision": 33,
+  "proofPassed": true,
+  "rootSummaryRemainingSorry": 0,
+  "e2ePassed": true,
+  "reportStatus": "completed",
+  "registeredRetainEntries": [
+    {
+      "resultId": "paper_2c08ddb98e7c4dc4993a0b23e7a07337",
+      "title": "Cauchy–Schwarz inequality (standard Euclidean form)",
+      "phase": "pending",
+      "kind": "external"
+    }
+  ],
+  "actualRetainedAssumptions": [
+    "PaperProofTasks.paper_fresh_20261028t224543381z_eills.ext_model_1 (consumer paper_fresh_20261028t224543381z_eills, result paper_2c08ddb98e7c4dc4993a0b23e7a07337)"
+  ],
+  "tasks": [
+    {
+      "resultId": "paper_fresh_20261028t224543381z_eills",
+      "jobId": "paper_fresh_20261028t224543381z_eills",
+      "title": "Theorem 4.2 (Strong Convexity with respect to beta-star; thm:global-strong-convexity-main)",
+      "kind": "root",
+      "phase": "verified",
+      "main": "Main.lean",
+      "proofRef": "result:paper_fresh_20261028t224543381z_eills:16cc542c-9290-4a40-8f2f-8e153943c58d",
+      "interfaceRevision": 2,
+      "sourceSha256": "cd632a607e1ff45c8dca314b8a307964e73356e54d54ac7a56b07131bd4fa33b"
+    }
+  ],
+  "sources": {
+    "main": {
+      "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/sources/eills/main.tex",
+      "sha256": "81505289063e04300dc26bc515579178b74c8012f2f7f94449094dbcd478e611",
+      "bytes": 106410
+    },
+    "supp": {
+      "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/sources/eills/supp.tex",
+      "sha256": "3d34ed8815eea10255a2de11241a76194e1afbb3d8edf0841cd110cc7321ff72",
+      "bytes": 176735
+    },
+    "yaml": {
+      "source": "/home/ai4stat/statlib/ProverJobs/paper_fresh_20261028t224543381z_eills/theorems.yaml",
+      "sha256": "e7748a0b6e69cf3be06d7286168b02690bbef5013d4a590d954f773a13546180",
+      "bytes": 21499
+    }
+  },
+  "reports": [
+    "report/report.pdf",
+    "report/report.tex"
+  ],
+  "reportNote": "已附该次运行交付的 PDF/TeX，属于该次运行的报告快照。",
+  "verifiedGeneratedImports": true,
+  "externalLibraryImports": [
+    "Mathlib",
+    "Statlib"
+  ]
+}

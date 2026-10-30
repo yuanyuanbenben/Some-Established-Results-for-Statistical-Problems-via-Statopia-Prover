@@ -1,0 +1,71 @@
+{
+  "name": "hmc_22",
+  "label": "HMC — Theorem 2.2 (i), (ii)",
+  "folder": "hmc/theorem-2.2",
+  "paperTitle": "On the Geometric Ergodicity of Hamiltonian Monte Carlo (arXiv v5 with corrigendum)",
+  "theorem": "Theorem 2.2 (thm:negative), both parts (i) and (ii), using v5 with corrigendum",
+  "jobId": "paper_fresh_20261028t224543381z_hmc_22",
+  "sourceCampaign": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/manifest.json",
+  "sourceRunDirectory": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/cases/hmc_22/run",
+  "mainSha256": "e3c2c8cb9016102d506321f9c499c992018581a82874eef516344262eaa49e32",
+  "mainLines": 159,
+  "integratedLeanFiles": 22,
+  "integratedLeanLines": 4103,
+  "integratedArchiveSha256": "d142cb33bb9fce963333a2a2fee06f5e9bf7e3fa76b0e9e89c9771fd6738fcfc",
+  "entryModule": "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.PaperProofInterfaces.Result_r2_efa8fa985bbe48fe90bebe042f1092ee",
+  "rootDeclaration": "PaperProofTasks.paper_fresh_20261028t224543381z_hmc_22.Statlib.Imported.Theorem_2_2_thm_negative_both_parts_i_and_ii_using_v5_with_corrigendum",
+  "closureRef": "pc/cNJNAJA/r.json",
+  "groupRevision": 36,
+  "proofPassed": true,
+  "rootSummaryRemainingSorry": 0,
+  "e2ePassed": false,
+  "reportStatus": "abandoned",
+  "registeredRetainEntries": [
+    {
+      "resultId": "paper_a1a55d0d9569437ca3b219c08a9f1927",
+      "title": "Jarner–Roberts necessary exponential-moment condition (Proposition prop:tight)",
+      "phase": "pending",
+      "kind": "external"
+    }
+  ],
+  "actualRetainedAssumptions": [
+    "PaperProofTasks.paper_fresh_20261028t224543381z_hmc_22.ext_model_1 (consumer paper_fresh_20261028t224543381z_hmc_22, result paper_a1a55d0d9569437ca3b219c08a9f1927)"
+  ],
+  "tasks": [
+    {
+      "resultId": "paper_fresh_20261028t224543381z_hmc_22",
+      "jobId": "paper_fresh_20261028t224543381z_hmc_22",
+      "title": "Theorem 2.2 (thm:negative), both parts (i) and (ii), using v5 with corrigendum",
+      "kind": "root",
+      "phase": "verified",
+      "main": "Main.lean",
+      "proofRef": "result:paper_fresh_20261028t224543381z_hmc_22:c739efb3-f2f7-4945-9614-60d7758d8cce",
+      "interfaceRevision": 2,
+      "sourceSha256": "e3c2c8cb9016102d506321f9c499c992018581a82874eef516344262eaa49e32"
+    }
+  ],
+  "sources": {
+    "main": {
+      "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/sources/hmc_22/main.tex",
+      "sha256": "bf02a80076e50595bb1c1beaf9d770632d6a0568c59f7bf1a44a46ba56e08006",
+      "bytes": 99898
+    },
+    "supp": {
+      "source": "/home/ai4stat/prover_long_test/.tmp/paper_group_gaussian_hmc22_thinning_eills_fresh_20261028T224543381Z/sources/hmc_22/supp.tex",
+      "sha256": "15cc70953795d21351c12f5c37f486e3ea35b8ca86cebd4106ee198e8e856a5c",
+      "bytes": 15031
+    },
+    "yaml": {
+      "source": "/home/ai4stat/statlib/ProverJobs/paper_fresh_20261028t224543381z_hmc_22/theorems.yaml",
+      "sha256": "99b3cae278f74e5dfc6db5751ec4c757e0af10073dfd83a5cf75f4538db035fa",
+      "bytes": 16283
+    }
+  },
+  "reports": [],
+  "reportNote": "该次证明和组闭包已完成，但报告交付未完成；本包保留实际状态，不将其写成 E2E 全通过。",
+  "verifiedGeneratedImports": true,
+  "externalLibraryImports": [
+    "Mathlib",
+    "Statlib"
+  ]
+}

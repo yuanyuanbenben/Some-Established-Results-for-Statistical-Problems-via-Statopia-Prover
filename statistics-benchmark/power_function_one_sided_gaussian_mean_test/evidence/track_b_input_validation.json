@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "power_function_one_sided_gaussian_mean_test"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 43801
+}

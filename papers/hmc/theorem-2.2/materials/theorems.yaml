@@ -1,0 +1,92 @@
+version: v1
+theorem_set: document-goal
+source_tag: document-processing
+theorems:
+  - id: entry:selected:8082d8fd-a26f-4f7a-bf07-379897d992ad
+    title: Theorem 2.2 (thm:negative), both parts (i) and (ii), using v5 with corrigendum
+    kind: theorem
+    latex_statement: |-
+      Let \((\mathcal{X},\mathcal{B})\) denote a Borel space. Here we restrict attention to \(\mathcal{X}=\mathbb{R}^d\) (and write \(\|x\|\) for the Euclidean norm of \(x\in\mathcal{X}\)). For functions \(f,g:\mathbb{R}_{\ge0}\to\mathbb{R}_{\ge0}\) let \(f(x)\asymp g(x)\) mean that \(\lim_{x\to\infty}f(x)/g(x)=c\) for some \(c<\infty\). Throughout let \(\pi(\cdot)\) be a finite `target' measure, and \(\pi(x)\) the corresponding Lebesgue density for some \(x\in\mathcal{X}\), and let \(\mathfrak{L}(\cdot)\) be a distribution defined over \(\mathbb{Z}_+\). We will denote Lebesgue measure on \(\mathbb{R}^d\) with \(\mu^L(\cdot)\), the Dirac point mass at \(x\) with \(\delta_x(\cdot)\) and the standard Gaussian measure with \(\mu^G(\cdot)\). We write \(P:\mathcal{X}\times\mathcal{B}\to[0,1]\) to denote a Markov transition kernel, meaning \(P(x,\cdot)\) is a probability measure for any \(x\in\mathcal{X}\) and \(P(\cdot,A)\) is measurable for any \(A\in\mathcal{B}\). \(P\) acts to the left on measures through \(\mu P(\cdot):=\int \mu(dx)P(x,dy)\) and to the right on functions through \(Pf(x):=\int f(y)P(x,dy)\). We let \(P^n(x,\cdot):=\int P^{n-1}(x,dy)P(y,\cdot)\) and say \(\pi(\cdot)\) is \emph{invariant} for \(P\) if \(\pi P(\cdot)=\pi(\cdot)\).
+
+      Denote the Total Variation distance between two distributions \(\mu(\cdot)\) and \(\nu(\cdot)\) on \((\mathcal{X},\mathcal{B})\) as \(\|\mu(\cdot)-\nu(\cdot)\|_{TV}:=\sup_{|f|\le1}|\mathbb{E}_\mu f-\mathbb{E}_\nu f|\). We say \(\pi(\cdot)\) is a \emph{limiting} distribution for \(P\) if \(\|P^n(x,\cdot)-\pi(\cdot)\|_{TV}\to0\) as \(n\to\infty\), for \(\pi\)-a.e. \(x\in\mathcal{X}\). Recall that an invariant distribution \(\pi(\cdot)\) will be the unique limiting measure if \(P\) is both \(\pi\)-irreducible and aperiodic (e.g. \citep{tierney1994markov}). We note that the convergence results presented here could equivalently be shown under the \(V\)-norm distance \citep{roberts1997geometric}.
+
+      The geometric bound appearing in the paper is
+      \begin{equation}\label{eqn:geoerg}
+      \|P^n(x,\cdot)-\pi(\cdot)\|_{TV}\le M(x)\rho^n,
+      \end{equation}
+      for some \(\rho<1\) and a \(\pi\)-a.e. finite \(M:\mathcal{X}\to[0,\infty]\), under a \(\pi\)-a.e. finite \emph{Lyapunov} function \(V:\mathcal{X}\to[1,\infty]\) with `small' level sets satisfying \(PV(x)\le\lambda V(x)+b\mathbbm{1}_{C_\omega}(x)\) for some \(\lambda<1\), \(b<\infty\) and \(C_\omega:=\{x:V(x)\le\omega\}\) with \(\omega<\infty\). Recall that a set \(C\in\mathcal{B}\) is called `small' if there is a \(t<\infty\), a measure \(\nu(\cdot)\) defined on \((\mathcal{X},\mathcal{B})\) and an \(\epsilon>0\) such that \(\forall x\in C\) and \(\forall A\in\mathcal{B}\) it holds that \(P^t(x,A)\ge\epsilon\nu(A)\) (see e.g. \citep{roberts2004general}).
+
+      We consider probability densities of the form \(\pi(x)\propto e^{-U(x)}\) for some \(U:\mathcal{X}\to[0,\infty)\). If we view \(U(x)=-\log\pi(x)\) as a `potential' energy in a physical system, it is natural to consider the larger phase space and construct the \emph{Hamiltonian}
+      \begin{equation}\label{eqn:hamiltonian}
+      H(x,p)=U(x)+\frac{1}{2}p^t M^{-1}p,
+      \end{equation}
+      where \(p\) denotes a \(d\)-dimensional `momentum' variable, \(M\) a \(d\times d\) `mass' matrix and \(p^t M^{-1}p/2\) the `kinetic' energy. Provided \(U(x)\) is differentiable, we can evolve the coordinates \((x_t,p_t)\) through time in such a way that \(H(x_t,p_t)=H(x_{t+s},p_{t+s})\) for any \(t,s\in\mathbb{R}\) using Hamilton's equations
+      \begin{equation}\label{eqn:hamilton}
+      \frac{dp_t}{dt}=-\frac{\partial H}{\partial x}, \qquad \frac{dx_t}{dt}=\frac{\partial H}{\partial p}.
+      \end{equation}
+      Solving \eqref{eqn:hamilton} results in \emph{Hamiltonian flow}. The standard choice when the Hamiltonian is of the form \eqref{eqn:hamiltonian} is the Störmer--Verlet or \emph{leapfrog} scheme, in which \((x_{L\varepsilon},p_{L\varepsilon})\) is generated from \((x_0,p_0)\) using \(L\) steps of the recursion
+      \begin{align*}
+      p_{t+\frac{\varepsilon}{2}} &= p_t-\frac{\varepsilon}{2}\nabla U(x_t),\\
+      x_{t+\varepsilon} &= x_t+\varepsilon M^{-1}p_{t+\frac{\varepsilon}{2}},\\
+      p_{t+\varepsilon} &= p_{t+\frac{\varepsilon}{2}}-\frac{\varepsilon}{2}\nabla U(x_{t+\varepsilon}),
+      \end{align*}
+      for some step-size \(\varepsilon>0\). Here \(\nabla\) denotes the gradient operator. The full method is:
+      REQUIRE \(x_{i-1}\), \(\varepsilon\ge0\), \(\mathfrak{L}(\cdot)\);
+      Set \(x_0\leftarrow x_{i-1}\), draw \(p_0\sim N(0,M)\), \(L\sim\mathfrak{L}(\cdot)\), set \(T\leftarrow L\varepsilon\);
+      Draw \(u\sim U[0,1]\);
+      Set \(\delta\leftarrow H(x_0,p_0)-H\circ\varphi_T(x_0,p_0)\);
+      If \(\log(u)<\delta\), set \(x_i\leftarrow\operatorname{Pr}_x\circ\varphi_T(x_0,p_0)\);
+      else set \(x_i\leftarrow x_{i-1}\).
+
+      The HMC candidate map can be written
+      \begin{equation}\label{eqn:mprop}
+      x_{L\varepsilon}=x_0-\frac{L\varepsilon^2}{2}\nabla U(x_0)-\varepsilon^2\sum_{i=1}^{L-1}(L-i)\nabla U(x_{i\varepsilon})+L\varepsilon p_0,
+      \end{equation}
+      where \(p_0\sim N(0,I)\), \(L\) is the number of leapfrog steps and \(\varepsilon\) the integrator step-size. With this choice, the acceptance probability will be
+      \begin{equation*}
+      \alpha(x_0,x_{L\varepsilon})=1\wedge\frac{\pi(x_{L\varepsilon})}{\pi(x_0)}\exp\left(\frac{1}{2}\|p_0\|^2-\frac{1}{2}\|p_{L\varepsilon}\|^2\right),
+      \end{equation*}
+      where
+      \begin{equation}\label{eqn:mprop2}
+      p_{L\varepsilon}=p_0-\frac{\varepsilon}{2}\nabla U(x_0)-\varepsilon\sum_{i=1}^{L-1}\nabla U(x_{i\varepsilon})-\frac{\varepsilon}{2}\nabla U(x_{L\varepsilon}).
+      \end{equation}
+
+      <!-- formalization-clarifications:v1:8aafa1ab60cbd7180833c7cddda4f56bbb448e2cf6bbbfc6c42458e99752cfce -->
+      Formalization clarifications from source and proof:
+      The selected proof block is empty; the supplied source contains the corresponding original claims as Theorem thm:light for part (i) and Theorem thm:heavy for part (ii), with proofs. The selected statement (v5 with corrigendum) is authoritative where it differs. The supplied source does not include the body of \input{corrigendum_arxiv}, so further corrigendum-specific changes are unspecified; only the explicit selected assumption “For every integer \(L\) in the support of the distribution \(\mathfrak L\), the limit in condition (i) with exponent \(2^L\) holds” is visible.
+
+      1. Constants and quantifier order. Explicitly, \(\|x\|\) is Euclidean (\(\X=\mathbb R^d\), Notation). The mass matrix is later set to \(I\) (“From this point forward we assume \(M=I\)”), so momentum Gaussian is \(N(0,I)\) in the relevant formulas. In part (i), the intended order is: fix \(d\), the potential \(U\), the target \(\pi\propto e^{-U}\), and the position-independent distribution \(\mathfrak L\); choose the “fixed \(C<\infty\)” of Theorem thm:light independently of \(x,y,p_0,u\), and—importantly under the selected wording—independently of \(L\), because only the third limit is explicitly required “for every integer \(L\) in the support.” Then require the ratio limit, the inequality for all \(x,y\) with \(\|y\|\ge 2\|x\|\ge C\) (i.e. \(\|y\|\ge 2\|x\|\) and \(2\|x\|\ge C\)), and, for each supported \(L\), the joint limit with \(\|y\|\ge 2^L\|x\|\). No uniform-in-\(L\) rate or \(C=C_L\) is stated; an implicit Lean parameter for \(L\) must not silently make \(C\) depend on \(L\). In part (ii), “There is an \(M<\infty\)” is existential after fixing \(U\) and \(d\), is independent of \(x\) and randomness, and is not the mass matrix \(M=I\); it is also distinct from the \(\pi\)-a.e. finite \(M(x)\) in the geometric bound. The selected statement uses \(\|\nabla U(x)\|\le M\); the original Theorem thm:heavy heading writes “\(<M\)” but its proof applies the global bound via the triangle inequality with \(\le M\). The selected \(\le M\) should not be replaced by strict \(<\) unless another authoritative corrigendum says so. The exponential-moment condition in (ii) is explicitly “for every \(s>0\), \(\mathbb E_\pi[e^{s\|x\|}]=\infty\),” not merely for one \(s\). This is the contrapositive of the original source’s necessary condition “\(\int e^{s\|x\|}\pi(dx)<\infty\) for some \(s>0\)” (Theorem thm:heavy); preserve the quantifier direction.
+
+      2. Norms and mathematical objects. The source uses the same Euclidean \(l_2\) norm for \(x\in\mathbb R^d\), \(p\in\mathbb R^d\), and the gradient vector \(\nabla U(x)\in\mathbb R^d\); there is no stated operator, sup, Frobenius, or mass-weighted norm in Theorem 2.2. Preserve the argument order in part (i): \(\|\nabla U(y)\|\ge 3\|\nabla U(x)\|\), and the third expression is \(U(x)-U(y)-\tfrac12\|x\|^2\), not with the sign reversed or with \(U(y)-U(x)\), and with \(\|x\|^2\), not \(\|x\|\). \(U:\mathbb R^d\to[0,\infty)\) is the nonnegative potential, differentiable everywhere in the selected assumptions, with finite \(\nabla U(x)\) for every \(x\). The target \(\pi\) is a finite target measure with Lebesgue density \(\pi(x)\propto e^{-U(x)}\); \(\mathbb E_\pi\) is an expectation under that measure (normalization is not explicitly stressed, but rescaling does not affect whether an exponential moment is infinite). The theorem concerns the HMC transition kernel \(P\) of Metropolis–Hastings type, not merely the proposal kernel \(Q\). The proof of part (i) uses the proposal/acceptance behavior and Proposition \ref{prop:supr} (attributed in the source to \citep{roberts1996geometric}), which says that if \(P\) is of Metropolis–Hastings type and \(\operatorname{esssup} r(x)=1\), then the geometric bound fails; this is proof-based evidence, not an additional hypothesis of Theorem 2.2. The proof of part (ii) uses the candidate kernel \(Q\) and local-move condition to invoke Proposition \ref{prop:tight} (attributed to \citep{jarner2003necessary}); again, the local-move verification is not an extra hypothesis in the final statement. \(L\) is the number of leapfrog steps, \(\varepsilon\) the step size, and \(T=L\varepsilon\); the source’s convention for \(\mathbb Z_+\) (whether \(0\) is allowed as a leapfrog count) is not fully specified, while the HMC algorithm and A1 use positive step counts such as \(L=1\).
+
+      3. Asymptotics. The first condition in part (i) is an extended-real radial limit \(\|\nabla U(x)\|/\|x\|\to+\infty\), not the reciprocal ratio. The third condition is a joint limit over pairs \((x,y)\) with \(\|x\|\to\infty\) and \(\|y\|\ge 2^L\|x\|\): it means the displayed expression tends to \(-\infty\) along all such pairs, not merely along one sequence and not merely a liminf; quantitatively, for every \(R\) there is \(K\) such that \(\|x\|\ge K\) and \(\|y\|\ge 2^L\|x\|\) imply the expression is \(\le -R\). No uniform modulus in \(L\) is supplied; for each supported \(L\) the source states the limit separately. The source does not use \(O\), \(o\), or \(\asymp\) in the selected Theorem 2.2 statement. The proof of Theorem thm:light uses an event \(\|p_0\|\le \|x_0\|^\delta\) for some \(\delta<1\) and notes its Gaussian probability tends to \(1\); this \(\delta\)-truncation and the lemma conclusions \(\|x_{L\varepsilon}\|\ge 2^L\|x_0\|\), acceptance \(\alpha\to0\) on that truncation, etc., are proof devices, not hypotheses to add to part (i). The proof of Theorem thm:heavy bounds \(\|x_{L\varepsilon}-x_0\|\) using \(\|\nabla U\|\le M\) and a centered Gaussian \(p_0\), then invokes Proposition \ref{prop:tight}; this does not turn “candidate moves are local” or “bounded \(L\)” into assumptions of part (ii). The source’s definition \(f(x)\asymp g(x)\) as a finite-\(c\) ratio limit is not the same as standard \(\Theta\)-notation and is not used in Theorem 2.2. “Geometrically ergodic” here means the existence of \(\rho<1\) and a \(\pi\)-a.e. finite \(M(x)\) with the displayed total-variation bound; “not geometrically ergodic” is the failure of that bound, not merely failure of convergence or failure of irreducibility.
+
+      4. Potentially omitted definitions and side conditions. Both parts are placed in the fixed-integration-time section, where \(\mathfrak L\) for the number of leapfrog steps “does not depend on the current position”; this is not the dynamic integration-time scheme of later sections. The source does not list \(\pi\)-irreducibility or aperiodicity as hypotheses of thm:negative; those are background for unique limiting measures, and should not be inserted as assumptions of Theorem 2.2 unless a formal statement requires them for its definition of geometric ergodicity. Total variation is explicitly defined in the notation section; small sets and Lyapunov functions are background from the quoted Meyn–Tweedie criterion. For part (i), the original Theorem thm:light says “with fixed integration time \(T=L\varepsilon\)” and “for any choice \(T>0\)”; the selected block does not repeat that phrase, so if formalizing part (i) from the selected v5 wording, check the surrounding fixed-\(T\) or fixed-\(\varepsilon\) parameters rather than inventing a new quantifier. The source is inconsistent/ambiguous about \(\varepsilon\): the leapfrog presentation says “step-size \(\varepsilon>0\),” while the algorithm box says “REQUIRE ... \(\varepsilon\ge0\).” The selected theorem does not resolve this. For part (ii), the displayed statement contains no \(L\) or \(\varepsilon\), while the source proof uses the leapfrog formula with \(L,\varepsilon\); if \(\mathfrak L\) has unbounded support, the selected statement does not explicitly state the uniformity over \(L\) needed for that proof step, so boundedness or determinism of \(L\) must not be assumed without a source statement. Finally, the selected assumptions explicitly require \(U\) differentiable on all of \(\mathbb R^d\) and finite \(\nabla U(x)\) everywhere; no further positivity, support, or tail-side condition should be inferred from the desired conclusion or from intermediate proof claims.
+      <!-- /formalization-clarifications -->
+
+      If either of the following hold then HMC will \emph{not} produce a geometrically ergodic Markov chain:
+
+      (i) \(\lim_{\|x\|\to\infty}\frac{\|\nabla U(x)\|}{\|x\|}=\infty\) and there is a fixed \(C<\infty\) such that whenever \(\|y\|\ge2\|x\|\ge C\),
+      \begin{equation}\label{eqn:oscillations}
+      \|\nabla U(y)\|\ge3\|\nabla U(x)\|,
+      \end{equation}
+      and
+      \begin{equation}\label{eqn:oscillation2}
+      \lim_{\|x\|\to\infty,\ \|y\|\ge2^L\|x\|}\left(U(x)-U(y)-\frac{1}{2}\|x\|^2\right)=-\infty.
+      \end{equation}
+
+      (ii) There is an \(M<\infty\) such that \(\|\nabla U(x)\|\le M\) for all \(x\in\mathcal{X}\), and \(\mathbb{E}_\pi[e^{s\|x\|}]=\infty\) for every \(s>0\).
+    assumptions:
+      - |-
+        The majority of results in this paper concern the version of HMC which is typically used in practice, in which the `integration time' for a typical proposal is chosen independently of the current position in the chain. For the fixed integration time results: In this section we make the assumption that the distribution \(\mathfrak{L}(\cdot)\) for the number of leapfrog steps \(L\) does not depend on the current position. This is relaxed in Section \ref{sec:dynamic}.
+
+        From this point forward we assume \(M=I\) for ease of exposition but without loss of generality.
+        - The potential U is differentiable on all of R^d, so that ∇U(x) exists and is finite for every x in R^d.
+        - For every integer L in the support of the distribution 𝔏, the limit in condition (i) with exponent 2^L holds.
+    proof_body: ""
+    lean_name: Theorem_2_2_thm_negative_both_parts_i_and_ii_using_v5_with_corrigendum
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics

@@ -1,0 +1,40 @@
+import Mathlib
+
+open MeasureTheory
+
+theorem ipw_identification_under_ignorability
+    {Ω 𝒵 : Type*}
+    [MeasurableSpace Ω]
+    [Fintype 𝒵]
+    [MeasurableSpace 𝒵]
+    [MeasurableSingletonClass 𝒵]
+    (P : Measure Ω)
+    [IsProbabilityMeasure P]
+    (T : Ω → Bool)
+    (Z : Ω → 𝒵)
+    (Y Y0 Y1 : Ω → ℝ)
+    (hTmeas : Measurable T)
+    (hZmeas : Measurable Z)
+    (hYmeas : Measurable Y)
+    (hY0meas : Measurable Y0)
+    (hY1meas : Measurable Y1)
+    (hYint : Integrable Y P)
+    (hY0int : Integrable Y0 P)
+    (hY1int : Integrable Y1 P)
+    (hZpos : ∀ z, 0 < P {ω | Z ω = z})
+    (hObserved : Y =ᵐ[P] fun ω ↦ if T ω then Y1 ω else Y0 ω)
+    (hIgnorable :
+      ∀ (a : Bool) (B : Set ℝ), MeasurableSet B → ∀ t z,
+        P {ω | (if a then Y1 ω else Y0 ω) ∈ B ∧ T ω = t ∧ Z ω = z} *
+            P {ω | Z ω = z} =
+          P {ω | (if a then Y1 ω else Y0 ω) ∈ B ∧ Z ω = z} *
+            P {ω | T ω = t ∧ Z ω = z})
+    (hPositive :
+      ∀ a z, 0 <
+        (P {ω | T ω = a ∧ Z ω = z}).toReal / (P {ω | Z ω = z}).toReal) :
+    let e : Bool → 𝒵 → ℝ := fun a z ↦
+      (P {ω | T ω = a ∧ Z ω = z}).toReal / (P {ω | Z ω = z}).toReal
+    ∀ a : Bool,
+      ∫ ω, (if a then Y1 ω else Y0 ω) ∂P =
+        ∫ ω, (if T ω = a then (1 : ℝ) else 0) * Y ω / e a (Z ω) ∂P := by
+  sorry

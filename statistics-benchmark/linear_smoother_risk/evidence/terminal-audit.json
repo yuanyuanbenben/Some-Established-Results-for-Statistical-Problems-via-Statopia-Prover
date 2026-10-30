@@ -1,0 +1,70 @@
+{
+  "id": "q24",
+  "case": "linear_smoother_risk",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q24",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q24/experiment/runs/20261018T002230Z-linear_smoother_risk-99e6081d",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "2547dad6e82728d75d5ada93b7b5d5a533fffda3bbd60b15022a7d7346c803ed",
+  "signatureLockSha256": "613926466d7ff350900aa42953264ab5a33dbf78f5061e7e7146ecc62bddaadc",
+  "rootTheorem": "linear_smoother_risk",
+  "inputRootSignature": "theorem linear_smoother_risk {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (n : ℕ) (hn : 1 ≤ n) (f : Fin n → ℝ) (xi : Ω → Fin n → ℝ) (hxi_meas : Measurable xi) (hxi_sq_int : Integrable (fun ω ↦ ∑ i, (xi ω i) ^ 2) P) (sigma2 : ℝ) (hsigma2 : 0 ≤ sigma2) (hxi_mean : ∀ i, ∫ ω, xi ω i ∂P = 0) (hxi_cov : ∀ i j, ∫ ω, xi ω i * xi ω j ∂P = if i = j then sigma2 else 0) (S : Matrix (Fin n) (Fin n) ℝ) : let Y : Ω → Fin n → ℝ := fun ω i ↦ f i + xi ω i let estimate : Ω → Fin n → ℝ := fun ω ↦ S.mulVec (Y ω) let normSq : (Fin n → ℝ) → ℝ := fun v ↦ (n : ℝ)⁻¹ * ∑ i, (v i) ^ 2 ∫ ω, normSq (estimate ω - f) ∂P = normSq (S.mulVec f - f) + sigma2 * (n : ℝ)⁻¹ * Matrix.trace (S.transpose * S)",
+  "lockedRootSignature": "theorem linear_smoother_risk {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (n : ℕ) (hn : 1 ≤ n) (f : Fin n → ℝ) (xi : Ω → Fin n → ℝ) (hxi_meas : Measurable xi) (hxi_sq_int : Integrable (fun ω ↦ ∑ i, (xi ω i) ^ 2) P) (sigma2 : ℝ) (hsigma2 : 0 ≤ sigma2) (hxi_mean : ∀ i, ∫ ω, xi ω i ∂P = 0) (hxi_cov : ∀ i j, ∫ ω, xi ω i * xi ω j ∂P = if i = j then sigma2 else 0) (S : Matrix (Fin n) (Fin n) ℝ) : let Y : Ω → Fin n → ℝ := fun ω i ↦ f i + xi ω i let estimate : Ω → Fin n → ℝ := fun ω ↦ S.mulVec (Y ω) let normSq : (Fin n → ℝ) → ℝ := fun v ↦ (n : ℝ)⁻¹ * ∑ i, (v i) ^ 2 ∫ ω, normSq (estimate ω - f) ∂P = normSq (S.mulVec f - f) + sigma2 * (n : ℝ)⁻¹ * Matrix.trace (S.transpose * S)",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.ad68573a6e3610894e013006.json",
+      "receiptId": "job-final.ad68573a6e3610894e013006",
+      "receiptHash": "c8cc18f0562333e1cf4957f7cc9a188f8e0fb60fcea5f6ae879749d14358b423",
+      "finalizedAt": 1792286979404,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "1b022089b7261f0d3afe47882ea5ba5fec7fe12c9e59599c31e86e53dec56daf"
+    }
+  ],
+  "slot": 0,
+  "keyIndex": 0,
+  "nodes": 6,
+  "auxiliaryNodes": 5,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 6
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.b5925251b646994595041d9105dc60e5",
+      "detail": "unified Writer dependency support changed during repeated unlocked allocation validation"
+    },
+    {
+      "proofNodeId": "proof.node.ac10a0ba49b257f6a9f96fa63184cb02",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 20
+}

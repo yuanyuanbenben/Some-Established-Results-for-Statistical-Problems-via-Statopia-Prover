@@ -1,0 +1,51 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/permutation_p_value_validity.tex
+msc: 62G10
+topic: Hypothesis testing; nonparametric methods
+track_a_difficulty: medium
+track_b_difficulty: hard
+theorems:
+  - id: permutation_p_value_validity
+    kind: theorem
+    lean_name: permutation_p_value_validity
+    latex_statement: >-
+      \begin{theorem}[Finite Permutation P-value Validity]
+
+      Let $N\ge 1$ and let $T_1,\ldots,T_N\in\mathbb R$ be the statistic values
+
+      over a finite permutation orbit. For each index $i$, define the upper-tail
+
+      permutation count
+
+      \[
+
+      C_i=\#\{j: T_j\ge T_i\}.
+
+      \]
+
+      The permutation p-value at index $i$ is $p_i=C_i/N$. Then, for every
+      integer
+
+      $k$ with $0\le k\le N$,
+
+      \[
+
+      \#\{i:C_i\le k\}\le k.
+
+      \]
+
+      Equivalently, under the uniform distribution on the orbit,
+
+      \[
+
+      \mathbb P(p_I\le k/N)\le k/N .
+
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

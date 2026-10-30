@@ -1,0 +1,30 @@
+import Mathlib
+
+open MeasureTheory ProbabilityTheory
+
+theorem kernel_density_mean_variance
+    {Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P]
+    (n : ℕ) (hn : 1 ≤ n)
+    (X : Fin n → Ω → ℝ)
+    (hX_meas : ∀ i, Measurable (X i))
+    (hX_indep : iIndepFun X P)
+    (p : ℝ → ℝ) (hp_meas : Measurable p)
+    (hX_law : ∀ i,
+      HasLaw (X i) (volume.withDensity (fun x ↦ ENNReal.ofReal (p x))) P)
+    (pmax : ℝ) (hpmax : 0 ≤ pmax)
+    (hp_nonneg : ∀ᵐ x ∂volume, 0 ≤ p x)
+    (hp_bound : ∀ᵐ x ∂volume, p x ≤ pmax)
+    (K : ℝ → ℝ) (hK_meas : Measurable K)
+    (hK_nonneg : ∀ u, 0 ≤ K u)
+    (hK_int : Integrable K)
+    (hK_one : ∫ u, K u = 1)
+    (hK_sq_int : Integrable (fun u ↦ (K u) ^ 2))
+    (x h : ℝ) (hh : 0 < h) :
+    let estimate : Ω → ℝ := fun ω ↦
+      ((n : ℝ) * h)⁻¹ * ∑ i, K ((X i ω - x) / h)
+    (∫ ω, estimate ω ∂P = ∫ u, K u * p (x + h * u)) ∧
+      variance estimate P =
+        ((n : ℝ) * h)⁻¹ * (∫ u, (K u) ^ 2 * p (x + h * u)) -
+          (n : ℝ)⁻¹ * (∫ u, K u * p (x + h * u)) ^ 2 := by
+  sorry

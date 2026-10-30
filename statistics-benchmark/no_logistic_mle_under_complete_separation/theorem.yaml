@@ -1,0 +1,34 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62J/no_logistic_mle_under_complete_separation.tex
+msc: 62J12
+topic: Complete separation in logistic regression
+track_a_difficulty: medium
+track_b_difficulty: hard
+theorems:
+  - id: no_logistic_mle_under_complete_separation
+    kind: theorem
+    lean_name: no_logistic_mle_under_complete_separation
+    latex_statement: |-
+      \begin{theorem}[Nonexistence of a logistic MLE under complete separation]
+      Let $n,p\ge1$, let $x_i\in\mathbb R^p$ and $y_i\in\{0,1\}$ for
+      $i=1,\ldots,n$, and suppose there is a vector $v\in\mathbb R^p$ such that
+      \[
+        (2y_i-1)x_i^\top v>0
+        \qquad (i=1,\ldots,n).
+      \]
+      Define
+      \[
+        \ell(\beta)=\sum_{i=1}^n
+        \left[y_i x_i^\top\beta
+          -\log\!\left(1+e^{x_i^\top\beta}\right)\right],
+        \qquad \beta\in\mathbb R^p.
+      \]
+      Then there is no $\widehat\beta\in\mathbb R^p$ such that
+      $\ell(\widehat\beta)\ge\ell(\beta)$ for every $\beta\in\mathbb R^p$.
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

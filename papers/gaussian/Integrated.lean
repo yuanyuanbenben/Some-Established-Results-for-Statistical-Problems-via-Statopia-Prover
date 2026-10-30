@@ -1,0 +1,4 @@
+-- Convenience index only; original accepted sources are under integrated/.
+import ProverJobs.paper_fresh_20261028t224543381z_gaussian.PaperProofInterfaces.Result_r2_2a5e73d910e344948b8ec113203581bb
+
+#check PaperProofTasks.paper_fresh_20261028t224543381z_gaussian.Statlib.Imported.Theorem_3_1_Gaussian_approximation_THM_G

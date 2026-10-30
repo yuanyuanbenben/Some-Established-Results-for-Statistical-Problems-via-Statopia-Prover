@@ -1,0 +1,51 @@
+{
+  "jobId": "paper_fresh_20261028t151409527z_hmc_v5",
+  "status": "completed",
+  "boundary": {
+    "pass": true,
+    "remainingSorry": 0,
+    "remainingAxiom": 0,
+    "referenceCited": 0,
+    "report": "\n[FINAL-LAKE-BUILD-OK v1]\n[AXIOM-OK] 1 decl(s) checked. axiomUsage={\"status\":\"known\",\"sourceSha256\":\"46d4fe9e6b4a539f2e495e0318587d0957cb0d548899d8b2e3212c72fe94fa39\",\"approvedExternalAxioms\":[\"PaperProofTasks.job_paper_53e951f48c854f4db91e6ecda697ee2b.Statlib.Imported.paper_53e951f48c854f4db91e6ecda697ee2b\"],\"declarations\":[{\"name\":\"Statlib.Imported.Theorem_5_14_corrected_statement_and_replacement_proof_in_the_v5_corrigendum_Appendix_D_original_label_thm_light_Use_the\",\"standardAxioms\":[\"Classical.choice\",\"Quot.sound\",\"propext\"],\"externalAxioms\":[\"PaperProofTasks.job_paper_53e951f48c854f4db91e6ecda697ee2b.Statlib.Imported.paper_53e951f48c854f4db91e6ecda697ee2b\"]}]}\n[INTEGRITY-OK] 1 signature(s) preserved. 0 locked Sub file(s) preserved. proof_sha256=46d4fe9e6b4a539f2e495e0318587d0957cb0d548899d8b2e3212c72fe94fa39\nmodules=ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_c98ad05e9014471087e93356330c1538,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ExternalNodes.Node_cfbcd4bc5578482b8771,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.Vocabulary,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.Base,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_156433356_2ae8be15_b539d48f,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_170196137_a4c2281b_32213050,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_2488397496_e86e6104_3c1855f4,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_359030125_cafa1cba_3f488281,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_2575820610_02f1cc53_62135d8d,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_2756182807_18c8f00c_127f3f92,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_760579675_5c0b5f8c_d5d69200,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_868581166_a5ae0410_0502f1f7,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_858392357_8c0dfbe1_e730766b,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes,ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.Main",
+    "axiomAudit": {
+      "status": "verified",
+      "forbiddenAxioms": [],
+      "usage": {
+        "status": "known",
+        "sourceSha256": "46d4fe9e6b4a539f2e495e0318587d0957cb0d548899d8b2e3212c72fe94fa39",
+        "approvedExternalAxioms": [
+          "PaperProofTasks.job_paper_53e951f48c854f4db91e6ecda697ee2b.Statlib.Imported.paper_53e951f48c854f4db91e6ecda697ee2b"
+        ],
+        "declarations": [
+          {
+            "name": "Statlib.Imported.Theorem_5_14_corrected_statement_and_replacement_proof_in_the_v5_corrigendum_Appendix_D_original_label_thm_light_Use_the",
+            "standardAxioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "externalAxioms": [
+              "PaperProofTasks.job_paper_53e951f48c854f4db91e6ecda697ee2b.Statlib.Imported.paper_53e951f48c854f4db91e6ecda697ee2b"
+            ]
+          }
+        ]
+      }
+    },
+    "statementAmended": false,
+    "finalizationStatus": "verified"
+  },
+  "boundaryPassed": true,
+  "remainingSorry": 0,
+  "proofPassed": true,
+  "outputDelivery": {
+    "resultStored": true,
+    "reportStatus": "completed",
+    "initialResultStored": true,
+    "terminalStatus": "completed",
+    "proofHash": "46d4fe9e6b4a539f2e495e0318587d0957cb0d548899d8b2e3212c72fe94fa39",
+    "completionState": "completed",
+    "leanPackage": "proof.zip",
+    "artifactDelivery": "completed"
+  },
+  "e2ePassed": true
+}

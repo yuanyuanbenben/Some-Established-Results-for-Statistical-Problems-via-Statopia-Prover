@@ -1,0 +1,4 @@
+import ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_c98ad05e9014471087e93356330c1538
+
+namespace PaperProofTasks.paper_fresh_20261028t151409527z_hmc_v5
+

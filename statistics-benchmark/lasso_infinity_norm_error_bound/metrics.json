@@ -1,0 +1,15 @@
+{
+  "case": "lasso_infinity_norm_error_bound",
+  "msc": "62J07",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": 3.0652428,
+  "unknown_reservation_usd": 0.0,
+  "cost_coverage": "completed journal usage; unresolved reservations separate",
+  "mode": "deep",
+  "seconds": 6256.0,
+  "lean_files": 12,
+  "lean_lines": 1160,
+  "nodes": 9,
+  "job_id": "deep_benchmark42_3p_2k5_20261017T100521Z_q08"
+}

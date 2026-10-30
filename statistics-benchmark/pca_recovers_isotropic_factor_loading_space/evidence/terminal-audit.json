@@ -1,0 +1,61 @@
+{
+  "id": "q14",
+  "case": "pca_recovers_isotropic_factor_loading_space",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q14",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q14/experiment/runs/20261017T190459Z-pca_recovers_isotropic_factor_loading_space-000e62c6",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "44a7cb62c6d795fff3284ea8d881200666d454124aec92376e7e1890473b875e",
+  "signatureLockSha256": "c3d881204bf4c7e260f073185212e682245ee4d1629107ca3579e4eff57ba10e",
+  "rootTheorem": "pca_recovers_isotropic_factor_loading_space",
+  "inputRootSignature": "theorem pca_recovers_isotropic_factor_loading_space {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (d q : ℕ) (hd : 2 ≤ d) (hq₀ : 1 ≤ q) (hqd : q < d) (F : Ω → Fin q → ℝ) (epsilon : Ω → Fin d → ℝ) (hF_L2 : MemLp F 2 P) (hε_L2 : MemLp epsilon 2 P) (sigma : ℝ) (hsigma : 0 ≤ sigma) (hFmean : ∫ ω, F ω ∂P = 0) (hFcov : ∀ i j, ∫ ω, F ω i * F ω j ∂P = if i = j then 1 else 0) (hεmean : ∫ ω, epsilon ω ∂P = 0) (hεcov : ∀ i j, ∫ ω, epsilon ω i * epsilon ω j ∂P = if i = j then sigma ^ 2 else 0) (hcross : ∀ i j, ∫ ω, F ω i * epsilon ω j ∂P = 0) (Lambda : Matrix (Fin d) (Fin q) ℝ) (hLambda : Function.Injective Lambda.mulVec) (mu : Fin d → ℝ) (u : Fin d → Fin d → ℝ) (rho : Fin d → ℝ) (horth : ∀ j k, dotProduct (u j) (u k) = if j = k then 1 else 0) (hspan : Submodule.span ℝ (Set.range u) = ⊤) : let X : Ω → Fin d → ℝ := fun ω ↦ mu + Lambda *ᵥ F ω + epsilon ω let Sigma : Matrix (Fin d) (Fin d) ℝ := fun i j ↦ ∫ ω, (X ω - mu) i * (X ω - mu) j ∂P (∀ j, Sigma *ᵥ u j = rho j • u j) → Antitone rho → Submodule.span ℝ {w | ∃ j : Fin d, j.val < q ∧ w = u j} = Submodule.span ℝ (Set.range fun j : Fin q ↦ fun i : Fin d ↦ Lambda i j)",
+  "lockedRootSignature": "theorem pca_recovers_isotropic_factor_loading_space {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (d q : ℕ) (hd : 2 ≤ d) (hq₀ : 1 ≤ q) (hqd : q < d) (F : Ω → Fin q → ℝ) (epsilon : Ω → Fin d → ℝ) (hF_L2 : MemLp F 2 P) (hε_L2 : MemLp epsilon 2 P) (sigma : ℝ) (hsigma : 0 ≤ sigma) (hFmean : ∫ ω, F ω ∂P = 0) (hFcov : ∀ i j, ∫ ω, F ω i * F ω j ∂P = if i = j then 1 else 0) (hεmean : ∫ ω, epsilon ω ∂P = 0) (hεcov : ∀ i j, ∫ ω, epsilon ω i * epsilon ω j ∂P = if i = j then sigma ^ 2 else 0) (hcross : ∀ i j, ∫ ω, F ω i * epsilon ω j ∂P = 0) (Lambda : Matrix (Fin d) (Fin q) ℝ) (hLambda : Function.Injective Lambda.mulVec) (mu : Fin d → ℝ) (u : Fin d → Fin d → ℝ) (rho : Fin d → ℝ) (horth : ∀ j k, dotProduct (u j) (u k) = if j = k then 1 else 0) (hspan : Submodule.span ℝ (Set.range u) = ⊤) : let X : Ω → Fin d → ℝ := fun ω ↦ mu + Lambda *ᵥ F ω + epsilon ω let Sigma : Matrix (Fin d) (Fin d) ℝ := fun i j ↦ ∫ ω, (X ω - mu) i * (X ω - mu) j ∂P (∀ j, Sigma *ᵥ u j = rho j • u j) → Antitone rho → Submodule.span ℝ {w | ∃ j : Fin d, j.val < q ∧ w = u j} = Submodule.span ℝ (Set.range fun j : Fin q ↦ fun i : Fin d ↦ Lambda i j)",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.0ad7095b2d223ad5e9c37c20.json",
+      "receiptId": "job-final.0ad7095b2d223ad5e9c37c20",
+      "receiptHash": "1a4ab8a72ed13588604b146448f51daee135aa28c8295ffa69f04de4335c3e5f",
+      "finalizedAt": 1792266761729,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "6ac83abf15d0fe415d33afb9804794e09e7b46c50e1cbd19bdbfddf70b8b7451"
+    }
+  ],
+  "slot": 1,
+  "keyIndex": 2,
+  "nodes": 7,
+  "auxiliaryNodes": 6,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 7
+  },
+  "failedActions": [],
+  "completedActions": 21
+}

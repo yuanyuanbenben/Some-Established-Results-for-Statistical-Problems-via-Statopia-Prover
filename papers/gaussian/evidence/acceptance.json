@@ -1,0 +1,18 @@
+{
+  "jobId": "paper_fresh_20261028t224543381z_gaussian",
+  "status": "success",
+  "boundary": null,
+  "boundaryPassed": true,
+  "remainingSorry": 0,
+  "proofPassed": true,
+  "outputDelivery": {
+    "resultStored": true,
+    "reportStatus": "completed",
+    "terminalStatus": "completed",
+    "proofHash": "73e389977985a09580f63d6d95a3d3ea50e51b6ddf1729b489505fccace10c05",
+    "completionState": "completed",
+    "leanPackage": "proof.zip",
+    "artifactDelivery": "completed"
+  },
+  "e2ePassed": true
+}

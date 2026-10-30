@@ -1,0 +1,38 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62F/local_asymptotic_power_of_asymptotically_normal_test.tex
+msc: 62F05
+topic: Local asymptotic power
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: local_asymptotic_power_of_asymptotically_normal_test
+    kind: theorem
+    lean_name: local_asymptotic_power_of_asymptotically_normal_test
+    latex_statement: |-
+      \begin{theorem}[Local asymptotic power of an asymptotically normal test]
+      Let $(\Omega,\mathcal F)$ be a measurable space. For each $n\in\mathbb N$,
+      let $P_n$ be a probability measure on this space and let
+      $\widehat\theta_n:\Omega\to\mathbb R$ be measurable. Fix
+      $\theta_0,h,c,\sigma\in\mathbb R$ with $\sigma>0$. Assume that, as
+      $n\to\infty$, the distribution under $P_{n+1}$ of
+      \[
+       \frac{\sqrt{n+1}}{\sigma}
+       \left(\widehat\theta_{n+1}-
+       \left(\theta_0+\frac{h}{\sqrt{n+1}}\right)\right)
+      \]
+      converges weakly to $N(0,1)$. Then
+      \[
+       P_{n+1}\!\left(
+       \frac{\sqrt{n+1}\,(\widehat\theta_{n+1}-\theta_0)}{\sigma}>c
+       \right)
+       \longrightarrow
+       1-\Phi\!\left(c-\frac{h}{\sigma}\right),
+      \]
+      where $\Phi$ is the cumulative distribution function of $N(0,1)$.
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

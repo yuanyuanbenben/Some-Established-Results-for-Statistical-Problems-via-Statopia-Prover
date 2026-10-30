@@ -1,0 +1,31 @@
+\begin{theorem}[Autocovariance of an MA(1) Process]
+Let $\theta,\sigma^2\in\mathbb{R}$ with $\sigma^2\ge 0$. Let
+$(\varepsilon_t)_{t\in\mathbb{Z}}$ be real-valued innovations with
+\[
+\mathbb{E}[\varepsilon_t]=0,
+\qquad
+\operatorname{Var}(\varepsilon_t)=\sigma^2
+\]
+for every $t$, and assume that distinct innovations are uncorrelated:
+\[
+\operatorname{Cov}(\varepsilon_s,\varepsilon_t)=0
+\qquad
+\text{whenever }s\ne t.
+\]
+Define the moving-average process
+\[
+X_t=\varepsilon_t+\theta\varepsilon_{t-1}.
+\]
+For $h\ge 0$, define
+\[
+\gamma(h)=\operatorname{Cov}(X_t,X_{t+h}).
+\]
+Then $\gamma(h)$ does not depend on $t$, and
+\[
+\gamma(0)=(1+\theta^2)\sigma^2,
+\qquad
+\gamma(1)=\theta\sigma^2,
+\qquad
+\gamma(h)=0\quad\text{for every }h\ge 2.
+\]
+\end{theorem}

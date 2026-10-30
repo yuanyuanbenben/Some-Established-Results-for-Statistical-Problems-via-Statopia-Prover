@@ -1,0 +1,49 @@
+{
+  "jobId": "paper_fresh_20261028t224543381z_eills",
+  "status": "completed",
+  "boundary": {
+    "pass": true,
+    "remainingSorry": 0,
+    "remainingAxiom": 0,
+    "referenceCited": 0,
+    "report": "\n[FINAL-LAKE-BUILD-OK v1]\n[AXIOM-OK] 1 decl(s) checked. axiomUsage={\"status\":\"known\",\"sourceSha256\":\"cd632a607e1ff45c8dca314b8a307964e73356e54d54ac7a56b07131bd4fa33b\",\"approvedExternalAxioms\":[\"ext_model_1\"],\"declarations\":[{\"name\":\"Statlib.Imported.Theorem_4_2_Strong_Convexity_with_respect_to_beta_star_thm_global_strong_convexity_main\",\"standardAxioms\":[\"Classical.choice\",\"Quot.sound\",\"propext\"],\"externalAxioms\":[]}]}\n[INTEGRITY-OK] 1 signature(s) preserved. 0 locked Sub file(s) preserved. proof_sha256=cd632a607e1ff45c8dca314b8a307964e73356e54d54ac7a56b07131bd4fa33b\nmodules=ProverJobs.paper_fresh_20261028t224543381z_eills.Vocabulary,ProverJobs.paper_fresh_20261028t224543381z_eills.Base,ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_358034260_300c6b38_04387300,ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_2170213884_2b763c53_9595b7b7,ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_3875025507_3baf775f_b5f784cb,ProverJobs.paper_fresh_20261028t224543381z_eills.ExternalNodes.Node_6515c10a3b2a6920f75d,ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_3737555372_fcbbc30d_9f7fd90a,ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_3749859444_25f5fe8c_089dcd67,ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_504088973_94182ea9_eca1816b,ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes,ProverJobs.paper_fresh_20261028t224543381z_eills.Main",
+    "axiomAudit": {
+      "status": "verified",
+      "forbiddenAxioms": [],
+      "usage": {
+        "status": "known",
+        "sourceSha256": "cd632a607e1ff45c8dca314b8a307964e73356e54d54ac7a56b07131bd4fa33b",
+        "approvedExternalAxioms": [
+          "ext_model_1"
+        ],
+        "declarations": [
+          {
+            "name": "Statlib.Imported.Theorem_4_2_Strong_Convexity_with_respect_to_beta_star_thm_global_strong_convexity_main",
+            "standardAxioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "externalAxioms": []
+          }
+        ]
+      }
+    },
+    "statementAmended": false,
+    "finalizationStatus": "verified"
+  },
+  "boundaryPassed": true,
+  "remainingSorry": 0,
+  "proofPassed": true,
+  "outputDelivery": {
+    "resultStored": true,
+    "reportStatus": "completed",
+    "initialResultStored": true,
+    "terminalStatus": "completed",
+    "proofHash": "cd632a607e1ff45c8dca314b8a307964e73356e54d54ac7a56b07131bd4fa33b",
+    "completionState": "completed",
+    "leanPackage": "proof.zip",
+    "artifactDelivery": "completed"
+  },
+  "e2ePassed": true
+}

@@ -1,0 +1,70 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/bootstrap_sample_variance_conditional_mean.tex
+msc: 62G09
+topic: Bootstrap variance estimation
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: bootstrap_sample_variance_conditional_mean
+    kind: theorem
+    lean_name: bootstrap_sample_variance_conditional_mean
+    latex_statement: >-
+      \begin{theorem}[Conditional mean of the bootstrap sample variance]
+
+      Let $(\Omega,\mathcal F,P)$ be a probability space and let $n\geq2$. Let
+
+      $X_0,\ldots,X_{n-1}:\Omega\to\mathbb R$ be measurable and mutually
+
+      independent, with every $X_i$ identically distributed to $X_0$, and assume
+
+      $\mathbb E_P[X_0^2]$ is finite. Let
+
+      $I_0,\ldots,I_{n-1}:\Omega\to\{0,\ldots,n-1\}$ be measurable and mutually
+
+      independent, and assume
+
+      \[
+       P(I_j=i)=\frac1n
+       \quad\text{for every }i,j\in\{0,\ldots,n-1\}.
+      \]
+
+      Assume also that the random vector $(I_0,\ldots,I_{n-1})$ is independent
+
+      of $(X_0,\ldots,X_{n-1})$. Define
+
+      \[
+       X_j^*(\omega)=X_{I_j(\omega)}(\omega),
+       \qquad
+       \overline X(\omega)=\frac1n\sum_{i=0}^{n-1}X_i(\omega),
+       \qquad
+       \overline X^*(\omega)=\frac1n\sum_{j=0}^{n-1}X_j^*(\omega),
+      \]
+
+      \[
+       V(\omega)=\frac1n\sum_{i=0}^{n-1}
+       (X_i(\omega)-\overline X(\omega))^2,
+       \qquad
+       V^*(\omega)=\frac1n\sum_{j=0}^{n-1}
+       (X_j^*(\omega)-\overline X^*(\omega))^2.
+      \]
+
+      Let $\mathcal G$ be the sigma-algebra on $\Omega$ pulled back from the
+
+      measurable data vector
+      $\omega\mapsto(X_0(\omega),\ldots,X_{n-1}(\omega))$.
+
+      Then
+
+      \[
+       \mathbb E_P[V^*\mid\mathcal G]
+       =\frac{n-1}{n}V
+       \quad P\text{-almost surely}.
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

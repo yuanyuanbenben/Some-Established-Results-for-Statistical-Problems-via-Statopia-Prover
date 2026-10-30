@@ -1,0 +1,47 @@
+{
+  "jobId": "paper_fresh_20261028t224543381z_data_thinning",
+  "status": "completed",
+  "boundary": {
+    "pass": true,
+    "remainingSorry": 0,
+    "remainingAxiom": 0,
+    "referenceCited": 0,
+    "report": "\n[FINAL-LAKE-BUILD-OK v1]\n[AXIOM-OK] 1 decl(s) checked. axiomUsage={\"status\":\"known\",\"sourceSha256\":\"cae1705b1dba9b193306e42dc96a7af7867783df729c1d7f33ba61bbf453e1f4\",\"approvedExternalAxioms\":[],\"declarations\":[{\"name\":\"Statlib.Imported.Theorem_1_Main_theorem_thm_generalized_thinning\",\"standardAxioms\":[\"Classical.choice\",\"Quot.sound\",\"propext\"],\"externalAxioms\":[]}]}\n[INTEGRITY-OK] 1 signature(s) preserved. 0 locked Sub file(s) preserved. proof_sha256=cae1705b1dba9b193306e42dc96a7af7867783df729c1d7f33ba61bbf453e1f4\nmodules=ProverJobs.paper_fresh_20261028t224543381z_data_thinning.Vocabulary,ProverJobs.paper_fresh_20261028t224543381z_data_thinning.Base,ProverJobs.paper_fresh_20261028t224543381z_data_thinning.ProvedNodes.Node_4104113938_66a528d1_b3becaea,ProverJobs.paper_fresh_20261028t224543381z_data_thinning.ProvedNodes,ProverJobs.paper_fresh_20261028t224543381z_data_thinning.Main",
+    "axiomAudit": {
+      "status": "verified",
+      "forbiddenAxioms": [],
+      "usage": {
+        "status": "known",
+        "sourceSha256": "cae1705b1dba9b193306e42dc96a7af7867783df729c1d7f33ba61bbf453e1f4",
+        "approvedExternalAxioms": [],
+        "declarations": [
+          {
+            "name": "Statlib.Imported.Theorem_1_Main_theorem_thm_generalized_thinning",
+            "standardAxioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "externalAxioms": []
+          }
+        ]
+      }
+    },
+    "statementAmended": false,
+    "finalizationStatus": "verified"
+  },
+  "boundaryPassed": true,
+  "remainingSorry": 0,
+  "proofPassed": true,
+  "outputDelivery": {
+    "resultStored": true,
+    "reportStatus": "completed",
+    "initialResultStored": true,
+    "terminalStatus": "completed",
+    "proofHash": "cae1705b1dba9b193306e42dc96a7af7867783df729c1d7f33ba61bbf453e1f4",
+    "completionState": "completed",
+    "leanPackage": "proof.zip",
+    "artifactDelivery": "completed"
+  },
+  "e2ePassed": true
+}

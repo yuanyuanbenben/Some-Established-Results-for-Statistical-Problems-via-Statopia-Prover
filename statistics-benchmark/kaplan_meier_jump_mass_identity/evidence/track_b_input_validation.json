@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "kaplan_meier_jump_mass_identity"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 47374
+}

@@ -1,0 +1,63 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/kernel_density_mean_variance.tex
+msc: 62G07
+topic: Kernel-density mean and variance
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: kernel_density_mean_variance
+    kind: theorem
+    lean_name: kernel_density_mean_variance
+    latex_statement: >-
+      \begin{theorem}[Mean and variance of a kernel density estimator]
+
+      Let $(\Omega,\mathcal F,P)$ be a probability space and let $n\geq1$. Let
+
+      $X_0,\ldots,X_{n-1}:\Omega\to\mathbb R$ be measurable and mutually
+
+      independent. Let $p:\mathbb R\to\mathbb R$ be measurable, and assume that
+
+      every $X_i$ has distribution with density $x\mapsto\max\{p(x),0\}$ with
+
+      respect to Lebesgue measure. Let $p_{\max}\geq0$, and assume that
+
+      $0\leq p(x)\leq p_{\max}$ for Lebesgue-almost every $x$. Let
+
+      $K:\mathbb R\to\mathbb R$ be measurable and nonnegative everywhere, with
+
+      $K$ integrable,
+
+      \[
+       \int_{\mathbb R}K(u)\,du=1,
+      \]
+
+      and $u\mapsto K(u)^2$ integrable. Fix $x\in\mathbb R$ and $h>0$, and
+      define
+
+      \[
+       \widehat p_h(\omega)=\frac1{nh}
+       \sum_{i=0}^{n-1}K\!\left(\frac{X_i(\omega)-x}{h}\right).
+      \]
+
+      Then
+
+      \[
+       \mathbb E_P[\widehat p_h]
+       =\int_{\mathbb R}K(u)p(x+hu)\,du
+      \]
+
+      and
+
+      \[
+       \operatorname{Var}_P(\widehat p_h)
+       =\frac1{nh}\int_{\mathbb R}K(u)^2p(x+hu)\,du
+       -\frac1n\left(\int_{\mathbb R}K(u)p(x+hu)\,du\right)^2.
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

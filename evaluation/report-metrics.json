@@ -1,0 +1,72 @@
+{
+  "model": "deepseek-v4-flash",
+  "price_basis": "Normalized off-peak estimate for observed usage, not historical invoices",
+  "price_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "price_observed_date": "2026-10-30",
+  "usd_per_million_tokens": {
+    "inputTokens": 0.15,
+    "cacheReadTokens": 0.003,
+    "cacheWriteTokens": 0.15,
+    "outputTokens": 0.6
+  },
+  "single_file": {
+    "cases": 41,
+    "lean_lines": 5190,
+    "seconds": 80720.926,
+    "mean_minutes": 32.81338455284553,
+    "offpeak_usd": 9.008676846,
+    "mean_usd": 0.21972382551219513,
+    "usd_per_line": 0.0017357758855491329,
+    "tokens": {
+      "inputTokens": 21804825,
+      "cacheReadTokens": 11564032,
+      "cacheWriteTokens": 0,
+      "outputTokens": 9505435
+    }
+  },
+  "deep": {
+    "cases": 42,
+    "lean_lines": 32489,
+    "seconds": 226302.0,
+    "mean_minutes": 89.80238095238094,
+    "offpeak_usd": 37.91607477,
+    "mean_usd": 0.902763685,
+    "usd_per_line": 0.0011670434537843577,
+    "tokens": {
+      "inputTokens": 143507539,
+      "cacheReadTokens": 108781440,
+      "cacheWriteTokens": 0,
+      "outputTokens": 26772666
+    }
+  },
+  "combined": {
+    "cases": 83,
+    "lean_lines": 37679,
+    "seconds": 307022.926,
+    "mean_minutes": 61.65118995983935,
+    "offpeak_usd": 46.924751616,
+    "mean_usd": 0.5653584532048193,
+    "usd_per_line": 0.0012453820859364634,
+    "tokens": {
+      "inputTokens": 165312364,
+      "cacheReadTokens": 120345472,
+      "cacheWriteTokens": 0,
+      "outputTokens": 36278101
+    }
+  },
+  "imo": {
+    "cases": 6,
+    "lean_lines": 14343,
+    "seconds": 40604.365,
+    "mean_minutes": 112.78990277777778,
+    "offpeak_usd": 25.65873672,
+    "mean_usd": 4.27645612,
+    "usd_per_line": 0.001788937929303493,
+    "tokens": {
+      "inputTokens": 82453988,
+      "cacheReadTokens": 19911040,
+      "cacheWriteTokens": 0,
+      "outputTokens": 22051509
+    }
+  }
+}

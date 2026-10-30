@@ -1,0 +1,19 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=Msc62GroundTruth.chebyshev_sample_mean_bound
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:17:5: warning: unused variable `hX_meas`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:22:5: warning: unused variable `hX_ident`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Msc62GroundTruth.chebyshev_sample_mean_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

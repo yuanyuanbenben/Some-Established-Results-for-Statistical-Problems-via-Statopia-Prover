@@ -1,0 +1,158 @@
+{
+  "source": "/home/ai4stat/benchmark_run/runs/full_comparison_b_after_main_20260820T033054Z/comparison_track_b/comparison_units/easy/least_squares_residual_sum/native_benchmark/track_b/62J05/least_squares_residual_sum/attempt_1/proof_log.jsonl",
+  "source_sha256": "ad69c6092bcfeac3640160c1e2a5812ce640d5e6974e18b485f401cc7d3fd710",
+  "records": [
+    {
+      "ts": "2026-08-20T03:36:10.365Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 3004,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 9508
+    },
+    {
+      "ts": "2026-08-20T03:37:06.843Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 12910,
+      "cacheReadTokens": 2944,
+      "cacheWriteTokens": 0,
+      "outputTokens": 3349
+    },
+    {
+      "ts": "2026-08-20T03:37:29.116Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 3479,
+      "cacheReadTokens": 19200,
+      "cacheWriteTokens": 0,
+      "outputTokens": 3398
+    },
+    {
+      "ts": "2026-08-20T03:37:59.309Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 3733,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 2607
+    },
+    {
+      "ts": "2026-08-20T03:42:41.689Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 15182,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 44151
+    },
+    {
+      "ts": "2026-08-20T03:43:29.686Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "llm_config",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 4425,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 4149
+    },
+    {
+      "ts": "2026-08-20T03:44:47.257Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "llm_config",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 6860,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 15000
+    },
+    {
+      "ts": "2026-08-20T03:46:18.555Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 55216,
+      "cacheReadTokens": 6400,
+      "cacheWriteTokens": 0,
+      "outputTokens": 15010
+    },
+    {
+      "ts": "2026-08-20T03:47:52.819Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "llm_config",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 7448,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 12832
+    },
+    {
+      "ts": "2026-08-20T03:47:57.500Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "llm_config",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 5013,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 14904
+    },
+    {
+      "ts": "2026-08-20T03:50:32.068Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 66204,
+      "cacheReadTokens": 12160,
+      "cacheWriteTokens": 0,
+      "outputTokens": 23643
+    },
+    {
+      "ts": "2026-08-20T03:51:56.211Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_least_squares_residual_sum_native-b:least_squares_residual_sum:1:171d2ec7-7d3d-460b-8a98-eef8ac2b2b05",
+      "sessionNumber": 1,
+      "channel": "llm_config",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 207,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 603
+    }
+  ],
+  "totals": {
+    "inputTokens": 183681,
+    "cacheReadTokens": 40704,
+    "cacheWriteTokens": 0,
+    "outputTokens": 149154
+  },
+  "historical_metrics_complete": false,
+  "scope": "Observed callbacks only; input/output reconcile with metrics, not provider invoices."
+}

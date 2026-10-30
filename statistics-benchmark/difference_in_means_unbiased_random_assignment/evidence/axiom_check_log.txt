@@ -1,0 +1,18 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=Msc62GroundTruth.difference_in_means_unbiased_random_assignment
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:20:5: warning: unused variable `hW_meas`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Msc62GroundTruth.difference_in_means_unbiased_random_assignment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+## stderr
+

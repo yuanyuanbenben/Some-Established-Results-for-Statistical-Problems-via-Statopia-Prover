@@ -1,0 +1,146 @@
+{
+  "source": "/home/ai4stat/benchmark_run/runs/full_comparison_b_after_main_20260820T033054Z/comparison_track_b/comparison_units/hard/observed_failure_mass_under_independent_right_censoring/native_benchmark/track_b/62N01/observed_failure_mass_under_independent_right_censoring/attempt_1/proof_log.jsonl",
+  "source_sha256": "eb857d68e2bd80a6894c9db2400caa6ceab26173a0131585fb90c761af7622f4",
+  "records": [
+    {
+      "ts": "2026-08-20T03:35:20.756Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 3061,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 2290
+    },
+    {
+      "ts": "2026-08-20T03:35:25.694Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 3300,
+      "cacheReadTokens": 5248,
+      "cacheWriteTokens": 0,
+      "outputTokens": 221
+    },
+    {
+      "ts": "2026-08-20T03:36:01.701Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 2498,
+      "cacheReadTokens": 8704,
+      "cacheWriteTokens": 0,
+      "outputTokens": 2881
+    },
+    {
+      "ts": "2026-08-20T03:36:50.656Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 86,
+      "cacheReadTokens": 11648,
+      "cacheWriteTokens": 0,
+      "outputTokens": 2655
+    },
+    {
+      "ts": "2026-08-20T03:37:14.977Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 12112,
+      "cacheReadTokens": 2816,
+      "cacheWriteTokens": 0,
+      "outputTokens": 3407
+    },
+    {
+      "ts": "2026-08-20T03:37:24.853Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 13014,
+      "cacheReadTokens": 2816,
+      "cacheWriteTokens": 0,
+      "outputTokens": 1716
+    },
+    {
+      "ts": "2026-08-20T03:37:34.704Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 2498,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 515
+    },
+    {
+      "ts": "2026-08-20T03:38:03.165Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 14681,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 4146
+    },
+    {
+      "ts": "2026-08-20T03:38:06.275Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 12597,
+      "cacheReadTokens": 6272,
+      "cacheWriteTokens": 0,
+      "outputTokens": 86
+    },
+    {
+      "ts": "2026-08-20T03:38:53.289Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 7196,
+      "cacheReadTokens": 12032,
+      "cacheWriteTokens": 0,
+      "outputTokens": 7052
+    },
+    {
+      "ts": "2026-08-20T03:39:54.458Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_observed_failure_mass_under_independent_right_censoring_native-b:observed_failure_mass_under_independent_right_censoring:1:3dd317b4-25ed-4a46-ae1a-0b38b0953536",
+      "sessionNumber": 1,
+      "channel": "llm_config",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 214,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 183
+    }
+  ],
+  "totals": {
+    "inputTokens": 71257,
+    "cacheReadTokens": 49536,
+    "cacheWriteTokens": 0,
+    "outputTokens": 25152
+  },
+  "historical_metrics_complete": false,
+  "scope": "Observed callbacks only; input/output reconcile with metrics, not provider invoices."
+}

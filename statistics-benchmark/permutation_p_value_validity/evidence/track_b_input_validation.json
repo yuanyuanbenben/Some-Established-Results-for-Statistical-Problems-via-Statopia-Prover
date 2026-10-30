@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "permutation_p_value_validity"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 45639
+}

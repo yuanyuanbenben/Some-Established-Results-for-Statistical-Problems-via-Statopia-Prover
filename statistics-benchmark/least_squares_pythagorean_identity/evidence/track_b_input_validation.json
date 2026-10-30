@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "least_squares_pythagorean_identity"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 56324
+}

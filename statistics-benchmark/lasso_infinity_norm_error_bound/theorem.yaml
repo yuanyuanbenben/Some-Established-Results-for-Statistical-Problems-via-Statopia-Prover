@@ -1,0 +1,68 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62J/lasso_infinity_norm_error_bound.tex
+msc: 62J07
+topic: Lasso sup-norm error
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: lasso_infinity_norm_error_bound
+    kind: theorem
+    lean_name: lasso_infinity_norm_error_bound
+    latex_statement: |-
+      \begin{theorem}[Lasso infinity-norm error bound]
+      Let $(\Omega,\mathcal F,P)$ be a probability space, let $n\ge 1$ and
+      $d\ge 2$, and let $\sigma>0$.  Let $X\in\mathbb R^{n\times d}$ be a
+      fixed design matrix whose columns satisfy
+      \[
+        \frac{1}{n}\sum_{i=1}^n X_{ij}^2\le 1
+        \qquad (j=1,\ldots,d).
+      \]
+      Let $S\subseteq\{1,\ldots,d\}$, let $\gamma>0$, and assume that every
+      $\Delta\in\mathbb R^d$ satisfying
+      \[
+        \sum_{j\notin S}|\Delta_j|
+        \le 3\sum_{j\in S}|\Delta_j|
+      \]
+      also satisfies
+      \[
+        \max_j\left|\left\{\frac1nX^\top X\Delta\right\}_j\right|
+        \ge \gamma\max_j|\Delta_j|.
+      \]
+      Let $\theta^\star\in\mathbb R^d$ satisfy $\theta_j^\star=0$ for every
+      $j\notin S$.  Let $w:\Omega\to\mathbb R^n$ be such that, for every
+      $a\in\mathbb R^n$, the random variable $a^\top w$ has the Gaussian law
+      $N(0,\sigma^2 a^\top a)$ under $P$.  Define
+      \[
+        \lambda=4\sigma\sqrt{\frac{\log d}{n}},
+        \qquad y(\omega)=X\theta^\star+w(\omega),
+      \]
+      \[
+        Q_\omega(\theta)=\frac{\|y(\omega)-X\theta\|_2^2}{2n}
+          +\lambda\sum_{j=1}^d|\theta_j|,
+        \qquad
+        \mathcal M(\omega)=
+          \{\theta:Q_\omega(\theta)\le Q_\omega(\eta)
+            \text{ for every }\eta\in\mathbb R^d\},
+      \]
+      and
+      \[
+        G=\left\{\omega:
+          \text{every }\widehat\theta\in\mathcal M(\omega)\text{ satisfies }
+          \max_j|\widehat\theta_j-\theta_j^\star|
+          \le \frac{6\sigma}{\gamma}\sqrt{\frac{\log d}{n}}
+        \right\}.
+      \]
+      Then $G$ is null-measurable with respect to $P$ and
+      \[
+        P(G)\ge \operatorname{ofReal}\!\left(1-\frac{2}{d}\right),
+      \]
+      where $\operatorname{ofReal}$ denotes the canonical embedding of a
+      nonnegative real number into the extended nonnegative reals, with negative
+      inputs truncated to zero.
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

@@ -1,0 +1,27 @@
+\begin{theorem}[Eventual recovery of a unique Fr\'echet mean on a finite space]
+Let $(\Omega,\mathcal F,P)$ be a probability space.  Let
+$(\mathcal X,d)$ be a nonempty finite metric space equipped with a linear
+order and with a measurable structure in which every singleton is
+measurable.  Let $X_i:\Omega\to\mathcal X$, $i\ge0$, be measurable,
+jointly independent random variables, each having the same distribution as
+$X_0$.  Let $\mu\in\mathcal X$ satisfy, for every $z\ne\mu$,
+\[
+ \sum_{x\in\mathcal X}P\{X_0=x\}\,d(\mu,x)^2
+ <
+ \sum_{x\in\mathcal X}P\{X_0=x\}\,d(z,x)^2,
+\]
+where each probability is interpreted as its real value.  For each
+$n\ge0$, let $\widehat\mu_n:\Omega\to\mathcal X$ be measurable.  Assume
+that, for every $n\ge1$, every $\omega$, and every $z\in\mathcal X$,
+\[
+ \sum_{i=0}^{n-1}d(\widehat\mu_n(\omega),X_i(\omega))^2
+ \le
+ \sum_{i=0}^{n-1}d(z,X_i(\omega))^2,
+\]
+and assume the smallest-minimizer rule: whenever the two displayed sums are
+equal, $\widehat\mu_n(\omega)\le z$.  Then
+\[
+ P\left\{\omega:\text{there is an }N\ge1\text{ such that }
+   \widehat\mu_n(\omega)=\mu\text{ for every }n\ge N\right\}=1.
+\]
+\end{theorem}

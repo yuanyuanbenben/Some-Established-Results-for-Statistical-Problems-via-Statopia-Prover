@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "binary_mean_nonidentification"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 46777
+}

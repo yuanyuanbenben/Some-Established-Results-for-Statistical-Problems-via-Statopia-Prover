@@ -1,0 +1,41 @@
+import Mathlib
+
+open MeasureTheory ProbabilityTheory Filter Topology
+
+theorem local_asymptotic_power_of_asymptotically_normal_test
+    {Ω : Type*} [MeasurableSpace Ω]
+    (P : ℕ → ProbabilityMeasure Ω)
+    (thetaHat : ℕ → Ω → ℝ)
+    (theta₀ h c sigma : ℝ)
+    (hsigma : 0 < sigma)
+    (hthetaHat : ∀ n, Measurable (thetaHat n))
+    (hasymptotic_normality :
+      Tendsto
+        (fun n ↦
+          ProbabilityMeasure.map (P (n + 1))
+            (show
+              AEMeasurable
+                (fun ω ↦
+                  Real.sqrt (n + 1 : ℝ) *
+                      (thetaHat (n + 1) ω -
+                        (theta₀ + h / Real.sqrt (n + 1 : ℝ))) /
+                    sigma)
+                (P (n + 1)) by
+              fun_prop))
+        atTop
+        (𝓝 (⟨gaussianReal 0 1, inferInstance⟩ :
+          ProbabilityMeasure ℝ))) :
+    Tendsto
+      (fun n ↦
+        ENNReal.toReal
+          ((P (n + 1) : Measure Ω)
+            {ω |
+              Real.sqrt (n + 1 : ℝ) *
+                  (thetaHat (n + 1) ω - theta₀) /
+                sigma >
+              c}))
+      atTop
+      (𝓝
+        (1 -
+          cdf (gaussianReal 0 1) (c - h / sigma))) := by
+  sorry

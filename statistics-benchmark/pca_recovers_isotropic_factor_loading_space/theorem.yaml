@@ -1,0 +1,63 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62H/pca_recovers_isotropic_factor_loading_space.tex
+msc: 62H25
+topic: Factor-model PCA recovery
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: pca_recovers_isotropic_factor_loading_space
+    kind: theorem
+    lean_name: pca_recovers_isotropic_factor_loading_space
+    latex_statement: |-
+      \begin{theorem}[Recovery of an isotropic factor-loading space by PCA]
+      Let $(\Omega,\mathcal F,P)$ be a probability space, let $d\geq2$ and
+      $1\leq q<d$, and let $F:\Omega\to\mathbb R^q$ and
+      $\varepsilon:\Omega\to\mathbb R^d$ belong to $L^2(P)$.  Let
+      $\sigma\geq0$.  Assume
+      \[
+        \int_\Omega F\,dP=0,
+        \qquad
+        \int_\Omega F_iF_j\,dP=
+        \begin{cases}1,&i=j,\\0,&i\ne j,\end{cases}
+      \]
+      for all factor coordinates $i,j$, and assume
+      \[
+        \int_\Omega \varepsilon\,dP=0,
+        \qquad
+        \int_\Omega \varepsilon_i\varepsilon_j\,dP=
+        \begin{cases}\sigma^2,&i=j,\\0,&i\ne j,\end{cases}
+      \]
+      for all observed coordinates $i,j$.  Assume also that
+      \[
+        \int_\Omega F_i\varepsilon_j\,dP=0
+      \]
+      for every factor coordinate $i$ and observed coordinate $j$.
+      Let $\Lambda$ be a real $d\times q$ matrix whose linear map
+      $z\mapsto\Lambda z$ is injective, and let $\mu\in\mathbb R^d$.  Let
+      $u_0,\ldots,u_{d-1}\in\mathbb R^d$ and
+      $\rho_0,\ldots,\rho_{d-1}\in\mathbb R$.  Assume that
+      \[
+        u_j^{\mathsf T}u_k=
+        \begin{cases}1,&j=k,\\0,&j\ne k,\end{cases}
+      \]
+      for all $j,k$, and that the linear span of $\{u_0,\ldots,u_{d-1}\}$ is
+      $\mathbb R^d$.  Define
+      \[
+        X=\mu+\Lambda F+\varepsilon,
+        \qquad
+        \Sigma_{ij}=\int_\Omega (X_i-\mu_i)(X_j-\mu_j)\,dP.
+      \]
+      Assume $\Sigma u_j=\rho_j u_j$ for every $j$, and assume that the sequence
+      $\rho_j$ is nonincreasing in $j$.  Then
+      \[
+        \operatorname{span}\{u_j:0\leq j<q\}
+        =
+        \operatorname{span}\{\Lambda_{\cdot j}:0\leq j<q\}.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

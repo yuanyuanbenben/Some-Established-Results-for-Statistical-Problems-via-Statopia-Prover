@@ -1,0 +1,7 @@
+{
+  "inputPath": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_checkpoint_fresh_three_20260926T052914Z/imo2026_p6/input/input.lean",
+  "inputHash": "c917c94a5ef5f33677b8147908dd6a603bd210581ba927c588ccade78fa701c9",
+  "sourceProofFile": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_checkpoint_fresh_three_20260926T052914Z/imo2026_p6/input/proof-complete.md",
+  "sourceProofBytes": 9746,
+  "initialMathRouteFile": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_checkpoint_fresh_three_20260926T052914Z/imo2026_p6/input/math-route.json"
+}

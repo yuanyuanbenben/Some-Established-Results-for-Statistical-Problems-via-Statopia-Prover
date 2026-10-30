@@ -1,0 +1,15 @@
+{
+  "case": "local_asymptotic_power_of_asymptotically_normal_test",
+  "msc": "62F05",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": 0.695306069,
+  "unknown_reservation_usd": 0.0,
+  "cost_coverage": "completed journal usage; unresolved reservations separate",
+  "mode": "deep",
+  "seconds": 3375.0,
+  "lean_files": 6,
+  "lean_lines": 212,
+  "nodes": 3,
+  "job_id": "deep_benchmark42_3p_2k5_20261017T100521Z_q36"
+}

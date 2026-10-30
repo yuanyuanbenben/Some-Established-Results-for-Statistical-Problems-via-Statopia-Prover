@@ -1,0 +1,55 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62H/multinomial_count_moments.tex
+msc: 62H10
+topic: Multivariate distribution theory
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: multinomial_count_moments
+    kind: theorem
+    lean_name: multinomial_count_moments
+    latex_statement: >-
+      \begin{theorem}[Multinomial Count Mean, Variance, and Covariance]
+
+      Let $k,n\in\mathbb{N}$ with $k\ge 1$. Let
+
+      $p_1,\ldots,p_k\in\mathbb{R}$ satisfy $p_a\ge 0$ for every $a$ and
+
+      \[
+
+      \sum_{a=1}^k p_a=1.
+
+      \]
+
+      Run $n$ independent categorical trials with category probabilities
+
+      $p_1,\ldots,p_k$. Let $N_a$ be the number of trials falling in category
+      $a$.
+
+      Then, for every category $a$,
+
+      \[
+
+      \mathbb E[N_a]=np_a,
+
+      \qquad
+
+      \operatorname{Var}(N_a)=np_a(1-p_a),
+
+      \]
+
+      and for distinct categories $a\ne b$,
+
+      \[
+
+      \operatorname{Cov}(N_a,N_b)=-np_ap_b.
+
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

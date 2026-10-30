@@ -1,0 +1,20 @@
+\begin{theorem}[Median Minimizes Absolute Deviations]
+Let $n\in\mathbb{N}$ with $n\ge 1$, and let
+$x_1,\ldots,x_n\in\mathbb{R}$. Counts below include multiplicity. A real
+number $m$ is called a sample median if
+\[
+2\,\#\{i:x_i\le m\}\ge n
+\qquad\text{and}\qquad
+2\,\#\{i:x_i\ge m\}\ge n.
+\]
+Define
+\[
+L(a)=\sum_{i=1}^n |x_i-a|.
+\]
+Then every sample median $m$ minimizes $L$:
+\[
+L(m)\le L(a)
+\qquad
+\text{for every }a\in\mathbb{R}.
+\]
+\end{theorem}

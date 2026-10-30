@@ -1,0 +1,58 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62E/asymptotic_normality_of_sample_variance.tex
+msc: "62E20"
+topic: Sample-variance asymptotic normality
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: asymptotic_normality_of_sample_variance
+    kind: theorem
+    lean_name: asymptotic_normality_of_sample_variance
+    latex_statement: >-
+      \begin{theorem}[Asymptotic Normality of the Sample Variance]
+
+      Let $(\Omega,\mathcal A,P)$ be a probability space and let
+
+      $(X_i)_{i\ge0}$ be a sequence of measurable, independent real-valued
+      random
+
+      variables, each having the same distribution as $X_0$.  Let
+
+      $\mu,v,m_4\in\mathbb R$ and assume
+
+      \[
+       \int |X_0|^4dP<\infty,\qquad
+       \int X_0\,dP=\mu,
+      \]
+
+      \[
+       \int(X_0-\mu)^2dP=v,\qquad
+       \int(X_0-\mu)^4dP=m_4,\qquad
+       v^2<m_4.
+      \]
+
+      Let $G:\Omega\to\mathbb R$ be measurable and have Gaussian distribution
+
+      $\mathcal N(0,m_4-v^2)$.  For $n\in\mathbb N$, define
+
+      \[
+       \overline X_n=\frac1n\sum_{i=0}^{n-1}X_i,
+       \qquad
+       V_n=\frac1n\sum_{i=0}^{n-1}(X_i-\overline X_n)^2,
+      \]
+
+      using the convention $0^{-1}=0$.  Then, as $n\to\infty$,
+
+      \[
+        \sqrt n\,(V_n-v)\xrightarrow{\mathrm d}G
+      \]
+
+      under $P$.
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

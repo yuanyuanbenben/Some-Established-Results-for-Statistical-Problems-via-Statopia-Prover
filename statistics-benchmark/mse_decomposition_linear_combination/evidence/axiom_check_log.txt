@@ -1,0 +1,13 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=mse_decomposition_linear_combination
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+'mse_decomposition_linear_combination' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "difference_in_means_unbiased_random_assignment"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 49681
+}

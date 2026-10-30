@@ -1,0 +1,15 @@
+# Track B final Lean check
+success=true
+timedOut=false
+exitCode=0
+signal=
+seconds=13.997
+errorCategory=none
+
+## stdout
+/home/ai4stat/benchmark_run/runs/full_comparison_b_after_main_20260820T033054Z/comparison_track_b/comparison_units/medium/median_minimizes_absolute_deviation/native_benchmark/track_b/62G05/median_minimizes_absolute_deviation/attempt_1/proof_final.lean:13:13: warning: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+## stderr
+

@@ -1,0 +1,31 @@
+\begin{theorem}[Tikhonov risk bound for functional linear regression]
+Let $(\Omega,\mathcal F,P)$ be a probability space and let $H$ be a
+complete, second-countable real inner-product space.  Let
+$X:\Omega\to H$ and $Y:\Omega\to\mathbb R$ be strongly measurable, and
+assume that $\|X\|^2$ and $Y^2$ are integrable.  Let $C:H\to H$ be the
+continuous linear map satisfying, for every $h\in H$,
+\[
+  Ch=\int_\Omega\langle X(\omega),h\rangle X(\omega)\,dP(\omega).
+\]
+Let $\alpha>0$, and let $A^{-1}:H\to H$ be a continuous linear map that is
+a two-sided inverse of $C+\alpha I$:
+\[
+  A^{-1}\circ(C+\alpha I)=I,
+  \qquad
+  (C+\alpha I)\circ A^{-1}=I.
+\]
+Define
+\[
+  g=\int_\Omega Y(\omega)X(\omega)\,dP(\omega),
+\]
+\[
+  Q(b)=\int_\Omega
+    \bigl(Y(\omega)-\langle X(\omega),b\rangle\bigr)^2\,dP(\omega)
+    +\alpha\|b\|^2,
+  \qquad b\in H,
+\]
+and $b_\alpha=A^{-1}g$.  Then, for every $b\in H$,
+\[
+  Q(b)\ge Q(b_\alpha)+\alpha\|b-b_\alpha\|^2.
+\]
+\end{theorem}

@@ -1,0 +1,103 @@
+version: v1
+theorem_set: showcase_cqr_theorem1_step_002
+source_tag: romano-patterson-candes-cqr-2019-theorem1
+setting:
+  depth: 0
+defaults:
+  lean_namespace: Statlib.Workspace.Conformal
+  target_dir: ProverJobs
+  allow_axiom: false
+theorems:
+  - id: cqr.002.strict_lower_rank_event_cardinality_bound
+    title: "Deterministic finite strict-lower-rank cardinality bound"
+    kind: theorem
+    lean_name: cqr_002_strict_lower_rank_event_cardinality_bound
+    lean_namespace: Statlib.Workspace.Conformal
+    priority: 1
+    layer: conformal-rank-counting
+    target_file: ProverJobs/cqr_002_strict_lower_rank_event_cardinality_bound/Main.lean
+    dependencies:
+      - statlib.Statlib.StatFoundation.Vocabulary.Conformal.strictLowerScoreCount
+    imports:
+      - Statlib
+    latex_statement: |
+      For any positive-length finite real score vector \(s_1,\ldots,s_m\), at
+      most \(m-k\) indices can have at least \(k\) strictly lower scores.  Ties
+      do not hurt the result because the rank event uses strict inequalities.
+    assumptions:
+      - "`hm : 0 < m` is an explicit regularity hypothesis for the finite score vector indexed by `Fin m`."
+      - Do not add any further hypotheses beyond the theorem_shape.
+    proof_block:
+      theorem_shape: |
+        import Statlib
+
+        open Statlib.StatFoundation.Vocabulary
+
+        namespace Statlib.Workspace.Conformal
+
+        theorem cqr_002_strict_lower_rank_event_cardinality_bound {m k : ℕ}
+            (hm : 0 < m) (score : Fin m → ℝ) :
+            (Finset.univ.filter (fun i : Fin m => k ≤ strictLowerScoreCount score i)).card ≤
+              m - k := by
+          sorry
+
+        end Statlib.Workspace.Conformal
+    proof_body: |
+      DIRECT DEPTH-0 REPLACEMENT PROOF.  Replace the single `sorry` with exactly
+      the Lean code below.  First try this proof verbatim with `replace_sorry`;
+      do not call search, do not sort the vector, and do not introduce helper
+      theorems or probability assumptions.
+
+      Statement-integrity guard: `hm : 0 < m` is already an explicit
+      regularity hypothesis in the YAML theorem_shape. Do not add any further
+      hypothesis.
+
+      ```
+      classical
+      let B : Finset (Fin m) :=
+        Finset.univ.filter (fun i : Fin m => k ≤ strictLowerScoreCount score i)
+      change B.card ≤ m - k
+      by_cases hB : B.Nonempty
+      · obtain ⟨i0, hi0B, hmin⟩ := Finset.exists_min_image B score hB
+        have hi0_bad : k ≤ strictLowerScoreCount score i0 := by
+          simpa [B] using hi0B
+        let L : Finset (Fin m) := Finset.univ.filter (fun j : Fin m => score j < score i0)
+        have hL_card : L.card = strictLowerScoreCount score i0 := by
+          simp [L, strictLowerScoreCount]
+        have hkL : k ≤ L.card := by
+          simpa [hL_card] using hi0_bad
+        have hdisj : Disjoint L B := by
+          rw [Finset.disjoint_left]
+          intro j hjL hjB
+          have hlt : score j < score i0 := by
+            simpa [L] using hjL
+          have hle : score i0 ≤ score j := hmin j hjB
+          exact not_lt_of_ge hle hlt
+        have hunion_le : (L ∪ B).card ≤ m := by
+          calc
+            (L ∪ B).card ≤ (Finset.univ : Finset (Fin m)).card := by
+              apply Finset.card_le_card
+              intro x _
+              exact Finset.mem_univ x
+            _ = m := by simp
+        have hsum_le : B.card + L.card ≤ m := by
+          have hcard_union : (L ∪ B).card = L.card + B.card :=
+            Finset.card_union_of_disjoint hdisj
+          omega
+        have hk_m : k ≤ m := le_trans hkL (by
+          calc
+            L.card ≤ B.card + L.card := Nat.le_add_left L.card B.card
+            _ ≤ m := hsum_le)
+        rw [Nat.le_sub_iff_add_le hk_m]
+        exact le_trans (Nat.add_le_add_left hkL B.card) hsum_le
+      · have hB_empty : B = ∅ := Finset.not_nonempty_iff_eq_empty.mp hB
+        simp [hB_empty]
+      ```
+
+      Meaning of the node: this is the deterministic finite-rank counting
+      lemma.  It only uses `strictLowerScoreCount` and finite-set cardinality;
+      exchangeability and conformal score definitions belong to later nodes.
+    acceptance:
+      - lake build passes
+      - theorem contains no sorry/admit/axiom
+      - no probability or measurability assumptions are introduced

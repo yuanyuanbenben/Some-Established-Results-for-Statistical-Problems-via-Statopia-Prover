@@ -1,0 +1,27 @@
+import Mathlib
+
+open MeasureTheory ProbabilityTheory
+
+namespace Msc62GroundTruth
+
+/--
+The sum of independent Poisson variables has Poisson mass with the summed rate.
+-/
+theorem poisson_sum_distribution
+    {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
+    (n : ℕ) (hn : 1 ≤ n)
+    (lambda : Fin n → ℝ) (hlambda : ∀ i, 0 < lambda i)
+    (X : Fin n → Ω → ℕ)
+    (hX_meas : ∀ i, Measurable (X i))
+    (hX_indep : iIndepFun X P)
+    (hX_pmf : ∀ i m,
+      (P {ω | X i ω = m}).toReal =
+        Real.exp (-(lambda i)) * (lambda i) ^ m / (Nat.factorial m : ℝ))
+    (k : ℕ) :
+    let S : Ω → ℕ := fun ω => ∑ i : Fin n, X i ω
+    let Lambda : ℝ := ∑ i : Fin n, lambda i
+    (P {ω | S ω = k}).toReal =
+      Real.exp (-Lambda) * Lambda ^ k / (Nat.factorial k : ℝ) := by
+  sorry
+
+end Msc62GroundTruth

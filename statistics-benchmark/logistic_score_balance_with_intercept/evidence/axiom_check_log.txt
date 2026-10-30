@@ -1,0 +1,26 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=logistic_score_balance_with_intercept
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:9:15: warning: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:9:28: warning: unused variable `hd`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:52:35: warning: This simp argument is unused:
+  one_mul
+
+Hint: Omit it from the simp argument list.
+  simp only [mul_add, mul_one, o̵n̵e̵_̵m̵u̵l̵,̵ ̵← Real.exp_add, add_neg_cancel, Real.exp_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'logistic_score_balance_with_intercept' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

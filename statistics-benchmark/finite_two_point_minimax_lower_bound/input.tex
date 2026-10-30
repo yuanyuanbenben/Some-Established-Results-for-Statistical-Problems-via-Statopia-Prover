@@ -1,0 +1,21 @@
+\begin{theorem}[Finite Two-Point Minimax Lower Bound]
+Let $(\Theta,d)$ be a metric space, let $N\in\mathbb N$ with $N\ge1$, and
+let $p_0,p_1:\{0,\ldots,N-1\}\to\mathbb R$ satisfy
+\[
+  0\le p_j(x)\le1\quad(j=0,1),\qquad
+  \sum_xp_0(x)=\sum_xp_1(x)=1.
+\]
+Let $\theta_0,\theta_1\in\Theta$ satisfy
+$d(\theta_0,\theta_1)>0$, and let
+$T:\{0,\ldots,N-1\}\to\Theta$ be any estimator.  Define
+\[
+  V=\frac12\sum_x|p_0(x)-p_1(x)|,
+  \qquad
+  R_j=\sum_xp_j(x)d(T(x),\theta_j)^2\quad(j=0,1).
+\]
+Then
+\[
+  \max\{R_0,R_1\}\ge
+  \frac{d(\theta_0,\theta_1)^2}{8}(1-V).
+\]
+\end{theorem}

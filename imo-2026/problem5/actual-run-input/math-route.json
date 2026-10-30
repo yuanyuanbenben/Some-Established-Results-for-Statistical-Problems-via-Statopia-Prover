@@ -1,0 +1,27 @@
+{
+  "target": {
+    "theoremName": "main_theorem",
+    "inputSha256": "aac3bcabf8e5d43ce30278832b8374b898668997ee4c3d832330adf59ebecda4"
+  },
+  "progress": {
+    "schemaVersion": 1,
+    "difficulty": "VERY_HIGH",
+    "entries": [{
+      "route": {
+        "title": "Contact identity, positive arithmetic orbits, and quadratic subdivision",
+        "mathematicalIdea": "Follow proof.md in full: contact at x=f(t) yields f(f(t))=2f(t)-t. Positive forward iterates force f(t)>=t. The lower inequality at x=f(u) gives a quadratic displacement bound. Equal subdivision of a positive compact interval proves f(t)-t is constant. Verify both inequalities for f(t)=t+c, c>=0.",
+        "orderedMilestones": [
+          "Use both inequalities at the contact point to prove the composition identity.",
+          "Prove all iterates positive and arithmetic, then use the Archimedean property to show f(t)>=t.",
+          "Derive both directions of the quadratic displacement comparison with explicit sign conditions.",
+          "Sum along equal subdivisions and let the integer subdivision size be arbitrarily large to prove constancy without assuming regularity.",
+          "Choose c=f(1)-1 and verify sufficiency using the arithmetic-geometric and root-mean-square inequalities."
+        ],
+        "assumptionsUsed": ["Exactly IsAdmissible f on PositiveReal -> PositiveReal; no continuity or monotonicity assumptions."],
+        "mathematicalRisks": ["Keep subtype coercions and positivity explicit.", "Squaring needs nonnegative sides; divisions need positive denominators.", "Do not assume the displacement is constant or weaken the bidirectional classification."]
+      },
+      "collectionDecision": "COMPLETE",
+      "collectionRationale": "The supplied detailed mathematical proof replaces initial route generation only. All Lean evidence, DAG and proof gates remain active."
+    }]
+  }
+}

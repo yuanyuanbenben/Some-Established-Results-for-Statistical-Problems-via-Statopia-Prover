@@ -1,0 +1,65 @@
+{
+  "entry": "ProverJobs.paper_fresh_20261028t224543381z_eills.PaperProofInterfaces.Result_r2_5caa9f2b59d84ff58e877f7752096e6d",
+  "files": [
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.Base",
+      "lines": 198,
+      "sha256": "41e20375989ae2cafaa2436705f94b0760bfd12064eacd26925cf196c64fd8a9"
+    },
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.ExternalNodes.Node_6515c10a3b2a6920f75d",
+      "lines": 14,
+      "sha256": "ebe91348637e71a86c17a964fb7e8e8ff6bc8e655d10230702f6ad9c46b11abc"
+    },
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.PaperProofInterfaces.Result_r2_5caa9f2b59d84ff58e877f7752096e6d",
+      "lines": 740,
+      "sha256": "2ee3891f7306ab5db381745164e1b5d58c2f06d081dfa841f7b4258c87f04fee"
+    },
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes",
+      "lines": 10,
+      "sha256": "b8b5ac5538051fee6a337d1bda8cd8c37623eb67cd2fa38d6977d605e1224af6"
+    },
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_2170213884_2b763c53_9595b7b7",
+      "lines": 423,
+      "sha256": "fc985cbfabdb43641bc78bbc688cc01a06648f813b8821d78f8c5822c67d4871"
+    },
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_358034260_300c6b38_04387300",
+      "lines": 100,
+      "sha256": "0cce664c3acfb0911fe28e890b23489c4679ef91fd1fbb4e5cd7d2f8084135f9"
+    },
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_3737555372_fcbbc30d_9f7fd90a",
+      "lines": 138,
+      "sha256": "df5e4a6d7cb2698835d4dd04470e6b4fcb8c2cf8011ca3e6d24c96e239a118d3"
+    },
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_3749859444_25f5fe8c_089dcd67",
+      "lines": 150,
+      "sha256": "3247d52caadfd75c38703e75792ba885b710471eff3560d558ec4b3ae244159f"
+    },
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_3875025507_3baf775f_b5f784cb",
+      "lines": 146,
+      "sha256": "e274b45063386ca71898c280efc0ce48d3ed6c50b701861831bac9897a625496"
+    },
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.ProvedNodes.Node_504088973_94182ea9_eca1816b",
+      "lines": 215,
+      "sha256": "659001b56cd8012635567aa07abce969c91379edde699fb2d8020e01ff2e1894"
+    },
+    {
+      "module": "ProverJobs.paper_fresh_20261028t224543381z_eills.Vocabulary",
+      "lines": 7,
+      "sha256": "dcd123b2045a8695a07850d3e09a7d6320e9c6436bbc895728f0e42d62a47f75"
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Statlib"
+  ],
+  "package_files_not_in_root_closure": []
+}

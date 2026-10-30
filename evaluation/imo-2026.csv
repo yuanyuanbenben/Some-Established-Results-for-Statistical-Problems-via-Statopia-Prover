@@ -1,0 +1,7 @@
+case,target,job_id,seconds,lean_files,lean_lines,cost_usd,unknown_attempts,unknown_reservation_usd,cost_coverage,guidance,proof_status
+IMO2026-P1,main_theorem,real_main_theorem_f979009c9fbd,2257.967,12,720,0.577441677,0,0,completed recorded usage only; unresolved reservations separate,supplied natural-language proof,proved
+IMO2026-P2,main_theorem,real_main_theorem_e7f39350f194,15896.058,39,4406,8.972009122,9,1.214112624,completed recorded usage only; unresolved reservations separate,supplied natural-language proof,proved
+IMO2026-P3,V_eq,real_V_eq_15312944933b,17560.784,48,7680,7.582112254,8,1.115290126,completed recorded usage only; unresolved reservations separate,supplied natural-language proof,proved
+IMO2026-P4,main_theorem,real_main_theorem_3393c3b8aa74,2161.668,12,549,0.266116459,0,0,completed recorded usage only; unresolved reservations separate,supplied natural-language proof,proved
+IMO2026-P5,main_theorem,real_main_theorem_d734bdb6a642,1416.478,11,402,0.183662611,0,0,completed recorded usage only; unresolved reservations separate,supplied natural-language proof,proved
+IMO2026-P6,imo2026_problem6,real_imo2026_problem6_acf5714d7c7d,1311.41,11,586,0.192390853,0,0,completed recorded usage only; unresolved reservations separate,supplied natural-language proof,proved

@@ -1,0 +1,9 @@
+{
+  "finishedAt": "2026-10-17T15:02:15.562Z",
+  "finalStatus": "proved",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q05/experiment/runs/20261017T131946Z-binomial_clt_vanishing_probability-d4e1c96a",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q05",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q05",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q05/experiment/runs/20261017T131946Z-binomial_clt_vanishing_probability-d4e1c96a/job_snapshot",
+  "publishedCheckpointDir": null
+}

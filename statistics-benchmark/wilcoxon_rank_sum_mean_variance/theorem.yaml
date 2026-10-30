@@ -1,0 +1,45 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/wilcoxon_rank_sum_mean_variance.tex
+msc: 62G10
+topic: Hypothesis testing; nonparametric methods
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: wilcoxon_rank_sum_mean_variance
+    kind: theorem
+    lean_name: wilcoxon_rank_sum_mean_variance
+    latex_statement: >-
+      \begin{theorem}[Wilcoxon Rank-Sum Null Mean and Variance]
+
+      Let $m,n\in\mathbb{N}$ with $m\ge 1$ and $n\ge 1$, and set $N=m+n$.
+
+      The ranks $1,\ldots,N$ are fixed. Under the null randomization model,
+      group
+
+      $A$ receives a uniformly chosen $m$-element subset of these ranks. Let
+
+      \[
+
+      W=\sum_{r\in A} r
+
+      \]
+
+      be the rank-sum statistic for group $A$. Then
+
+      \[
+
+      \mathbb E[W]=\frac{m(N+1)}{2}
+
+      \qquad\text{and}\qquad
+
+      \operatorname{Var}(W)=\frac{mn(N+1)}{12}.
+
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

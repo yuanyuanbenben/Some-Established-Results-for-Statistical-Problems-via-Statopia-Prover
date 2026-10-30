@@ -1,0 +1,37 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/gumbel_approximation_to_exponential_maximum.tex
+msc: 62G32
+topic: Extreme-value approximation
+track_a_difficulty: hard
+track_b_difficulty: hard
+theorems:
+  - id: gumbel_approximation_to_exponential_maximum
+    kind: theorem
+    lean_name: gumbel_approximation_to_exponential_maximum
+    latex_statement: |-
+      \begin{theorem}[Gumbel Approximation to an Exponential Maximum]
+      Let $(\Omega,\mathcal A,P)$ be a probability space and let
+      $n\in\mathbb N$ with $n\ge1$.  Let
+      $X_0,\ldots,X_{n-1}:\Omega\to\mathbb R$ be measurable and independent,
+      with each $X_i$ having the exponential distribution of rate $1$.  Define
+      $i_0=0\in\{0,\ldots,n-1\}$, and let $h_{\mathrm{ne}}$ be the
+      nonemptiness witness for $\{0,\ldots,n-1\}$ supplied by $i_0$.  Define
+      \[
+        M(\omega)=\max_{0\le i<n}X_i(\omega).
+      \]
+      Then
+      \[
+       \sup_{x\in\mathbb R}
+       \left|
+       P\{M-\log n\le x\}
+       -\exp\{-\exp(-x)\}
+       \right|
+       \le\frac1n.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

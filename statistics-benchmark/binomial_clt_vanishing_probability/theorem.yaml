@@ -1,0 +1,45 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62E/binomial_clt_vanishing_probability.tex
+msc: "62E20"
+topic: Asymptotic distribution theory
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: binomial_clt_vanishing_probability
+    kind: theorem
+    lean_name: binomial_clt_vanishing_probability
+    latex_statement: |-
+      \begin{theorem}[Binomial CLT with vanishing success probability]
+      Let $(\Omega,\mathcal A,P)$ be a probability space.  For every integer
+      $n\ge 1$, define
+      \[
+        p_n=\frac{1}{\sqrt n},
+      \]
+      and let $Y_n:\Omega\to\mathbb N$ be an almost-everywhere measurable
+      random variable with the binomial distribution
+      \[
+        Y_n\sim\operatorname{Binomial}(n,p_n).
+      \]
+      Equivalently, for $k=0,\ldots,n$,
+      \[
+        P(Y_n=k)=\binom nk p_n^k(1-p_n)^{n-k},
+      \]
+      and $P(Y_n=k)=0$ for $k>n$.  No independence assumption between
+      different members of the sequence $(Y_n)_{n\ge 1}$ is required.
+
+      Define the scaled deviation
+      \[
+        W_n=n^{3/4}\left(\frac{Y_n}{n}-p_n\right).
+      \]
+      Let $Z:\Omega\to\mathbb R$ be a measurable random variable with the
+      standard normal distribution $\mathcal N(0,1)$.  Then, as $n\to\infty$,
+      \[
+        W_n\xrightarrow{\mathrm d}Z.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "german_tank_estimator_unbiased"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 49553
+}

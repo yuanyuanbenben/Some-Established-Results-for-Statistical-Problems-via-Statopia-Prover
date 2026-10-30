@@ -1,0 +1,17 @@
+{
+  "case": "unbiasedness_of_empirical_distribution_function",
+  "msc": "62G30",
+  "difficulty": "medium",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 1080.189,
+  "lean_files": 1,
+  "lean_lines": 61,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_unbiasedness_of_empirical_distribution_function_native-b",
+  "legacy_input_tokens": 213440,
+  "legacy_output_tokens": 107878
+}

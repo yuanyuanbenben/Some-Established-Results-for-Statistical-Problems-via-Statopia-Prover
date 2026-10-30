@@ -1,0 +1,61 @@
+{
+  "id": "q37",
+  "case": "local_polynomial_reproduction",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q37",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q37/experiment/runs/20261018T051013Z-local_polynomial_reproduction-38961f7e",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "426d2414f01b6efeb771fd3e0bacc861bd51e71f6539b24e9000818f33b15e8a",
+  "signatureLockSha256": "7d99006fa98b16d8807e3405f920bf9d93b626f16c771002d93e4f01ad791c0d",
+  "rootTheorem": "local_polynomial_reproduction",
+  "inputRootSignature": "theorem local_polynomial_reproduction (n : ℕ) (hn : 1 ≤ n) (ell : ℕ) (X : Fin n → ℝ) (K : ℝ → ℝ) (hK_nonneg : ∀ u, 0 ≤ K u) (x h : ℝ) (hh : 0 < h) : let U : ℝ → Fin (ell + 1) → ℝ := fun u k ↦ u ^ k.1 / (Nat.factorial k.1 : ℝ) let B : Matrix (Fin (ell + 1)) (Fin (ell + 1)) ℝ := fun a b ↦ ((n : ℝ) * h)⁻¹ * ∑ i, U ((X i - x) / h) a * U ((X i - x) / h) b * K ((X i - x) / h) IsUnit B.det → let W : Fin n → ℝ := fun i ↦ ((n : ℝ) * h)⁻¹ * (∑ a, U 0 a * ∑ b, B⁻¹ a b * U ((X i - x) / h) b) * K ((X i - x) / h) ∀ Q : Polynomial ℝ, Q.natDegree ≤ ell → ∑ i, W i * Q.eval (X i) = Q.eval x",
+  "lockedRootSignature": "theorem local_polynomial_reproduction (n : ℕ) (hn : 1 ≤ n) (ell : ℕ) (X : Fin n → ℝ) (K : ℝ → ℝ) (hK_nonneg : ∀ u, 0 ≤ K u) (x h : ℝ) (hh : 0 < h) : let U : ℝ → Fin (ell + 1) → ℝ := fun u k ↦ u ^ k.1 / (Nat.factorial k.1 : ℝ) let B : Matrix (Fin (ell + 1)) (Fin (ell + 1)) ℝ := fun a b ↦ ((n : ℝ) * h)⁻¹ * ∑ i, U ((X i - x) / h) a * U ((X i - x) / h) b * K ((X i - x) / h) IsUnit B.det → let W : Fin n → ℝ := fun i ↦ ((n : ℝ) * h)⁻¹ * (∑ a, U 0 a * ∑ b, B⁻¹ a b * U ((X i - x) / h) b) * K ((X i - x) / h) ∀ Q : Polynomial ℝ, Q.natDegree ≤ ell → ∑ i, W i * Q.eval (X i) = Q.eval x",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.4ca0d9f261f80efe5773e163.json",
+      "receiptId": "job-final.4ca0d9f261f80efe5773e163",
+      "receiptHash": "f3f56287e38557fdc9e538fadfc86880fe96c31a48cc5ec89ad56d8312cc2d48",
+      "finalizedAt": 1792302797637,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "82176d4095379874fcd139c688094c97e9952bd2f751eb540353eae8b47c91b1"
+    }
+  ],
+  "slot": 2,
+  "keyIndex": 4,
+  "nodes": 3,
+  "auxiliaryNodes": 2,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 3
+  },
+  "failedActions": [],
+  "completedActions": 9
+}

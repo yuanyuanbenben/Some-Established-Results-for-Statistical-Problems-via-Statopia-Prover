@@ -1,0 +1,22 @@
+\begin{theorem}[Logistic score balance with an intercept]
+Let $n,d\ge1$, let $x_i\in\mathbb R^d$ and $y_i\in\{0,1\}$ for
+$i=1,\ldots,n$, and let $\widehat a\in\mathbb R$ and
+$\widehat b\in\mathbb R^d$.  Assume that $(\widehat a,\widehat b)$ is a
+global maximizer of the logistic log-likelihood, in the explicit sense that
+for every $a\in\mathbb R$ and $b\in\mathbb R^d$,
+\[
+ \sum_{i=1}^n\left[
+   y_i(\widehat a+x_i^\top\widehat b)
+   -\log\!\left(1+e^{\widehat a+x_i^\top\widehat b}\right)
+ \right]
+ \ge
+ \sum_{i=1}^n\left[
+   y_i(a+x_i^\top b)-\log\!\left(1+e^{a+x_i^\top b}\right)
+ \right].
+\]
+Then the fitted probabilities balance the observed number of successes:
+\[
+  \sum_{i=1}^n\frac{1}{1+e^{-\widehat a-x_i^\top\widehat b}}
+  =\sum_{i=1}^n y_i.
+\]
+\end{theorem}

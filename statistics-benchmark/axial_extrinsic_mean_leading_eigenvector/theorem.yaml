@@ -1,0 +1,53 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62R/axial_extrinsic_mean_leading_eigenvector.tex
+msc: 62R30
+topic: Axial directional means
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: axial_extrinsic_mean_leading_eigenvector
+    kind: theorem
+    lean_name: axial_extrinsic_mean_leading_eigenvector
+    latex_statement: >-
+      \begin{theorem}[Axial extrinsic mean from a leading eigenvector]
+
+      Let $d\ge2$ and $n\ge1$, and let $x_1,\ldots,x_n\in\mathbb R^d$ satisfy
+
+      $x_i^\top x_i=1$ for every $i$.  Let $v\in\mathbb R^d$ satisfy
+
+      $v^\top v=1$, let $\lambda\in\mathbb R$, and define
+
+      \[
+        A=\frac1n\sum_{i=1}^n x_i x_i^\top.
+      \]
+
+      Assume $Av=\lambda v$.  Assume also that every unit vector
+
+      $u\in\mathbb R^d$ satisfies $u^\top Au\le\lambda$, and that every
+
+      $u\in\mathbb R^d$ satisfying $Au=\lambda u$ is of the form $u=cv$ for
+
+      some $c\in\mathbb R$.  Define
+
+      \[
+       Q(u)=\frac1n\sum_{i=1}^n\sum_{j=1}^d\sum_{k=1}^d
+             (u_ju_k-x_{ij}x_{ik})^2,
+       \qquad u\in\mathbb R^d.
+      \]
+
+      Then the set of unit vectors minimizing $Q$ over all unit vectors is
+      exactly
+
+      \[
+       \left\{u\in\mathbb R^d:u^\top u=1
+         \text{ and }Q(u)\le Q(w)\text{ for every }w^\top w=1\right\}
+       =\{v,-v\}.
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

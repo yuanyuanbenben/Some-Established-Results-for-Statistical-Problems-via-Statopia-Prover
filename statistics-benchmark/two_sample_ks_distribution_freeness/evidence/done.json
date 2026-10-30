@@ -1,0 +1,9 @@
+{
+  "finishedAt": "2026-10-17T22:54:01.340Z",
+  "finalStatus": "proved",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q18/experiment/runs/20261017T213929Z-two_sample_ks_distribution_freeness-40fc5d68",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q18",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q18",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q18/experiment/runs/20261017T213929Z-two_sample_ks_distribution_freeness-40fc5d68/job_snapshot",
+  "publishedCheckpointDir": null
+}

@@ -1,0 +1,28 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62H/fisher_linear_discriminant_optimality.tex
+msc: 62H30
+topic: Fisher discriminant analysis
+track_a_difficulty: hard
+track_b_difficulty: hard
+theorems:
+  - id: fisher_linear_discriminant_optimality
+    kind: theorem
+    lean_name: fisher_linear_discriminant_optimality
+    latex_statement: |-
+      \begin{theorem}[Optimality bound for Fisher's linear discriminant]
+      Let $d\geq1$, let $\mu_0,\mu_1\in\mathbb R^d$ with
+      $\mu_0\ne\mu_1$, and let $W$ be a symmetric positive-definite real
+      $d\times d$ matrix.  Then every nonzero $a\in\mathbb R^d$ satisfies
+      \[
+        \frac{\bigl(a^{\mathsf T}(\mu_1-\mu_0)\bigr)^2}
+             {a^{\mathsf T}Wa}
+        \leq
+        (\mu_1-\mu_0)^{\mathsf T}W^{-1}(\mu_1-\mu_0).
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

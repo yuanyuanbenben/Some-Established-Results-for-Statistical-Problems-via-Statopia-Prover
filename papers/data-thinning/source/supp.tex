@@ -1,0 +1,693 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{style}
+\usepackage{authblk}
+
+\title{Generalized data thinning
+using sufficient statistics}
+\author[1]{Ameer Dharamshi}
+\author[2]{Anna Neufeld}
+\author[1]{Keshav Motwani}
+\author[3]{Lucy L. Gao}
+\author[1,4]{Daniela Witten}
+\author[5]{Jacob Bien}
+\affil[1]{Department of Biostatistics, University of Washington}
+\affil[2]{Public Health Sciences Division, Fred Hutchinson Cancer Research Center}
+\affil[3]{Department of Statistics, University of British Columbia}
+\affil[4]{Department of Statistics, University of Washington}
+\affil[5]{Department of Data Sciences and Operations, University of Southern California}
+
+
+\begin{document}\section*{Supplementary Materials}
+\appendix
+\setcounter{figure}{0}
+\makeatletter
+\renewcommand \thefigure{S\@arabic\c@figure}
+\makeatother
+
+% BEGIN INCLUDED SOURCE: tex/9appendix.tex
+\section{Proofs} \label{sec:appendix}
+
+\subsection{Proof of Theorem~\ref{thm:generalized-thinning}} \label{app:pf-sufficiency-thinning}
+
+\begin{proof}
+By their construction in Definition \ref{def:thinning}, the random variables $(\Xt{1},\ldots,\Xt{K})\sim \Qt{1}_\theta\times\cdots\times\Qt{K}_\theta$ have conditional distribution
+$$
+(\Xt{1},\ldots,\Xt{K})|\{X=t\}\sim G_t.
+$$
+Furthermore, Definition~\ref{def:thinning} tells us that $X=T(\Xt{1},\ldots,\Xt{K})$. This means that
+$$
+(\Xt{1},\ldots,\Xt{K})|\{T(\Xt{1},\ldots,\Xt{K})=t\}\sim G_t,
+$$
+which establishes part (b) of the theorem.
+
+The distribution $G_t$ in Definition~\ref{def:thinning} does not depend on $\theta$ (note that it is associated with the entire family $\mathcal P$, not a particular distribution $P_\theta$). By the definition of sufficiency, the fact that the conditional distribution $(\Xt{1},\ldots,\Xt{K})|T(\Xt{1},\ldots,\Xt{K})$ does not depend on $\theta$ implies that $T(\Xt{1},\ldots,\Xt{K})$ is sufficient for $\theta$. This proves (a).
+\end{proof}
+
+
+\subsection{Proof of Theorem~\ref{thm:natural-exponential-families}} \label{app:pf-exp-fam}
+
+\begin{proof}
+We start by proving the $\impliedby$ direction.
+Suppose $H$ is the convolution of $H_1,\ldots, H_K$.  We follow the recipe given in Algorithm~\ref{alg:recipe}:
+
+\begin{enumerate}
+    \item We choose $\cQt{k}=\mathcal P^{H_k}$ for $k=1,\ldots,K$.
+    \item Let $(\Xt{1},\ldots,\Xt{K})\sim P^{H_1}_\theta\times \cdots\times P^{H_K}_\theta$.  This joint distribution satisfies
+    $$
+    \prod_{k=1}^KdP^{H_k}_\theta(\xt{k})=\exp\left\{\left(\sum_{k=1}^K\xt{k}\right)^\top\theta-\sum_{k=1}^K\psi_{H_k}(\theta)\right\}\prod_{k=1}^KdH_k(\xt{k}).
+    $$
+    By the factorization theorem, we find that $T(\Xt{1},\ldots,\Xt{K})=\sum_{k=1}^K\Xt{k}$ is sufficient for $\theta$.
+    \item It remains to determine the distribution of $U=T(\Xt{1},\ldots,\Xt{K})$.  This random variable is the convolution of $P^{H_1}_\theta\times \cdots\times P^{H_K}_\theta$, and its distribution $\mu$ is defined by the following $K$-way integral:
+    \begin{align*}
+d\mu(u)&=\int\cdots\int1\left\{\sum_{k=1}^K\xt{k}=u\right\}\prod_{k=1}^KdP^{H_k}_\theta(\xt{k})\\
+&=\exp\left\{u^\top\theta-\sum_{k=1}^K\psi_{H_k}(\theta)\right\}\int\cdots\int1\left\{\sum_{k=1}^K\xt{k}=u\right\}\prod_{k=1}^KdH_k(\xt{k})\\
+&=\exp\left\{u^\top\theta-\psi_{H}(\theta)\right\}dH(u)\\
+&=dP^H_\theta(u),
+    \end{align*}
+where in the second-to-last equality we use the assumption that $H$ is the $K$-way convolution of $H_1,\ldots,H_K$ and the fact that the moment generating function of a convolution is the product of the individual moment generating functions (and recalling that $\psi_H$ is the logarithm of the moment generating function of $H$). This establishes that $T(\Xt{1},\ldots,\Xt{K})\sim P^H_\theta$. By Theorem~\ref{thm:generalized-thinning}, the family $\mathcal P^H$ is thinned by this choice of $T(\cdot)$.
+\end{enumerate}
+
+We now prove the $\implies$ direction.
+Suppose that $\mathcal P^H$ can be $K$-way thinned into $\mathcal P^{H_1},\ldots, \mathcal P^{H_K}$ using the summation function.  Then applying Definition~\ref{def:thinning} with $\theta=0$, we can take $X\sim P^{H}_0$ and produce $(\Xt{1},\ldots,\Xt{K})\sim P^{H_1}_0\times\cdots\times P^{H_K}_0$ for which $X=\Xt{1}+\cdots+\Xt{K}$.  Noting that $P^{H_k}_0=H_k$ for all $k$ and $P^{H}_0=H$, this proves that $H$ is a $K$-way convolution of $H_1,\ldots,H_K$. 
+\end{proof}
+
+
+\subsection{Proof of Theorem~\ref{thm:backwards-natexpfam}}
+\label{app:pf-backwards}
+
+\begin{proof}
+Suppose that $X\sim P_\theta$ is a natural exponential family with $d$-dimensional parameter $\theta$ that can be thinned by $T(\cdot)$ into $\Xt{k}\overset{ind}\sim Q_\theta^{(k)}$ for $k=1,\dots K$. By Theorem \ref{thm:generalized-thinning}, $T(\Xt{1},\dots,\Xt{K})$ is a sufficient statistic for $\theta$ on the basis of $\Xt{1},\dots,\Xt{K}$, which implies that the conditional distribution $(\Xt{1},\dots,\Xt{K})|T(\Xt{1},\dots,\Xt{K})=t$ does not depend on $\theta$. We can write the conditional density with respect to the appropriate dominating measure as
+\begin{align*}
+& f_{\Xt{1},\dots,\Xt{K}|T(\Xt{1},\dots,\Xt{K})=t}(\xt{1},\dots,\xt{K}) \\ 
+&= \frac{f_{\Xt{1},\dots,\Xt{K}}(\xt{1},\dots,\xt{K})1\{T(\xt{1},\dots,\xt{K})=t\}}{f_{T(\Xt{1},\dots,\Xt{K})}(t)} \\
+&= \frac{q^{(1)}_\theta(\xt{1})\dots q^{(K)}_\theta(\xt{K}) 1\{T(\xt{1},\dots,\xt{K})=t\}}{\exp(T(\xt{1},\dots,\xt{K})^\top\theta - \psi(\theta))h(T(\xt{1},\dots,\xt{K}))} \\
+&= \frac{\prod_{k=1}^Kq^{(k)}_\theta(\xt{k})}{\exp(T(\xt{1},\dots,\xt{K})^\top\theta - \psi(\theta))} \cdot \frac{ 1\{T(\xt{1},\dots,\xt{K})=t\}}{h(T(\xt{1},\dots,\xt{K}))},
+\end{align*}
+where in the second equality, we used that $T(\Xt{1},\dots,\Xt{K})\overset{D}{=}X\sim P_\theta$.
+
+As this distribution cannot depend on $\theta$, the first fraction must be constant in $\theta$. That is, for any fixed $\theta_0\in\Omega$,
+\begin{align}\label{eq:qtheta}
+&\frac{\prod_{k=1}^Kq^{(k)}_\theta(\xt{k})}{\exp(T(\xt{1},\dots,\xt{K})^\top\theta - \psi(\theta))} = \frac{\prod_{k=1}^Kq^{(k)}_{\theta_0}(\xt{k})}{\exp(T(\xt{1},\dots,\xt{K})^\top\theta_0 - \psi(\theta_0))}  \nonumber\\
+\iff&\prod_{k=1}^K \frac{q^{(k)}_\theta(\xt{k})}{q^{(k)}_{\theta_0}(\xt{k})} = \exp(T(\xt{1},\dots,\xt{K})^\top(\theta-\theta_0) - (\psi(\theta) - \psi(\theta_0))) \nonumber\\
+\iff&T(\xt{1},\dots,\xt{K})^\top(\theta-\theta_0)  = \sum_{k=1}^K \left[\log q^{(k)}_\theta(\xt{k}) + \frac{1}{K}\psi(\theta) - \log q^{(k)}_{\theta_0}(\xt{k}) - \frac{1}{K}\psi(\theta_0)\right]. 
+\end{align}
+
+To proceed, we must first confirm that the term inside the summation on the right-hand side is linear in $\theta-\theta_0$. To see this, observe that if we replace $\xt{1}$ with $\tilde{x}^{(1)}$, then 
+\begin{align*}
+&\left[T(\xt{1},\xt{2},\dots,\xt{K})- T(\tilde{x}^{(1)},\xt{2},\dots,\xt{K})\right]^\top(\theta-\theta_0) \\
+&= \log q^{(1)}_\theta(\xt{1}) - \log q^{(1)}_{\theta_0}(\xt{1}) - \log q^{(1)}_\theta(\tilde{x}^{(1)}) + \log q^{(1)}_{\theta_0}(\tilde{x}^{(1)}) \\
+&= a^{(1)}(\xt{1},\theta) - a^{(1)}(\xt{1},\theta_0) - a^{(1)}(\tilde{x}^{(1)},\theta) + a^{(1)}(\tilde{x}^{(1)},\theta_0)
+\end{align*}
+where $a^{(1)}(x,\theta)=\log q_\theta^{(1)}(x)$. Since the initial expression in the previous string of equalities is linear in $\theta$, the same must be true for the final expression, implying that $a^{(1)}$ must be of the form 
+$$
+a^{(1)}(x,\theta) = T^{(1)}(x)^\top\theta + f^{(1)}(x) + g^{(1)}(\theta) 
+$$
+for some functions $T^{(1)}(\cdot)$, $f^{(1)}(\cdot)$, and $g^{(1)}(\cdot)$.
+
+Substituting into the above, 
+$$
+\left[T(\xt{1},\xt{2},\dots,\xt{K})- T(\tilde{x}^{(1)},\xt{2},\dots,\xt{K})\right]^\top(\theta-\theta_0)
+= \left[T^{(1)}(\xt{1})-T^{(1)}(\tilde{x}^{(1)})\right]^\top(\theta-\theta_0).
+$$
+
+Applying the same logic to every $k=1,\dots,K$ in sequence, we have that for any $k$,
+\begin{align*}
+&\left[T(\tilde{x}^{(1)},\dots,\tilde{x}^{(k-1)},\xt{k},\xt{k+1},\dots,\xt{K})- T(\tilde{x}^{(1)},\dots,\tilde{x}^{(k-1)},\tilde{x}^{(k)},\xt{k+1},\dots,\xt{K})\right]^\top(\theta-\theta_0) \\
+&= \left[T^{(k)}(\xt{k})-T^{(k)}(\tilde{x}^{(k)})\right]^\top(\theta-\theta_0)
+\end{align*}
+for some function $T^{(k)}(\cdot)$.
+
+Summing over $k=1,\dots,K$ then yields
+$$
+\left[T(\xt{1},\dots,\xt{K})- T(\tilde{x}^{(1)},\dots,\tilde{x}^{(K)})\right]^\top(\theta-\theta_0) 
+= \left[\sum_{k=1}^KT^{(k)}(\xt{k})-\sum_{k=1}^KT^{(k)}(\tilde{x}^{(k)})\right]^\top(\theta-\theta_0).
+$$
+
+Since $\mathcal{P}=\{P_\theta:\theta\in\Omega\}$ is a $d$-dimensional full-rank natural exponential family, there exists a $\theta_0\in\Omega$ and $\epsilon>0$ such that $\theta = \theta_0 + \epsilon v\in\Omega$ for every $v\in\mathbb{R}^d$ such that $\|v\|_2=1$. 
+
+Since the previous display is true for every pair of $\theta$ and $\theta_0$, selecting pairs such that $\theta-\theta_0=\epsilon v$ simplifies the above into
+$$
+\left[T(\xt{1},\dots,\xt{K})- T(\tilde{x}^{(1)},\dots,\tilde{x}^{(K)})\right]^\top v 
+= \left[\sum_{k=1}^KT^{(k)}(\xt{k})-\sum_{k=1}^KT^{(k)}(\tilde{x}^{(k)})\right]^\top v.
+$$
+
+As the above holds for all $v\in\mathbb{R}^d$ such that $||v||_2=1$, restricting our attention to the standard basis vectors implies that 
+$$
+T(\xt{1},\dots,\xt{K})- T(\tilde{x}^{(1)},\dots,\tilde{x}^{(K)})
+= \sum_{k=1}^KT^{(k)}(\xt{k})-\sum_{k=1}^KT^{(k)}(\tilde{x}^{(k)})
+$$
+
+and furthermore that 
+$$
+T(\xt{1},\dots,\xt{K})
+= \sum_{k=1}^KT^{(k)}(\xt{k})+c.
+$$
+
+
+Without loss of generality, $c$ can be absorbed into the $T^{(k)}(\cdot)$ functions, thus proving the claim that if a natural exponential family can be thinned, then the function $T(\cdot)$ must be a summation of the form $T(\Xt{1},\dots,\Xt{K})=\sum_{k=1}^K T^{(k)}(\Xt{k})$ for some functions $T^{(k)}(\cdot)$ for $k=1,\dots,K$.
+
+Finally, plugging this expression into \eqref{eq:qtheta} gives
+$$
+\sum_{k=1}^KT^{(k)}(\xt{k})^\top(\theta-\theta_0)  = \sum_{k=1}^K \left[\log q^{(k)}_\theta(\xt{k}) + \frac{1}{K}\psi(\theta) - \log q^{(k)}_{\theta_0}(\xt{k}) - \frac{1}{K}\psi(\theta_0)\right], 
+$$
+which shows that the functions $q_\theta^{(k)}(\cdot)$ can be characterised as
+\begin{align*}
+&T^{(k)}(\xt{k})^\top (\theta-\theta_0) = \log q^{(k)}_\theta(\xt{k}) + \frac{1}{K}\psi(\theta) - \log q^{(k)}_{\theta_0}(\xt{k}) - \frac{1}{K}\psi(\theta_0) \\
+\iff&\log q^{(k)}_\theta(\xt{k}) = T^{(k)}(\xt{k})^\top (\theta-\theta_0) - \frac{1}{K}\psi(\theta) + \log q^{(k)}_{\theta_0}(\xt{k}) + \frac{1}{K}\psi(\theta_0) \\
+\iff& q^{(k)}_\theta(\xt{k}) =  q^{(k)}_{\theta_0}(\xt{k})\exp\left(T^{(k)}(\xt{k})^\top (\theta-\theta_0) - \frac{1}{K}\psi(\theta) + \frac{1}{K}\psi(\theta_0)\right).
+\end{align*}
+
+Thus, $q_\theta^{(k)}(\cdot)$ is the density of an exponential family with sufficient statistic $T^{(k)}(\cdot)$ and carrier density given by $h^{(k)}(\xt{k})\propto q^{(k)}_{\theta_0}(\xt{k})\exp(-T^{(k)}(\xt{k})^\top \theta_0)$.
+
+\end{proof}
+
+
+\subsection{Proof of Proposition~\ref{prop:thin-S}} \label{app:pf-thin-S}
+
+\begin{proof}
+The result follows from a chain of equalities:
+\begin{align*}
+    I_X(\theta)&=I_{S(X)}(\theta)\\
+    &=I_{T(\Xt{1},\ldots,\Xt{K})}(\theta)\\
+    &=I_{(\Xt{1},\ldots,\Xt{K})}(\theta)\\
+    &=\sum_{k=1}^K I_{\Xt{k}}(\theta).
+\end{align*}
+The first equality is true because $S(X)$ is sufficient for $\theta$ based on $X$.  The second equality follows from the definition of thinning $S(X)$ into $\Xt{1},\ldots,\Xt{K}$ using $T(\cdot)$.  The third equality follows from Theorem~\ref{thm:generalized-thinning}, which tells us that $T(\Xt{1},\ldots,\Xt{K})$ is sufficient for $\theta$ based on $(\Xt{1},\ldots,\Xt{K})$. The final equality follows from independence.
+\end{proof}
+
+
+\subsection{Proof of Theorem~\ref{thm:bernoulli}} \label{app:bernoulli-convolution}
+
+\begin{proof}
+We begin by providing some intuition. Since $Z^{(1)}$ and $Z^{(2)}$ are non-constant random variables, their supports each must contain more than one element. Therefore, by independence, the support of $Z^{(1)} + Z^{(2)}$ must contain more than two elements and thus cannot be Bernoulli.
+
+Formally, let $\Qt{1}$ and $\Qt{2}$ be the distributions of $Z^{(1)}$ and $Z^{(2)}$, respectively.
+If $Z^{(1)}+Z^{(2)}$ were Bernoulli, then
+\begin{align*}
+    1&=\mathbb P(Z^{(1)}+Z^{(2)}\in\{0,1\})\\
+    &=\int\mathbb P(Z^{(2)}\in\{0-z^{(1)},~1-z^{(1)}\}|Z^{(1)}=z^{(1)})d\Qt{1}(z^{(1)})\\
+    &=\int\mathbb P(Z^{(2)}\in\{0-z^{(1)},~1-z^{(1)}\})d\Qt{1}(z^{(1)}),
+\end{align*}
+where the last equality follows by independence of $Z^{(1)}$ and $Z^{(2)}$.  
+For this integral to equal 1, we would need
+\begin{equation}\label{eq:prob1}
+    \mathbb P(Z^{(2)}\in\{0-z^{(1)},~1-z^{(1)}\})=1 \text{ for $\Qt{1}$-almost every $z^{(1)}$}
+\end{equation}
+since $P(Z^{(2)}\in\{0-z^{(1)},~1-z^{(1)}\})$ is bounded above by $1$. For $Z^{(1)}$ to be non-constant, there must be at least two distinct points $a$ and $b$ such that \eqref{eq:prob1} holds with $z^{(1)}=a$ and holds with $z^{(1)}=b$.  Since the intersection of two probability 1 sets is a set that holds with probability 1, we have that 
+$$
+\mathbb P(Z^{(2)}\in\{-a,~1-a\}\cap\{-b,~1-b\})=1,
+$$
+from which it follows that $\{-a,~1-a\}\cap\{-b,~1-b\}$ is non-empty.  However, there is no choice of $a\neq b$ for which this intersection has more than one element (which is required for $Z^{(2)}$ to be non-constant).  Thus we arrive at a contradiction.
+
+\end{proof}
+
+\subsection{Proof of Corollary~\ref{cor:bern2}} \label{app:bern2}
+
+\begin{proof}
+Since the Bernoulli family is a natural exponential family, if at least one of the conclusions of Theorem $\ref{thm:backwards-natexpfam}$ is always false for the Bernoulli, then the contrapositive of Theorem $\ref{thm:backwards-natexpfam}$ will imply that the Bernoulli distribution cannot be thinned by any function $T(\cdot)$. 
+
+Suppose that $X\sim\text{Bernoulli}(\theta)$. Consider the first conclusion, namely that the thinning function $T(\xt{1},\dots,\xt{K})$ is of the form $\sum_{k=1}^KT^{(k)}(\xt{k})$. This would imply that $\sum_{k=1}^KT^{(k)}(\Xt{k})=X\sim\text{Bernoulli}(\theta)$.  However, by Theorem \ref{thm:bernoulli}, $T(\cdot)$ cannot be a convolution of independent, non-constant random variables. Therefore, the second conclusion can only be true if $\Xt{1},\dots,\Xt{K}$ are not mutually independent, some or all of $\Xt{1},\dots,\Xt{K}$ are constant, or some or all of $T^{(1)}(\cdot),\dots,T^{(K)}(\cdot)$ are constant functions. All three cases violate the second conclusion of Theorem \ref{thm:backwards-natexpfam} that $\Xt{k}$ are independent exponential families. Therefore, both conclusions of Theorem \ref{thm:backwards-natexpfam} cannot be simultaneously true, thus proving the claim. 
+\end{proof}
+
+
+
+% END INCLUDED SOURCE: tex/9appendix.tex
+
+
+% BEGIN INCLUDED SOURCE: tex/13UV.tex
+\section{Connecting Example~\ref{exmp:gaussian} to prior work} \label{app:UV}
+ 
+Other authors have considered obtaining two independent Gaussian random variables $\mathbf{U}$ and $\mathbf{V}$ from a single Gaussian random variable $\mathbf{X} \sim N_n(\boldsymbol\theta, \mathbf{I}_n)$ by generating $\mathbf{W} \sim N_n(\mathbf{0}_n, \gamma \mathbf{I}_n)$ for a tuning parameter $\gamma > 0$, and then setting $\mathbf{U} = \mathbf{X} + \mathbf{W}$ and  $\mathbf{V} = \mathbf{X} - \gamma^{-1}\mathbf{W}$. Then, $\mathbf{U} \sim N_n(\boldsymbol\theta, (1 + \gamma) \mathbf{I}_n)$ and $\mathbf{V} \sim N_n(\boldsymbol\theta, (1 + \gamma^{-1}) \mathbf{I}_n)$ are independent.
+\citet{rasines2021splitting} and \citet{leiner2022data} applied this decomposition to address Scenario 1 in Section \ref{sec:introduction}. Additionally, \citet{rasines2021splitting} showed that this leads to asymptotically valid inference under certain regularity conditions, even when $\mathbf{X}$ is not normally distributed.  \citet{tian2020prediction} and \citet{oliveira2021unbiased} applied this decomposition to address Scenario 2 in Section \ref{sec:introduction}. 
+
+This decomposition is in fact identical to Example~\ref{exmp:gaussian} up to scaling, with $\mathbf{X}^{(1)}=\epsilon_1\mathbf{U}$, $\mathbf{X}^{(2)}=\epsilon_2\mathbf{V}$, $\epsilon_1=(1+\gamma)^{-1}$, and $\epsilon_2=1-\epsilon_1$.
+In particular, to thin $\mathbf{X} \sim N_n(\boldsymbol\theta, \mathbf{I}_n)$ by addition into $(\mathbf{X}^{(1)},\mathbf{X}^{(2)})$, we sample from $G_{\mathbf{X}}$ where $G_{\mathbf{t}}$, defined in Theorem~\ref{thm:generalized-thinning}, can be shown to equal the singular multivariate normal distribution
+$$
+N_{2n}\left(\begin{pmatrix}\epsilon_1\mathbf{t}\\ \epsilon_2\mathbf{t}\end{pmatrix},\epsilon_1\epsilon_2\begin{pmatrix}\mathbf{I}_n&-\mathbf{I}_n\\-\mathbf{I}_n&\mathbf{I}_n\end{pmatrix}\right).
+$$
+
+Sampling from $G_{\mathbf{X}}$ is equivalent to sampling $\mathbf{W} \sim N_n(\mathbf{0}_n, \gamma \mathbf{I}_n)$ (independent of $\mathbf{X}$) and then generating $\mathbf{X}^{(1)} = \epsilon_1 (\mathbf{X} + \mathbf{W})$ and $\mathbf{X}^{(2)} = \epsilon_2 (\mathbf{X} - \gamma^{-1} \mathbf{W})$.
+These ideas can easily be generalized to thin $\mathbf{X} \sim N_n(\boldsymbol\theta, \boldsymbol\Sigma)$ with a known positive definite covariance matrix $\boldsymbol\Sigma$.
+
+% END INCLUDED SOURCE: tex/13UV.tex
+
+
+% BEGIN INCLUDED SOURCE: tex/10derivations.tex
+\section{Derivations of thinning procedures} \label{sec:derivations}
+
+\subsection{Exponential families}
+
+\subsubsection{Weibull distribution}
+\label{subsec:weibull-proofs}
+
+The gamma family with known shape $\alpha$ and unknown rate $\theta$ admits a collection of thinning functions, indexed by a hyperparameter $\nu>0$, that thin the gamma family into the Weibull family.
+
+\begin{exmp}[Thinning $\text{Gamma}(\alpha,\theta)$ with $\alpha=K$ known, approach 3]
+\label{ex:weibull}
+Recall that the Weibull distribution with known shape parameter $\nu$ (but varying scale $\lambda$) is a general exponential family.  Then, starting with $\Xt{k} \overset{iid}{\sim} \text{Weibull}(\lambda, \nu)$ for $k=1,\dots,K$, we have that $T^{(k)}(\xt{k}) = (\xt{k})^\nu$. We can thus apply Proposition~\ref{prop:exp-family} using the function
+$$
+T(\xt{1},\dots,\xt{K})=\sum_{k=1}^K(\xt{k})^\nu
+$$
+to thin the distribution of $\sum_{k=1}^K(\Xt{k})^\nu$ into $(\Xt{1},\dots,\Xt{K})$. 
+As $\sum_{k=1}^K(\Xt{k})^\nu\sim\text{Gamma}(K,\lambda^{-\nu})$, 
+taking $\lambda=\theta^{-1/\nu}$ yields the desired result.  
+
+To generate $(\Xt{1},\dots,\Xt{K})$, we can first apply the $K$-fold gamma thinning result discussed in Example \ref{ex:dtgamma} with $\epsilon_k = \frac{1}{K}$ to generate $Y^{(k)} \overset{iid}{\sim} \text{Exp}(\lambda^{-\nu})$, and then compute $\Xt{k} = (Y^{(k)})^{\frac{1}{\nu}}$. 
+\end{exmp}
+
+\begin{proof}[Proof of Example~\ref{ex:weibull}]
+We must prove that if $\Xt{k} \overset{iid}{\sim} \text{Weibull}(\lambda, \nu)$, for $k=1,\dots,K$, then $\sum_{k=1}^K\left(\Xt{k}\right)^\nu\sim \text{Gamma}(K, \lambda^{-\nu})$.
+
+Recalling that the gamma distribution is convolution-closed in its shape parameter, it is sufficient to show for a single $\Xt{k}\sim\text{Weibull}(\lambda, \nu)$ random variable that $(\Xt{k})^\nu \sim \text{Gamma}(1,\lambda^{-\nu})=\text{Exp}(\lambda^{-\nu})$, where $\nu>0$. Denote $Z=(\Xt{k})^\nu$. Then,
+
+\begin{align*}
+    f_Z(z) &= f_{\Xt{k}}\left(z^{\frac{1}{\nu}}\right)\left|\frac{d \xt{k}}{d z}\right| \\
+    &\propto \left(z^{\frac{1}{\nu}}\right)^{\nu-1} \exp\left(-\left(\frac{z^{\frac{1}{\nu}}}{\lambda}\right)^\nu\right)\left|\frac{1}{\nu}z^{-\frac{\nu-1}{\nu}}\right| \\
+    &\propto \exp\left(-\lambda^{-\nu}z\right).
+\end{align*}
+
+The above implies that $(\Xt{k})^\nu \sim \text{Exp}(\lambda^{-\nu})$, and thus $\sum_{k=1}^K\left(\Xt{k}\right)^\nu\sim \text{Gamma}(K, \lambda^{-\nu})$ as required.
+    
+\end{proof}
+
+\subsubsection{Beta distribution}
+\label{subsec:beta-proofs}
+
+\begin{proof}[Proof of Example~\ref{ex:beta}]
+We must prove the following three claims:
+\begin{enumerate}
+    \item \emph{If $\Xt{k} \sim \text{Beta}\left(\frac{1}{K}\theta + \frac{k-1}{K}, \frac{1}{K}\beta\right)$, for $k=1,\dots,K$, and $\Xt{k}$ are mutually independent, then $\left(\prod_{k=1}^K \Xt{k}\right)^{\frac{1}{K}} \sim \text{Beta}(\theta, \beta)$.} 
+
+
+Recall that the beta distribution is fully characterised by its moments due to its finite support \citep{feller1971}. Also recall that the expectation of the $r$th power of a $X\sim\text{Beta}(\theta,\beta)$ random variable is $E[X^r]=\frac{B(\theta+r,\beta)}{B(\theta,\beta)}$ where $B$ is the beta function. Finally, note that the Gauss multiplication theorem \citep[page 256]{abramowitz1972handbook} says that
+$$
+\prod_{k=1}^K\Gamma\left(z+\frac{k-1}{K}\right)=(2\pi)^{\frac{K-1}{2}}K^{\frac{1}{2}-Kz}\Gamma(Kz).
+$$
+
+
+Then, the $r$th moment of $\left(\prod_{k=1}^K \Xt{k}\right)^{\frac{1}{K}}$ is
+
+\begin{align*} 
+E\left[\left(\left(\prod_{k=1}^K \Xt{k}\right)^{\frac{1}{K}}\right)^r\right] &= \prod_{k=1}^KE\left[ \left(\Xt{k}\right)^{\frac{r}{K}}\right] \\
+&= \prod_{k=1}^K\frac{B(\frac{1}{K}\theta+\frac{k-1}{K}+\frac{r}{K},\frac{1}{K}\beta)}{B(\frac{1}{K}\theta+\frac{k-1}{K},\frac{1}{K}\beta)} \\
+&= \prod_{k=1}^K\frac{\frac{\Gamma(\frac{1}{K}\theta+\frac{k-1}{K}+ \frac{r}{K})\Gamma(\frac{1}{K}\beta)}{\Gamma(\frac{1}{K}\theta +\frac{k-1}{K}+ \frac{r}{K}+\frac{1}{K}\beta)}}{\frac{\Gamma(\frac{1}{K}\theta+\frac{k-1}{K})\Gamma(\frac{1}{K}\beta)}{\Gamma(\frac{1}{K}\theta+\frac{k-1}{K}+\frac{1}{K}\beta)}} \\
+&= \prod_{k=0}^{K-1}\frac{\Gamma(\frac{1}{K}\theta+ \frac{r}{K}+\frac{k}{K})\Gamma(\frac{1}{K}\theta+\frac{1}{K}\beta+\frac{k}{K})}{\Gamma(\frac{1}{K}\theta+\frac{1}{K}\beta+ \frac{r}{K}+\frac{k}{K})\Gamma(\frac{1}{K}\theta+\frac{k}{K})} \\
+&= \frac{\left[\prod_{k=0}^{K-1}\Gamma(\frac{1}{K}\theta+ \frac{r}{K}+\frac{k}{K})\right]\left[\prod_{k=0}^{K-1}\Gamma(\frac{1}{K}\theta+\frac{1}{K}\beta+\frac{k}{K})\right]}{\left[\prod_{k=0}^{K-1}\Gamma(\frac{1}{K}\theta+\frac{1}{K}\beta+ \frac{r}{K}+\frac{k}{K})\right]\left[\prod_{k=0}^{K-1}\Gamma(\frac{1}{K}\theta+\frac{k}{K})\right]} \\
+&= \frac{\left[(2\pi)^{\frac{K-1}{2}}K^{\frac{1}{2}-(\theta+r)}\Gamma(\theta+r)\right]\left[(2\pi)^{\frac{K-1}{2}}K^{\frac{1}{2}-(\theta+\beta)}\Gamma(\theta+\beta)\right]}{\left[(2\pi)^{\frac{K-1}{2}}K^{\frac{1}{2}-(\theta+\beta+r)}\Gamma(\theta+\beta+r)\right]\left[(2\pi)^{\frac{K-1}{2}}K^{\frac{1}{2}-\theta}\Gamma(\theta)\right]} \\
+&= \frac{\Gamma(\theta+r)\Gamma(\beta)\Gamma(\theta+\beta)}{\Gamma(\theta+\beta+r)\Gamma(\theta)\Gamma(\beta)} \\
+&= \frac{B(\theta+r,\beta)}{B(\theta,\beta)}.
+\end{align*}
+This matches the moments of a $\text{Beta}(\theta, \beta)$ distribution, implying that $\left(\prod_{k=1}^K \Xt{k}\right)^{\frac{1}{K}} \sim \text{Beta}(\theta, \beta)$ as required. 
+    
+    \item \emph{A sufficient statistic for $\theta$ in the joint distribution of $\Xt{1},\dots,\Xt{K}$ is 
+    $$T(\Xt{1},\dots,\Xt{K})=\left(\prod_{k=1}^K \Xt{k}\right)^{\frac1{K}}.$$}
+
+By the mutual independence of $\Xt{k}$, the joint density of $\Xt{1},\dots,\Xt{K}$ can be written as
+
+\begin{align*} 
+f_{\Xt{1},\dots,\Xt{K}}(\xt{1},\dots,\xt{K}) &= \prod_{k=1}^K f_{\Xt{k}}(\xt{k}) \\
+&\propto \prod_{k=1}^K \left(\xt{k}\right)^{\frac{1}{K}\theta + \frac{k-1}{K} - 1}\left(1-\xt{k}\right)^{\frac{1}{K}\beta-1} \\
+&=\left[\left(\prod_{k=1}^K \xt{k}\right)^{\frac{1}{K}}\right]^{\theta}\left[\prod_{k=1}^K \left(\xt{k}\right)^{\frac{k-1}{K}-1}\right]\left[\prod_{k=1}^K\left(1-\xt{k}\right)\right]^{\frac{1}{K}\beta-1}.
+\end{align*}
+
+    By the factorization theorem, $T(\Xt{1},\dots,\Xt{K})=\left(\prod_{k=1}^K \Xt{k}\right)^{\frac{1}{K}}$ is a sufficient statistic for $\theta$.
+
+    \item \emph{To sample from $G_t$, i.e., the distribution of $(\Xt{1},\dots,\Xt{K})|T(\Xt{1},\dots,\Xt{K})=t$ 
+    , we first sample from $(\Xt{1},\dots,\Xt{K-1})|T(\Xt{1},\dots,\Xt{K})=t$ and then recover $\Xt{K}$.}
+
+We will show that the conditional density $f_{\Xt{1},\dots,\Xt{K-1}|T(\Xt{1},\dots,\Xt{K})=t}(\xt{1},\dots,\xt{K-1})$ is, up to a normalizing constant involving $t$, 
+$$
+\left[\prod_{k=1}^{K-1}\left(\xt{k}\right)^{\frac{k-K}{K}-1}\right]\left[\left(\prod_{k=1}^{K-1}\left(1-\xt{k}\right)\right)\left(1-\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)\right]^{\frac{1}{K}\beta-1}.$$
+We derive this as follows (where any factors not involving $\xt{1},\ldots,\xt{K-1}$ are omitted, and we write $\theta_k=\frac{\theta}{K}+\frac{k-1}{K}$):
+
+\begin{align*}
+&\quad f_{\Xt{1},\dots,\Xt{K-1}|T(\Xt{1},\dots,\Xt{K})=t}(\xt{1},\dots,\xt{K-1}) \\ 
+&\propto f_{\Xt{1},\dots,\Xt{K-1},T(\Xt{1},\dots,\Xt{K})}(\xt{1},\dots,\xt{K-1},t) \\
+&= f_{\Xt{1},\dots,\Xt{K}}\left(\xt{1},\dots,\xt{K-1},\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)\left|\frac{\partial}{\partial t}\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right| \\
+&=\left(\prod_{k=1}^{K-1}f_{\Xt{k}}\left(\xt{k}\right)\right)f_{\Xt{K}}\left(\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)\left|\frac{Kt^{K-1}}{\prod_{k=1}^{K-1}\xt{k}}\right| \\
+&\propto \left(\prod_{k=1}^{K-1}\left(\xt{k}\right)^{\theta_k-1}\left(1-\xt{k}\right)^{\frac{1}{K}\beta-1}\right) \left(\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)^{\theta_K-1}\left(1-\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)^{\frac{1}{K}\beta-1}\frac{1}{\prod_{k=1}^{K-1}\xt{k}} \\
+&\propto \left[\prod_{k=1}^{K-1}\left(\xt{k}\right)^{\theta_k-\theta_K-1}\right]\left[\left(\prod_{k=1}^{K-1}\left(1-\xt{k}\right)\right)\left(1-\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)\right]^{\frac{1}{K}\beta-1}.
+\end{align*}
+It remains to note that $\theta_k-\theta_K=\frac{k-K}{K}$.
+
+To generate $(\Xt{1},\dots,\Xt{K})$, first sample from $(\Xt{1},\dots,\Xt{K-1})|T(\Xt{1},\dots,\Xt{K})=t$ with numerical sampling methods. In this example, a Metropolis algorithm with a uniform proposal over $[t^{K},1)^K$ is effective \citep{metropolis1953equation}. Then, compute $\Xt{K}=\frac{t^K}{\prod_{k=1}^{K-1}\Xt{k}}$. 
+\end{enumerate}
+\end{proof}
+
+\subsubsection{Dirichlet distribution}
+\label{subsec:dirichlet}
+
+The Dirichlet distribution (which subsumes the beta distribution) on the $K$-simplex is typically parameterized by a $K$-dimensional vector $\boldsymbol\alpha$. It can also be parameterized by the mean, defined as $\boldsymbol\alpha/\sum_{k=1}^K\alpha_k$, and precision, defined as $\sum_{k=1}^K \alpha_k$. Using the mean-precision parameterization, the Dirichlet distribution with known precision $\phi$ and unknown mean $\boldsymbol\theta$ can be thinned into $K$ gamma random variables.
+
+\begin{exmp}[Thinning $\text{Dirichlet}_K(\boldsymbol\theta,\phi)$ with $\phi$ known]
+\label{ex:dirichlet}
+Following the steps of Algorithm \ref{alg:recipe}, start with $K$ mutually independent gamma random variables, $\Xt{k}\sim\text{Gamma}(\theta_k\phi,\nu)$ for $k=1,\dots,K$ where $\nu>0$ is a tuning parameter chosen by the user. Then, note that   
+$$
+T(\Xt{1},\dots,\Xt{K}) = (\Xt{1},\dots,\Xt{K})^\top/\sum_{k=1}^K\Xt{K}
+$$
+is a sufficient statistic for $\boldsymbol\theta$ on the basis of $(\Xt{1},\dots,\Xt{K})$. Since $T(\Xt{1},\dots,\Xt{K}) \sim \text{Dirichlet}_K(\boldsymbol\theta,\phi)$, we can thus thin the Dirichlet distribution into $(\Xt{1},\dots,\Xt{K})$. 
+
+To generate $(\Xt{1},\dots,\Xt{K})$, first sample from the conditional distribution of $\Xt{1}$ given $T(\Xt{1},\dots,\Xt{K})=\mathbf{t}$. This follows a $\text{Gamma}(\phi,\nu/t_1)$ distribution. Then for $k=2,\dots,K$, set $\Xt{k}=\Xt{1}t_k/t_1$.
+\end{exmp}
+
+\begin{proof}[Proof of Example~\ref{ex:dirichlet}]
+We must prove that $(\Xt{1},\dots,\Xt{K})^\top/\sum_{k=1}^K\Xt{K}$ is a sufficient statistic for $\boldsymbol\theta$ in the joint distribution of $\Xt{k}\sim\text{Gamma}(\theta_k\phi,\nu)$ for $k=1,\dots,K$.
+
+Consider the joint density of $\Xt{k}$ for $k=1,\dots,K$:
+
+\begin{align*}
+f_{\Xt{1},\dots,\Xt{K}}(\xt{1},\dots,\xt{K}) &= \prod_{k=1}^K f_{\Xt{k}}(\xt{k}) \\
+&\propto \left[\prod_{k=1}^K \left(\xt{k}\right)^{\theta_k\phi-1}\exp\left(-\nu\xt{k}\right)\right] \\
+&= \prod_{k=1}^K \left[\left(\xt{k}\right)^{\theta_k\phi-1}\left(\sum_{k'=1}^K\xt{k'}\right)^{(\theta_k\phi-1)-(\theta_k\phi-1)}\exp\left(-\nu\xt{k}\right)\right] \\
+&= \prod_{k=1}^K \left[\left(\frac{\xt{k}}{\sum_{k'=1}^K\xt{k'}}\right)^{\theta_k\phi-1}\left(\sum_{k'=1}^K\xt{k'}\right)^{\theta_k\phi-1}\exp\left(-\nu\xt{k}\right)\right] \\
+&= \left(\sum_{k'=1}^K\xt{k'}\right)^{\sum_{k=1}^K(\theta_k\phi-1)}\prod_{k=1}^K \left[\left(\frac{\xt{k}}{\sum_{k'=1}^K\xt{k'}}\right)^{\theta_k\phi-1}\exp\left(-\nu\xt{k}\right)\right] \\
+&= \left(\sum_{k'=1}^K\xt{k'}\right)^{\phi\sum_{k=1}^K\theta_k-K}\prod_{k=1}^K \left[\left(\frac{\xt{k}}{\sum_{k'=1}^K\xt{k'}}\right)^{\theta_k\phi-1}\exp\left(-\nu\xt{k}\right)\right] \\
+&= \left(\sum_{k'=1}^K\xt{k'}\right)^{\phi-K}\prod_{k=1}^K \left[\left(\frac{\xt{k}}{\sum_{k'=1}^K\xt{k'}}\right)^{\theta_k\phi-1}\exp\left(-\nu\xt{k}\right)\right] \\
+\end{align*}
+
+The above implies by the factorization theorem that $(\Xt{1},\dots,\Xt{K})^\top/\sum_{k=1}^K\Xt{K}$ is a sufficient statistic for $\boldsymbol\theta$ on the basis of $(\Xt{1},\dots,\Xt{K})$ as required.
+    
+\end{proof}
+
+\subsubsection{Gamma distribution}
+\label{subsec:gamma-proofs}
+
+In proving Example \ref{ex:gamma1}, rather than work with gamma random variables directly, we will find it convenient to work with the logarithm of gamma random variables. We start by deriving the moment generating function of this distribution.
+\begin{lemma}\label{lemma:log-gamma}
+Consider a random variable $Y$ such that $e^Y\sim \text{Gamma}(\theta, \beta)$.  Then the moment generating function of $Y$ exists in a neighborhood around 0 and is given by 
+$$
+\Phi_{Y}(t)=\frac{\Gamma(\theta+t)}{\Gamma(\theta)\beta^{t}}.
+$$
+\end{lemma}
+\begin{proof}[Proof of Lemma~\ref{lemma:log-gamma}]
+The density of $Y$ is given by
+\begin{align*}
+    f_Y(y)&=f_{\text{Gamma}(\theta, \beta)}(e^y)e^y\\
+    &=\frac{\beta^\theta}{\Gamma(\theta)}e^{y(\theta-1)}e^{-\beta e^y}e^y\\
+    &=\frac{\beta^\theta}{\Gamma(\theta)}e^{y\theta-\beta e^y},
+\end{align*}
+where the extra factor of $e^y$ in the first equality is the Jacobian of the transformation.  For $t>-\theta$, the moment generating function for this random variable is given by
+\begin{align*}
+\Phi_Y(t)&=\mathbb E[e^{tY}]\\
+    &=\int e^{ty}\frac{\beta^\theta}{\Gamma(\theta)}e^{y\theta-\beta e^y}dy\\
+    &=\frac{\beta^\theta}{\Gamma(\theta)}\frac{\Gamma(\theta+t)}{\beta^{\theta+t}}\int\frac{\beta^{\theta+t}}{\Gamma(\theta+t)} e^{y(\theta+t)-\beta e^y}dy\\
+    &=\frac{\Gamma(\theta+t)}{\Gamma(\theta)\beta^{t}}\int\frac{\beta^{\theta+t}}{\Gamma(\theta+t)} e^{y(\theta+t)-\beta e^y}dy\\
+    &=\frac{\Gamma(\theta+t)}{\Gamma(\theta)\beta^{t}}.
+    \end{align*}
+The assumption that $t>-\theta$ ensures that $\theta+t>0$ so that the integrand in the second-to-last line is the density of the logarithm of a $\text{Gamma}(\theta+t,\beta)$ random variable.  Since $\theta>0$, we have established that the moment generating function exists in a neighborhood around 0.
+\end{proof}
+
+\begin{proof}[Proof of Example~\ref{ex:gamma1}]
+We must prove the following three claims:
+\begin{enumerate}
+    \item \emph{If for $k=1,\dots,K$, $\Xt{k} \sim \text{Gamma}\left(\frac{1}{K}\theta + \frac{k-1}{K}, \frac{1}{K}\beta\right)$ and $\Xt{k}$ are mutually independent, then $\left(\prod_{k=1}^K \Xt{k}\right)^{\frac{1}{K}} \sim \text{Gamma}(\theta, \beta)$.} 
+
+Defining $Y^{(k)}=\log\Xt{k}$ and $\bar Y_K=\frac{1}{K}\sum_{k=1}^KY^{(k)}$, observe that
+$$
+\left(\prod_{k=1}^K \Xt{k}\right)^{\frac{1}{K}}=e^{\bar Y_K}.
+$$
+Thus, our goal is to prove that $e^{\bar Y_K}\sim \text{Gamma}(\theta, \beta)$.  Since the moment generating function completely characterizes a distribution, it is sufficient to show that 
+$\Phi_{\bar Y_K}(t)$ matches the expression in Lemma~\ref{lemma:log-gamma}. Applying Lemma~\ref{lemma:log-gamma} to $e^{Y^{(k)}}\sim\text{Gamma}(\theta_k,\beta_k)$, where $\theta_k=\theta/K+(k-1)/K$ and $\beta_k=\beta/K$, implies that 
+$$
+\Phi_{Y^{(k)}}=\frac{\Gamma(\theta_k+t)}{\Gamma(\theta_k)\beta_k^{t}}.
+$$
+By independence of $Y^{(1)},\ldots,Y^{(K)}$ and standard properties of the moment generating function,
+\begin{align*}    
+\Phi_{\bar Y_K}(t)&=\prod_{k=1}^K\Phi_{Y_K/K}(t)\\
+&=\prod_{k=1}^K\Phi_{Y_K}(t/K)\\
+&=\prod_{k=1}^K\frac{\Gamma(\theta_k+t/K)}{\Gamma(\theta_k)\beta_k^{t/K}}.
+\end{align*}
+
+Recalling the form of $\theta_k$ and $\beta_k$ and applying the Gauss multiplication theorem \citep[page 256]{abramowitz1972handbook} to both the numerator and denominator gives
+$$
+\Phi_{\bar Y_K}(t)=\frac{K^{-(\theta+t)}\Gamma(\theta+t)}{K^{-\theta}\Gamma(\theta)}\frac{1}{(\beta/K)^t}=\frac{\Gamma(\theta+t)}{\Gamma(\theta)\beta^t}.
+$$
+This completes the proof.
+
+    \item \emph{A sufficient statistic for $\theta$ in the joint distribution of $\Xt{1},\dots,\Xt{K}$ is $T(\Xt{1},\dots,\Xt{K})=\left(\prod_{k=1}^K \Xt{k}\right)^{\frac{1}{K}}$.}
+
+By the mutual independence of $\Xt{k}$, the joint density of $\Xt{1},\dots,\Xt{K}$ can be written as,
+
+\begin{align*} 
+f_{\Xt{1},\dots,\Xt{K}}(\xt{1},\dots,\xt{K}) &= \prod_{k=1}^K f_{\Xt{k}}(\xt{k}) \\
+&\propto \prod_{k=1}^K \left(\xt{k}\right)^{\frac{1}{K}\theta + \frac{k-1}{K} - 1}\exp\left(-\frac{\beta}{K}\xt{k}\right) \\
+&=\left[\left(\prod_{k=1}^K \xt{k}\right)^{\frac{1}{K}}\right]^{\theta}\left[\prod_{k=1}^K \left(\xt{k}\right)^{\frac{k-1}{K}-1}\right]\exp\left(-\frac{\beta}{K}\sum_{k=1}^K\xt{k}\right)
+\end{align*}
+
+    By the factorization theorem, $T(\Xt{1},\dots,\Xt{K})=\left(\prod_{k=1}^K \Xt{k}\right)^{\frac{1}{K}}$ is a sufficient statistic for $\theta$ as required.
+
+    \item \emph{To sample from $G_t$, the conditional distribution $(\Xt{1},\dots,\Xt{K})|T(\Xt{1},\dots,\Xt{K})=t$
+    , we first sample from $(\Xt{1},\dots,\Xt{K-1})|T(\Xt{1},\dots,\Xt{K})=t$ and then recover $\Xt{K}$.}
+
+The conditional density $f_{\Xt{1},\dots,\Xt{K-1}|T(\Xt{1},\dots,\Xt{K})=t}(\xt{1},\dots,\xt{K-1})$, up to a normalizing constant depending on $t$, is
+$$
+\left[\prod_{k=1}^{K-1}\left(\xt{k}\right)^{\frac{k-K}{K}-1}\right]\exp\left(-\frac{\beta}{K}\left(\sum_{k=1}^{K-1}\xt{k} + \frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)\right).
+$$
+The derivation is as follows (where any factors not involving $\xt{1},\ldots,\xt{K-1}$ are omitted and we write $\theta_k=\frac{\theta}{K}+\frac{k-1}{K}$):
+
+\begin{align*}
+&\quad f_{\Xt{1},\dots,\Xt{K-1}|T(\Xt{1},\dots,\Xt{K})=t}(\xt{1},\dots,\xt{K-1}) \\ 
+&\propto f_{\Xt{1},\dots,\Xt{K-1},T(\Xt{1},\dots,\Xt{K})}(\xt{1},\dots,\xt{K-1},t) \\
+&= f_{\Xt{1},\dots,\Xt{K}}\left(\xt{1},\dots,\xt{K-1},\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)\left|\frac{\partial}{\partial t}\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right| \\
+&=\left(\prod_{k=1}^{K-1}f_{\Xt{k}}\left(\xt{k}\right)\right)f_{\Xt{K}}\left(\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)\left|\frac{Kt^{K-1}}{\prod_{k=1}^{K-1}\xt{k}}\right| \\
+&\propto \left(\prod_{k=1}^{K-1}\left(\xt{k}\right)^{\theta_k-1}\exp\left(-\frac{\beta}{K}\xt{k}\right)\right) \left(\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)^{\theta_K-1}\exp\left(-\frac{\beta}{K}\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)\frac{1}{\prod_{k=1}^{K-1}\xt{k}} \\
+&\propto \left(\prod_{k=1}^{K-1}\left(\xt{k}\right)^{\frac{k-K}{K}-1}\right)\exp\left(-\frac{\beta}{K}\left(\sum_{k=1}^{K-1}\xt{k}+\frac{t^K}{\prod_{k=1}^{K-1}\xt{k}}\right)\right),
+\end{align*}
+where in the last step we used that $\theta_k-\theta_K=\frac{k-K}{K}$.
+
+To generate $(\Xt{1},\dots,\Xt{K})$, first sample from $(\Xt{1},\dots,\Xt{K-1})|T(\Xt{1},\dots,\Xt{K})=t$ with numerical sampling methods. In this example, MCMC methods work well though the choice of proposal distribution should consider $K$ and $\beta$. Then, compute $\Xt{K}=\frac{t^K}{\prod_{k=1}^{K-1}\Xt{k}}$. 
+\end{enumerate}
+\end{proof}
+
+\subsection{Families with support controlled by an unknown parameter}
+
+\subsubsection{Scaled beta distribution}
+\label{subsec:scaled-beta-proofs}
+
+We consider the family of distributions obtained by scaling a $\text{Beta}(\alpha,1)$ distribution (with $\alpha$ fixed) by an unknown scale parameter $\theta>0$.  In the special case that $\alpha=1$, this corresponds to the $\text{Unif}(0,\theta)$ family presented in Example~\ref{ex:scaled-uniform}.
+
+\begin{exmp}[Thinning $\theta\cdot\text{Beta}(\alpha,1)$ with $\alpha$ known] \label{ex:scaled-beta}
+We start with  $\Xt{k} \overset{iid}{\sim} \theta\cdot\text{Beta}\left(\frac{\alpha}{K},1\right)$ for $k=1,\ldots,K$, and note that $T(\Xt{1},\dots,\Xt{K}) = \max(\Xt{1},\dots,\Xt{K})$ is sufficient for $\theta$. 
+ Furthermore, $\max(\Xt{1},\dots,\Xt{K}) \sim \theta\cdot\text{Beta}(\alpha, 1)$. Thus, we define $G_t$ to be the conditional distribution of 
+ $(\Xt{1},\dots,\Xt{K})$ given $\max(\Xt{1},\dots,\Xt{K}) = t$. Then, 
+ by Theorem~\ref{thm:generalized-thinning}, 
+ we can thin  $X \sim \theta\cdot\text{Beta}(\alpha,1)$ by 
+ sampling from  $G_X$. 
+
+
+To sample from this conditional distribution, we first   
+draw $\mathbf{C}\sim\text{Categorical}_K\left(1/K, \ldots, 1/K\right)$. Then, $\Xt{k} = C_kX+(1-C_k)Z_k$ where $Z_k \overset{iid}{\sim} X\cdot\text{Beta}\left(\frac{\alpha}{K},1\right)$.
+\end{exmp}
+
+\begin{proof}[Proof of Example~\ref{ex:scaled-beta}]
+We must prove the following three claims:
+\begin{enumerate}
+    \item \emph{If for $k=1,\dots,K$, $\Xt{k} \overset{iid}{\sim} \theta \cdot\text{Beta}\left(\frac{\alpha}{K},1\right)$, then $\max(\Xt{1}, \dots,\Xt{K}) \sim \theta \cdot\text{Beta}\left(\alpha,1\right)$.}  
+    
+First, note that $\frac{1}{\theta}\Xt{k} \overset{iid}{\sim} \text{Beta}\left(\frac{\alpha}{K},1\right)$. The distribution of $\max(\Xt{1},\dots,\Xt{K})$ can be derived using the CDF method as follows:
+\begin{align*}
+    P(\max(\Xt{1},\dots,\Xt{K})\le z) &= P(\Xt{1} \le z,\dots, \Xt{K} \le z) \\
+    &= \prod_{k=1}^K P(\Xt{k} \le z) \\
+    &= \prod_{k=1}^K P\left(\frac{1}{\theta}\Xt{k} \le \frac{z}{\theta}\right) \\
+    &= \prod_{k=1}^K \left(\frac{z}{\theta}\right)^{\frac{\alpha}{K}} \\
+    &= \left(\frac{z}{\theta}\right)^\alpha,
+\end{align*}
+where we have used that $P(\text{Beta}(\alpha,1)\le x)=x^\alpha$ for $x\in(0,1)$. 
+The above implies that $\max(\Xt{1},\dots,\Xt{K})\sim\theta \cdot\text{Beta}\left(\alpha,1\right)$ as required.
+    \item \emph{A sufficient statistic for $\theta$ based on $\Xt{1},\dots,\Xt{K}$ is $\max(\Xt{1},\dots,\Xt{K})$.} 
+
+Using the independence of $\Xt{k}$, the joint distribution can be written as
+
+\begin{align*} 
+&\quad f_{\Xt{1},\dots,\Xt{K}}(\xt{1},\dots,\xt{K}) \\
+&= \prod_{k=1}^K f_{\Xt{k}}(\xt{k}) \\
+&\propto \prod_{k=1}^K\left(\xt{k}\right)^{\frac{\alpha}{K}-1}I\{0<\xt{k}<\theta\} \\
+&= \left(\prod_{k=1}^K\xt{k}\right)^{\frac{\alpha}{K}-1}I\{\min(\xt{1},\dots,\xt{K})>0\}I\{\max(\xt{1},\dots,\xt{K})<\theta\}.
+\end{align*}
+
+By the factorization theorem, we conclude that $\max(\Xt{1},\dots,\Xt{K})$ is a sufficient statistic for $\theta$ as required.
+
+    \item \emph{We can sample from the conditional distribution $(\Xt{1},\dots,\Xt{K})|\max(\Xt{1},\dots,\Xt{K})=t$ by taking $\Xt{k}=C_kt+(1-C_k)Z_k$ where $\mathbf{C} \sim \text{Categorical}_K(1/K,\dots,1/K)$ and $Z_k\sim t\cdot\text{Beta}(\frac{\alpha}{K},1)$.} 
+
+Without loss of generality, consider $\Xt{k}$. Given that $\Xt{1},\dots,\Xt{K}$ are identically distributed, $P(\Xt{k}=t)=\frac{1}{K}$. Hence, in the first stage, we can draw one sample, $\mathbf{C}\sim\text{Categorical}_K(1/K,\dots,1/K)$ to determine if $\Xt{k}$ is the maximum. If $\Xt{k}$ is not the maximum then we know that $\Xt{k} \le t$. We can compute the density of $Z_k\overset{D}{=}(\Xt{k}|\Xt{k}\le t)$ as follows,
+
+$$
+f_{\Xt{k}|\Xt{k}\le t}(\xt{k}) = \frac{f_{\Xt{k}}(\xt{k})}{P(\Xt{k}\le t)} =\frac{\frac{1}{\theta^\frac{\alpha}{K} B\left(\frac{\alpha}{K},1\right)} \left(\xt{k}\right)^{\frac{\alpha}{K}-1}}{\left(\frac{t}{\theta}\right)^{\frac{\alpha}{K}}} = \frac{1}{t^\frac{\alpha}{K} B\left(\frac{\alpha}{K},1\right)} \left(\xt{k}\right)^{\frac{\alpha}{K}-1}.
+$$
+
+The above implies that $Z_k \sim t\cdot\text{Beta}\left(\frac{\alpha}{K},1\right)$ as required.
+    
+\end{enumerate}
+The result then follows from Theorem~\ref{thm:generalized-thinning}.
+\end{proof}
+
+\subsubsection{Shifted exponential distribution}
+\label{subsec:shifted-exponential-proofs}
+
+We consider $X\sim \mathrm{SExp}(\theta,\lambda)$, which is the location family generated by shifting an exponential random variable by an amount $\theta$.  It has density
+$$
+p_{\theta,\lambda}(x)=\lambda e^{-\lambda (x-\theta)}1\{x\ge \theta\}.
+$$
+
+\begin{exmp}[Thinning a $\mathrm{SExp}(\theta,\lambda)$ random variable with known $\lambda$] \label{ex:shifted-exponential}
+We begin with $\Xt{k} \overset{iid}{\sim} \mathrm{SExp}(\theta,\lambda/K)$ for $k=1,\ldots,K$, and note that $T(\Xt{1},\dots,\Xt{K})=\min(\Xt{1},\dots,\Xt{K})$ is sufficient for $\theta$.  Furthermore,  $\min(\Xt{1},\dots,\Xt{K})\sim \mathrm{SExp}(\theta,\lambda)$. We define $G_t$ to be the conditional distribution of $(\Xt{1},\ldots,\Xt{K})$ given $  \min(\Xt{1},\dots,\Xt{K})=t$.  Then, by Theorem~\ref{thm:generalized-thinning},   we can thin $X\sim \mathrm{SExp}(\theta,\lambda)$  by sampling from $G_X$.
+
+
+To sample from $G_X$, we first draw  $\mathbf{C}\sim\text{Categorical}_K\left(1/K,\ldots,1/K \right)$. We then take 
+$\Xt{k}=X+(1-C_k)Z_k$,
+where  $Z_k\overset{iid}{\sim} \mathrm{Exp}(\lambda/K)$. 
+
+\end{exmp}
+
+\begin{proof}[Proof of Example~\ref{ex:shifted-exponential}]
+We must prove the following three claims:
+\begin{enumerate}
+    \item \emph{If for $k=1,\dots,K$, $\Xt{k} \overset{iid}{\sim} \text{SExp}\left(\theta,\lambda/K\right)$, then $\min(\Xt{1}, \dots,\Xt{K}) \sim \text{SExp}(\theta,\lambda)$.}  
+    
+First, note that $\Xt{k} - \theta \overset{iid}{\sim} \text{Exp}\left(\lambda/K\right)$. The distribution of $\min(\Xt{1},\dots,\Xt{K})$ can be derived using the CDF method as follows,
+\begin{align*}
+    P(\min(\Xt{1},\dots,\Xt{K})\ge z) &= P(\Xt{1} \ge z,\dots, \Xt{K} \ge z) \\
+    &= \prod_{k=1}^K P(\Xt{k} \ge z) \\
+    &= \prod_{k=1}^K P\left(\Xt{k}-\theta \ge z-\theta\right) \\
+    &= \prod_{k=1}^K \exp\left(-\frac{\lambda}{K}(z-\theta)\right) \\
+    &= \exp\left(-\lambda(z-\theta)\right).
+\end{align*}
+
+The above implies that $\min(\Xt{1},\dots,\Xt{K})\sim\text{SExp}(\theta,\lambda)$ as required.
+    \item \emph{A sufficient statistic for $\theta$ based on $\Xt{1},\dots,\Xt{K}$ is $\min(\Xt{1},\dots,\Xt{K})$.} 
+
+Using the independence of $\Xt{k}$, the joint distribution can be written as
+\begin{align*} 
+&\quad f_{\Xt{1},\dots,\Xt{K}}(\xt{1},\dots,\xt{K}) \\
+&= \prod_{k=1}^K f_{\Xt{k}}(\xt{k}) \\
+&\propto \prod_{k=1}^K \exp\left(-\frac{\lambda}{K}(\xt{k}-\theta)\right)I\{\xt{k}>\theta\} \\
+&\propto \exp\left(-\frac{\lambda}{K}\sum_{k=1}^K\xt{k}\right)I\{\min(\xt{1},\dots,\xt{K})>\theta\}. 
+\end{align*}
+
+Given that the joint distribution can be written such that $\theta$ only interacts with the data through the $I\{\min(\xt{1},\dots,\xt{K})>\theta\}$ term, we conclude that $\min(\Xt{1},\dots,\Xt{K})$ is a sufficient statistic for $\theta$ as required.
+
+    \item \emph{We can sample from the conditional distribution $\left(\Xt{1},\dots,\Xt{K}\right)|\min(\Xt{1},\dots,\Xt{K})=t$ by taking $\Xt{k}=t+(1-C_k)Z_k$ where $\mathbf{C} \sim \text{Categorical}_K(1/K,\dots,1/K)$ and $Z_k\sim\text{Exp}(\lambda/K)$.} 
+
+Without loss of generality, consider $\Xt{k}$. Given that $\Xt{1},\dots,\Xt{K}$ are identically distributed, $P(\Xt{k}=X)=\frac{1}{K}$. Hence, in the first stage, we can draw one sample, $\mathbf{C}\sim\text{Categorical}_K(1/K,\dots,1/K)$ to determine if $\Xt{k}$ is the minimum. Otherwise, we require that $ \Xt{k} \ge t$. We know that the density of $Z_k \overset{D}{=}(\Xt{k}|\Xt{k}\ge t) \overset{D}{=} \Xt{k}$ by the memoryless property of the exponential distribution. Thus, $Z_k \sim \text{Exp}\left(\lambda/K\right)$ as required.
+    
+\end{enumerate}
+The result then follows from Theorem~\ref{thm:generalized-thinning}.
+
+\end{proof}
+
+\section{Additional example of indirect thinning}
+\label{appendix:indirect}
+
+We consider an example of indirect thinning in which $S(\cdot)$ is neither invertible, nor scalar-valued. Specifically, let $\mathbf{X}=(X_1,\ldots,X_n)$ represent a sample of $n$ independent and identically distributed normal observations with unknown mean $\theta_1$ and variance $\theta_2$. Using ideas from Theorem~\ref{thm:natural-exponential-families} and Proposition~\ref{prop:exp-family}, we thin $\mathbf{X}$ through the sample mean and sample variance. 
+
+\begin{exmp}[Indirect thinning of  $N_n(\theta_1\mathbf{1}_n, \theta_2\mathbf{I}_n)$  through the sample mean and sample variance] \label{ex:normal} 
+Suppose $\mathbf{X}\sim N_n(\theta_1\mathbf{1}_n, \theta_2\mathbf{I}_n)$. Then $S(\mathbf{X})$ is sufficient for $\boldsymbol\theta=(\theta_1,\theta_2)$, where
+$$
+S(\mathbf{x}) =  \left( \frac{1}{n} \sum_{i=1}^n x_i, \frac{1}{n-1}\sum_{i=1}^{n}\left(x_i -  \frac{1}{n} \sum_{i'=1}^n x_{i'}\right)^2 \right).
+$$ 
+We will indirectly thin $\mathbf{X}$ through $S(\cdot)$ into $K=n$ univariate normals.
+To do so, we start with  $\Xt{k} \overset{iid}{\sim} N\left(\theta_1,\theta_2\right)$ for $k=1,\ldots,K$. A sufficient statistic for $\boldsymbol\theta$ based on $(\Xt{1},\ldots,\Xt{K})$ is $T(\Xt{1},\ldots,\Xt{K})$,  where
+$T(\xt{1},\ldots,\xt{K})=S((\xt{1},\ldots,\xt{K})^\top)$,
+i.e., we concatenate the $K$ entries into a vector and apply $S(\cdot)$.  
+Furthermore, $T(\Xt{1},\ldots,\Xt{K})$ has the same distribution as $S(\mathbf{X})$, since  $(\Xt{1},\ldots,\Xt{K})^\top$ and $\mathbf{X}$ have the same distribution. 
+This establishes that we can indirectly thin $\mathbf{X}$ through $S(\cdot)$ by $T(\cdot)$. 
+
+By Theorem~\ref{thm:generalized-thinning}, we define $G_{\mathbf{t}}$ to be the conditional distribution of  $(\Xt{1},\ldots,\Xt{K})$ given $T(\Xt{1},\ldots,\Xt{K})=\mathbf{t}$, i.e. it is the distribution of a $N_K(\theta_1\mathbf{1}_K, \theta_2\mathbf{I}_K)$ random vector conditional on its sample mean and sample variance equalling $\mathbf{t}=(t_1,t_2)$.  
+This conditional distribution is uniform over the set of points in $\mathbb{R}^K$ with sample mean $t_1$ and sample variance $t_2$.  To see this, note that $G_{\mathbf{t}}$ cannot depend on $\boldsymbol\theta$ (by sufficiency), so we can take $\boldsymbol\theta=(t_1,t_2)$ and equivalently describe $G_{\mathbf{t}}$ as the distribution of a $N_K(t_1\mathbf{1}_K, t_2\mathbf{I}_K)$ random vector conditional on its sample mean and sample variance equalling $\mathbf{t}=(t_1,t_2)$.  Such a distribution has constant density on a sphere centered at $t_1\mathbf{1}_K$.  Thus, the conditional distribution $G_{\mathbf{t}}$ is uniform over the set of points in $\mathbb{R}^K$ with sample mean $t_1$ and sample variance $t_2$. Finally, we obtain $(\Xt{1},\ldots,\Xt{K})$ by sampling from $G_{\mathbf{X}}$.
+\end{exmp}
+In effect, Example~\ref{ex:normal} shows that given a realization of $\mathbf{X}\sim N_n(\theta_1\mathbf{1}_n, \theta_2\mathbf{I}_n)$, we can generate a new random vector $(\Xt{1},\ldots,\Xt{n})^\top$ with the identical distribution,  and with the same sample mean and sample variance, without knowledge of the true mean or true variance. 
+This might have applications in cases where the true values of the observations cannot be shared. 
+Furthermore, the ideas in  Example~\ref{ex:normal} can be applied in settings where only the sufficient statistics of a realization of $\mathbf{X}\sim N_n(\theta_1\mathbf{1}_n, \theta_2\mathbf{I}_n)$ are available, and we wish to generate a ``plausible" sample that could have led to those sufficient statistics. 
+
+% END INCLUDED SOURCE: tex/10derivations.tex
+
+
+% BEGIN INCLUDED SOURCE: tex/7experiments.tex
+\section{Numerical experiments}
+\label{app:experiments}
+
+In this section, we illustrate some of the examples from Sections~\ref{sec:natural-exp-fam}, \ref{sec:general-exp}, and \ref{sec:outside-exp-fam} through numerical simulations.
+Specifically, we thin a Gamma($\alpha, \theta$) distribution using the three different approaches described in Examples~\ref{ex:dtgamma}, \ref{ex:scaled-normal}, and \ref{ex:weibull}, a Beta($\theta, \beta$) into two non-identical beta random variables as described in Example~\ref{ex:beta}, and a Unif($0, \theta$) into scaled betas as described in Example~\ref{ex:scaled-uniform}.  We take $K=2$ throughout for ease of presentation.
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=\textwidth]{figures/numerical_example_figure.pdf}
+\end{center}
+\caption{Numerical examples of data thinning. The left-hand column displays a sample from $P_\theta$, which we wish to thin.  The center-left and center-right columns display the empirical distributions of $\Xt{1}$ and $\Xt{2}$ that result from thinning, overlaid with  the theoretical distributions $\Qt{1}_\theta$ and $\Qt{2}_\theta$. The right-hand column displays the empirical joint distribution of $(\Qt{1}_\theta(\Xt{1}), \Qt{2}_\theta(\Xt{2}))$, providing visual evidence that they are independent. With a slight abuse of notation, $\Qt{1}_\theta(\cdot)$ and $\Qt{2}_\theta(\cdot)$ represent the CDFs of their respective distributions.}
+\label{fig:numericalexamples}
+\end{figure}
+
+In Figure \ref{fig:numericalexamples}, each row corresponds to one of the examples mentioned above. In the left-hand column,  we display the empirical density of $B=100,000$ realizations, $x_b$ (for $b=1,\ldots,B$), of the $X\sim P_\theta$ that we wish to thin, overlaid with the true density of $P_\theta$. In the center-left and center-right columns, we display $B$ realizations of $\Xt{1}$ and $\Xt{2}$ respectively, where each realization $(\xt{1}_b,\xt{2}_b)$ is obtained by sampling from $G_{x_b}$, the conditional distribution of $(\Xt{1},\Xt{2})$ given $T(\Xt{1}, \Xt{2})=x_b$. (This sampling is done without knowledge of $\theta$.) We overlay the densities of the marginals $\Qt{1}_\theta$ and $\Qt{2}_\theta$. The right-hand column displays 
+the empirical joint distribution of $(\Qt{1}_\theta(\Xt{1}), \Qt{2}_\theta(\Xt{2}))$.  
+
+In each case, our empirical findings corroborate our theoretical results: We see that the empirical distribution of $X \sim P_\theta$ agrees with its theoretical density (left-hand column); that the empirical distributions of $\Xt{1}$ and $\Xt{2}$ sampled from $G_X$ coincide with $\Qt{1}_\theta$ and $\Qt{2}_\theta$ (even though the empirical distributions were obtained without knowledge of $\theta$; center-left and center-right columns); and that the joint distribution of $\Qt{1}_\theta(\Xt{1})$ and $\Qt{2}_\theta(\Xt{2})$ resembles the independence copula (right-hand column). 
+
+% END INCLUDED SOURCE: tex/7experiments.tex
+
+
+% BEGIN INCLUDED SOURCE: tex/11changepointsimulations.tex
+\section{Changepoint detection simulations} \label{app:changepoint}
+First, we generate data with a common variance, specifically $X_1,\ldots,X_{2000}\overset{\text{iid}}{\sim} N(0,1)$, and apply the three approaches to detecting and testing for a change in variance that were described in Section \ref{sec:changepoint}.  
+We repeat this process 1000 times, and display the type 1 error rate in Figure \ref{fig:simulation}. The naive approach does not control the type 1 error rate, while the order-preserved sample splitting and generalized data thinning approaches do. 
+
+Figure \ref{fig:null} displays the estimated changepoints, as well as those for which we rejected the null hypothesis of no change in variance at the Bonferroni corrected threshold, for a single realization of the simulated data. The naive approach results in a number of false positives, while the order-preserved sample splitting and generalized data thinning approaches do not. 
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=\textwidth]{figures/simulation_null.pdf}
+\end{center}
+\caption{Results for the simulation study with no changepoints. \emph{Top row:} Simulated data with constant variance, as well as results of the naive approach: Red lines indicate changepoints estimated using all of the data, and red asterisks indicate the estimated changepoints for which the p-value computed using all of the data was below 0.05  divided by the number of detected changepoints. The method (falsely) rejects the null hypothesis for 4 out of 17 estimated changepoints. 
+\emph{Middle row:} Same as the first row, but for the order-preserved sample splitting approach: Purple lines indicate changepoints estimated using the odd observations, and purple asterisks indicate those with p-values below 0.05  divided by the number of detected changepoints, using only the even observations for testing. This method (correctly) rejects none of the 16 estimated changepoints.
+\emph{Bottom row:} Same as the first row, but for the generalized
+data thinning approach: Blue lines indicate changepoints estimated using the training set, and blue asterisks indicate those with test set p-values below 0.05  divided by the number of detected changepoints. This method (correctly) rejects none of the 7 estimated changepoints.}
+\label{fig:null}
+\end{figure}
+
+Next, we generated data with two true changepoints: for $i = 1, \dots, 500$, $X_i \overset{\text{iid}}{\sim} N(0,4)$; for $i = 501, \dots, 1500$, $X_i \overset{\text{iid}}{\sim} N(0,25)$; and for $i = 1501, \dots, 2000$, $X_i \overset{\text{iid}}{\sim} N(0,1)$. We again apply the three approaches to detecting and testing for a change in variance that were described in Section \ref{sec:changepoint}, and display the results in Figure \ref{fig:alt}. In this setting, all three approaches reject the null hypothesis of no change in variance at two timepoints, which are located exactly at the two true changepoints. 
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=\textwidth]{figures/simulation_alt.pdf}
+\end{center}
+\caption{Results for the simulation study with changes in variance at timepoints 501 and 1501. \emph{Top row:} Simulated data with two changepoints, as well as results of the naive approach: Red lines indicate changepoints estimated using all of the data, and red asterisks indicate the estimated changepoints for which the p-value computed using all of the data was below 0.05 divided by the number of detected changepoints. This approach leads to rejections only at the two true changepoints.
+\emph{Middle row:} Same as the first row, but for the order-preserved sample splitting approach: Purple lines indicate changepoints estimated using the odd observations, and purple asterisks indicate those with p-values below 0.05 divided by the number of detected changepoints, using only the even observations for testing. This approach also leads to rejections only at the two true changepoints. \emph{Bottom row:} Same as the first row, but for the generalized
+data thinning approach: Blue lines indicate changepoints estimated using the training set, and blue asterisks indicate those with test set p-values below 0.05 divided by the number of detected changepoints. This approach also leads to rejections only at the two true changepoints.}
+\label{fig:alt}
+\end{figure}
+
+% END INCLUDED SOURCE: tex/11changepointsimulations.tex
+
+
+% BEGIN INCLUDED SOURCE: tex/12fission.tex
+\section{Relaxing the independence assumption} \label{app:fission}
+
+We now consider how the generalized data thinning recipe changes if we relax the independence requirement for $\Xt{1}$ and $\Xt{2}$.
+
+\begin{algorithm}[Finding distributions that can be decomposed into non-independent components]
+\label{alg:recipe-fission}
+\textcolor{white}{.}
+\begin{enumerate}
+    \item Choose a family of distributions $\mathcal Q=\{Q_\theta:\theta\in\Omega\}$ over $(\Xt{1},\Xt{2})$, 
+     where $\Xt{1}$ and $\Xt{2}$ are not necessarily independent.
+    \item Let $(\Xt{1},\Xt{2})\sim Q_\theta$, and let  $T(\Xt{1},\Xt{2})$ denote a sufficient statistic for $\theta$.
+    \item Let $P_\theta$ denote the distribution of $T(\Xt{1},\Xt{2})$.  
+\end{enumerate}
+\end{algorithm}
+Then, given $X \sim P_\theta$, we can generate $(\Xt{1},\Xt{2})$ by sampling from $G_X$, where $G_t$ is defined as the conditional distribution
+    $$
+    (\Xt{1},\Xt{2})|T(\Xt{1},\Xt{2})=t.
+    $$
+
+By sufficiency, the sampling mechanism $G_t$  can be performed without knowledge of $\theta$.
+The key point here is that the main ideas in this paper apply even if $\Xt{1}$ and $\Xt{2}$ are dependent; however, we focused on independence in this paper to facilitate downstream application of the decompositions that we obtain. 
+
+
+
+
+% END INCLUDED SOURCE: tex/12fission.tex
+
+
+
+\end{document}

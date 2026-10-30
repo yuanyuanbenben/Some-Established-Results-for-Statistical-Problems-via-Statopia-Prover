@@ -1,0 +1,17 @@
+{
+  "case": "no_logistic_mle_under_complete_separation",
+  "msc": "62J12",
+  "difficulty": "hard",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 1489.857,
+  "lean_files": 1,
+  "lean_lines": 104,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_no_logistic_mle_under_complete_separation_native-b",
+  "legacy_input_tokens": 215252,
+  "legacy_output_tokens": 153151
+}

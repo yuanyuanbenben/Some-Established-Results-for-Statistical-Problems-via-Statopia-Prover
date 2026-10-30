@@ -1,0 +1,17 @@
+{
+  "case": "bernoulli_sum_sufficient",
+  "msc": "62B05",
+  "difficulty": "medium",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 2864.086,
+  "lean_files": 1,
+  "lean_lines": 146,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_bernoulli_sum_sufficient_native-b",
+  "legacy_input_tokens": 612765,
+  "legacy_output_tokens": 305689
+}

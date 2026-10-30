@@ -1,0 +1,17 @@
+{
+  "case": "finite_weighted_bayes_rule",
+  "msc": "62C10",
+  "difficulty": "hard",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 2796.985,
+  "lean_files": 1,
+  "lean_lines": 96,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_finite_weighted_bayes_rule_native-b",
+  "legacy_input_tokens": 333214,
+  "legacy_output_tokens": 324369
+}

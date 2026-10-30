@@ -1,0 +1,43 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62J/ridge_regression_mean_squared_error.tex
+msc: 62J07
+topic: Ridge-regression MSE
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: ridge_regression_mean_squared_error
+    kind: theorem
+    lean_name: ridge_regression_mean_squared_error
+    latex_statement: |-
+      \begin{theorem}[Ridge-regression mean squared error]
+      Let $(\Omega,\mathcal F,P)$ be a probability space, let $n,d\ge1$, let
+      $X\in\mathbb R^{n\times d}$ and $\beta^\star\in\mathbb R^d$, and let
+      $\varepsilon:\Omega\to\mathbb R^n$ be square-integrable.  Let
+      $\sigma^2\ge0$ and assume
+      \[
+        \mathbb E_P[\varepsilon]=0,
+        \qquad
+        \mathbb E_P[\varepsilon_i\varepsilon_j]
+        =\begin{cases}\sigma^2,&i=j,\\0,&i\ne j.\end{cases}
+      \]
+      For $\lambda>0$, define
+      \[
+        A=X^\top X+\lambda I_d,
+        \qquad y(\omega)=X\beta^\star+\varepsilon(\omega),
+        \qquad
+        \widehat\beta(\omega)=A^{-1}X^\top y(\omega).
+      \]
+      Then
+      \[
+        \mathbb E_P\!\left[\|\widehat\beta-\beta^\star\|_2^2\right]
+        =\lambda^2\|A^{-1}\beta^\star\|_2^2
+         +\sigma^2\operatorname{tr}
+            \!\left(A^{-1}X^\top X A^{-1}\right).
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

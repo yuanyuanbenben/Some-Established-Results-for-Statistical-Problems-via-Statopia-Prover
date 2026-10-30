@@ -1,0 +1,28 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=observed_failure_mass_under_independent_right_censoring
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:11:13: warning: unused variable `hm`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:13:5: warning: unused variable `hTmeas`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:14:5: warning: unused variable `hCmeas`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:15:5: warning: unused variable `hT`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:16:5: warning: unused variable `hC`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'observed_failure_mass_under_independent_right_censoring' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

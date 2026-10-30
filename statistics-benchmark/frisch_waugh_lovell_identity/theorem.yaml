@@ -1,0 +1,47 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62J/frisch_waugh_lovell_identity.tex
+msc: 62J05
+topic: Partitioned linear regression
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: frisch_waugh_lovell_identity
+    kind: theorem
+    lean_name: frisch_waugh_lovell_identity
+    latex_statement: |-
+      \begin{theorem}[Frisch--Waugh--Lovell identity]
+      Let $n,p,q$ be integers with $p+q\leq n$, $p\geq1$, and $q\geq1$.
+      Let $X_1\in\mathbb R^{n\times p}$, $X_2\in\mathbb R^{n\times q}$, and
+      $y\in\mathbb R^n$.  Assume that for every
+      $\beta\in\mathbb R^p$ and $\gamma\in\mathbb R^q$,
+      \[
+        X_1\beta+X_2\gamma=0
+        \quad\Longrightarrow\quad
+        \beta=0\ \text{and}\ \gamma=0.
+      \]
+      Let $\widehat\beta\in\mathbb R^p$ and
+      $\widehat\gamma\in\mathbb R^q$ satisfy, for every
+      $\beta\in\mathbb R^p$ and $\gamma\in\mathbb R^q$,
+      \[
+        (y-X_1\widehat\beta-X_2\widehat\gamma)^{\mathsf T}
+        (y-X_1\widehat\beta-X_2\widehat\gamma)
+        \leq
+        (y-X_1\beta-X_2\gamma)^{\mathsf T}
+        (y-X_1\beta-X_2\gamma).
+      \]
+      Define
+      \[
+        M_1=I-X_1(X_1^{\mathsf T}X_1)^{-1}X_1^{\mathsf T}.
+      \]
+      Then
+      \[
+        \widehat\gamma
+        =(X_2^{\mathsf T}M_1X_2)^{-1}X_2^{\mathsf T}M_1y.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

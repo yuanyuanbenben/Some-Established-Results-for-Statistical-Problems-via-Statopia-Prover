@@ -1,0 +1,13 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=uniform_quantile_convergence
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+'uniform_quantile_convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

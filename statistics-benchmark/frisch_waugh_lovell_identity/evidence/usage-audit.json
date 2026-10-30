@@ -1,0 +1,147 @@
+{
+  "id": "q32",
+  "case": "frisch_waugh_lovell_identity",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q32",
+  "status": "PROVED",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q32/experiment/runs/20261018T030744Z-frisch_waugh_lovell_identity-e59033ae",
+  "source": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q32/roadmap-usage/usage-journal.jsonl",
+  "sourceSha256": "05a706f52a733ef441adbc939826eee88a9c39e845c628d152a51320d4fc0275",
+  "snapshot": {
+    "path": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q32/experiment/runs/20261018T030744Z-frisch_waugh_lovell_identity-e59033ae/job_snapshot/roadmap-usage/usage-journal.jsonl",
+    "sha256": "05a706f52a733ef441adbc939826eee88a9c39e845c628d152a51320d4fc0275",
+    "byteEqualToLive": true
+  },
+  "checkpointCount": 0,
+  "eventSequence": 201,
+  "rawEventKinds": {
+    "CALL_INTENT": 67,
+    "USAGE_COMPLETION": 67,
+    "CLOSE_LOGICAL_CALL": 67
+  },
+  "compactedCompletedByAgent": {},
+  "retainedAttemptStatusCounts": {
+    "COMPLETED": 67
+  },
+  "retainedCompletionOutcomeCounts": {
+    "SUCCEEDED": 67
+  },
+  "retainedCompletedAfterUnknownCount": 0,
+  "unknownEventMarkersInStoredFile": 0,
+  "finalUnknownAttemptCount": 0,
+  "finalActiveAttemptCount": 0,
+  "unresolvedAttempts": [],
+  "totals": {
+    "completed": {
+      "inputTokens": 1604456,
+      "outputTokens": 462253,
+      "cacheReadTokens": 473088,
+      "cacheWriteTokens": 0,
+      "costUsd": 1.038878939
+    },
+    "unresolvedReservation": {
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "costUsd": 0
+    },
+    "billable": {
+      "inputTokens": 1604456,
+      "outputTokens": 462253,
+      "cacheReadTokens": 473088,
+      "cacheWriteTokens": 0,
+      "costUsd": 1.038878939
+    }
+  },
+  "totalCompletedInputIncludingCache": 2077544,
+  "completedByAgent": {
+    "MATH_PLANNER": {
+      "inputTokens": 246702,
+      "outputTokens": 128396,
+      "cacheReadTokens": 267392,
+      "cacheWriteTokens": 0,
+      "costUsd": 0.229690155
+    },
+    "SEARCH": {
+      "inputTokens": 97977,
+      "outputTokens": 5873,
+      "cacheReadTokens": 3968,
+      "cacheWriteTokens": 0,
+      "costUsd": 0.036464511
+    },
+    "WRITER": {
+      "inputTokens": 1259777,
+      "outputTokens": 327984,
+      "cacheReadTokens": 201728,
+      "cacheWriteTokens": 0,
+      "costUsd": 0.7727242729999998
+    }
+  },
+  "callbackUsage": {
+    "path": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q32/experiment/runs/20261018T030744Z-frisch_waugh_lovell_identity-e59033ae/usage.jsonl",
+    "sha256": "c8e0fb7345e92047ef9ecc628e91adfb0b3bc95ce62d660dee100863eb53e540",
+    "rows": 55,
+    "summedFields": {
+      "inputTokens": 1604456,
+      "outputTokens": 462253,
+      "cacheReadTokens": 473088,
+      "cacheWriteTokens": 0,
+      "costUsd": 0
+    },
+    "byEngine": {
+      "legacy-or-unspecified": {
+        "rows": 5,
+        "inputTokens": 82911,
+        "outputTokens": 105570,
+        "cacheReadTokens": 83456,
+        "cacheWriteTokens": 0,
+        "costUsd": 0
+      },
+      "unified-proof-graph": {
+        "rows": 50,
+        "inputTokens": 1521545,
+        "outputTokens": 356683,
+        "cacheReadTokens": 389632,
+        "cacheWriteTokens": 0,
+        "costUsd": 0
+      }
+    },
+    "deltaFromCanonicalCompleted": {
+      "inputTokens": 0,
+      "outputTokens": 0,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "costUsd": -1.038878939
+    }
+  },
+  "summaryProjection": {
+    "legacySum": {
+      "inputTokens": 82911,
+      "outputTokens": 105570,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "costUsd": 0.15205803899999998
+    },
+    "unifiedSum": {
+      "inputTokens": 1434627,
+      "outputTokens": 356277,
+      "cacheReadTokens": 388736,
+      "cacheWriteTokens": 0,
+      "costUsd": 0.8602529160000001
+    },
+    "naiveCombinedSum": {
+      "inputTokens": 1517538,
+      "outputTokens": 461847,
+      "cacheReadTokens": 388736,
+      "cacheWriteTokens": 0,
+      "costUsd": 1.012310955
+    },
+    "deltaFromCanonicalCompleted": {
+      "inputTokens": -86918,
+      "outputTokens": -406,
+      "cacheReadTokens": -84352,
+      "cacheWriteTokens": 0,
+      "costUsd": -0.026567983999999933
+    }
+  }
+}

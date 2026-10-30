@@ -1,0 +1,23 @@
+\begin{theorem}[Derandomization under Convex Loss]
+Let $m,N,k\in\mathbb N$ satisfy $m,N,k\ge1$.  For
+$j\in\{0,\ldots,m-1\}$ and $x\in\{0,\ldots,N-1\}$, let
+$p_j(x)\in[0,1]$ with
+\[
+  \sum_{x=0}^{N-1}p_j(x)=1
+\]
+for every $j$.  Let $a_0,\ldots,a_{k-1}\in\mathbb R$.  For every $x$ and
+$r\in\{0,\ldots,k-1\}$, let $q_x(r)\in[0,1]$ with
+\[
+  \sum_{r=0}^{k-1}q_x(r)=1
+\]
+for every $x$.  For each $j$, let
+$\ell_j:\mathbb R\to\mathbb R$ be nonnegative everywhere and convex on
+$\mathbb R$.  Then, for every $j\in\{0,\ldots,m-1\}$,
+\[
+ \sum_{x=0}^{N-1}p_j(x)\,
+ \ell_j\!\left(\sum_{r=0}^{k-1}q_x(r)a_r\right)
+ \le
+ \sum_{x=0}^{N-1}p_j(x)
+ \sum_{r=0}^{k-1}q_x(r)\ell_j(a_r).
+\]
+\end{theorem}

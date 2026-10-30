@@ -1,0 +1,27 @@
+\begin{theorem}[Studentized Central Limit Theorem]
+Let $(\Omega,\mathcal A,P)$ be a probability space and let
+$(X_i)_{i\ge0}$ be a sequence of measurable, independent real-valued random
+variables, each having the same distribution as $X_0$.  Let
+$\mu,\sigma\in\mathbb R$ satisfy
+\[
+  \int X_0\,dP=\mu,\qquad
+  \operatorname{Var}_P(X_0)=\sigma^2,\qquad
+  \sigma>0.
+\]
+Let $G:\Omega\to\mathbb R$ be measurable and have the standard Gaussian
+distribution.  For $n\in\mathbb N$, define
+\[
+ \overline X_n=\frac1n\sum_{i=0}^{n-1}X_i,
+ \qquad
+ S_n=\sqrt{\frac1n\sum_{i=0}^{n-1}(X_i-\overline X_n)^2},
+\]
+where the formulas use the convention $0^{-1}=0$, and define
+\[
+ T_n=
+ \begin{cases}
+ \displaystyle\frac{\sqrt n(\overline X_n-\mu)}{S_n},&S_n>0,\\[5pt]
+ 0,&S_n\le0.
+ \end{cases}
+\]
+Then $T_n\xrightarrow{\mathrm d}G$ under $P$ as $n\to\infty$.
+\end{theorem}

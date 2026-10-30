@@ -1,0 +1,39 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62F/german_tank_estimator_unbiased.tex
+msc: 62F10
+topic: German tank estimator
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: german_tank_estimator_unbiased
+    kind: theorem
+    lean_name: german_tank_estimator_unbiased
+    latex_statement: >-
+      \begin{theorem}[Unbiasedness of the German tank estimator]
+
+      Let $(\Omega,\mathcal F,P)$ be a probability space, and let $N,n\in\mathbb
+      N$
+
+      satisfy $1\leq n\leq N$. Let $M:\Omega\to\mathbb N$ be measurable and
+
+      assume that $n\leq M(\omega)\leq N$ for every $\omega$. Suppose that, for
+
+      each integer $r$ with $n\leq r\leq N$,
+
+      \[
+       P(M=r)=\frac{{r-1\choose n-1}}{{N\choose n}}.
+      \]
+
+      Then
+
+      \[
+       \mathbb E_P\!\left[\frac{n+1}{n}M-1\right]=N.
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

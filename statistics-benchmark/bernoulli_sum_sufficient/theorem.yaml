@@ -1,0 +1,44 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62B/bernoulli_sum_sufficient.tex
+msc: 62B05
+topic: Sufficient statistics and fields
+track_a_difficulty: hard
+track_b_difficulty: medium
+theorems:
+  - id: bernoulli_sum_sufficient
+    kind: theorem
+    lean_name: bernoulli_sum_sufficient
+    latex_statement: |-
+      \begin{theorem}[Bernoulli Sum is Sufficient]
+      Let $n\in\mathbb{N}$ with $n\ge 1$, and let $p\in\mathbb{R}$ satisfy
+      \[
+      0<p<1.
+      \]
+      Let the sample space be $\{0,1\}^n$. For a sample point
+      $x=(x_1,\ldots,x_n)\in\{0,1\}^n$, define
+      \[
+      T(x)=\sum_{i=1}^n x_i.
+      \]
+      Give $\{0,1\}^n$ the product Bernoulli probability
+      \[
+      P_p(X=x)
+      =
+      p^{T(x)}(1-p)^{n-T(x)}.
+      \]
+      For $k=0,\ldots,n$, let
+      \[
+      A_k=\{x\in\{0,1\}^n:T(x)=k\}.
+      \]
+      Then, for every $x\in A_k$,
+      \[
+      P_p(X=x\mid T=k)=\frac{1}{\binom{n}{k}}.
+      \]
+      In particular, the conditional distribution of the full sample $X$ given
+      $T$ does not depend on $p$, so $T$ is sufficient for $p$.
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

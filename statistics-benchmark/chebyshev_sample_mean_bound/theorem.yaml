@@ -1,0 +1,41 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62F/chebyshev_sample_mean_bound.tex
+msc: 62F12
+topic: Asymptotic properties of estimators
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: chebyshev_sample_mean_bound
+    kind: theorem
+    lean_name: chebyshev_sample_mean_bound
+    latex_statement: |-
+      \begin{theorem}[Chebyshev Bound for the Sample Mean]
+      Let $(X_i)_{i\ge 1}$ be independent identically distributed real-valued
+      random variables. Assume that each $X_i$ has finite second moment, and let
+      \[
+      \mathbb{E}[X_i]=\mu,
+      \qquad
+      \operatorname{Var}(X_i)=\sigma^2
+      \]
+      for all $i$, where $\sigma^2\ge 0$. For $n\ge 1$, define
+      \[
+      \bar X_n=\frac{1}{n}\sum_{i=1}^n X_i.
+      \]
+      Then
+      \[
+      \operatorname{Var}(\bar X_n)=\frac{\sigma^2}{n}.
+      \]
+      Consequently, for every $\varepsilon>0$,
+      \[
+      P\left(|\bar X_n-\mu|\ge \varepsilon\right)
+      \le
+      \frac{\sigma^2}{n\varepsilon^2}.
+      \]
+      In particular, $\bar X_n$ converges in probability to $\mu$.
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

@@ -1,0 +1,40 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62F/mse_gap_two_normal_variance_estimators.tex
+msc: 62F10
+topic: Normal variance-estimator MSE
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: mse_gap_two_normal_variance_estimators
+    kind: theorem
+    lean_name: mse_gap_two_normal_variance_estimators
+    latex_statement: |-
+      \begin{theorem}[MSE gap between two normal variance estimators]
+      Let $(\Omega,\mathcal F,P)$ be a probability space, let $n\geq2$, and let
+      $\mu,\sigma\in\mathbb R$ with $\sigma>0$. Let
+      $X_0,\ldots,X_{n-1}:\Omega\to\mathbb R$ be measurable and mutually
+      independent, and assume that each $X_i$ has Gaussian distribution
+      $N(\mu,\sigma^2)$. Define
+      \[
+       \overline X(\omega)=\frac1n\sum_{i=0}^{n-1}X_i(\omega),
+      \]
+      \[
+       \widehat\sigma^2(\omega)=\frac1n
+       \sum_{i=0}^{n-1}(X_i(\omega)-\overline X(\omega))^2,
+       \qquad
+       S^2(\omega)=\frac1{n-1}
+       \sum_{i=0}^{n-1}(X_i(\omega)-\overline X(\omega))^2.
+      \]
+      Then
+      \[
+       \mathbb E_P[(S^2-\sigma^2)^2]
+       -\mathbb E_P[(\widehat\sigma^2-\sigma^2)^2]
+       =\frac{(3n-1)\sigma^4}{n^2(n-1)}.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

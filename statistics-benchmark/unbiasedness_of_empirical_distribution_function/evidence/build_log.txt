@@ -1,0 +1,13 @@
+# Track B final Lean check
+success=true
+timedOut=false
+exitCode=0
+signal=
+seconds=16.390
+errorCategory=none
+
+## stdout
+
+
+## stderr
+

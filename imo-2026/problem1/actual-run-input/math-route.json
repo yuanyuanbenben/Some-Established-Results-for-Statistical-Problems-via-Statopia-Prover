@@ -1,0 +1,34 @@
+{
+  "target": {
+    "theoremName": "main_theorem",
+    "inputSha256": "2cc9808f24de022b819c0daee2cde4494cf02ca1d0050f4183a0f45544a8a663"
+  },
+  "progress": {
+    "schemaVersion": 1,
+    "difficulty": "VERY_HIGH",
+    "entries": [{
+      "route": {
+        "title": "Descending board potential and prime-valuation gcd invariance",
+        "mathematicalIdea": "Use the complete proof.md. A move weakly decreases both the board product and the number of entries greater than one; it strictly decreases the product when the chosen gcd exceeds one, and strictly decreases the count when the gcd is one. Their sum is a well-founded potential. Every reachable board remains positive with product greater than one. For each prime, a move replaces valuations r,s by min(r,s), |r-s| and therefore preserves their gcd; it also preserves the prime support of the board product. Thus Mval is invariant. On a terminal board, all entries except its unique M>1 are one, so prime factorization identifies Mval with M. Assemble all five published claims without treating any as an assumption.",
+        "orderedMilestones": [
+          "Prove preservation of positive entries, board cardinality, and product greater than one under Move; establish strict descent of product plus large-entry count.",
+          "Use well-founded induction for finite terminal reachability and prove a reachable terminal board has exactly one entry greater than one.",
+          "Prove prime-support preservation and the per-prime valuation-gcd identity for a single Move, then lift Mval invariance through Reachable.",
+          "Evaluate Mval on a terminal board using unique prime factorization, derive choice independence and Mval_gt_one, and close the five-way conjunction."
+        ],
+        "assumptionsUsed": [
+          "Only IsInitial for the starting board, Reachable and IsTerminal where those are binders of the published claims, and the stated definitions of Board, Move, gExp, and Mval."
+        ],
+        "mathematicalRisks": [
+          "The product alone does not strictly decrease for coprime m,n; the large-entry count supplies the missing descent.",
+          "Equal selected values still represent two distinct positions in the multiset decomposition.",
+          "Zero valuations from entries equal to one must not be confused with a zero gcd of positive valuations.",
+          "Terminal evaluation requires the reachable-board positivity invariant; it cannot assume all nonlarge entries are one without ruling out zero.",
+          "No published solution.lean or unproved conjunct may be imported as a certificate."
+        ]
+      },
+      "collectionDecision": "COMPLETE",
+      "collectionRationale": "The supplied mathematical route bypasses initial route generation only. Independent DAG planning, Lean search, node writing, compilation, and integrity checks remain active."
+    }]
+  }
+}

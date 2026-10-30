@@ -1,0 +1,19 @@
+\begin{theorem}[Finite-class empirical concentration]
+Let $(\Omega,\mathcal A,P)$ be a probability space, let $n\ge 1$ and
+$N\ge 1$, and let $\mathcal X$ be a measurable space.  Let
+$X_1,\ldots,X_n:\Omega\to\mathcal X$ be independent identically
+distributed measurable random variables.  Let
+$f_1,\ldots,f_N:\mathcal X\to[0,1]$ be measurable functions, and define
+\[
+  P_n f_j=\frac1n\sum_{i=1}^n f_j(X_i),
+  \qquad
+  P f_j=\mathbb E[f_j(X_1)].
+\]
+Then, for every $0<\delta<1$,
+\[
+  P\!\left\{
+    \sup_{1\le j\le N}|P_n f_j-P f_j|
+    \le \sqrt{\frac{\log(2N/\delta)}{2n}}
+  \right\}\ge 1-\delta.
+\]
+\end{theorem}

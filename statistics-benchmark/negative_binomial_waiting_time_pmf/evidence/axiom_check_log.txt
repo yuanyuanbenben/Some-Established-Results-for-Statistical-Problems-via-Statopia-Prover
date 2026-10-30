@@ -1,0 +1,34 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=Msc62GroundTruth.negative_binomial_waiting_time_pmf
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:14:13: warning: unused variable `hp0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:14:27: warning: unused variable `hp1`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:81:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+<stdin>:82:10: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+<stdin>:80:10: warning: 'apply Finset.sum_congr rfl' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+<stdin>:81:10: warning: 'intro i hi' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+<stdin>:82:10: warning: '(cases hx : x i) <;> simp [hx]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'Msc62GroundTruth.negative_binomial_waiting_time_pmf' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

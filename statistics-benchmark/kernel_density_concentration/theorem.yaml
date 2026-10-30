@@ -1,0 +1,45 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/kernel_density_concentration.tex
+msc: 62G07
+topic: Integrated kernel-density concentration
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: kernel_density_concentration
+    kind: theorem
+    lean_name: kernel_density_concentration
+    latex_statement: |-
+      \begin{theorem}[Concentration of the integrated kernel density error]
+      Let $(\Omega,\mathcal F,P)$ be a probability space and let $n\geq1$. Let
+      $X_0,\ldots,X_{n-1}:\Omega\to\mathbb R$ be measurable and mutually
+      independent. Let $f:\mathbb R\to\mathbb R$ be measurable and nonnegative
+      Lebesgue-almost everywhere, and assume that every $X_i$ has distribution
+      with density $x\mapsto\max\{f(x),0\}$ with respect to Lebesgue measure.
+      Let $K:\mathbb R\to\mathbb R$ be measurable, nonnegative everywhere, and
+      integrable, and assume
+      \[
+       \int_{\mathbb R}K(u)\,du=1.
+      \]
+      Let $h>0$, and define, for $\omega\in\Omega$ and $x\in\mathbb R$,
+      \[
+       \widehat f_h(\omega,x)=\frac1{nh}
+       \sum_{i=0}^{n-1}K\!\left(\frac{x-X_i(\omega)}h\right).
+      \]
+      Then, for every $\delta\geq0$,
+      \[
+       P\!\left(
+       \int_{\mathbb R}|\widehat f_h(x)-f(x)|\,dx
+       \geq
+       \mathbb E_P\!\left[
+       \int_{\mathbb R}|\widehat f_h(x)-f(x)|\,dx
+       \right]+\delta
+       \right)
+       \leq \exp\!\left(-\frac{n\delta^2}{8}\right).
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

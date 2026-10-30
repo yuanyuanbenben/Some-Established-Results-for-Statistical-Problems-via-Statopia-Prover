@@ -1,0 +1,39 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62C/finite_weighted_bayes_rule.tex
+msc: 62C10
+topic: Finite weighted Bayes rules
+track_a_difficulty: hard
+track_b_difficulty: hard
+theorems:
+  - id: finite_weighted_bayes_rule
+    kind: theorem
+    lean_name: finite_weighted_bayes_rule
+    latex_statement: |-
+      \begin{theorem}[Finite weighted Bayes rule]
+      Let $m,N\geq1$. For $j\in\{0,\ldots,m-1\}$, let
+      $\pi_j\in[0,1]$ with $\sum_j\pi_j=1$. For each such $j$ and each
+      $x\in\{0,\ldots,N-1\}$, let $p_j(x)\in[0,1]$, and assume
+      $\sum_xp_j(x)=1$ for every $j$. Let $w_j\geq0$ and $g_j\in\mathbb R$ for
+      every $j$. Define
+      \[
+       D(x)=\sum_j\pi_jp_j(x)w_j
+      \]
+      and assume $D(x)>0$ for every $x$. Define
+      \[
+       \delta^*(x)=\frac{\sum_j\pi_jp_j(x)w_jg_j}{D(x)}
+      \]
+      and, for every rule $\delta:\{0,\ldots,N-1\}\to\mathbb R$, define
+      \[
+       R(\delta)=\sum_j\pi_j\sum_xp_j(x)w_j(g_j-\delta(x))^2.
+      \]
+      Then, for every such $\delta$,
+      \[
+       R(\delta^*)\leq R(\delta).
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

@@ -1,0 +1,21 @@
+\begin{theorem}[Mean of a bounded random sum]
+Let $(\Omega,\mathcal F,P)$ be a probability space and let $m\geq1$. Let
+$N:\Omega\to\mathbb N$ be measurable and satisfy $N(\omega)\leq m$ for
+every $\omega$. Let $X_0,\ldots,X_{m-1}:\Omega\to\mathbb R$ be measurable
+and integrable, and suppose that $\mathbb E_P[X_i]=\mu$ for every $i$.
+Assume that $N$ is independent of the random vector
+$(X_0,\ldots,X_{m-1})$. Define
+\[
+ S(\omega)=\sum_{i=0}^{m-1}
+ \begin{cases}
+ X_i(\omega),&i+1\leq N(\omega),\\
+ 0,&i+1>N(\omega),
+ \end{cases}
+ \qquad
+ N_{\mathbb R}(\omega)=N(\omega)\ \text{viewed as a real number}.
+\]
+Then
+\[
+ \mathbb E_P[S]=\mu\,\mathbb E_P[N_{\mathbb R}].
+\]
+\end{theorem}

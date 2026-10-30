@@ -1,0 +1,66 @@
+{
+  "id": "q10",
+  "case": "kernel_density_mean_variance",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q10",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q10/experiment/runs/20261017T165741Z-kernel_density_mean_variance-61970cde",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "a591dea2dc9bc2cc2add50bb945268e927713cac9fb8917d689cedf6e92fa6a9",
+  "signatureLockSha256": "4bbd13351be129aaff54200ac5c7d98db90166b79a14a9ea8160721e0ab9ee64",
+  "rootTheorem": "kernel_density_mean_variance",
+  "inputRootSignature": "theorem kernel_density_mean_variance {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (n : ℕ) (hn : 1 ≤ n) (X : Fin n → Ω → ℝ) (hX_meas : ∀ i, Measurable (X i)) (hX_indep : iIndepFun X P) (p : ℝ → ℝ) (hp_meas : Measurable p) (hX_law : ∀ i, HasLaw (X i) (volume.withDensity (fun x ↦ ENNReal.ofReal (p x))) P) (pmax : ℝ) (hpmax : 0 ≤ pmax) (hp_nonneg : ∀ᵐ x ∂volume, 0 ≤ p x) (hp_bound : ∀ᵐ x ∂volume, p x ≤ pmax) (K : ℝ → ℝ) (hK_meas : Measurable K) (hK_nonneg : ∀ u, 0 ≤ K u) (hK_int : Integrable K) (hK_one : ∫ u, K u = 1) (hK_sq_int : Integrable (fun u ↦ (K u) ^ 2)) (x h : ℝ) (hh : 0 < h) : let estimate : Ω → ℝ := fun ω ↦ ((n : ℝ) * h)⁻¹ * ∑ i, K ((X i ω - x) / h) (∫ ω, estimate ω ∂P = ∫ u, K u * p (x + h * u)) ∧ variance estimate P = ((n : ℝ) * h)⁻¹ * (∫ u, (K u) ^ 2 * p (x + h * u)) - (n : ℝ)⁻¹ * (∫ u, K u * p (x + h * u)) ^ 2",
+  "lockedRootSignature": "theorem kernel_density_mean_variance {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (n : ℕ) (hn : 1 ≤ n) (X : Fin n → Ω → ℝ) (hX_meas : ∀ i, Measurable (X i)) (hX_indep : iIndepFun X P) (p : ℝ → ℝ) (hp_meas : Measurable p) (hX_law : ∀ i, HasLaw (X i) (volume.withDensity (fun x ↦ ENNReal.ofReal (p x))) P) (pmax : ℝ) (hpmax : 0 ≤ pmax) (hp_nonneg : ∀ᵐ x ∂volume, 0 ≤ p x) (hp_bound : ∀ᵐ x ∂volume, p x ≤ pmax) (K : ℝ → ℝ) (hK_meas : Measurable K) (hK_nonneg : ∀ u, 0 ≤ K u) (hK_int : Integrable K) (hK_one : ∫ u, K u = 1) (hK_sq_int : Integrable (fun u ↦ (K u) ^ 2)) (x h : ℝ) (hh : 0 < h) : let estimate : Ω → ℝ := fun ω ↦ ((n : ℝ) * h)⁻¹ * ∑ i, K ((X i ω - x) / h) (∫ ω, estimate ω ∂P = ∫ u, K u * p (x + h * u)) ∧ variance estimate P = ((n : ℝ) * h)⁻¹ * (∫ u, (K u) ^ 2 * p (x + h * u)) - (n : ℝ)⁻¹ * (∫ u, K u * p (x + h * u)) ^ 2",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.70f2fc525828997aac4f08e1.json",
+      "receiptId": "job-final.70f2fc525828997aac4f08e1",
+      "receiptHash": "7f8c49d13b430391ace5ed539899e29c0ce9c5b0b3d64d2f1fc2483edef58d91",
+      "finalizedAt": 1792262307429,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "9ae326d8ddb25411169b0b4dde97c61410eb6eec4c6cd5dd8d42c30bfd7c8a83"
+    }
+  ],
+  "slot": 0,
+  "keyIndex": 0,
+  "nodes": 3,
+  "auxiliaryNodes": 2,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 3
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.6ab79dd281f62966497b0dee06c375a2",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 10
+}

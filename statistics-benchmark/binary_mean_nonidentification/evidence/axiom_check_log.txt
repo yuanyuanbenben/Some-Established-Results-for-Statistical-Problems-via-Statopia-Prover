@@ -1,0 +1,36 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=binary_mean_nonidentification
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:11:5: warning: unused variable `hb`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:13:5: warning: unused variable `hsum`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:15:5: warning: unused variable `hPprob`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:55:12: warning: This simp argument is unused:
+  Set.disjoint_singleton
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵S̵e̵t̵.̵d̵i̵s̵j̵o̵i̵n̵t̵_̵s̵i̵n̵g̵l̵e̵t̵o̵n̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:86:12: warning: This simp argument is unused:
+  Set.disjoint_singleton
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵S̵e̵t̵.̵d̵i̵s̵j̵o̵i̵n̵t̵_̵s̵i̵n̵g̵l̵e̵t̵o̵n̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'binary_mean_nonidentification' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

@@ -1,0 +1,14 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=Msc62GroundTruth.finite_class_empirical_concentration
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:205:4: warning: Try this: intro omega homeg j
+'Msc62GroundTruth.finite_class_empirical_concentration' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

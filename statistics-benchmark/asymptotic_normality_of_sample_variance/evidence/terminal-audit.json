@@ -1,0 +1,67 @@
+{
+  "id": "q07",
+  "case": "asymptotic_normality_of_sample_variance",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q07",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q07/experiment/runs/20261017T150228Z-asymptotic_normality_of_sample_variance-5aeede2d",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "eb7f350c3ad713e71bee52270ca3ef3a523ec80f6999ac86a1925368f90153cf",
+  "signatureLockSha256": "3e213d841557b9f02cdd44ee30a4665c54708688237ef61da0b867e784b31db8",
+  "rootTheorem": "asymptotic_normality_of_sample_variance",
+  "inputRootSignature": "theorem asymptotic_normality_of_sample_variance {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (X : ℕ → Ω → ℝ) (mean varianceSq fourthMoment : ℝ) (G : Ω → ℝ) (hX_meas : ∀ i, Measurable (X i)) (hX_indep : iIndepFun X P) (hX_ident : ∀ i, IdentDistrib (X i) (X 0) P P) (hfourth_integrable : Integrable (fun ω ↦ |X 0 ω| ^ 4) P) (hmean : ∫ ω, X 0 ω ∂P = mean) (hvariance : ∫ ω, (X 0 ω - mean) ^ 2 ∂P = varianceSq) (hfourth : ∫ ω, (X 0 ω - mean) ^ 4 ∂P = fourthMoment) (hgap : varianceSq ^ 2 < fourthMoment) (hG_meas : Measurable G) (hG_law : IdentDistrib G id P (gaussianReal 0 ⟨fourthMoment - varianceSq ^ 2, sub_nonneg.mpr hgap.le⟩)) : let Xbar : ℕ → Ω → ℝ := fun n ω ↦ (n : ℝ)⁻¹ * ∑ i ∈ Finset.range n, X i ω let V : ℕ → Ω → ℝ := fun n ω ↦ (n : ℝ)⁻¹ * ∑ i ∈ Finset.range n, (X i ω - Xbar n ω) ^ 2 TendstoInDistribution (fun (n : ℕ) ω ↦ Real.sqrt (n : ℝ) * (V n ω - varianceSq)) atTop G P",
+  "lockedRootSignature": "theorem asymptotic_normality_of_sample_variance {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (X : ℕ → Ω → ℝ) (mean varianceSq fourthMoment : ℝ) (G : Ω → ℝ) (hX_meas : ∀ i, Measurable (X i)) (hX_indep : iIndepFun X P) (hX_ident : ∀ i, IdentDistrib (X i) (X 0) P P) (hfourth_integrable : Integrable (fun ω ↦ |X 0 ω| ^ 4) P) (hmean : ∫ ω, X 0 ω ∂P = mean) (hvariance : ∫ ω, (X 0 ω - mean) ^ 2 ∂P = varianceSq) (hfourth : ∫ ω, (X 0 ω - mean) ^ 4 ∂P = fourthMoment) (hgap : varianceSq ^ 2 < fourthMoment) (hG_meas : Measurable G) (hG_law : IdentDistrib G id P (gaussianReal 0 ⟨fourthMoment - varianceSq ^ 2, sub_nonneg.mpr hgap.le⟩)) : let Xbar : ℕ → Ω → ℝ := fun n ω ↦ (n : ℝ)⁻¹ * ∑ i ∈ Finset.range n, X i ω let V : ℕ → Ω → ℝ := fun n ω ↦ (n : ℝ)⁻¹ * ∑ i ∈ Finset.range n, (X i ω - Xbar n ω) ^ 2 TendstoInDistribution (fun (n : ℕ) ω ↦ Real.sqrt (n : ℝ) * (V n ω - varianceSq)) atTop G P",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.b384910da10a267f44e4c8f6.json",
+      "receiptId": "job-final.b384910da10a267f44e4c8f6",
+      "receiptHash": "2b9f486d596b2eee869b401e3650f0d93e4dd7ac5a43905fed784b59862456e7",
+      "finalizedAt": 1792257573157,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "d2720e31312ac97498a482a1aed147150798aa3739056eb4e39c0a548487d746"
+    }
+  ],
+  "slot": 1,
+  "keyIndex": 2,
+  "nodes": 8,
+  "auxiliaryNodes": 7,
+  "writerAddedNodes": 2,
+  "creationSources": {
+    "MIGRATED": 6,
+    "WRITER_REQUEST": 2
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.a39c10d68cf6135267e9da22a5a9970e",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 28
+}

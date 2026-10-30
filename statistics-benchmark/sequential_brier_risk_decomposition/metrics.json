@@ -1,0 +1,17 @@
+{
+  "case": "sequential_brier_risk_decomposition",
+  "msc": "62M20",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 2609.569,
+  "lean_files": 1,
+  "lean_lines": 369,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_sequential_brier_risk_decomposition_native-b",
+  "legacy_input_tokens": 916550,
+  "legacy_output_tokens": 336452
+}

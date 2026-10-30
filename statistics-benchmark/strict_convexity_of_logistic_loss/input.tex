@@ -1,0 +1,17 @@
+\begin{theorem}[Strict convexity of logistic loss]
+Let $1\le p\le n$, let $X\in\mathbb R^{n\times p}$ have an injective
+linear map $\beta\mapsto X\beta$, and let $y_i\in\{0,1\}$ for
+$i=1,\ldots,n$.  Define the logistic loss
+\[
+  L(\beta)=\sum_{i=1}^n
+  \left[\log\!\left(1+e^{x_i^\top\beta}\right)
+        -y_i x_i^\top\beta\right],
+  \qquad \beta\in\mathbb R^p,
+\]
+where $x_i^\top$ is row $i$ of $X$.  Then, for every distinct
+$\beta,\gamma\in\mathbb R^p$ and every $t\in(0,1)$,
+\[
+  L\bigl(t\beta+(1-t)\gamma\bigr)
+  <tL(\beta)+(1-t)L(\gamma).
+\]
+\end{theorem}

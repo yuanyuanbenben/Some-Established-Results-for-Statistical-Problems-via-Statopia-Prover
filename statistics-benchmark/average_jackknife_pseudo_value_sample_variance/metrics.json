@@ -1,0 +1,17 @@
+{
+  "case": "average_jackknife_pseudo_value_sample_variance",
+  "msc": "62G09",
+  "difficulty": "hard",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 2465.894,
+  "lean_files": 1,
+  "lean_lines": 157,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_average_jackknife_pseudo_value_sample_variance_native-b",
+  "legacy_input_tokens": 566730,
+  "legacy_output_tokens": 270777
+}

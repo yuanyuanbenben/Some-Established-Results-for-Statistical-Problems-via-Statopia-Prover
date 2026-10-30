@@ -1,0 +1,17 @@
+{
+  "case": "unbiased_estimation_of_squared_mean",
+  "msc": "62G05",
+  "difficulty": "hard",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 2459.971,
+  "lean_files": 1,
+  "lean_lines": 116,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_unbiased_estimation_of_squared_mean_native-b",
+  "legacy_input_tokens": 919708,
+  "legacy_output_tokens": 297999
+}

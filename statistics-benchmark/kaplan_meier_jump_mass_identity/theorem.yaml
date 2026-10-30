@@ -1,0 +1,33 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62N/kaplan_meier_jump_mass_identity.tex
+msc: 62N02
+topic: Kaplan-Meier estimation
+track_a_difficulty: medium
+track_b_difficulty: medium
+theorems:
+  - id: kaplan_meier_jump_mass_identity
+    kind: theorem
+    lean_name: kaplan_meier_jump_mass_identity
+    latex_statement: |-
+      \begin{theorem}[Kaplan--Meier jump-mass identity]
+      Let $m\ge1$, and let $r_j,d_j\in\mathbb N$ for $j\in\mathbb N$ satisfy
+      $r_j>0$ and $d_j\le r_j$ whenever $1\le j\le m$.  Define, for every
+      $k\in\mathbb N$,
+      \[
+        S_k=\prod_{j=1}^k\left(1-\frac{d_j}{r_j}\right),
+      \]
+      where an empty product is $1$, and define, for every $j\in\mathbb N$,
+      \[
+        m_j=S_{j-1}\frac{d_j}{r_j}.
+      \]
+      Then, for every $k$ with $1\le k\le m$,
+      \[
+        S_k+\sum_{j=1}^k m_j=1.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

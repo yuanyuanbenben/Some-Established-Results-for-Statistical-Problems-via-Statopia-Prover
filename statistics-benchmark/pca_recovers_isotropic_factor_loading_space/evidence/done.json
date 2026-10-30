@@ -1,0 +1,9 @@
+{
+  "finishedAt": "2026-10-17T19:57:10.323Z",
+  "finalStatus": "proved",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q14/experiment/runs/20261017T190459Z-pca_recovers_isotropic_factor_loading_space-000e62c6",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q14",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q14",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q14/experiment/runs/20261017T190459Z-pca_recovers_isotropic_factor_loading_space-000e62c6/job_snapshot",
+  "publishedCheckpointDir": null
+}

@@ -1,0 +1,19 @@
+\begin{theorem}[Arcsine central limit theorem for a Bernoulli mean]
+Let $(\Omega,\mathcal F,P)$ be a probability space, let $0<\theta<1$, and
+let $(X_i)_{i\in\mathbb N}$ be measurable, mutually independent
+$\{0,1\}$-valued random variables with Bernoulli distribution of success
+probability $\theta$. Let $Z:\Omega\to\mathbb R$ be measurable and have
+the standard normal distribution. For $r\in\mathbb N$, define
+\[
+ \overline X_r(\omega)=\frac1{r+1}\sum_{i=0}^r X_i(\omega),
+\]
+where a successful Boolean outcome is identified with $1$ and a failure
+with $0$. Then
+\[
+ 2\sqrt{r+1}\left(
+ \arcsin\sqrt{\overline X_r}-\arcsin\sqrt\theta
+ \right)
+ \xrightarrow{\mathcal D} Z
+ \quad\text{under }P\text{ as }r\to\infty.
+\]
+\end{theorem}

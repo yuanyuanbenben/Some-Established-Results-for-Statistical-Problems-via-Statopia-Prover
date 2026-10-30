@@ -1,0 +1,32 @@
+{
+  "target": {
+    "theoremName": "V_eq",
+    "inputSha256": "380b5532daf0af9586c393a322b7686d11320389046c7fefe5ca40a1620a98b7"
+  },
+  "progress": {
+    "schemaVersion": 1,
+    "difficulty": "VERY_HIGH",
+    "entries": [{
+      "route": {
+        "title": "Dyadic refinement imbalance and close subset sums",
+        "mathematicalIdea": "Use the complete proof.md. For the lower bound subdivide dyadic lengths, pair decreasing fragments, and obtain a tree component in the multigraph of origins. Its signed dyadic vertex mass is at least one and bounded by the total pairing imbalance. For the upper bound find two close subset sums, cancel their intersection, align the two groups by a common partition and bisect the complement; at most n cuts leave equal pairs plus residual mass at most 1/(2^(n+1)-1). Finally justify the bounded real iSup/iInf equality.",
+        "orderedMilestones": [
+          "Establish positive labelled refinement and reconstruction of Finset cut positions.",
+          "Prove sorted alternating imbalance and cancellation of two equal entries.",
+          "Prove the dyadic lower bound using a tree component of a multigraph, including odd piece counts with a dummy zero vertex.",
+          "Prove the close-subset-sum upper bound with the exact cut budget and legal disjoint marks.",
+          "Supply boundedness and nonemptiness for real indexed suprema and infima and close the published V_eq."
+        ],
+        "assumptionsUsed": ["Only n>0 and the published definitions; no unfinished auxiliary theorem is assumed."],
+        "mathematicalRisks": [
+          "The pairing graph is a multigraph: loops and parallel edges count toward the edge bound.",
+          "Equal-length pairs cancel in alternating rank sum even if selected copies are not adjacent.",
+          "Common-boundary matching uses only strictly interior cuts and at most n marks.",
+          "Input auxiliary theorems contain sorry and cannot be used as proved dependencies."
+        ]
+      },
+      "collectionDecision": "COMPLETE",
+      "collectionRationale": "A detailed supplied mathematical route replaces route generation only; Lean search, DAG planning, writers and integrity gates remain active."
+    }]
+  }
+}

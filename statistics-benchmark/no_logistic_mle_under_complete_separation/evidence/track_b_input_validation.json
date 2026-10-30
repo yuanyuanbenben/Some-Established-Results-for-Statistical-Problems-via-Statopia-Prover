@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "no_logistic_mle_under_complete_separation"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 48524
+}

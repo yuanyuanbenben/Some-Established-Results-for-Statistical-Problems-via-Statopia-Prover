@@ -1,0 +1,38 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62F/mse_decomposition_linear_combination.tex
+msc: 62F10
+topic: MSE decomposition for linear estimators
+track_a_difficulty: hard
+track_b_difficulty: hard
+theorems:
+  - id: mse_decomposition_linear_combination
+    kind: theorem
+    lean_name: mse_decomposition_linear_combination
+    latex_statement: |-
+      \begin{theorem}[MSE decomposition for a linear combination]
+      Let $(\Omega,\mathcal F,P)$ be a probability space. Let
+      $T_1,T_2:\Omega\to\mathbb R$ be measurable, independent random variables
+      in $L^2(P)$. Let $\theta,v_1,v_2,w\in\mathbb R$, assume
+      $v_1>0$ and $v_2>0$, and suppose
+      \[
+       \mathbb E_P[T_1]=\mathbb E_P[T_2]=\theta,
+       \qquad
+       \operatorname{Var}_P(T_1)=v_1,
+       \qquad
+       \operatorname{Var}_P(T_2)=v_2.
+      \]
+      Then
+      \[
+       \mathbb E_P\!\left[
+       \bigl(wT_1+(1-w)T_2-\theta\bigr)^2
+       \right]
+       =\frac{v_1v_2}{v_1+v_2}
+       +(v_1+v_2)\left(w-\frac{v_2}{v_1+v_2}\right)^2.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

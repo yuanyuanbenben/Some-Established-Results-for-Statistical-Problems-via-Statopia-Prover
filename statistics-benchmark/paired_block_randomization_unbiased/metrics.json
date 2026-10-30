@@ -1,0 +1,17 @@
+{
+  "case": "paired_block_randomization_unbiased",
+  "msc": "62K10",
+  "difficulty": "medium",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 3209.782,
+  "lean_files": 1,
+  "lean_lines": 145,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_paired_block_randomization_unbiased_native-b",
+  "legacy_input_tokens": 586711,
+  "legacy_output_tokens": 447304
+}

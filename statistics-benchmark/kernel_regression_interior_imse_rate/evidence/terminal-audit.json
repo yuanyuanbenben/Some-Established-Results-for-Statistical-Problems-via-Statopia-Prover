@@ -1,0 +1,68 @@
+{
+  "id": "q09",
+  "case": "kernel_regression_interior_imse_rate",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q09",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q09/experiment/runs/20261017T160302Z-kernel_regression_interior_imse_rate-58521a2e",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "e49926eb4e63cfbf3ff59798bc4457bfa38706c5a1968b18c0dc73db2e21b1d0",
+  "signatureLockSha256": "06b510c99e05ecbee5fb5be539fbacc87be1608d744967ac95f7fe619569048b",
+  "rootTheorem": "kernel_regression_interior_imse_rate",
+  "inputRootSignature": "theorem kernel_regression_interior_imse_rate (d : ℕ) (hd : 1 ≤ d) (alpha : ℝ) (halpha : 0 < alpha) (nu b : ℝ) (hnu : 0 < nu) (hb : 0 < b) (L0 MK LK gamma MAlpha Cv : ℝ) (hL0 : 0 ≤ L0) (hMK : 0 ≤ MK) (hLK : 0 ≤ LK) (hgamma : 0 < gamma) (hMAlpha : 0 ≤ MAlpha) (hCv : 0 ≤ Cv) : ∃ C : ℝ, 0 < C ∧ ∀ (f0 : Cube d → ℝ) (K : ℝ → Cube d → Cube d → ℝ) (muU : Measure (Cube d)) [IsProbabilityMeasure muU] (h_uniform : IsUniformOnUnitCube muU) {Omega : Type*} [MeasurableSpace Omega] (P : Measure Omega) [IsProbabilityMeasure P] (n : ℕ) (hn : 1 ≤ n) (X : Fin n → Omega → Cube d) (Y xi : Fin n → Omega → ℝ) (muI : Measure (Cube d)) [IsFiniteMeasure muI] (hX_meas : ∀ i, Measurable (X i)) (hX_cube : ∀ i omega, InUnitCube (X i omega)) (hX_law : ∀ i, Measure.map (X i) P = muU) (hY_meas : ∀ i, Measurable (Y i)) (hxi_meas : ∀ i, Measurable (xi i)) (hxi_integrable : ∀ i, Integrable (xi i) P) (h_regression_model : ∀ i omega, Y i omega = f0 (X i omega) + xi i omega) (hxi_centered : ∀ i, ∫ omega, xi i omega ∂P = 0) (hxi_exp_integrable : ∀ (i : Fin n) (t : ℝ), |t| < 1 / b → Integrable (fun omega => Real.exp (t * xi i omega)) P) (hxi_subexponential : ∀ (i : Fin n) (t : ℝ), |t| < 1 / b → ∫ omega, Real.exp (t * xi i omega) ∂P ≤ Real.exp (nu ^ 2 * t ^ 2 / (2 * (1 - b * |t|)))) (h_package : KernelRiskPackage P d n alpha (Real.rpow (n : ℝ) (-1 / (2 * alpha + (d : ℝ)))) f0 K muU muI (fun x omega => (1 / (n : ℝ)) * ∑ i : Fin n, K (Real.rpow (n : ℝ) (-1 / (2 * alpha + (d : ℝ)))) x (X i omega) * Y i omega) L0 MK LK gamma MAlpha Cv), let h : ℝ := Real.rpow (n : ℝ) (-1 / (2 * alpha + (d : ℝ))) let I_h : Set (Cube d) := {x | InInteriorBand h x} let estimator (x : Cube d) (omega : Omega) : ℝ := (1 / (n : ℝ)) * ∑ i : Fin n, K h x (X i omega) * Y i omega (∫ x in I_h, ∫ omega, (estimator x omega - f0 x) ^ 2 ∂P ∂muI) ≤ C * Real.rpow (n : ℝ) (-2 * alpha / (2 * alpha + (d : ℝ)))",
+  "lockedRootSignature": "theorem kernel_regression_interior_imse_rate (d : ℕ) (hd : 1 ≤ d) (alpha : ℝ) (halpha : 0 < alpha) (nu b : ℝ) (hnu : 0 < nu) (hb : 0 < b) (L0 MK LK gamma MAlpha Cv : ℝ) (hL0 : 0 ≤ L0) (hMK : 0 ≤ MK) (hLK : 0 ≤ LK) (hgamma : 0 < gamma) (hMAlpha : 0 ≤ MAlpha) (hCv : 0 ≤ Cv) : ∃ C : ℝ, 0 < C ∧ ∀ (f0 : Cube d → ℝ) (K : ℝ → Cube d → Cube d → ℝ) (muU : Measure (Cube d)) [IsProbabilityMeasure muU] (h_uniform : IsUniformOnUnitCube muU) {Omega : Type*} [MeasurableSpace Omega] (P : Measure Omega) [IsProbabilityMeasure P] (n : ℕ) (hn : 1 ≤ n) (X : Fin n → Omega → Cube d) (Y xi : Fin n → Omega → ℝ) (muI : Measure (Cube d)) [IsFiniteMeasure muI] (hX_meas : ∀ i, Measurable (X i)) (hX_cube : ∀ i omega, InUnitCube (X i omega)) (hX_law : ∀ i, Measure.map (X i) P = muU) (hY_meas : ∀ i, Measurable (Y i)) (hxi_meas : ∀ i, Measurable (xi i)) (hxi_integrable : ∀ i, Integrable (xi i) P) (h_regression_model : ∀ i omega, Y i omega = f0 (X i omega) + xi i omega) (hxi_centered : ∀ i, ∫ omega, xi i omega ∂P = 0) (hxi_exp_integrable : ∀ (i : Fin n) (t : ℝ), |t| < 1 / b → Integrable (fun omega => Real.exp (t * xi i omega)) P) (hxi_subexponential : ∀ (i : Fin n) (t : ℝ), |t| < 1 / b → ∫ omega, Real.exp (t * xi i omega) ∂P ≤ Real.exp (nu ^ 2 * t ^ 2 / (2 * (1 - b * |t|)))) (h_package : KernelRiskPackage P d n alpha (Real.rpow (n : ℝ) (-1 / (2 * alpha + (d : ℝ)))) f0 K muU muI (fun x omega => (1 / (n : ℝ)) * ∑ i : Fin n, K (Real.rpow (n : ℝ) (-1 / (2 * alpha + (d : ℝ)))) x (X i omega) * Y i omega) L0 MK LK gamma MAlpha Cv), let h : ℝ := Real.rpow (n : ℝ) (-1 / (2 * alpha + (d : ℝ))) let I_h : Set (Cube d) := {x | InInteriorBand h x} let estimator (x : Cube d) (omega : Omega) : ℝ := (1 / (n : ℝ)) * ∑ i : Fin n, K h x (X i omega) * Y i omega (∫ x in I_h, ∫ omega, (estimator x omega - f0 x) ^ 2 ∂P ∂muI) ≤ C * Real.rpow (n : ℝ) (-2 * alpha / (2 * alpha + (d : ℝ)))",
+  "rootNamespace": [
+    "Msc62GroundTruth"
+  ],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.00135effaab0be171d746c7c.json",
+      "receiptId": "job-final.00135effaab0be171d746c7c",
+      "receiptHash": "b98c175e28c18fb58af4094d1fc947cc8c167a7c0e4279d3149a1bf144eaa455",
+      "finalizedAt": 1792257771158,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "8f43974d4ff147648cd97e4a3914233d11cb9a8d1915f246949a3e6a04a2d561"
+    }
+  ],
+  "slot": 2,
+  "keyIndex": 4,
+  "nodes": 4,
+  "auxiliaryNodes": 3,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 4
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.5140d9e6b4b95bf210aa7a12410d793e",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 12
+}

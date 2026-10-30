@@ -1,0 +1,22 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=Msc62GroundTruth.sample_covariance_unbiased
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:17:28: warning: unused variable `hd`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:19:5: warning: unused variable `hX_meas`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:22:5: warning: unused variable `hmean`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Msc62GroundTruth.sample_covariance_unbiased' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

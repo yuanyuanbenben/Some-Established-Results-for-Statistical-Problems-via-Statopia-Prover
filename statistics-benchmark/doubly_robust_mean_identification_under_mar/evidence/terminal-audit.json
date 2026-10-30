@@ -1,0 +1,61 @@
+{
+  "id": "q17",
+  "case": "doubly_robust_mean_identification_under_mar",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q17",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q17/experiment/runs/20261017T212054Z-doubly_robust_mean_identification_under_mar-fe394602",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "54820c0d98d378524f2111573f873f5781ceec57ec2c84266c725fd16331da96",
+  "signatureLockSha256": "4bafe1ccc6c2ec1e31285471dbf9755cd2cc1ca28200756dac780835416b9ab7",
+  "rootTheorem": "doubly_robust_mean_identification_under_mar",
+  "inputRootSignature": "theorem doubly_robust_mean_identification_under_mar {Ω 𝒵 : Type*} [MeasurableSpace Ω] [Fintype 𝒵] [MeasurableSpace 𝒵] [MeasurableSingletonClass 𝒵] (P : Measure Ω) [IsProbabilityMeasure P] (R : Ω → Bool) (Z : Ω → 𝒵) (Y : Ω → ℝ) (hRmeas : Measurable R) (hZmeas : Measurable Z) (hYmeas : Measurable Y) (hYint : Integrable Y P) (hZpos : ∀ z, 0 < P {ω | Z ω = z}) (hMAR : ∀ (B : Set ℝ), MeasurableSet B → ∀ r z, P {ω | Y ω ∈ B ∧ R ω = r ∧ Z ω = z} * P {ω | Z ω = z} = P {ω | Y ω ∈ B ∧ Z ω = z} * P {ω | R ω = r ∧ Z ω = z}) (m : 𝒵 → ℝ) (π : 𝒵 → ℝ) (hπpos : ∀ z, 0 < π z) (hπle : ∀ z, π z ≤ 1) : let m0 : 𝒵 → ℝ := fun z ↦ (∫ ω in {ω | Z ω = z}, Y ω ∂P) / (P {ω | Z ω = z}).toReal let π0 : 𝒵 → ℝ := fun z ↦ (P {ω | R ω = true ∧ Z ω = z}).toReal / (P {ω | Z ω = z}).toReal (∀ z, 0 < π0 z) → (m = m0 ∨ π = π0) → ∫ ω, m (Z ω) + (if R ω then (1 : ℝ) else 0) / π (Z ω) * (Y ω - m (Z ω)) ∂P = ∫ ω, Y ω ∂P",
+  "lockedRootSignature": "theorem doubly_robust_mean_identification_under_mar {Ω 𝒵 : Type*} [MeasurableSpace Ω] [Fintype 𝒵] [MeasurableSpace 𝒵] [MeasurableSingletonClass 𝒵] (P : Measure Ω) [IsProbabilityMeasure P] (R : Ω → Bool) (Z : Ω → 𝒵) (Y : Ω → ℝ) (hRmeas : Measurable R) (hZmeas : Measurable Z) (hYmeas : Measurable Y) (hYint : Integrable Y P) (hZpos : ∀ z, 0 < P {ω | Z ω = z}) (hMAR : ∀ (B : Set ℝ), MeasurableSet B → ∀ r z, P {ω | Y ω ∈ B ∧ R ω = r ∧ Z ω = z} * P {ω | Z ω = z} = P {ω | Y ω ∈ B ∧ Z ω = z} * P {ω | R ω = r ∧ Z ω = z}) (m : 𝒵 → ℝ) (π : 𝒵 → ℝ) (hπpos : ∀ z, 0 < π z) (hπle : ∀ z, π z ≤ 1) : let m0 : 𝒵 → ℝ := fun z ↦ (∫ ω in {ω | Z ω = z}, Y ω ∂P) / (P {ω | Z ω = z}).toReal let π0 : 𝒵 → ℝ := fun z ↦ (P {ω | R ω = true ∧ Z ω = z}).toReal / (P {ω | Z ω = z}).toReal (∀ z, 0 < π0 z) → (m = m0 ∨ π = π0) → ∫ ω, m (Z ω) + (if R ω then (1 : ℝ) else 0) / π (Z ω) * (Y ω - m (Z ω)) ∂P = ∫ ω, Y ω ∂P",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.1d7598d85570a7bd4abd6ecb.json",
+      "receiptId": "job-final.1d7598d85570a7bd4abd6ecb",
+      "receiptHash": "23c95dfa4b217528442afde3d9a6f05ee3dda9e17f06fe1fe80769eaae67bbea",
+      "finalizedAt": 1792275900772,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "f4d7a69389ac57e7d950e59dbaf37c03ec5aa60df0b131ff22882ede5a5a2295"
+    }
+  ],
+  "slot": 1,
+  "keyIndex": 2,
+  "nodes": 5,
+  "auxiliaryNodes": 4,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 5
+  },
+  "failedActions": [],
+  "completedActions": 17
+}

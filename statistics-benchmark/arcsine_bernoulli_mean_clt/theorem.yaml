@@ -1,0 +1,36 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62F/arcsine_bernoulli_mean_clt.tex
+msc: 62F12
+topic: Variance-stabilizing transformations
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: arcsine_bernoulli_mean_clt
+    kind: theorem
+    lean_name: arcsine_bernoulli_mean_clt
+    latex_statement: |-
+      \begin{theorem}[Arcsine central limit theorem for a Bernoulli mean]
+      Let $(\Omega,\mathcal F,P)$ be a probability space, let $0<\theta<1$, and
+      let $(X_i)_{i\in\mathbb N}$ be measurable, mutually independent
+      $\{0,1\}$-valued random variables with Bernoulli distribution of success
+      probability $\theta$. Let $Z:\Omega\to\mathbb R$ be measurable and have
+      the standard normal distribution. For $r\in\mathbb N$, define
+      \[
+       \overline X_r(\omega)=\frac1{r+1}\sum_{i=0}^r X_i(\omega),
+      \]
+      where a successful Boolean outcome is identified with $1$ and a failure
+      with $0$. Then
+      \[
+       2\sqrt{r+1}\left(
+       \arcsin\sqrt{\overline X_r}-\arcsin\sqrt\theta
+       \right)
+       \xrightarrow{\mathcal D} Z
+       \quad\text{under }P\text{ as }r\to\infty.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

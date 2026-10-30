@@ -1,0 +1,59 @@
+{
+  "entry": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.Main",
+  "files": [
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.Base",
+      "lines": 44,
+      "sha256": "94f5ec3dd7142be6cd55cad34b6d5143915d86b523a95ad51e832691c0e1319d"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.Main",
+      "lines": 142,
+      "sha256": "44a7cb62c6d795fff3284ea8d881200666d454124aec92376e7e1890473b875e"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes",
+      "lines": 7,
+      "sha256": "81714743b0631e3131bdda280a312dfe0b90e1ba0d7ed95e0005151661a9d44c"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_1618166017_efb9b88b_b00c5a6a",
+      "lines": 30,
+      "sha256": "ca3523fd238f1f62302f54e99f2f2d0ab8050c72c08eda5de6d718d654d3eed4"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_1730365501_588c10f1_bd9a4db8",
+      "lines": 59,
+      "sha256": "3527f62f273a8d994cf27da1bfe6374790a768f204c1558a744c4d62dcbe0aec"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_1890793592_47ee479f_92694bea",
+      "lines": 237,
+      "sha256": "3d3e32c94bdcdea173030c178ef8257f28079c072c029abb99281fa3d33c8ce9"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_2814431898_39cb855d_53790c47",
+      "lines": 61,
+      "sha256": "765c89a84fa6336caefc99123616c85159306be4dd54fdc7b4cf26c18220d6df"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_422579165_9aacadd7_c664ab51",
+      "lines": 28,
+      "sha256": "dbf93e1b0bbb7a67499e675a0d9315958fd539641dbbb72c6ee23570a8bacdb9"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_856236742_c90712bc_09a0ea1b",
+      "lines": 50,
+      "sha256": "acc516f840ac11636246fe75f9d55bf4f61656cdffb904f81430a047e5bbdfb3"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.Vocabulary",
+      "lines": 4,
+      "sha256": "3db6badd2bbd0a01935c655dfeae6ea5a428e960215a5c29899d4f97a1e22a05"
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Statlib"
+  ]
+}

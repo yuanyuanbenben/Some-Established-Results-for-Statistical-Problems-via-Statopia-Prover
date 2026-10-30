@@ -1,0 +1,34 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62J/strict_convexity_of_logistic_loss.tex
+msc: 62J12
+topic: Logistic-loss convexity
+track_a_difficulty: medium
+track_b_difficulty: very_hard
+theorems:
+  - id: strict_convexity_of_logistic_loss
+    kind: theorem
+    lean_name: strict_convexity_of_logistic_loss
+    latex_statement: |-
+      \begin{theorem}[Strict convexity of logistic loss]
+      Let $1\le p\le n$, let $X\in\mathbb R^{n\times p}$ have an injective
+      linear map $\beta\mapsto X\beta$, and let $y_i\in\{0,1\}$ for
+      $i=1,\ldots,n$.  Define the logistic loss
+      \[
+        L(\beta)=\sum_{i=1}^n
+        \left[\log\!\left(1+e^{x_i^\top\beta}\right)
+              -y_i x_i^\top\beta\right],
+        \qquad \beta\in\mathbb R^p,
+      \]
+      where $x_i^\top$ is row $i$ of $X$.  Then, for every distinct
+      $\beta,\gamma\in\mathbb R^p$ and every $t\in(0,1)$,
+      \[
+        L\bigl(t\beta+(1-t)\gamma\bigr)
+        <tL(\beta)+(1-t)L(\gamma).
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

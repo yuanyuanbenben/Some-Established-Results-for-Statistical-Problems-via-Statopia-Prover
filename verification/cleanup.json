@@ -1,0 +1,352 @@
+{
+  "date": "2026-10-30",
+  "local_backup_directory": "/home/ai4stat/lean-extern/.Established-results-local-provenance/cleanup-20261030T093611Z",
+  "removed_files": [
+    {
+      "path": "evaluation/citation-edit-base.tex",
+      "sha256": "0bfe5fb1b07e7683b7a515dbe6e3d96f8aa4af81bc755cf0af7844dce5a7b337",
+      "bytes": 14247,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/conclusion.tex",
+      "sha256": "0f5f0ca011102879894e713702cab0820ca7139951dd0f97307273cded7f2004",
+      "bytes": 3758,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/evaluation-references.bib",
+      "sha256": "e6d4b88949c4a6069589ea31a0c0b73db3e7b784194d52a8cbb91ec9e819d62e",
+      "bytes": 3336,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/evaluation.tex",
+      "sha256": "53600718b4fa7cc1fd191e9842cd66fba3a6eb48e4a2b0e4e848b93d3acf58d1",
+      "bytes": 16811,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/gaussian-main-dag.tex",
+      "sha256": "3b15874ead2b8456e6037e817199c95e90ce1d9049cc58274ef30e6324b8070c",
+      "bytes": 2168,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/gaussian-task-group.tex",
+      "sha256": "8a7d2df4a5f7f824f68735baa95f62314545bba188dfda0641b312cfa2381ef9",
+      "bytes": 2368,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/hmc-main-dag.tex",
+      "sha256": "3acb12b9405ce983ed6083f04e522868560084be18625ac626a20b2c7ef1d3d7",
+      "bytes": 2357,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/hmc-task-group.tex",
+      "sha256": "bdcc58f273a732595fe5d444e3c0e807922bc7c9317855b449627d08ebb355e1",
+      "bytes": 1441,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/original-evaluation.tex",
+      "sha256": "2f0727a45c8ea754a7f50d001426f3a414d8c4cd96e661035b5c7001a813d94c",
+      "bytes": 19908,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/preview.bbl",
+      "sha256": "a2f68749680d47910773dc7ff1aa29e1f78ab317d0db1ca925571370a04f486d",
+      "bytes": 3716,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/preview.log",
+      "sha256": "31034dbba70643a70c3713f91331773b979b2c1bfedacc8c9dfb80d2b8dfc466",
+      "bytes": 24204,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/preview.pdf",
+      "sha256": "6ef768d8171441244a27ffb79f4018b83136919cca6ddbe9505c7206cf151f13",
+      "bytes": 82649,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/preview.tex",
+      "sha256": "9c6f02c8e262874e1f339379c9e4c6c5cf288d53bb3500ce837086e16b289de3",
+      "bytes": 494,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/review.md",
+      "sha256": "1102b6cb57019b509defa1c211351fe27d58d1abcf837b0046646a2de87c08cd",
+      "bytes": 4414,
+      "reason": "Review of the removed report drafts"
+    },
+    {
+      "path": "evaluation/revisions/v1/METHODOLOGY.md",
+      "sha256": "e9e6e585e484573ed362d42f86b61bd81830076b39522c0c00791924a928bd0a",
+      "bytes": 7321,
+      "reason": "Superseded report revision"
+    },
+    {
+      "path": "evaluation/revisions/v1/evaluation.tex",
+      "sha256": "a2bcd731f9cf0da4558df9b2dda1c95191d88b8b892612584642b959ea77c896",
+      "bytes": 16017,
+      "reason": "Superseded report revision"
+    },
+    {
+      "path": "evaluation/revisions/v1/preview.pdf",
+      "sha256": "1f324db5d2e657cf9005541cc840c37c1c5af58f44cc0e1ed7f50ade2311efda",
+      "bytes": 50277,
+      "reason": "Superseded report revision"
+    },
+    {
+      "path": "evaluation/revisions/v1/review.md",
+      "sha256": "16f2a17f8627bc595a844a98a4e362829248578f7c184d731f9dcc3f72dec458",
+      "bytes": 2344,
+      "reason": "Superseded report revision"
+    },
+    {
+      "path": "evaluation/statlib-feedback-before.tex",
+      "sha256": "0343fbfcd98a3e92e8a1b1959c1b28d62c6d3869cad16f2a1cf5fbde3cd19cee",
+      "bytes": 1961,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "evaluation/statlib-feedback-evidence.json",
+      "sha256": "49cf74a39206eb335447039d95aeb84240cfa3ef71f313892f1dbd99574ecb67",
+      "bytes": 4058,
+      "reason": "Evidence index for the removed report subsection"
+    },
+    {
+      "path": "evaluation/statlib-feedback.tex",
+      "sha256": "681c8ac91d84c6616b0f4b08464bab3e6ee69872f0b1cb493054532cdd3a52de",
+      "bytes": 5589,
+      "reason": "Report draft, editorial source or generated preview"
+    },
+    {
+      "path": "papers/data-thinning/integrated/TODO.md",
+      "sha256": "d847be7b83e6eb1f2948c09992eb4f206bfe1c6cd4e59710dffdfb4234faf522",
+      "bytes": 374,
+      "reason": "Historical workflow progress projection; current boundaries remain in case manifests and validation"
+    },
+    {
+      "path": "papers/data-thinning/integrated-proof.zip",
+      "sha256": "47949b7024181a2de39c72c8d85333d685629bea7472e0f927c7d85a71043337",
+      "bytes": 5349,
+      "reason": "Duplicate of the retained unpacked integrated Lean tree"
+    },
+    {
+      "path": "papers/data-thinning/report/report.tex",
+      "sha256": "773012b79135c8d3b27be5e09eccf7cfaac5c9c3dd6150ca46f5104631435e17",
+      "bytes": 9693,
+      "reason": "Report TeX; the corresponding report PDF remains"
+    },
+    {
+      "path": "papers/eills/integrated/TODO.md",
+      "sha256": "c409af9f78468b6962d275cc0d5bbfa7391d29fd24a4a2c4d865037d112e2ec5",
+      "bytes": 464,
+      "reason": "Historical workflow progress projection; current boundaries remain in case manifests and validation"
+    },
+    {
+      "path": "papers/eills/integrated-proof.zip",
+      "sha256": "57d7c11c30c3b5e38aa01b83e9749fa1a893639d9fa54b6f71d291b18951fb5b",
+      "bytes": 28796,
+      "reason": "Duplicate of the retained unpacked integrated Lean tree"
+    },
+    {
+      "path": "papers/eills/report/report.tex",
+      "sha256": "2154115ee6b3826e522fdfb95fad7f3b6a8270a4ec9f6937de6b8aac8e3d9df9",
+      "bytes": 67279,
+      "reason": "Report TeX; the corresponding report PDF remains"
+    },
+    {
+      "path": "papers/gaussian/integrated/TODO.md",
+      "sha256": "e42a39080025080951f095ba74d54f15cef2480788da4696bcf584ec5089ef1f",
+      "bytes": 1394,
+      "reason": "Historical workflow progress projection; current boundaries remain in case manifests and validation"
+    },
+    {
+      "path": "papers/gaussian/integrated-proof.zip",
+      "sha256": "bf69e4a0987edb3c45abdedbda7bff9d73c27951cea3a512df8c998cb3711aa9",
+      "bytes": 224052,
+      "reason": "Duplicate of the retained unpacked integrated Lean tree"
+    },
+    {
+      "path": "papers/gaussian/materials/main-compile-output.txt",
+      "sha256": "491e71a0d965e57ebe14a6d04f03dca1e367af73c18799042ac0e60bb603dc66",
+      "bytes": 1418,
+      "reason": "Redundant compilation preview or log; original reference PDF retained"
+    },
+    {
+      "path": "papers/gaussian/materials/main-compiled.pdf",
+      "sha256": "5c320bf91204d2e6fd2cc6b8179f44e85ac3f17f930c3c3ab228797fe4b2c2bc",
+      "bytes": 283987,
+      "reason": "Redundant compilation preview or log; original reference PDF retained"
+    },
+    {
+      "path": "papers/gaussian/materials/supp-compile-output.txt",
+      "sha256": "12ee46d2718f64d2314669eb6902664109cf8e6f6b94e95a657ac96bfd3c5861",
+      "bytes": 2242,
+      "reason": "Redundant compilation preview or log; original reference PDF retained"
+    },
+    {
+      "path": "papers/gaussian/materials/supp-compiled.pdf",
+      "sha256": "f2aeaaaa5543ffe1c45d785e036d87d530b33efce6053ebe5b8126a4376ed0f6",
+      "bytes": 244655,
+      "reason": "Redundant compilation preview or log; original reference PDF retained"
+    },
+    {
+      "path": "papers/hmc/theorem-2.2/integrated/TODO.md",
+      "sha256": "512c75028a775f146d7ff95fdc69972dd63b94c0c33c9c5390cf5232e3a27112",
+      "bytes": 493,
+      "reason": "Historical workflow progress projection; current boundaries remain in case manifests and validation"
+    },
+    {
+      "path": "papers/hmc/theorem-2.2/integrated-proof.zip",
+      "sha256": "d142cb33bb9fce963333a2a2fee06f5e9bf7e3fa76b0e9e89c9771fd6738fcfc",
+      "bytes": 62203,
+      "reason": "Duplicate of the retained unpacked integrated Lean tree"
+    },
+    {
+      "path": "papers/hmc/theorem-5.14/integrated/TODO.md",
+      "sha256": "e0134bb31a1e775ec6202176577a7551131f0798038597b3a3fcc4d3918198ed",
+      "bytes": 1003,
+      "reason": "Historical workflow progress projection; current boundaries remain in case manifests and validation"
+    },
+    {
+      "path": "papers/hmc/theorem-5.14/integrated-proof.zip",
+      "sha256": "d854881d7b2613c5081de6795afaad1425e0d9757029a133adc708b512bc79d8",
+      "bytes": 69418,
+      "reason": "Duplicate of the retained unpacked integrated Lean tree"
+    },
+    {
+      "path": "papers/hmc/theorem-5.14/report/report.tex",
+      "sha256": "1b8f19d573cb50ef530f5a11d880c72dd640591692f9f954c5206514fcfe9b60",
+      "bytes": 57659,
+      "reason": "Report TeX; the corresponding report PDF remains"
+    },
+    {
+      "path": "papers/original-archive-README.md",
+      "sha256": "48d74f5ae0ac552428a4036844f3fb41dbf66bc8e1787d97524bf4aa4a0f60c2",
+      "bytes": 2649,
+      "reason": "Superseded archive overview; current boundaries are in validation and case READMEs"
+    },
+    {
+      "path": "scripts/audit_sources.py",
+      "sha256": "07542b6eaabcba55c45754428c070fd7e0d9fe2c51b5bd08a72912a6852812c2",
+      "bytes": 7313,
+      "reason": "One-time collection, import-minimization or report-generation tooling"
+    },
+    {
+      "path": "scripts/binary_imports.lean",
+      "sha256": "6e456a2a93f82933859b53802c9d1770c34ba17679418c5677fa3fceffba129b",
+      "bytes": 780,
+      "reason": "One-time collection, import-minimization or report-generation tooling"
+    },
+    {
+      "path": "scripts/build_binary_cache.py",
+      "sha256": "9409081675aadd2bc621aae573af4e942a80c425828fcc6c95347d69273caf6e",
+      "bytes": 4914,
+      "reason": "One-time collection, import-minimization or report-generation tooling"
+    },
+    {
+      "path": "scripts/collect_results.py",
+      "sha256": "c87f43970954d44e95c9ecddbcab8b84686792a4b52e2ad8c5b0a025ac47a0f7",
+      "bytes": 19321,
+      "reason": "One-time collection, import-minimization or report-generation tooling"
+    },
+    {
+      "path": "scripts/declaration_modules.lean",
+      "sha256": "0444d371309bbec6ec61b3a4070d74c5cb830f67205d15e998627d8fdeda8588",
+      "bytes": 266,
+      "reason": "One-time collection, import-minimization or report-generation tooling"
+    },
+    {
+      "path": "scripts/gaussian_figures.py",
+      "sha256": "b56d16f87883a3a764c9270ad70e800140c3c647356ee8a4753f67d8c5deb7a3",
+      "bytes": 6105,
+      "reason": "One-time collection, import-minimization or report-generation tooling"
+    },
+    {
+      "path": "scripts/hmc_figures.py",
+      "sha256": "984f93e18abb6a3ad3b2ad14fdbde0059157cc9a53bce5835d0f504b67637321",
+      "bytes": 5877,
+      "reason": "One-time collection, import-minimization or report-generation tooling"
+    },
+    {
+      "path": "scripts/minimize_imports.py",
+      "sha256": "be7ea57c76ea105462de93d39d8108ada07fb0080418f608ce89dda6282d452d",
+      "bytes": 14699,
+      "reason": "One-time collection, import-minimization or report-generation tooling"
+    },
+    {
+      "path": "scripts/reprice_evaluation.py",
+      "sha256": "364083894716ba28e18dbab72b7f98ba278b3b2461c9e0eea2a2c365f425bd4f",
+      "bytes": 5612,
+      "reason": "One-time collection, import-minimization or report-generation tooling"
+    },
+    {
+      "path": "statlib-contributions/neural-network-approximation/materials/compile-output.txt",
+      "sha256": "36f3e42dc4fdaf38c87f714a94d99547224ab0ac496c321d2752de1cc1250d70",
+      "bytes": 10004,
+      "reason": "Redundant compilation preview or log; original reference PDF retained"
+    },
+    {
+      "path": "statlib-contributions/neural-network-approximation/materials/compile.log",
+      "sha256": "6a0253bf8128a7807fceaf361f4e4c1fd3cc6126b71fb52f272609808237d12c",
+      "bytes": 44380,
+      "reason": "Redundant compilation preview or log; original reference PDF retained"
+    },
+    {
+      "path": "statlib-contributions/neural-network-approximation/materials/compiled-paper.pdf",
+      "sha256": "0954f8301da3a5554bba67e360e6598482ba6c54536d7c985d5ea79d521d66b8",
+      "bytes": 425355,
+      "reason": "Redundant compilation preview or log; original reference PDF retained"
+    },
+    {
+      "path": "imo-2026/problem1/archive-README.md",
+      "sha256": "75237e455559e9c27fa645efc3c52aa4bf0702d697bf0a8a6cedda2f16efc669",
+      "bytes": 1273,
+      "reason": "Superseded run README with nonportable original-workspace links; input attribution and current evidence remain"
+    },
+    {
+      "path": "imo-2026/problem2/archive-README.md",
+      "sha256": "33e03b751136531d7caf0e2d4a927d2c3c4aa509a280d69c90a42f0006bc8bc5",
+      "bytes": 1904,
+      "reason": "Superseded run README with nonportable original-workspace links; input attribution and current evidence remain"
+    },
+    {
+      "path": "imo-2026/problem3/archive-README.md",
+      "sha256": "efc8c735f3bc2a98cd78afeaa012f8827ab9ef8ff91bdb34ca553a7bdf0886a5",
+      "bytes": 1311,
+      "reason": "Superseded run README with nonportable original-workspace links; input attribution and current evidence remain"
+    },
+    {
+      "path": "imo-2026/problem4/archive-README.md",
+      "sha256": "eedbc11fdef21dc0ab9ff35a6c60f52862469c996ed99ffe364a0de1ef077cc3",
+      "bytes": 1257,
+      "reason": "Superseded run README with nonportable original-workspace links; input attribution and current evidence remain"
+    },
+    {
+      "path": "imo-2026/problem5/archive-README.md",
+      "sha256": "cf747de5ed37d46a547af15f87b81685790fd67ee6c5e988a0c9b1ce658d060c",
+      "bytes": 1414,
+      "reason": "Superseded run README with nonportable original-workspace links; input attribution and current evidence remain"
+    },
+    {
+      "path": "imo-2026/problem6/archive-README.md",
+      "sha256": "e21c5263168984376fb65c6bc5991517a660d3672ad9fbab4d1d3f74084ad1e1",
+      "bytes": 1946,
+      "reason": "Superseded run README with nonportable original-workspace links; input attribution and current evidence remain"
+    }
+  ],
+  "policy": "Original question/paper inputs, proof sources, selected binary cache and hash-bound build evidence are retained. Historical provenance manifests may name files relocated by this cleanup; consult this removal index.",
+  "verification": "Case-index extraction compared equal for all 96 jobs and all 753 derived source imports. No proof source or compiled library file changed.",
+  "removed_files_directory": "/home/ai4stat/lean-extern/.Established-results-local-provenance/cleanup-20261030T093611Z/removed",
+  "before_edit_directory": "/home/ai4stat/lean-extern/.Established-results-local-provenance/cleanup-20261030T093611Z/before-edit"
+}

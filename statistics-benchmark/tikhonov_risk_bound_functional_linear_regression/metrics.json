@@ -1,0 +1,15 @@
+{
+  "case": "tikhonov_risk_bound_functional_linear_regression",
+  "msc": "62R10",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": 0.572911957,
+  "unknown_reservation_usd": 0.0,
+  "cost_coverage": "completed journal usage; unresolved reservations separate",
+  "mode": "deep",
+  "seconds": 3158.0,
+  "lean_files": 8,
+  "lean_lines": 410,
+  "nodes": 5,
+  "job_id": "deep_benchmark42_3p_2k5_20261017T100521Z_q27"
+}

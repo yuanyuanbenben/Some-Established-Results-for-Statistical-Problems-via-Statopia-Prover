@@ -1,0 +1,69 @@
+{
+  "entry": "ProverJobs.real_main_theorem_3393c3b8aa74.Main",
+  "files": [
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.Base",
+      "lines": 57,
+      "sha256": "069ae87b07b91e92627eea16ff7479edd352b7c7fc0d42a8595664a819f90bc1"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.Main",
+      "lines": 42,
+      "sha256": "7507788b549fdaf1d4215f64dabe2b347660cfde7351815b20a74ef257a1b63e"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.MainSupport",
+      "lines": 4,
+      "sha256": "88c18a4c0b75b867c56965a79a0ec227569cae21c68733211b1beb1fa4cfffc3"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes",
+      "lines": 9,
+      "sha256": "876c22b8b95e5c84ada83404481ebb5e1ee5387f4804dfabda4d93b5ddb75de2"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_1810606264_793af19a_1d527339",
+      "lines": 33,
+      "sha256": "7e7822cda02c5d302aa875fdc92a88b23726ffe8c97b285b32614eb7d143187c"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_3609921484_532dba24_77cffd73",
+      "lines": 67,
+      "sha256": "a2c2f18b1fabf645c833ed6ac27417d711a6bbdd67b4ad114c1b1f1a732ef8c4"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_3665352230_eab14143_1fb95821",
+      "lines": 108,
+      "sha256": "6b9b41758253a7f268ea9980471dcf8da767afccc2b03cfb8ef6392f0c863656"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_389705034_bebdf092_00c99d6f",
+      "lines": 52,
+      "sha256": "122e655872fd7b32849a72b4f40573d82f7789ed0c531a23b074034089f2983e"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_4212101893_b868743c_15a110b6",
+      "lines": 48,
+      "sha256": "7da2e3933e008dcfda4cc6e2c0635f035d038afbc768eff30f5c09c6484ac476"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_734679360_23af815d_b658a6ec",
+      "lines": 40,
+      "sha256": "65e650ebb072f1e0d27c977f7d889694b5cf59de9c170224eacdb184a04f200a"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_944270810_55a7315b_a4d84f90",
+      "lines": 85,
+      "sha256": "ab1f00256a753dbf2ebedfcc34c764667000131c378505c209635e67dee7b9a5"
+    },
+    {
+      "module": "ProverJobs.real_main_theorem_3393c3b8aa74.Vocabulary",
+      "lines": 4,
+      "sha256": "3db6badd2bbd0a01935c655dfeae6ea5a428e960215a5c29899d4f97a1e22a05"
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Statlib"
+  ]
+}

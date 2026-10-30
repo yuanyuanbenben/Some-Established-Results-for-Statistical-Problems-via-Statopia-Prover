@@ -1,0 +1,44 @@
+[
+  {
+    "module": "ProverJobs.cqr_001_split_miscoverage_subset_strict_lower_rank_event.Main",
+    "lines": 41,
+    "source": "/home/ai4stat/prover_long_test/app/dev/fixtures/cqr/001_split_miscoverage_subset_strict_lower_rank_event.yaml",
+    "source_sha256": "cda830e8329e95624a482c01e754cb8dbbeddfd4601ccb8da1ab9f1ed12dc9c4",
+    "artifact_sha256": "a7cc0f860fc56822fe805e5349878dd8a8e260ce01790ccb02526e32db7a8de6"
+  },
+  {
+    "module": "ProverJobs.cqr_002_strict_lower_rank_event_cardinality_bound.Main",
+    "lines": 51,
+    "source": "/home/ai4stat/prover_long_test/app/dev/fixtures/cqr/002_strict_lower_rank_event_cardinality_bound.yaml",
+    "source_sha256": "060db4de2e804e68bca1bf192a2854d0d605714b1e98467a8cc661043484dc62",
+    "artifact_sha256": "4efde9ef7a80c5b918b03701e94aad743741b0de9e4cc7f25c3ff30bdf717948"
+  },
+  {
+    "module": "ProverJobs.cqr_003_rank_event_measure_bound_of_equiprobable.Main",
+    "lines": 94,
+    "source": "/home/ai4stat/prover_long_test/app/dev/fixtures/cqr/003_rank_event_measure_bound_of_equiprobable.yaml",
+    "source_sha256": "9d8d2c00919edae6891caf884f47702303cceffa6a26a4db990ee37ca8b48917",
+    "artifact_sha256": "a199bd0921901ce8aaeb6ef2201cdfbcccbcc969c5ca28c393291dd7e7b3e811"
+  },
+  {
+    "module": "ProverJobs.cqr_004_rank_events_equiprobable_of_score_exchangeable.Main",
+    "lines": 71,
+    "source": "/home/ai4stat/prover_long_test/app/dev/fixtures/cqr/004_rank_events_equiprobable_of_score_exchangeable.yaml",
+    "source_sha256": "1b0e87d140f2dce924e8c245f9cc0cb80ff70874ed8bdad0cea12b668b28706f",
+    "artifact_sha256": "719ac3d58c0dd8b0b930d1412fb562800bbd343e46acb314de0a727dc152d889"
+  },
+  {
+    "module": "ProverJobs.cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable.Main",
+    "lines": 67,
+    "source": "/home/ai4stat/prover_long_test/app/dev/fixtures/cqr/005_split_conformal_score_miscoverage_bound_of_exchangeable.yaml",
+    "source_sha256": "39909f3685bd8386f4d692109a2f81ca1cbda4acbf051d6ff80d63ab870b1e9e",
+    "artifact_sha256": "844bcba9bd1fd475ce6c7889346a3440c5121c2850f61e65bb950c1dc73926fa"
+  },
+  {
+    "module": "ProverJobs.cqr_006_romano_patterson_candes_cqr_finite_sample_miscoverage_bound.Main",
+    "lines": 64,
+    "source": "/home/ai4stat/prover_long_test/app/dev/fixtures/cqr/006_romano_patterson_candes_cqr_finite_sample_miscoverage_bound.yaml",
+    "source_sha256": "9348ca6e9727ad7af5deb498138eaaf9a8398bd6b485bab6d6894d6312d465e3",
+    "artifact_sha256": "3c8df5fdd6480a9d1bcdb182aa8f18a66b2d6db84cb17de9e950c5d4e2a68139"
+  }
+]

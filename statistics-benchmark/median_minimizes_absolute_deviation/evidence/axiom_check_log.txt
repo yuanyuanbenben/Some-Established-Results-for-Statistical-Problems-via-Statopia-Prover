@@ -1,0 +1,16 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=Msc62GroundTruth.median_minimizes_absolute_deviation
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:13:13: warning: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Msc62GroundTruth.median_minimizes_absolute_deviation' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

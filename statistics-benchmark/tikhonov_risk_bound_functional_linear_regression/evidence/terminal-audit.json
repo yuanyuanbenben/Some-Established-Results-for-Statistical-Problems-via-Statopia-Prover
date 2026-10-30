@@ -1,0 +1,70 @@
+{
+  "id": "q27",
+  "case": "tikhonov_risk_bound_functional_linear_regression",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q27",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q27/experiment/runs/20261018T013427Z-tikhonov_risk_bound_functional_linear_regression-986f0940",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "632d6cbc149b6fa2ad1a05613caea829a1961bd0d1ae2eb16396a8ac932271ed",
+  "signatureLockSha256": "df96289298cb6e75c11dfd926756d60b1ecaf1c01d7fd9a585bd1bb7770d1b46",
+  "rootTheorem": "tikhonov_risk_bound_functional_linear_regression",
+  "inputRootSignature": "theorem tikhonov_risk_bound_functional_linear_regression {Ω H : Type*} [MeasurableSpace Ω] [NormedAddCommGroup H] [InnerProductSpace ℝ H] [CompleteSpace H] [SecondCountableTopology H] (P : Measure Ω) [IsProbabilityMeasure P] (X : Ω → H) (Y : Ω → ℝ) (hXmeas : StronglyMeasurable X) (hYmeas : StronglyMeasurable Y) (hXsq : Integrable (fun ω ↦ ‖X ω‖ ^ 2) P) (hYsq : Integrable (fun ω ↦ (Y ω) ^ 2) P) (C : H →L[ℝ] H) (hC : ∀ h, C h = ∫ ω, (inner ℝ (X ω) h) • X ω ∂P) (alpha : ℝ) (halpha : 0 < alpha) (Ainv : H →L[ℝ] H) (hleft : Ainv.comp (C + alpha • ContinuousLinearMap.id ℝ H) = ContinuousLinearMap.id ℝ H) (hright : (C + alpha • ContinuousLinearMap.id ℝ H).comp Ainv = ContinuousLinearMap.id ℝ H) : let g : H := ∫ ω, (Y ω) • X ω ∂P let Q : H → ℝ := fun b ↦ (∫ ω, (Y ω - inner ℝ (X ω) b) ^ 2 ∂P) + alpha * ‖b‖ ^ 2 let bAlpha := Ainv g ∀ b, Q b ≥ Q bAlpha + alpha * ‖b - bAlpha‖ ^ 2",
+  "lockedRootSignature": "theorem tikhonov_risk_bound_functional_linear_regression {Ω H : Type*} [MeasurableSpace Ω] [NormedAddCommGroup H] [InnerProductSpace ℝ H] [CompleteSpace H] [SecondCountableTopology H] (P : Measure Ω) [IsProbabilityMeasure P] (X : Ω → H) (Y : Ω → ℝ) (hXmeas : StronglyMeasurable X) (hYmeas : StronglyMeasurable Y) (hXsq : Integrable (fun ω ↦ ‖X ω‖ ^ 2) P) (hYsq : Integrable (fun ω ↦ (Y ω) ^ 2) P) (C : H →L[ℝ] H) (hC : ∀ h, C h = ∫ ω, (inner ℝ (X ω) h) • X ω ∂P) (alpha : ℝ) (halpha : 0 < alpha) (Ainv : H →L[ℝ] H) (hleft : Ainv.comp (C + alpha • ContinuousLinearMap.id ℝ H) = ContinuousLinearMap.id ℝ H) (hright : (C + alpha • ContinuousLinearMap.id ℝ H).comp Ainv = ContinuousLinearMap.id ℝ H) : let g : H := ∫ ω, (Y ω) • X ω ∂P let Q : H → ℝ := fun b ↦ (∫ ω, (Y ω - inner ℝ (X ω) b) ^ 2 ∂P) + alpha * ‖b‖ ^ 2 let bAlpha := Ainv g ∀ b, Q b ≥ Q bAlpha + alpha * ‖b - bAlpha‖ ^ 2",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.5cab903d2f0cfff301d1a306.json",
+      "receiptId": "job-final.5cab903d2f0cfff301d1a306",
+      "receiptHash": "a229d6d41b0f5de3a586811fac07443972e5ad8af9ca464121d8b84437f28f53",
+      "finalizedAt": 1792290171917,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "3ae9e45fd53badd403a4d5aaa926784d6a66737cfc7becb0ae3aa90f7ebb0295"
+    }
+  ],
+  "slot": 0,
+  "keyIndex": 0,
+  "nodes": 5,
+  "auxiliaryNodes": 4,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 5
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.7b8121c3f4905c37c0f735a7a4a2317b",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.7b8121c3f4905c37c0f735a7a4a2317b",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 14
+}

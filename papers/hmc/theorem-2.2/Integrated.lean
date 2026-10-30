@@ -1,0 +1,4 @@
+-- Convenience index only; original accepted sources are under integrated/.
+import ProverJobs.paper_fresh_20261028t224543381z_hmc_22.PaperProofInterfaces.Result_r2_efa8fa985bbe48fe90bebe042f1092ee
+
+#check PaperProofTasks.paper_fresh_20261028t224543381z_hmc_22.Statlib.Imported.Theorem_2_2_thm_negative_both_parts_i_and_ii_using_v5_with_corrigendum

@@ -1,0 +1,83 @@
+{
+  "id": "q03",
+  "case": "exact_student_t_distribution_ols_contrast",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q03",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q03/experiment/runs/20261017T100725Z-exact_student_t_distribution_ols_contrast-9e69a768",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "5de2e6fdd38a54c6926189080ba6022261b5a4f808e95e25cd21c15392ac8aa1",
+  "signatureLockSha256": "b1b502224658287aed1565ef45c7a27aa0aaf36c7596fbf53cf737a594b1b43b",
+  "rootTheorem": "exact_student_t_distribution_ols_contrast",
+  "inputRootSignature": "theorem exact_student_t_distribution_ols_contrast {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (n p : ℕ) (hnp : p < n) (hp : 1 ≤ p) (X : Matrix (Fin n) (Fin p) ℝ) (hX : Function.Injective X.mulVec) (betaStar : Fin p → ℝ) (sigma : ℝ) (hsigma : 0 < sigma) (epsilon : Ω → Fin n → ℝ) (hgaussian : ∀ b : Fin n → ℝ, HasLaw (fun ω ↦ dotProduct b (epsilon ω)) (gaussianReal 0 (Real.toNNReal (sigma ^ 2 * dotProduct b b))) P) (a : Fin p → ℝ) (ha : a ≠ 0) (c : ℝ) (hnull : dotProduct a betaStar = c) : let y : Ω → Fin n → ℝ := fun ω ↦ X *ᵥ betaStar + epsilon ω let betaHat : Ω → Fin p → ℝ := fun ω ↦ (X.transpose * X)⁻¹ *ᵥ (X.transpose *ᵥ y ω) let sigmaHatSq : Ω → ℝ := fun ω ↦ dotProduct (y ω - X *ᵥ betaHat ω) (y ω - X *ᵥ betaHat ω) / ((n - p : ℕ) : ℝ) let statistic : Ω → ℝ := fun ω ↦ (dotProduct a (betaHat ω) - c) / (Real.sqrt (sigmaHatSq ω) * Real.sqrt (dotProduct a ((X.transpose * X)⁻¹ *ᵥ a))) let nu : ℝ := ((n - p : ℕ) : ℝ) let density : ℝ → ℝ := fun z ↦ Real.Gamma ((nu + 1) / 2) / (Real.sqrt (nu * Real.pi) * Real.Gamma (nu / 2)) * Real.rpow (1 + z ^ 2 / nu) (-(nu + 1) / 2) let studentT : Measure ℝ := volume.withDensity (fun z ↦ ENNReal.ofReal (density z)) HasLaw statistic studentT P",
+  "lockedRootSignature": "theorem exact_student_t_distribution_ols_contrast {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (n p : ℕ) (hnp : p < n) (hp : 1 ≤ p) (X : Matrix (Fin n) (Fin p) ℝ) (hX : Function.Injective X.mulVec) (betaStar : Fin p → ℝ) (sigma : ℝ) (hsigma : 0 < sigma) (epsilon : Ω → Fin n → ℝ) (hgaussian : ∀ b : Fin n → ℝ, HasLaw (fun ω ↦ dotProduct b (epsilon ω)) (gaussianReal 0 (Real.toNNReal (sigma ^ 2 * dotProduct b b))) P) (a : Fin p → ℝ) (ha : a ≠ 0) (c : ℝ) (hnull : dotProduct a betaStar = c) : let y : Ω → Fin n → ℝ := fun ω ↦ X *ᵥ betaStar + epsilon ω let betaHat : Ω → Fin p → ℝ := fun ω ↦ (X.transpose * X)⁻¹ *ᵥ (X.transpose *ᵥ y ω) let sigmaHatSq : Ω → ℝ := fun ω ↦ dotProduct (y ω - X *ᵥ betaHat ω) (y ω - X *ᵥ betaHat ω) / ((n - p : ℕ) : ℝ) let statistic : Ω → ℝ := fun ω ↦ (dotProduct a (betaHat ω) - c) / (Real.sqrt (sigmaHatSq ω) * Real.sqrt (dotProduct a ((X.transpose * X)⁻¹ *ᵥ a))) let nu : ℝ := ((n - p : ℕ) : ℝ) let density : ℝ → ℝ := fun z ↦ Real.Gamma ((nu + 1) / 2) / (Real.sqrt (nu * Real.pi) * Real.Gamma (nu / 2)) * Real.rpow (1 + z ^ 2 / nu) (-(nu + 1) / 2) let studentT : Measure ℝ := volume.withDensity (fun z ↦ ENNReal.ofReal (density z)) HasLaw statistic studentT P",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.c75e0fc31c13c634280930c8.json",
+      "receiptId": "job-final.c75e0fc31c13c634280930c8",
+      "receiptHash": "1033c6e94406fbc1650fdcacb77d1e38f867d22a2ea5379d5ca08a4b8c8d619f",
+      "finalizedAt": 1792246318603,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "eb8229cdfe3c92d9b26e654a3dc58181a9010810810280766d4f46521cc3fb6b"
+    }
+  ],
+  "slot": 2,
+  "keyIndex": 4,
+  "nodes": 15,
+  "auxiliaryNodes": 14,
+  "writerAddedNodes": 8,
+  "creationSources": {
+    "MIGRATED": 7,
+    "WRITER_REQUEST": 8
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.ec15f9f3c9659937437b95ff9e833ba3",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.ec15f9f3c9659937437b95ff9e833ba3",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.ec15f9f3c9659937437b95ff9e833ba3",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.ec15f9f3c9659937437b95ff9e833ba3",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.ec15f9f3c9659937437b95ff9e833ba3",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 59
+}

@@ -1,0 +1,78 @@
+version: v1
+theorem_set: document-goal
+source_tag: document-processing
+theorems:
+  - id: entry:selected:02bd0a32-47cb-49ba-9ff7-4eb3e79892b1
+    title: Theorem 1 (Main theorem; thm:generalized-thinning)
+    kind: theorem
+    latex_statement: |-
+      We write \(X\) to denote a random variable that can be scalar-, vector-, or matrix-valued (and likewise for \(\Xt{1},\ldots,\Xt{K}\)). When referring to a random variable or parameter that can only be vector- or matrix-valued, we use bolded symbols.
+
+      \begin{definition}[Generalized data thinning] 
+      \label{def:thinning}
+      Consider a family of distributions \(\mathcal P=\{P_\theta:\theta\in\Omega\}\). Suppose that there exists a distribution \(G_t\), not depending on \(\theta\), and a deterministic function \(T(\cdot)\) such that when we sample \((\Xt{1},\ldots,\Xt{K})|X\) from \(G_X\), for  \(X \sim P_\theta\), the following properties hold: 
+      \begin{enumerate}
+        \item \(\Xt{1},\ldots,\Xt{K}\) are mutually independent (with distributions depending on \(\theta\)),  and
+          \item \(X=T(\Xt{1},\ldots,\Xt{K})\). 
+      \end{enumerate}
+      Then we say that \(\mathcal{P}\) is \emph{thinned} by the function \(T(\cdot)\).
+      \end{definition}
+      When clear from context, sometimes we will say that ``\(P_\theta\) is thinned'' or ``X is thinned'', by which we mean that the corresponding family \(\mathcal P\) is thinned.
+
+      For \(X\sim P_\theta\), let \(\Qt{1}_\theta\times\cdots\times\Qt{K}_\theta\) denote the distribution of the mutually independent random variables, \((\Xt{1},\ldots,\Xt{K})\), sampled as in Definition~\ref{def:thinning}.
+
+      <!-- formalization-clarifications:v1:19f0037d610120740f4d22a0822072735119394c4929ea1d6bfa380aeabe05fe -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The owner is Definition “Generalized data thinning” together with Theorem 1. The definition fixes a family \(\mathcal P=\{P_\theta:\theta\in\Omega\}\) and a thinning structure consisting of a deterministic \(T\) and a family \(G_t\) (“a distribution \(G_t\), not depending on \(\theta\)”). The theorem then fixes that structure and argues, for each \(\theta\in\Omega\), with \(X\sim P_\theta\) and \((\Xt{1},\ldots,\Xt{K})\sim\Qt{1}_\theta\times\cdots\times\Qt{K}_\theta\), that (a) \(T(\Xt{1},\ldots,\Xt{K})\) is sufficient for \(\theta\) and (b) \(G_t\) is the conditional law of \((\Xt{1},\ldots,\Xt{K})\) given \(T(\Xt{1},\ldots,\Xt{K})=t\). The intended order is therefore: fix \(K\), the family, \(T\), and the \(t\)-indexed family \(G_t\); assume the thinning property for every \(\theta\); then conclude for every \(\theta\). The source explicitly says \(G_t\) does not depend on \(\theta\), but it does not separately state “T does not depend on \(\theta\)”; since Theorem 1 writes \(T\) without a theta subscript, the intended reading is a fixed deterministic thinning map. The source states no other constants, no universal \(C\), and no uniformity over dimension, sample size, distributions, vectors, or sets. It also does not give a precise quantifier over \(t\); clause (b) is naturally read only for reconstruction values \(t\) relevant to the sampling procedure, with support/null-set issues unspecified.
+
+      2. Norms and mathematical objects. The owner is the notation paragraph and Theorem 1. No norm is specified: \(X\) and each \(\Xt{k}\) may be scalar-, vector-, or matrix-valued, and no Euclidean \(l_2\), sup, operator, Frobenius, normalized, or unscaled norm is chosen. Do not replace the general \(T\) by addition, maximum, minimum, geometric mean, or any other example-specific map; those appear elsewhere in the paper as applications, not in Theorem 1. The notation \(\Qt{1}_\theta\times\cdots\times\Qt{K}_\theta\) denotes the joint distribution of mutually independent variables, not a pointwise product or a normed object; the marginals may be non-identical and theta-dependent. The object \(G_t\) is a \(t\)-indexed distribution, and \(G_X\) is its evaluation at the random \(X\) in “sample \((\Xt{1},\ldots,\Xt{K})|X\) from \(G_X\).” The source does not explicitly specify measurability or regular-conditional-probability versions. The equation \(X=T(\Xt{1},\ldots,\Xt{K})\) is part of the thinning definition, so \(T\) must return the same ambient object as \(X\) on the relevant values, but no further type, dimension, or regularity data are provided.
+
+      3. Asymptotics. Theorem 1 contains no asymptotic notation: no \(O\), \(o\), \(O_P\), \(o_P\), no limiting variable or filter, and no varying sample size. It is a finite, exact distributional statement for the fixed \(K\)-fold thinning. The later sample-splitting discussion involving \(n\) is outside this theorem and does not introduce an asymptotic or uniformity condition into Theorem 1. Any formalization should not add limiting quantifiers or sample-size uniformity.
+
+      4. Potentially omitted definitions and side conditions. The source does not define “sufficient statistic” in the selected block; the proof recovers the intended meaning by saying, “By the definition of sufficiency, the fact that the conditional distribution … does not depend on \(\theta\) implies that \(T(\Xt{1},\ldots,\Xt{K})\) is sufficient for \(\theta\).” Thus sufficiency is for \(\theta\) based on the whole tuple under the model \(\Qt{1}_\theta\times\cdots\times\Qt{K}_\theta\), not based on \(X\) alone. Theorem 1(b) and the proof use the construction “\((\Xt{1},\ldots,\Xt{K})|\{X=t\}\sim G_t\)” and then rewrite \(\{X=t\}\) as \(\{T(\Xt{1},\ldots,\Xt{K})=t\}\) using the definitional equality \(X=T(\Xt{1},\ldots,\Xt{K})\). This is a proof-based inference; the source does not address zero-probability conditioning, uniqueness of conditional distributions, regular conditional probabilities, densities, or null sets. It also does not specify the parameter set topology, dimensions of the ambient spaces, index sets for \(t\), or measures. Within the selected block no external theorem is cited; the proof invokes the standard definition of sufficiency without a specific reference. External references elsewhere in the document are not part of Theorem 1 and do not alter its quantifiers or assumptions.
+      <!-- /formalization-clarifications -->
+
+      Suppose \(\mathcal P\) is thinned by a function \(T(\cdot)\) and, for \(X\sim P_\theta\), let \(\Qt{1}_\theta\times\cdots\times\Qt{K}_\theta\) denote the distribution of the mutually independent random variables, \((\Xt{1},\ldots,\Xt{K})\), sampled as in Definition~\ref{def:thinning}. Then, the following hold:
+      \begin{enumerate}[(a)]
+          \item \(T(\Xt{1},\ldots,\Xt{K})\) is a sufficient statistic for \(\theta\) based on \((\Xt{1},\ldots,\Xt{K})\).
+          \item The distribution \(G_t\)  in Definition~\ref{def:thinning} is the conditional distribution
+          $$
+      (\Xt{1},\ldots,\Xt{K})|T(\Xt{1},\ldots,\Xt{K})=t,
+          $$
+          where \((\Xt{1},\ldots,\Xt{K})\sim \Qt{1}_\theta\times\cdots\times\Qt{K}_\theta\).
+          \end{enumerate}
+    assumptions: []
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      We write \(X\) to denote a random variable that can be scalar-, vector-, or matrix-valued (and likewise for \(\Xt{1},\ldots,\Xt{K}\)). When referring to a random variable or parameter that can only be vector- or matrix-valued, we use bolded symbols.
+
+      \begin{definition}[Generalized data thinning] 
+      \label{def:thinning}
+      Consider a family of distributions \(\mathcal P=\{P_\theta:\theta\in\Omega\}\). Suppose that there exists a distribution \(G_t\), not depending on \(\theta\), and a deterministic function \(T(\cdot)\) such that when we sample \((\Xt{1},\ldots,\Xt{K})|X\) from \(G_X\), for  \(X \sim P_\theta\), the following properties hold: 
+      \begin{enumerate}
+        \item \(\Xt{1},\ldots,\Xt{K}\) are mutually independent (with distributions depending on \(\theta\)),  and
+          \item \(X=T(\Xt{1},\ldots,\Xt{K})\). 
+      \end{enumerate}
+      Then we say that \(\mathcal{P}\) is \emph{thinned} by the function \(T(\cdot)\).
+      \end{definition}
+
+      For \(X\sim P_\theta\), let \(\Qt{1}_\theta\times\cdots\times\Qt{K}_\theta\) denote the distribution of the mutually independent random variables, \((\Xt{1},\ldots,\Xt{K})\), sampled as in Definition~\ref{def:thinning}.
+
+      ### Proof
+      By their construction in Definition \ref{def:thinning}, the random variables \((\Xt{1},\ldots,\Xt{K})\sim \Qt{1}_\theta\times\cdots\times\Qt{K}_\theta\) have conditional distribution
+      $$
+      (\Xt{1},\ldots,\Xt{K})|\{X=t\}\sim G_t.
+      $$
+      Furthermore, Definition~\ref{def:thinning} tells us that \(X=T(\Xt{1},\ldots,\Xt{K})\). This means that
+      $$
+      (\Xt{1},\ldots,\Xt{K})|\{T(\Xt{1},\ldots,\Xt{K})=t\}\sim G_t,
+      $$
+      which establishes part (b) of the theorem.
+
+      The distribution \(G_t\) in Definition~\ref{def:thinning} does not depend on \(\theta\) (note that it is associated with the entire family \(\mathcal P\), not a particular distribution \(P_\theta\)). By the definition of sufficiency, the fact that the conditional distribution \((\Xt{1},\ldots,\Xt{K})|T(\Xt{1},\ldots,\Xt{K})\) does not depend on \(\theta\) implies that \(T(\Xt{1},\ldots,\Xt{K})\) is sufficient for \(\theta\). This proves (a).
+    lean_name: Theorem_1_Main_theorem_thm_generalized_thinning
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics

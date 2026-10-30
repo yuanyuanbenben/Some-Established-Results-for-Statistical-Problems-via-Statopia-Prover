@@ -1,0 +1,93 @@
+[
+  {
+    "destination": "papers/data-thinning/materials/main.pdf",
+    "source": "/home/ai4stat/prover_long_test/docs/arxiv-statistics-proof-completeness-organized/complete-proofs/2303.12931/main.pdf",
+    "sha256": "c1fe6476944167d9e873b47506859545b00ffc50afe5a6a634486b5806f82f75",
+    "kind": "previously compiled PDF with byte-identical input TeX",
+    "pdfinfo": "Custom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           25\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       5606232 bytes\nOptimized:       no\nPDF version:     1.7\n",
+    "text_characters": 68622
+  },
+  {
+    "destination": "papers/data-thinning/materials/supp.pdf",
+    "source": "/home/ai4stat/prover_long_test/docs/arxiv-statistics-proof-completeness-organized/complete-proofs/2303.12931/proofs.pdf",
+    "sha256": "f70fd9f87d5a5ad7b16f46bb35766e41a5cfc21b645c327ac38f1479b42de3f7",
+    "kind": "previously compiled PDF with byte-identical input TeX",
+    "pdfinfo": "Custom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           23\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       5584297 bytes\nOptimized:       no\nPDF version:     1.7\n",
+    "text_characters": 42795
+  },
+  {
+    "destination": "papers/eills/materials/main.pdf",
+    "source": "/home/ai4stat/prover_long_test/docs/arxiv-statistics-proof-completeness-organized/complete-proofs/2303.03092/main.pdf",
+    "sha256": "a338f595b292f4518512fa14deabb3d7f12dab0f64c8d114f42335ee93dc4a86",
+    "kind": "previously compiled PDF with byte-identical input TeX",
+    "pdfinfo": "Custom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           23\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       8983135 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "text_characters": 84993
+  },
+  {
+    "destination": "papers/eills/materials/supp.pdf",
+    "source": "/home/ai4stat/prover_long_test/docs/arxiv-statistics-proof-completeness-organized/complete-proofs/2303.03092/proofs.pdf",
+    "sha256": "97e8aa17be158938f53d91979bba3a7b3d0b3cfe207eb6bcf0e2617614732e5f",
+    "kind": "previously compiled PDF with byte-identical input TeX",
+    "pdfinfo": "Custom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           42\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       15036598 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "text_characters": 102480
+  },
+  {
+    "destination": "papers/hmc/theorem-2.2/materials/paper-with-corrigendum.pdf",
+    "source": "/home/ai4stat/prover_long_test/docs/arxiv-statistics-proof-completeness-organized/additional-papers/1601.08057-hmc/v5-with-corrigendum/paper.pdf",
+    "sha256": "47c24f6728b19a6bd761de87c752b5e273923a98ad554d199cc2b38f94669ba1",
+    "kind": "original arXiv v5 PDF; includes Appendix D corrigendum",
+    "pdfinfo": "Title:           On the Geometric Ergodicity of Hamiltonian Monte Carlo\nAuthor:          Samuel Livingstone; Michael Betancourt; Simon Byrne; Mark Girolami\nCreator:         arXiv GenPDF (tex2pdf:0d14211)\nProducer:        pikepdf 8.15.1\nCustom Metadata: yes\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           36\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       466113 bytes\nOptimized:       no\nPDF version:     1.7\n",
+    "text_characters": 107226
+  },
+  {
+    "destination": "papers/hmc/theorem-5.14/materials/paper-with-corrigendum.pdf",
+    "source": "/home/ai4stat/prover_long_test/docs/arxiv-statistics-proof-completeness-organized/additional-papers/1601.08057-hmc/v5-with-corrigendum/paper.pdf",
+    "sha256": "47c24f6728b19a6bd761de87c752b5e273923a98ad554d199cc2b38f94669ba1",
+    "kind": "original arXiv v5 PDF; includes Appendix D corrigendum",
+    "pdfinfo": "Title:           On the Geometric Ergodicity of Hamiltonian Monte Carlo\nAuthor:          Samuel Livingstone; Michael Betancourt; Simon Byrne; Mark Girolami\nCreator:         arXiv GenPDF (tex2pdf:0d14211)\nProducer:        pikepdf 8.15.1\nCustom Metadata: yes\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           36\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       466113 bytes\nOptimized:       no\nPDF version:     1.7\n",
+    "text_characters": 107226
+  },
+  {
+    "destination": "papers/gaussian/materials/original-paper.pdf",
+    "source": "/tmp/established-materials-20261030/gaussian.pdf",
+    "sha256": "aad796ed3d2a620e0ce44decf9497ada175cb787534e63672b91358a79f763ee",
+    "kind": "original arXiv combined paper/supplement PDF",
+    "url": "https://arxiv.org/pdf/1807.04429",
+    "pdfinfo": "Title:           Bootstrapping Max Statistics in High Dimensions: Near-Parametric Rates Under Weak Variance Decay and Application to Functional and Multinomial Data\nSubject:         Submitted to the Annals of Statistics \nKeywords:         62G09, 62G15; , 62G05, 62G20., bootstrap, high-dimensional statistics, rate of convergence, functional data analysis, multinomial data, confidence region, hypothesis test\nAuthor:          Miles E. Lopes, Zhenhua Lin, Hans-Georg Müller \nCreator:         LaTeX with hyperref package\nProducer:        pdfTeX-1.40.17\nCreationDate:    Tue Jul 23 08:42:59 2019 CST\nModDate:         Tue Jul 23 08:42:59 2019 CST\nCustom Metadata: yes\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           64\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       1075684 bytes\nOptimized:       no\nPDF version:     1.5\n",
+    "text_characters": 125093
+  },
+  {
+    "destination": "statlib-contributions/neural-network-approximation/materials/original-paper.pdf",
+    "source": "/tmp/established-materials-20261030/neural.pdf",
+    "sha256": "e9aeb19337cfc4567e214308be659f18f4c60db37ae7a9e187e146749422605d",
+    "kind": "retrieved reference; not claimed to recover the exact historical uploaded version",
+    "url": "https://arxiv.org/pdf/1908.11133",
+    "pdfinfo": "Title:           \nSubject:         \nKeywords:        \nAuthor:          \nCreator:         LaTeX with hyperref package\nProducer:        dvips + GPL Ghostscript GIT PRERELEASE 9.22\nCreationDate:    Wed Sep 30 10:03:57 2020 CST\nModDate:         Wed Sep 30 10:03:57 2020 CST\nCustom Metadata: no\nMetadata Stream: yes\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           85\nEncrypted:       no\nPage size:       595 x 842 pts (A4)\nPage rot:        0\nFile size:       684267 bytes\nOptimized:       no\nPDF version:     1.4\n",
+    "text_characters": 140808
+  },
+  {
+    "destination": "statlib-contributions/neural-network-approximation/materials/arxiv-source.tar.gz",
+    "source": "/tmp/established-materials-20261030/neural.source",
+    "sha256": "fee2bf07a010729bbdb91a1caed5c9c43a80a979595b42aa5c28fb485a9de4ba",
+    "kind": "retrieved author source bundle",
+    "url": "https://arxiv.org/src/1908.11133"
+  },
+  {
+    "source": "/tmp/established-materials-20261030/cqr.pdf",
+    "destination": "papers/cqr/materials/paper.pdf",
+    "sha256": "e9483113d0563a6b274810c2ab70face7e876e06d4e7687b58d74ff07bdc9ee1",
+    "kind": "retrieved reference PDF"
+  },
+  {
+    "source": "/tmp/established-materials-20261030/bh-dobriban.pdf",
+    "destination": "papers/bh-fdr/materials/dobriban-paper.pdf",
+    "sha256": "de1db8081da57ddbb5b2af5574a35b90c1a23c0e27fe0d4f9f1dba4209cc45f7",
+    "kind": "retrieved reference PDF"
+  },
+  {
+    "source": "/tmp/established-materials-20261030/bh-lei.pdf",
+    "destination": "papers/bh-fdr/materials/lei-paper-v1.pdf",
+    "sha256": "a95e6e8e4a5c2475c7ba8fc4163ed10028795840f58a83296745a20b6c14b5b9",
+    "kind": "retrieved reference PDF"
+  }
+]

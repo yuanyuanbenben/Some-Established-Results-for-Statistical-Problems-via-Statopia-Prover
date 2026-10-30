@@ -1,0 +1,21 @@
+\begin{theorem}[Least-Squares Pythagorean Identity]
+Let $n,p\in\mathbb N$ satisfy $1\le p\le n$.  Let
+$X\in\mathbb R^{n\times p}$ have full column rank, meaning that the linear
+map $\beta\mapsto X\beta$ is injective, and let $y\in\mathbb R^n$.  Define
+\[
+  \widehat\beta=(X^\top X)^{-1}X^\top y.
+\]
+Then, for every $\beta\in\mathbb R^p$,
+\[
+  \|y-X\beta\|_2^2
+  =\|y-X\widehat\beta\|_2^2
+   +\|X(\beta-\widehat\beta)\|_2^2.
+\]
+Equivalently, in dot-product notation,
+\[
+  (y-X\beta)^\top(y-X\beta)
+  =(y-X\widehat\beta)^\top(y-X\widehat\beta)
+   +\bigl(X(\beta-\widehat\beta)\bigr)^\top
+    X(\beta-\widehat\beta).
+\]
+\end{theorem}

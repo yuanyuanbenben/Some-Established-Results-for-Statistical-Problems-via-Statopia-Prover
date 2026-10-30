@@ -1,0 +1,17 @@
+{
+  "case": "map_zero_one_optimal",
+  "msc": "62C10",
+  "difficulty": "medium",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 626.368,
+  "lean_files": 1,
+  "lean_lines": 41,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_map_zero_one_optimal_native-b",
+  "legacy_input_tokens": 71076,
+  "legacy_output_tokens": 45454
+}

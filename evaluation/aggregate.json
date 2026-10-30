@@ -1,0 +1,142 @@
+{
+  "statistics_combined": {
+    "cases": 83,
+    "lean_lines": 37679,
+    "total_seconds": 307022.926,
+    "mean_minutes": 61.65118995983936,
+    "time_cases": 83,
+    "cost_cases": 42,
+    "known_recorded_cost_usd": 75.832149966,
+    "mean_cost_usd": 1.8055273801428573,
+    "cost_per_line_usd": 0.0023340869206808458,
+    "cost_line_denominator": 32489,
+    "unknown_reservation_usd": null
+  },
+  "statistics_single_file": {
+    "cases": 41,
+    "lean_lines": 5190,
+    "total_seconds": 80720.926,
+    "mean_minutes": 32.813384552845534,
+    "time_cases": 41,
+    "cost_cases": 0,
+    "known_recorded_cost_usd": 0,
+    "mean_cost_usd": null,
+    "cost_per_line_usd": null,
+    "cost_line_denominator": 0,
+    "unknown_reservation_usd": null
+  },
+  "statistics_deep": {
+    "cases": 42,
+    "lean_lines": 32489,
+    "total_seconds": 226302.0,
+    "mean_minutes": 89.80238095238094,
+    "time_cases": 42,
+    "cost_cases": 42,
+    "known_recorded_cost_usd": 75.832149966,
+    "mean_cost_usd": 1.8055273801428573,
+    "cost_per_line_usd": 0.0023340869206808458,
+    "cost_line_denominator": 32489,
+    "unknown_reservation_usd": 2.0837925
+  },
+  "imo": {
+    "cases": 6,
+    "lean_lines": 14343,
+    "total_seconds": 40604.365,
+    "mean_minutes": 112.78990277777777,
+    "time_cases": 6,
+    "cost_cases": 6,
+    "known_recorded_cost_usd": 17.773732975999998,
+    "mean_cost_usd": 2.962288829333333,
+    "cost_per_line_usd": 0.0012391921478072925,
+    "cost_line_denominator": 14343,
+    "unknown_reservation_usd": 2.32940275
+  },
+  "papers": {
+    "cases": 5,
+    "lean_lines": 25137,
+    "total_seconds": 108318.763,
+    "mean_minutes": 361.06254333333334,
+    "time_cases": 5,
+    "cost_cases": 5,
+    "known_recorded_cost_usd": 116.62993900000001,
+    "mean_cost_usd": 23.3259878,
+    "cost_per_line_usd": 0.004639771611568604,
+    "cost_line_denominator": 25137,
+    "unknown_reservation_usd": null
+  },
+  "showcases": [
+    {
+      "case": "cqr",
+      "tasks": 6,
+      "lean_lines": 388,
+      "lean_files": 6,
+      "support_files": 0,
+      "seconds": null,
+      "cost_usd": null,
+      "provenance": "curated showcase YAML with embedded proofs, mechanically reconstructed; not a fresh timed run",
+      "missing_local_imports": []
+    },
+    {
+      "case": "bh-fdr",
+      "tasks": 4,
+      "lean_lines": 144,
+      "lean_files": 4,
+      "support_files": 15,
+      "seconds": null,
+      "cost_usd": null,
+      "provenance": "curated showcase YAML with embedded proofs, mechanically reconstructed; not a fresh timed run",
+      "missing_local_imports": []
+    }
+  ],
+  "neural_primary_modules": [
+    {
+      "module": "Statlib/Nonparametric/Vocabulary/NeuralNetwork.lean",
+      "lines": 447,
+      "sha256": "40181e4739064e437500f5f5dc236a6433b4622a9f5d96d2f6425babdc26e7c4",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/NeuralNetworkAlgebra.lean",
+      "lines": 35028,
+      "sha256": "8851842b4b3c1b6e8f368ae9230d8be6379fd2c1ab36953b34c97a327a6ecfa4",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/ReLUNetworkConstruction.lean",
+      "lines": 7713,
+      "sha256": "1c324dde97dad3299b6fc5a50b9a391f1b78e7e676e0ed749f785d582a1c1fd5",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/ReLUStateMachine.lean",
+      "lines": 8466,
+      "sha256": "c0b88c4882cfb9cb95af9903e698d07819959f641eee41a5f5d63a1cd3067824",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/ShallowReLUApproximationGeometry.lean",
+      "lines": 3781,
+      "sha256": "412dd3610deea8ad66d8caabb2d96d29cf5558a309adb2b16cd5ca1874f6d97d",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/ShallowReLUApproximation.lean",
+      "lines": 380,
+      "sha256": "d4b5443169dc76c094b3692804328667d99051c9e49f6744f66189d84128031c",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    },
+    {
+      "module": "Statlib/Nonparametric/Approximation/NeuralNetwork.lean",
+      "lines": 107,
+      "sha256": "cf47c2efd31f6508ec74e1f5711e9e0d558703f2bcc185cd41f7a95b44487b85",
+      "placeholder_markers": 0,
+      "axiom_declarations": 0
+    }
+  ]
+}

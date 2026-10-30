@@ -1,0 +1,57 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62E/studentized_central_limit_theorem.tex
+msc: "62E20"
+topic: Studentized central limit theorem
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: studentized_central_limit_theorem
+    kind: theorem
+    lean_name: studentized_central_limit_theorem
+    latex_statement: >-
+      \begin{theorem}[Studentized Central Limit Theorem]
+
+      Let $(\Omega,\mathcal A,P)$ be a probability space and let
+
+      $(X_i)_{i\ge0}$ be a sequence of measurable, independent real-valued
+      random
+
+      variables, each having the same distribution as $X_0$.  Let
+
+      $\mu,\sigma\in\mathbb R$ satisfy
+
+      \[
+        \int X_0\,dP=\mu,\qquad
+        \operatorname{Var}_P(X_0)=\sigma^2,\qquad
+        \sigma>0.
+      \]
+
+      Let $G:\Omega\to\mathbb R$ be measurable and have the standard Gaussian
+
+      distribution.  For $n\in\mathbb N$, define
+
+      \[
+       \overline X_n=\frac1n\sum_{i=0}^{n-1}X_i,
+       \qquad
+       S_n=\sqrt{\frac1n\sum_{i=0}^{n-1}(X_i-\overline X_n)^2},
+      \]
+
+      where the formulas use the convention $0^{-1}=0$, and define
+
+      \[
+       T_n=
+       \begin{cases}
+       \displaystyle\frac{\sqrt n(\overline X_n-\mu)}{S_n},&S_n>0,\\[5pt]
+       0,&S_n\le0.
+       \end{cases}
+      \]
+
+      Then $T_n\xrightarrow{\mathrm d}G$ under $P$ as $n\to\infty$.
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

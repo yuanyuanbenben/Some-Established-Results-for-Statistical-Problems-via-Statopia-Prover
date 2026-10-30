@@ -1,0 +1,17 @@
+{
+  "case": "derandomization_under_convex_loss",
+  "msc": "62C07",
+  "difficulty": "medium",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 391.355,
+  "lean_files": 1,
+  "lean_lines": 36,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_derandomization_under_convex_loss_native-b",
+  "legacy_input_tokens": 43495,
+  "legacy_output_tokens": 15138
+}

@@ -1,0 +1,76 @@
+{
+  "id": "q22",
+  "case": "wilcoxon_rank_sum_mean_variance",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q22",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q22/experiment/runs/20261017T230254Z-wilcoxon_rank_sum_mean_variance-5d3a52e0",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "3b3eb991fbba363cba53fb094435989d0464e80171d4a50e6483f0fc65447b83",
+  "signatureLockSha256": "b51276a22fd6ae015249e928805ac897924edc4b81ba04d4f16847afa1699e6a",
+  "rootTheorem": "wilcoxon_rank_sum_mean_variance",
+  "inputRootSignature": "theorem wilcoxon_rank_sum_mean_variance (m n : ℕ) (hm : 1 ≤ m) (hn : 1 ≤ n) : let N : ℕ := m + n let samples : Finset (Finset (Fin N)) := (Finset.univ : Finset (Finset (Fin N))).filter (fun A => A.card = m) let rank : Fin N → ℝ := fun r => ((r.val + 1 : ℕ) : ℝ) let W : Finset (Fin N) → ℝ := fun A => A.sum (fun r => rank r) let mean : ℝ := (1 / (samples.card : ℝ)) * samples.sum (fun A => W A) let variance : ℝ := (1 / (samples.card : ℝ)) * samples.sum (fun A => (W A - mean) ^ 2) mean = (m : ℝ) * ((N : ℝ) + 1) / 2 ∧ variance = (m : ℝ) * (n : ℝ) * ((N : ℝ) + 1) / 12",
+  "lockedRootSignature": "theorem wilcoxon_rank_sum_mean_variance (m n : ℕ) (hm : 1 ≤ m) (hn : 1 ≤ n) : let N : ℕ := m + n let samples : Finset (Finset (Fin N)) := (Finset.univ : Finset (Finset (Fin N))).filter (fun A => A.card = m) let rank : Fin N → ℝ := fun r => ((r.val + 1 : ℕ) : ℝ) let W : Finset (Fin N) → ℝ := fun A => A.sum (fun r => rank r) let mean : ℝ := (1 / (samples.card : ℝ)) * samples.sum (fun A => W A) let variance : ℝ := (1 / (samples.card : ℝ)) * samples.sum (fun A => (W A - mean) ^ 2) mean = (m : ℝ) * ((N : ℝ) + 1) / 2 ∧ variance = (m : ℝ) * (n : ℝ) * ((N : ℝ) + 1) / 12",
+  "rootNamespace": [
+    "Msc62GroundTruth"
+  ],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.803bafc0a090ee8e6f53d36e.json",
+      "receiptId": "job-final.803bafc0a090ee8e6f53d36e",
+      "receiptHash": "12de8ad884a2bee4699e5c25a83c6826cd820c77841c0f98e59d7054506a4de7",
+      "finalizedAt": 1792282657983,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "3b73d0c27d5bf65be6ae0441a4e3f198ba5955cb63ff4465522d416ac4b1c631"
+    }
+  ],
+  "slot": 0,
+  "keyIndex": 0,
+  "nodes": 8,
+  "auxiliaryNodes": 7,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 8
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.05f30eb2ac38d22e5b010ff24bc22ece",
+      "detail": "unified Writer dependency support changed during repeated unlocked allocation validation"
+    },
+    {
+      "proofNodeId": "proof.node.375a2da1e66306c50b8bdccdf01d9a61",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.375a2da1e66306c50b8bdccdf01d9a61",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 24
+}

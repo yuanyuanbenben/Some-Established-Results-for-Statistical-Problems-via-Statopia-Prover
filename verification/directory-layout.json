@@ -1,0 +1,18 @@
+{
+  "binary_directory": "verification/statlib-cache",
+  "binary_manifest_sha256": "c57f818a8a48ea1f33558d7fefcf7dd2db942907310f045171cb621ab01afcec",
+  "module_count": 144,
+  "files": 144,
+  "total_binary_bytes": 213165544,
+  "note": "Unpacked file bytes and manifest are unchanged. Legacy archive fields in binary-manifest.json describe the historical compilation snapshot, not a required deliverable. Historical source-provenance destinations for private sources refer to relocated local-only snapshots.",
+  "local_only_relocations": [
+    {
+      "former_project_path": "statlib-contributions/neural-network-approximation/Statlib",
+      "local_backup": "/home/ai4stat/lean-extern/.Established-results-local-provenance/Statlib"
+    },
+    {
+      "former_project_path": "statlib-contributions/neural-network-approximation/public-import-surface.lean",
+      "local_backup": "/home/ai4stat/lean-extern/.Established-results-local-provenance/public-import-surface.lean"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62E/two_sample_multivariate_central_limit_theorem.tex
+msc: "62E20"
+topic: Multivariate two-sample central limit theorem
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: two_sample_multivariate_central_limit_theorem
+    kind: theorem
+    lean_name: two_sample_multivariate_central_limit_theorem
+    latex_statement: >-
+      \begin{theorem}[Two-Sample Multivariate Central Limit Theorem]
+
+      Let $(\Omega,\mathcal A,P)$ be a probability space and let
+
+      $d\in\mathbb N$ with $d\ge1$.  Let
+
+      $(X_i)_{i\ge0}$ and $(Y_i)_{i\ge0}$ be sequences of measurable
+
+      $\mathbb R^d$-valued random variables.  Assume that each sequence is
+
+      independent, that the two random sequences are independent of one another,
+
+      that all $X_i$ have the same distribution as $X_0$, that all $Y_i$ have
+      the
+
+      same distribution as $Y_0$, and that $X_0$ and $Y_0$ have the same
+
+      distribution.  Assume $\int\|X_0\|^2dP<\infty$.  Let
+
+      $\Sigma=(\Sigma_{jk})_{j,k=1}^d$ satisfy
+
+      \[
+       \int
+       \left(X_{0j}-\left(\int X_0\,dP\right)_j\right)
+       \left(X_{0k}-\left(\int X_0\,dP\right)_k\right)dP
+       =\Sigma_{jk}
+      \]
+
+      for every $j,k$.  Let $G:\Omega\to\mathbb R^d$ be measurable, assume its
+
+      pushforward distribution under $P$ is Gaussian, and assume
+
+      \[
+       \int G\,dP=0,\qquad
+       \int G_jG_k\,dP=\Sigma_{jk}
+      \]
+
+      for every $j,k$.  Let $m,n:\mathbb N\to\mathbb N$ be strictly positive
+
+      sequences such that $m(r)\to\infty$ and $n(r)\to\infty$ as
+
+      $r\to\infty$.  Then, as $r\to\infty$,
+
+      \[
+       \sqrt{\frac{m(r)n(r)}{m(r)+n(r)}}\left[
+       \frac1{m(r)}\sum_{i=0}^{m(r)-1}X_i
+       -
+       \frac1{n(r)}\sum_{i=0}^{n(r)-1}Y_i
+       \right]
+       \xrightarrow{\mathrm d}G
+      \]
+
+      under $P$.
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

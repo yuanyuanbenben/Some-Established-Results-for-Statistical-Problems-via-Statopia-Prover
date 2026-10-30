@@ -1,0 +1,48 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62N/cox_risk_set_probability_for_exponential_times.tex
+msc: 62N01
+topic: Cox risk-set probabilities
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: cox_risk_set_probability_for_exponential_times
+    kind: theorem
+    lean_name: cox_risk_set_probability_for_exponential_times
+    latex_statement: >-
+      \begin{theorem}[Cox risk-set probability for exponential event times]
+
+      Let $(\Omega,\mathcal F,P)$ be a probability space and let $n\ge1$.
+
+      Let $\lambda_0>0$ and $\beta\in\mathbb R$, let
+
+      $z_i\in\mathbb R$ for $i=1,\ldots,n$, and let
+
+      $T_i:\Omega\to\mathbb R$ be measurable, nonnegative random variables.
+
+      Assume that the family $(T_i)_{i=1}^n$ is jointly independent and that,
+      for
+
+      every $i$ and every $t\ge0$,
+
+      \[
+        P\{t<T_i\}
+        =\operatorname{ofReal}
+          \!\left(e^{-\lambda_0e^{\beta z_i}t}\right).
+      \]
+
+      Then, for every $i$,
+
+      \[
+        P\{T_i<T_j\text{ for every }j\ne i\}
+        =\operatorname{ofReal}\!\left(
+          \frac{e^{\beta z_i}}{\sum_{j=1}^n e^{\beta z_j}}
+        \right).
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

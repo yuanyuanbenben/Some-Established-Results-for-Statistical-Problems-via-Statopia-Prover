@@ -1,0 +1,26 @@
+\begin{theorem}[Unique leading principal-component directions]
+Let $n\geq1$ and $d\geq2$, and let
+$x_0,\ldots,x_{n-1}\in\mathbb R^d$ satisfy
+$\sum_{i=0}^{n-1}x_i=0$.  Let $v_0,\ldots,v_{d-1}\in\mathbb R^d$ and
+$\lambda_0,\ldots,\lambda_{d-1}\in\mathbb R$.  Assume that
+\[
+  v_j^{\mathsf T}v_k=
+  \begin{cases}1,&j=k,\\0,&j\ne k,\end{cases}
+\]
+for all $j,k$, and that the linear span of $\{v_0,\ldots,v_{d-1}\}$ is
+$\mathbb R^d$.  Define
+\[
+  S=\frac1n\sum_{i=0}^{n-1}x_i x_i^{\mathsf T}.
+\]
+Assume $Sv_j=\lambda_jv_j$ for every $j$, assume that the sequence
+$\lambda_j$ is nonincreasing in $j$, and assume
+$\lambda_0>\lambda_j$ for every $j\ne0$.  Define
+\[
+  J(u)=\frac1n\sum_{i=0}^{n-1}(u^{\mathsf T}x_i)^2.
+\]
+Then the set of all unit vectors $u\in\mathbb R^d$ such that
+$J(w)\leq J(u)$ for every unit vector $w\in\mathbb R^d$ is exactly
+\[
+  \{-v_0,v_0\}.
+\]
+\end{theorem}

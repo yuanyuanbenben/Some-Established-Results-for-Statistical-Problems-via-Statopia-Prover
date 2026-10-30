@@ -1,0 +1,54 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/linear_smoother_risk.tex
+msc: 62G08
+topic: Linear-smoother risk
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: linear_smoother_risk
+    kind: theorem
+    lean_name: linear_smoother_risk
+    latex_statement: >-
+      \begin{theorem}[Risk decomposition for a linear smoother]
+
+      Let $(\Omega,\mathcal F,P)$ be a probability space, let $n\geq 1$, and let
+
+      $f=(f_i)_{i=0}^{n-1}\in\mathbb R^n$.  Let
+
+      $\xi:\Omega\to\mathbb R^n$ be measurable and assume that
+
+      $\sum_{i=0}^{n-1}\xi_i^2$ is $P$-integrable.  Let $\sigma^2\geq0$ and
+      assume
+
+      that, for all $i,j\in\{0,\ldots,n-1\}$,
+
+      \[
+        \int_\Omega \xi_i\,dP=0,
+        \qquad
+        \int_\Omega \xi_i\xi_j\,dP=
+        \begin{cases}\sigma^2,&i=j,\\0,&i\ne j.\end{cases}
+      \]
+
+      For an arbitrary real $n\times n$ matrix $S$, define
+
+      \[
+        Y(\omega)=f+\xi(\omega),
+        \qquad \widehat f(\omega)=S Y(\omega),
+        \qquad \|v\|_n^2=\frac1n\sum_{i=0}^{n-1}v_i^2.
+      \]
+
+      Then
+
+      \[
+        \int_\Omega \|\widehat f(\omega)-f\|_n^2\,dP(\omega)
+        =\|Sf-f\|_n^2+\sigma^2\frac1n
+          \operatorname{tr}(S^{\mathsf T}S).
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

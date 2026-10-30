@@ -1,0 +1,46 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62D/binary_mean_nonidentification.tex
+msc: 62D10
+topic: Missing-data nonidentification
+track_a_difficulty: hard
+track_b_difficulty: medium
+theorems:
+  - id: binary_mean_nonidentification
+    kind: theorem
+    lean_name: binary_mean_nonidentification
+    latex_statement: |-
+      \begin{theorem}[Binary Mean Nonidentification]
+      Let $a,b,c\in\mathbb R$ satisfy $a\ge0$, $b\ge0$, $c>0$, and
+      $a+b+c=1$.  For each $q\in[0,1]$, let $P_q$ be a probability measure on
+      $\{\mathrm{false},\mathrm{true}\}^2$ satisfying
+      \[
+      \begin{aligned}
+       P_q(\mathrm{true},\mathrm{true})&=a,&
+       P_q(\mathrm{true},\mathrm{false})&=b,\\
+       P_q(\mathrm{false},\mathrm{true})&=cq,&
+       P_q(\mathrm{false},\mathrm{false})&=c(1-q).
+      \end{aligned}
+      \]
+      Define the observation map
+      \[
+        O(s_1,s_2)=(s_1,s_1\mathbin{\mathrm{and}}s_2).
+      \]
+      Then, for every $q\in[0,1]$,
+      \[
+      \begin{aligned}
+       P_q\bigl(O^{-1}\{(\mathrm{true},\mathrm{true})\}\bigr)&=a,\\
+       P_q\bigl(O^{-1}\{(\mathrm{true},\mathrm{false})\}\bigr)&=b,\\
+       P_q\bigl(O^{-1}\{(\mathrm{false},\mathrm{false})\}\bigr)&=c,
+      \end{aligned}
+      \]
+      and
+      \[
+        \int \mathbf 1\{s_2=\mathrm{true}\}\,dP_q(s)=a+cq.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

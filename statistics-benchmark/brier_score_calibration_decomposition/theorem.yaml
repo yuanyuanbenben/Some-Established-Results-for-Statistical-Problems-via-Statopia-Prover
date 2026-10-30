@@ -1,0 +1,68 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62M/brier_score_calibration_decomposition.tex
+msc: 62M20
+topic: Prediction; filtering
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: brier_score_calibration_decomposition
+    kind: theorem
+    lean_name: brier_score_calibration_decomposition
+    latex_statement: >-
+      \begin{theorem}[Brier Score Calibration Decomposition]
+
+      Let $N\ge 1$ observations have binary outcomes $y_i\in\{0,1\}$ and belong
+      to
+
+      one of $H\ge 1$ forecast bins. Assume every bin is nonempty. For a bin
+      $g$,
+
+      let $B_g$ be the set of observations in that bin, $n_g=\#B_g$, and let
+      $p_g$
+
+      be the forecast probability assigned to every observation in the bin.
+      Define
+
+      \[
+
+      \bar y=\frac1N\sum_{i=1}^N y_i,\qquad
+
+      \bar y_g=\frac1{n_g}\sum_{i\in B_g} y_i,\qquad
+
+      w_g=\frac{n_g}{N}.
+
+      \]
+
+      The Brier score, reliability, resolution, and uncertainty are
+
+      \[
+
+      BS=\frac1N\sum_{i=1}^N (p_{g(i)}-y_i)^2,
+
+      \]
+
+      \[
+
+      REL=\sum_g w_g(p_g-\bar y_g)^2,\qquad
+
+      RES=\sum_g w_g(\bar y_g-\bar y)^2,\qquad
+
+      UNC=\bar y(1-\bar y).
+
+      \]
+
+      Then
+
+      \[
+
+      BS=REL-RES+UNC.
+
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

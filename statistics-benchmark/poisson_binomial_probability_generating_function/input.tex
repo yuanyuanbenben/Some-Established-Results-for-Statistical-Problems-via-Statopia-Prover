@@ -1,0 +1,17 @@
+\begin{theorem}[Probability Generating Function of a Poisson-Binomial Sum]
+Let $(\Omega,\mathcal A,P)$ be a probability space, let
+$n\in\mathbb N$ with $n\ge1$, and let $p_1,\ldots,p_n\in[0,1]$.
+Let $X_1,\ldots,X_n:\Omega\to\{\mathrm{false},\mathrm{true}\}$ be
+measurable and jointly independent, with
+\[
+ P\{X_i=\mathrm{true}\}=p_i,
+ \qquad
+ P\{X_i=\mathrm{false}\}=1-p_i
+\]
+for every $i$.  Then, for every $z\in\mathbb R$,
+\[
+ \int z^{\sum_{i=1}^n\mathbf 1\{X_i=\mathrm{true}\}}\,dP
+ =
+ \prod_{i=1}^n\bigl((1-p_i)+p_i z\bigr).
+\]
+\end{theorem}

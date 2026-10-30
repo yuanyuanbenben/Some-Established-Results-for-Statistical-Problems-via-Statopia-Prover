@@ -1,0 +1,17 @@
+\begin{theorem}[Normalization of a kernel density estimate]
+Let $n\geq1$ and let $x_0,\ldots,x_{n-1}\in\mathbb R$. Let
+$K:\mathbb R\to\mathbb R$ be measurable, nonnegative everywhere, and
+integrable, and assume
+\[
+ \int_{\mathbb R}K(u)\,du=1.
+\]
+Let $h>0$, and define
+\[
+ \widehat p_h(z)=\frac1{nh}
+ \sum_{i=0}^{n-1}K\!\left(\frac{x_i-z}{h}\right).
+\]
+Then
+\[
+ \int_{\mathbb R}\widehat p_h(z)\,dz=1.
+\]
+\end{theorem}

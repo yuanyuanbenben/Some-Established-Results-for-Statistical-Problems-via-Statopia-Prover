@@ -1,0 +1,16 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=no_logistic_mle_under_complete_separation
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:9:28: warning: unused variable `hp`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'no_logistic_mle_under_complete_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

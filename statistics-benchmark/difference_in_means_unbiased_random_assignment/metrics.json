@@ -1,0 +1,17 @@
+{
+  "case": "difference_in_means_unbiased_random_assignment",
+  "msc": "62K99",
+  "difficulty": "medium",
+  "proved": true,
+  "cost_usd": null,
+  "unknown_reservation_usd": null,
+  "cost_coverage": "unavailable: legacy metrics reconciliation failed",
+  "mode": "single-file",
+  "seconds": 1606.621,
+  "lean_files": 1,
+  "lean_lines": 72,
+  "nodes": null,
+  "job_id": "full_comparison_b_after_main_20260820T033054Z_difference_in_means_unbiased_random_assignment_native-b",
+  "legacy_input_tokens": 312376,
+  "legacy_output_tokens": 210467
+}

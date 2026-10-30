@@ -1,0 +1,42 @@
+import Mathlib
+
+open MeasureTheory Matrix ProbabilityTheory
+
+theorem lasso_infinity_norm_error_bound
+    {Ω : Type*} [MeasurableSpace Ω]
+    (P : Measure Ω) [IsProbabilityMeasure P]
+    (n d : ℕ) (hn : 1 ≤ n) (hd : 2 ≤ d)
+    (sigma : ℝ) (hsigma : 0 < sigma)
+    (X : Matrix (Fin n) (Fin d) ℝ)
+    (hcols : ∀ j,
+      dotProduct (fun i ↦ X i j) (fun i ↦ X i j) / (n : ℝ) ≤ 1)
+    (S : Finset (Fin d))
+    (gamma : ℝ) (hgamma : 0 < gamma)
+    (hRE : ∀ Delta : Fin d → ℝ,
+      (∑ j, if j ∈ S then (0 : ℝ) else |Delta j|) ≤
+          3 * (∑ j, if j ∈ S then |Delta j| else (0 : ℝ)) →
+      (⨆ j, |(((n : ℝ)⁻¹ • (X.transpose * X)) *ᵥ Delta) j|) ≥
+        gamma * ⨆ j, |Delta j|)
+    (thetaStar : Fin d → ℝ)
+    (hsupport : ∀ j, j ∉ S → thetaStar j = 0)
+    (w : Ω → Fin n → ℝ)
+    (hw : ∀ a : Fin n → ℝ,
+      HasLaw (fun ω ↦ dotProduct a (w ω))
+        (gaussianReal 0
+          (Real.toNNReal (sigma ^ 2 * dotProduct a a))) P) :
+    let lambda := 4 * sigma *
+      Real.sqrt (Real.log (d : ℝ) / (n : ℝ))
+    let y : Ω → Fin n → ℝ := fun ω ↦ X *ᵥ thetaStar + w ω
+    let objective : Ω → (Fin d → ℝ) → ℝ := fun ω theta ↦
+      dotProduct (y ω - X *ᵥ theta) (y ω - X *ᵥ theta) /
+          (2 * (n : ℝ)) +
+        lambda * ∑ j, |theta j|
+    let minimizers : Ω → Set (Fin d → ℝ) := fun ω ↦
+      {theta | ∀ eta, objective ω theta ≤ objective ω eta}
+    let good : Set Ω := {ω | ∀ thetaHat ∈ minimizers ω,
+      (⨆ j, |(thetaHat - thetaStar) j|) ≤
+        6 * sigma / gamma *
+          Real.sqrt (Real.log (d : ℝ) / (n : ℝ))}
+    NullMeasurableSet good P ∧
+      P good ≥ ENNReal.ofReal (1 - 2 / (d : ℝ)) := by
+  sorry

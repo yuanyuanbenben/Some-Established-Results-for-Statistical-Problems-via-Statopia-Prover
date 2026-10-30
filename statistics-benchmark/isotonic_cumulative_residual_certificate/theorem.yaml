@@ -1,0 +1,53 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/isotonic_cumulative_residual_certificate.tex
+msc: 62G08
+topic: Isotonic regression
+track_a_difficulty: hard
+track_b_difficulty: hard
+theorems:
+  - id: isotonic_cumulative_residual_certificate
+    kind: theorem
+    lean_name: isotonic_cumulative_residual_certificate
+    latex_statement: >-
+      \begin{theorem}[Cumulative-residual certificate for isotonic least
+      squares]
+
+      Let $n\geq1$, and let $y=(y_0,\ldots,y_{n-1})$ and
+
+      $\widehat\theta=(\widehat\theta_0,\ldots,\widehat\theta_{n-1})$ be real
+
+      vectors.  For every integer $k\geq0$, define
+
+      \[
+        R(k)=\sum_{\substack{0\leq j<n\\j<k}}(y_j-\widehat\theta_j).
+      \]
+
+      Assume that, for every integer $i$ with $i+1<n$,
+
+      \[
+        \widehat\theta_i\leq\widehat\theta_{i+1},
+        \qquad R(i+1)\geq0,
+        \qquad
+        R(i+1)(\widehat\theta_{i+1}-\widehat\theta_i)=0,
+      \]
+
+      and assume $R(n)=0$.  Then every real vector
+
+      $\theta=(\theta_0,\ldots,\theta_{n-1})$ satisfying
+
+      $\theta_i\leq\theta_{i+1}$ whenever $i+1<n$ obeys
+
+      \[
+        \sum_{i=0}^{n-1}(y_i-\theta_i)^2
+        \geq
+        \sum_{i=0}^{n-1}(y_i-\widehat\theta_i)^2
+        +\sum_{i=0}^{n-1}(\theta_i-\widehat\theta_i)^2.
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

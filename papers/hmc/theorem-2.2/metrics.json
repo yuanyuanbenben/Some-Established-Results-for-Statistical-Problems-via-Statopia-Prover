@@ -1,0 +1,23 @@
+{
+  "case": "hmc_22",
+  "title": "Theorem 2.2 (thm:negative), both parts (i) and (ii), using v5 with corrigendum",
+  "job_id": "paper_fresh_20261028t224543381z_hmc_22",
+  "tasks": 1,
+  "lean_files": 22,
+  "lean_lines": 4103,
+  "seconds": 13979.151,
+  "time_basis": "first run.start to final process exit, including pauses and recovery",
+  "cost_usd": 13.487284,
+  "cumulative_recorded_cost_usd": 13.487284,
+  "post_exit_recorded_cost_usd": 0.0,
+  "cost_basis": "recorded case-database usage through final process exit; later report usage separately recorded",
+  "usage_records": 585,
+  "last_usage_utc": "2026-10-29 02:42:22",
+  "proof_passed": true,
+  "retained_external_inputs": 1,
+  "package_lean_files": 22,
+  "package_lean_lines": 4103,
+  "root_closure_lean_files": 22,
+  "root_closure_lean_lines": 4103,
+  "line_cost_basis": "complete integrated archive package, per user decision; root closure separately recorded"
+}

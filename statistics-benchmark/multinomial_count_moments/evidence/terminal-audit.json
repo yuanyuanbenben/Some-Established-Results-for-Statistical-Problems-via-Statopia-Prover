@@ -1,0 +1,72 @@
+{
+  "id": "q19",
+  "case": "multinomial_count_moments",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q19",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q19/experiment/runs/20261017T215851Z-multinomial_count_moments-3903619b",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "2cab8a76c5ecb7e900d86d44f5cf20db525dde23208ff0502a00d6e8b15eec4e",
+  "signatureLockSha256": "510bb83e44e7ea33ff2d9b266123861bb06be080a6bc799ce39054e3988f81c6",
+  "rootTheorem": "multinomial_count_moments",
+  "inputRootSignature": "theorem multinomial_count_moments (n k : ℕ) (hk : 1 ≤ k) (p : Fin k → ℝ) (hp_nonneg : ∀ a, 0 ≤ p a) (hp_sum : (∑ a : Fin k, p a) = 1) : let count : Fin k → (Fin n → Fin k) → ℕ := fun c x => ∑ t : Fin n, if x t = c then (1 : ℕ) else 0 let mass : (Fin n → Fin k) → ℝ := fun x => ∏ t : Fin n, p (x t) (∀ a : Fin k, (∑ x : Fin n → Fin k, mass x * (count a x : ℝ)) = (n : ℝ) * p a ∧ (∑ x : Fin n → Fin k, mass x * ((count a x : ℝ) - (n : ℝ) * p a) ^ 2) = (n : ℝ) * p a * (1 - p a)) ∧ (∀ a b : Fin k, a ≠ b → (∑ x : Fin n → Fin k, mass x * (((count a x : ℝ) - (n : ℝ) * p a) * ((count b x : ℝ) - (n : ℝ) * p b))) = -((n : ℝ) * p a * p b))",
+  "lockedRootSignature": "theorem multinomial_count_moments (n k : ℕ) (hk : 1 ≤ k) (p : Fin k → ℝ) (hp_nonneg : ∀ a, 0 ≤ p a) (hp_sum : (∑ a : Fin k, p a) = 1) : let count : Fin k → (Fin n → Fin k) → ℕ := fun c x => ∑ t : Fin n, if x t = c then (1 : ℕ) else 0 let mass : (Fin n → Fin k) → ℝ := fun x => ∏ t : Fin n, p (x t) (∀ a : Fin k, (∑ x : Fin n → Fin k, mass x * (count a x : ℝ)) = (n : ℝ) * p a ∧ (∑ x : Fin n → Fin k, mass x * ((count a x : ℝ) - (n : ℝ) * p a) ^ 2) = (n : ℝ) * p a * (1 - p a)) ∧ (∀ a b : Fin k, a ≠ b → (∑ x : Fin n → Fin k, mass x * (((count a x : ℝ) - (n : ℝ) * p a) * ((count b x : ℝ) - (n : ℝ) * p b))) = -((n : ℝ) * p a * p b))",
+  "rootNamespace": [
+    "Msc62GroundTruth"
+  ],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.75cb97de69b99618f31fcc52.json",
+      "receiptId": "job-final.75cb97de69b99618f31fcc52",
+      "receiptHash": "6e2dd8abeffb3d78b6c7d5a61d3b609717f9379b00b06a1a76dac202e303f2b8",
+      "finalizedAt": 1792277876800,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "6ec51898ef004286da9bbd999be3423009f5a3c742ca76bebee1c1e26f7aa789"
+    }
+  ],
+  "slot": 0,
+  "keyIndex": 0,
+  "nodes": 7,
+  "auxiliaryNodes": 6,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 7
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.a1f16e4ccb9e6c90644278389c3c992c",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.a1f16e4ccb9e6c90644278389c3c992c",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 20
+}

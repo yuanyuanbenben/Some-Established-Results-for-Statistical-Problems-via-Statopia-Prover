@@ -1,0 +1,9 @@
+{
+  "finishedAt": "2026-10-18T01:55:30.382Z",
+  "finalStatus": "proved",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q25/experiment/runs/20261018T004527Z-gumbel_approximation_to_exponential_maximum-aa369062",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q25",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q25",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q25/experiment/runs/20261018T004527Z-gumbel_approximation_to_exponential_maximum-aa369062/job_snapshot",
+  "publishedCheckpointDir": null
+}

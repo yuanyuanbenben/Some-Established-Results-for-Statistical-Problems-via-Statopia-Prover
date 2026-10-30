@@ -1,0 +1,16 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=Msc62GroundTruth.paired_block_randomization_unbiased
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:13:13: warning: unused variable `hb`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'Msc62GroundTruth.paired_block_randomization_unbiased' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

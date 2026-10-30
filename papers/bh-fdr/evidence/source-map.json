@@ -1,0 +1,30 @@
+[
+  {
+    "module": "ProverJobs.app_dobriban_theorem1_counterexample_certificate.Main",
+    "lines": 58,
+    "source": "/home/ai4stat/prover_long_test/app/dev/fixtures/bh-fdr/001_dobriban_theorem1_counterexample_certificate.yaml",
+    "source_sha256": "91b4a6a30eadd5ff372c2ba56fa8df65b5adfb883af31e19921714bf33c27bcd",
+    "artifact_sha256": "006f0e9d26a481ed6b52582897201e972b314a12cbfa8d8ed05f391264c54921"
+  },
+  {
+    "module": "ProverJobs.app_lei31_leave_one_out_fdr.Main",
+    "lines": 27,
+    "source": "/home/ai4stat/prover_long_test/app/dev/fixtures/bh-fdr/002_lei31_leave_one_out_fdr.yaml",
+    "source_sha256": "a274eef7efdc7cce14b3d962c77b53d16297b2951ff2951059d8f923a1c0ab7d",
+    "artifact_sha256": "ada3a904a53fd7d26574d40d968afa549cc3320b24ba6056df98b07c1aa1b945"
+  },
+  {
+    "module": "ProverJobs.app_lei31_tail_ratio_excess.Main",
+    "lines": 16,
+    "source": "/home/ai4stat/prover_long_test/app/dev/fixtures/bh-fdr/003_lei31_tail_ratio_excess.yaml",
+    "source_sha256": "4b5f02f0af411b601b530405f0fb2299f1893a04014d623d469b5718d12ad117",
+    "artifact_sha256": "ad80509d933a0cc90a6dd81864a7c5c2607335aa6a3d0965091917841da0ded0"
+  },
+  {
+    "module": "ProverJobs.app_lei31_theorem31_endpoint.Main",
+    "lines": 43,
+    "source": "/home/ai4stat/prover_long_test/app/dev/fixtures/bh-fdr/004_lei31_theorem31_endpoint.yaml",
+    "source_sha256": "77f10f10d930fe18c3e3047384474c8d1fde8e983c9315479cac43a3b6fcdf4f",
+    "artifact_sha256": "b103701871c6a098b2fd88a87f7238a8dd4c3f42d32c1dd9f46758f70c593505"
+  }
+]

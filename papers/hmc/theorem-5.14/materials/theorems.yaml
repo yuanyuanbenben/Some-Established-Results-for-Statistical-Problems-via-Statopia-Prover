@@ -1,0 +1,410 @@
+version: v1
+theorem_set: document-goal
+source_tag: document-processing
+theorems:
+  - id: entry:selected:77d64561-826b-4e40-b87b-532f670d3142
+    title: Theorem 5.14 (corrected statement and replacement proof in the v5 corrigendum, Appendix D; original label thm:light). Use the corrected condition (18) with norm(y) >= 3 norm(x), not the superseded printed version.
+    kind: theorem
+    latex_statement: |-
+      Let \((\X,\B)\) denote a Borel space. Here we restrict attention to \(\X = \R^d\) (and write \(\|x\|\) for the Euclidean norm of \(x \in \X\)). Throughout let \(\pi(\cdot)\) be a finite `target' measure, and \(\pi(x)\) the corresponding Lebesgue density for some \(x \in \X\). We write \(P: \X \times \B \to [0,1]\) to denote a Markov transition kernel, meaning \(P(x,\cdot)\) is a probability measure for any \(x \in \X\) and \(P(\cdot,A)\) is measurable for any \(A \in \B\). \(P\) acts to the left on measures through \(\mu P(\cdot) := \int \mu(dx)P(x,dy)\) and to the right on functions through \(Pf(x) := \int f(y)P(x,dy)\). We let \(P^n(x,\cdot) := \int P^{n-1}(x,dy)P(y,\cdot)\) and say \(\pi(\cdot)\) is \emph{invariant} for \(P\) if \(\pi P(\cdot) = \pi(\cdot)\).
+
+      Denote the Total Variation distance between two distributions \(\mu(\cdot)\) and \(\nu(\cdot)\) on \((\X,\B)\) as \(\|\mu(\cdot) - \nu(\cdot)\|_{TV} := \sup_{|f| \leq 1}|\mathbb{E}_\mu f - \mathbb{E}_\nu f|\). We say \(\pi(\cdot)\) is a \emph{limiting} distribution for \(P\) if \(\|P^n(x,\cdot) - \pi(\cdot)\|_{TV} \to 0\) as \(n \to \infty\), for \(\pi\)-a.e. \(x \in \X\). Recall that an invariant distribution \(\pi(\cdot)\) will be the unique limiting measure if \(P\) is both \(\pi\)-irreducible and aperiodic.
+
+      Consider a \(\pi\)-irreducible aperiodic Markov chain with state space \((\X,\B)\) and transition kernel \(P\). If there exists a \(\pi\)-a.e. finite \emph{Lyapunov} function \(V:\X \to [1,\infty]\) with `small' level sets, such that the condition \(PV(x) \leq \lambda V(x) + b\mathbbm{1}_{C_\omega}(x)\) holds for some \(\lambda < 1\), \(b<\infty\) and some set \(C_\omega:=\{x : V(x)\leq \omega\}\) with \(\omega<\infty\), then \(\exists \rho<1\) and a \(\pi\)-a.e. finite \(M:\X\to[0,\infty]\) such that
+      \begin{equation} \label{eqn:geoerg}
+      \|P^n(x,\cdot) - \pi(\cdot)\|_{TV} \leq M(x)\rho^n.
+      \end{equation}
+      The property whose failure is asserted below is \eqref{eqn:geoerg}, i.e. the existence of \(\rho<1\) and a \(\pi\)-a.e. finite \(M:\X\to[0,\infty]\) satisfying \eqref{eqn:geoerg} (geometric ergodicity of the chain). Recall that a set \(C \in \B\) is called `small' if there is a \(t<\infty\), a measure \(\nu(\cdot)\) defined on \((\X,\B)\) and an \(\epsilon>0\) such that \(\forall x \in C\) and \(\forall A \in \B\) it holds that \(P^t(x,A) \geq \epsilon \nu(A)\).
+
+      We consider probability densities of the form \(\pi(x) \propto e^{-U(x)}\) for some \(U:\X \to [0,\infty)\). If we view \(U(x)= -\log\pi(x)\) as a `potential' energy in a physical system, it is natural to consider the larger phase space and construct the \emph{Hamiltonian}
+      \begin{equation} \label{eqn:hamiltonian}
+      H(x,p) = U(x) + \frac{1}{2}p^t M^{-1} p,
+      \end{equation}
+      where \(p\) denotes a \(d\)-dimensional `momentum' variable, \(M\) a \(d \times d\) `mass' matrix and \(p^t M^{-1}p/2\) the `kinetic' energy. Provided \(U(x)\) is differentiable, we can evolve the coordinates \((x_t,p_t)\) through time in such a way that \(H(x_t,p_t) = H(x_{t+s},p_{t+s})\) for any \(t,s \in \mathbb{R}\) using Hamilton's equations
+      \begin{equation} \label{eqn:hamilton}
+      \frac{d p_t}{dt} = -\frac{\partial H}{\partial x}, ~~ \frac{dx_t}{dt} = \frac{\partial H}{\partial p}.
+      \end{equation}
+      Solving \eqref{eqn:hamilton} results in \emph{Hamiltonian flow}. The standard choice when the Hamiltonian is of the form \eqref{eqn:hamiltonian} is the St\"{o}rmer--Verlet or \emph{leapfrog} scheme, in which \((x_{L\varepsilon},p_{L\varepsilon})\) is generated from \((x_0,p_0)\) using \(L\) steps of the recursion
+      \begin{align*}
+      p_{t+\frac{\varepsilon}{2}} &= p_t - \frac{\varepsilon}{2}\nabla U(x_t), \\
+      x_{t+\varepsilon} &= x_t + \varepsilon M^{-1}p_{t+\frac{\varepsilon}{2}}, \\
+      p_{t+\varepsilon} &= p_{t+\frac{\varepsilon}{2}} - \frac{\varepsilon}{2}\nabla U(x_{t+\varepsilon}),
+      \end{align*}
+      for some step-size \(\varepsilon>0\). The resulting \emph{approximate} flow map \(\varphi_{L\varepsilon}(x_0,p_0) := (x_{L\varepsilon},p_{L\varepsilon})\) can be used as a proposal mechanism within the Metropolis--Hastings framework. Algorithm \ref{alg:hmc}: given \(x_{i-1}\), \(\varepsilon \geq 0\), \(\mathfrak{L}(\cdot)\), set \(x_0 \leftarrow x_{i-1}\), draw \(p_0 \sim N(0,M)\), \(L \sim \mathfrak{L}(\cdot)\), set \(T \leftarrow L\varepsilon\); draw \(u \sim U[0,1]\); set \(\delta \leftarrow H(x_0,p_0) - H\circ \varphi_T(x_0,p_0)\); if \(\log(u) < \delta\), set \(x_i \leftarrow \text{Pr}_x \circ \varphi_T(x_0,p_0)\), else set \(x_i \leftarrow x_{i-1}\).
+
+      <!-- formalization-clarifications:v1:c3b8a62a3eef0cc5ec871b2fde32ceac3143908714ab3de57d83e00dc1572e1f -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The selected result is the corrected Theorem 5.14: condition (18) is \(\|y\|\ge 3\|x\|\ge C\), not the superseded printed \(2\|x\|\) version (“corrected condition (18) with norm(y) >= 3 norm(x)”). Intended order: fix \(d\), the potential \(U\), a fixed positive integer \(L\), and \(\varepsilon>0\) with \(T=L\varepsilon\); the hypothesis supplies a finite \(C\) (for that fixed data) such that \(\forall x\,\forall y\), if \(\|y\|\ge3\|x\|\ge C\), then \(\|\nabla U(y)\|\ge3\|\nabla U(x)\|\). This \(C\) must not depend on \(x,y,p_0\), chain indices, or the momentum. The source does not state uniformity of \(C\) across \(U,d,L,\varepsilon\), nor across \(L\) in the random-\(L\) extension; in a fixed-\(L\) formalization an implicit Lean \(L\) may be a parameter of the existence of \(C\) unless one adds a uniformity assumption. In the proof, \(\delta\) is fixed before \(\|x_0\|\to\infty\); convergence in Lemma 5.17 (R1) is not required to be uniform over \(\delta\). The excerpt explicitly says “Fix any \(\delta<1\)” and R1 says “for any \(\delta<1\),” but the proof’s tail assertion \(\mu_G(\{\|p_0\|>\|x_0\|^\delta\})\to0\) needs \(\delta>0\) (the positive-result section uses \(1/2<\delta<1\)); the selected material does not state the lower bound, so this is an unresolved range ambiguity. For random \(L\), the section assumes the law of \(L\) is position-independent, and the proof applies the fixed-\(L\) argument conditional on each fixed \(L\) and uses dominated convergence over \(L\), with \(0\le\alpha\le1\) (“same conclusion follows provided the above argument is applied conditional on each fixed \(L\)”). R4/Assumption A1 additionally has \(\mathbb P_{\mathfrak L}[L=1]>0\) and an exponential moment condition, but the displayed negative-\(L\) proof only uses position-independence and per-fixed-\(L\) convergence; the source does not say whether those extra A1 clauses are required for the negative random-\(L\) result.
+
+      2. Norms and mathematical objects. Throughout the selected result and R1–R4, \(\|\cdot\|\) is the Euclidean \(\ell_2\) norm on \(\mathbb R^d\) for \(x,y,p_0,p_{L\varepsilon},\nabla U(x)\), not a sup, operator, or Frobenius norm (“write \(\|x\|\) for the Euclidean norm”). The mass matrix is fixed to \(M=I\) (“From this point forward we assume \(M=I\)”), so the kinetic energy is \(\frac12\|p\|^2\) and \(p_0\sim N(0,I)\); do not replace this by a general \(M\) or a different Gaussian normalization. \(U:\mathbb R^d\to[0,\infty)\) is differentiable on \(\mathbb R^d\), and \(\nabla U\) is the vector gradient. The target is a finite measure \(\pi(\cdot)\) with Lebesgue density \(\pi(x)\), written \(\pi(x)\propto e^{-U(x)}\); the same symbol is overloaded as measure and density, and normalization is not specified, but the acceptance ratio uses only \(\pi(x_{L\varepsilon})/\pi(x_0)\), equivalently the corresponding \(U\)-difference up to a canceled additive constant. The TV norm is exactly \(\|\mu-\nu\|_{TV}:=\sup_{|f|\le1}|\mathbb E_\mu f-\mathbb E_\nu f|\) (“Denote the Total Variation distance”), with no added \(1/2\). The source-defined objects \(x_{L\varepsilon},p_{L\varepsilon},\varphi_T\) come from the leapfrog recursion, and \(\alpha(x_0,x_{L\varepsilon})=1\wedge \frac{\pi(x_{L\varepsilon})}{\pi(x_0)}\exp(\frac12\|p_0\|^2-\frac12\|p_{L\varepsilon}\|^2)\) is the HMC acceptance probability. In R2/Definition 3.2 the two-argument MH ratio \(r(x,y)\) and acceptance \(\alpha(x,y)=1\wedge r(x,y)\) are distinct from the one-argument rejection probability \(r(x)=1-\int\alpha(x,y)Q(x,dy)\) (“Here \(r(x,y)\) is the two-argument Metropolis–Hastings ratio, distinct from the one-argument rejection probability \(r(x)\)”). For HMC the proof writes \(1-r(x_0)=\int\alpha(x_0,x_{L\varepsilon})\,\mu_G(dp_0)\), where \(\mu_G\) is the standard Gaussian law of \(p_0\). Condition (19) uses exactly \(U(x)-U(y)-\frac12\|x\|^2\), not an absolute value or a gradient norm, and condition (18) uses the Euclidean norm of the gradient vector.
+
+      3. Asymptotics. Condition (17) is a genuine limit to \(+\infty\) along all \(x\) with \(\|x\|\to\infty\), i.e. for every \(M<\infty\) there is \(R\) such that \(\|x\|>R\) implies \(\|\nabla U(x)\|/\|x\|>M\); it is not an \(O\) or \(o\) statement. Condition (18) is not asymptotic but universally quantified after \(C\): \(\forall x,y\) with \(\|y\|\ge3\|x\|\ge C\). Condition (19) is a joint two-variable limit over the region \(\|y\|\ge2^L\|x\|\); its quantitative meaning is: for every \(A\) there is \(R\) such that whenever \(\|x\|>R\) and \(\|y\|\ge2^L\|x\|\), one has \(U(x)-U(y)-\frac12\|x\|^2<-A\). The limiting variable is \(x\) with the constraint on \(y\); there is no separate requirement that \(y\to\infty\), and the source states no uniformity over \(L\) (the threshold may depend on fixed \(L\)). For random \(L\), the proof applies the fixed-\(L\) conclusion for each fixed \(L\) and then uses dominated convergence over the law of \(L\); it does not state a uniform-in-\(L\) limit. R1/Lemma 5.17 gives the uniform-in-\(p_0\)-ball conclusion \(\sup_{\|p_0\|\le\|x_0\|^\delta}\alpha(x_0,x_{L\varepsilon})\to0\) as \(\|x_0\|\to\infty\); the replacement proof then splits \(\int\alpha\,\mu_G(dp_0)\le \sup+\mu_G(\{\|p_0\|>\|x_0\|^\delta\})\) and uses the Gaussian tail. Hence \(r(x_0)\to1\) along \(\|x_0\|\to\infty\). R3/Proposition 3.5 is a universal MH-type result: if \(\mathrm{esssup}\,r(x)=1\), then the geometric-ergodicity bound fails (“If \(P\) is of Metropolis–Hastings type, then (geoerg) fails to hold if \(\mathrm{esssup}\,r(x)=1\)”); the HMC-specific application does not add extra premises to R3 except establishing its rejection-probability premise. The proof-based step from \(r(x_0)\to1\) to \(\mathrm{esssup}\,r=1\) is not fully formalized because the source states that \(\mathrm{esssup}\) is “used in the source without further formal definition”; the relevant measure/convention for essential supremum is not specified.
+
+      4. Omitted or implicit definitions and side conditions. The number of leapfrog steps \(L\) is a fixed positive integer in the selected statement, \(\varepsilon>0\), and \(T=L\varepsilon\); sums \(\sum_{i=1}^{L-1}\) are empty when \(L=1\), and \(x_{i\varepsilon}\) denotes the leapfrog position after \(i\) steps (“the number of leapfrog steps \(L\) is a fixed positive integer, and the same \(L\) is used in \(T=L\varepsilon\) and in the condition \(\|y\|\ge2^L\|x\|\)”). \(p_0\) is drawn from \(N(0,I)\), and the proof event is \(\{\|p_0\|>\|x_0\|^\delta\}\); the acceptance probability is bounded in \([0,1]\). The geometric-ergodicity display implicitly means a bound for all iteration counts \(n\) with a \(\pi\)-a.e. finite \(M\) and some \(\rho<1\); the source states the display without spelling out \(\forall n\). \(\pi\) is called a finite target measure but the HMC section also speaks of probability densities \(\pi(x)\propto e^{-U(x)}\); the source does not explicitly discuss normalization in the selected theorem, and one should preserve the ratio/difference usage rather than impose an unstated normalization. The random-\(L\) version assumes a position-independent law \(\mathfrak L\) on \(\mathbb Z_+\); R4/Assumption A1’s extra clauses are explicit source facts but are not used in the displayed negative proof. The source leaves unresolved the lower bound on \(\delta\), the measure used for \(\mathrm{esssup}\), and the exact uniformity of constants/limit thresholds over \(L\) in the random-\(L\) extension; do not promote the replacement proof’s intermediate split or Lemma 5.17’s limit into additional theorem hypotheses beyond the cited external results R1, R2, R3, and R4.
+      <!-- /formalization-clarifications -->
+
+      If it holds that
+      \begin{equation} \label{eqn:explode}
+      \lim_{\|x\| \to \infty}\frac{\|\nabla U(x)\|}{\|x\|} = \infty,
+      \end{equation}
+      and that there is a fixed \(C <\infty\) such that whenever \(\|y\|\geq 3\|x\|\geq C\) then
+      \begin{equation} \label{eqn:oscillations}
+      \|\nabla U(y)\| \geq 3\|\nabla U(x)\|,
+      \end{equation}
+      and it also holds that
+      \begin{equation} \label{eqn:oscillation2}
+      \lim_{\|x\|\to\infty, \|y\| \geq 2^L\|x\|} \left( U(x) - U(y) - \frac{1}{2}\|x\|^2 \right) = -\infty,
+      \end{equation}
+      then the Hamiltonian Monte Carlo method with fixed integration time \(T = L\varepsilon\) does not produce a geometrically ergodic Markov chain for any choice \(T>0\).
+    assumptions:
+      - |-
+        In this section we make the assumption that the distribution \(\mathfrak{L}(\cdot)\) for the number of leapfrog steps \(L\) does not depend on the current position.
+
+        From this point forward we assume \(M = I\) for ease of exposition but without loss of generality.
+
+        The Hamiltonian Monte Carlo method considered has fixed integration time \(T = L\varepsilon\), with integrator step-size \(\varepsilon>0\) and number of leapfrog steps \(L\).
+        - The potential U is differentiable on R^d, so that ∇U exists everywhere.
+        - The number of leapfrog steps L is a fixed positive integer, and the same L is used in T=Lε and in the condition ||y|| >= 2^L||x||.
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      For fixed \(L\), let \(\mu_G(dp_0)\) denote the distribution \(N(0,I)\) from which \(p_0\) is drawn. The acceptance probability for the Hamiltonian Monte Carlo proposal is
+      \[
+      \alpha(x_0,x_{L\varepsilon})
+      =
+      1\wedge
+      \frac{\pi(x_{L\varepsilon})}{\pi(x_0)}
+      \exp\left(
+      \frac12\|p_0\|^2-\frac12\|p_{L\varepsilon}\|^2
+      \right),
+      \]
+      where \(1\wedge z=\min(1,z)\). The rejection probability is
+      \[
+      r(x_0)=1-\int \alpha(x_0,x_{L\varepsilon})\,\mu_G(dp_0).
+      \]
+
+      ### Proof
+      Proof of Theorem 5.14.
+
+      \begin{proof}
+      Fix any \(\delta<1\). From [ref:R1],
+      \[
+       \sup_{\|p_0\|\leq\|x_0\|^\delta}
+       \alpha(x_0,x_{L\varepsilon})\longrightarrow0
+       \qquad\text{as }\|x_0\|\to\infty.
+      \]
+      Moreover,
+      \[
+       \mu_G\!\left(\left\{p_0:\|p_0\|>\|x_0\|^\delta\right\}\right)
+       \longrightarrow0.
+      \]
+      Therefore, writing \(r(x_0)\) for the rejection probability as in [ref:R2],
+      \begin{align*}
+       1-r(x_0)
+       &=\int\alpha(x_0,x_{L\varepsilon})\,\mu_G(dp_0)\\
+       &\leq
+       \sup_{\|p_0\|\leq\|x_0\|^\delta}
+       \alpha(x_0,x_{L\varepsilon})
+       +\mu_G\!\left(\left\{p_0:\|p_0\|>\|x_0\|^\delta\right\}\right)
+       \longrightarrow0.
+      \end{align*}
+      This implies that the rejection probability \(r(x_0)\to1\) as \(\|x_0\|\to\infty\), and [ref:R3] then implies that the chain is not geometrically ergodic.
+      \end{proof}
+
+      When the number of leapfrog steps is drawn from a position-independent
+      distribution \(\mathfrak{L}(\cdot)\) as in [ref:R4], the
+      same conclusion follows provided the above argument is applied conditional on
+      each fixed \(L\). For each fixed \(L\) the conditional acceptance probability
+      tends to zero, while it is bounded by one. Since the law of \(L\) does not
+      depend on \(x_0\), dominated convergence with respect to \(\mathfrak{L}(\cdot)\) shows that
+      the unconditional acceptance probability also tends to zero.
+
+      ### References
+      #### Reference R1
+      Target: Lemma 5.17
+      Citation: From Lemma 5.17,
+      \[
+       \sup_{\|p_0\|\leq\|x_0\|^\delta}
+       \alpha(x_0,x_{L\varepsilon})\longrightarrow0
+       \qquad\text{as }\|x_0\|\to\infty.
+      \]
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The displayed result is Lemma 5.17 in the corrigendum supplement `supp.tex` (D1); D1 supplies the lemma statement and conditions (17)–(19). The acceptance probability (10), momentum formula (11), candidate map (9), target-density notation and Hamiltonian setup are from Livingstone et al. (2019), the main paper cited by D1. The original proof is not reproduced here. No unresolved premise remains for the lemma statement; the corrected condition (18) is used. The current proof uses the equivalent uniform/sup form of the lemma’s conclusion.
+
+      ##### Definitions and notation
+      Let \(\X=\R^d\), and write \(\|x\|\) for the Euclidean norm of \(x\in\X\). Let \(\pi(\cdot)\) be the finite target measure, with Lebesgue density \(\pi(x)\) satisfying
+      \[
+      \pi(x)\propto e^{-U(x)},
+      \]
+      where \(U:\X\to[0,\infty)\) is differentiable and \(U(x)=-\log \pi(x)\). Write \(\nabla U(x)\) for the gradient of \(U\) at \(x\).
+
+      Fix a leapfrog step size \(\varepsilon>0\), a fixed number \(L\ge 1\) of leapfrog steps, and fixed integration time \(T=L\varepsilon\). As in the source, take the mass matrix \(M=I\). The initial position is \(x_0\in\R^d\) and the initial momentum is \(p_0\in\R^d\); in the HMC algorithm \(p_0\sim N(0,I)\). The leapfrog recursion, with \(M=I\), is
+      \[
+      p_{t+\varepsilon/2}=p_t-\frac{\varepsilon}{2}\nabla U(x_t),\qquad
+      x_{t+\varepsilon}=x_t+\varepsilon p_{t+\varepsilon/2},\qquad
+      p_{t+\varepsilon}=p_{t+\varepsilon/2}-\frac{\varepsilon}{2}\nabla U(x_{t+\varepsilon}),
+      \]
+      and the resulting approximate flow map is
+      \[
+      \varphi_{L\varepsilon}(x_0,p_0):=(x_{L\varepsilon},p_{L\varepsilon}).
+      \]
+
+      The candidate map is supplied as
+      \[
+      x_{L\varepsilon}
+      =
+      x_0-\frac{L\varepsilon^2}{2}\nabla U(x_0)
+      -\varepsilon^2\sum_{i=1}^{L-1}(L-i)\nabla U(x_{i\varepsilon})
+      +L\varepsilon p_0,
+      \tag{9}
+      \]
+      where \(x_{i\varepsilon}\) denotes the position after \(i\) leapfrog steps.
+
+      The final momentum is supplied as
+      \[
+      p_{L\varepsilon}
+      =
+      p_0-\frac{\varepsilon}{2}\nabla U(x_0)
+      -\varepsilon\sum_{i=1}^{L-1}\nabla U(x_{i\varepsilon})
+      -\frac{\varepsilon}{2}\nabla U(x_{L\varepsilon}).
+      \tag{11}
+      \]
+
+      The acceptance probability is
+      \[
+      \alpha(x_0,x_{L\varepsilon})
+      =
+      1\wedge
+      \frac{\pi(x_{L\varepsilon})}{\pi(x_0)}
+      \exp\left(
+      \frac12\|p_0\|^2-\frac12\|p_{L\varepsilon}\|^2
+      \right),
+      \tag{10}
+      \]
+      where \(1\wedge z=\min(1,z)\).
+
+      For \(\delta<1\), the constraint \(\|p_0\|\le \|x_0\|^\delta\) is imposed in the limit appearing in the lemma.
+
+      ##### Assumptions
+      - The leapfrog step size \(\varepsilon>0\) is fixed, the number of leapfrog steps \(L\ge 1\) is fixed, \(T=L\varepsilon\), and \(M=I\).
+
+      - Condition (17) holds:
+      \[
+      \lim_{\|x\|\to\infty}
+      \frac{\|\nabla U(x)\|}{\|x\|}
+      =
+      \infty.
+      \tag{17}
+      \]
+
+      - Condition (18) holds in the corrected form: there is a fixed \(C<\infty\) such that whenever
+      \[
+      \|y\|\ge 3\|x\|\ge C
+      \]
+      then
+      \[
+      \|\nabla U(y)\|\ge 3\|\nabla U(x)\|.
+      \tag{18}
+      \]
+      This is the corrected condition, not the superseded printed version with \(\|y\|\ge 2\|x\|\).
+
+      - Condition (19) holds: for the fixed number \(L\) of leapfrog steps,
+      \[
+      \lim_{\substack{\|x\|\to\infty\\
+      \|y\|\ge 2^L\|x\|}}
+      \left(
+      U(x)-U(y)-\frac12\|x\|^2
+      \right)
+      =
+      -\infty.
+      \tag{19}
+      \]
+
+      ##### Statement
+      If conditions (17), (18) and (19) hold, then for any \(\delta<1\),
+      \[
+      \lim_{\substack{\|x_0\|\to\infty\\
+      \|p_0\|\le \|x_0\|^\delta}}
+      \alpha(x_0,x_{L\varepsilon})
+      =
+      0.
+      \]
+
+      #### Reference R2
+      Target: Definition 3.2
+      Citation: Therefore, writing $r(x_0)$ for the rejection probability as in Definition 3.2 of \cite{Livingstone2019},
+      \begin{align*}
+       1-r(x_0)
+       &=\int\alpha(x_0,x_{L\varepsilon})\,\mu_G(dp_0)\\
+       &\leq
+       \sup_{\|p_0\|\leq\|x_0\|^\delta}
+       \alpha(x_0,x_{L\varepsilon})
+       +\mu_G\!\left(\left\{p_0:\|p_0\|>\|x_0\|^\delta\right\}\right)
+       \longrightarrow0.
+      \end{align*}
+      Bibliography: main
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D2 (`main.tex`), Livingstone, Betancourt, Byrne and Girolami, “On the Geometric Ergodicity of Hamiltonian Monte Carlo,” Section 3 (“Preliminaries”). The supplied source contains the definition of a kernel of Metropolis–Hastings type, whose placement matches the target’s Definition 3.2. The acceptance probability is supplied by equation `(eqn:accept)`, and the rejection probability is supplied by equation `(eqn:mhtype)`. No mathematical supplementation was needed.
+
+      ##### Definition 3.2
+      ###### Definitions and notation
+      Let \((\mathsf X,\mathcal B)\) be a Borel space; here \(\mathsf X=\mathbb R^d\), and \(\|x\|\) denotes the Euclidean norm of \(x\in\mathsf X\). Let \(\pi(\cdot)\) be a finite target measure with Lebesgue density \(\pi(x)\). Let \(P:\mathsf X\times\mathcal B\to[0,1]\) and \(Q:\mathsf X\times\mathcal B\to[0,1]\) be Markov transition kernels, so that \(P(x,\cdot)\) and \(Q(x,\cdot)\) are probability measures for each \(x\), and \(P(\cdot,A)\), \(Q(\cdot,A)\) are measurable for each \(A\in\mathcal B\). Let \(\delta_x(\cdot)\) denote the Dirac point mass at \(x\).
+
+      If \(\pi(\cdot)\) and \(Q(x,\cdot)\) admit Lebesgue densities \(\pi(x)\) and \(q(x,y)\), define
+      \[
+      S:=\{(x,y)\in\mathsf X^2:\pi(x)q(x,y)>0\}.
+      \]
+      For \((x,y)\in S\), set
+      \begin{equation}
+      r(x,y):=\frac{\pi(y)q(y,x)}{\pi(x)q(x,y)},
+      \tag{eqn:accept}
+      \end{equation}
+      and set \(r(x,y):=0\) otherwise. Then the acceptance probability is
+      \[
+      \alpha(x,y):=1\wedge r(x,y).
+      \]
+      Here \(r(x,y)\) is the two-argument Metropolis–Hastings ratio, distinct from the one-argument rejection probability \(r(x)\) appearing in the definition below.
+
+      ###### Assumptions
+      No additional assumptions are imposed beyond those internal to the definition: \(Q\) is a Markov kernel and \(\alpha(x,y)\) is defined as above via `(eqn:accept)`, which presupposes that \(\pi(\cdot)\) and \(Q(x,\cdot)\) admit the Lebesgue densities \(\pi(x)\) and \(q(x,y)\).
+
+      ###### Statement
+      **Definition 3.2.** We say that \(P\) is of the *Metropolis–Hastings* type if
+      \begin{equation}
+      P(x,dy)=\alpha(x,y)Q(x,dy)+r(x)\delta_x(dy),
+      \tag{eqn:mhtype}
+      \end{equation}
+      where \(Q\) is a Markov kernel, \(\alpha(x,y)\) is defined in `(eqn:accept)`, and
+      \[
+      r(x)=1-\int \alpha(x,y)Q(x,dy).
+      \]
+
+      #### Reference R3
+      Target: Proposition 3.5
+      Citation: This implies that the rejection probability $r(x_0)\to1$ as $\|x_0\|\to\infty$, and Proposition 3.5 of \cite{Livingstone2019} then implies that the chain is not geometrically ergodic.
+      Bibliography: main
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The result organized here is Proposition~\ref{prop:supr} of D2 (Livingstone, Betancourt, Byrne and Girolami, *On the Geometric Ergodicity of Hamiltonian Monte Carlo*, main.tex), which is the item cited as Proposition 3.5 of \cite{Livingstone2019}. The statement, the label of the geometric-ergodicity display, and the definitions of the Metropolis--Hastings-type kernel $P$, the acceptance probability $\alpha$ and the rejection probability $r$ are quoted from the supplied D2 material; the surrounding notation ($(\X,\B)$, $\pi$, $P^n$, $\|\cdot\|_{TV}$) is likewise taken from D2. The symbol $\mathrm{esssup}$ is used in D2 without a separate formal definition and is therefore retained as in the source. In the citation context the premise $\mathrm{esssup}\, r(x)=1$ is obtained from the fact, established in the current proof, that the rejection probability satisfies $r(x_0)\to 1$ as $\|x_0\|\to\infty$.
+
+      ##### Definitions and notation
+      Let $(\mathcal X,\mathcal B)$ denote a Borel space; here $\mathcal X=\mathbb R^d$ and $\|x\|$ denotes the Euclidean norm of $x\in\mathcal X$. Throughout, $\pi(\cdot)$ is a finite “target” measure and $\pi(x)$ the corresponding Lebesgue density for $x\in\mathcal X$. We write $P:\mathcal X\times\mathcal B\to[0,1]$ for a Markov transition kernel, meaning $P(x,\cdot)$ is a probability measure for any $x\in\mathcal X$ and $P(\cdot,A)$ is measurable for any $A\in\mathcal B$. $P$ acts to the left on measures through $\mu P(\cdot):=\int\mu(dx)P(x,dy)$ and to the right on functions through $Pf(x):=\int f(y)P(x,dy)$. We let $P^n(x,\cdot):=\int P^{n-1}(x,dy)P(y,\cdot)$ and say $\pi(\cdot)$ is *invariant* for $P$ if $\pi P(\cdot)=\pi(\cdot)$.
+
+      The Total Variation distance between two distributions $\mu(\cdot)$ and $\nu(\cdot)$ on $(\mathcal X,\mathcal B)$ is
+      \[
+      \|\mu(\cdot)-\nu(\cdot)\|_{TV}:=\sup_{|f|\leq 1}\bigl|\mathbb E_\mu f-\mathbb E_\nu f\bigr|.
+      \]
+      $\pi(\cdot)$ is a *limiting* distribution for $P$ if $\|P^n(x,\cdot)-\pi(\cdot)\|_{TV}\to 0$ as $n\to\infty$ for $\pi$-a.e. $x\in\mathcal X$.
+
+      The property whose failure is asserted is
+      \begin{equation} \label{eqn:geoerg}
+      \|P^n(x,\cdot) - \pi(\cdot)\|_{TV} \leq M(x)\rho^n,
+      \end{equation}
+      i.e.\ existence of $\rho<1$ and a $\pi$-a.e.\ finite $M:\mathcal X\to[0,\infty]$ satisfying \eqref{eqn:geoerg} (geometric ergodicity of the chain).
+
+      *Metropolis--Hastings type kernel.* We say $P$ is of the *Metropolis--Hastings* type if
+      \begin{equation} \label{eqn:mhtype}
+      P(x,dy) = \alpha(x,y)Q(x,dy) + r(x)\delta_x(dy),
+      \end{equation}
+      where $Q$ is a Markov kernel, $\alpha(x,y)$ is defined in \eqref{eqn:accept} and
+      \[
+      r(x) = 1- \int \alpha(x,y)Q(x,dy).
+      \]
+
+      *Candidate kernel and acceptance probability.* A candidate transition kernel is induced as $Q(x,A)=\int\mathbbm{1}_A(g_\xi(x))\mu(d\xi)$ for any $A\in\mathcal B$, from a family $\{g_\xi,\xi\in\Xi\}$ of “candidate” maps with $\xi\sim\mu(\cdot)$. If $\pi(\cdot)$ and $Q(x,\cdot)$ admit densities $\pi(x)$ and $q(x,y)$, let $S:=\{(x,y)\in\mathcal X^2:\pi(x)q(x,y)>0\}$; then for $(x,y)\in S$ set
+      \begin{equation} \label{eqn:accept}
+      r(x,y) := \frac{\pi(y)q(y,x)}{\pi(x)q(x,y)},
+      \end{equation}
+      and set $r(x,y):=0$ otherwise, and then $\alpha(x,y):=1\wedge r(x,y)$ (the “acceptance probability” $\alpha:\mathcal X\times\mathcal X\to[0,1]$).
+
+      $\mathrm{esssup}\, r(x)$ denotes the essential supremum of the function $x\mapsto r(x)$; this symbol is used in the source without further formal definition.
+
+      ##### Assumptions
+      \begin{enumerate}
+      \item[(i)] $P$ is of Metropolis--Hastings type: there is a Markov kernel $Q$ on $(\mathcal X,\mathcal B)$ such that
+      \[
+      P(x,dy) = \alpha(x,y)Q(x,dy) + r(x)\delta_x(dy),
+      \]
+      with $\alpha(x,y)=1\wedge r(x,y)$ given by \eqref{eqn:accept} (and $r(x,y)=0$ off $S$), and
+      \[
+      r(x) = 1- \int \alpha(x,y)Q(x,dy).
+      \]
+      \item[(ii)] $\mathrm{esssup}\, r(x) = 1$.
+      \end{enumerate}
+
+      ##### Statement
+      If $P$ is of Metropolis--Hastings type, then \eqref{eqn:geoerg}, namely
+      \[
+      \|P^n(x,\cdot) - \pi(\cdot)\|_{TV} \leq M(x)\rho^n,
+      \]
+      *fails* to hold if $\mathrm{esssup}\, r(x) = 1$.
+
+      #### Reference R4
+      Target: Assumption A1
+      Citation: When the number of leapfrog steps is drawn from a position-independent distribution $\mathcal{L}(\cdot)$ as in Assumption A1 of \cite{Livingstone2019}, the same conclusion follows provided the above argument is applied conditional on each fixed $L$.
+      Bibliography: main
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D2, `main.tex`, Assumption A1 (label `ass:A1`). The section-level position-independence condition and the definitions needed to interpret \(x_{L\e}\) are taken from the same supplied article. No supplementation was needed.
+
+      ##### Definitions and notation
+      Let \((\X,\B)\) denote a Borel space. Here \(\X=\R^d\), and \(\|x\|\) denotes the Euclidean norm of \(x\in\X\). Let \(\mathfrak{L}(\cdot)\) be a distribution defined over \(\mathbb{Z}_+\), and let \(L\) denote the number of leapfrog steps, with \(L\sim\mathfrak{L}(\cdot)\).
+
+      The Hamiltonian Monte Carlo method considered has fixed integration time \(T=L\e\), integrator step-size \(\e>0\), and number of leapfrog steps \(L\). Given the current state \(x_{i-1}\), the algorithm sets \(x_0\leftarrow x_{i-1}\), draws \(p_0\sim N(0,M)\), draws \(L\sim\mathfrak{L}(\cdot)\), and sets \(T\leftarrow L\e\). From that point on, \(M=I\) is assumed for ease of exposition but without loss of generality.
+
+      For a differentiable potential \(U:\X\to[0,\infty)\), the leapfrog recursion is
+      \[
+      p_{t+\frac{\e}{2}} = p_t-\frac{\e}{2}\nabla U(x_t),\qquad
+      x_{t+\e}=x_t+\e M^{-1}p_{t+\frac{\e}{2}},\qquad
+      p_{t+\e}=p_{t+\frac{\e}{2}}-\frac{\e}{2}\nabla U(x_{t+\e}),
+      \]
+      and the resulting approximate flow map is
+      \[
+      \varphi_{L\e}(x_0,p_0):=(x_{L\e},p_{L\e}).
+      \]
+      Thus \(x_{L\e}\) is the position after \(L\) leapfrog steps from \((x_0,p_0)\). The symbols \(\mathbb{P}_{\mathfrak{L}}\) and \(\mathbb{E}_{\mathfrak{L}}\) denote probability and expectation with respect to \(L\sim\mathfrak{L}(\cdot)\).
+
+      ##### Assumptions
+      In this section the distribution \(\mathfrak{L}(\cdot)\) for the number of leapfrog steps \(L\) is assumed not to depend on the current position of the chain.
+
+      ##### Statement
+      **Assumption A1** (label `ass:A1`). The distribution \(\mathfrak{L}(\cdot)\) is such that
+      \[
+      \mathbb{P}_{\mathfrak{L}}[L=1]>0,
+      \]
+      and for any fixed \((x_0,p_0)\in\R^{2d}\) and \(\e>0\), there is an \(s<\infty\) such that
+      \[
+      \mathbb{E}_{\mathfrak{L}}\!\left[e^{s\|x_{L\e}\|}\right]<\infty.
+      \]
+    lean_name: Theorem_5_14_corrected_statement_and_replacement_proof_in_the_v5_corrigendum_Appendix_D_original_label_thm_light_Use_the
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics

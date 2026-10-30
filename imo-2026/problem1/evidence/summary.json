@@ -1,0 +1,203 @@
+{
+  "status": "proved",
+  "engineStatus": "COMPLETE",
+  "legacyPlanningStatus": "cancelled",
+  "reason": "quiescent experiment checkpoint requested",
+  "cancellationReason": null,
+  "cancellationSignal": null,
+  "stopAfter": null,
+  "checkpointKind": null,
+  "checkpointStageReport": null,
+  "publishedCheckpointDir": null,
+  "iterations": 2,
+  "revision": 64,
+  "unifiedCompletedActions": 27,
+  "unifiedFailedActions": [],
+  "remainingSorry": 0,
+  "usage": {
+    "legacyPlanning": {
+      "mathGuide": {
+        "inputTokens": 61396,
+        "outputTokens": 95654,
+        "costUsd": 0.035547729
+      },
+      "search": {
+        "inputTokens": 19631,
+        "outputTokens": 21269,
+        "costUsd": 0.008712264
+      },
+      "writer": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0
+      },
+      "diagnose": {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "costUsd": 0
+      }
+    },
+    "unified": [
+      {
+        "inputTokens": 34583,
+        "outputTokens": 1375,
+        "cacheReadTokens": 72192,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.0054287575999999995
+      },
+      {
+        "inputTokens": 33563,
+        "outputTokens": 1379,
+        "cacheReadTokens": 47744,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.005218623200000001
+      },
+      {
+        "inputTokens": 36385,
+        "outputTokens": 4100,
+        "cacheReadTokens": 48768,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0063784504
+      },
+      {
+        "inputTokens": 35491,
+        "outputTokens": 3279,
+        "cacheReadTokens": 48640,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.006023052000000001
+      },
+      {
+        "inputTokens": 11075,
+        "outputTokens": 13397,
+        "cacheReadTokens": 5248,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "costUsd": 0.0053163544
+      },
+      {
+        "inputTokens": 35666,
+        "outputTokens": 2080,
+        "cacheReadTokens": 50304,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0057164912000000016
+      },
+      {
+        "inputTokens": 37782,
+        "outputTokens": 1931,
+        "cacheReadTokens": 74240,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 5,
+        "costUsd": 0.0060380320000000005
+      },
+      {
+        "inputTokens": 36064,
+        "outputTokens": 2443,
+        "cacheReadTokens": 50688,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 4,
+        "costUsd": 0.0058749264
+      },
+      {
+        "inputTokens": 33439,
+        "outputTokens": 1100,
+        "cacheReadTokens": 25344,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.005060423200000001
+      },
+      {
+        "inputTokens": 65305,
+        "outputTokens": 26763,
+        "cacheReadTokens": 10240,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.016665012
+      },
+      {
+        "inputTokens": 32998,
+        "outputTokens": 37288,
+        "cacheReadTokens": 7552,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.015081505600000001
+      },
+      {
+        "inputTokens": 140494,
+        "outputTokens": 47681,
+        "cacheReadTokens": 12416,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.033054604800000005
+      },
+      {
+        "inputTokens": 196062,
+        "outputTokens": 74113,
+        "cacheReadTokens": 15360,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.048243328
+      },
+      {
+        "inputTokens": 319143,
+        "outputTokens": 113906,
+        "cacheReadTokens": 26880,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.076648964
+      },
+      {
+        "inputTokens": 210357,
+        "outputTokens": 92080,
+        "cacheReadTokens": 12800,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 2,
+        "costUsd": 0.05526822000000001
+      },
+      {
+        "inputTokens": 388467,
+        "outputTokens": 132304,
+        "cacheReadTokens": 22272,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 3,
+        "costUsd": 0.09149286160000002
+      },
+      {
+        "inputTokens": 575669,
+        "outputTokens": 195243,
+        "cacheReadTokens": 67456,
+        "cacheWriteTokens": 0,
+        "model": "deepseek-v4-flash",
+        "attempts": 7,
+        "costUsd": 0.13545057680000003
+      },
+      {
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "model": "deepseek-v4-flash"
+      }
+    ]
+  },
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_imo2026_p1_20260928T1254Z/imo2026_p1/experiment/runs/20260928T125713Z-main_theorem-2cc9808f",
+  "jobId": "real_main_theorem_f979009c9fbd",
+  "resumeJobId": null
+}

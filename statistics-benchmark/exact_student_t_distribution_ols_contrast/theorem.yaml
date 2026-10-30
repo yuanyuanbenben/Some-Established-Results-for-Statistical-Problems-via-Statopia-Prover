@@ -1,0 +1,53 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62J/exact_student_t_distribution_ols_contrast.tex
+msc: 62J20
+topic: Exact OLS Student distribution
+track_a_difficulty: very_hard
+track_b_difficulty: very_hard
+theorems:
+  - id: exact_student_t_distribution_ols_contrast
+    kind: theorem
+    lean_name: exact_student_t_distribution_ols_contrast
+    latex_statement: |-
+      \begin{theorem}[Exact Student $t$ law for an OLS contrast]
+      Let $(\Omega,\mathcal F,P)$ be a probability space, let $1\le p<n$, and
+      let $X\in\mathbb R^{n\times p}$ have an injective linear map
+      $b\mapsto Xb$.  Let $\beta^\star\in\mathbb R^p$ and $\sigma>0$.  Let
+      $\varepsilon:\Omega\to\mathbb R^n$ be such that, for every
+      $b\in\mathbb R^n$, the random variable $b^\top\varepsilon$ has the
+      Gaussian law $N(0,\sigma^2b^\top b)$ under $P$.  Let
+      $a\in\mathbb R^p$ be nonzero, let $c\in\mathbb R$, and assume
+      $a^\top\beta^\star=c$.  Define
+      \[
+        y(\omega)=X\beta^\star+\varepsilon(\omega),
+        \qquad
+        \widehat\beta(\omega)=(X^\top X)^{-1}X^\top y(\omega),
+      \]
+      \[
+        \widehat\sigma^2(\omega)
+        =\frac{\|y(\omega)-X\widehat\beta(\omega)\|_2^2}{n-p},
+      \]
+      and
+      \[
+        T(\omega)=
+        \frac{a^\top\widehat\beta(\omega)-c}
+        {\sqrt{\widehat\sigma^2(\omega)}
+         \sqrt{a^\top(X^\top X)^{-1}a}}.
+      \]
+      Set $\nu=n-p$ and define
+      \[
+        f_\nu(z)=
+        \frac{\Gamma((\nu+1)/2)}
+             {\sqrt{\nu\pi}\,\Gamma(\nu/2)}
+        \left(1+\frac{z^2}{\nu}\right)^{-(\nu+1)/2},
+      \]
+      where the real power is used.  Let $\mathsf T_\nu$ be the measure on
+      $\mathbb R$ having density $\operatorname{ofReal}(f_\nu(z))$ with respect
+      to Lebesgue measure.  Then $T$ has law $\mathsf T_\nu$ under $P$.
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

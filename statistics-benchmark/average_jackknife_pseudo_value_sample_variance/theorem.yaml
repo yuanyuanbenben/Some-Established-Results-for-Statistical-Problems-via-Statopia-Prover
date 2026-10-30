@@ -1,0 +1,42 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62G/average_jackknife_pseudo_value_sample_variance.tex
+msc: 62G09
+topic: Jackknife pseudo-values
+track_a_difficulty: medium
+track_b_difficulty: hard
+theorems:
+  - id: average_jackknife_pseudo_value_sample_variance
+    kind: theorem
+    lean_name: average_jackknife_pseudo_value_sample_variance
+    latex_statement: |-
+      \begin{theorem}[Average jackknife pseudo-value for the sample variance]
+      Let $n\geq2$ and let $x_0,\ldots,x_{n-1}\in\mathbb R$. Define
+      \[
+       \overline x=\frac1n\sum_{j=0}^{n-1}x_j,
+       \qquad
+       V=\frac1n\sum_{j=0}^{n-1}(x_j-\overline x)^2.
+      \]
+      For each $i\in\{0,\ldots,n-1\}$, define
+      \[
+       \overline x_{(-i)}=\frac1{n-1}\sum_{\substack{0\leq j<n\\j\ne i}}x_j,
+       \qquad
+       V_{(-i)}=\frac1{n-1}
+       \sum_{\substack{0\leq j<n\\j\ne i}}
+       (x_j-\overline x_{(-i)})^2,
+      \]
+      and define the jackknife pseudo-value
+      \[
+       p_i=nV-(n-1)V_{(-i)}.
+      \]
+      Then
+      \[
+       \frac1n\sum_{i=0}^{n-1}p_i
+       =\frac1{n-1}\sum_{i=0}^{n-1}(x_i-\overline x)^2.
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

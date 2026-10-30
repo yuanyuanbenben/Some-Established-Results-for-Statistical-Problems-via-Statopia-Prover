@@ -1,0 +1,35 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62F/power_function_one_sided_gaussian_mean_test.tex
+msc: 62F03
+topic: Power of Gaussian mean tests
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: power_function_one_sided_gaussian_mean_test
+    kind: theorem
+    lean_name: power_function_one_sided_gaussian_mean_test
+    latex_statement: |-
+      \begin{theorem}[Power function of a one-sided Gaussian mean test]
+      Let $(\Omega,\mathcal F,P)$ be a probability space, let $n\geq1$, and let
+      $\mu,\mu_0,c,\sigma\in\mathbb R$ with $\sigma>0$. Let
+      $X_0,\ldots,X_{n-1}:\Omega\to\mathbb R$ be measurable and mutually
+      independent, and assume that every $X_i$ has Gaussian distribution
+      $N(\mu,\sigma^2)$. Define
+      \[
+       \overline X(\omega)=\frac1n\sum_{i=0}^{n-1}X_i(\omega).
+      \]
+      Then
+      \[
+       P\!\left(
+       \frac{\sqrt n\,(\overline X-\mu_0)}{\sigma}>c
+       \right)
+       =1-\Phi\!\left(c-\frac{\sqrt n\,(\mu-\mu_0)}{\sigma}\right),
+      \]
+      where $\Phi(t)$ is the cumulative distribution function of $N(0,1)$.
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

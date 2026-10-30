@@ -1,0 +1,14 @@
+{
+  "case": "IMO2026-P6",
+  "target": "imo2026_problem6",
+  "job_id": "real_imo2026_problem6_acf5714d7c7d",
+  "seconds": 1311.41,
+  "lean_files": 11,
+  "lean_lines": 586,
+  "cost_usd": 0.192390853,
+  "unknown_attempts": 0,
+  "unknown_reservation_usd": 0,
+  "cost_coverage": "completed recorded usage only; unresolved reservations separate",
+  "guidance": "supplied natural-language proof",
+  "proof_status": "proved"
+}

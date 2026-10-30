@@ -1,0 +1,41 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62M/arma11_mean_recursion.tex
+msc: 62M10
+topic: Time series, auto-correlation, regression, etc.
+track_a_difficulty: medium
+track_b_difficulty: medium
+theorems:
+  - id: arma11_mean_recursion
+    kind: theorem
+    lean_name: arma11_mean_recursion
+    latex_statement: |-
+      \begin{theorem}[Mean Recursion for an ARMA(1,1) Process]
+      Let $(\Omega,\mathcal F,P)$ be a probability space. Let
+      $(\varepsilon_t)_{t\ge 0}$ and $(X_t)_{t\ge 0}$ be real-valued random
+      variables with finite expectations. Fix constants
+      $c,\phi,\theta,m_0\in\mathbb R$. Assume
+      \[
+      \mathbb E[\varepsilon_t]=0 \qquad \text{for every } t\ge 0,
+      \]
+      \[
+      \mathbb E[X_0]=m_0,
+      \]
+      and that the ARMA(1,1) recursion
+      \[
+      X_{t+1}=c+\phi X_t+\varepsilon_{t+1}+\theta\varepsilon_t
+      \qquad (t\ge 0)
+      \]
+      holds pointwise. Then, for every $t\ge 0$,
+      \[
+      \mathbb E[X_t]
+      =
+      \phi^t m_0
+      + c\sum_{j=0}^{t-1}\phi^j .
+      \]
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

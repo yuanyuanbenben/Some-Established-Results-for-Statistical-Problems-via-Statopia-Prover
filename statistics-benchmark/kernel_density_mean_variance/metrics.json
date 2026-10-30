@@ -1,0 +1,15 @@
+{
+  "case": "kernel_density_mean_variance",
+  "msc": "62G07",
+  "difficulty": "very_hard",
+  "proved": true,
+  "cost_usd": 2.220647734,
+  "unknown_reservation_usd": 0.0,
+  "cost_coverage": "completed journal usage; unresolved reservations separate",
+  "mode": "deep",
+  "seconds": 6347.0,
+  "lean_files": 6,
+  "lean_lines": 485,
+  "nodes": 3,
+  "job_id": "deep_benchmark42_3p_2k5_20261017T100521Z_q10"
+}

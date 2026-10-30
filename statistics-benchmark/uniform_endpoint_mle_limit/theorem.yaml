@@ -1,0 +1,44 @@
+version: 1
+theorem_set: msc62-latex-v1
+source_tag: problems/62F/uniform_endpoint_mle_limit.tex
+msc: 62F12
+topic: Uniform-endpoint MLE asymptotics
+track_a_difficulty: hard
+track_b_difficulty: very_hard
+theorems:
+  - id: uniform_endpoint_mle_limit
+    kind: theorem
+    lean_name: uniform_endpoint_mle_limit
+    latex_statement: >-
+      \begin{theorem}[Limit law of the uniform endpoint MLE]
+
+      Let $(\Omega,\mathcal F,P)$ be a probability space and let $\theta>0$.
+
+      Let $(X_i)_{i\in\mathbb N}$ be measurable, mutually independent
+      real-valued
+
+      random variables, each uniformly distributed on the open interval
+
+      $(0,\theta)$. Let $Z:\Omega\to\mathbb R$ be measurable and have the
+
+      exponential distribution with rate $\theta^{-1}$. For $r\in\mathbb N$,
+
+      define
+
+      \[
+       M_r(\omega)=\max_{0\leq i\leq r}X_i(\omega).
+      \]
+
+      Then
+
+      \[
+       (r+1)(\theta-M_r)\ \xrightarrow{\mathcal D}\ Z
+       \quad\text{under }P\text{ as }r\to\infty.
+      \]
+
+      \end{theorem}
+    proof_body: ""
+    assumptions: []
+    acceptance:
+      compile_with_sorry: true
+      prove_without_sorry: true

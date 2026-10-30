@@ -1,0 +1,110 @@
+{
+  "source": "/home/ai4stat/benchmark_run/runs/full_comparison_b_after_main_20260820T033054Z/comparison_track_b/comparison_units/medium/kaplan_meier_jump_mass_identity/native_benchmark/track_b/62N02/kaplan_meier_jump_mass_identity/attempt_1/proof_log.jsonl",
+  "source_sha256": "fbb4e42e5c7b54b9e8caec6f0e6fa7ad57f1f6e45cc06c4e9177827dece9dd67",
+  "records": [
+    {
+      "ts": "2026-08-20T03:35:55.869Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_kaplan_meier_jump_mass_identity_native-b:kaplan_meier_jump_mass_identity:1:3e8fddb8-2f61-40a2-8a6e-54c6b3602776",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 3065,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 7038
+    },
+    {
+      "ts": "2026-08-20T03:37:48.776Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_kaplan_meier_jump_mass_identity_native-b:kaplan_meier_jump_mass_identity:1:3e8fddb8-2f61-40a2-8a6e-54c6b3602776",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 2559,
+      "cacheReadTokens": 9984,
+      "cacheWriteTokens": 0,
+      "outputTokens": 10894
+    },
+    {
+      "ts": "2026-08-20T03:38:04.222Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_kaplan_meier_jump_mass_identity_native-b:kaplan_meier_jump_mass_identity:1:3e8fddb8-2f61-40a2-8a6e-54c6b3602776",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 2563,
+      "cacheReadTokens": 23424,
+      "cacheWriteTokens": 0,
+      "outputTokens": 2561
+    },
+    {
+      "ts": "2026-08-20T03:38:15.200Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_kaplan_meier_jump_mass_identity_native-b:kaplan_meier_jump_mass_identity:1:3e8fddb8-2f61-40a2-8a6e-54c6b3602776",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 3627,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 239
+    },
+    {
+      "ts": "2026-08-20T03:41:43.151Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_kaplan_meier_jump_mass_identity_native-b:kaplan_meier_jump_mass_identity:1:3e8fddb8-2f61-40a2-8a6e-54c6b3602776",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 15189,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 29915
+    },
+    {
+      "ts": "2026-08-20T03:41:49.092Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_kaplan_meier_jump_mass_identity_native-b:kaplan_meier_jump_mass_identity:1:3e8fddb8-2f61-40a2-8a6e-54c6b3602776",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 37428,
+      "cacheReadTokens": 6272,
+      "cacheWriteTokens": 0,
+      "outputTokens": 793
+    },
+    {
+      "ts": "2026-08-20T03:41:51.469Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_kaplan_meier_jump_mass_identity_native-b:kaplan_meier_jump_mass_identity:1:3e8fddb8-2f61-40a2-8a6e-54c6b3602776",
+      "sessionNumber": 1,
+      "channel": "proof_loop",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 45266,
+      "cacheReadTokens": 768,
+      "cacheWriteTokens": 0,
+      "outputTokens": 46
+    },
+    {
+      "ts": "2026-08-20T03:43:11.596Z",
+      "sessionId": "full_comparison_b_after_main_20260820T033054Z_kaplan_meier_jump_mass_identity_native-b:kaplan_meier_jump_mass_identity:1:3e8fddb8-2f61-40a2-8a6e-54c6b3602776",
+      "sessionNumber": 1,
+      "channel": "llm_config",
+      "model": "deepseek-v4-flash",
+      "valid": true,
+      "inputTokens": 211,
+      "cacheReadTokens": 0,
+      "cacheWriteTokens": 0,
+      "outputTokens": 1863
+    }
+  ],
+  "totals": {
+    "inputTokens": 109908,
+    "cacheReadTokens": 40448,
+    "cacheWriteTokens": 0,
+    "outputTokens": 53349
+  },
+  "historical_metrics_complete": false,
+  "scope": "Observed callbacks only; input/output reconcile with metrics, not provider invoices."
+}

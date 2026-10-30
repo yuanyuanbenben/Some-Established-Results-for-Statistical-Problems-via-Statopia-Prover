@@ -1,0 +1,201 @@
+version: v1
+theorem_set: document-goal
+source_tag: document-processing
+theorems:
+  - id: entry:selected:5dffe880-dd7d-488d-9b9c-fd6b9fbda38a
+    title: Theorem 4.2 (Strong Convexity with respect to beta-star; thm:global-strong-convexity-main)
+    kind: theorem
+    latex_statement: |-
+      Denote by \([m]=\{1,\ldots, m\}\). Let \(|S|\) denote the cardinality of a set \(S\). We use \(\supp(\bx) = \{j\in [d]: x_j \neq 0\}\) to denote the support set of the vector \(\bx\). We use bold lower case letter \(\bx = (x_1,\ldots, x_d)^\top\) to represent a \(d\)-dimension vector, and let \(\|\bx\|_q = (\sum_{i=1}^d |x_i|^q)^{1/q}\) be its \(\ell_q\) norm.
+
+      The distribution of \(\bx\) and \(y\), \(\mu\), satisfies
+      \begin{align}
+      \label{eq:true-law-set}
+          \mu \in \mathcal{U}_{\bbeta^*, \sigma^2} = \Bigg\{\begin{split}\mu&: ~\mathbb{E}_\mu[y|\bx_{S^*} ] = (\bbeta^*_{S^*})^\top \bx_{S^*}, \text{Var}_{\mu}[y|\bx_{S^*}] \le \sigma^2, ~~ \mu\text{-a.s.} ~ \bx, \\
+          &~~~~~\forall j \in [p], ~ \mathbb{E}_{\mu}[x_j^2] \le \sigma^2
+          \end{split}
+          \Bigg\}.
+      \end{align}
+      Here, \(S^* \subseteq [p]\) denotes the set of important variables that contribute to explain the ``truth'', \(\bbeta^*\) is the parameter of interest whose support set \(\supp(\bbeta^*)\) is \(S^*\), and \(\sigma^2\) is any given positive number.
+
+      For a measurable function \(f\), write
+      \[
+      \mathbb{E}[f(\bx^{(e)}, y^{(e)})] = \int f(\bx, y) \mu^{(e)}(d\bx, dy), \qquad
+      \hat{\mathbb{E}}[f(\bx^{(e)},y^{(e)})] = \frac{1}{n^{(e)}} \sum_{i=1}^{n^{(e)}} f(\bx^{(e)}_i, y^{(e)}_i).
+      \]
+      Define the empirical \(L_2\) risk \(\hat{\mathsf{R}}^{(e)}\) and population \(L_2\) risk \(\mathsf{R}^{(e)}\) as
+      \begin{align}
+      \label{eq:def-l2-risk}
+          \hat{\mathsf{R}}^{(e)}(\bbeta) = \hat{\mathbb{E}}\left[|y^{(e)} - \bbeta^\top \bx^{(e)}|^2\right], \qquad
+          \mathsf{R}^{(e)}(\bbeta) = \mathbb{E} \left[|y^{(e)} - \bbeta^\top \bx^{(e)}|^2\right].
+      \end{align}
+      We also define \(\varepsilon^{(e)} = y^{(e)} - \mathbb{E}[y^{(e)}|\bx_{S^*}^{(e)}] = y^{(e)} - (\bbeta^*)^\top \bx^{(e)}\) and \(\varepsilon^{(e)}_i = y^{(e)}_i - (\bbeta^*)^\top \bx^{(e)}_i\). Let \(\hat{\bSigma}^{(e)}\) and \(\bSigma^{(e)}\) denote the empirical covariance matrix and population covariance matrix for environment \(e\in \mathcal{E}\), respectively, that is,
+      \[
+      \hat{\bSigma}^{(e)} = \hat{\mathbb{E}} \left[\bx^{(e)} (\bx^{(e)})^\top \right], \qquad
+      \bSigma^{(e)} = \mathbb{E} \left[\bx^{(e)} (\bx^{(e)})^\top\right].
+      \]
+      When \(\bSigma^{(e)}\) is positive definite, for any \(S\subseteq [p]\) we can define the \(\bbeta^{(e,S)}\), the population-level best linear predictor constrained on \(S\) for environment \(e\in \mathcal{E}\) as
+      \begin{align}
+      \label{eq:local-minimizer}
+          \bbeta^{(e,S)} = \argmin_{\bbeta \in \mathbb{R}^p, \supp(\bbeta) \subseteq S} \mathsf{R}^{(e)}(\bbeta).
+      \end{align}
+      It is worth noticing that though \(\bbeta^{(e,S)} \in \mathbb{R}^p\), the support set of \(\bbeta^{(e,S)}\) is a subset of \(S\). Define the pooled covariance matrix
+      \[
+      \bSigma = \frac{1}{|\mathcal{E}|} \sum_{e\in \mathcal{E}} \bSigma^{(e)}.
+      \]
+      Under the uniform weights \(\omega^{(e)}\equiv1/|\mathcal{E}|\) used below, this is also \(\bSigma=\sum_{e\in \mathcal{E}}\omega^{(e)}\bSigma^{(e)}\).
+
+      Let \(G_{\bomega}\) be the index set of all pooled linear spurious variables in environments \(\mathcal{E}\) concerning the weights \(\bomega\), that is,
+      \[
+      G_{\bomega} = \left\{j \in [p]: \sum_{e\in \mathcal{E}} \omega^{(e)} \mathbb{E}[x_j^{(e)}\varepsilon^{(e)}] \neq 0 \right\}.
+      \]
+      We say a variable \(x_j\) is a pooled linear spurious variable if \(j\in G_{\bomega}\). Under the uniform weights \(\omega^{(e)}\equiv1/|\mathcal{E}|\) used below, we write \(G=G_{\bomega}\); thus
+      \[
+      G = \left\{j \in [p]: \sum_{e\in \mathcal{E}} \mathbb{E}[x_j^{(e)}\varepsilon^{(e)}] \neq 0 \right\}.
+      \]
+      We say \(x_j\) is a pooled linear spurious variable if \(j\in G\).
+
+      Based on the above derivations, we propose to minimize a \emph{focused linear invariance regularizer}, whose population-level form \(\mathsf{J}(\bbeta; \bomega)\) can be written as
+      \begin{align}
+      \label{eq:invariant-regularizer-population}
+      \mathsf{J}(\bbeta;\bomega) = \sum_{j=1}^p \mathds{1}\{\beta_j \neq 0\} \sum_{e\in \mathcal{E}} \frac{\omega^{(e)}}{4} |\nabla_j \mathsf{R}^{(e)}(\bbeta)|^2,
+      \end{align}
+      where \(\bomega = (\omega^{(e)})_{e\in \mathcal{E}} \in \mathbb{R}^{|\mathcal{E}|}\) are pre-determined weights associated with environments \(\mathcal{E}\) satisfying \(\sum_{e\in\mathcal{E}} \omega^{(e)}=1\) and \(\omega^{(e)} > 0\) for any \(e\in \mathcal{E}\).
+
+      We also define the population analogs of the EILLS objective function as follows:
+      \begin{align}
+      \label{eq:eills-objective-q-population}
+          \mathsf{Q}(\bbeta;\gamma,\bomega) = \mathsf{R}(\bbeta; \bomega) + \gamma \mathsf{J}(\bbeta; \bomega),
+          \qquad
+          \mathsf{R}(\bbeta; \bomega) = \sum_{e\in \mathcal{E}} \omega^{(e)} \mathsf{R}^{(e)}(\bbeta).
+      \end{align}
+
+      <!-- formalization-clarifications:v1:a9afaed48104304cf603ef7c9ed143351285963eed927f86f398d32026f23c5c -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. Owner: Theorem 4.2, Condition “There exists some universal constants κ_L ∈ (0,1] and κ_U ∈ [1,∞) such that … κ_L I_p ≼ Σ^{(e)} ≼ κ_U I_p,” and the displayed definition of γ* in Theorem 4.2. The source fixes p, finite environments E, μ^{(e)}∈U_{β*,σ²}, β*, S*=supp(β*), G, and κ_L,κ_U before the theorem’s inequality. κ_L and κ_U are “universal” in Condition 1, asserted for all e∈E; the theorem uses only κ_L. The wording intends them fixed across environments and independent of γ, ε, S, β, and sample draws; the source does not explicitly spell out dependence on p or on the distribution class, so formalization should not silently make κ_L depend on data, γ, ε, S, or β, and should flag p/dimension dependence as not fully explicit. κ_U does not appear in Theorem 4.2’s displayed bound. The theorem’s ε∈(0,1) is not the residual ε^{(e)} in the definitions; it is an arbitrary contraction parameter. The quantifier order is: after the population, β*, S*, G, κ_L, and hence γ* are fixed, for every ε∈(0,1) and every γ≥ε^{-1}γ*, the displayed lower bound holds (“for any ε∈(0,1) and any γ≥ ε^{-1} γ* with …”). There is no uniformity over ε; γ may be chosen after ε, but must meet that displayed lower bound. γ* is not absolute: it depends on the population distributions, p, E, G, S*, and κ_L through γ*=(κ_L)^{-3} sup_{S:S∩G≠∅}(b_S/\bar d_S), with b_S=||(1/|E|)Σ_e E[ε^{(e)}x_S^{(e)}]||_2^2 and \bar d_S=Σ_e (1/|E|)||β^{(e,S)}-\bar β^{(S)}||_2^2. The supremum is over subsets S⊆[p] with S∩G≠∅; the source does not specify the value of a supremum over an empty family if G=∅.
+
+      2. Norms and source-defined objects. Owner: “Definitions and notation,” the theorem statement, and Condition 1. For vectors, the source defines ||x||_q=(Σ_i|x_i|^q)^{1/q}; Theorem 4.2 uses Euclidean ℓ_2 norms, including ||(1/|E|)Σ_e E[ε^{(e)}x_S^{(e)}]||_2^2, ||β^{(e,S)}-\bar β^{(S)}||_2^2, and the vector norm ||Σ^{1/2}(β-β*)||_2. The matrix notation ||A||_2=max_{||v||_2=1}||Av||_2 is an operator norm, but the theorem’s displayed term is a vector ℓ_2 norm of Σ^{1/2}(β-β*), not an operator norm. Σ is the pooled population matrix Σ=(1/|E|)Σ_e Σ^{(e)}, with Σ^{(e)}=E[x^{(e)}(x^{(e)})^T]; the source calls it covariance, which is literally covariance under the section’s centered-covariate convention, otherwise it is the second-moment matrix. No empirical covariance, dimension normalization, or |S|-normalization belongs in these displayed quantities. b_S is the squared ℓ_2 norm of the uniform average over environments, not an average of squared norms. \bar d_S is an average over environments of squared ℓ_2 distances of constrained predictors from their environment-average; it is not a maximum, pairwise variance, or unconstrained least-squares variance. β^{(e,S)} is defined as the population argmin over β∈R^p with supp(β)⊆S of R^{(e)}(β), hence a vector in R^p supported in S; it must not be replaced by the unconstrained population least-squares vector or by its restriction to S. \bar β^{(S)} is simply (1/|E|)Σ_{e'}β^{(e',S)}. G under uniform weights is the pooled index set {j:Σ_e E[x_j^{(e)}ε^{(e)}]≠0}; this is not the per-environment spurious set. The residual is defined by ε^{(e)}=y^{(e)}-E[y^{(e)}|x_{S*}^{(e)}]=y^{(e)}-(β*)^T x^{(e)}. Q=R+γJ with pooled R(β;ω)=Σ_eω^{(e)}R^{(e)}(β) and J(β;ω)=Σ_j 1{β_j≠0}Σ_e(ω^{(e)}/4)|∇_jR^{(e)}(β)|^2; the factor 1/4 is part of the source definition of J and should not be dropped, even though the proof’s T_2 expression drops it after the gradient of the squared risk produces a compensating factor. The theorem’s dbar term is evaluated at supp(β), as written in “\bar d_{supp(β)}”; it is not evaluated at S* or at G. x_S denotes the sorted-coordinate subvector (source “Definitions and notation” for x_S).
+
+      3. Asymptotics and probabilistic mode. Owner: “Notations” for O,Ω,o, and Theorem 4.2 for the selected result. Theorem 4.2 is a non-asymptotic population-level statement: it has no n→∞ filter, no O, o, O_P, o_P, or high-probability assertion in its conclusion. “For large enough γ” is exactly the quantitative condition γ≥ε^{-1}γ* with γ* as displayed; it is not a vague limiting statement. Condition 0 includes i.i.d. samples and independence across environments, but the theorem’s inequality is deterministic in the population objective Q and does not quantify probability over samples; sample size n does not appear in the inequality. If one uses the paper’s general notation for later results, O/Ω/≲/≳ are defined for sequences a(n),b(n) with universal constants and o is defined by limsup_{n→∞}(a(n)/b(n))=0 (“Notations”), but none of those asymptotic filters are part of Theorem 4.2. The source does not specify uniformity in p, E, distributions, or κ_L as those grow; do not add such uniformity unless another result explicitly provides it.
+
+      4. Potentially omitted definitions and ambiguities. Owner: “Assumptions,” Conditions 0–1, the Identification Condition, and the surrounding paragraph “To simplify the presentation, we consider the case of balanced data ….” Environments are finite and weights are uniform, ω^{(e)}≡1/|E|, with sums and 1/|E| appearing; the source does not explicitly state |E|>0, but the formulas require a nonempty finite environment set. Condition 0 gives μ^{(e)}∈U_{β*,σ²} for some σ², i.i.d. sampling within environments, and independence across environments; the theorem’s threshold and inequality do not contain σ² or n. The source says in the Assumptions paragraph “We focus on the centered covariate case that E[x^{(e)}]=0,” but Theorem 4.2’s displayed hypotheses list only Conditions 0–1 and identification. Thus it is not explicit whether centering is a section-wide convention or an omitted displayed hypothesis; the source also says it “can be easily generalized to the non-centered counterpart.” The Identification Condition says: for every S⊆[p] with S∩G≠∅, there exist e,e′∈E, possibly depending on S, with β^{(e,S)}≠β^{(e′,S)}. The source’s remark after the theorem uses this to assert \bar d_S>0 for S∩G≠∅; that positivity is an inference from the condition plus the definition of \bar d_S, and the theorem itself remains the authoritative statement. The proof uses auxiliary decompositions and facts such as \bar u_T=0 for T⊆S* and the T_1/T_2 split; these are proof-based derivations from the model/conditional-expectation definition and should not be promoted into extra hypotheses or used to replace the displayed theorem statement. The selected proof is not independent source evidence for changing constants, norms, or quantifiers. The citations appearing in surrounding remarks (for example, the reference to fan2014endogeneity for the regularizer and to van1996weak/wainwright2019high for strong convexity) are motivational/supporting references; they are not owners of the selected theorem’s definitions or assumptions, and no external universal theorem cited there restricts the target-specific Theorem 4.2. The selected result’s reference section is empty; no external result is used as the owner of Theorem 4.2.
+      <!-- /formalization-clarifications -->
+
+      Assume Conditions \ref{cond0-model-main}--\ref{cond1-well-condition-main} and \ref{cond-ident-main} hold. Then \(\bbeta^*\) is the unique minimizer of \(\mathsf{Q}(\bbeta;\gamma, \bomega)\) for large enough \(\gamma\): for any \(\epsilon \in (0, 1)\) and any \(\gamma\ge \epsilon^{-1} \gamma^*\) with
+      \begin{align}
+      \label{eq:thm1-gamma-star-main}
+          \gamma^* = (\kappa_L)^{-3} \sup_{S: S\cap G \neq \emptyset} \left(\mathsf{b}_S/\bar{\mathsf{d}}_S\right),
+      \end{align}
+      where \(\mathsf{b}_S = \|\frac{1}{|\mathcal{E}|}\sum_{e\in \mathcal{E}} \mathbb{E} [\varepsilon^{(e)} \bx_S^{(e)}] \|^2_2\) and \(\bar{\mathsf{d}}_S = \sum_{e\in \mathcal{E}} \frac{1}{|\mathcal{E}|} \|\bbeta^{(e,S)} - \bar{\bbeta}^{(S)}\|_2^2\)
+       with \(\bar{\bbeta}^{(S)}=\frac{1}{|\mathcal{E}|} \sum_{e'\in \mathcal{E}} \bbeta^{(e',S)}\), we have
+      \begin{align}
+      \label{eq:thm1-jsc-condition-main}
+          \mathsf{Q}(\bbeta;\gamma, \bomega) - \mathsf{Q}(\bbeta^*;\gamma, \bomega) \ge (1-\epsilon) \|\bSigma^{1/2}(\bbeta - \bbeta^*)\|_2^2 + \kappa_L^2 (\gamma - \epsilon^{-1}\gamma^*) \bar{\mathsf{d}}_{\supp(\bbeta)}.
+      \end{align}
+    assumptions:
+      - |-
+        To simplify the presentation, we consider the case of balanced data with equal weights, that is, \(n^{(e)} \equiv n\) and \(\omega^{(e)} \equiv 1/|\mathcal{E}|\). We focus on the centered covariate case that \(\mathbb{E}[\bx^{(e)}] = \bm{0}\), and it can be easily generalized to the non-centered counterpart.
+
+        \begin{condition}
+        \label{cond0-model-main}
+            For each \(e\in \mathcal{E}\),  \((\bx_1^{(e)}, y_1^{(e)}), \ldots, (\bx_{n}^{(e)}, y_{n}^{(e)})\) are i.i.d. copies of \((\bx^{(e)}, y^{(e)}) \sim \mu^{(e)}\), where \(\mu^{(e)}\) belongs to \(\mathcal{U}_{\bbeta^*, \sigma^2}\) for some \(\sigma^2\). The data from different environments are also independent.  We set \(\omega^{(e)} \equiv 1/|\mathcal{E}|\). 
+        \end{condition}
+
+        \begin{condition}
+        \label{cond1-well-condition-main}
+            There exists some universal constants \(\kappa_L \in (0,1]\) and \(\kappa_U \in [1,\infty)\) such that
+            \begin{align}
+                \forall e\in \mathcal{E}, ~~~~~~~~~~ \kappa_L \bI_p \preceq \bSigma^{(e)} \preceq \kappa_U \bI_p.
+            \end{align}
+        \end{condition}
+
+        \begin{condition}[Identification]
+        \label{cond-ident-main}
+            For any \(S\subseteq [p]\) satisfying \(S \cap G \neq \emptyset\), there exists some \(e, e'\in \mathcal{E}\) such that \(\bbeta^{(e, S)} \neq \bbeta^{(e',S)}\), where \(\bbeta^{(e,S)}\) is defined in \eqref{eq:local-minimizer}.
+        \end{condition}
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      For the proof, write
+      \[
+      \bar{\bu} = \sum_{e\in \mathcal{E}} \omega^{(e)} \mathbb{E}[\varepsilon^{(e)} \bx^{(e)}],
+      \]
+      as it appears in the calculation of \(\mathsf{T}_1\).
+
+      ### Proof
+      It follows from the definition of \(\mathsf{Q}(\bbeta; \gamma, \bomega)\) and Condition \ref{cond0-model-main} that
+      \begin{align*}
+      \mathsf{Q}(\bbeta; \gamma,\bomega) - \mathsf{Q}(\bbeta^*;\gamma, \bomega)
+      = \mathsf{R}(\bbeta;\bomega) - \mathsf{R}(\bbeta^*; \bomega) + \gamma \mathsf{J}(\bbeta; \bomega)
+      = \mathsf{T}_1(\bbeta) + \gamma \mathsf{T}_2(\bbeta).
+      \end{align*}
+      Denote \(\bDelta = \bbeta - \bbeta^*\), \(S=\supp(\bbeta)\), \(T=S^*\setminus S\), and \(\bar{S} = S\cup S^*\). It follows from the model \(y^{(e)} = (\bbeta^*)^\top \bx^{(e)} + \varepsilon^{(e)}\) that
+      \begin{align*}
+      \mathsf{T}_1(\bbeta)
+      &= \sum_{e\in \mathcal{E}} \omega^{(e)} \left(\mathsf{R}^{(e)}(\bbeta) - \mathsf{R}^{(e)}(\bbeta^*)\right) \\
+      &= \sum_{e\in \mathcal{E}} \omega^{(e)} \left(\mathbb{E} \left[|y^{(e)} - \bbeta^\top \bx^{(e)}|^2 \right]- \mathbb{E} \left[|y^{(e)} - (\bbeta^*)^\top \bx^{(e)}|^2 \right]\right) \\
+      &= \sum_{e\in \mathcal{E}} \omega^{(e)} \left(\mathbb{E} \left[|(\bbeta^* - \bbeta)^\top \bx^{(e)} + \varepsilon^{(e)} |^2\right] - \mathbb{E}[|\varepsilon^{(e)}|^2 ]\right) \\
+      &= \sum_{e\in \mathcal{E}} \omega^{(e)} \bDelta^\top \bSigma^{(e)} \bDelta - 2\bDelta^\top \mathbb{E}\left[\varepsilon^{(e)} \bx^{(e)} \right] \\
+      &= \bDelta^\top \Bigg(\sum_{e\in \mathcal{E}} \omega^{(e)} \bSigma^{(e)} \Bigg) \bDelta - 2\bDelta^\top \Bigg(\sum_{e\in \mathcal{E}} \omega^{(e)} \mathbb{E}[\varepsilon^{(e)} \bx^{(e)}] \Bigg) \\
+      &= \bDelta_{\bar{S}}^\top \bSigma_{\bar{S}} \bDelta_{\bar{S}} - 2 \bDelta^\top_{\bar{S}} \bar{\bu}_{\bar{S}}.
+      \end{align*}
+      It follows from the fact \(\bar{\bu}_T=\bm{0}\) and Cauchy-Schwarz inequality that
+      \begin{align}
+      \label{eq:proof-thm1-eq1}
+      2\bDelta^\top_{\bar{S}} \bar{\bu}_{\bar{S}}
+      = 2\left(\sqrt{\epsilon} \bDelta_{\bar{S}} \bSigma_{\bar{S}}^{1/2} \right) \left(\epsilon^{-1/2} \bSigma_{\bar{S}}^{-1/2} \bar{\bu}_{\bar{S}} \right)
+      \le \epsilon \bDelta_{\bar{S}}^\top \bSigma_{\bar{S}} \bDelta_{\bar{S}} + \epsilon^{-1} \bar{\bu}_{\bar{S}}^\top \bSigma_{\bar{S}}^{-1} \bar{\bu}_{\bar{S}}.
+      \end{align}
+      Plugging this inequality back yields
+      \begin{align}
+      \label{eq:proof-thm1-t1-lb}
+      \mathsf{T}_1(\bbeta) \ge (1-\epsilon) \bDelta_{\bar{S}}^\top \bSigma_{\bar{S}} \bDelta_{\bar{S}} - \epsilon^{-1} \bar{\bu}_{\bar{S}}^\top \bSigma_{\bar{S}}^{-1} \bar{\bu}_{\bar{S}}.
+      \end{align}
+      At the same time, we also have
+      \begin{align*}
+      \mathsf{T}_2(\bbeta)
+      &= \sum_{e\in \mathcal{E}} \omega^{(e)} \left\|\mathbb{E} \left[(y^{(e)} - \bbeta^\top \bx^{(e)}) \bx_S^{(e)}\right]\right\|_2^2 \\
+      &= \sum_{e\in \mathcal{E}} \omega^{(e)} \left\| \mathbb{E} \left[\varepsilon^{(e)} \bx_{\bar{S}}^{(e)} \right] + (\bbeta^*_S - \bbeta_S)^\top \mathbb{E} \left[\bx_S^{(e)} (\bx_S^{(e)})^\top\right] + (\bbeta_T^*)^\top \mathbb{E} \left[\bx_T^{(e)} (\bx_S^{(e)})^\top\right] \right\|^2 \\
+      &= \sum_{e\in \mathcal{E}} \omega^{(e)} \left\| \bar{\bu}_{S} + \bSigma^{(e)}_{S,T} \bbeta_T^* - \bSigma^{(e)}_S \bDelta_S\right\|_2^2 \\
+      &= \sum_{e\in \mathcal{E}} \omega^{(e)} \left\| \bSigma_S(\bbeta^{(e, S)} - \bbeta^* - \bDelta_S) \right\|^2.
+      \end{align*}
+      Putting these pieces together with Condition \ref{cond1-well-condition-main}, we have
+      \begin{align}
+      \mathsf{T}_1(\bbeta) + \gamma \mathsf{T}_2(\bbeta)
+      &\ge (1-\epsilon)  \|\bSigma^{1/2}\bDelta_{\bar{S}}\|_2^2
+      - \epsilon^{-1} \kappa_L^{-1} \|\bar{\bu}_{S}\|_2^2
+      + \gamma \sum_{e\in \mathcal{E}} \omega^{(e)} \kappa_L^2 \| \bbeta^{(e,S)} - \bbeta^* - \bDelta_S\|^2_2 \nonumber \\
+      &\ge (1-\epsilon) \|\bSigma^{1/2}\bDelta_{\bar{S}}\|_2^2
+      - \epsilon^{-1} \kappa_L^{-1} \mathsf{b}_{S}
+      + \inf_{\bv \in \mathbb{R}^{|S|}}\gamma \sum_{e\in \mathcal{E}} \omega^{(e)} \kappa_L^2 \| \bbeta^{(e,S)}_S - \bbeta^*_S - \bv\|^2_2.
+      \label{eq:proof-thm1-mixed-lb}
+      \end{align}
+      Define
+      \begin{align*}
+      L(\bv) = \sum_{e\in \mathcal{E}} \omega^{(e)} \| \bbeta^{(e,S)}_S - \bbeta^*_S - \bv\|^2_2.
+      \end{align*}
+      It is obvious that \(L(\bv)\) is of a quadratic form and is strongly convex with curvature \(1\). So it has the unique global minimizer
+      \begin{align*}
+      \bv^*=\sum_{e\in \mathcal{E}}\omega^{(e)} \bbeta^{(e,S)} -\bbeta_S^*
+      \end{align*}
+      with minimum value
+      \begin{align}
+      \label{eq:j-to-bs}
+      \inf_{\bv \in \mathbb{R}^{|S|}} L(\bv)
+      = \sum_{e\in \mathcal{E}} \omega^{(e)} \|\bbeta_S^{(e,S)} - \bbeta_S^* - \bv^*\|_2^2
+      = \bar{\mathsf{d}}_S.
+      \end{align}
+      Substituting this minimum value back into the preceding lower bound gives
+      \begin{align}
+      \label{eq:thm1-proof-decomp}
+      \mathsf{T}_1(\bbeta) + \gamma \mathsf{T}_2(\bbeta)
+      &\ge (1 - \epsilon) \|\bSigma^{1/2}\bDelta\|_2^2 - \epsilon^{-1} \kappa_L^{-1} \mathsf{b}_S + \gamma \kappa_L^2 \bar{\mathsf{d}}_{S} \\
+      &= (1-\epsilon) \|\bSigma^{1/2}\bDelta\|_2^2 - \epsilon^{-1} \kappa_L^{-1} \mathsf{b}_S + \epsilon^{-1} \kappa_L^2 \bar{\mathsf{d}}_S \gamma^* +  (\gamma - \epsilon^{-1} \gamma^*) \kappa_L^2 \bar{\mathsf{d}}_S \nonumber \\
+      &\ge (1-\epsilon) \|\bSigma^{1/2}\bDelta\|_2^2 + (\gamma - \epsilon^{-1} \gamma^*) \kappa_L^2 \bar{\mathsf{d}}_S. \nonumber
+      \end{align}
+      This completes the proof.
+    lean_name: Theorem_4_2_Strong_Convexity_with_respect_to_beta_star_thm_global_strong_convexity_main
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics

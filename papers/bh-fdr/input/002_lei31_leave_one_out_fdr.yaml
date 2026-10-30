@@ -1,0 +1,83 @@
+version: v1
+theorem_set: showcase_bh_fdr_step_002_lei31_leave_one_out
+source_tag: dobriban-theorem1-lei-theorem31-four-node-app-showcase-2026-07-30
+setting:
+  depth: 0
+defaults:
+  lean_namespace: Statlib.MultipleTesting.Lei
+  target_dir: ProverJobs
+  allow_axiom: false
+theorems:
+  - id: bh.fdr.showcase.app.lei31_leave_one_out_fdr
+    title: "Lei Theorem 3.1: leave-one-out FDR decomposition input"
+    kind: theorem
+    lean_name: app_lei31_leave_one_out_fdr
+    lean_namespace: Statlib.MultipleTesting.Lei
+    priority: 3
+    layer: app-showcase-lei31-hfdr
+    target_file: ProverJobs/app_lei31_leave_one_out_fdr/Main.lean
+    dependencies: []
+    workspace_siblings:
+      - bh_showcase_workspace_seed_01
+      - bh_showcase_workspace_seed_06
+    required_workspace_decls:
+      - lei_bh_fdr_le_q_mul_one_add_of_leave_one_out_inputs
+    imports:
+      - Mathlib
+      - Statlib
+      - ProverJobs.bh_showcase_workspace_seed_01.Main
+      - ProverJobs.bh_showcase_workspace_seed_06.Main
+    latex_statement: |
+      Lei Theorem 3.1 leave-one-out/FDR decomposition input. For the concrete
+      BH rejection rule R_i(omega)=1{p_i(omega) <= q}, with a positive number
+      of hypotheses, the explicit leave-one-out input package implies
+      FDR(BH_q) <= q(1 + excess).
+    assumptions:
+      - "This node packages the leave-one-out/FDR decomposition as a visible theorem for the app DAG."
+      - "The positive-size regularity condition `hm : 0 < m` is explicit because the prover's regularity audit inserts it for `Fin m` multiple-testing statements."
+      - "The finite-measure condition is an explicit parameter `hmuFin : IsFiniteMeasure mu` so the app skeleton avoids Lean binder-annotation instability."
+      - "The proof must reuse `lei_bh_fdr_le_q_mul_one_add_of_leave_one_out_inputs`."
+    statement_hint: |
+      Restate the checked leave-one-out endpoint under the app theorem name and
+      call the workspace theorem directly. A single root `sorry` skeleton is
+      acceptable; Phase B should close it with the workspace theorem call. Name
+      the explicit finite-measure hypothesis exactly `hmuFin`.
+    proof_block:
+      theorem_shape: |
+        import Mathlib
+        import Statlib
+        import ProverJobs.bh_showcase_workspace_seed_01.Main
+        import ProverJobs.bh_showcase_workspace_seed_06.Main
+
+        open MeasureTheory
+
+        namespace Statlib.MultipleTesting.Lei
+
+        theorem app_lei31_leave_one_out_fdr
+            {Omega : Type*} [MeasurableSpace Omega]
+            (mu : Measure Omega) (hmuFin : IsFiniteMeasure mu) {m : Nat} (hm : 0 < m)
+            (isNull : Fin m -> Prop) [DecidablePred isNull]
+            (q : Real) (p : Omega -> Fin m -> Real)
+            [forall omega,
+              DecidablePred
+                (fun i : Fin m => Statlib.MultipleTesting.bhReject (p omega) q i)]
+            (excess : Real)
+            (hinputs : leiBhLeaveOneOutFdrInputs mu isNull q p excess) :
+            Statlib.MultipleTesting.fdr mu isNull
+              (fun omega i => Statlib.MultipleTesting.bhReject (p omega) q i) <=
+              q * (1 + excess) := by
+          sorry
+
+        end Statlib.MultipleTesting.Lei
+    proof_body: |
+      Close the root `sorry` directly. The final Lean proof must visibly
+      contain the workspace declaration name
+      `lei_bh_fdr_le_q_mul_one_add_of_leave_one_out_inputs`.
+
+        letI : IsFiniteMeasure mu := hmuFin
+        exact lei_bh_fdr_le_q_mul_one_add_of_leave_one_out_inputs
+          mu isNull q p excess hinputs
+    acceptance:
+      - lake build passes
+      - theorem contains no sorry/admit/axiom
+      - final proof references the leave-one-out workspace declaration

@@ -1,0 +1,67 @@
+{
+  "id": "q13",
+  "case": "uniform_endpoint_mle_limit",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q13",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q13/experiment/runs/20261017T184327Z-uniform_endpoint_mle_limit-407ad3b3",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "8cdba9088b348098471a58fb9b80d86ebf24654e7115d764ad19c477ec84015b",
+  "signatureLockSha256": "afa652d6ba30b22436525a91570dbc8be39db5303b6d0d12a1537aa9ea959d7d",
+  "rootTheorem": "uniform_endpoint_mle_limit",
+  "inputRootSignature": "theorem uniform_endpoint_mle_limit {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (θ : ℝ) (hθ : 0 < θ) (X : ℕ → Ω → ℝ) (hX_meas : ∀ i, Measurable (X i)) (hX_indep : iIndepFun X P) (hX_uniform : ∀ i, MeasureTheory.pdf.IsUniform (X i) (Set.Ioo 0 θ) P) (Z : Ω → ℝ) (hZ_meas : Measurable Z) (hZ_law : HasLaw Z (expMeasure θ⁻¹) P) : let M : ℕ → Ω → ℝ := fun r ω ↦ (Finset.univ : Finset (Fin (r + 1))).sup' Finset.univ_nonempty (fun i ↦ X i.1 ω) TendstoInDistribution (fun r ω ↦ ((r + 1 : ℕ) : ℝ) * (θ - M r ω)) atTop Z P",
+  "lockedRootSignature": "theorem uniform_endpoint_mle_limit {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (θ : ℝ) (hθ : 0 < θ) (X : ℕ → Ω → ℝ) (hX_meas : ∀ i, Measurable (X i)) (hX_indep : iIndepFun X P) (hX_uniform : ∀ i, MeasureTheory.pdf.IsUniform (X i) (Set.Ioo 0 θ) P) (Z : Ω → ℝ) (hZ_meas : Measurable Z) (hZ_law : HasLaw Z (expMeasure θ⁻¹) P) : let M : ℕ → Ω → ℝ := fun r ω ↦ (Finset.univ : Finset (Fin (r + 1))).sup' Finset.univ_nonempty (fun i ↦ X i.1 ω) TendstoInDistribution (fun r ω ↦ ((r + 1 : ℕ) : ℝ) * (θ - M r ω)) atTop Z P",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.975ed617df2efded5ec11d07.json",
+      "receiptId": "job-final.975ed617df2efded5ec11d07",
+      "receiptHash": "4b28f3216ee60f9a9070e505ffaab14354c5a211075c4429d58491244d3f2ebd",
+      "finalizedAt": 1792267831030,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "b09426d55047e7fb2d671dcdcbbe4bdf67de4a6b8521f94d036c702cb2aee687"
+    }
+  ],
+  "slot": 0,
+  "keyIndex": 0,
+  "nodes": 7,
+  "auxiliaryNodes": 6,
+  "writerAddedNodes": 1,
+  "creationSources": {
+    "MIGRATED": 6,
+    "WRITER_REQUEST": 1
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.52253ae07716d4c45af9b4a474355018",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 22
+}

@@ -1,0 +1,78 @@
+{
+  "id": "q28",
+  "case": "axial_extrinsic_mean_leading_eigenvector",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q28",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q28/experiment/runs/20261018T015543Z-axial_extrinsic_mean_leading_eigenvector-c8060e1b",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "186fc0b43173622a21533961a91b4792d16c44051f0ea9fd51b78f9c6b6eae0d",
+  "signatureLockSha256": "d8601882221c694da93b77ac143fae4894a1b6ebb3c24a96e7981f6bfaf9ffe6",
+  "rootTheorem": "axial_extrinsic_mean_leading_eigenvector",
+  "inputRootSignature": "theorem axial_extrinsic_mean_leading_eigenvector (d n : ℕ) (hd : 2 ≤ d) (hn : 1 ≤ n) (x : Fin n → Fin d → ℝ) (hx : ∀ i, dotProduct (x i) (x i) = 1) (v : Fin d → ℝ) (hv : dotProduct v v = 1) (lambda : ℝ) : let A : Matrix (Fin d) (Fin d) ℝ := (n : ℝ)⁻¹ • ∑ i, vecMulVec (x i) (x i) A *ᵥ v = lambda • v → (∀ u, dotProduct u u = 1 → dotProduct u (A *ᵥ u) ≤ lambda) → (∀ u, A *ᵥ u = lambda • u → ∃ c : ℝ, u = c • v) → let objective : (Fin d → ℝ) → ℝ := fun u ↦ (n : ℝ)⁻¹ * ∑ i, ∑ j, ∑ k, (u j * u k - x i j * x i k) ^ 2 {u : Fin d → ℝ | dotProduct u u = 1 ∧ ∀ w, dotProduct w w = 1 → objective u ≤ objective w} = {v, -v}",
+  "lockedRootSignature": "theorem axial_extrinsic_mean_leading_eigenvector (d n : ℕ) (hd : 2 ≤ d) (hn : 1 ≤ n) (x : Fin n → Fin d → ℝ) (hx : ∀ i, dotProduct (x i) (x i) = 1) (v : Fin d → ℝ) (hv : dotProduct v v = 1) (lambda : ℝ) : let A : Matrix (Fin d) (Fin d) ℝ := (n : ℝ)⁻¹ • ∑ i, vecMulVec (x i) (x i) A *ᵥ v = lambda • v → (∀ u, dotProduct u u = 1 → dotProduct u (A *ᵥ u) ≤ lambda) → (∀ u, A *ᵥ u = lambda • u → ∃ c : ℝ, u = c • v) → let objective : (Fin d → ℝ) → ℝ := fun u ↦ (n : ℝ)⁻¹ * ∑ i, ∑ j, ∑ k, (u j * u k - x i j * x i k) ^ 2 {u : Fin d → ℝ | dotProduct u u = 1 ∧ ∀ w, dotProduct w w = 1 → objective u ≤ objective w} = {v, -v}",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.ea11b286cbf9300dd7ad4186.json",
+      "receiptId": "job-final.ea11b286cbf9300dd7ad4186",
+      "receiptHash": "443c637c1fe309b22700cb789d01809825d2ff371d1df142d4b1b2acf55e6afc",
+      "finalizedAt": 1792292285671,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "31c659ddf567567015efcada6197586db5c10c1702d2279d004cffabd7bdf966"
+    }
+  ],
+  "slot": 2,
+  "keyIndex": 4,
+  "nodes": 5,
+  "auxiliaryNodes": 4,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 5
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.fc91e90d50edcba926019f01882bb27d",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.fc91e90d50edcba926019f01882bb27d",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.fc91e90d50edcba926019f01882bb27d",
+      "detail": "unified Main dependency support preflight input changed"
+    },
+    {
+      "proofNodeId": "proof.node.fc91e90d50edcba926019f01882bb27d",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 15
+}

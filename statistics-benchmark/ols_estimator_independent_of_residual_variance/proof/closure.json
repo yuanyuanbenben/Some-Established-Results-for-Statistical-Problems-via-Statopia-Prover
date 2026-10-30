@@ -1,0 +1,54 @@
+{
+  "entry": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.Main",
+  "files": [
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.Base",
+      "lines": 31,
+      "sha256": "938860db96db1bf161b2c5f352c82756d29867b8143b6801b06177650b0df19f"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.Main",
+      "lines": 159,
+      "sha256": "da0ca9cc8923b96752692b16b7cd22abe64eab00352a3bc707cd5e58eb3ffd14"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes",
+      "lines": 6,
+      "sha256": "85e5e443122e4e665fb7808e4d8efd71481b4003ac545afa8b25488b7373477c"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes.Node_1353280134_668c18e6_a5a2ddf7",
+      "lines": 44,
+      "sha256": "11c81d53ff96c7416283b4b75c50a92b15b1f3abbb8e3ad30d4671fe00979931"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes.Node_2860752011_ddd01222_94825b43",
+      "lines": 98,
+      "sha256": "e2b8ca5afc332141e2a39fc4ff0a2325f371e81b2a6a4aaeaac62f8b7c42f1b4"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes.Node_34046222_46bb4793_814aefed",
+      "lines": 257,
+      "sha256": "19d34c92b9d4082d768b87631d2bc9ac8c119ce32ec9a88d719bfcfb48f99c1a"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes.Node_359342246_18c0b9ff_8e3dacd9",
+      "lines": 21,
+      "sha256": "e8278f47ff8b6ed9902c166f6b0497de7c058e1b2e6a7c503bd5b41067fb904b"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes.Node_415881013_e54b3026_044df4d9",
+      "lines": 36,
+      "sha256": "100e87d840913b50fe6c23177513a6a152d746838f15f6f55c58eb8c4ab2abf7"
+    },
+    {
+      "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.Vocabulary",
+      "lines": 4,
+      "sha256": "3db6badd2bbd0a01935c655dfeae6ea5a428e960215a5c29899d4f97a1e22a05"
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Statlib"
+  ]
+}

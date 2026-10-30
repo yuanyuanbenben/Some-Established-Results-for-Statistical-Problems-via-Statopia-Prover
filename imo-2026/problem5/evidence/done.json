@@ -1,0 +1,9 @@
+{
+  "finishedAt": "2026-09-26T07:43:38.427Z",
+  "finalStatus": "proved",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_four_guidance_compare_20260926T071300Z/imo2026_p5/experiment/runs/20260926T072001Z-main_theorem-aac3bcab",
+  "jobId": "real_main_theorem_d734bdb6a642",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/real_main_theorem_d734bdb6a642",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_four_guidance_compare_20260926T071300Z/imo2026_p5/experiment/runs/20260926T072001Z-main_theorem-aac3bcab/job_snapshot",
+  "publishedCheckpointDir": null
+}

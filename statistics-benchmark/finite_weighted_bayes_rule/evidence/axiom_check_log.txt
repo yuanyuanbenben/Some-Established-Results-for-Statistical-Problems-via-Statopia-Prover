@@ -1,0 +1,35 @@
+# Track B axiom dependency check
+completed=true
+passed=true
+checkedDeclarations=finite_weighted_bayes_rule
+axiomsUsed=Classical.choice,Quot.sound,propext
+offendingAxioms=
+skipReason=
+
+## stdout
+<stdin>:9:15: warning: unused variable `hm`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:9:28: warning: unused variable `hN`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:11:5: warning: unused variable `hπ_mem`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:12:5: warning: unused variable `hπ_sum`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:14:5: warning: unused variable `hp_mem`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:15:5: warning: unused variable `hp_sum`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:16:21: warning: unused variable `hw`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+<stdin>:25:2: warning: Try this: intro D hD
+'finite_weighted_bayes_rule' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+## stderr
+

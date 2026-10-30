@@ -1,0 +1,66 @@
+{
+  "id": "q31",
+  "case": "cox_risk_set_probability_for_exponential_times",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q31",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q31/experiment/runs/20261018T030303Z-cox_risk_set_probability_for_exponential_times-6b8b48ca",
+  "checks": {
+    "summary": true,
+    "exit": true,
+    "queue": true,
+    "inputHash": true,
+    "fresh": true,
+    "graphIdentity": true,
+    "allNodesVerified": true,
+    "rootSource": true,
+    "rootLock": true,
+    "command": true,
+    "model": true,
+    "schedulerCapacity": true,
+    "archivedSourceHash": true,
+    "uniqueRootLock": true,
+    "inputLockedSignatures": true,
+    "finalRootSignature": true,
+    "lockedHelpersProjected": true,
+    "noLockAmendment": true,
+    "noMainHolesOrBypass": true,
+    "stagingHashes": true,
+    "finalReceipts": true
+  },
+  "mainSha256": "d5194d32fe143a394fc8a6c43bf1a728badbe353995233166204a22cb415dda9",
+  "signatureLockSha256": "a694d7d85fb787b3b39ac9024897c488bbcd6b2136bac3c23932c09f6edfacf0",
+  "rootTheorem": "cox_risk_set_probability_for_exponential_times",
+  "inputRootSignature": "theorem cox_risk_set_probability_for_exponential_times {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (n : ℕ) (hn : 1 ≤ n) (lambda₀ beta : ℝ) (hlambda : 0 < lambda₀) (z : Fin n → ℝ) (T : Fin n → Ω → ℝ) (hTmeas : ∀ i, Measurable (T i)) (hTnonneg : ∀ i ω, 0 ≤ T i ω) (hindep : iIndepFun T P) (hsurvival : ∀ i t, 0 ≤ t → P {ω | t < T i ω} = ENNReal.ofReal (Real.exp (-lambda₀ * Real.exp (beta * z i) * t))) : ∀ i, P {ω | ∀ j, j ≠ i → T i ω < T j ω} = ENNReal.ofReal (Real.exp (beta * z i) / ∑ j, Real.exp (beta * z j))",
+  "lockedRootSignature": "theorem cox_risk_set_probability_for_exponential_times {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P] (n : ℕ) (hn : 1 ≤ n) (lambda₀ beta : ℝ) (hlambda : 0 < lambda₀) (z : Fin n → ℝ) (T : Fin n → Ω → ℝ) (hTmeas : ∀ i, Measurable (T i)) (hTnonneg : ∀ i ω, 0 ≤ T i ω) (hindep : iIndepFun T P) (hsurvival : ∀ i t, 0 ≤ t → P {ω | t < T i ω} = ENNReal.ofReal (Real.exp (-lambda₀ * Real.exp (beta * z i) * t))) : ∀ i, P {ω | ∀ j, j ≠ i → T i ω < T j ω} = ENNReal.ofReal (Real.exp (beta * z i) / ∑ j, Real.exp (beta * z j))",
+  "rootNamespace": [],
+  "relocatedLockedHelpers": [],
+  "integrityManifest": {
+    "signatureCount": 1,
+    "source": "skeleton",
+    "amendmentCount": 0
+  },
+  "finalReceipts": [
+    {
+      "file": "job-final.9ae3f0d0ff3a268a18b8b392.json",
+      "receiptId": "job-final.9ae3f0d0ff3a268a18b8b392",
+      "receiptHash": "98f8fc8c22d204266c6e7014b48a7b6b71f5659113544b7980eeb4f71ac1f49f",
+      "finalizedAt": 1792295981147,
+      "buildOutputSha256": "69ef63a9205aa61399f78ff09cf853109b9754780ab959ad4f0abfbded7c56db",
+      "axiomOutputSha256": "8eb0b3354ac3c1e19dfe704a50e8ecea2de661b815f02651493089b9de4dc700"
+    }
+  ],
+  "slot": 2,
+  "keyIndex": 4,
+  "nodes": 5,
+  "auxiliaryNodes": 4,
+  "writerAddedNodes": 0,
+  "creationSources": {
+    "MIGRATED": 5
+  },
+  "failedActions": [
+    {
+      "proofNodeId": "proof.node.a313a06509f9f58154e21f3933994215",
+      "detail": "unified Main dependency support preflight input changed"
+    }
+  ],
+  "completedActions": 16
+}

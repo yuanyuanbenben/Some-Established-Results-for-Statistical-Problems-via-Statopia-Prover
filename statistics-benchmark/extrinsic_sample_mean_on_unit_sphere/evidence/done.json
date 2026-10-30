@@ -1,0 +1,9 @@
+{
+  "finishedAt": "2026-10-18T06:41:00.145Z",
+  "finalStatus": "proved",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q40/experiment/runs/20261018T055725Z-extrinsic_sample_mean_on_unit_sphere-fc2e20b3",
+  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q40",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q40",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q40/experiment/runs/20261018T055725Z-extrinsic_sample_mean_on_unit_sphere-fc2e20b3/job_snapshot",
+  "publishedCheckpointDir": null
+}

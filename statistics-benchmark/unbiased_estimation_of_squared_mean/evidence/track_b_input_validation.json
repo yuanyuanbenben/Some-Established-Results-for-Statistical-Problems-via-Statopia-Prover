@@ -1,0 +1,14 @@
+{
+  "valid": true,
+  "theoremNames": [
+    "unbiased_estimation_of_squared_mean"
+  ],
+  "numSorries": 1,
+  "expectedDeclarationOpen": true,
+  "proofBypasses": [],
+  "forbiddenDeclarations": [],
+  "errors": [],
+  "elaborated": true,
+  "leanErrorCategory": "none",
+  "leanCheckMs": 44790
+}
