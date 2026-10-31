@@ -1,6 +1,6 @@
 # Archive validation
 
-Current update: **2026-10-31**, adding HulC. The original baseline below covers 96 cases; the current combined report covers **97 cases / 768 modules**. See the final section for the fresh-versus-reused compilation split.
+Current update: **2026-10-31**, replacing P6 with the AxiomMath-input result after the HulC addition. The original baseline below covers 96 cases; the current combined report covers **97 cases / 771 modules**. See the final sections for the fresh-versus-reused compilation split.
 
 Validation used Linux and Lean 4.28.0-rc1 with Mathlib revision 5352afccd6866369be9de43f5b7ec47203555f44. The initial validation did not upload, deploy, restart proof jobs, or modify the original Statlib workspace. The collection has since been published on GitHub; the source-publication update is recorded below.
 
@@ -67,3 +67,11 @@ The previous 96 case compilations were **reused after validating their source ha
 The pipeline records `assumptionsAutoAdopted: true`. HULC's actual Lean statement contains explicit modeling hypotheses for measurability, estimator independence, uniform randomization and randomizer independence, partition properties, and data/partition linkage. `papers/hulc/FORMALIZATION.md` makes these visible. No new exhaustive original-paper mathematical-equivalence audit is claimed.
 
 Functional correctness: input/export/provenance hashes, exact 15-module import closure, statement preservation, fresh source compilation and actual root axioms were checked. The expanded resume path compiles the new case and preserves all old cases; the archive check now binds original as well as derivative source hashes. Memory verdict: OK. This addition used two compiler slots (roughly 12 GiB at prior observed process sizes), within the measured available memory. Other issues: no source run, live job, credential, database or runtime checkpoint was modified or copied into the archive; PDF/Lean/material fields were allowlisted.
+
+## P6 AxiomMath-input replacement — 2026-10-31
+
+The selected P6 result now uses the published AxiomMath Q6 statement with only its unsupported compiler option removed and our existing natural-language mathematical guide. The original 14-module local proof closure contains 1,215 physical lines. A separate Lean check establishes definitional equality with the exact published IsValidSeq predicate and applies main_theorem to its exact published type; the root depends only on propext, Classical.choice and Quot.sound. Original source compilation also passed in the source workspace.
+
+All 14 replacement reproduction modules were freshly compiled in an isolated search path containing only public Lean/Mathlib dependencies and the unchanged bundled Statlib binary cache. The reproduction derivative removes only the unused broad Statlib import; original declaration/proof bytes remain preserved. The replacement changes the combined inventory from 768 to 771 modules while retaining 97 cases. The 96 unchanged cases reuse hash-matched compilation receipts; the previous complete report remains immutable in receipt-history. The neural wrapper is freshly compiled and checked again. The unchanged binary manifest/checker leave the existing library-replay receipt applicable; no new full-library replay is claimed.
+
+The verifier's --refresh-case option explicitly disables receipt reuse only for named, validated case keys and requires --resume. Other cases retain all previous source, module-set and binary-hash checks. This update used three compiler slots. No provider calls or live jobs were started by the archive validation. The old P6 selection remains in Git history and in the original local archive and is excluded from current timing, line and fee aggregates.

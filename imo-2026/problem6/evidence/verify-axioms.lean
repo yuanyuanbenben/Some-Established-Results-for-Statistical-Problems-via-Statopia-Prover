@@ -1,3 +1,13 @@
-import ProverJobs.real_imo2026_problem6_acf5714d7c7d.Main
+import ProverJobs.real_main_theorem_edd06e2c7e6c.Main
 
-#print axioms IMO2026P6.imo2026_problem6
+example : IsValidSeq = (fun a : ℕ → ℕ =>
+    (∀ n, 1 < a n) ∧
+    (∀ n, a n < a (n + 1) ∧
+      (∀ i ≤ n, 1 < Nat.gcd (a (n + 1)) (a i)) ∧
+      (∀ b, a n < b → b < a (n + 1) → ∃ i ≤ n, Nat.gcd b (a i) = 1))) := rfl
+
+example (a : ℕ → ℕ) (ha : IsValidSeq a) :
+    ∃ T L : ℕ, 0 < T ∧ 0 < L ∧ ∀ n, a (n + T) = a n + L :=
+  main_theorem a ha
+
+#print axioms main_theorem

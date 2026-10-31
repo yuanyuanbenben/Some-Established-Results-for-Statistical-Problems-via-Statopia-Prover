@@ -1,0 +1,21 @@
+{
+  "completion_receipts": 127,
+  "intent_events": 127,
+  "closed_calls": 127,
+  "tokens": {
+    "inputTokens": 3042802,
+    "cacheReadTokens": 2124672,
+    "cacheWriteTokens": 0,
+    "outputTokens": 579983
+  },
+  "recorded_cost_usd": 1.621568242,
+  "offpeak_usd": 0.8107841159999999,
+  "usd_per_million_tokens": {
+    "inputTokens": 0.15,
+    "cacheReadTokens": 0.003,
+    "cacheWriteTokens": 0.15,
+    "outputTokens": 0.6
+  },
+  "price_observed_date": "2026-10-30",
+  "price_basis": "Frozen common off-peak tariff from published evaluation/METHODOLOGY.md; not current pricing or provider invoices"
+}

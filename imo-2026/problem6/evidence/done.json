@@ -1,9 +1,9 @@
 {
-  "finishedAt": "2026-09-26T05:57:32.693Z",
+  "finishedAt": "2026-10-31T08:49:53.252Z",
   "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_checkpoint_fresh_three_20260926T052914Z/imo2026_p6/experiment/runs/20260926T053541Z-imo2026_problem6-c917c94a",
-  "jobId": "real_imo2026_problem6_acf5714d7c7d",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/real_imo2026_problem6_acf5714d7c7d",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_checkpoint_fresh_three_20260926T052914Z/imo2026_p6/experiment/runs/20260926T053541Z-imo2026_problem6-c917c94a/job_snapshot",
+  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/imo2026_p6_axiommath_20261031T075739Z/imo2026_p6/experiment/runs/20261031T075920Z-main_theorem-96961e8a",
+  "jobId": "real_main_theorem_edd06e2c7e6c",
+  "jobDir": "/home/ai4stat/statlib/ProverJobs/real_main_theorem_edd06e2c7e6c",
+  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/imo2026_p6_axiommath_20261031T075739Z/imo2026_p6/experiment/runs/20261031T075920Z-main_theorem-96961e8a/job_snapshot",
   "publishedCheckpointDir": null
 }

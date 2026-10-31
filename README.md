@@ -102,7 +102,7 @@ The required **144 compiled Statlib modules** are supplied, together with the **
 
 ## Validation and assumptions
 
-The [validation record](verification/VALIDATION.md) documents successful isolated compilation of **97 case developments / 768 derived Lean modules**, plus the neural wrapper. The 97 cases comprise 83 statistics problems, six IMO results, six paper-theorem developments, and two curated paper examples. Kernel replay accepted **5,915 eligible safe, non-partial declarations** from the selected library subset. Linux with the pinned toolchain is the tested environment.
+The [validation record](verification/VALIDATION.md) documents successful isolated compilation of **97 case developments / 771 derived Lean modules**, plus the neural wrapper. The 97 cases comprise 83 statistics problems, six IMO results, six paper-theorem developments, and two curated paper examples. Kernel replay accepted **5,915 eligible safe, non-partial declarations** from the selected library subset. Linux with the pinned toolchain is the tested environment.
 
 The Gaussian final target retains **three citation assumptions**, and HMC Theorem 2.2 retains **one**. The other inspected case roots, including HulC, have no nonstandard axioms. HulC retains explicit modeling hypotheses and the pipeline's auto-adoption flag; see its [formalization scope](papers/hulc/FORMALIZATION.md). These assumptions remain explicit: successful compilation does not prove the cited results. Compilation and axiom inspection also do not replace an independent mathematical comparison with the original question or paper.
 

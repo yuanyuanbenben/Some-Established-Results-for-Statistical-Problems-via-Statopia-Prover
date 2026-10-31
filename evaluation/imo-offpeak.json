@@ -111,24 +111,24 @@
   },
   {
     "case": "IMO2026-P6",
-    "target": "imo2026_problem6",
-    "job_id": "real_imo2026_problem6_acf5714d7c7d",
-    "seconds": 1311.41,
-    "lean_files": 11,
-    "lean_lines": 586,
-    "cost_usd": 0.192390853,
+    "target": "main_theorem",
+    "job_id": "real_main_theorem_edd06e2c7e6c",
+    "seconds": 3032.394,
+    "lean_files": 14,
+    "lean_lines": 1215,
+    "cost_usd": 1.621568242,
     "unknown_attempts": 0,
     "unknown_reservation_usd": 0,
     "cost_coverage": "completed recorded usage only; unresolved reservations separate",
     "guidance": "supplied natural-language proof",
     "proof_status": "proved",
     "tokens": {
-      "inputTokens": 745838,
-      "cacheReadTokens": 431104,
+      "inputTokens": 3042802,
+      "cacheReadTokens": 2124672,
       "cacheWriteTokens": 0,
-      "outputTokens": 309880
+      "outputTokens": 579983
     },
-    "offpeak_usd": 0.299097012,
+    "offpeak_usd": 0.8107841159999999,
     "offpeak_evidence": "imo-2026/problem6/evidence/usage-journal.jsonl"
   }
 ]

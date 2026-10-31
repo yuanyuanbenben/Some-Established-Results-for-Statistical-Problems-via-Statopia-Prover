@@ -103,7 +103,7 @@ The original candidate list has 90 problems; this archive selects 83 results. Th
 | P3: `V_eq` | [Lean](imo-2026/problem3/actual-run-input/input.lean) | [Main](imo-2026/problem3/proof/ProverJobs/real_V_eq_15312944933b/Main.lean) |
 | P4: `main_theorem` | [Lean](imo-2026/problem4/actual-run-input/input.lean) | [Main](imo-2026/problem4/proof/ProverJobs/real_main_theorem_3393c3b8aa74/Main.lean) |
 | P5: `main_theorem` | [Lean](imo-2026/problem5/actual-run-input/input.lean) | [Main](imo-2026/problem5/proof/ProverJobs/real_main_theorem_d734bdb6a642/Main.lean) |
-| P6: `imo2026_problem6` | [Lean](imo-2026/problem6/actual-run-input/input.lean) | [Main](imo-2026/problem6/proof/ProverJobs/real_imo2026_problem6_acf5714d7c7d/Main.lean) |
+| P6: `main_theorem` | [Lean](imo-2026/problem6/actual-run-input/input.lean) | [Main](imo-2026/problem6/proof/ProverJobs/real_main_theorem_edd06e2c7e6c/Main.lean) |
 
 ## Papers
 

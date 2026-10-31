@@ -17,3 +17,7 @@ The later neural-network source-publication update restores the seven modules wi
 ## HulC follow-up — 2026-10-31
 
 The independent reviewer checked all source/provenance records against the original run, exported ZIP members and snapshot fields; exact 15-module closure and 1,468-line inventory; unchanged proof content outside import/scaffold changes; available narrow dependencies; historical completion/delivery state; and the auto-adopted-condition disclosure. The final report contains 97 unique cases / 768 modules: the 15 HULC modules are freshly compiled, while the old 96 cases reuse matching receipts. HULC's final root uses only the three standard axioms. The original five-paper timing/fee cohort and all cached library binaries remain unchanged. The backup record and report evidence distinguish validation state, modeling assumptions and original-paper faithfulness.
+
+## P6 AxiomMath-input replacement — 2026-10-31
+
+The [independent replacement review](imo6-replacement-review.md) passed. It checked exact input/predicate/statement integrity, all 14 proof modules and narrowed derivatives, 127 completed usage identities, normalized prices and updated tables, immutable prior receipts, and the explicit case-refresh verifier path. The current combined report has 97 cases / 771 modules: P6 was freshly compiled, while 96 unchanged cases reused matching receipts. All three archive-check sections pass; no S1-S4 publication blocker remains.

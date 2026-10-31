@@ -38,6 +38,8 @@ def main():
     parser.add_argument('--mathlib-project', type=Path, default=ROOT)
     parser.add_argument('--workers', type=int, default=12)
     parser.add_argument('--resume', action='store_true')
+    parser.add_argument('--refresh-case', action='append', default=[],
+                        help='Freshly compile this case instead of reusing its resume receipt')
     args = parser.parse_args()
     assert 1 <= args.workers <= 16
     manifest_path = ROOT / 'verification/binary-manifest.json'
@@ -61,6 +63,8 @@ def main():
     cache_path = cache / 'lib/lean'
     source_results = json.loads((ROOT / 'verification/minimization.json').read_text())
     work = {j['key']: j for j in jobs()}
+    assert not args.refresh_case or args.resume, '--refresh-case requires --resume'
+    assert set(args.refresh_case) <= set(work), 'Unknown refresh case'
     assert set(work) == {r['key'] for r in source_results}
     compile_slots = threading.BoundedSemaphore(args.workers)
     previous_by_key = {}
@@ -93,7 +97,7 @@ def main():
     def verify(record):
         job = work[record['key']]
         previous = previous_by_key.get(record['key'])
-        if previous and previous['status'] in {'compiled', 'axiom-boundary-mismatch'}:
+        if previous and record['key'] not in args.refresh_case and previous['status'] in {'compiled', 'axiom-boundary-mismatch'}:
             old_sources = {m['module']: m for m in previous['modules']}
             assert set(old_sources) == {s['module'] for s in record['files']}
             assert all(old_sources[s['module']]['exit_code'] == 0 and

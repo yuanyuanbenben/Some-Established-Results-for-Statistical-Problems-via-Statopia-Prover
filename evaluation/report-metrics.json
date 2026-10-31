@@ -56,17 +56,17 @@
   },
   "imo": {
     "cases": 6,
-    "lean_lines": 14343,
-    "seconds": 40604.365,
-    "mean_minutes": 112.78990277777778,
-    "offpeak_usd": 25.65873672,
-    "mean_usd": 4.27645612,
-    "usd_per_line": 0.001788937929303493,
+    "lean_lines": 14972,
+    "seconds": 42325.349,
+    "mean_minutes": 117.5704138888889,
+    "offpeak_usd": 26.170423823999997,
+    "mean_usd": 4.361737303999999,
+    "usd_per_line": 0.0017479577761154153,
     "tokens": {
-      "inputTokens": 82453988,
-      "cacheReadTokens": 19911040,
+      "inputTokens": 84750952,
+      "cacheReadTokens": 21604608,
       "cacheWriteTokens": 0,
-      "outputTokens": 22051509
+      "outputTokens": 22321612
     }
   }
 }

@@ -40,15 +40,15 @@
   },
   "imo": {
     "cases": 6,
-    "lean_lines": 14343,
-    "total_seconds": 40604.365,
-    "mean_minutes": 112.78990277777777,
+    "lean_lines": 14972,
+    "total_seconds": 42325.349,
+    "mean_minutes": 117.5704138888889,
     "time_cases": 6,
     "cost_cases": 6,
-    "known_recorded_cost_usd": 17.773732975999998,
-    "mean_cost_usd": 2.962288829333333,
-    "cost_per_line_usd": 0.0012391921478072925,
-    "cost_line_denominator": 14343,
+    "known_recorded_cost_usd": 19.202910365,
+    "mean_cost_usd": 3.2004850608333335,
+    "cost_per_line_usd": 0.0012825881889527119,
+    "cost_line_denominator": 14972,
     "unknown_reservation_usd": 2.32940275
   },
   "papers": {

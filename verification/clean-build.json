@@ -1,5 +1,5 @@
 {
-  "workspace": "/tmp/established-clean-48lvajf4",
+  "workspace": "/tmp/established-clean-l05w_9ym",
   "binary_manifest_sha256": "c57f818a8a48ea1f33558d7fefcf7dd2db942907310f045171cb621ab01afcec",
   "compiler_options": {
     "maxHeartbeats": 2000000
@@ -732,59 +732,74 @@
       "status": "compiled",
       "modules": [
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.Vocabulary",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.Vocabulary",
           "exit_code": 0,
           "source_sha256": "3db6badd2bbd0a01935c655dfeae6ea5a428e960215a5c29899d4f97a1e22a05"
         },
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.Base",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.Base",
           "exit_code": 0,
-          "source_sha256": "0a98a0362f57ee007cbaa589b659136c3214bfb9c78207176383da29eb4c9748"
+          "source_sha256": "e16c4286ba8b6dfe44a3a133e3b63e703f1664bf74d57ad4a53850d051c330b2"
         },
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.ProvedNodes.Node_190487331_0bb17c24_6b422d58",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_3776635361_5eaf0306_47c63d95",
           "exit_code": 0,
-          "source_sha256": "d275ec477103260c679ff5213d6361febbb62c44d6bd15933cb2d3cf3bd7a608"
+          "source_sha256": "b70f261859a83cc3810b712e646d9d9420cc4ecda80310360c05bfd56c5b73ba"
         },
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.ProvedNodes.Node_3098194069_fe6a3bdb_4ab109ad",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_1231998112_26c8ceab_5b4097d6",
           "exit_code": 0,
-          "source_sha256": "8a454a6c47c87498a00e3b4e8f267d45d8b3e600ccf4429085a80f8c843d7af8"
+          "source_sha256": "24eb2966e12e03273145f34078c49fc9de1f8bc95bb565484192a2f636dfa6d1"
         },
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.ProvedNodes.Node_3572779525_bbb7c22f_9e149e52",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_1319170121_dbae7a97_29dbe775",
           "exit_code": 0,
-          "source_sha256": "4af47ca55bee9332d42106f178a8a828f80b0a17329e93c647a3267e6e3d6c3c"
+          "source_sha256": "64e5f458e2e514ad02b504e9361e729614196af2be95935434ae36b59d8d47e0"
         },
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.ProvedNodes.Node_202768106_72663a92_6d8b7395",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_3315247046_78d260c2_b5b0898c",
           "exit_code": 0,
-          "source_sha256": "7881c036edcf49b6c2666e301a2e76816912e3aca8d14c6c16478f816512331e"
+          "source_sha256": "5618035032e59316153d61c36ed10fd2fb9579944cc33b49236a46ba9e56de36"
         },
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.ProvedNodes.Node_785998125_3d52cb03_36064cc7",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_230051687_03829abe_7482e2dd",
           "exit_code": 0,
-          "source_sha256": "db4a0f4ccdbfe2ab0db216e6b06359123966db20e8e24fbdcb92037df6849626"
+          "source_sha256": "af791f810914ca57dc02120ae9af9f0edd7e2d9ceda46a951b98cea70e53f193"
         },
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.ProvedNodes.Node_2415587922_861ebcd7_9b8c5123",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_2755318678_16f2be55_fa9b4632",
           "exit_code": 0,
-          "source_sha256": "39271f11f17c8b3b07bb3a39a4c27e73521ee7faa6c195df35551385a68c920a"
+          "source_sha256": "0cd837a47b0019393d71efb8eeba2377fa34b10ff858100bd547e37691c7ee0c"
         },
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.MainSupport",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_835102445_1358d677_25013d58",
           "exit_code": 0,
-          "source_sha256": "e5295d21ddc571b3a740fb07d6cacc7ce580cfc49a4b1b0d005ec1f6c82ac6f8"
+          "source_sha256": "3977ec17e9eb03a0f5a811e170bc2aface4543ae5aff35551196fd3f6e4caed7"
         },
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.ProvedNodes",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_2246720384_db986540_9bc93e2b",
           "exit_code": 0,
-          "source_sha256": "a3437b6d445a0c3d51efe67f282a9bdc0f0f7c23f394ab3612908900d487a4b4"
+          "source_sha256": "39ef02a17b7130295d09e564ed22ed2023bda3a7f10c236ed5eb45ee91b8ddff"
         },
         {
-          "module": "ProverJobs.real_imo2026_problem6_acf5714d7c7d.Main",
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_2027774880_d06a152e_dd4a1ad2",
           "exit_code": 0,
-          "source_sha256": "288c4077a80829d6d1f47aad4b2ff7339d6c0eebcb0473b7d709d813436e4a56"
+          "source_sha256": "bb40ce447a527f40420f3d59cf98e278e10b9ba3701f08741e4608f1a18eb790"
+        },
+        {
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_223591304_f93b617c_2e5dfa7e",
+          "exit_code": 0,
+          "source_sha256": "3353f6949263039e3729abf65c7f64e5ff80b8761cfd5dfb65b6ddb0e7fc2179"
+        },
+        {
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes",
+          "exit_code": 0,
+          "source_sha256": "7804cd67848766959cf8f827b541ef1340743b5b5b2577009c7903f8b60824e8"
+        },
+        {
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.Main",
+          "exit_code": 0,
+          "source_sha256": "757bfcefbfb1d585ae051d58b5c95d36ef810133f12d566f485013965c80cc3a"
         }
       ],
       "axioms": [
@@ -794,10 +809,9 @@
             "Quot.sound",
             "Classical.choice"
           ],
-          "declaration": "IMO2026P6.imo2026_problem6"
+          "declaration": "main_theorem"
         }
       ],
-      "resumed_compilation_receipt": true,
       "retained_external_axioms": [],
       "actual_external_axioms": [],
       "retained_but_not_used": []
@@ -2968,7 +2982,8 @@
       ],
       "retained_external_axioms": [],
       "actual_external_axioms": [],
-      "retained_but_not_used": []
+      "retained_but_not_used": [],
+      "resumed_compilation_receipt": true
     },
     {
       "key": "statistics/arcsine_bernoulli_mean_clt",
@@ -6799,9 +6814,9 @@
   "expected_cases": 97,
   "complete": true,
   "resumed_from": {
-    "workspace": "/tmp/established-clean-gtbupn1i",
-    "report_sha256": "64fe6033d21081f0b53b84a5f5f844aab7478b1b48b69232b91395ae6779ac23",
-    "report": "verification/receipt-history/64fe6033d21081f0b53b84a5f5f844aab7478b1b48b69232b91395ae6779ac23.json"
+    "workspace": "/tmp/established-clean-48lvajf4",
+    "report_sha256": "8a2b3e15d22b2d4e28cf422fe76a728b3292f6a463b9b19878c570cd2aa7e3c2",
+    "report": "verification/receipt-history/8a2b3e15d22b2d4e28cf422fe76a728b3292f6a463b9b19878c570cd2aa7e3c2.json"
   },
   "neural": {
     "status": "interface-and-axioms-checked",
