@@ -4,7 +4,6 @@ Some selected Lean 4 formalization results verified using [Statopia Prover](http
 
 - [Statopia Prover](https://prover.statopia.ai/)
 - [Statlib](https://statlib.statopia.ai/)
-- [Statopia Prover source code](https://github.com/statopia/prover)
 
 The collection contains 83 statistics problems, six guided IMO results, ten papers (11 main developments and 40 supporting tasks), and a neural-network approximation component.
 
