@@ -1,0 +1,611 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:fe4d92f1-bd24-43f2-8345-c295e9d25e4f
+    title: paper_3208f098a8f94aafb53ad0b136d14110
+    kind: lemma
+    latex_statement: |-
+      Let \(\pi\) be a prior probability density on \((0,\infty)\) with respect to Lebesgue measure. For \(n\ge 1\), the rising factorial is
+      \[
+      \alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1);
+      \]
+      it is not an ordinary power and not a falling factorial. For fixed \(t\) and positive integers \(n,s\), define
+      \[
+      C(n,t,t+s)=\frac{\int_0^\infty \frac{\alpha^{t+s}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha}{\int_0^\infty \frac{\alpha^{t}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha}.
+      \]
+      The prior expectation is
+      \[
+      E(\alpha^{r})=\int_0^\infty \alpha^{r}\pi(\alpha)\,d\alpha.
+      \]
+      The lower incomplete Gamma function is the unnormalized function
+      \[
+      \gamma(x,y)=\int_0^y z^{x-1}e^{-z}\,dz,
+      \]
+      and \(\Gamma\) is the usual Gamma function.
+
+      Equation (11) of the main text writes the same prior-ratio factor as \(C(n,t,s)\) with numerator exponent \(\alpha^s\) and denominator exponent \(\alpha^t\); the supplement's notation \(C(n,t,t+s)\) has numerator exponent \(t+s\). The factor \(\{\log(n/(1+\epsilon))\}^{-s}\) in the upper bound is the proof-evaluated form of the printed \(\{\log n/(1+\epsilon)\}^{s}\), equivalently as denominator \(\{\log(n/(1+\epsilon))\}^{s}\), and not \((\log n)/(1+\epsilon)\). The notation \(\log\{n/(1+\epsilon)\}^{-1}\) means \(1/\log(n/(1+\epsilon))\), not \(\log((n/(1+\epsilon))^{-1})\).
+
+      <!-- formalization-clarifications:v1:bcb959988c851d64642362e6a873c751b495790878a6ae9fa4794dec41a1dd43 -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The source’s intended order is: first fix the positive integer \(t\) (the number of mixture components); then fix the prior density \(\pi\) satisfying A1 and A2, choosing A2 witnesses \(\epsilon_0,\delta,\beta>0\) (the statement’s \(\epsilon\) may subsequently be reduced to a smaller positive value while keeping the same \(\delta,\beta\)); only after these choices may one choose \(F,G>0\); then the inequality is asserted for all positive integers \(n,s\) with \(0<s\le n-t\). Thus \(F,G\) may depend on \(t\), on the chosen prior data, and on the A2/reduced \(\epsilon,\delta,\beta\), but not on \(n\) or \(s\). In particular, \(n\) or \(s\) must not be Lean parameters preceding the existential constants. The explicit \(G=4\delta^{2}/(\epsilon^{t+\beta}\gamma(t+\beta,\epsilon\log 2))\) in Proposition \ref{prop:Prior} depends on the final reduced \(\epsilon\) (the proof chooses \(\epsilon<\min\{\epsilon_0,1/2\}\) and also proof-internal B1–B3); those B1–B3 are proof devices, not theorem assumptions. \(F\) is only asserted to exist in the theorem statement; the original supplement proof writes “choose \(F=1/((M+1)\delta^2\gamma(t+\beta))\)”, which is ambiguous/typo-like because \(\gamma\) is elsewhere a two-argument incomplete Gamma function, while the repaired target proof uses \(\Gamma(t+\beta)\). So the exact \(F\)-formula is not a reliable source fact; the source statement fixes only existence and positivity of \(F\). \(M\) comes from the tail-control lemma and may depend on the final \(\epsilon,t,\pi\), but not on \(n,s\). No A3 moment condition is assumed; \(E(\alpha^{t+s-1})\) may be infinite, and the target proof treats the upper bound in the extended \(+\infty\) sense. The source leaves the exact \(F\), and the precise extended-real convention in the statement, implicit.
+
+      2. Norms and mathematical objects. No norm is used: there is no Euclidean, sup, operator, Frobenius, normalized or unscaled norm in this result. The ambient variable is \(\alpha\in(0,\infty)\), and integrals for \(C\) and \(E\) are Lebesgue integrals against \(\pi(\alpha)\,d\alpha\) over the indicated subsets of \((0,\infty)\). The rising factorial is explicitly \(\alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1)\), not an ordinary power and not a falling factorial. The function \(\gamma(x,y)=\int_0^y z^{x-1}e^{-z}\,dz\) is the unnormalized lower incomplete Gamma function, not the regularized one; \(\Gamma\) is the usual Gamma function. The prior-ratio object must be kept exactly: the supplement’s \(C(n,t,t+s)\) has numerator exponent \(\alpha^{t+s}\) and denominator exponent \(\alpha^t\), whereas the main text’s \(C(n,t,s)\) has numerator \(\alpha^s\); do not silently identify them without shifting \(s\). The unconditional prior moment in the upper bound is \(E(\alpha^{t+s-1})=\int \alpha^{t+s-1}\pi(\alpha)\,d\alpha\), not a conditional moment. Parentheses matter: the lower factor is \(\{\log n+1\}^{s}=(\log n+1)^s\), and the upper factor is \(\{\log(n/(1+\epsilon))\}^{-s}\), equivalently denominator \(\{\log(n/(1+\epsilon))\}^{s}\); it is not \((\log n)/(1+\epsilon)\), not \(\log((n/(1+\epsilon))^{-1})\), and \(\log\{n/(1+\epsilon)\}^{-1}\) means \(1/\log(n/(1+\epsilon))\). The source proof of Lemma \ref{main} confirms this using \(c=(1+\epsilon)^{-1}\) and \(\log(cn)=\log(n/(1+\epsilon))\). The base of \(\log\) is not explicitly specified in the excerpt; mathematical convention would suggest natural log, but the source itself does not state it.
+
+      3. Asymptotics. The target theorem itself is not an \(O,o\), or probability-limit statement: it gives a finite-\(n\) deterministic two-sided inequality for every admissible pair \(n,s\), with \(F,G\) uniform over the whole range \(0<s\le n-t\). Do not convert it into “for large \(n\)” or into a statement with a probability filter. The broader paper uses \(n\to\infty\) and convergence in \(P^{(\infty)}\)-probability for posterior consistency of \(K_n\), and main-text Lemma \ref{sufficient} relates cluster-probability ratios to that convergence, but those asymptotic/probabilistic notions are not hypotheses of the \(C(n,t,t+s)\) bound. The source’s comment that for fixed \(s\) not depending on \(n\) the factor \(C\) decreases logarithmically is an interpretive asymptotic consequence, not part of the formal theorem. Uniformity is over \(n,s\) in the stated integer range; the expression \(E(\alpha^{t+s-1})\) varies with \(s\), but \(G\) does not depend on \(s\). The proof’s \(M\), and hence \(F\), is chosen independently of \(n\), but may depend on \(\epsilon,t,\pi\). Source-side discrepancy to preserve: original Lemma \ref{main} is stated only for \(n-t>s\ge1\), while the target theorem uses \(0<s\le n-t\); the target proof claims the lemma’s proof extends to \(s=n-t\), but that boundary is a proof-based extension, not an explicit statement of the original supplement lemma. Original Lemma \ref{lower_tech} is stated for every \(n\ge1\), but the target proof replaces it by a tail-control lemma only for \(n\ge t+1\) and remarks that the all-\(n\ge1\) version is not covered under A1–A2 alone; the target range \(s\le n-t\) does imply \(n\ge t+1\).
+
+      4. Omitted definitions and side conditions. A1 means \(\pi\) is absolutely continuous with respect to Lebesgue measure and is identified with its density. A2 is only a two-sided polynomial bound on a right-neighborhood of the origin, \((0,\epsilon_0)\); it imposes no tail, support, or moment condition, and A3 is explicitly not assumed in Proposition \ref{prop:Prior}. The integers \(t,n,s\) satisfy \(t\ge1\), \(n,s\ge1\), and \(0<s\le n-t\), which implies \(n\ge t+1\ge2\); this makes the logs positive in the proof and makes \(\epsilon\log n>0\). The source leaves some proof details to be recovered: \(C(n,t,t+s)\) is finite and positive under A1–A2 in the admitted range (target proof Lemma 0), the denominator is nonzero, and if \(E(\alpha^{t+s-1})=+\infty\) the upper inequality is interpreted as trivial in the extended sense. Do not add a finite-moment hypothesis as a source assumption just to keep the inequality real-valued; use an extended nonnegative formalization or a conditional finite-real interpretation. No random vectors, partition sets \(\tau_s(n)\), or events are needed to state this \(C\)-bound; those belong to the surrounding mixture-model application. Owner/result: Proposition \ref{prop:Prior} owns the full \(C(n,t,t+s)\) inequality. Supplement Lemma \ref{main} (Reference R1) owns only the truncated restricted-ratio bound and in the original source is restricted to \(n-t>s\ge1\). Supplement Lemma \ref{lower_tech} (Reference R2) owns the existential tail constant \(M\), but its original “every \(n\ge1\)” statement should not be used under A1–A2 alone for the target proof; the proved usable range in the target is \(n\ge t+1\). The lower-bound display in R2 is the surrounding proposition proof combining Lemma \ref{main} and Lemma \ref{lower_tech}, not a separate universal theorem.
+      <!-- /formalization-clarifications -->
+
+      Let \(t\) be fixed (in the source context, \(t\) is the number of mixture components, hence a positive integer), and let \(n,s\) be positive integers. Suppose the prior density \(\pi\) satisfies A1 and A2 with parameters \(\epsilon,\delta,\beta>0\). Then there exist constants \(F,G>0\) such that for all positive integers \(n,s\) with
+      \[
+      0<s\le n-t,
+      \]
+      one has
+      \[
+      F\,\frac{\gamma(t+s+\beta,\epsilon\log n)}{\{\log n+1\}^{s}}
+      \le C(n,t,t+s)
+      \le
+      \frac{G\,s}{\epsilon^{s}}\,
+      E(\alpha^{t+s-1})\,
+      \frac{\gamma(t+s+\beta,\epsilon\log n)}
+      {\{\log(n/(1+\epsilon))\}^{s}}.
+      \]
+      After reducing \(\epsilon\) if necessary to \(0<\epsilon<1\), which is allowed because A2 remains true with the same \(\delta,\beta\) on \((0,\epsilon)\), one may take
+      \[
+      G=\frac{4\delta^{2}}{\epsilon^{t+\beta}\,\gamma(t+\beta,\epsilon\log 2)}.
+      \]
+    assumptions:
+      - |-
+        Throughout, \(t\) is fixed as in the source context, namely the number of mixture components, hence a positive integer; \(n\) and \(s\) are positive integers. The prior \(\pi\) is a probability density on \((0,\infty)\) with respect to Lebesgue measure.
+
+        A1: \(\pi\) is absolutely continuous with respect to Lebesgue measure, with density still denoted \(\pi\).
+
+        A2: there exist \(\epsilon,\delta,\beta>0\) such that
+        \[
+        \frac{1}{\delta}\alpha^{\beta}\le \pi(\alpha)\le \delta\alpha^{\beta}
+        \qquad\text{for every }\alpha\in(0,\epsilon).
+        \]
+        A2 controls only a right-neighborhood of the origin and imposes no tail or moment condition. No A3 moment condition is assumed.
+    proof_body: |-
+      #### Two-sided bounds for the prior ratio \(C(n,t,t+s)\)
+
+      #### 1. Setting, finiteness, and the admissible reduction of \(\epsilon\)
+
+      Let \(t\ge 1\) be a fixed integer (in the source context, the number of mixture components), and let \(n,s\) be positive integers with
+      \[
+      1\le s\le n-t, \tag{1}
+      \]
+      so in particular \(n\ge t+1\ge 2\). The prior density \(\pi\) satisfies A1 and A2; we fix witnesses \(\epsilon_0,\delta,\beta>0\) with
+      \[
+      \frac1\delta\,\alpha^{\beta}\le\pi(\alpha)\le\delta\,\alpha^{\beta}
+      \qquad\text{for every }\alpha\in(0,\epsilon_0). \tag{2}
+      \]
+      Recall the rising factorial \(\alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1)\), the unnormalized lower incomplete Gamma function \(\gamma(x,y)=\int_0^y z^{x-1}e^{-z}\,dz\), and \(E(\alpha^{r})=\int_0^\infty\alpha^{r}\pi(\alpha)\,d\alpha\). Assumption A1 is used only to legitimize writing the integrals below as Lebesgue integrals against the density \(\pi\); assumption A2 is used exclusively on \((0,\epsilon)\), where (2) holds, and no tail or moment condition is assumed anywhere (the case of an infinite moment is discussed in Section 3).
+
+      For a truncation level \(\epsilon>0\) introduce
+      \[
+      A_s=\int_0^\epsilon\frac{\alpha^{t+s}}{\alpha^{(n)}}\pi(\alpha)\,d\alpha,\qquad
+      B=\int_0^\epsilon\frac{\alpha^{t}}{\alpha^{(n)}}\pi(\alpha)\,d\alpha,
+      \]
+      \[
+      \widetilde A_s=\int_\epsilon^\infty\frac{\alpha^{t+s}}{\alpha^{(n)}}\pi(\alpha)\,d\alpha,\qquad
+      \widetilde B=\int_\epsilon^\infty\frac{\alpha^{t}}{\alpha^{(n)}}\pi(\alpha)\,d\alpha,
+      \]
+      so that
+      \[
+      C(n,t,t+s)=\frac{A_s+\widetilde A_s}{B+\widetilde B}. \tag{3}
+      \]
+
+      **Lemma 0 (finiteness and positivity).** *Assume (1). Then all four integrals in (3) are finite and satisfy \(A_s,B\in(0,\infty)\), \(\widetilde A_s,\widetilde B\in[0,\infty)\). Hence \(C(n,t,t+s)\in(0,\infty)\).*
+
+      *Proof.* Since \(\alpha^{(n)}=\alpha^{n}\prod_{j=1}^{n-1}(1+j/\alpha)\ge\alpha^{n}\) for \(\alpha>0\), we have, for \(\alpha\ge1\),
+      \[
+      \frac{\alpha^{t}}{\alpha^{(n)}}\le\alpha^{t-n}\le 1,\qquad
+      \frac{\alpha^{t+s}}{\alpha^{(n)}}\le\alpha^{t+s-n}\le 1
+      \]
+      (the last inequality uses \(s\le n-t\)). For \(0<\alpha\le1\), \(\alpha^{(n)}=\alpha\prod_{j=1}^{n-1}(\alpha+j)\ge\alpha\,(n-1)!\), hence
+      \[
+      \frac{\alpha^{t}}{\alpha^{(n)}}\le\frac{\alpha^{t-1}}{(n-1)!},\qquad
+      \frac{\alpha^{t+s}}{\alpha^{(n)}}\le\frac{\alpha^{t+s-1}}{(n-1)!}.
+      \]
+      By (2), \(\alpha^{t-1}\pi(\alpha)\le\delta\alpha^{t+\beta-1}\) and \(\alpha^{t+s-1}\pi(\alpha)\le\delta\alpha^{t+s+\beta-1}\) on \((0,\epsilon_0)\), which are integrable near \(0\) since \(t+\beta-1>-1\) and \(t+s+\beta-1>-1\); on \((\epsilon_0,1)\) the functions \(\alpha^{t-1},\alpha^{t+s-1}\) are bounded. Hence
+      \[
+      A_s+\widetilde A_s\le \int_0^1\frac{\alpha^{t+s-1}}{(n-1)!}\,\pi\,d\alpha+\int_1^\infty\pi\,d\alpha<\infty,
+      \]
+      and the same bound with \(t+s\) replaced by \(t\) gives \(B+\widetilde B<\infty\). Finally, by (2),
+      \[
+      B\ge\frac1\delta\int_0^\epsilon\frac{\alpha^{t+\beta}}{\alpha^{(n)}}\,d\alpha>0,
+      \]
+      and \(A_s>0\) likewise. \(\square\)
+
+      **Reduction of \(\epsilon\).** Replacing the A2 witness \(\epsilon_0\) by a smaller number keeps (2) valid with the *same* \(\delta,\beta\), because (2) is a statement about a right neighbourhood of the origin. We shall use this freedom. Fix once and for all a number
+      \[
+      \epsilon\in\bigl(0,\min\{\epsilon_0,\tfrac12\}\bigr]
+      \tag{4}
+      \]
+      such that
+      \[
+      \text{(B1)}\ \ \frac{\delta\,\epsilon^{\beta+1}}{\beta+1}\le\frac12,
+      \qquad
+      \text{(B2)}\ \ \frac{\delta^{2}e^{-1}(t+\beta)}{t+1+\beta}\,\epsilon^{-(\beta+1)}\ge 2,
+      \qquad
+      \text{(B3)}\ \ \frac{\delta^{2}e^{-1}(t+\beta)}{(t+1+\beta)(\log 2)^{t+\beta}}\,\epsilon^{-(t+2\beta+1)}\ge 2.
+      \tag{5}
+      \]
+      Such an \(\epsilon\) exists: as \(\epsilon\downarrow0\) the left-hand side of (B1) tends to \(0\), whereas the left-hand sides of (B2) and (B3) tend to \(+\infty\), since \(\beta+1>0\) and \(t+2\beta+1>0\). From now on \(\epsilon\) is fixed subject to (2) on \((0,\epsilon)\) and to (4), (5). Set
+      \[
+      L_n=\log\frac{n}{1+\epsilon},\qquad C_0=\gamma(t+\beta,\epsilon\log 2). \tag{6}
+      \]
+      Since \(n\ge2\) and \(0<\epsilon<\tfrac12<1\), we have \(n/(1+\epsilon)>1\), so \(L_n>0\); also \(\epsilon\log 2>0\), so \(C_0\in(0,\infty)\). Moreover \(x\mapsto\gamma(x_0,x)\) is nondecreasing on \([0,\infty)\) for every \(x_0>0\), and \(\epsilon\log n\ge\epsilon\log 2\) because \(n\ge2\), hence
+      \[
+      \gamma(t+\beta,\epsilon\log n)\ge C_0>0. \tag{7}
+      \]
+
+      #### 2. Two auxiliary estimates
+
+      **Lemma 1 (restricted ratio; cf. Lemma \ref{main} of the supplement, Reference R1).** *Assume A1 and A2 with parameters \(\epsilon,\delta,\beta\), and let \(1\le s\le n-t\). Then*
+      \[
+      \frac{\gamma(t+s+\beta,\epsilon\{\log n+1\})}{\delta^{2}\,\gamma(t+\beta,\epsilon\{\log n+1\})}
+      \{\log n+1\}^{-s}
+      \le\frac{A_s}{B}\le
+      \frac{\delta^{2}\,\gamma(t+s+\beta,\epsilon\log n)}{\gamma(t+\beta,\epsilon\log n)}
+      \Bigl\{\log\frac{n}{1+\epsilon}\Bigr\}^{-s}. \tag{8}
+      \]
+
+      *Proof.* Put \(f_n(\alpha)=\alpha^{t+\beta}(\alpha^{(n)})^{-1}\mathbf 1_{(0,\epsilon)}(\alpha)\) and let \(p_n=f_n/\int_0^\epsilon f_n\); this is a probability density on \((0,\epsilon)\), since \(0<\int_0^\epsilon f_n<\infty\) (indeed \(f_n(\alpha)\le\alpha^{t+\beta-1}/(n-1)!\) and \(t+\beta>0\)). Applying (2) to numerator and denominator of \(A_s/B\) gives
+      \[
+      \delta^{-2}\,E_n(\alpha^{s})\ \le\ \frac{A_s}{B}\ \le\ \delta^{2}\,E_n(\alpha^{s}),
+      \qquad
+      E_n(\alpha^{s}):=\int_0^\epsilon\alpha^{s}p_n(\alpha)\,d\alpha . \tag{9}
+      \]
+
+      We use the following standard consequence of a monotone likelihood ratio.
+
+      *Fact.* Let \(p,q\) be positive densities on an interval \(I\), and suppose \(q/p\) is nondecreasing. Then \(\int u\,p\le\int u\,q\) for every nondecreasing \(u\ge0\). Indeed, for independent \(X,Y\) with density \(p\),
+      \[
+      0\le \Bigl(\tfrac{q(X)}{p(X)}-\tfrac{q(Y)}{p(Y)}\Bigr)\bigl(u(X)-u(Y)\bigr)
+      \quad\text{a.s.},
+      \]
+      so the expectation is nonnegative, i.e. \(2\operatorname{Cov}_p(u,q/p)\ge0\), which is \(E_q(u)\ge E_p(u)\).
+
+      *Comparison densities.* Let \(c=(1+\epsilon)^{-1}\) and define on \((0,\epsilon)\)
+      \[
+      g(\alpha)\propto (cn)^{-\alpha}\alpha^{t+\beta-1},\qquad
+      f(\alpha)\propto (en)^{-\alpha}\alpha^{t+\beta-1}.
+      \]
+      Both are positive densities on \((0,\epsilon)\), and
+      \[
+      \int_0^\epsilon (an)^{-\alpha}\alpha^{t+\beta-1}d\alpha
+      =\{\log(an)\}^{-(t+\beta)}\gamma(t+\beta,\epsilon\log(an))>0\quad(a>0).
+      \tag{10}
+      \]
+
+      *Upper bound in (8).* For \(0<\alpha\le\epsilon\),
+      \[
+      \frac{g(\alpha)}{p_n(\alpha)}\ \propto\ (cn)^{-\alpha}\prod_{j=1}^{n-1}(\alpha+j),
+      \]
+      hence
+      \[
+      \frac{d}{d\alpha}\log\frac{g(\alpha)}{p_n(\alpha)}
+      =-\log\frac{n}{1+\epsilon}+\sum_{j=1}^{n-1}\frac1{\alpha+j}
+      \ge-\log\frac{n+\epsilon}{1+\epsilon}+\sum_{j=1}^{n-1}\frac1{j+\epsilon}>0,
+      \]
+      because \(n\le n+\epsilon\) and \(\sum_{j=1}^{n-1}(j+\epsilon)^{-1}>\int_1^n(x+\epsilon)^{-1}dx=\log\frac{n+\epsilon}{1+\epsilon}\). By the Fact, since \(\alpha\mapsto\alpha^{s}\) is nondecreasing on \((0,\epsilon)\) (here \(s\ge1\)),
+      \[
+      E_n(\alpha^{s})\le\int_0^\epsilon\alpha^{s}g(\alpha)\,d\alpha
+      =\{\log(cn)\}^{-s}\,
+      \frac{\gamma(t+s+\beta,\epsilon\log(cn))}{\gamma(t+\beta,\epsilon\log(cn))},
+      \qquad \log(cn)=\log\frac{n}{1+\epsilon}.
+      \]
+      The function \(x\mapsto\gamma(N+s,x)/\gamma(N,x)\) is nondecreasing on \((0,\infty)\): its derivative has the sign of \(x^{s}\gamma(N,x)-\gamma(N+s,x)\ge0\), because the integrand \(z^{s}\) is bounded by \(x^{s}\) on \((0,x)\). Since \(\epsilon\log(cn)\le\epsilon\log n\), we may replace \(\epsilon\log(cn)\) by \(\epsilon\log n\) in the ratio; combined with (9) this gives the right inequality of (8).
+
+      *Lower bound in (8).* For \(0<\alpha\le\epsilon\),
+      \[
+      \frac{p_n(\alpha)}{f(\alpha)}\ \propto\ (en)^{\alpha}\Bigl(\prod_{j=1}^{n-1}(\alpha+j)\Bigr)^{-1},
+      \qquad
+      \frac{d}{d\alpha}\log\frac{p_n(\alpha)}{f(\alpha)}
+      =\log(en)-\sum_{j=1}^{n-1}\frac1{\alpha+j}
+      \ge \log n+1-\sum_{j=1}^{n-1}\frac1j\ge0,
+      \]
+      where we used \(\sum_{j=1}^{n-1}j^{-1}\le\log(n-1)+1\le\log n+1\). Hence \(p_n/f\) is nondecreasing, and the Fact gives, using (10) with \(a=e\),
+      \[
+      E_n(\alpha^{s})\ge\int_0^\epsilon\alpha^{s}f(\alpha)\,d\alpha
+      =\{\log(en)\}^{-s}\frac{\gamma(t+s+\beta,\epsilon\log(en))}{\gamma(t+\beta,\epsilon\log(en))}.
+      \]
+      As \(\log(en)=\log n+1\), this and (9) give the left inequality of (8). \(\square\)
+
+      *Remark.* The proof of Lemma 1 uses only \(s\ge1\) (monotonicity of \(\alpha\mapsto\alpha^{s}\)) and \(n\ge2\); the constraint \(s\le n-t\) is never used. Hence (8) holds on the full range (1), including the boundary case \(s=n-t\). This is the point where the present argument extends Lemma \ref{main} of the supplement, which is stated only for \(n-t>s\).
+
+      **Lemma 2 (tail domination; the form of Lemma \ref{lower_tech} needed here, Reference R2).** *Assume A1 and A2 with parameters \(\epsilon,\delta,\beta\). Then there exists \(M=M(\epsilon,t,\pi)\in(0,\infty)\), independent of \(n\), such that for every integer \(n\ge t+1\)*
+      \[
+      \widetilde B=\int_\epsilon^\infty\frac{\alpha^{t}}{\alpha^{(n)}}\pi(\alpha)\,d\alpha
+      \ \le\ M\int_0^\epsilon\frac{\alpha^{t}}{\alpha^{(n)}}\pi(\alpha)\,d\alpha=M\,B . \tag{11}
+      \]
+
+      *Proof.* By (2), \(D:=\int_0^\epsilon\alpha^{t}\pi(\alpha)\,d\alpha\ge\delta^{-1}\epsilon^{t+\beta+1}/(t+\beta+1)\in(0,\infty)\). For \(0<\alpha\le\epsilon\) we have \(\alpha^{(n)}\le\epsilon^{(n)}\), hence
+      \[
+      B=\int_0^\epsilon\frac{\alpha^{t}}{\alpha^{(n)}}\pi\,d\alpha\ \ge\ \frac1{\epsilon^{(n)}}\int_0^\epsilon\alpha^{t}\pi\,d\alpha=\frac{D}{\epsilon^{(n)}}. \tag{12}
+      \]
+      Fix \(n\ge t+1\) and put \(C_{t+1}=\prod_{j=0}^{t}(\epsilon+j)\in(0,\infty)\). For \(\alpha\ge\epsilon\),
+      \[
+      \frac{\epsilon^{(n)}}{\alpha^{(n)}}
+      =\prod_{j=0}^{n-1}\frac{\epsilon+j}{\alpha+j}
+      =\Bigl[\prod_{j=0}^{t}\frac{\epsilon+j}{\alpha+j}\Bigr]\Bigl[\prod_{j=t+1}^{n-1}\frac{\epsilon+j}{\alpha+j}\Bigr]
+      \le \frac{C_{t+1}}{\alpha^{t+1}},
+      \]
+      because \(\alpha+j\ge\alpha\) for every \(j\ge0\) and \(\epsilon+j\le\alpha+j\) for every \(j\ge t+1\) (as \(\alpha\ge\epsilon\)). Therefore, using \(\alpha\ge\epsilon\),
+      \[
+      \widetilde B=\frac1{\epsilon^{(n)}}\int_\epsilon^\infty
+      \frac{\epsilon^{(n)}}{\alpha^{(n)}}\alpha^{t}\pi\,d\alpha
+      \ \le\ \frac{C_{t+1}}{\epsilon^{(n)}}\int_\epsilon^\infty\alpha^{-1}\pi(\alpha)\,d\alpha
+      \ \le\ \frac{C_{t+1}}{\epsilon\,\epsilon^{(n)}}\int_\epsilon^\infty\pi(\alpha)\,d\alpha
+      \ \le\ \frac{C_{t+1}}{\epsilon\,\epsilon^{(n)}} .
+      \]
+      Combining this with (12) yields (11) with \(M=C_{t+1}/(\epsilon D)\). \(\square\)
+
+      *Remark.* The supplement states Lemma \ref{lower_tech} for all \(n\ge1\). Under A1–A2 alone the range \(n\le t\) is not covered by the same argument: for \(t\ge2\) and \(n=1\) one has \(\alpha^{t}/\alpha^{(n)}=\alpha^{t-1}\), so the tail integral is \(\int_\epsilon^\infty\alpha^{t-1}\pi(\alpha)\,d\alpha\), which can be infinite under A2 alone. For instance, with \(t=2\) take a density with \(\pi(\alpha)\asymp\alpha^{\beta}\) as \(\alpha\downarrow0\) and \(\pi(\alpha)\asymp\alpha^{-2}\) as \(\alpha\to\infty\): it satisfies A1–A2 but \(\int^{\infty}\alpha\,\pi(\alpha)\,d\alpha=\infty\), while \(B=\int_0^\epsilon\alpha\pi(\alpha)\,d\alpha<\infty\), so no constant \(M\) can work. Lemma 2 provides the range \(n\ge t+1\), which is the only one needed below because \(1\le s\le n-t\), and its proof requires no tail-moment condition.
+
+      #### 3. The upper bound
+
+      We prove
+      \[
+      C(n,t,t+s)\ \le\ T:=G\,\frac{s}{\epsilon^{s}}\,E(\alpha^{t+s-1})\,
+      \frac{\gamma(t+s+\beta,\epsilon\log n)}{L_n^{\,s}},
+      \qquad
+      G=\frac{4\delta^{2}}{\epsilon^{t+\beta}\,C_0}, \tag{13}
+      \]
+      with \(C_0=\gamma(t+\beta,\epsilon\log 2)\) as in (6). If \(E(\alpha^{t+s-1})=+\infty\), then \(T=+\infty\) (as \(\gamma(t+s+\beta,\epsilon\log n)>0\) and \(G>0\)) while \(C(n,t,t+s)<\infty\) by Lemma 0, so (13) is void; hence we assume throughout this section that \(E(\alpha^{t+s-1})<\infty\).
+
+      **Step 1: a lower bound for the mass away from the origin.** By (2) and (B1),
+      \[
+      m_\epsilon:=\int_0^\epsilon\pi(\alpha)\,d\alpha\le\frac{\delta\epsilon^{\beta+1}}{\beta+1}\le\frac12,
+      \qquad\text{hence}\qquad
+      \int_\epsilon^\infty\pi(\alpha)\,d\alpha=1-m_\epsilon\ge\frac12. \tag{14}
+      \]
+      Since \(t+s-1\ge1>0\) and \(\alpha\ge\epsilon\) on the range of integration,
+      \[
+      E(\alpha^{t+s-1})\ \ge\ \int_\epsilon^\infty\alpha^{t+s-1}\pi(\alpha)\,d\alpha
+      \ \ge\ \epsilon^{t+s-1}\!\!\int_\epsilon^\infty\!\!\pi(\alpha)\,d\alpha
+      \ \ge\ \frac{\epsilon^{t+s-1}}{2}. \tag{15}
+      \]
+
+      **Step 2: the restricted part of \(C\).** By Lemma 1 and (7),
+      \[
+      \frac{A_s}{B}\ \le\ \frac{\delta^{2}\gamma(t+s+\beta,\epsilon\log n)}
+      {\gamma(t+\beta,\epsilon\log n)}\,L_n^{-s}
+      \ \le\ \frac{\delta^{2}\gamma(t+s+\beta,\epsilon\log n)}{C_0\,L_n^{\,s}}. \tag{16}
+      \]
+      On the other hand, by (15),
+      \[
+      \frac{T}{2}=\frac{2\delta^{2}s}{\epsilon^{t+\beta+s}}\,
+      E(\alpha^{t+s-1})\,\frac{\gamma(t+s+\beta,\epsilon\log n)}{C_0L_n^{\,s}}
+      \ \ge\ \frac{\delta^{2}s}{\epsilon^{\beta+1}}\,
+      \frac{\gamma(t+s+\beta,\epsilon\log n)}{C_0L_n^{\,s}} .
+      \]
+      Since \(s\ge1\) and \(\epsilon<1\), the factor \(s\epsilon^{-(\beta+1)}\) is at least \(1\); comparing with (16),
+      \[
+      \frac{A_s}{B}\ \le\ \frac{T}{2}. \tag{17}
+      \]
+
+      **Step 3: the tail part of \(C\).** Put \(q=\widetilde A_s/\widetilde B\) if \(\widetilde B>0\), and \(q=0\) otherwise. Since \(A_s+\widetilde A_s=B\,(A_s/B)+\widetilde B\,q\),
+      \[
+      C(n,t,t+s)=\frac{B\,(A_s/B)+\widetilde B\,q}{B+\widetilde B}\ \le\ \frac{A_s}{B}+q . \tag{18}
+      \]
+      We show \(q\le T/2\). Assume \(\widetilde B>0\); the case \(\widetilde B=0\) is trivial.
+
+      The function \(g(\alpha):=1/\prod_{j=1}^{n-1}(\alpha+j)=\alpha/\alpha^{(n)}\) is positive and nonincreasing on \((0,\infty)\), hence on \((\epsilon,\infty)\); \(\alpha\mapsto\alpha^{s}\) is nondecreasing there. Let
+      \[
+      \mu(d\alpha)=\alpha^{t-1}\pi(\alpha)\,d\alpha\quad\text{on }(\epsilon,\infty).
+      \]
+      Since \(\alpha^{t-1}\le 1+\alpha^{t+s-1}\) for \(\alpha>0\), we have \(\mu((\epsilon,\infty))\le 1+E(\alpha^{t+s-1})<\infty\), and \(\mu((\epsilon,\infty))>0\) because \(\widetilde B>0\). Moreover \(\widetilde A_s=\int\alpha^{s}g\,d\mu\) and \(\widetilde B=\int g\,d\mu\).
+
+      *Chebyshev's integral inequality.* If \(\mu\) is a finite nonnegative measure and \(f,g\) are nonnegative with \((f(x)-f(y))(g(x)-g(y))\le0\) for \(\mu\)-almost all \(x,y\), then \(\mu(\Omega)\int fg\,d\mu\le\bigl(\int f\,d\mu\bigr)\bigl(\int g\,d\mu\bigr)\). Indeed, integrating the nonpositive function \((f(x)-f(y))(g(x)-g(y))\) with respect to \(\mu(dx)\mu(dy)\) gives \(2\mu(\Omega)\int fg\,d\mu-2\int f\,d\mu\int g\,d\mu\le0\).
+
+      Applying this with \(f=\alpha^{s}\) (nondecreasing) and \(g\) (nonincreasing),
+      \[
+      q=\frac{\int\alpha^{s}g\,d\mu}{\int g\,d\mu}
+      \ \le\ \frac{\int\alpha^{s}\,d\mu}{\mu((\epsilon,\infty))}
+      =\frac{\int_\epsilon^\infty\alpha^{t+s-1}\pi\,d\alpha}
+      {\int_\epsilon^\infty\alpha^{t-1}\pi\,d\alpha}=:R_{\mathrm{tail}} . \tag{19}
+      \]
+      Next, by (14) and \(\alpha\ge\epsilon\) on \((\epsilon,\infty)\),
+      \[
+      \int_\epsilon^\infty\alpha^{t-1}\pi\,d\alpha\ \ge\ \epsilon^{t-1}\int_\epsilon^\infty\pi\,d\alpha\ \ge\ \frac{\epsilon^{t-1}}{2},
+      \]
+      while \(\int_\epsilon^\infty\alpha^{t+s-1}\pi\,d\alpha\le E(\alpha^{t+s-1})\). Inserting these bounds into (19),
+      \[
+      q\ \le\ R_{\mathrm{tail}}\ \le\ \frac{E(\alpha^{t+s-1})}{\epsilon^{t-1}/2}
+      =2\,\epsilon^{-(t-1)}\,E(\alpha^{t+s-1}). \tag{20}
+      \]
+
+      **Step 4: absorption of the tail term.** By (15) and the definition of \(T\), the inequality
+      \[
+      2\,\epsilon^{-(t-1)}\,E(\alpha^{t+s-1})\ \le\ \frac{T}{2} \tag{21}
+      \]
+      is equivalent to
+      \[
+      1\ \le\ Q_n(s):=\frac{\delta^{2}s\,\gamma(t+s+\beta,\epsilon\log n)}
+      {\epsilon^{\beta+1+s}\,C_0\,L_n^{\,s}} . \tag{22}
+      \]
+      (Both sides of (21) are positive multiples of \(E(\alpha^{t+s-1})\): the left side is \(2\epsilon^{-(t-1)}E(\alpha^{t+s-1})\), while by (13) the right side \(T/2\) equals \(\frac{2\delta^{2}s}{\epsilon^{t+\beta+s}C_0L_n^{\,s}}E(\alpha^{t+s-1})\gamma(t+s+\beta,\epsilon\log n)\). Dividing by the positive factor \(2\epsilon^{-(t-1)}E(\alpha^{t+s-1})\) gives exactly \(Q_n(s)\ge1\).) We verify (22) for all \(n\ge t+1\) and \(1\le s\le n-t\), distinguishing two cases. We use the elementary bounds, valid for \(N>0\),
+      \[
+      \gamma(N,x)\ge e^{-1}\frac{x^{N}}{N}\ \ (0<x\le1),
+      \qquad
+      \gamma(N,x)\le\frac{x^{N}}{N}\ \ (x>0),
+      \qquad
+      \gamma(N,x)\ge\gamma(N,1)\ge\frac{e^{-1}}{N}\ \ (x\ge1).
+      \tag{23}
+      \]
+
+      *Case A: \(\epsilon\log n\le1\).* By the first bound in (23) applied to \(N=t+s+\beta\), the second applied to \(N=t+\beta\) and \(x=\epsilon\log2\), and \(L_n\le\log n\),
+      \[
+      Q_n(s)\ \ge\
+      \frac{\delta^{2}s\,e^{-1}(\epsilon\log n)^{t+s+\beta}\,(t+\beta)}
+      {(t+s+\beta)\,\epsilon^{\beta+1+s}\,(\epsilon\log 2)^{t+\beta}\,(\log n)^{s}}
+      =\frac{\delta^{2}s\,e^{-1}(t+\beta)\,(\log n)^{t+\beta}}
+      {(t+s+\beta)\,\epsilon^{\beta+1}(\log 2)^{t+\beta}} .
+      \]
+      Since \(s/(t+s+\beta)\ge1/(t+1+\beta)\) (as \(s\ge1\)) and \(\log n\ge\log2\) (as \(n\ge2\)),
+      \[
+      Q_n(s)\ \ge\ \frac{\delta^{2}e^{-1}(t+\beta)}{(t+1+\beta)\,\epsilon^{\beta+1}}\ \ge\ 2
+      \]
+      by (B2). Hence (22) holds in Case A.
+
+      *Case B: \(\epsilon\log n\ge1\).* Then \(\log n\ge1/\epsilon\ge2\) by (4), so
+      \[
+      L_n=\log n-\log(1+\epsilon)\ \ge\ 2-\log\tfrac32\ >\ 1,
+      \]
+      and hence \(L_n^{\,s}\ge1\). Moreover \(\epsilon\log n\ge1\), so the third bound in (23) with \(N=t+s+\beta\) gives \(\gamma(t+s+\beta,\epsilon\log n)\ge e^{-1}/(t+s+\beta)\), while the second bound in (23) with \(N=t+\beta\), \(x=\epsilon\log2\) gives \(C_0\le(\epsilon\log 2)^{t+\beta}/(t+\beta)\). Therefore
+      \[
+      Q_n(s)\ \ge\
+      \frac{\delta^{2}s\,e^{-1}(t+\beta)}
+      {(t+s+\beta)\,\epsilon^{\beta+1+s}\,(\epsilon\log 2)^{t+\beta}}
+      =\frac{\delta^{2}s\,e^{-1}(t+\beta)}
+      {(t+s+\beta)\,\epsilon^{t+2\beta+1+s}(\log 2)^{t+\beta}} .
+      \]
+      Now \(s\ge1\), \(0<\epsilon<1\) give \(\epsilon^{-s}\ge1\), and \(s/(t+s+\beta)\ge1/(t+1+\beta)\) since \(s\ge1\); hence
+      \[
+      Q_n(s)\ \ge\ \frac{\delta^{2}e^{-1}(t+\beta)}
+      {(t+1+\beta)\,(\log 2)^{t+\beta}}\,\epsilon^{-(t+2\beta+1)}\ \ge\ 2
+      \]
+      by (B3). Hence (22) holds in Case B as well.
+
+      Combining (19), (20) and (21)–(22),
+      \[
+      q\ \le\ 2\epsilon^{-(t-1)}E(\alpha^{t+s-1})\ \le\ \frac{T}{2}. \tag{24}
+      \]
+      Finally, (18), (17) and (24) give
+      \[
+      C(n,t,t+s)\ \le\ \frac{A_s}{B}+q\ \le\ \frac{T}{2}+\frac{T}{2}=T,
+      \]
+      which is (13) with
+      \[
+      G=\frac{4\delta^{2}}{\epsilon^{t+\beta}\,\gamma(t+\beta,\epsilon\log 2)}. \tag{25}
+      \]
+
+      #### 4. The lower bound
+
+      Let \(M\) be the constant supplied by Lemma 2 for the truncation level \(\epsilon\) fixed in (4). By (11), \(B+\widetilde B\le(M+1)B\), whence, since \(A_s\le A_s+\widetilde A_s\) and \(B>0\),
+      \[
+      C(n,t,t+s)=\frac{A_s+\widetilde A_s}{B+\widetilde B}\ \ge\ \frac{A_s}{(M+1)B}
+      =\frac1{M+1}\,\frac{A_s}{B}. \tag{26}
+      \]
+      By the left inequality in Lemma 1,
+      \[
+      \frac{A_s}{B}\ \ge\
+      \frac{\gamma(t+s+\beta,\epsilon\{\log n+1\})}
+      {\delta^{2}\,\gamma(t+\beta,\epsilon\{\log n+1\})}\,
+      \{\log n+1\}^{-s}. \tag{27}
+      \]
+      Now \(\gamma(t+\beta,\epsilon\{\log n+1\})\le\Gamma(t+\beta)\), because the integrand \(z^{t+\beta-1}e^{-z}\) is nonnegative and its integral over \((0,\infty)\) equals \(\Gamma(t+\beta)\); and
+      \[
+      \gamma(t+s+\beta,\epsilon\log n)\le\gamma(t+s+\beta,\epsilon\{\log n+1\}),
+      \]
+      because \(n\ge2\) gives \(\log n\le\log n+1\) and \(\gamma(N,\cdot)\) is nondecreasing. Inserting these two monotonicity facts into (26)–(27),
+      \[
+      C(n,t,t+s)\ \ge\
+      \frac{1}{(M+1)\delta^{2}\Gamma(t+\beta)}\,
+      \frac{\gamma(t+s+\beta,\epsilon\log n)}{\{\log n+1\}^{s}} . \tag{28}
+      \]
+      Thus the lower bound of the theorem holds with
+      \[
+      F=\frac{1}{(M+1)\,\delta^{2}\,\Gamma(t+\beta)} . \tag{29}
+      \]
+
+      The constant \(F\) is finite and strictly positive and depends only on \(\epsilon,t,\delta,\beta\) and \(\pi\) (through \(M\)), not on \(n\) or \(s\).
+
+      #### 5. Conclusion
+
+      Let \(t\ge1\) and let \(n,s\) be positive integers with \(0<s\le n-t\). Starting from the A2 witnesses \(\epsilon_0,\delta,\beta\), choose \(\epsilon\in(0,\min\{\epsilon_0,\frac12\}]\) satisfying (5); A2 remains valid on \((0,\epsilon)\) with the same \(\delta\) and \(\beta\). Then, by (13) and (25), for every such pair \((n,s)\),
+      \[
+      C(n,t,t+s)\ \le\ \frac{G\,s}{\epsilon^{s}}\,
+      E(\alpha^{t+s-1})\,
+      \frac{\gamma(t+s+\beta,\epsilon\log n)}
+      {\{\log(n/(1+\epsilon))\}^{s}},
+      \qquad
+      G=\frac{4\delta^{2}}{\epsilon^{t+\beta}\,\gamma(t+\beta,\epsilon\log 2)},
+      \]
+      and, by (28) and (29),
+      \[
+      C(n,t,t+s)\ \ge\ F\,
+      \frac{\gamma(t+s+\beta,\epsilon\log n)}{\{\log n+1\}^{s}},
+      \qquad
+      F=\frac{1}{(M+1)\,\delta^{2}\,\Gamma(t+\beta)} .
+      \]
+      Both \(F\) and \(G\) are strictly positive and finite, and depend only on \(\epsilon,\delta,\beta,t\) and \(\pi\); in particular they are uniform over all admissible pairs \((n,s)\). The reduction of \(\epsilon\) performed above is exactly the reduction permitted in the statement, and the displayed \(G\) is taken with this final \(\epsilon\). If \(E(\alpha^{t+s-1})=+\infty\), the upper inequality is understood in the extended sense, with right-hand side \(+\infty\); it then holds because \(C(n,t,t+s)<\infty\) by Lemma 0 (this is the convention already used in Section 3). This is precisely the assertion of the theorem, with the constant \(G\) displayed there.
+
+      ### References
+      #### Reference R1
+      Target: Lemma \ref{main}
+      Citation: Thus from Lemma \ref{main} it holds 
+      \[
+      C(n,t,t+s) \leq \frac{\delta^2 \left\{1+E(\alpha^{t+s-1})\, \frac{t+s+\beta}{\epsilon^{t+s+\beta}}  \right\}\gamma\{t+s+\beta,\epsilon\log(n)\}}{\gamma\{t+\beta,\epsilon\log(n)\}}\{\log(n)/(1+\epsilon)\}^{-s}.
+      \]
+      For the lower bound, apply Lemma \ref{main} and Lemma \ref{lower_tech} to get
+      \[
+      C(n,t,t+s) \geq \frac{1}{M+1}\frac{\int_0^\epsilon \frac{\alpha^{t+s}}{\alpha^{(n)}}\pi(\alpha)\, \mathrm{d}\alpha}{\int_0^\epsilon \frac{\alpha^t}{\alpha^{(n)}}\pi(\alpha) \, \mathrm{d}\alpha}  \geq \frac{1}{M+1}\frac{\gamma[t+s+\beta,\epsilon\{\log(n)+1\}]}{\delta^2\gamma[t+\beta,\epsilon\{\log(n)+1\}]}\{\log(n)+1\}^{-s}.
+      \]
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+
+      Source extraction. In D1, the supplement to *Clustering consistency with Dirichlet process mixtures* by Ascolani, Lijoi, Rebaudo and Zanella, Lemma \ref{main} is stated inside the proof of Proposition \ref{prop:Prior}. It supplies the two-sided bound for the truncated prior-integral ratio over \((0,\epsilon)\). The same source proof uses the additional independently stated Lemma \ref{lower_tech}, which supplies an existential constant \(M\) controlling the tail integral over \((\epsilon,\infty)\) by the truncated integral over \((0,\epsilon)\). These two lemmas support, respectively, the upper restricted-ratio estimate and the lower-bound step appearing in the Citation. Neither lemma by itself states the full \(C(n,t,t+s)\) inequality displayed in the Citation; that full inequality is part of the surrounding Proposition \ref{prop:Prior} proof. Lemma \ref{main} is quantified in D1 for \(n-t>s\ge 1\), not for the wider range in the current target. The paired main file D2 was unavailable in the source reading; D1 explicitly recalls A2, while A1 is supplied from the surrounding task context. In the printed Lemma \ref{main}, the upper factor is \(\{\log(n)/(1+\epsilon)\}^{-s}\); its proof derives the same factor as \(\{\log(cn)\}^{-s}\) with \(c=(1+\epsilon)^{-1}\), i.e. as \([\log(n/(1+\epsilon))]^{-s}\).
+
+      ##### Lemma \ref{main}
+
+      ###### Definitions and notation
+      Let \(\pi\) be a prior probability density on \((0,\infty)\) with respect to Lebesgue measure. In the surrounding context, \(t\) is the fixed number of mixture components, and \(n,s\) are positive integers.
+
+      For \(n\ge 1\), the rising factorial is
+      \[
+      \alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1),
+      \]
+      so \(\alpha^{(n)}\) is not an ordinary power and not a falling factorial.
+
+      The lower incomplete Gamma function is the unnormalized function
+      \[
+      \gamma(x,y)=\int_0^y z^{x-1}e^{-z}\,\mathrm{d}z.
+      \]
+
+      All integrals in the statement are over the indicated subsets of \((0,\infty)\) with respect to Lebesgue measure.
+
+      ###### Assumptions
+      A1: \(\pi\) is absolutely continuous with respect to Lebesgue measure, with density still denoted by \(\pi\).
+
+      A2: there exist \(\epsilon,\delta,\beta>0\) such that, for every \(\alpha\in(0,\epsilon)\),
+      \[
+      \frac{1}{\delta}\alpha^{\beta}\le \pi(\alpha)\le \delta\alpha^{\beta}.
+      \]
+
+      Lemma \ref{main} is stated under A1 and A2. No \(A3\)-type moment condition is part of its statement.
+
+      ###### Statement
+      Under assumptions A1 and A2, for every \(n-t>s\ge 1\), it holds
+      \[
+      \frac{\gamma(t+s+\beta,\epsilon\{\log(n)+1\})}{\delta^2\gamma(t+\beta,\epsilon\{\log(n)+1\})}\{\log(n)+1\}^{-s}
+      \leq
+      \frac{\int_0^\epsilon \frac{\alpha^{t+s}}{\alpha^{(n)}}\pi(\alpha)\, \mathrm{d}\alpha}{\int_0^\epsilon \frac{\alpha^t}{\alpha^{(n)}}\pi(\alpha) \, \mathrm{d}\alpha} 
+      \leq
+      \frac{\delta^2 \gamma(t+s+\beta,\epsilon\log(n))}{\gamma(t+\beta,\epsilon\log(n))}\{\log(n)/(1+\epsilon)\}^{-s},
+      \]
+      where \(\gamma(x,y)\) is the lower incomplete Gamma function, and \(\epsilon,\delta,\beta>0\) are such that for every \(\alpha\in(0,\epsilon)\),
+      \[
+      \frac{1}{\delta}\alpha^\beta \leq \pi(\alpha) \leq \delta \alpha^\beta.
+      \]
+
+      ##### Lemma \ref{lower_tech}
+
+      ###### Definitions and notation
+      Let \(\pi\) be the prior probability density on \((0,\infty)\) with respect to Lebesgue measure, let \(t\) be the fixed number of mixture components, and let \(n\ge 1\). The rising factorial is again
+      \[
+      \alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1).
+      \]
+      The lemma asserts the existence of a constant \(M>0\) for each truncation level \(\epsilon>0\).
+
+      ###### Assumptions
+      Lemma \ref{lower_tech} occurs in the proof of Proposition \ref{prop:Prior}, so the section-standing assumptions A1 and A2 apply.
+
+      A1: \(\pi\) is absolutely continuous with respect to Lebesgue measure, with density still denoted by \(\pi\).
+
+      A2: there exist \(\epsilon_{A2},\delta,\beta>0\) such that, for every \(\alpha\in(0,\epsilon_{A2})\),
+      \[
+      \frac{1}{\delta}\alpha^{\beta}\le \pi(\alpha)\le \delta\alpha^{\beta}.
+      \]
+      Here \(\epsilon_{A2}\) denotes the A2 witness; the symbol \(\epsilon\) in Lemma \ref{lower_tech} is the separate truncation parameter quantified by \(\epsilon>0\) in the lemma statement.
+
+      The lemma’s own quantified hypotheses are \(\epsilon>0\) and \(n\ge 1\), with \(t\) fixed as in the surrounding proposition.
+
+      ###### Statement
+      For every \(\epsilon>0\), there exists \(M>0\) such that, for every \(n\ge 1\), it holds
+      \[
+      M \,\int_0^\epsilon \frac{\alpha^t}{\alpha^{(n)}}\, \pi(\alpha) \, \mathrm{d}\alpha \geq \int_\epsilon^\infty \frac{\alpha^t}{\alpha^{(n)}}\, \pi(\alpha) \, \mathrm{d}\alpha .
+      \]
+
+      #### Reference R2
+      Target: Lemma \ref{lower_tech}
+      Citation: For the lower bound, apply Lemma \ref{main} and Lemma \ref{lower_tech} to get
+      \[
+      C(n,t,t+s) \geq \frac{1}{M+1}\frac{\int_0^\epsilon \frac{\alpha^{t+s}}{\alpha^{(n)}}\pi(\alpha)\, \mathrm{d}\alpha}{\int_0^\epsilon \frac{\alpha^t}{\alpha^{(n)}}\pi(\alpha) \, \mathrm{d}\alpha}  \geq \frac{1}{M+1}\frac{\gamma[t+s+\beta,\epsilon\{\log(n)+1\}]}{\delta^2\gamma[t+\beta,\epsilon\{\log(n)+1\}]}\{\log(n)+1\}^{-s}.
+      \]
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from the supplied supplement D1, *Supplementary Materials for Clustering consistency with Dirichlet process mixtures* by Ascolani, Lijoi, Rebaudo and Zanella, file `supp.tex`. The named result is Lemma \ref{lower_tech}, located in the section “Proof of Proposition \ref{prop:Prior}” after the proof of Lemma \ref{main} and before the proof of Proposition \ref{prop:Prior}. It is a tail-control estimate for the fixed prior density \(\pi\): it supplies a constant \(M>0\) such that the mass of \(\alpha^t/\alpha^{(n)}\pi(\alpha)\) on \((\epsilon,\infty)\) is bounded by \(M\) times its mass on \((0,\epsilon)\). This supports the factor \(1/(M+1)\) in the lower-bound display of the current target. The same lower-bound display also invokes Lemma \ref{main}; its lower inequality is an independently stated source result giving the restricted-ratio incomplete-Gamma bound. Both results are jointly used in the source proof. Lemma \ref{main} also contains an upper inequality; it is retained in the Lemma \ref{main} group because it belongs to that source statement, although the R2 citation displays only the lower-bound application. No published article pagination or original theorem number is confirmed here; the labels are the supplement’s local labels. The source prints Lemma \ref{main} with the range \(n-t>s\ge1\), and this exact range is preserved below.
+
+      ##### Lemma \ref{lower_tech}
+      ###### Definitions and notation
+      \(\alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1)\) is the rising factorial, with \(n\) a positive integer. The symbol \(\pi\) denotes the fixed prior probability density on \((0,\infty)\) with respect to Lebesgue measure, and all integrals below are over the real variable \(\alpha\). The parameter \(t\) is the fixed exponent/component count inherited from the surrounding Proposition \ref{prop:Prior} context. The lemma is quantified as: for every \(\epsilon>0\), there exists \(M>0\) such that the displayed inequality holds for every \(n\ge1\). Thus \(M\) may depend on the fixed \(\pi,t\) and on \(\epsilon\), but not on \(n\).
+
+      ###### Assumptions
+      The lemma statement itself does not repeat hypotheses on \(\pi\). In its containing source proof, the ambient assumptions are:
+
+      A1: \(\pi\) is absolutely continuous with respect to Lebesgue measure, with density still denoted \(\pi\).
+
+      A2: there exist \(\epsilon_0,\delta,\beta>0\) such that
+      \[
+      \frac{1}{\delta}\alpha^{\beta}\le \pi(\alpha)\le \delta\alpha^{\beta}
+      \qquad\text{for every }\alpha\in(0,\epsilon_0).
+      \]
+      The \(\epsilon\) in Lemma \ref{lower_tech} is the arbitrary positive truncation parameter of the lemma and is separate from the A2 witness \(\epsilon_0\). No A3 moment condition is assumed for this lemma.
+
+      ###### Statement
+      For every \(\epsilon>0\), there exists \(M>0\) such that, for every \(n\ge1\), it holds
+      \[
+      M\,\int_0^\epsilon \frac{\alpha^t}{\alpha^{(n)}}\, \pi(\alpha) \, \mathrm{d}\alpha
+      \ge
+      \int_\epsilon^\infty \frac{\alpha^t}{\alpha^{(n)}}\, \pi(\alpha) \, \mathrm{d}\alpha .
+      \]
+
+      ##### Lemma \ref{main}
+      ###### Definitions and notation
+      \(\alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1)\) is the rising factorial. The symbol \(\pi\) denotes the prior density on \((0,\infty)\) with respect to Lebesgue measure. The function \(\gamma(x,y)\) is the lower incomplete Gamma function; in the current target convention,
+      \[
+      \gamma(x,y)=\int_0^y z^{x-1}e^{-z}\,dz.
+      \]
+      The parameters \(\epsilon,\delta,\beta>0\) are the A2 parameters. The factor in the source’s upper bound is printed as \(\{\log(n)/(1+\epsilon)\}^{-s}\); the source proof writes the same factor as \(\{\log(cn)\}^{-s}\) with \(c=(1+\epsilon)^{-1}\).
+
+      ###### Assumptions
+      A1: \(\pi\) is absolutely continuous with respect to Lebesgue measure, with density still denoted \(\pi\).
+
+      A2: there exist \(\epsilon,\delta,\beta>0\) such that
+      \[
+      \frac{1}{\delta}\alpha^{\beta}\le \pi(\alpha)\le \delta\alpha^{\beta}
+      \qquad\text{for every }\alpha\in(0,\epsilon).
+      \]
+      The statement is quantified for integers \(n,s\) with \(n-t>s\ge1\). No A3 moment condition is assumed for this lemma.
+
+      ###### Statement
+      Under assumptions A1 and A2, for every \(n-t>s\ge1\) it holds
+      \[
+      \frac{\gamma(t+s+\beta,\epsilon(\log(n)+1))}{\delta^2\gamma(t+\beta,\epsilon(\log(n)+1))}
+      (\log(n)+1)^{-s}
+      \le
+      \frac{\int_0^\epsilon \frac{\alpha^{t+s}}{\alpha^{(n)}}\pi(\alpha)\, \mathrm{d}\alpha}{\int_0^\epsilon \frac{\alpha^t}{\alpha^{(n)}}\pi(\alpha)\, \mathrm{d}\alpha}
+      \le
+      \frac{\delta^2 \gamma(t+s+\beta,\epsilon\log(n))}{\gamma(t+\beta,\epsilon\log(n))}
+      \left\{\frac{\log(n)}{1+\epsilon}\right\}^{-s},
+      \]
+      where \(\gamma(x,y)\) is the lower incomplete Gamma function and \(\epsilon,\delta,\beta>0\) are such that for every \(\alpha\in(0,\epsilon)\),
+      \[
+      \frac{1}{\delta}\alpha^\beta \le \pi(\alpha) \le \delta \alpha^\beta .
+      \]
+    lean_name: paper_3208f098a8f94aafb53ad0b136d14110
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

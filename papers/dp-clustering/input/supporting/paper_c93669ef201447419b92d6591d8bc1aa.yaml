@@ -1,0 +1,393 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:f5957f59-5cad-427d-a425-744d2805ff92
+    title: paper_c93669ef201447419b92d6591d8bc1aa
+    kind: lemma
+    latex_statement: |-
+      In the setting of the proof of Theorem \ref{th:ConsBounded}, let \(t\ge1\). The data are
+      \[
+      X_i\sim_{\mathrm{iid}} P=\sum_{j=1}^t p_jR_j,\qquad i=1,2,\dots,
+      \]
+      where the \(R_j\) are distinct probability measures on \(\mathbb X\), \(p_j\in(0,1)\), and \(\sum_{j=1}^t p_j=1\). Let \(k(x\mid\theta)=g(x-\theta)\) be the location kernel and \(Q_0(d\theta)=q_0(\theta)d\theta\). The true component densities are
+      \[
+      f_j(\cdot)=f(\cdot\mid\theta_j^*)=k(\cdot\mid\theta_j^*),
+      \]
+      and \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\) is completely separated:
+      \[
+      |\theta_j^*-\theta_k^*|>b-a\qquad (j\ne k).
+      \]
+      Each \(\theta_j^*\) belongs to the interior support of \(Q_0\). After the linear rescaling used in the source, \([a,b]=[-c,c]\).
+
+      For every \(n\), define
+      \[
+      C_j=\{i\in\{1,\dots,n\}: X_i\in[\theta_j^*+a,\theta_j^*+b]\},\qquad n_j=|C_j|.
+      \]
+      After rescaling, \([\theta_j^*+a,\theta_j^*+b]=[\theta_j^*-c,\theta_j^*+c]\). For \(X_{C_j}\), let \(X^j_{(r)}\) denote the \(r\)-th order statistic, so that
+      \[
+      X^j_{(1)}=\min_{i\in C_j}X_i,\qquad X^j_{(n_j)}=\max_{i\in C_j}X_i.
+      \]
+      Define
+      \[
+      Y^j_{n_j}:=\min\left[1,\; n_j(\log n)^{\frac1{2t}}\{c+\theta_j^*-X^j_{(n_j)}\}\right].
+      \]
+      In the integrals below, \(\theta_j\) is the integration variable for component \(j\), while \(\theta_j^*\) is the true parameter.
+
+      <!-- formalization-clarifications:v1:d756cf076a8be3f9ecce03706bcaed363a28c16955e61f504267e1f40ea420df -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The intended reading of the selected lower-bound statement is: first fix \(t\ge1\), \(c>0\), the standing kernel/density objects \(g,q_0,Q_0\), the true weights \(p_j\), true locations \(\theta_j^*\), the complete-separation condition, and \(T1\)–\(T4\); then fix \(j\in\{1,\dots,t\}\); then choose \(N_j\) (and, in the proof, \(K\)); only afterwards quantify over \(n\) and the realization with \(n_j=|C_j|\ge N_j\). Thus \(K\) is not allowed to depend on \(n\), on \(C_j\), on the observations, or on \(Y^j_{n_j}\), and \(N_j\) is not an \(n\)-dependent threshold. The selected proof explicitly states that the same \(K\) works for all \(j\) when the \(T4\) lower bound uses one common \(L\), while only \(N_j\) depends on \(j\) through the \(T4\) neighborhood; the raw quantifier “for every \(j\) there exist \(K\) and \(N_j\)” could syntactically allow \(K\) to depend on \(j\), but the intended source proof constructs a global \(K\). The constants \(m,M,R,U,L\) belong to the fixed assumptions \(T1,T2,T3,T4\); they may depend on the fixed \(g,q_0,c,t\), but not on sample size, \(C_j\), \(n_j\), or \(X_i\). Do not confuse the \(T2\) constant \(R\) with the true component measures \(R_j\). The source’s printed proof of Lemma denom sets \(K=(2Le^{-R})^t\), while the selected repaired proof says the supported constant is \(K=(Le^{-R})^t\) and notes that the printed factor \(2\) cannot be obtained with the same \(L\); the expression \((2L_0e^{-R})^t\) is only a rewriting after replacing \(L\) by an admissible \(L_0=L/2\). The selected statement uses the power \(K^{1/t}\); an intermediate displayed equality in the extracted supplementary proof writing \(K^{1/(2t)}\) is inconsistent with the statement and surrounding algebra and should not be formalized as the target exponent. Complete separation is strict: \(|\theta_j^*-\theta_k^*|>b-a\); after rescaling \([a,b]=[-c,c]\), this becomes \(>2c\), not \(>c\), so do not replace \(b-a\) by \(c\). The main paper states only that each \(\theta_j^*\) belongs to the interior support of \(Q_0\), whereas the selected lower bound assumes the stronger \(T4\): \(q_0\ge L\) on a neighborhood of each \(\theta_j^*\). The source does not justify \(T4\) from mere support membership; for formalization, \(T4\) must be an explicit assumption. The exact shape/openness of the \(T4\) neighborhood is not specified; it is enough to choose \(\delta_j>0\) with \(q_0(\theta)\ge L\) for \(|\theta-\theta_j^*|\le\delta_j\), then choose \(1/N_j\le\delta_j\). If the source’s \(T4\) were interpreted with a different \(L_j\) for each \(j\), then \(K\) could become \(j\)-dependent; the printed \(T4\) text but not every proof detail is explicit on this uniformity.
+
+      2. Norms and mathematical objects. Everything in the selected result is scalar on the real line: the parameter \(\theta\) and observations \(X_i\) are real-valued, and \(|\cdot|\) means ordinary absolute value, not a Euclidean vector norm, sup norm, operator norm, or Frobenius norm. The integral is over \(\mathbb R\) with Lebesgue measure, and \(Q_0(d\theta)=q_0(\theta)d\theta\). The kernel is exactly the location family \(k(x\mid\theta)=g(x-\theta)\); \(g\) is a probability density with the main paper’s support condition “strictly positive on some interval \([a,b]\) and \(0\) elsewhere,” while \(T1\) in the proof records only \(0<m\le g\le M\) on the rescaled interval \([-c,c]\). Do not infer support or nonnegativity outside \([-c,c]\) from \(T1\) alone; use the main \(B1\)-type support condition when needed. The target integral is \(\int_{\mathbb R}\prod_{i\in C_j}g(X_i-\theta_j)/g(X_i-\theta_j^*)\,q_0(\theta_j)\,d\theta_j\). Reference R1/Lemma denom1 prints the denominator as \(g(x_i)\) because its proof says “Without loss of generality assume \(\theta_j^*=0\)”; for general \(\theta_j^*\) the denominator must be restored to \(g(X_i-\theta_j^*)\). The corresponding indicator from R1 is exact: \(\mathbf 1_{[0,1/n_j]}(|\theta_j-\theta_j^*|)\,\mathbf 1_{[X^j_{(n_j)}-c,\,X^j_{(1)}+c]}(\theta_j-\theta_j^*)\) (with endpoint values immaterial almost everywhere). The sets are \(C_j=\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\}\), after rescaling \([\theta_j^*-c,\theta_j^*+c]\), and \(n_j=|C_j|\) is random. The order statistics \(X^j_{(1)},X^j_{(n_j)}\) are taken over \(X_{C_j}\) only, not over the full sample. The random variable is \(Y^j_{n_j}=\min\{1,\,n_j(\log n)^{1/(2t)}(c+\theta_j^*-X^j_{(n_j)})\}\); it uses the upper order statistic/right endpoint gap, the random count \(n_j\), and \(\log n\), not \(\log n_j\). Do not replace \(n_j\) by \(n\), and do not replace the cap \(\min\{1,\cdot\}\) by a max or by \(1\).
+
+      3. Asymptotics. The selected lower-bound statement itself uses no \(O\), \(o\), or little-\(o\) notation. It is a finite-sample lower bound with existential constants and a threshold: for fixed \(j\), there exist \(K>0\) and \(N_j\in\mathbb N\) such that for all \(n\) with \(n_j\ge N_j\) the displayed inequality holds (with the endpoint caveat below). The limiting variable in the surrounding theorem is \(n\to\infty\), while \(n_j\) is a random function of the sample; the condition is on the realized \(n_j\), not a uniformity over all subsets of size \(n_j\). The source’s later use of \(Y^j_{n_j}\to1\) is “in \(P^{(\infty)}\)-probability” (source Lemma Max and the definition of \(\Omega_n\)), and the final consistency proof restricts to the event \(\Omega_n=\{n_j\ge N_j,\ Y^j_{n_j}\in[1/2,1]\ \forall j\}\) whose probability tends to one. Do not replace \(Y^j_{n_j}\) by \(1\) for all sufficiently large \(n\), and do not promote the lower bound to a pointwise statement for every data set unless endpoint continuity is separately imposed. The source does not state uniformity of the lower bound over all choices of \(g,q_0,p_j,\theta^*\) or over all \(j\); constants may depend on the fixed structural assumptions, and only \(N_j\) is explicitly allowed to vary with \(j\) in the proof.
+
+      4. Omitted definitions and side conditions. Here \(t\) is a fixed positive integer, \(p_j\in(0,1)\), \(\sum_{j=1}^t p_j=1\), and the \(R_j\) in the data-generating mixture are distinct true component measures, not the \(T2\) constant \(R\). The true component densities are \(f_j(\cdot)=k(\cdot\mid\theta_j^*)=g(\cdot-\theta_j^*)\). Complete separation plus the bounded support is used in the proof of Theorem ConsBounded to assert that the \(C_j\) are disjoint and cover \(\{1,\dots,n\}\) with probability one; this is a proof-based consequence, not a new definition. The order statistics require \(n_j\ge1\); original \(N_j\in\mathbb N\) is not detailed, while the selected proof takes \(N_j\ge3\), so for Lean include a positive-size side condition or take the selected threshold. The \(T4\) neighborhood must contain the integration interval used near \(\theta_j^*\); under the normalization \(\theta_j^*=0\), the original proof uses a one-sided interval \([-1/n_j,0]\) and the selected proof uses \([-1/n_j,1/n_j]\), so \(N_j\) must satisfy \(1/n_j\le\delta_j\). The source leaves endpoint regularity of \(g\) under \(T1\)–\(T2\) ambiguous: \(B2\) only gives differentiability on the open support, and the values \(g(\pm c)\) need not equal the one-sided limits. The original Lemma denom1 proof writes \(p=\log g\) on \([-c,c]\), but the selected proof repairs this by redefining \(g\) at \(\pm c\) by continuous extension, showing the bound holds \(P^{(\infty)}\)-almost surely for the original kernel and may fail for arbitrary endpoint values on a null set. Thus, for a literal “every data set” formalization one needs an extra endpoint-continuity/endpoint-value hypothesis; the source-supported statement with only \(T1\)–\(T4\) is the almost-sure/on-\(\Omega_n\) version. Finally, \(q_0\) is only used as a density with pointwise lower bounds on specified neighborhoods; point values on Lebesgue-null sets should not be used, and \(q_0\ge L\) should not be extended beyond the \(T4\) neighborhood.
+      <!-- /formalization-clarifications -->
+
+      Under assumptions \(T1\)--\(T4\), for every \(j=1,\dots,t\) there exist \(K>0\) and \(N_j\in\mathbb N\) such that, for all \(n_j\ge N_j\),
+      \[
+      \int_{\mathbb R}\prod_{i\in C_j}\frac{g(X_i-\theta_j)}{g(X_i-\theta_j^*)}q_0(\theta_j)\,d\theta_j
+      \ge \frac{K^{1/t}Y^j_{n_j}}{n_j(\log n)^{1/(2t)}}.
+      \]
+      The proof constructs \(K=(2Le^{-R})^t\).
+    assumptions:
+      - |-
+        Assume the rewritten standing conditions \(T1\)--\(T4\):
+
+        \(T1\): there exist \(m,M>0\) such that
+        \[
+        0<m\le g(x)\le M<\infty
+        \qquad\text{for every }x\in[-c,c].
+        \]
+
+        \(T2\): \(g\) is differentiable on \((-c,c)\) and there exists \(R<\infty\) with
+        \[
+        \left|\frac{g'(x)}{g(x)}\right|\le R
+        \qquad\text{for every }x\in(-c,c).
+        \]
+
+        \(T3\): there exists \(U>0\) such that
+        \[
+        h(y)=q_0(y)+q_0(-y)\le U
+        \qquad\text{for every }y\in[0,2c].
+        \]
+
+        \(T4\): there exists \(L>0\) such that \(q_0(\theta)\ge L\) in a neighborhood of \(\theta_j^*\) for every \(j\).
+
+        Let \(X_{1:n}\) come from the corresponding mixture with completely separated \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\).
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      For a set \(A\), \(\mathbbm{1}_A\) denotes its indicator function.
+
+      ### Proof
+      #### Proof of the requested lower bound
+
+      Fix \(j\in\{1,\dots,t\}\) and abbreviate
+      \[
+      L_n:=(\log n)^{\frac1{2t}} .
+      \]
+      We prove, for this index \(j\), that there exist \(K>0\) and \(N_j\in\mathbb N\) such that, for every \(n\) with \(n_j\ge N_j\), the inequality
+      \[
+      I_j:=\int_{\mathbb R}\prod_{i\in C_j}\frac{g(X_i-\theta_j)}{g(X_i-\theta_j^*)}\,q_0(\theta_j)\,d\theta_j
+      \;\ge\;\frac{K^{1/t}\,Y^j_{n_j}}{n_j\,L_n}
+      \tag{0.1}
+      \]
+      holds \(P^{(\infty)}\)-almost surely. The constant produced below is \(K=(Le^{-R})^t\); Section 5 records that it can also be written in the printed shape \((2L_0e^{-R})^t\) with the admissible \(T4\)-constant \(L_0=L/2\). Since \(L\) and \(R\) do not depend on \(j\), the same \(K\) works for all \(j\), and only the threshold \(N_j\) depends on \(j\).
+
+      Two reductions precede the estimate: a translation carrying \(\theta_j^*\) to \(0\) (Section 1), and the replacement of \(g\) at the two endpoints \(\pm c\) by its continuous extension (Section 2). The latter leaves the law of \(X_{1:n}\) unchanged and changes \(I_j\) only for data sets with \(X_i=\theta_j^*\pm c\) for some \(i\); this event has probability zero. For the extended kernel the estimate is in fact deterministic in the data: every data set with \(n_j\ge N_j\) satisfies (0.1). Consequently the inequality holds \(P^{(\infty)}\)-almost surely for the original kernel as well, which is the form in which it is used in the proof of Theorem \ref{th:ConsBounded}. Sections 3--5 prove (0.1); Section 6 explains why the factor \(2\) printed in the source cannot be obtained with the same constant \(L\); Section 7 shows that under \(T1\)--\(T4\) alone the inequality, read literally for \emph{every} data set with the original kernel, can fail on a \(P^{(\infty)}\)-null set where \(g\) is discontinuous at \(\pm c\), so that the almost-sure form is the sharp one available.
+
+      #### 1. Reduction to \(\theta_j^*=0\)
+
+      Put
+      \[
+      X_i':=X_i-\theta_j^*,\qquad u:=\theta_j-\theta_j^* .
+      \]
+      Then
+      \[
+      X_i-\theta_j=X_i'-u,\qquad X_i-\theta_j^*=X_i' ,
+      \]
+      and, since \([\theta_j^*+a,\theta_j^*+b]=[\theta_j^*-c,\theta_j^*+c]\) in the rescaled coordinates,
+      \[
+      i\in C_j\iff X_i\in[\theta_j^*-c,\theta_j^*+c]\iff X_i'\in[-c,c] .
+      \]
+      Thus the index set \(C_j\) and its cardinality \(n_j\) are unchanged by the shift. The order statistics of \(\{X_i':i\in C_j\}\) are \(X'_{(r)}=X^j_{(r)}-\theta_j^*\), so in particular
+      \[
+      c+\theta_j^*-X^j_{(n_j)}=c-X'_{(n_j)},
+      \qquad
+      \theta_j\in\bigl[X^j_{(n_j)}-c,\,X^j_{(1)}+c\bigr]\iff u\in\bigl[X'_{(n_j)}-c,\,X'_{(1)}+c\bigr].
+      \]
+      Substituting \(\theta_j=\theta_j^*+u\) and using \(d\theta_j=du\),
+      \[
+      I_j=\int_{\mathbb R}\prod_{i\in C_j}\frac{g(X_i'-u)}{g(X_i')}\,q_0(\theta_j^*+u)\,du .
+      \]
+      By \(T4\) there exists \(\delta>0\) such that
+      \[
+      q_0(\theta_j^*+u)\ge L\qquad(0\le|u|\le\delta).
+      \]
+      The conditions \(T1\) and \(T2\) involve only \(g\) and are invariant under translations, and \(Y^j_{n_j}\) reads in the shifted coordinates
+      \[
+      Y^j_{n_j}=\min\bigl\{1,\;n_jL_n\,(c-X'_{(n_j)})\bigr\}.
+      \]
+      Relabelling \(X_i'\) as \(X_i\), \(u\) as \(\theta\), and writing \(q_0\) again for the shifted density \(q_0(\theta_j^*+\cdot)\) (only the bound \(q_0\ge L\) on \([-\delta,\delta]\) will be used; \(T3\) is not needed here), it suffices to prove (0.1) in the normalized situation
+      \[
+      \theta_j^*=0,\qquad C_j=\{i:X_i\in[-c,c]\},\qquad q_0(\theta)\ge L\ \text{ for }|\theta|\le\delta .
+      \]
+
+      Set
+      \[
+      A:=c-X^j_{(n_j)}\ge0,\qquad B:=c+X^j_{(1)}\ge0 .
+      \]
+      Since \(-c\le X^j_{(1)}\le X^j_{(n_j)}\le c\), both are nonnegative and
+      \[
+      \bigl[X^j_{(n_j)}-c,\;X^j_{(1)}+c\bigr]=[-A,B].
+      \tag{1.1}
+      \]
+
+      #### 2. The product-ratio estimate
+
+      We shall use repeatedly that \(g\ge0\) and \(q_0\ge0\) Lebesgue-almost everywhere: \(g(\cdot-\theta)\) and \(q_0\) are probability densities with respect to Lebesgue measure, and point values on Lebesgue-null sets do not affect any of the integrals below.
+
+
+      **A continuous version of \(\log g\) at the endpoints.** By \(T1\), \(0<m\le g\le M\) on \([-c,c]\). Let \(p:=\log g\) on \((-c,c)\). By \(T2\) and the mean value theorem,
+      \[
+      |p(x)-p(y)|\le R|x-y|,\qquad x,y\in(-c,c),
+      \tag{2.1}
+      \]
+      since \(|p'|=|g'/g|\le R\) on \((-c,c)\). Hence \(p\) is uniformly continuous on \((-c,c)\), the one-sided limits \(p(\pm c):=\lim_{(-c,c)\ni t\to\pm c}p(t)\) exist, and they lie in \([\log m,\log M]\). Redefine \(g(\pm c):=e^{p(\pm c)}\), keep \(g\) unchanged on \(\mathbb R\setminus\{-c,c\}\). Then \(p=\log g\) is defined and \(R\)-Lipschitz on the whole of \([-c,c]\), and \(T1\)--\(T2\) remain satisfied (the new endpoint values still lie in \([m,M]\); values of \(g\) outside \([-c,c]\) enter only through the almost-everywhere nonnegativity noted at the beginning of this section, so their precise size is irrelevant).
+
+      This redefinition does not affect the assertion. The density of \(X_i\) is \(x\mapsto\sum_{j'}p_{j'}\,g(x-\theta_{j'}^*)\), which is altered only at the finitely many points \(\theta_{j'}^*\pm c\); hence the law \(P\) is unchanged. For a fixed data set, the integrand of \(I_j\) computed with the redefined \(g\) differs from the original one only at those \(\theta_j\) for which \(X_i-\theta_j=\pm c\) for some \(i\in C_j\) (finitely many \(\theta_j\)), and in the denominators only if \(X_i-\theta_j^*=\pm c\) for some \(i\). Consequently the two integrals coincide whenever \(X_i\ne\theta_j^*\pm c\) for all \(i\), an event of probability one. We may therefore work with the redefined kernel; the resulting bound holds for the original kernel almost surely.
+
+      **Lemma 2.1** (the inequality of [ref:R1]). For every \(\theta\in[-A,B]\),
+      \[
+      \prod_{i\in C_j}\frac{g(X_i-\theta)}{g(X_i)}\ \ge\ e^{-Rn_j|\theta|}.
+      \tag{2.2}
+      \]
+      Moreover, for Lebesgue-almost every \(\theta\in\mathbb R\),
+      \[
+      \prod_{i\in C_j}\frac{g(X_i-\theta)}{g(X_i)}\ \ge\ e^{-Rn_j|\theta|}\,\mathbbm1_{[-A,B]}(\theta).
+      \tag{2.2'}
+      \]
+
+      *Proof.* Let \(\theta\in[-A,B]\). For \(i\in C_j\) we have \(X_i\in[-c,c]\). Moreover, by (1.1),
+      \[
+      \theta\le B=c+X^j_{(1)}\le c+X_i,\qquad \theta\ge -A=X^j_{(n_j)}-c\ge X_i-c,
+      \]
+      so \(X_i-\theta\in[-c,c]\). Since \(p\) is \(R\)-Lipschitz on \([-c,c]\),
+      \[
+      \frac{g(X_i-\theta)}{g(X_i)}=\exp\{p(X_i-\theta)-p(X_i)\}\ \ge\ e^{-R|\theta|}.
+      \]
+      Multiplying the \(n_j\) factors (each denominator satisfies \(g(X_i)\ge m>0\)) gives (2.2). For \(\theta\notin[-A,B]\) the right-hand side of (2.2') vanishes; since \(g\ge0\) Lebesgue-almost everywhere, for fixed data the product is nonnegative for almost every \(\theta\), so (2.2') holds almost everywhere. \(\square\)
+
+      *Remark.* The source's proof of Lemma \ref{denom1} first obtains the bound \(e^{-Rn_j|\theta|}\mathbbm1_{[-A,B]}(\theta)\), passes to \(e^{-Rn|\theta|}\mathbbm1_{[-A,B]}(\theta)\) (legitimate as a weakening, since \(n\ge n_j\)), and then replaces this by \(e^{-R}\) on the range \(|\theta|\le1/n_j\). The last step is not valid as stated: it requires \(n|\theta|\le1\), whereas \(|\theta|\le1/n_j\) only yields \(n|\theta|\le n/n_j\), and \(n/n_j\) is unbounded when \(n_j<n\). Retaining \(n_j\) in the exponent, as in (2.2), avoids the step altogether: \(|\theta|\le1/n_j\) gives \(n_j|\theta|\le1\), hence \(e^{-Rn_j|\theta|}\ge e^{-R}\). Thus (2.2) and (2.2') imply the statement of [ref:R1], namely, for Lebesgue-almost every \(\theta\),
+      \[
+      \prod_{i\in C_j}\frac{g(X_i-\theta)}{g(X_i)}\ \ge\ e^{-R}\,\mathbbm1_{[0,\frac1{n_j}]}(|\theta|)\,\mathbbm1_{[X^j_{(n_j)}-c,\;X^j_{(1)}+c]}(\theta),
+      \]
+      since the last indicator equals \(\mathbbm1_{[-A,B]}(\theta)\) by (1.1) (in the normalization \(\theta_j^*=0\); in general \(|\theta|\) there is \(|\theta_j-\theta_j^*|\), and then \(e^{-Rn_j|\theta_j-\theta_j^*|}\ge e^{-R}\) on \(|\theta_j-\theta_j^*|\le1/n_j\)). The resulting bound is precisely the conclusion used below, so nothing is lost.
+
+      #### 3. Integration near the true value
+
+      **Lemma 3.1.** Let \(n_j\ge N_j\), where \(N_j\in\mathbb N\) is chosen so that \(1/N_j\le\delta\). Then
+      \[
+      I_j\ \ge\ Le^{-R}\Bigl(\min\Bigl\{A,\frac1{n_j}\Bigr\}+\min\Bigl\{B,\frac1{n_j}\Bigr\}\Bigr).
+      \tag{3.1}
+      \]
+
+      *Proof.* If \(\theta\in[-1/n_j,1/n_j]\cap[-A,B]\), then \(|\theta|\le1/n_j\le1/N_j\le\delta\), hence \(q_0(\theta)\ge L\), and \(n_j|\theta|\le1\); by (2.2), the product is at least \(e^{-R}\) there. By (2.2'), for almost every \(\theta\in[-1/n_j,1/n_j]\),
+      \[
+      \prod_{i\in C_j}\frac{g(X_i-\theta)}{g(X_i)}\ \ge\ e^{-Rn_j|\theta|}\,\mathbbm1_{[-A,B]}(\theta)\ \ge\ e^{-R}\,\mathbbm1_{[-A,B]}(\theta).
+      \]
+      Since \(q_0\ge0\) almost everywhere, multiplying by \(q_0\) and integrating over \(\mathbb R\) gives the almost-everywhere inequality of integrands, hence
+      \[
+      I_j\ \ge\ e^{-R}\int_{-1/n_j}^{1/n_j}\mathbbm1_{[-A,B]}(\theta)\,q_0(\theta)\,d\theta
+      \ \ge\ Le^{-R}\int_{-1/n_j}^{1/n_j}\mathbbm1_{[-A,B]}(\theta)\,d\theta,
+      \]
+      where the last inequality uses \(q_0\ge L\) on \([-1/n_j,1/n_j]\). Since \(A,B\ge0\), the interval \([-A,B]\) contains \(0\), so
+      \[
+      [-1/n_j,1/n_j]\cap[-A,B]=\bigl[-\min\{A,1/n_j\},\ \min\{B,1/n_j\}\bigr],
+      \]
+      which has length \(\min\{A,1/n_j\}+\min\{B,1/n_j\}\). This is (3.1). \(\square\)
+
+      *Remark.* The bound (3.1) is two-sided: both order statistics contribute, through \(A=c-X^j_{(n_j)}\) and \(B=c+X^j_{(1)}\). Only the first summand is needed below.
+
+      #### 4. Comparison with \(Y^j_{n_j}\)
+
+      **Lemma 4.1.** If \(L_n\ge1\), then
+      \[
+      \min\Bigl\{A,\frac1{n_j}\Bigr\}+\min\Bigl\{B,\frac1{n_j}\Bigr\}
+      \ \ge\ \frac{\min\{1,\,n_jL_nA\}}{n_jL_n}
+      =\frac{Y^j_{n_j}}{n_jL_n}.
+      \tag{4.1}
+      \]
+
+      *Proof.* Since \(B\ge0\), the second minimum is nonnegative, so it suffices to bound the first one. If \(n_jL_nA\le1\), then \(A\le1/(n_jL_n)\le1/n_j\), and
+      \[
+      \min\Bigl\{A,\frac1{n_j}\Bigr\}=A=\frac{n_jL_nA}{n_jL_n}=\frac{\min\{1,n_jL_nA\}}{n_jL_n}.
+      \]
+      If \(n_jL_nA>1\), then \(A>1/(n_jL_n)\), so, because \(L_n\ge1\),
+      \[
+      \min\Bigl\{A,\frac1{n_j}\Bigr\}\ \ge\ \min\Bigl\{\frac1{n_jL_n},\frac1{n_j}\Bigr\}=\frac1{n_jL_n}=\frac{\min\{1,n_jL_nA\}}{n_jL_n}.
+      \]
+      In both cases (4.1) holds. \(\square\)
+
+      #### 5. Conclusion
+
+      Let \(N_j\in\mathbb N\) satisfy
+      \[
+      N_j\ge3,\qquad \frac1{N_j}\le\delta,
+      \]
+      where \(\delta\) is the radius supplied by \(T4\) in Section 1. If \(n_j\ge N_j\), then \(n\ge n_j\ge3\), hence \(L_n=(\log n)^{1/(2t)}\ge1\), and \(1/n_j\le1/N_j\le\delta\). Combining Lemma 3.1 and Lemma 4.1, and recalling \(A=c-X^j_{(n_j)}\) and \(K^{1/t}=Le^{-R}\),
+      \[
+      I_j\ \ge\ Le^{-R}\ \frac{\min\{1,\,n_jL_nA\}}{n_jL_n}
+      =\ \frac{K^{1/t}\,Y^j_{n_j}}{n_j(\log n)^{1/(2t)}} .
+      \]
+      Undoing the translation of Section 1, this says that, for the extended kernel of Section 2 and for every data set with \(n_j\ge N_j\),
+      \[
+      \int_{\mathbb R}\prod_{i\in C_j}\frac{g(X_i-\theta_j)}{g(X_i-\theta_j^*)}\,q_0(\theta_j)\,d\theta_j
+      \ \ge\ \frac{K^{1/t}\,Y^j_{n_j}}{n_j(\log n)^{1/(2t)}} ,
+      \qquad K=(Le^{-R})^t .
+      \]
+      By the discussion in Section 2, replacing the values of \(g\) at \(\pm c\) by their continuous extension leaves the integral unchanged except possibly on the null event \(\bigcup_i\{X_i=\theta_j^*\pm c\}\), which has \(P^{(\infty)}\)-probability zero while the right-hand side is unaffected. Hence the same inequality holds with the original kernel for \(P^{(\infty)}\)-almost every realization, which is the form in which it is used.
+
+      Since \(L>0\) and \(R<\infty\), \(K>0\). Neither \(L\) nor \(R\) depends on \(j\), so the same constant \(K\) works for every \(j=1,\dots,t\); only the threshold \(N_j\) (through \(\delta\) from \(T4\)) depends on \(j\). As \(j\in\{1,\dots,t\}\) was arbitrary, the statement follows.
+
+      *The constant in the source's form.* The number \(L\) in \(T4\) is not unique: \(T4\) remains true with \(L\) replaced by any \(0<L'\le L\). Since the argument of Sections 1--5 supplies \(K=(Le^{-R})^t\), and \(L_0:=L/2\) is an admissible \(T4\)-constant, this same constant can be written as
+      \[
+      K=(2L_0e^{-R})^t,
+      \]
+      which is the shape printed in the source. What the argument does \emph{not} give is the factor \(2\) in front of the \emph{given} constant \(L\); this is discussed in Section 6.
+
+      #### 6. On the factor \(2\) in the source
+
+      The source's proof of Lemma \ref{denom} prints
+      \[
+      I_j\ \ge\ 2Le^{-R}\min\Bigl\{\frac1{n_j},\,c-X^j_{(n_j)}\Bigr\}
+      \tag{6.1}
+      \]
+      and consequently sets \(K=(2Le^{-R})^t\). The factor \(2\) is not a consequence of the preceding estimates: (3.1) yields the sum \(\min\{A,1/n_j\}+\min\{B,1/n_j\}\), the first summand controls \(A=c-X^j_{(n_j)}\), and the second summand involves \(B=c+X^j_{(1)}\), which can be arbitrarily small.
+
+      In fact (6.1) fails for some data sets. Take \(t=1\), \(c>0\), and
+      \[
+      g(x)=\frac1{2c}\,\mathbbm1_{[-c,c]}(x),\qquad q_0(x)=\frac1{2c}\,\mathbbm1_{[-c,c]}(x).
+      \]
+      Then \(T1\)--\(T4\) hold with \(m=M=L=(2c)^{-1}\), \(R=0\) and \(U=2L\). Here \(g\) is discontinuous at \(\pm c\) as a function on \(\mathbb R\); nevertheless the continuous extension of Section 2 assigns the value \(e^{\log L}=L\) at each of \(\pm c\), i.e. it coincides with the printed endpoint value of \(g\), so the integral below is the same with or without the extension. Let \(N_j\) be any prescribed integer and let \(n_j\ge\max\{N_j,3\}\). Choose
+      \[
+      0<A\le\min\Bigl\{c,\ \frac1{n_jL_n}\Bigr\},\qquad 0\le B<A ,
+      \]
+      and fix data in \(C_j\) with
+      \[
+      X^j_{(1)}=-c+B,\qquad X^j_{(n_j)}=c-A,
+      \]
+      the remaining \(n_j-2\) observations being arbitrary in \(\bigl[X^j_{(1)},X^j_{(n_j)}\bigr]\). Then \(X_i-\theta\in[-c,c]\) for every \(i\in C_j\) if and only if \(\theta\in[-A,B]\); hence every factor \(g(X_i-\theta)/g(X_i)\) equals \(1\) on \([-A,B]\) and the product vanishes outside it. Thus
+      \[
+      I_j=\int_{-A}^{B}L\,d\theta=L(A+B)<2LA=2Le^{-R}\min\Bigl\{\frac1{n_j},\,A\Bigr\}
+      =2Le^{-R}\min\Bigl\{\frac1{n_j},\,c-X^j_{(n_j)}\Bigr\},
+      \]
+      because \(A\le1/(n_jL_n)\le1/n_j\) (here \(L_n\ge1\) since \(n\ge n_j\ge3\)). Hence (6.1) is false for this data set. Moreover, conditionally on \(n_j=m\), the order statistics of the uniform component satisfy \(\mathbb P(A\le 1/(n_jL_n),\,B<A/2)>0\), so the set of data on which (6.1) fails has positive probability and is not a null exceptional set.
+      Moreover, in this example the target inequality itself fails with the source's constant \(K=(2Le^{-R})^t\). Indeed, \(A\le1/(n_jL_n)\) gives \(Y^j_{n_j}=n_jL_nA\), so the right-hand side of (0.1) with \(K^{1/t}=2Le^{-R}=2L\) equals \(2L\,n_jL_nA/(n_jL_n)=2LA\), which exceeds \(L(A+B)=I_j\); with \(K^{1/t}=Le^{-R}=L\) it equals \(LA\le I_j\). Hence the factor \(2\) cannot be inserted into the constant, and \(K=(Le^{-R})^t\) is the constant that the estimate of Sections 1--5 supports.
+
+
+
+      The statement of the theorem requires only the existence of some positive constant \(K\), and the argument of Sections 1--5 supplies \(K=(Le^{-R})^t>0\), which, as noted in Section 5, can be written as \((2L_0e^{-R})^t\) for the admissible \(T4\)-constant \(L_0=L/2\).
+
+      #### 7. The quantifier over data sets
+
+      The transfer performed in Section 2 is not an artefact of the method. Conditions \(T1\)--\(T2\) constrain the endpoint values \(g(\pm c)\) only by \(m\le g(\pm c)\le M\); they need not coincide with the one-sided limits \(e^{p(\pm c)}\) of \(g\) at \(\pm c\). Under the literal reading of the statement, namely that the inequality holds for \emph{every} data set with \(n_j\ge N_j\), the bound can then fail on the null event \(\{X_i=\theta_j^*-c\text{ for some }i\in C_j\}\).
+
+      *Example.* Let \(t=1\), \(c>0\), fix \(M>m:=(2c)^{-1}\) and set
+      \[
+      g(x)=m\,\mathbbm1_{(-c,c)}(x)+M\,\mathbbm1_{\{-c,c\}}(x),
+      \qquad
+      q_0(x)=m\,\mathbbm1_{[-c,c]}(x),
+      \qquad \theta_1^*=0 .
+      \]
+      Then \(g\) and \(q_0\) are probability densities (the Lebesgue integral of \(g\) is \(2cm=1\)), and \(T1\)--\(T4\) hold: \(T1\) with the constants \(m<M\); \(T2\) with \(R=1\), since \(g'\equiv0\) on \((-c,c)\); \(T3\) with \(U=2m\); \(T4\) with \(L=m\), since \(q_0\equiv m\) on \([-c,c]\) and \(0\) is an interior point of the support of \(Q_0\). Now consider the realization
+      \[
+      X_1=\dots=X_n=-c .
+      \]
+      It is a null set for \(P^{(\infty)}\), but it is a legitimate data set. Here \(C_j=\{1,\dots,n\}\), \(n_j=n\), \(X^j_{(1)}=X^j_{(n_j)}=-c\), hence \(A=2c\), \(B=0\), and
+      \[
+      Y^j_{n_j}=\min\{1,\,2cn(\log n)^{1/2}\} .
+      \]
+      Since \(2cn(\log n)^{1/2}\to\infty\), there is \(n_0\) such that \(Y^j_{n_j}=1\) for every \(n\ge n_0\). For \(\theta\in(-2c,0)\) one has \(-c-\theta\in(-c,c)\), so \(g(-c-\theta)=m\); for \(\theta\notin[-2c,0]\) one has \(-c-\theta\notin[-c,c]\), so \(g(-c-\theta)=0\); at \(\theta\in\{-2c,0\}\) the product equals \(1\). Since \(g(-c)=M\) and \(q_0=m\) on \([-c,0]\), the product equals \((m/M)^n\) on \((-2c,0)\), and the two exceptional points do not affect the integral, whence
+      \[
+      I_j=\Bigl(\frac{m}{M}\Bigr)^{n}\int_{-2c}^{0}q_0(\theta)\,d\theta
+      =\Bigl(\frac{m}{M}\Bigr)^{n}\int_{-c}^{0}m\,d\theta
+      =\frac12\Bigl(\frac{m}{M}\Bigr)^{n} .
+      \]
+      Since \(t=1\), the asserted inequality would require
+      \[
+      \frac12\Bigl(\frac{m}{M}\Bigr)^{n}\ \ge\ \frac{K}{n(\log n)^{1/2}}
+      \qquad\text{for all } n\ge N_j ,
+      \]
+      after \(N_j\) has been enlarged to at least \(n_0\). This is impossible for any fixed \(K>0\) and \(N_j\), because the left-hand side decays geometrically in \(n\) while the right-hand side is of polynomial order. Hence in this model no constant \(K>0\) and no threshold \(N_j\) make the inequality true for every data set with \(n_j\ge N_j\).
+
+      Thus the statement admits the following almost-sure reading, which is the one that holds and is used: for every \(j\) there exist \(K>0\) and \(N_j\in\mathbb N\) such that, for \(P^{(\infty)}\)-almost every realization, the inequality holds for every \(n\) with \(n_j\ge N_j\). This is the content of Sections 1--5; in the proof of Theorem \ref{th:ConsBounded} the bound is applied on the event \(\Omega_n\), whose \(P^{(\infty)}\)-probability tends to one. If \(g\) is continuous at \(\pm c\), so that \(g(\pm c)=e^{p(\pm c)}\) and the extension of Section 2 is the identity, the transfer step disappears and the bound holds for every data set with \(n_j\ge N_j\).
+
+      ### References
+      #### Reference R1
+      Target: Lemma \ref{denom1}
+      Citation: Applying Lemma \ref{denom1} and considering \(n_j \geq N_j\), we get
+      \[
+      \begin{aligned}
+      \int_\R \prod_{i \in C_j}\frac{g(X_i - \theta_j)}{g(X_i)}q_0(\theta_j) \, \mathrm{d}\theta_j&\geq e^{-R}\int_\R \mathbbm{1}_{[0,\frac{1}{n_j}]} (|\theta_j|) \mathbbm{1}_{[X^j_{(n_j)}-c,x^j_{(1)}+c]}(\theta_j) \, q_0(\theta_j)\, \mathrm{d}\theta_j\\
+      & \geq e^{-R}\int_{-\frac{1}{n_j}}^0\mathbbm{1}_{\{X^j_{(n_j)} \leq \theta_j+c\}} \, q_0(\theta_j) \, \mathrm{d}\theta_j \geq Le^{-R}\min \left\{\frac{1}{n_j}, c-X^j_{(n_j)} \right\},
+      \end{aligned}
+      \]
+      with \(L\) defined in \(T4\).
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from the supplement file D1, *Supplementary Materials for Clustering consistency with Dirichlet process mixtures* by Filippo Ascolani, Antonio Lijoi, Giovanni Rebaudo and Giacomo Zanella. The named source result is Lemma \ref{denom1}, stated in the proof of Theorem \ref{th:ConsBounded}. It supplies the first lower bound in the cited chain, namely the comparison of the product ratio with the indicator integral. The subsequent \(L e^{-R}\min\{1/n_j,c-X^j_{(n_j)}\}\) estimate in the Citation is obtained in the target proof from the section condition \(T4\) together with integration over a neighborhood of \(\theta_j^*\); that estimate is not part of the statement of Lemma \ref{denom1}. The source statement of Lemma \ref{denom1} is preserved below as printed, including the denominator \(g(x_i)\); its proof uses a without-loss-of-generality reduction \(\theta_j^*=0\).
+
+      ##### Lemma \ref{denom1}
+      ###### Definitions and notation
+      Work in the setting of the proof of Theorem \ref{th:ConsBounded}, after the linear rescaling \([a,b]=[-c,c]\). The location kernel is \(k(x\mid\theta)=g(x-\theta)\). For \(j=1,\dots,t\), set
+      \[
+      C_j=\left\{i\in\{1,\dots,n\}:x_i\in[\theta_j^*+a,\theta_j^*+b]\right\},
+      \qquad n_j=|C_j|.
+      \]
+      After rescaling, \([\theta_j^*+a,\theta_j^*+b]=[\theta_j^*-c,\theta_j^*+c]\).
+
+      For \(x_{C_j}\), let \(x^j_{(r)}\) denote the \(r\)-th order statistic, so that \(x^j_{(1)}=\min_{i\in C_j}x_i\) and \(x^j_{(n_j)}=\max_{i\in C_j}x_i\). For a set \(A\), \(\mathbbm{1}_A\) denotes its indicator function.
+
+      The constant \(R\) is the one appearing in condition \(T2\) below.
+
+      ###### Assumptions
+      The result is stated in the setting of the proof of Theorem \ref{th:ConsBounded}, with \(g\) satisfying the standing section conditions relevant to the lemma:
+      - \(T1\): there exist \(m,M>0\) such that
+        \[
+        0<m\le g(x)\le M<\infty
+        \qquad\text{for every }x\in[-c,c].
+        \]
+        In the source proof this positivity is used when writing \(p(x)=\log g(x)\) on \([-c,c]\).
+      - \(T2\): \(g\) is differentiable on \((-c,c)\), and there exists \(R<\infty\) such that
+        \[
+        \left|\frac{g'(x)}{g(x)}\right|\le R
+        \qquad\text{for every }x\in(-c,c).
+        \]
+
+      The lemma is asserted for every \(j=1,\dots,t\).
+
+      ###### Statement
+      For every \(j=1,\dots,t\) it holds
+      \[
+      \prod_{i\in C_j}\frac{g(x_i-\theta_j)}{g(x_i)}
+      \ge
+      e^{-R}\mathbbm{1}_{\left[0,\frac1{n_j}\right]}\bigl(|\theta_j-\theta_j^*|\bigr)
+      \mathbbm{1}_{\left[x^j_{(n_j)}-c,\,x^j_{(1)}+c\right]}\bigl(\theta_j-\theta_j^*\bigr),
+      \]
+      with \(R\) defined in \(T2\), where \(x^j_{(r)}\) denotes the \(r\)-th order statistic of \(x_{C_j}\).
+    lean_name: paper_c93669ef201447419b92d6591d8bc1aa
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

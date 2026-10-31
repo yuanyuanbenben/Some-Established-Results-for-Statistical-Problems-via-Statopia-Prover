@@ -1,0 +1,368 @@
+version: v1
+theorem_set: document-goal
+source_tag: document-processing
+theorems:
+  - id: entry:selected:c52e777e-f20f-4130-a046-c7cd8f0b54c5
+    title: Theorem 1 (th:ConsBounded)
+    kind: theorem
+    latex_statement: |-
+      Dirichlet process mixture model with a prior on the concentration parameter:
+      \begin{equation}\label{eq:MixDPM}
+      X_i|\theta_i \simind k(\cdot|\theta_i), \quad \theta_i \mid \tilde{P} \simiid \tilde{P}, \quad \tilde{P} \mid \alpha \sim \text{DP}(\alpha,Q_0), \quad \alpha \sim \pi,
+      \end{equation}
+      where \(k(\,\cdot\,|\theta)\) is some density function, for every \(\theta\). Here \(\alpha > 0\) is the concentration parameter and \(Q_0\) is the baseline distribution over the sample space \((\mathbb{X}, \mathcal{X})\).
+
+      For every pair of natural numbers \((n, s)\) such that \(s\le n\), denote with \(\tau_s(n)\) the set of partitions of \(\{1,\ldots,n\}\) into \(s\) non empty subsets. Conditionally on \(\alpha\), the sequence \((\theta_i)_{i\ge 1}\) induces a prior distribution on the space of partitions of \(\mathds{N}\) that, for every \(n\ge 2\), is characterized by
+      \begin{equation}\label{eq:EPPFDP}
+      \text{pr}(A \mid \alpha)=\dfrac{\alpha^s}{\alpha^{(n)}} \prod_{j=1}^s (a_j-1)!, \quad (A=\{A_1,\ldots,A_s\} \in \tau_s(n), s \le n),
+      \end{equation}
+      where \(\alpha^{(n)} = \alpha \cdots (\alpha+n-1)\) is the ascending factorial and \(a_j=|A_j|\) stands for the cardinality of set \(A_j\). Conditionally on the partition \(A\), the probability distributions of the data \(X_{1:n}=(X_1,\dots,X_n)\) and of the cluster-specific parameters \(\hat{\theta}_{1:s} = ( \hat{\theta}_1,\ldots,\hat{\theta}_s)\) are 
+      \begin{equation}\label{partition_model}
+      \text{pr}(X_{1:n} \mid \hat{\theta}_{1:s}, A) = \prod_{j = 1}^s\prod_{i \in A_j} k(X_i \mid \hat{\theta}_j ), \quad
+      \text{pr}( \hat{\theta}_{1:s} \mid A, \alpha) = \text{pr}( \hat{\theta}_{1:s} \mid A) = \prod_{j = 1}^s q_0(\hat{\theta}_j).
+      \end{equation}
+      The number of clusters in a sample of size \(n\) is denoted by \(K_n\) and under \eqref{eq:MixDPM} it has the following prior distribution 
+      \[
+      \text{pr}( K_n = s) = \int \sum_{A \in \tau_s(n)} \text{pr}( A \mid \alpha )\pi(\mathrm{d}\alpha).
+      \]
+      Since we are concerned with the large sample properties of \(\text{pr}(K_n = s \mid X_{1:n})\), we focus on the joint distribution of the vector \((X_{1:n}, K_n)\) which, for every \(x_{1:n}=(x_1,\dots,x_n)\in \mathbb{X}^n\), is given by
+      \begin{equation}\label{first_step}
+      \text{pr}( X_{1:n}= x_{1:n}, K_n = s ) = \sum_{A \in \tau_s(n)} \text{pr}( A ) \prod_{j = 1}^s m (x_{A_j} ),
+      \end{equation}
+      where \(\text{pr}(A)=\int \text{pr}(A|\alpha)\,\pi(\mathrm{d}\alpha)\) and
+      \(m(x_{A_j}) = \int \prod_{i \in A_j} k(x_i \mid \theta) q_0(\theta) \mathrm{d}\theta\)
+      is the marginal likelihood for the subset of observations identified by \(A_j\), given that they are clustered together.
+
+      We study the asymptotic behaviour of the posterior induced by model \eqref{eq:MixDPM} when the observations are independent and identically distributed samples from a finite mixture, that is we assume the following data generation mechanism
+      \begin{equation}\label{true}
+      X_i \simiid P = \sum_{j = 1}^t p_jR_j, \quad (i = 1, 2,\dots),
+      \end{equation}
+      where, for every \(t\ge 1\), the \(R_j\)'s are distinct probability measures on \(\mathbb{X}\) and the \(p_j\)'s are probability weights, i.e. \(p_j\in (0,1)\) for every \(j\) and \(\sum_j p_j=1\). We will let \(P^{(n)}\) and \(P^{(\infty)}\) be the product probability measures induced on \(\mathbb{X}^n\) and \(\mathbb{X}^\infty\) respectively, and denote \eqref{true} by \(X_{1:\infty}\sim P^{(\infty)}\). In the following, we will consider each \(R_j\) to be dominated by a suitable measure and denote the resulting density by \(f_j(\cdot) := f(\cdot \mid \theta_j^\ast)\). We say that posterior consistency for the number of clusters holds if \(\text{pr}(K_n = t \mid X_{1:n}) \to 1\) as \(n\to\infty\) in \(P^{(\infty)}\)-probability. Note that the conditional probability \(\text{pr}(K_n = t \mid X_{1:n})\) is defined with respect to the model in \eqref{eq:MixDPM}, while the convergence in probability is with respect to the data-generating process \(X_{1:\infty}\sim P^{(\infty)}\).
+
+      The true parameter vector \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\) is completely separated if
+      \[
+      |\theta_j^*-\theta_k^*|>b-a\qquad (j\ne k).
+      \]
+
+      For our general result we consider kernels of the form 
+      \begin{equation}\label{data_generating_general}
+      \begin{aligned}
+      k(x \mid \theta) &= g(x - \theta)
+       &(x\in\mathbb{R}),
+      \end{aligned}
+      \end{equation}
+      where \(c > 0\) and \(\theta\in\mathbb{R}\) is a location parameter. Here \(g\) is a density function on the real line satisfying the following assumptions.
+
+      <!-- formalization-clarifications:v1:d0605c96d0a9114803bbbc65d2646a469d6e93155a929a383a8a9956e96c9e96 -->
+      Formalization clarifications from source and proof:
+      1. Constants. In Theorem th:ConsBounded the positive result is parameter-dependent, not governed by any absolute universal constant: after fixing k and q0 satisfying B1–B3, and a prior π satisfying A1–A3 “with ρ high enough,” the conclusion is asserted for every fixed data-generating P as in (true), fixed finite t, fixed separated θ*, and fixed θ_j* in the interior support of Q0. The source explicitly says that “the minimum value of ρ needed depends on the specific function g and prior distribution Q0” (paragraph after Theorem th:ConsBounded), and earlier says the needed ρ depends “on the specific choice of P in (true) and k” (Section 3, discussion of A3). Thus the theorem does not supply a single ρ uniform over P, t, θ*, k, q0, or π; the exact threshold and exact dependency order are left unspecified. In Lean, making π,g,q0,θ*,t,P implicit parameters does not make any of these constants uniform unless the formal statement separately quantifies that way. A2’s ε,δ,β and A3’s D,ν,ρ are existential constants for the fixed prior π; A3 is required for every s≥1, and its ρ is the quantity required to be “high enough.” In the fixed-concentration part, α* is a fixed positive parameter and A1–A3 are not imposed; the statement uses π=δ_{α*}. In the proof, m,M come from T1 and depend on g and c; R from T2 depends on g and c; U from T3 depends on q0 and c; L and the neighborhood size in T4 depend on q0 and the true θ_j*’s. The proof’s inconsistency lower bound involves α*, m,M,L,ε, hence is not uniform in those objects. N_j and the event Ω_n are defined in the proof only by reference to “Lemma denom” and “Lemma Max”; the selected source does not print their exact constants or dependence beyond n_j≥N_j and Y^j_{n_j}∈[1/2,1]. The limiting variable is n→∞ with t fixed for a given P; s runs up to n−t and is not a fixed constant. The source gives no uniformity over s beyond the whole-sum convergence in Lemma consGeneral.
+
+      2. Norms and mathematical objects. In the selected theorem the parameter space is one-dimensional: k(x|θ)=g(x−θ) with x,θ∈R, and “completely separated” means the scalar absolute-value condition |θ_j*−θ_k*|>b−a for every j≠k. No Euclidean vector norm, sup norm, operator norm, Frobenius norm, or normalized norm appears in the selected result. The support interval [a,b] is from B1, and the source says that “through a linear rescaling” one may assume [a,b]=[−c,c]; the c there is the half-width after rescaling. The source does not state that this normalization is harmless in a formal sense; it is an explicit rescaling convention used in the proof. The density q0 is with respect to Lebesgue measure in the displayed integrals, and Q0 is absolutely continuous with density q0 under B3. The marginal likelihood is m(x_A)=∫∏_{i∈A}k(x_i|θ)q0(θ)dθ, a cluster-level integral over one shared θ; it must not be replaced by a product of one-point marginals or by a posterior predictive object. K_n is the posterior number of clusters/ties in the Dirichlet process mixture, while t is the true finite mixture component count; they are not interchangeable. τ_s(n) is the set of partitions of the index set {1,…,n} into s nonempty blocks, and α^(n)=α(α+1)⋯(α+n−1) is the ascending factorial, not a falling factorial. The ratio C(n,t,s) in the proof is the prior-dependent ratio of integrals displayed there, not the data-dependent set C_j or the event C^(n); for the degenerate prior π=δ_{α*}, the proof uses C(n,t,t+1)=α*. The sets C_j={i∈{1,…,n}:x_i∈[θ_j*+a,θ_j*+b]} are random index sets, and C^(n)={n_j>0 for every j} is an event. The proof also uses \tildeτ_s(n), the partitions of {1,…,n} whose every block is contained in one of the C_j, and the set \mathbf S of positive tuples (s_1,…,s_t) with 1≤s_j≤n_j and sum s_j=s. In the displayed ratio identity the source writes \(m(A_{C_j})\) in one line after having \(m(X_{C_j})\) in the previous line; this is most naturally a typographical slip for \(m(X_{C_j})\), consistent with the definition of m.
+
+      3. Asymptotics. The positive consistency statement is \(\operatorname{pr}(K_n=t\mid X_{1:n})\to1\) in \(P^{(\infty)}\)-probability as n→∞, where the posterior probability is under the Dirichlet process mixture model and the convergence is under the iid data law \(X_{1:\infty}\sim P^{(\infty)}\); the source explicitly notes this distinction and says boundedness in [0,1] makes probability convergence equivalent to L1 convergence. The fixed-α conclusion is written as \(\limsup \operatorname{pr}(K_n=t\mid X_{1:n})<1\) “in \(P^{(\infty)}\)-probability”; the source does not give a separate formal definition of this limsup-in-probability phrase. The proof supports it by showing a positive liminf lower bound for the ratio sum and then evaluating \(\limsup p_t=1/(1+\liminf\sum_{s\ne t}p_s/p_t)\); the displayed final line in the proof says “>0,” but the theorem’s “<1” follows from the actual positive lower bound on the denominator. The only quantitative convergence result cited directly is Reference R1, Lemma consGeneral: under the same model assumptions it asserts \(\mathbb E\{\mathbbm{1}_{\Omega_n}\sum_{s=1}^{n-t}\operatorname{pr}(K_n=t+s\mid X_{1:n})/\operatorname{pr}(K_n=t\mid X_{1:n})\}\to0\) under \(P^{(\infty)}\). This is expectation convergence for the whole nonnegative sum, not an O/o notation and not a per-s convergence. The theorem proof then invokes, or implicitly uses, the fact that expectation convergence of a nonnegative sequence implies convergence in probability. Reference R2, Lemma ConvProbBound, is the general probability lemma: if \(P^{(\infty)}(\Omega_n)\to1\) and \(Z_n\mathbbm{1}_{\Omega_n}\to0\) in \(P^{(\infty)}\)-probability, then \(Z_n\to0\) in \(P^{(\infty)}\)-probability. That lemma is universal in \(Z_n\) and \(\Omega_n\); the specific \(Z_n=\sum_{s=1}^{n-t}\cdots\) and the specific \(\Omega_n\) belong to the target proof, not to the cited lemma. The source uses no O, o, op, or Op notation in the selected result. The base of log in \(Y^j_{n_j}\) is not stated; any fixed base changes only constants, but that is a standard inference, not an explicit source convention. The selected proof also omits an explicit step handling \(K_n<t\): Reference R1 controls only \(s=t+1,\dots,n\). The main source contains Proposition \ref{undersmoothing}, which under its hypotheses gives \(\operatorname{pr}(K_n<t\mid X_{1:n})\to0\) in probability; that proposition, not the desired consistency theorem, is the source owner for the underclustering side. The main text also contains Lemma \ref{sufficient} stating that posterior consistency is equivalent to \(\sum_{s\ne t}\operatorname{pr}(K_n=s\mid X_{1:n})/\operatorname{pr}(K_n=t\mid X_{1:n})\to0\) in probability. The selected proof’s invocation of R2 alone proves only the overclustering sum tends to zero; full consistency requires combining that with the undersmoothing result (or an equivalent source statement). Do not turn posterior consistency into a hypothesis.
+
+      4. Potentially omitted definitions and side conditions. The main initial definitions needed are: \(X_i|\theta_i\simind k(\cdot|\theta_i)\), \(\theta_i\mid\tilde P\simiid\tilde P\), \(\tilde P\mid\alpha\sim \mathrm{DP}(\alpha,Q_0)\), \(\alpha\sim\pi\); \(K_n\) is the number of clusters in the first n latent parameters; \(\tau_s(n)\) and α^(n) are as in eq. (EPPFDP); and \(P^{(n)},P^{(\infty)}\) are product laws of the iid data. The proof’s \(C_j\), n_j, C^(n), \(X^j_{(r)}\), \(Y^j_{n_j}\), N_j, Ω_n, \tildeτ_s(n), and \mathbf S all require the definitions quoted above. The exact meaning of N_j is not recoverable from the selected text beyond “as in Lemma denom”; Lemma denom and Lemma Max are cited but not reproduced. The fact \(P^{(n)}(C^{(n)})\to1\) is asserted from \(p_j>0\); the source line has a typographical \(j=1,\dots,s\) where the data model uses \(j=1,\dots,t\). The proof states that \(C_i\cap C_j=\emptyset\) and \(\{1,\dots,n\}=\cup_jC_j\) for separated θ*; this uses the support condition in B1 and the disjoint intervals [θ_j*+a,θ_j*+b]. The source says after rescaling B1–B3 may be rewritten as T1–T4, but as printed T4 (a uniform lower bound \(q_0\ge L\) near every θ_j*) is not visibly derived from B3 plus “interior support” alone; B3 states only absolute continuity with bounded density. The proof uses T4 for the fixed-α lower bound. A formal development must either take T1–T4 as the operative assumptions used in the proof or prove their derivation from B1–B3 and the support condition; the selected source does not show that derivation. Similarly, T1 gives \(m\le g\le M\) on the closed interval [−c,c], while the fixed-α proof integrates \(g(X_i-\theta)\) over a θ-neighborhood of θ_1*; the source does not spell out the containment condition ensuring \(X_i-\theta\in[-c,c]\) throughout that integration. The positive theorem’s selected proof cites R1 for the overclustering sum, R2 for removing the indicator event, and then asserts the desired result; the main text’s Lemma \ref{sufficient} and Proposition \ref{undersmoothing} are the source results that fill the logical gap for \(K_n<t\) and for translating ratio convergence into posterior consistency. No additional dimension or high-dimensional side condition appears: the theorem is on the real line, with t finite and fixed for each application.
+      <!-- /formalization-clarifications -->
+
+      Suppose \(k\) and \(q_0\) satisfy assumptions \(B1\)--\(B3\). If \(\pi\) satisfies assumptions \(A1\)--\(A3\) with \(\rho\) high enough then, for every \(P\) as in \eqref{true} with \(t \in \{1, 2, \dots\}\), \(f_j=k(\cdot|\theta^*_j)\), \(\theta^*\) completely separated and \(\theta^*_j\) belonging to the interior support of \(Q_0\) for every \(j\), we have
+
+      \[
+      \text{pr}(K_n = t \mid X_{1:n}) \to 1 
+      \]
+      as \(n \to \infty\) in \(P^{(\infty)}\)-probability. On the contrary, if 
+      \(\pi(\alpha) = \delta_{\alpha^*}(\alpha)\), with \(\alpha^* > 0\), then
+      \[
+      \lim \sup \text{pr}(K_n = t \mid X_{1:n}) < 1
+      \]
+      as \(n \to \infty\) in \(P^{(\infty)}\)-probability.
+    assumptions:
+      - |-
+        The prior \(\pi\) satisfies the following conditions.
+
+        \begin{enumerate}
+        \item[\(A1\)] \emph{Absolute continuity:} \(\pi\) is absolutely continuous with respect to the Lebesgue measure, and its density is still denoted by \(\pi\).
+        \item[\(A2\)] \emph{Polynomial behaviour around the origin:} there exist \(\epsilon,\delta,\beta>0\) such that for every \(\alpha\in(0,\epsilon)\),
+        \[
+        \frac1\delta\,\alpha^\beta\le \pi(\alpha)\le \delta\,\alpha^\beta.
+        \]
+        \item[\(A3\)] \emph{Subfactorial moments:} there exist \(D,\nu,\rho>0\) such that for every \(s\ge1\),
+        \[
+        \int \alpha^s\pi(\alpha)\,d\alpha < D\rho^{-s}\Gamma(\nu+s+1).
+        \]
+        \end{enumerate}
+
+        The kernel and base measure satisfy assumptions \(B1\)--\(B3\). Through a linear rescaling, we may assume \([a,b]=[-c,c]\) without loss of generality. We rewrite the assumptions on \(g\) and \(Q_0\) as
+        \begin{enumerate}
+        \item[\(T1.\)]  \(\exists \, m, M\) such that \(0 < m \leq g(x) \leq M < \infty\) for every \(x \in [-c, c]\);
+        \item[\(T2.\)]  \(g\) is differentiable on \((-c, c)\) and \(\exists \, R\) such that \(\left|\frac{g'(x)}{g(x)}\right| \leq R < \infty\) for every \(x \in (-c, c)\);
+        \item[\(T3.\)]  \(\exists \, U > 0\) such that \(h(y) = q_0(y)+q_0(-y) \leq U\) for every \(y \in [0, 2c]\);
+        \item[\(T4.\)]  \(\exists \, L > 0\) such that \(q_0(\theta) \geq L\) for every \(\theta\) in a neighborhood of \(\theta_j^*\), for every \(j\).
+        \end{enumerate}
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      Denote with \(f(x) = \sum_{j = 1}^t p_jk(x \mid \theta_j^*)\) the density of the data generating \(P = \sum_{j = 1}^t p_jR_j\), with \(t \in \mathbb{N}\), \(p_j \in (0,1)\) and \(\sum_{j = 1}^t p_j = 1\). Since \(\theta^* =(\theta_1^*, \dots, \theta_t^*)\) is completely separated and \(X^{\infty} \sim P^{(\infty)}\), each point \(x\) has non-null density for at most one component of the mixture, i.e.
+      \[
+      x \in [\theta_i^*+a, \theta_i^*+b] \quad \Rightarrow \quad f(x) = p_ik(x \mid \theta_i^*) = p_ig(x-\theta_i^*).
+      \]
+      Therefore define
+      \[
+      C_j = \left\{ i \in \{1, \dots, n\} \, : \, x_i \in [\theta_j^*+a, \theta_j^*+b] \right\}, \quad n_j = |C_j|.
+      \]
+      Then \(C_i \cap C_j = \emptyset\) for every \(i \neq j\) and \(\{1, \dots, n \} = \bigcup_{j = 1}^tC_j\), so that \(\sum_{j = 1}^t n_j = n\). Define
+      \[
+      C^{(n)} = \left\{ n_j > 0 \text{ for every $j$} \right\}.
+      \]
+      Since \(p_j > 0\) for every \(j = 1, \dots, s\), we have \(P^{(n)}(C^{(n)}) \to 1\) as \(n \to \infty\).
+
+      For \(X_{C_j}\), let \(X^j_{(r)}\) denote the \(r\)-th order statistic of \(X_{C_j}\), and define
+      \[
+      Y^j_{n_j} := \min \left[ 1, n_j(\log(n))^{\frac{1}{2t}}\{c+\theta_j^*-X^j_{(n_j)}\} \right].
+      \]
+      Let \(N_j\) be as in Lemma \ref{denom}. Define the event
+      \begin{equation}\label{Omega_n}
+      \Omega_n = \left\{\text{for every $j = 1, \dots, t$ it holds: } n_j \geq N_j, Y^j_{n_j} \in [1/2, 1] \right\},
+      \end{equation}
+      such that \(P^{(n)}(\Omega_n) \to 1\) thanks to Lemma \ref{lemma:Max} and Lemma \ref{denom}.
+
+      For \(A \in \tau_s(n)\), write \(a_j=|A_j|\). For \(A \in \tilde{\tau}_s(n)\), write the \(j\)-th element as \(A_j = (A^j_1, \dots, A^j_{s_j})\) with \(a^j_k = |A^j_k|\), where
+      \[
+      \tilde{\tau}_s(n) = \left\{A \in \tau_s(n) \, : \, \forall \, i = 1, \dots, s \text{ there exists } j \in \{1, \dots, t\} \text{ such that } A_i \subset C_j  \right\}.
+      \]
+      Let
+      \[
+      \mathbf{S} = \left\{(s_1, \dots, s_t) \, : \, 1 \leq s_j \leq n_j, \, \forall j, \text{ and } \sum_{j = 1}^ts_j = s \right\}.
+      \]
+      Define
+      \[
+      C(n,t,s)= \frac{\int \frac{\alpha^s}{\alpha^{(n)}}\pi(\alpha)\, \mathrm{d}\alpha}{\int \frac{\alpha^t}{\alpha^{(n)}}\pi(\alpha)\, \mathrm{d}\alpha},
+      \]
+      where \(\alpha^{(n)}\) is the ascending factorial as in the main target. For \(s>t\), the posterior ratio identity labeled \eqref{ratios_for_inconsistency} is
+      \begin{equation}\label{ratios_for_inconsistency}
+      \begin{aligned}
+      \frac{\text{pr}(K_n = s \mid X_{1:n})}{\text{pr}(K_n = t \mid X_{1:n})}\mathbbm{1}_{C^{(n)}} & = C(n, t, s)\frac{\sum_{A \in \tilde{\tau}_s(n)}\prod_{j=1}^s(a_j-1)!\prod_{j=1}^s m(X_{A_j})}{\prod_{j = 1}^t(n_j-1)!\prod_{j = 1}^tm(X_{C_j})}\mathbbm{1}_{C^{(n)}} \\
+      &= C(n, t, s)\sum_{\textbf{s}}\prod_{j = 1}^t\sum_{A_j \in \tau_{s_j}(n_j)}\frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}\frac{\prod_{k=1}^{s_j} m(X_{A^j_k})}{m(A_{C_j})}\mathbbm{1}_{C^{(n)}},
+      \end{aligned}
+      \end{equation}
+      where \(m\) denotes the marginal likelihood from the main target.
+
+      ### Proof
+      First of all, assume \(\pi(\cdot)\) satisfies \(A1-A3\). By [ref:R1] it holds
+      \[
+      \mathbbm{1}_{\Omega_n}\sum_{s = 1}^{n-t} \frac{\text{pr}(K_{n} = t+s \, | \, X_{1:n})}{\text{pr}(K_{n} = t \, | \, X_{1:n})} \to 0
+      \]
+      in \(P^{(\infty)}\)-probability as \(n \to \infty\). The desired result then follows from [ref:R2] with
+      \[
+      Z_n = \sum_{s = 1}^{n-t} \frac{\text{pr}(K_{n} = t+s \, | \, X_{1:n})}{\text{pr}(K_{n} = t \, | \, X_{1:n})}
+      \]
+      and \(\Omega_n\) as in \eqref{Omega_n} (defined in Definitions and notation used in Proof).
+
+      Assume instead \(\pi(\alpha) = \delta_{\alpha^*}(\alpha)\) with \(\alpha^* > 0\). Using the identity labeled \eqref{ratios_for_inconsistency} with \(s=t+1\) (and \(C(n,t,t+1)=\alpha^*\) for this degenerate prior), we have
+      \[
+      \frac{\text{pr}(K_n = t+1 \mid X_{1:n})}{\text{pr}(K_n = t \mid X_{1:n})} \geq \alpha^*\sum_{\textbf{s} \in \textbf{S}}\prod_{j = 1}^t\sum_{A_j \in \tau_{s_j}(n_j)}\frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}\frac{\prod_{k=1}^{s_j} m(X_{A^j_k})}{m(A_{C_j})}.
+      \]
+      Notice that, with \(n\) high enough, \(n_1 > 1\) almost surely. Then, denoting \(i \in C_1\), we consider the special case
+      \[
+      \textbf{s} = (2,1, \dots, 1), \quad A^1_1 = \{i\}, A_2^1 = A_{C_1} \backslash \{i\},
+      \]
+      and \(A_j = \{A_{C_j}\}\) for every \(j \geq 2\). Thus we can write
+      \begin{equation}\label{inequality_inconsistency}
+      \frac{\text{pr}(K_n = t+1 \mid X_{1:n})}{\text{pr}(K_n = t \mid X_{1:n})} \geq \alpha^*\sum_{i \in C_1}\frac{1}{n_1-1}\frac{m(X_i)m\left(X_{C_1 \backslash i} \right)}{m\left(X_{C_j} \right)}.
+      \end{equation}
+      By \(T1\) we have
+      \[
+      \begin{aligned}
+      m\left(X_{C_j} \right) &= \int_{\mathbb{R}} \prod_{j \in C_1}g(X_j-\theta)q_0(\theta) \, \mathrm{d} \theta\\
+      & \leq M \int_{\mathbb{R}} \prod_{j \in C_1 \backslash i}g(X_j-\theta)q_0(\theta) \, \mathrm{d} \theta = M \, m\left(X_{C_1 \backslash i} \right).
+      \end{aligned}
+      \]
+      Moreover, by \(T4\) there exists \(\epsilon > 0\) such that
+      \[
+      \begin{aligned}
+      m(X_i) = \int_{\mathbb{R}} g(X_i -\theta) q_0(\theta) \mathrm{d} \theta &\geq m \int_{\theta_1^*-\epsilon}^{\theta_1^* + \epsilon}q_0(\theta) \mathrm{d} \theta
+      \geq 2mL\epsilon.
+      \end{aligned}
+      \]
+      Therefore, the inequality labeled \eqref{inequality_inconsistency} becomes
+      \[
+      \frac{\text{pr}(K_n = t+1 \mid X_{1:n})}{\text{pr}(K_n = t \mid X_{1:n})} \geq \frac{2\alpha^*mL\epsilon}{M}\sum_{i \in C_1}\frac{1}{n_1-1} = \frac{2\alpha^*mL\epsilon}{M}\frac{n_1}{n_1-1},
+      \]
+      and
+      \[
+      \lim \inf_{n \to \infty} \sum_{s \neq t}\frac{\text{pr}(K_n = s \mid X_{1:n})}{\text{pr}(K_n = t \mid X_{1:n})} \geq \lim \inf_{n \to \infty} \frac{\text{pr}(K_n = t+1 \mid X_{1:n})}{\text{pr}(K_n = t \mid X_{1:n})} \geq \frac{\alpha^*mL\epsilon}{M} > 0.
+      \]
+      Then
+      \[
+      \begin{aligned}
+      \lim \sup_{n \to \infty} \text{pr}(K_n = t \mid X_{1:n}) &= \lim \sup_{n \to \infty} \left\{1+\sum_{s \neq t} \frac{\text{pr}(K_n = s \mid X_{1:n} )}{\text{pr}(K_n = t \mid X_{1:n})}\right\}^{-1}\\
+      & = \frac{1}{1+\lim \inf_{n \to \infty} \sum_{s \neq t}\frac{\text{pr}(K_n = s \mid X_{1:n})}{\text{pr}(K_n = t \mid X_{1:n})}} > 0,
+      \end{aligned}
+      \]
+      which completes the proof.
+
+      ### References
+      #### Reference R1
+      Target: Lemma \ref{lemma:consGeneral}
+      Citation: By Lemma \ref{lemma:consGeneral} it holds
+      \[
+      \mathbbm{1}_{\Omega_n}\sum_{s = 1}^{n-t} \frac{\text{pr}(K_{n} = t+s \, | \, X_{1:n})}{\text{pr}(K_{n} = t \, | \, X_{1:n})} \to 0
+      \]
+      in \(P^{(\infty)}\)--probability as \(n \to \infty\).
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The cited result is Lemma \ref{lemma:consGeneral}, stated in the supplied supplementary material D1 in the subsection “Proof of Theorem \ref{th:ConsBounded}” and attributed there to Ascolani, Lijoi, Rebaudo and Zanella. The lemma’s expectation convergence supplies the \(\mathbbm{1}_{\Omega_n}\)-weighted convergence used in the positive-consistency part of the current target; it does not by itself supply the fixed-\(\alpha\) inconsistency conclusion. The definitions of assumptions \(A1\)–\(A3\) are not printed in the supplied D1 passage, so their content is taken from the article’s main-text statement retrieved by search and is visibly qualified as such. The conditions \(B1\)–\(B3\) are represented in D1 by the equivalent conditions \(T1\)–\(T4\), after the linear rescaling \([a,b]=[-c,c]\). The proof of Lemma \ref{lemma:consGeneral} is not reproduced here.
+
+      ##### Lemma \ref{lemma:consGeneral}
+
+      ###### Definitions and notation
+      Consider the Dirichlet process mixture model
+      \[
+      X_i|\theta_i \simind k(\cdot|\theta_i), \qquad
+      \theta_i \mid \tilde P \simiid \tilde P, \qquad
+      \tilde P\mid \alpha \sim \operatorname{DP}(\alpha,Q_0), \qquad
+      \alpha\sim\pi,
+      \]
+      where \(k(\cdot|\theta)\) is a density for every \(\theta\), \(\alpha>0\) is the concentration parameter, and \(Q_0\) is the baseline distribution on the sample space \((\mathbb X,\mathcal X)\). The prior density of \(\alpha\) is denoted by \(\pi\).
+
+      For every natural numbers \((n,s)\) with \(s\le n\), let \(\tau_s(n)\) be the set of partitions of \(\{1,\dots,n\}\) into \(s\) nonempty subsets. The number of clusters in a sample of size \(n\) under the above model is denoted by \(K_n\), and
+      \[
+      \operatorname{pr}(K_n=s\mid X_{1:n})
+      \]
+      denotes the corresponding posterior probability.
+
+      The data-generating mechanism is
+      \[
+      X_i\simiid P=\sum_{j=1}^t p_jR_j,\qquad i=1,2,\dots,
+      \]
+      where \(t\ge1\), the \(R_j\)'s are distinct probability measures on \(\mathbb X\), \(p_j\in(0,1)\) for every \(j\), and \(\sum_{j=1}^t p_j=1\). The product probability measures on \(\mathbb X^n\) and \(\mathbb X^\infty\) are denoted by \(P^{(n)}\) and \(P^{(\infty)}\), respectively, and \(X_{1:\infty}\sim P^{(\infty)}\).
+
+      Let \(f_j(\cdot):=f(\cdot\mid\theta_j^*)=k(\cdot\mid\theta_j^*)\). Since \(k(x\mid\theta)=g(x-\theta)\), the density of \(P\) is
+      \[
+      f(x)=\sum_{j=1}^t p_jk(x\mid\theta_j^*)=\sum_{j=1}^t p_jg(x-\theta_j^*).
+      \]
+      The true parameter vector \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\) is completely separated:
+      \[
+      |\theta_j^*-\theta_k^*|>b-a\qquad (j\ne k).
+      \]
+      Each \(\theta_j^*\) belongs to the interior support of \(Q_0\).
+
+      Define
+      \[
+      C_j=\left\{i\in\{1,\dots,n\}\,:\,x_i\in[\theta_j^*+a,\theta_j^*+b]\right\},
+      \qquad n_j=|C_j|.
+      \]
+      For \(X_{C_j}\), let \(X^j_{(r)}\) denote the \(r\)-th order statistic, and define
+      \[
+      Y^j_{n_j}:=\min\left[1,\; n_j(\log n)^{\frac1{2t}}\{c+\theta_j^*-X^j_{(n_j)}\}\right].
+      \]
+      For each \(j=1,\dots,t\), let \(N_j\) be the integer threshold furnished by Lemma \ref{denom}; equivalently, \(N_j\) is chosen so that the lower bound of Lemma \ref{denom} holds for every \(n_j\ge N_j\). Define
+      \[
+      \Omega_n=\left\{\text{for every }j=1,\dots,t:\ n_j\ge N_j,\; Y^j_{n_j}\in[1/2,1]\right\}.
+      \]
+      Also, after the linear rescaling used in the source proof, one may take \([a,b]=[-c,c]\).
+
+      ###### Assumptions
+      The prior \(\pi\) satisfies the following conditions.
+
+      \begin{enumerate}
+      \item[\(A1\)] \emph{Absolute continuity:} \(\pi\) is absolutely continuous with respect to the Lebesgue measure, and its density is still denoted by \(\pi\).
+      \item[\(A2\)] \emph{Polynomial behaviour around the origin:} there exist \(\epsilon,\delta,\beta>0\) such that for every \(\alpha\in(0,\epsilon)\),
+      \[
+      \frac1\delta\,\alpha^\beta\le \pi(\alpha)\le \delta\,\alpha^\beta.
+      \]
+      \item[\(A3\)] \emph{Subfactorial moments:} there exist \(D,\nu,\rho>0\) such that for every \(s\ge1\),
+      \[
+      \int \alpha^s\pi(\alpha)\,d\alpha < D\rho^{-s}\Gamma(\nu+s+1).
+      \]
+      \end{enumerate}
+
+      The kernel and base measure satisfy the following conditions. The kernel has the location form
+      \[
+      k(x\mid\theta)=g(x-\theta)\qquad (x\in\mathbb R),
+      \]
+      where \(g\) is a density function on the real line. After the linear rescaling that allows one to assume \([a,b]=[-c,c]\), the assumptions \(B1\)–\(B3\) on \(g\) and \(Q_0\) are rewritten in the source as:
+
+      \begin{enumerate}
+      \item[\(T1.\)] \(\exists\,m,M\) such that
+      \[
+      0<m\le g(x)\le M<\infty\qquad\text{for every }x\in[-c,c].
+      \]
+      \item[\(T2.\)] \(g\) is differentiable on \((-c,c)\) and \(\exists\,R\) such that
+      \[
+      \left|\frac{g'(x)}{g(x)}\right|\le R<\infty\qquad\text{for every }x\in(-c,c).
+      \]
+      \item[\(T3.\)] \(\exists\,U>0\) such that
+      \[
+      h(y)=q_0(y)+q_0(-y)\le U\qquad\text{for every }y\in[0,2c].
+      \]
+      \item[\(T4.\)] \(\exists\,L>0\) such that
+      \[
+      q_0(\theta)\ge L
+      \]
+      for every \(\theta\) in a neighborhood of \(\theta_j^*\), for every \(j\).
+      \end{enumerate}
+
+      The data satisfy
+      \[
+      X_i\simiid P=\sum_{j=1}^t p_jR_j,
+      \]
+      with \(t\in\{1,2,\dots\}\), \(p_j\in(0,1)\), \(\sum_{j=1}^t p_j=1\), the \(R_j\)'s distinct probability measures, \(f_j=k(\cdot|\theta_j^*)\), \(\theta^*\) completely separated, and \(\theta_j^*\) in the interior support of \(Q_0\) for every \(j\).
+
+      ###### Statement
+      Consider the setting of \eqref{eq:MixDPM} with \((f,k,q_0)\) as in Theorem \ref{th:ConsBounded}. Moreover, assume that \(\pi(\alpha)\) satisfies assumptions \(A1\), \(A2\), and \(A3\). Then, under \(X_{1:\infty}\sim P^{(\infty)}\),
+      \[
+      \mathbb E\left\{
+      \mathbbm{1}_{\Omega_n}
+      \sum_{s=1}^{n-t}
+      \frac{\operatorname{pr}(K_n=t+s\mid X_{1:n})}
+      {\operatorname{pr}(K_n=t\mid X_{1:n})}
+      \right\}\to 0
+      \]
+      as \(n\to\infty\), with \(\Omega_n\) as defined above.
+
+      #### Reference R2
+      Target: Lemma \ref{lemma:ConvProbBound}
+      Citation: The desired result then follows from Lemma \ref{lemma:ConvProbBound} with
+      \[
+      Z_n = \sum_{s = 1}^{n-t} \frac{\text{pr}(K_{n} = t+s \, | \, X_{1:n})}{\text{pr}(K_{n} = t \, | \, X_{1:n})}
+      \]
+      and \(\Omega_n\) as in \eqref{Omega_n}.
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The result is Lemma \ref{lemma:ConvProbBound} in the supplied supplement file \texttt{supp.tex}, “Supplementary Materials for Clustering consistency with Dirichlet process mixtures” (Filippo Ascolani; Antonio Lijoi; Giovanni Rebaudo; Giacomo Zanella), in the proof of Theorem \ref{th:ConsBounded}. It supports the current target by justifying passage from convergence in \(P^{(\infty)}\)-probability of the indicator-weighted posterior ratio sum to unconditional convergence in probability. The specialization \(Z_n=\sum_{s=1}^{n-t}\operatorname{pr}(K_n=t+s\mid X_{1:n})/\operatorname{pr}(K_n=t\mid X_{1:n})\) and the specific event \(\Omega_n\) belong to the current proof, not to this lemma’s Statement.
+
+      ##### Definitions and notation
+      Let \(X_{1:n}=(X_1,\dots,X_n)\) be the first \(n\) coordinates of \(X_{1:\infty}\), and let \(P^{(\infty)}\) be the product probability measure induced on \(\mathbb{X}^\infty\) by the data-generating process. For a set \(A\), \(\mathbbm{1}_A\) denotes its indicator function. A sequence \(W_n\) converges to \(0\) in \(P^{(\infty)}\)-probability if for every \(\epsilon>0\),
+      \[
+      P^{(\infty)}(|W_n|>\epsilon)\to 0
+      \]
+      as \(n\to\infty\). The sets \(\Omega_n\) may depend on \(X_{1:n}\).
+
+      ##### Assumptions
+      No separately named assumption block is cited. The lemma’s hypotheses are stated inline in the Statement: \(P^{(\infty)}(\Omega_n)\to1\) and \(Z_n\mathbbm{1}_{\Omega_n}\to0\) in \(P^{(\infty)}\)-probability.
+
+      ##### Statement
+      Let \(\Omega_n\) be a sequence of sets depending on \(X_{1:n}\), and let \(Z_n\) be random variables on the same probability space such that \(P^{(\infty)}(\Omega_n) \to 1\) and
+      \[
+      Z_n \mathbbm{1}_{\Omega_n} \to 0
+      \]
+      in \(P^{(\infty)}\)-probability as \(n \to \infty\). Then \(Z_n \to 0\) in \(P^{(\infty)}\)-probability as \(n \to \infty\).
+    lean_name: Theorem_1_th_ConsBounded
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics

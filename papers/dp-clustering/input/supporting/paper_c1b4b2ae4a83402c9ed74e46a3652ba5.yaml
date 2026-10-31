@@ -1,0 +1,59 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:7babd65b-676b-46d4-ae54-bbf70fc82a6d
+    title: paper_c1b4b2ae4a83402c9ed74e46a3652ba5
+    kind: lemma
+    latex_statement: |-
+      As in the shared section, \(\mathbb G_s\) denotes exact \(s\)-component mixtures with positive weights and distinct parameters. More explicitly, let \(\Psi=\{k(\cdot\mid\theta):\theta\in\Theta\}\), dominated by \(\mu\), where \(\mu\) is either Lebesgue or counting measure and the common domain is \(\mathbb X\). For \(s\ge1\), \(\mathbb G_s\) denotes the set of exact \(s\)-component mixtures \(f\in\mathbb G_s\quad\Longleftrightarrow\quad f=\sum_{j=1}^s q_jk(\cdot\mid\theta_j)\), with \(q_j>0\), \(\sum_{j=1}^s q_j=1\), and distinct parameters \(\theta_j\). Following the source, \(f\in\mathcal P(G)\) means that \(f\) is the density of a probability measure \(P\in\mathcal P(G)\). Weak convergence of densities is understood via the corresponding probability measures. A weak neighborhood is a neighborhood in the weak topology on probability measures. The weights of the reduced sequence are denoted \(q'_{j,i}\).
+
+      <!-- formalization-clarifications:v1:6b2116ef27bfa3fd7ca45dae9c6b2133a192e9f90e8f67df206b3edb8fb45b95 -->
+      Formalization clarifications from source and proof:
+      These notes concern the selected target theorem, which is Lemma \label{second_auxiliary} in the source’s “Proof of Proposition \ref{undersmoothing}” (supp.tex). The lemma is not presented there as a cited external result. The original proof has an apparent typo in its first sentence: it says “If \(\liminf_i q_{j,i}=0\) for every \(j\), ... take \(f_i'=f_i\),” which conflicts with the stated conclusion requiring positive \(\liminf\). The selected block repairs this to the positive-\(\liminf\) case and explicitly notes the typographical issue; use the theorem statement and the repaired trivial case, not the erroneous original sentence.
+
+      1. Constants and quantifiers. The source’s intended order is: fix \(s\ge 1\), fix a kernel family \(k(\cdot\mid\theta)\) with parameter set \(\Theta\), measure \(\mu\) (Lebesgue or counting) and common domain \(\mathbb X\); then for every sequence \(\{f_i\}\subset\mathbb G_s\) with \(f_i\to f\in\mathcal P(\mathbb X)\) weakly, there exist \(s'\le s\) and a sequence \(\{f_i'\}\subset\mathbb G_{s'}\) such that \(f_i'\to f\) weakly and \(\liminf_i q'_{j,i}>0\) for every \(j=1,\dots,s'\). There are no numerical constants such as \(F,G,\epsilon,\delta\) in this lemma; the proof’s \(2\tilde q_{\ell,i}\) is only an intermediate estimate, not part of the conclusion. The integer \(s'\), the reduced weights \(q'_{j,i}\), and the final sequence may depend on the chosen input sequence and its weak limit \(f\); the source states no uniformity over \(s'\), over initial weights, over parameters, over distributions, over dimensions, over sets, or over sample size. The selected statement does not explicitly write \(1\le s'\), but \(\mathbb G_{s'}\) is defined only for \(s'\ge 1\) and the conclusion quantifies \(j=1,\dots,s'\), so the intended side condition is \(1\le s'\le s\); allowing an empty mixture \(s'=0\) would go beyond the source’s definition of \(\mathbb G_s\). The general context in “Proof of Proposition \ref{undersmoothing}” sets \(\Theta\subseteq\mathbb R^p\) and \(\mathbb X\subseteq\mathbb R^q\), but the selected lemma itself does not quantify over \(p,q\) or claim uniformity in them; if \(p,q\) are Lean parameters, \(s'\) is still not thereby made uniform.
+
+      2. Norms and mathematical objects. The target lemma contains no norm and no \(L^p\), operator, sup, Frobenius, normalized, or unscaled norm assertion. Its convergence \(f_i\to f\) is weak convergence of the probability measures associated with the densities, as stated in the selected “Definitions and notation”: “Weak convergence of densities is understood via the corresponding probability measures.” Thus one should not translate this as pointwise convergence, norm convergence, or total-variation convergence in the statement. The objects are exact \(s\)-component mixtures \(f=\sum_{j=1}^s q_jk(\cdot\mid\theta_j)\) with \(q_j>0\), \(\sum_j q_j=1\), and distinct parameters \(\theta_j\); do not replace \(\mathbb G_s\) by “at most \(s\)” mixtures or allow zero weights in the ambient definition. The measure \(\mu\) is either Lebesgue or counting, and \(f\in\mathcal P(\mathbb X)\) means, following the source, that \(f\) is the density of a probability measure; the conclusion does not assert \(f\in\mathbb G_{s'}\) or \(f_i'=f_i\). The proof uses integrals \(\int_A\) with respect to \(\mu\) and, as a proof-based inference, transfers weak convergence from \(\tilde f_i\) to \(f_i'\) after obtaining an \(L^1\)-type estimate; that \(L^1\) convergence is not an additional hypothesis or conclusion of the lemma. The surrounding proof of Proposition \ref{undersmoothing} also uses symbols such as \(\|\theta_i\|\), \(\sup_x k(x\mid\theta)\), and closed balls \(B_x(\epsilon)\) in assumptions \(H1\)–\(H4\); those belong to that surrounding context, not to this lemma, and the selected lemma itself supplies no norm to import.
+
+      3. Asymptotics. The limiting variable is deterministic \(i\to\infty\) along the natural numbers. The only asymptotic assertions in the lemma are \(f_i\to f\) weakly and, for each fixed \(j\le s'\), \(\liminf_i q'_{j,i}>0\) along the final constructed sequence \(f_i'\). There are no \(O\), \(o\), stochastic \(O_P/o_P\), probability-limit, almost-sure, or rate statements in the target lemma; surrounding results use \(P^{(\infty)}\)-probability and \(L^1\) convergence, but these must not be imported into this deterministic auxiliary lemma. The proof chooses a subsequence along which a selected weight tends to \(0\), then repeats the removal and relabels the resulting subsequence; the final \(\liminf\) is therefore attached to the sequence constructed in the conclusion, not necessarily to the original \(q_{j,i}\) at the original index \(i\). The source does not state a uniform positive lower bound for all \(j\) simultaneously as an explicit conclusion; it states the pointwise \(\liminf\) condition for each \(j\). Since \(s'\) is finite, a uniform eventual lower bound follows mathematically, but it is not an explicit source hypothesis or conclusion and should not be presented as such.
+
+      4. Potentially omitted definitions and side conditions. The source leaves \(s'\) to be chosen existentially, with implicit \(s'\ge1\), and uses \(q'_{j,i}\) for the weights of the reduced sequence; there is no stated relationship between \(q'_{j,i}\) and the original weights \(q_{j,i}\), nor between \(f_i'\) and \(f_i\) at the same original index. The proof-based construction deletes a component whose weight tends to zero along a subsequence, renormalizes the remaining positive weights, and preserves the exact positive-weight, distinct-parameter form of \(\mathbb G_{s'}\); when \(s=1\) removal is impossible because the sole weight is \(1\), so the trivial positive-\(\liminf\) case applies. The proof’s displayed inequality over arbitrary \(A\subseteq\mathbb X\) is intended to justify an \(L^1(\mu)\) comparison and then weak convergence, but the statement itself only requires weak convergence. No compactness, bounded parameter set, separation of parameters, convergence of parameters, or preservation of the original parameter ordering is asserted in the lemma. The selected definitions do not spell out a topological regularity condition on the generic domain \(\mathbb X\) beyond weak convergence of probability measures; the surrounding proof of Proposition \ref{undersmoothing} supplies \(\mathbb X\subseteq\mathbb R^q\) for that application. Finally, no external cited theorem is used in the target lemma’s own statement or proof. The surrounding Proposition \ref{undersmoothing} does cite an adaptation of Theorem 2.1 of Cai et al. (2020), Lemma 4.1 of Cai et al. (2020), and Schwartz’s theorem via Ghosal and van der Vaart (2017), Theorem 6.16/Example 6.20; those citations belong to that proposition’s argument, not to Lemma \label{second_auxiliary}, and their own universal hypotheses should not be replaced by target-specific assumptions.
+      <!-- /formalization-clarifications -->
+
+      Let \(\left\{f_i=\sum_{j=1}^s q_{j,i}k(\cdot\mid\theta_{j,i})\right\}_{i=1}^\infty\subset\mathbb G_s\) be such that \(f_i\to f\in\mathcal P(\mathbb X)\) weakly as \(i\to\infty\). Then there exist \(s'\le s\) and a sequence \(\{f'_i\}_{i=1}^\infty\subset\mathbb G_{s'}\) such that \(f'_i\to f\) weakly as \(i\to\infty\), and \(\liminf_i q'_{j,i}>0\) for every \(j=1,\dots,s'\).
+    assumptions: []
+    proof_body: |-
+      If \(\liminf_i q_{j,i}>0\) for every \(j=1,\dots,s\), take \(s'=s\) and \(f_i'=f_i\) for every \(i\). (The source text has an apparent typographical equality in this trivial case; the condition required by the conclusion is the positive-\(\liminf\) case.)
+
+      Otherwise, choose \(\ell\in\{1,\dots,s\}\) with \(\liminf_i q_{\ell,i}=0\). Passing to a subsequence, write
+      \[
+      \tilde f_i=\sum_{j=1}^s \tilde q_{j,i}k(\cdot\mid\tilde\theta_{j,i}),
+      \]
+      with \(\tilde q_{\ell,i}\to0\), and define
+      \[
+      f_i'(x)=\sum_{j\ne \ell}\frac{\tilde q_{j,i}}{\sum_{r\ne \ell}\tilde q_{r,i}}k(x\mid\tilde\theta_{j,i}).
+      \]
+      Since \(\sum_{r\ne \ell}\tilde q_{r,i}\to1\), for any \(A\subseteq \mathbb X\),
+      \[
+      \begin{aligned}
+      \left|\int_A \tilde f_i(x)\,\mu(dx)-\int_A f_i'(x)\,\mu(dx)\right|
+      &\le \sum_{j\ne\ell}\tilde q_{j,i}\left(\frac{1}{1-\tilde q_{\ell,i}}-1\right)\int_A k(x\mid\tilde\theta_{j,i})\,\mu(dx)\\
+      &\qquad+\tilde q_{\ell,i}\int_A k(x\mid\tilde\theta_{\ell,i})\,\mu(dx)\\
+      &\le 2\tilde q_{\ell,i}\to0.
+      \end{aligned}
+      \]
+      Thus the corresponding densities converge to each other in \(L^1\), so since \(\tilde f_i\to f\) weakly, also \(f_i'\to f\) weakly. Moreover \(f_i'\in\mathbb G_{s-1}\).
+
+      Repeating this removal procedure for every remaining index whose limiting lower weight is zero yields a subsequence, relabelled as \(\{f_i'\}\), contained in some \(\mathbb G_{s'}\) with \(s'\le s\), such that \(f_i'\to f\) weakly and
+      \[
+      \liminf_i q'_{j,i}>0
+      \]
+      for every \(j=1,\dots,s'\). This proves the lemma.
+    lean_name: paper_c1b4b2ae4a83402c9ed74e46a3652ba5
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

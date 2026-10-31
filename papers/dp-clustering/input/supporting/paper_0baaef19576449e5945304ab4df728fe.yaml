@@ -1,0 +1,200 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:21dfbe0d-18d1-4a0c-843a-08ced2dac383
+    title: paper_0baaef19576449e5945304ab4df728fe
+    kind: lemma
+    latex_statement: |-
+      For \(c>0\) and a density \(g:\mathbb R\to[0,\infty)\) as in the assumptions, \(k(x\mid\theta)=g(x-\theta)\) is the location kernel. All variables are real, and \(|\cdot|\) denotes ordinary absolute value on \(\mathbb R\). The lemma uses only T1–T2; it does not use the density bound T3 or the local lower bound T4 from the surrounding consistency theorem. The source lemma is stated in the normalization \(\theta_j^*=0\). For data \(x_1,\ldots,x_n\in\mathbb R\), put
+      \[
+      C_j=\{i\in\{1,\ldots,n\}:x_i\in[-c,c]\},\qquad n_j=|C_j|,
+      \]
+      and let
+      \[
+      x^j_{(1)}=\min_{i\in C_j}x_i,\qquad x^j_{(n_j)}=\max_{i\in C_j}x_i
+      \]
+      be the order statistics of \(x_{C_j}\) (not of the full sample). Here \(R\) in T2 is the logarithmic derivative bound for \(g\), not one of the mixture component measures \(R_j\) in the parent statistical model. Let \(p(x)=\log g(x)\) on \((-c,c)\). Let \(\widetilde p\) be the continuous extension of \(p\) to \([-c,c]\), and define
+      \[
+      \widetilde g(x)=e^{\widetilde p(x)},\qquad x\in[-c,c].
+      \]
+      This is the continuous extension of \(g\) on \([-c,c]\) defined from the one-sided limits of \(\log g\) on \((-c,c)\). For a set \(A\), \(\mathbbm{1}_A\) denotes its indicator.
+
+      <!-- formalization-clarifications:v1:d1cda2c0b7a0aca1761c0e59dcfece55bd2b73936a5cc56152ba63acea4f3453 -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The selected inequality is the finite-sample pointwise lemma stated as Lemma \ref{denom1} in the proof of Theorem \ref{th:ConsBounded}, with the source’s normalization “Without loss of generality assume \(\theta_j^*=0\)” and “with \(R\) defined in \(T2\).” The intended order is: first fix \(c>0\), the density \(g\), and constants \(0<m\le M<\infty\) satisfying T1 and a finite \(R\) satisfying T2; then fix \(n\) and data \(x_1,\ldots,x_n\); define \(C_j,n_j,x^j_{(1)},x^j_{(n_j)}\); assume \(n_j\ge1\); then prove the inequality for every \(\theta_j\in\mathbb R\), with the right-hand side indicator handling the cases where the condition fails. Thus \(e^{-R}\) may depend on \(c\) and \(g\) through the T2 constant \(R\), but not on the data, \(n\), \(C_j\), \(n_j\), or \(\theta_j\). The source does not specify a minimal or unique \(R\); any finite bound satisfying \(|g'(x)/g(x)|\le R\) on \((-c,c)\) is intended, and a larger admissible \(R\) gives a weaker but still valid \(e^{-R}\) bound. T1–T2 only are used by this lemma; T3–T4 from the surrounding consistency theorem are not part of its assumptions. The threshold \(1/n_j\) is data-dependent because \(n_j=|C_j|\), but \(e^{-R}\) is not.
+
+      2. Norms and objects. The target is one-dimensional: all variables are real and \(|\cdot|\) is ordinary absolute value on \(\mathbb R\), not a sup, operator, Frobenius, or normalized norm; on \(\mathbb R\) this coincides with Euclidean \(l_2\). The kernel is \(k(x\mid\theta)=g(x-\theta)\), \(p=\log g\) on \((-c,c)\), and \(\widetilde p\) is the continuous extension of \(p\) to \([-c,c]\), with \(\widetilde g=e^{\widetilde p}\). In the normalized target, \(C_j=\{i:x_i\in[-c,c]\}\) and \(n_j=|C_j|\); the order statistics \(x^j_{(1)},x^j_{(n_j)}\) range only over \(x_{C_j}\), not over the full sample. In the unnormalized source version, \(C_j\) is defined using the true location/component interval and the ratio in Lemma \ref{denom1} is normalized by \(g(X_i-\theta_j^*)\), so one should not silently replace a general \(\theta_j^*\) by \(0\) unless that normalization is explicitly in force. Also, the \(R\) in T2 is not one of the mixture component measures \(R_j\) in the data-generating law \(P=\sum p_jR_j\), and it is not the ratio \(R(n,t,s)\) from the paired main.tex; \(C_j\) is not the event \(C^{(n)}=\{n_j>0\ \forall j\}\). Do not replace \(\widetilde g\) by an arbitrary endpoint extension: it is specifically the exponential of the continuous extension of \(\log g\). The final lower bound is \(e^{-R}\), not \(e^{-R n_j}\), \(e^{-R/n_j}\), or a product-dependent exponential.
+
+      3. Asymptotics. The selected lemma itself contains no \(O\), \(o\), or probability-mode asymptotic assertion: it is an exact deterministic inequality for fixed \(n\), data, and \(\theta_j\), with trivial truth when either indicator is zero. In the surrounding proof, \(n_j\) is random under \(P^{(\infty)}\) and statements such as convergence in \(P^{(\infty)}\)-probability, \(n_j\to\infty\), and the event \(\Omega_n\) belong to neighboring arguments, not to the hypotheses of Lemma \ref{denom1}; do not import them as if they were assumptions of the pointwise inequality. For fixed \(c,g,R\), the bound is uniform over all data with \(n_j\ge1\) and all \(\theta_j\) satisfying the indicators; it is not uniform over varying kernels or varying \(c\) unless the same \(R\) is assumed. The source does not state any \(o_P\) refinement of this lemma.
+
+      4. Omitted definitions and side conditions. The target explicitly assumes \(n_j\ge1\); otherwise order statistics and \(1/n_j\) are not defined, and the surrounding theorem handles nonempty groups through \(C^{(n)}\) and later \(n_j\ge N_j\). Endpoint behavior is the main source ambiguity: T2 controls \(g\) only on the open interval \((-c,c)\), while the original proof contains the line “Define \(p(x):=\log g(x)\), with \(x\in[-c,c]\)”; this literal endpoint statement is not justified by T2 alone. The selected statement repairs this by using \(\widetilde g\), and for the original \(g\) it allows only \(\theta_j\) for which no relevant argument equals \(\pm c\), or Lebesgue-almost every \(\theta_j\); the source does not specify equality of \(g(\pm c)\) with \(\widetilde g(\pm c)\). The original proof also contains an intermediate factor \(e^{-Rn|\theta_j|}\) after \(e^{-Rn_j|\theta_j|}\); using \(|\theta_j|\le1/n_j\) gives \(e^{-R}\) only with \(n_j\), not general \(n\). The selected proof consistently uses \(n_j\), so the occurrence of \(n\) in the original display should be treated as a source typo/ambiguity rather than a hypothesis. The cited external result is “Fundamental Theorem of Integral Calculus” in Reference R1; its exact regularity version, page, and bibliography are not supplied and are marked model-supplemented, so a general FTC formalization should keep its own hypotheses rather than specializing them to \(p=\log g\). The displayed integral estimate \(\left|\int p'\right|\le\int|p'|\le R|y-x|\) is a separate elementary estimate, not a named theorem supplied by the source. Finally, \(q_0,Q_0,\pi,K_n,\tau_s(n)\), the event \(\Omega_n\), and T3–T4 from the paired main.tex are not needed to interpret the selected inequality; they belong to the surrounding denominator and posterior-consistency arguments.
+      <!-- /formalization-clarifications -->
+
+      With the notation and assumptions above, the normalized product-ratio comparison is
+      \[
+      \prod_{i\in C_j}\frac{g(x_i-\theta_j)}{g(x_i)}
+      \ge e^{-R}\mathbbm{1}_{[0,1/n_j]}(|\theta_j|)
+      \mathbbm{1}_{[x^j_{(n_j)}-c,\,x^j_{(1)}+c]}(\theta_j),
+      \]
+      with endpoint interpretation required because T2 controls \(g\) only on the open interval \((-c,c)\). With \(\widetilde g\) as above, the inequality
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(x_i-\theta_j)}{\widetilde g(x_i)}
+      \ge e^{-R}\mathbbm{1}_{[0,1/n_j]}(|\theta_j|)
+      \mathbbm{1}_{[x^j_{(n_j)}-c,\,x^j_{(1)}+c]}(\theta_j)
+      \]
+      holds for every \(\theta_j\in\mathbb R\), with \(R\) the constant from T2. Equivalently, if
+      \[
+      |\theta_j|\le \frac1{n_j}
+      \qquad\text{and}\qquad
+      \theta_j\in\bigl[x^j_{(n_j)}-c,\;x^j_{(1)}+c\bigr],
+      \]
+      then
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(x_i-\theta_j)}{\widetilde g(x_i)}\ge e^{-R}.
+      \]
+      For the original \(g\), the comparison holds for every \(\theta_j\) for which no argument \(x_i\) or \(x_i-\theta_j\) lies at an endpoint \(\pm c\); in particular it holds for Lebesgue-almost every \(\theta_j\) without additional endpoint hypotheses. If the endpoint values of \(g\) agree with the continuous-extension values, or if one replaces \(g(\pm c)\) by \(\widetilde g(\pm c)\), the inequality holds for every \(\theta_j\).
+    assumptions:
+      - |-
+        Let \(c>0\), and let \(g:\mathbb R\to[0,\infty)\) be the density defining the location kernel \(k(x\mid\theta)=g(x-\theta)\). Assume:
+        \begin{enumerate}
+        \item[(T1)] there exist \(0<m\le M<\infty\) such that \(m\le g(x)\le M\) for \(x\in[-c,c]\);
+        \item[(T2)] \(g\) is differentiable on \((-c,c)\), and there exists \(R<\infty\) such that
+        \[
+        \left|\frac{g'(x)}{g(x)}\right|\le R,\qquad x\in(-c,c).
+        \]
+        \end{enumerate}
+        The source lemma is stated in the normalization \(\theta_j^*=0\). Fix data \(x_1,\ldots,x_n\in\mathbb R\), define \(C_j\), \(n_j\), \(x^j_{(1)}\), and \(x^j_{(n_j)}\) as above, and assume \(n_j\ge1\).
+    proof_body: |-
+      Let \(p(x)=\log g(x)\) on \((-c,c)\). By \(T2\),
+      \[
+      |p'(x)|=\left|\frac{g'(x)}{g(x)}\right|\le R,\qquad x\in(-c,c),
+      \]
+      so \(p\) is \(R\)-Lipschitz on \((-c,c)\). Let \(\widetilde p\) be the continuous extension of \(p\) to \([-c,c]\), and define
+      \[
+      \widetilde g(x)=e^{\widetilde p(x)},\qquad x\in[-c,c].
+      \]
+      The extension exists because \(p\) is uniformly continuous on \((-c,c)\); \(T1\) keeps it positive and finite. Passing the Lipschitz bound to the limit gives
+      \[
+      |\widetilde p(y)-\widetilde p(x)|\le R|y-x|,\qquad x,y\in[-c,c].
+      \]
+      This is the endpoint-safe form of the source proof’s line
+      \[
+      |p(y)-p(x)|\le R|y-x|,\qquad -c<x\le y<c,
+      \]
+      obtained from \(T2\) and [ref:R1].
+
+      Now fix \(\theta_j\). If either indicator on the right-hand side is zero, the desired inequality is immediate because the left-hand side is nonnegative. Hence assume
+      \[
+      |\theta_j|\le \frac1{n_j},
+      \qquad
+      \theta_j\in\bigl[x^j_{(n_j)}-c,\;x^j_{(1)}+c\bigr].
+      \]
+      For every \(i\in C_j\), we have \(x_i\in[-c,c]\). Moreover, from
+      \[
+      x^j_{(1)}\le x_i\le x^j_{(n_j)}
+      \]
+      and the interval condition on \(\theta_j\), we get
+      \[
+      -c\le x_i-\theta_j\le c.
+      \]
+      Therefore both \(x_i\) and \(x_i-\theta_j\) lie in \([-c,c]\), and
+      \[
+      \log\frac{\widetilde g(x_i-\theta_j)}{\widetilde g(x_i)}
+      =
+      \widetilde p(x_i-\theta_j)-\widetilde p(x_i)
+      \ge -R|\theta_j|.
+      \]
+      Exponentiating and multiplying over \(i\in C_j\),
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(x_i-\theta_j)}{\widetilde g(x_i)}
+      \ge e^{-R n_j|\theta_j|}
+      \ge e^{-R},
+      \]
+      where the last inequality uses \(n_j|\theta_j|\le1\). Thus
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(x_i-\theta_j)}{\widetilde g(x_i)}
+      \ge
+      e^{-R}\mathbbm{1}_{[0,1/n_j]}(|\theta_j|)
+      \mathbbm{1}_{[x^j_{(n_j)}-c,\,x^j_{(1)}+c]}(\theta_j)
+      \]
+      for every \(\theta_j\in\mathbb R\).
+
+      For the original \(g\), whenever all relevant arguments \(x_i\) and \(x_i-\theta_j\) lie in the open interval \((-c,c)\), the same computation with \(p=\log g\) gives the inequality. The only possible exceptions are endpoint evaluations \(x_i=\pm c\) or \(x_i-\theta_j=\pm c\); for fixed data these occur only at finitely many \(\theta_j\) in the numerator, and they disappear if \(g(\pm c)=\widetilde g(\pm c)\) or if \(g(\pm c)\) is replaced by \(\widetilde g(\pm c)\). Hence the endpoint interpretation stated in the target is exactly the source argument applied through \(\widetilde g\), with the product count \(n_j=|C_j|\) used consistently.
+
+      ### References
+      #### Reference R1
+      Target: Fundamental Theorem of Integral Calculus
+      Citation: By \(T2\) and the Fundamental Theorem of Integral Calculus
+      \[
+      |p(y)-p(x)| = \left\lvert \int_x^yp'(t) \, \mathrm d t \right\rvert \leq \int_x^y \left|\frac{g'(t)}{g(t)}\right| \mathrm d t \leq R|y-x|, \quad -c < x \leq y < c.
+      \]
+      Bibliography:
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      model-supplemented
+
+      ##### Fundamental Theorem of Integral Calculus (Newton–Leibniz formula)
+      ###### Content basis
+      The current proof cites this result as “the Fundamental Theorem of Integral Calculus” in the line beginning “By \(T2\) and …”. No bibliography entry, theorem number, page, edition, or uploaded original source is available; the supplied source-read results are empty. The statement below is therefore a standard, source-unconfirmed restatement of the Newton–Leibniz/FTC second part, not a retrieved quotation. It supports the equality
+      \[
+      p(y)-p(x)=\int_x^y p'(t)\,dt,
+      \]
+      hence also the absolute-value equality in the citation. It does not by itself supply the later absolute-value and monotonicity inequalities; those are recorded separately below. The current hypothesis \(T2\) is not a hypothesis of the FTC and is not asserted here to discharge the FTC’s regularity conditions. The exact version used by the unavailable original source — continuous derivative, Riemann-integrable derivative, or Lebesgue/absolute-continuity form — is not confirmed.
+
+      ###### Definitions and notation
+      Let \(\mathbb R\) be the real line, \(I\subseteq\mathbb R\) an interval, and \(f:I\to\mathbb R\). At points where it exists, \(f'\) denotes the ordinary derivative of \(f\). For \(x,y\in I\), \(\int_x^y f'(t)\,dt\) denotes the definite integral of \(f'\) over the interval from \(x\) to \(y\); in the cited use \(x\le y\). In the cited application, \(I=(-c,c)\), \(f=p\), \(p(t)=\log g(t)\), and \(p'(t)=g'(t)/g(t)\), where \(g>0\) and \(g\) is differentiable. This identification is expository notation for the application, not an additional hypothesis of the FTC.
+
+      ###### Assumptions
+      Let \(I\subseteq\mathbb R\) be an interval, let \(f:I\to\mathbb R\), and let \(x,y\in I\) with \(x\le y\). Assume:
+      1. \(f\) is differentiable on an open interval containing \([x,y]\);
+      2. \(f'\) is Riemann integrable on \([x,y]\).
+
+      Source-verification note: the exact original version is unavailable. A common Lebesgue formulation replaces condition 2 by absolute continuity of \(f\) on \([x,y]\) and Lebesgue integrability of \(f'\). No condition on \(g,c\), or \(T2\) is part of the FTC itself.
+
+      ###### Statement
+      Under the above assumptions,
+      \[
+      \int_x^y f'(t)\,dt=f(y)-f(x).
+      \]
+      Equivalently, on the interval \([x,y]\), the definite integral of the derivative equals the increment of the function.
+
+      ##### Displayed integral estimate (absolute value and monotonicity)
+      ###### Content basis
+      The same citation displays the chain
+      \[
+      \left|\int_x^y p'(t)\,dt\right|
+      \le \int_x^y \left|\frac{g'(t)}{g(t)}\right|\,dt
+      \le R|y-x|.
+      \]
+      No separate theorem name, source location, or bibliographic attribution for this estimate is supplied. It is an elementary, source-unconfirmed integral estimate, included because the named FTC covers only the equality step. In the current proof it is applied with \(f=p'=g'/g\) and with the bound \(R\) coming from \(T2\); \(T2\) is not an assumption of this estimate, and no claim is made here that the original source stated it as a separately named theorem.
+
+      ###### Definitions and notation
+      Let \(x\le y\) be real numbers, let \(f\) be a real-valued function on \([x,y]\), and let \(R\ge0\). The integrals \(\int_x^y f(t)\,dt\) and \(\int_x^y |f(t)|\,dt\) are definite integrals, and \(|\cdot|\) is ordinary absolute value.
+
+      ###### Assumptions
+      Assume:
+      1. \(x\le y\);
+      2. \(f\) and \(|f|\) are integrable on \([x,y]\);
+      3. \(R\in[0,\infty)\) satisfies
+      \[
+      |f(t)|\le R\qquad\text{for all }t\in[x,y].
+      \]
+
+      ###### Statement
+      Under the above assumptions,
+      \[
+      \left|\int_x^y f(t)\,dt\right|
+      \le \int_x^y |f(t)|\,dt
+      \le R(y-x)=R|y-x|.
+      \]
+    lean_name: paper_0baaef19576449e5945304ab4df728fe
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

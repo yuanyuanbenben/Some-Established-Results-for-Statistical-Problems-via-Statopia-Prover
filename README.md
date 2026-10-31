@@ -1,6 +1,12 @@
 # Some Established Results for Statistical Problems via Statopia Prover
 
-Lean proofs for 83 statistics problems, six guided IMO results, nine papers (ten main developments and 24 supporting tasks), and a neural-network approximation component.
+Some selected Lean 4 formalization results verified using [Statopia Prover](https://prover.statopia.ai/).
+
+- [Statopia Prover](https://prover.statopia.ai/)
+- [Statlib](https://statlib.statopia.ai/)
+- [Statopia Prover source code](https://github.com/statopia/prover)
+
+The collection contains 83 statistics problems, six guided IMO results, ten papers (11 main developments and 40 supporting tasks), and a neural-network approximation component.
 
 - [Paper results](papers/README.md)
 - [Statistics benchmark](statistics-benchmark/README.md)
@@ -13,6 +19,7 @@ Every paper, benchmark task and IMO task has `input/`, `proof/` and a result sum
 | --- | ---: | ---: | ---: | ---: | ---: |
 | [CCK — Theorem 2 (covariance-only bound)](papers/cck/README.md) | 78 | 12,223 | 122 | 4 | 6/6 (1+5) |
 | [Gaussian approximation — Theorem 3.1](papers/gaussian/README.md) | 88 | 15,047 | 90 | 3 | 6/6 (1+5) |
+| [DP clustering — Theorem 1](papers/dp-clustering/README.md) | 226 | 50,508 | 4 | 1 | 17/17 (1+16) |
 | [HulC — Theorem 1](papers/hulc/README.md) | 15 | 1,397 | 1 | 0 | 2/2 (1+1) |
 | [HMC — Theorems 2.2 (i–ii) and 5.14](papers/hmc/README.md) | 73 | 7,214 | 2 | 1 | 8/8 (2+6) |
 | [Data thinning — Theorem 1](papers/data-thinning/README.md) | 5 | 125 | 0 | 0 | 1/1 (1+0) |

@@ -1,0 +1,587 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:529c3a18-b99e-4d24-a713-6ede52ddd2d4
+    title: paper_dc88427b52844263b5321fc99eb582d8
+    kind: lemma
+    latex_statement: |-
+      The Dirichlet process mixture model is
+      \[
+      X_i\mid\theta_i \simind k(\cdot\mid\theta_i),\qquad
+      \theta_i\mid \tilde P \simiid \tilde P,\qquad
+      \tilde P\mid \alpha \sim \operatorname{DP}(\alpha,Q_0),\qquad
+      \alpha\sim\pi,
+      \]
+      where \(k(\cdot\mid\theta)\) is a density for every \(\theta\), \(\alpha>0\) is the concentration parameter, and \(Q_0\) is the baseline distribution on \((\mathbb X,\mathcal X)\). For every \(n,s\in\mathbb N\) with \(s\le n\), let \(\tau_s(n)\) be the set of partitions of \(\{1,\dots,n\}\) into \(s\) nonempty subsets. Conditionally on \(\alpha\), the induced prior on partitions is
+      \[
+      \operatorname{pr}(A\mid\alpha)
+      =\frac{\alpha^s}{\alpha^{(n)}}\prod_{j=1}^s(a_j-1)!,
+      \qquad
+      A=\{A_1,\dots,A_s\}\in\tau_s(n),
+      \]
+      where \(\alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1)\) and \(a_j=|A_j|\). The number of clusters in a sample of size \(n\) is \(K_n\), and \(\operatorname{pr}(K_n=s\mid X_{1:n})\) denotes the posterior probability under this model. For a set \(B\subseteq\mathbb N\), write \(\Pi_n(B):=\operatorname{pr}(K_n\in B\mid X_{1:n})\); in particular \(\Pi_n(t):=\operatorname{pr}(K_n=t\mid X_{1:n})\). The marginal likelihood for a nonempty block \(A\) is
+      \[
+      m(x_A)=\int\prod_{i\in A}k(x_i\mid\theta)\,Q_0(d\theta)
+      =\int_{\mathbb R}\prod_{i\in A}g(x_i-\theta)q_0(\theta)\,d\theta,
+      \]
+      under the location kernel \(k(x\mid\theta)=g(x-\theta)\) and \(Q_0(d\theta)=q_0(\theta)d\theta\).
+
+      The data-generating mechanism is \(X_i\simiid P=\sum_{j=1}^t p_jR_j\), \(i=1,2,\dots\), where \(t\ge1\), the \(R_j\) are distinct probability measures on \(\mathbb X\), \(p_j\in(0,1)\), and \(\sum_{j=1}^t p_j=1\). The product laws are \(P^{(n)}\) on \(\mathbb X^n\) and \(P^{(\infty)}\) on \(\mathbb X^\infty\). Posterior probabilities are computed under the mixture model, while convergence in probability is with respect to \(X_{1:\infty}\sim P^{(\infty)}\). The true component densities are \(f_j(\cdot)=f(\cdot\mid\theta_j^*)=k(\cdot\mid\theta_j^*)\), and \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\) is completely separated:
+      \[
+      |\theta_j^*-\theta_k^*|>b-a\qquad(j\ne k).
+      \]
+      Each \(\theta_j^*\) belongs to the interior support of \(Q_0\). After the linear rescaling used in the source, one may take \([a,b]=[-c,c]\). The support interval \([a,b]\) is from \(B1\); the supplied pages do not expand \(B1\)–\(B3\) (or \(H1\)–\(H4\)). The conditions \(T1\)–\(T4\) are the rescaled working conditions used in the source proof and in this result.
+
+      Ratios
+      \[
+      \frac{\operatorname{pr}(K_n=t+s\mid X_{1:n})}{\operatorname{pr}(K_n=t\mid X_{1:n})}
+      \]
+      are read with convention \(0\) when the denominator posterior probability is \(0\). The two conventions differ only on \(\{\Pi_n(t)=0\}\), a set of \(P^{(n)}\)-probability tending to zero.
+
+      Define
+      \[
+      C_j=\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\},\qquad n_j=|C_j|.
+      \]
+      For \(X_{C_j}\), let \(X^j_{(r)}\) denote the \(r\)-th order statistic, and define
+      \[
+      Y^j_{n_j}:=\min[1,\; n_j(\log n)^{\frac1{2t}}\{c+\theta_j^*-X^j_{(n_j)}\}].
+      \]
+      Let \(N_j\) be the fixed integer threshold furnished by Lemma \ref{denom}, and define
+      \[
+      \Omega_n=\{\text{for every }j=1,\dots,t:\ n_j\ge N_j,\; Y^j_{n_j}\in[1/2,1]\}.
+      \]
+      The selected source does not print the exact constants or dependence of \(N_j\) beyond the condition \(n_j\ge N_j\) and \(Y^j_{n_j}\in[1/2,1]\). The base of \(\log\) in \(Y^j_{n_j}\) is not stated; any fixed base changes only constants.
+
+      <!-- formalization-clarifications:v1:2093cd2a2c671a8f3479ecb25fd018a717cf95d7dab266ba97e556def5946284 -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifiers. The target result fixes the configuration before n→∞: t, the weights p_j, the data law P, θ*, g, q0, and π are fixed, and then n grows. The A1–A3 constants ε,δ,β,D,ν,ρ are existential for the fixed prior π; A3 is required “for every s≥1,” and ρ is only required to be “high enough.” The source does not give a uniform threshold: the main text says the minimum ρ depends on the specific P and k, while the supplied target notes additionally mention dependence on g and Q0; the exact dependency order and threshold are expressly left unspecified. In particular, do not formalize a single ρ that works uniformly over t, P, θ*, g, q0, π, or the random sample; an implicit Lean parameter does not make such a constant uniform. Constants attached to T1–T4 are fixed by the fixed rescaled data-generating/kernel setup: m,M from T1 depend on g and c; R from T2 on g and c; U from T3 on q0 and c; L from T4 on q0 and the finite θ* (the statement gives one L for all j, with N_j allowed to depend on j). The constants from Lemma \ref{denom} are fixed thresholds: K>0 is the denominator-lower-bound constant used in T^(n), and N_j is a fixed integer threshold, generally depending on j and the local neighborhood of θ_j*; the selected source explicitly says the exact constants and dependence of N_j are not printed beyond n_j≥N_j and Y^j_{n_j}∈[1/2,1]. The supplied proof of Lemma \ref{denom} suggests K=(2Le^{-R})^t, hence dependence on L,R,t, but it also contains an exponent inconsistency in the printed lower bound (K^{1/t} versus K^{1/(2t)}); use only the source-asserted positive constant K unless that proof detail is separately authorized. In R3/Lemma \ref{induction}, C_p=2^p ζ(p), and the target’s C<7 means C=C_2=4ζ(2)<7; R3 is a universal lemma for every p>1 and integers s≥2,n≥s, whereas the target applies p=2. The target proof applies the C^{s_j} bound even when s_j=1, but the printed R3 statement only covers s≥2; that is a source gap/edge case, not an explicit lemma statement. In R5/Lemma \ref{bound_sum}, p*=min_j p_j and the printed lemma gives ∑ multinomial ≤ (p*)^{-s}; the final displayed series in the supplied proof writes a factor (2CUp*/m)^s, which has the opposite p* direction and is inconsistent with R5’s stated inequality for 0<p*<1. Treat this as a source ambiguity/possible typo, not as a license to silently replace the lemma. The source-recorded sufficient condition “ρ>2CUp*/m” inherits that ambiguity; the exact high-enough condition is not settled by the excerpt. Also distinguish the prior factor C(n,t,t+s) (ratio of prior integrals, with expectation E(α^{t+s-1}) in R4 taken with respect to π), the data-dependent summand R(n,t,t+s) (not the T2 constant R), the event C^(n), the sets C_j, the support half-length c, and the constants C_p or C<7. The E in the target conclusion is expectation under X_{1:∞}∼P^{(∞)} (equivalently P^{(n)} for X_{1:n}), whereas E(α^{...}) in R4 is prior expectation.
+
+      2. Norms and mathematical objects. The target theorem uses no Euclidean, operator, sup, Frobenius, or normalized norm. Distances are ordinary absolute value on R: complete separation is the strict inequality |θ_j^*-θ_k^*|>b−a, which after the source rescaling is >2c, not ≥. Cardinalities |A| and |C_j| are set sizes. C_j is the closed interval set {i:X_i∈[θ_j^*+a,θ_j^*+b]}, after rescaling [θ_j^*−c,θ_j^*+c]; do not replace it by a ball or an abstract neighborhood. X^j_(r) is the r-th order statistic of the scalar list X_{C_j}, and Y^j_{n_j}=min[1,n_j(log n)^{1/(2t)}{c+θ_j^*−X^j_(n_j)}] uses the maximum order statistic, not a norm or absolute value; the exponent is 1/(2t), not 1/2 or 1/(2t+something). The logarithm base is not stated; any fixed base only changes constants, but no uniformity in the base is claimed. On Ω_n the source imposes n_j≥N_j and Y^j_{n_j}∈[1/2,1]. The kernel object is the location family k(x|θ)=g(x−θ) on R after rescaling; B1 gives g positive on [a,b] and zero elsewhere, so after rescaling its support is [−c,c] and its total mass is 1. T1–T4 are the operative rescaled working assumptions; the supplied pages do not derive T1–T4 from B1–B3, and T4’s local lower bound on q0 is not an explicit consequence of B3 plus “θ_j^* belongs to the interior support of Q0” in this excerpt, so do not drop it. The marginal likelihood m(X_A) is ∫∏_{i∈A}k(X_i|θ)Q0(dθ); under the location kernel and Q0(dθ)=q0(θ)dθ this is ∫∏g(X_i−θ)q0(θ)dθ. Later occurrences of Q0(dθ_h) in R1/T^(n) are the same object under B3, not a new measure. Blocks are nonempty; τ_s(n) partitions {1,...,n}; in the grouped step τ_{s_j}(n_j) partitions C_j identified with {1,...,n_j}. The surrounding proof’s S has 1≤s_j≤n_j, while R5’s lemma statement prints only s_j≤n_j; preserve the proof context when applying the multinomial bound. R1/Lemma \ref{numerator} is printed with a dimensionally odd product of integrals over R^{s_j} with scalar θ_h; the proof and the defining T^(n) in \eqref{upper_bound_ratios} use the product of scalar θ_h-integrals (equivalently one tuple integral over R^{s_j}), so use the object actually defined in \eqref{upper_bound_ratios}/T^(n), not the awkward printed form as an independent object.
+
+      3. Asymptotics. The target conclusion is deterministic convergence to 0 of the expectation under P^{(∞)} of 1_{Ω_n}∑_{s=1}^{n-t} pr(K_n=t+s|X_{1:n})/pr(K_n=t|X_{1:n}). It is stronger than, and implies, convergence in P^{(∞)}-probability; the main Theorem \ref{th:ConsBounded} separately uses P^{(∞)}-probability and the lemma converting Z_n1_{Ω_n}→0 in probability plus P(Ω_n)→1 to Z_n→0 in probability. The sum index s runs to n−t in the theorem; the proof may extend the upper limit to n−1 when bounding, but that is only an upper bound. The ratio convention is 0 when the denominator posterior probability is 0; the source notes the two conventions differ only on {Π_n(t)=0}, whose P^{(n)}-probability tends to 0. The source uses no O_P/o_P notation in the target; it writes explicit inequalities, a series “<∞,” and limits “→0.” The proof of Lemma \ref{consGeneral} bounds E{T^(n)} and then the full sum by a deterministic expression involving sqrt(log n)/log(n/(1+ε)) times a series; finiteness is asserted for ρ sufficiently large. The exact quantitative criterion is not settled, especially in view of the p* direction issue above; do not infer convergence for a specific numerical ρ from the target excerpt unless it is separately justified. The statement is not uniform in t, P, θ*, g, q0, π, or the weights; t is fixed and appears in the exponent 1/(2t) and in constants such as 2^t and K.
+
+      4. Potentially omitted definitions and side conditions. α^{(n)} is the rising factorial α(α+1)···(α+n−1), not a falling factorial. The posterior probabilities pr(K_n=·|X_{1:n}) are model-based, while convergence/expectation is under the data-generating P^{(∞)}. The event C^(n) is {n_j>0 for every j}; Ω_n implies C^(n) when N_j≥1, which is the natural threshold role. The source proof states P^{(n)}(Ω_n)→1 relying on Lemma \ref{lemma:Max} and Lemma \ref{denom}; this is a proof-based/used fact, not part of the abstract definition of Ω_n. The source proof also states C_i∩C_j=∅ and {1,...,n}=∪_j C_j under complete separation; the covering equality should be read P^{(n)}-almost surely (or on sequences whose observations lie in the union of the support intervals), not as a deterministic identity for arbitrary real data. C^(n) has probability tending to 1 because n_j→∞ a.s. under p_j>0. D,ν,ρ in A3 are for the fixed prior; D may depend on the chosen ρ and ν, and the source does not assert uniformity over priors. R4 uses the lower incomplete Gamma function γ(x,y)=∫_0^y z^{x−1}e^{−z}dz and a constant G>0 “as in Proposition \ref{prop:Prior}”; in the supplied proof G=4δ^2/(ε^{t+β}γ(t+β,ε log 2)) after the harmless ε<1 reduction permitted by A2. The final proof display contains a typographical-looking E(α^{t+s−}) in the supplied source; the intended use is E(α^{t+s−1}), matching R4 and the subsequent A3 substitution Dρ^{−(t+s−1)}Γ(ν+t+s). The source target notes that the base of log in Y^j is unspecified and that the exact N_j constants/dependence are unspecified; those are genuine unresolved details, not assumptions to invent. Finally, the general model notation (X, X) is superseded in the selected location-family theorem by real observations and real θ, with k(x|θ)=g(x−θ); do not retain an abstract normed-space interpretation in place of the scalar interval/order-statistic structure.
+      <!-- /formalization-clarifications -->
+
+      Consider the Dirichlet process mixture model described in Definitions and notation. Let \(X_i \simiid P=\sum_{j=1}^t p_jR_j\), \(i=1,2,\dots\), where \(t\ge1\), the \(R_j\) are distinct probability measures on \(\mathbb X\), \(p_j\in(0,1)\) for every \(j\), and \(\sum_{j=1}^t p_j=1\). Let \(P^{(n)}\) and \(P^{(\infty)}\) be the product probability measures on \(\mathbb X^n\) and \(\mathbb X^\infty\), respectively, and assume \(X_{1:\infty}\sim P^{(\infty)}\). Put \(f_j(\cdot):=f(\cdot\mid\theta_j^*)=k(\cdot\mid\theta_j^*)\). Assume \(k(x\mid\theta)=g(x-\theta)\), and that the true parameter vector \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\) is completely separated: \(|\theta_j^*-\theta_k^*|>b-a\) \((j\ne k)\), and each \(\theta_j^*\) belongs to the interior support of \(Q_0\). After the linear rescaling used in the source proof, one may take \([a,b]=[-c,c]\). Let the prior \(\pi\) satisfy assumptions A1, A2, and A3 with \(\rho\) high enough, as in Assumptions, and let \(g,q_0\) satisfy the working conditions T1–T4, all as in Definitions and notation and Assumptions. Define \(C_j=\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\}\), \(n_j=|C_j|\). For \(X_{C_j}\), let \(X^j_{(r)}\) denote the \(r\)-th order statistic, and define
+      \[
+      Y^j_{n_j}:=\min[1,\; n_j(\log n)^{\frac1{2t}}\{c+\theta_j^*-X^j_{(n_j)}\}].
+      \]
+      Let \(N_j\) be the fixed integer threshold furnished by Lemma \ref{denom}, and define
+      \[
+      \Omega_n=\{\text{for every }j=1,\dots,t:\ n_j\ge N_j,\; Y^j_{n_j}\in[1/2,1]\}.
+      \]
+      Then, under \(X_{1:\infty}\sim P^{(\infty)}\),
+      \[
+      \mathbb E\left\{\mathbbm{1}_{\Omega_n}\sum_{s=1}^{n-t}\frac{\operatorname{pr}(K_n=t+s\mid X_{1:n})}{\operatorname{pr}(K_n=t\mid X_{1:n})}\right\}\to 0
+      \qquad\text{as }n\to\infty.
+      \]
+    assumptions:
+      - |-
+        The model and data-generating mechanism are as in Definitions and notation. The prior \(\pi\) satisfies:
+
+        A1: \(\pi\) is absolutely continuous with respect to Lebesgue measure, with density still denoted by \(\pi\).
+
+        A2: there exist \(\epsilon,\delta,\beta>0\) such that for every \(\alpha\in(0,\epsilon)\),
+        \[
+        \frac1\delta\alpha^\beta\le \pi(\alpha)\le \delta\alpha^\beta.
+        \]
+
+        A3: there exist \(D,\nu,\rho>0\) such that for every \(s\ge1\),
+        \[
+        \int \alpha^s\pi(\alpha)\,d\alpha < D\rho^{-s}\Gamma(\nu+s+1).
+        \]
+        Here A2’s \(\epsilon,\delta,\beta\) and A3’s \(D,\nu,\rho\) are existential constants for the fixed prior \(\pi\); A3 is required for every \(s\ge1\), and \(\rho\) is the quantity required to be high enough.
+
+        The source condition is that \(\pi\) satisfies A1–A3 with \(\rho\) high enough. The source records that the expectation bound used in the proof tends to \(0\) once
+        \[
+        \rho>\frac{2CUp^{*}}{m},
+        \]
+        where \(m,M\) come from T1, \(U\) from T3, \(C=2^2\zeta(2)<7\), and \(p^{*}=\min_j p_j\). The exact threshold and exact dependency order are left unspecified; the minimum value of \(\rho\) needed depends on the specific function \(g\) and prior distribution \(Q_0\), and earlier on the specific choice of \(P\) in the data-generating mechanism and \(k\). It is not a single \(\rho\) uniform over \(P,t,\theta^*,k,q_0,\pi\).
+
+        After the rescaling \([a,b]=[-c,c]\), the working conditions are:
+
+        T1: there exist \(m,M\) such that
+        \[
+        0<m\le g(x)\le M<\infty
+        \]
+        for every \(x\in[-c,c]\).
+
+        T2: \(g\) is differentiable on \((-c,c)\), and there exists \(R\) such that
+        \[
+        \left|\frac{g'(x)}{g(x)}\right|\le R<\infty
+        \]
+        for every \(x\in(-c,c)\).
+
+        T3: there exists \(U>0\) such that
+        \[
+        h(y)=q_0(y)+q_0(-y)\le U
+        \]
+        for every \(y\in[0,2c]\).
+
+        T4: there exists \(L>0\) such that \(q_0(\theta)\ge L\) for every \(\theta\) in a neighborhood of \(\theta_j^*\), for every \(j\).
+
+        The supplied pages do not show the derivation of T1–T4 from B1–B3; accordingly, T1–T4 are the operative rescaled assumptions used here.
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      Let \(C^{(n)}=\{n_j>0\text{ for every }j\}\). Let \(K>0\) be the constant furnished by Lemma \ref{denom}. For \(A_j\in\tau_{s_j}(n_j)\), write \(A_j=(A^j_1,\dots,A^j_{s_j})\) and \(a^j_k=|A^j_k|\). Set
+      \[
+      \mathbf S=\left\{(s_1,\dots,s_t):1\le s_j\le n_j\ \forall j,\ \sum_{j=1}^t s_j=s\right\}.
+      \]
+      Define
+      \[
+      \begin{aligned}
+      T^{(n)} :={}& \frac{2^t\sqrt{\log(n)}}{K}\sum_{\mathbf s}\prod_{j=1}^t
+      \sum_{A_j\in\tau_{s_j}(n_j)}
+      n_j\frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}
+      \prod_{h=1}^{s_j}\int_{\mathbb R}\prod_{i\in A^j_h}
+      \frac{g(X_i-\theta_h)}{g(X_i-\theta_j^*)}\,Q_0(\mathrm d\theta_h)\mathbbm 1_{\Omega_n}.
+      \end{aligned}
+      \]
+      Define the prior-integral factor
+      \[
+      C(n,t,t+s)
+      :=
+      \frac{\displaystyle\int_0^\infty \frac{\alpha^{t+s}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha}
+      {\displaystyle\int_0^\infty \frac{\alpha^{t}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha}.
+      \]
+      This factor is denoted \(C(n,t,t+s)\) in the source; it is not the data-dependent set \(C_j\) nor the event \(C^{(n)}\). Let \(\tilde{\tau}_s(n)\) denote the partitions of \(\{1,\dots,n\}\) whose every block is contained in one of the \(C_j\). The symbol \(R(n,t,t+s)\) in the final display is the data-dependent summand appearing in the source; its explicit displayed definition is not reproduced in the supplied excerpt.
+
+      Write
+      \[
+      \underline{\Pi}_n:=\Pi_n(K_n<t),\qquad
+      \overline{\Pi}_n:=\Pi_n(K_n>t),\qquad
+      Z_n:=\sum_{s=1}^{n-t}\frac{\Pi_n(t+s)}{\Pi_n(t)}.
+      \]
+      On the event \(\Pi_n(t)>0\),
+      \[
+      \Pi_n(t)=\left(1+\sum_{s\ne t}\frac{\Pi_n(s)}{\Pi_n(t)}\right)^{-1}.
+      \]
+
+      ### Proof
+      From the upper bound established immediately before Lemma \ref{lemma:consGeneral} (equation (upper_bound_ratios)), for each fixed \(s\) the corresponding posterior-ratio term is bounded by \(\mathbb E\{T^{(n)}\}\). Applying [ref:R1] we can upper bound this expectation as follows
+      \[
+      \begin{aligned}
+      \mathbb E\{T^{(n)}\}
+      &\leq \frac{2^t\sqrt{\log(n)}}{K}\left(\frac{U}{m}\right)^s
+      \sum_{\mathbf{s}}\prod_{j=1}^t
+      \sum_{A_j\in\tau_{s_j}(n_j)}
+      \frac{n_j}{(n_j-1)!\prod_{k=1}^{s_j}(a_k^j+1)}\\
+      &\leq \frac{2^t\sqrt{\log(n)}}{K}\left(\frac{U}{m}\right)^s
+      \sum_{\mathbf{s}}\prod_{j=1}^t\frac{1}{s_j!}
+      \sum_{\mathbf{a}_j\in\mathcal F_{s_j}(n_j)}
+      \left(\frac{n_j}{\prod_{k=1}^{s_j}a_k^j}\right)^2,
+      \end{aligned}
+      \]
+      where the last inequality follows from [ref:R2]. Moreover, from [ref:R3] we have
+      \[
+      \sum_{\mathbf{a}_j\in\mathcal F_{s_j}(n_j)}
+      \left(\frac{n_j}{\prod_{k=1}^{s_j}a_k^j}\right)^2 < C^{s_j},
+      \]
+      with constant \(C<7\). Thus
+      \[
+      \mathbb E\{T^{(n)}\}
+      \leq \frac{2^t\sqrt{\log(n)}}{K}\left(\frac{UC}{m}\right)^s
+      \sum_{\mathbf{s}}\prod_{j=1}^t\frac{1}{s_j!}.
+      \]
+      Moreover, from [ref:R4] and \(A3\) we have
+      \[
+      \begin{aligned}
+      C(n,t,t+s)
+      &\leq \frac{G\Gamma(t+\beta+1)2^ss}{\epsilon}
+      E(\alpha^{t+s-1})\log\{n/(1+\epsilon)\}^{-1}\\
+      &\leq \frac{DG\Gamma(t+\beta+1)2^ss}{\epsilon}
+      \rho^{-(t+s-1)}\Gamma(\nu+t+s)\log\{n/(1+\epsilon)\}^{-1},
+      \end{aligned}
+      \]
+      for \(n\geq4\). By the preceding bound, combined with [ref:R5], and the last display we finally have
+      \[
+      \begin{aligned}
+      E\biggl\{\mathbbm 1_{\Omega_n}
+      &\sum_{s=1}^{n-t}\frac{\operatorname{pr}(K_n=s+t\mid X_{1:n})}{\operatorname{pr}(K_n=t\mid X_{1:n})}\biggr\}
+      = \sum_{s=1}^{n-t} C(n,t,t+s)
+      E\{\mathbbm 1_{\Omega_n}R(n,t,t+s)\}\\
+      &\leq \frac{2^t\rho^{1-t}(U/m)^tDG\Gamma(t+\beta+1)\sqrt{\log(n)}}{K\epsilon\log\{n/(1+\epsilon)\}}
+      \underbrace{\sum_{s=1}^{n-1}\frac{s(2CUp^*/m)^s\rho^{-s}\Gamma(\nu+t+s)}{(s+1)!}}_{<\infty}
+      \to 0,
+      \end{aligned}
+      \]
+      as \(n\to\infty\), where finiteness follows by taking \(\rho\) sufficiently large (the high-enough \(\rho\) condition recorded in Assumptions).
+
+      ### References
+      #### Reference R1
+      Target: Lemma \ref{numerator}
+      Citation: Applying Lemma \ref{numerator} we can upper bound the expected value of \(T^{(n)}\) in \eqref{upper_bound_ratios} as follows
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D1, the supplement “Supplementary Materials for Clustering consistency with Dirichlet process mixtures” by Ascolani, Lijoi, Rebaudo, and Zanella. The named result is Lemma \ref{numerator}, located in the section “Proof of Theorem \ref{th:ConsBounded}”. It supplies the per-block expectation bound used in the target proof when Lemma \ref{numerator} is applied to bound \(E\{T^{(n)}\}\). The additional displayed result \eqref{upper_bound_ratios}, immediately preceding Lemma \ref{numerator} in the same source section, defines the quantity \(T^{(n)}\) as an upper bound of the posterior-ratio object with \(\Omega_n\) in place of \(C^{(n)}\); it supports the interpretation of the \(T^{(n)}\) to which Lemma \ref{numerator} is applied. This is a displayed source inequality/definition, not a separately named lemma. The statement of Lemma \ref{numerator} is reproduced as printed in the source, including the inner integration domains \(\mathbb R^{s_j}\). The source text is supplied material; no external original or page verification is claimed.
+
+      ##### Lemma \ref{numerator}
+      ###### Definitions and notation
+      Let \(t\in\mathbb N\), \(p_j\in(0,1)\) with \(\sum_{j=1}^t p_j=1\), and let
+      \[
+      P=\sum_{j=1}^t p_jR_j
+      \]
+      be the data-generating distribution with density
+      \[
+      f(x)=\sum_{j=1}^t p_jk(x\mid \theta_j^*),
+      \]
+      where \(k(x\mid\theta)=g(x-\theta)\) and \(Q_0(\mathrm d\theta)=q_0(\theta)\,\mathrm d\theta\). Let \(P^{(n)}\) denote the \(n\)-fold product law, and let \(X_{1:n}\sim P^{(n)}\). The true parameters are \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\). After the linear rescaling one takes \([a,b]=[-c,c]\). For \(j=1,\dots,t\), define
+      \[
+      C_j=\{i\in\{1,\dots,n\}: x_i\in[\theta_j^*+a,\theta_j^*+b]\},\qquad n_j=|C_j|.
+      \]
+      For \(s_j\ge1\), \(\tau_{s_j}(n_j)\) denotes the partitions of \(C_j\), identified with \(\{1,\dots,n_j\}\), into \(s_j\) nonempty blocks. A generic block is written
+      \[
+      A_j=(A^j_1,\dots,A^j_{s_j})\in\tau_{s_j}(n_j),
+      \]
+      and \(a^j_k=|A^j_k|\) for \(k=1,\dots,s_j\). The constants \(m\) and \(U\) are those appearing in \(T1\) and \(T3\), with \(h(y)=q_0(y)+q_0(-y)\). The expectation \(E\) in the statement is under \(X_{1:n}\sim P^{(n)}\).
+
+      ###### Assumptions
+      The linear rescaling \([a,b]=[-c,c]\) has been made. The following working conditions apply:
+      - \(T1\): there exist \(m,M\) such that
+        \[
+        0<m\le g(x)\le M<\infty
+        \]
+        for every \(x\in[-c,c]\).
+      - \(T3\): there exists \(U>0\) such that
+        \[
+        h(y)=q_0(y)+q_0(-y)\le U
+        \]
+        for every \(y\in[0,2c]\).
+
+      Moreover, \(X_{1:n}\sim P^{(n)}\), and the statement is asserted for every \(j=1,\dots,t\), every \(s_j\ge1\), and every \((\theta_1,\dots,\theta_{s_j})\in\mathbb R^{s_j}\). The blocks \(A^j_h\) are the blocks of \(A_j\in\tau_{s_j}(n_j)\) as in the notation above.
+
+      ###### Statement
+      For every \(j=1,\dots,t\), every \(s_j\ge1\), and every \((\theta_1,\dots,\theta_{s_j})\in\mathbb R^{s_j}\),
+      \[
+      \begin{aligned}
+      E \left\{\prod_{h = 1}^{s_j}\int_{\mathbb R^{s_j}} \prod_{i \in A^j_h} \frac{g(X_i - \theta_h)}{g(X_i-\theta_j^*)} q_0(\theta_h)\, \mathrm{d}\theta_h \right\} 
+      &\leq \left(\frac{U}{m}\right)^{s_j}\prod_{h= 1}^{s_j} \frac{1}{a^j_h+1},
+      \end{aligned}
+      \]
+      with \(m\) and \(U\) defined in \(T1\) and \(T3\).
+
+      ##### Equation \eqref{upper_bound_ratios}
+      ###### Definitions and notation
+      Use the setting and notation above. In particular, \(P=\sum_{j=1}^t p_jR_j\) has density \(f=\sum_{j=1}^t p_jk(\cdot\mid\theta_j^*)\), \(k(x\mid\theta)=g(x-\theta)\), \(Q_0(\mathrm d\theta)=q_0(\theta)\,\mathrm d\theta\), \([a,b]=[-c,c]\), and
+      \[
+      C_j=\{i\in\{1,\dots,n\}: x_i\in[\theta_j^*+a,\theta_j^*+b]\},\qquad n_j=|C_j|,
+      \]
+      \[
+      C^{(n)}=\{n_j>0\text{ for every }j\}.
+      \]
+      For \(A_j\in\tau_{s_j}(n_j)\), write \(A_j=(A^j_1,\dots,A^j_{s_j})\) and \(a^j_k=|A^j_k|\). Set
+      \[
+      \mathbf S=\left\{(s_1,\dots,s_t):1\le s_j\le n_j\ \forall j,\ \sum_{j=1}^t s_j=s\right\}.
+      \]
+      For \(X_{C_j}\), let \(X^j_{(r)}\) denote the \(r\)-th order statistic, and define
+      \[
+      Y^j_{n_j}:=\min\left[1,\ n_j(\log(n))^{\frac1{2t}}\{c+\theta_j^*-X^j_{(n_j)}\}\right].
+      \]
+      Let \(N_j\in\mathbb N\) be the threshold and \(K>0\) the constant furnished by Lemma \ref{denom}, and define
+      \[
+      \Omega_n=\left\{\text{for every }j=1,\dots,t:\ n_j\ge N_j,\ Y^j_{n_j}\in[1/2,1]\right\}.
+      \]
+      The displayed object being bounded is
+      \[
+      \begin{aligned}
+      &\sum_{\mathbf s}\prod_{j=1}^t\sum_{A_j\in\tau_{s_j}(n_j)}
+      \frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}\,
+      \frac{\prod_{k=1}^{s_j}\int_{\mathbb R}\prod_{i\in A^j_k}
+      \frac{g(X_i-\theta_k)}{p_jg(X_i-\theta_j^*)}\,Q_0(\mathrm d\theta_k)}
+      {\int_{\mathbb R}\prod_{i\in C_j}
+      \frac{g(X_i-\theta_j)}{p_jg(X_i-\theta_j^*)}\,Q_0(\mathrm d\theta_j)}
+      \mathbbm 1_{C^{(n)}},\qquad s>t.
+      \end{aligned}
+      \]
+
+      ###### Assumptions
+      The linear rescaling \([a,b]=[-c,c]\) has been made. The following working conditions from the proof of Theorem \ref{th:ConsBounded} apply:
+      - \(T1\): there exist \(m,M\) such that \(0<m\le g(x)\le M<\infty\) for every \(x\in[-c,c]\).
+      - \(T2\): \(g\) is differentiable on \((-c,c)\) and there exists \(R\) such that
+        \[
+        \left|\frac{g'(x)}{g(x)}\right|\le R<\infty
+        \]
+        for every \(x\in(-c,c)\).
+      - \(T3\): there exists \(U>0\) such that
+        \[
+        h(y)=q_0(y)+q_0(-y)\le U
+        \]
+        for every \(y\in[0,2c]\).
+      - \(T4\): there exists \(L>0\) such that \(q_0(\theta)\ge L\) for every \(\theta\) in a neighborhood of \(\theta_j^*\), for every \(j\).
+
+      The true parameter vector \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\) is completely separated:
+      \[
+      |\theta_j^*-\theta_k^*|>b-a\qquad(j\ne k).
+      \]
+      Also \(X_{1:\infty}\sim P^{(\infty)}\). Under these conditions the source notes that the sets \(C_j\) are disjoint and satisfy \(\{1,\dots,n\}=\bigcup_{j=1}^tC_j\). The displayed bound is asserted for \(s>t\).
+
+      ###### Statement
+      For \(s>t\), an upper bound of the displayed object with \(\Omega_n\) in place of \(C^{(n)}\) is given by
+      \[
+      T^{(n)} := \frac{2^t\sqrt{\log(n)}}{K}\sum_{\mathbf s}\prod_{j=1}^t
+      \sum_{A_j\in\tau_{s_j}(n_j)}
+      n_j\frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}
+      \prod_{h=1}^{s_j}\int_{\mathbb R}\prod_{i\in A^j_h}
+      \frac{g(X_i-\theta_h)}{g(X_i-\theta_j^*)}\,Q_0(\mathrm d\theta_h)\mathbbm 1_{\Omega_n}.
+      \]
+
+      #### Reference R2
+      Target: Lemma \ref{suff_expectation}
+      Citation: where the last inequality follows from Lemma \ref{suff_expectation}.
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The cited result is the main-document Lemma 3, labelled \ref{suff_expectation}; its statement was obtained from the main document via the original PDF reading, while D1 contains § “Proof of Lemma \ref{suff_expectation}” and prints the proof rather than the statement. The result is attributed to Ascolani, Lijoi, Rebaudo and Zanella. The source identity gives the exchangeability-based transition from a sum over partitions \(\tau_s(n)\) to a sum over block-size vectors \(\mathcal F_s(n)\), with coefficient \(n/(s!\prod_j a_j)\); this is the source basis relevant to the partition-sum step invoked in the parent proof. The lemma itself is an equality; the parent proof’s final displayed “last inequality” is not a separately printed statement inside this lemma.
+
+      ##### Lemma \ref{suff_expectation} (Lemma 3 in the main document)
+      ###### Definitions and notation
+      Let \((X_1,X_2,\ldots)\) be an exchangeable sequence, and write \(X_{1:n}=(X_1,\ldots,X_n)\). The expectation \(E\) is taken with respect to the law of this exchangeable sequence, equivalently the data-generating distribution.
+
+      For integers \(1\le s\le n\), let \(\tau_s(n)\) denote the set of partitions of \(\{1,\ldots,n\}\) into \(s\) nonempty subsets. For
+      \[
+      A=\{A_1,\ldots,A_s\}\in\tau_s(n),
+      \]
+      write
+      \[
+      a_j=|A_j|,\qquad j=1,\ldots,s.
+      \]
+
+      Define
+      \[
+      \mathcal F_s(n)=\left\{\bm a=(a_1,\ldots,a_s)\in\{1,\ldots,n\}^s:\sum_{j=1}^s a_j=n\right\}.
+      \]
+      For \(\bm a\in\mathcal F_s(n)\), let \(A^{\bm a}\) be an arbitrary partition in \(\tau_s(n)\) such that
+      \[
+      |A^{\bm a}_j|=a_j,\qquad j=1,\ldots,s.
+      \]
+
+      In the mixture setting, for a nonempty block \(A\),
+      \[
+      m(X_A)=\int\prod_{i\in A}k(X_i\mid\theta)\,Q_0(\mathrm d\theta)
+      =\int\prod_{i\in A}k(X_i\mid\theta)\,q_0(\theta)\,\mathrm d\theta,
+      \]
+      when \(Q_0(\mathrm d\theta)=q_0(\theta)\mathrm d\theta\), and \(m(X_{1:n})=m(X_{\{1,\ldots,n\}})\).
+
+      ###### Assumptions
+      The sequence \((X_1,X_2,\ldots)\) is exchangeable. The equality is stated for every \(n\), with \(1\le s\le n\) so that \(\tau_s(n)\) is defined. No further hypotheses are printed in the supplied statement.
+
+      ###### Statement
+      Under the exchangeability assumption, for every \(n\) and \(1\le s\le n\),
+      \[
+      \begin{aligned}
+      E\left\{\sum_{A\in\tau_s(n)}
+      \frac{\prod_{j=1}^s(a_j-1)!}{(n-1)!}
+      \frac{\prod_{j=1}^s m(X_{A_j})}{m(X_{1:n})}
+      \right\}
+      &=
+      \sum_{\bm a\in\mathcal F_s(n)}
+      \frac{n}{s!\prod_{j=1}^s a_j}
+      E\left\{
+      \frac{\prod_{j=1}^s m(X_{A^{\bm a}_j})}{m(X_{1:n})}
+      \right\},
+      \end{aligned}
+      \]
+      where the sum on the right runs over
+      \[
+      \mathcal F_s(n)=\left\{\bm a\in\{1,\ldots,n\}^s:\sum_{j=1}^s a_j=n\right\}
+      \]
+      and \(A^{\bm a}\) is an arbitrary partition in \(\tau_s(n)\) with \(|A^{\bm a}_j|=a_j\) for \(j=1,\ldots,s\).
+
+      #### Reference R3
+      Target: Lemma \ref{induction}
+      Citation: Moreover, from Lemma \ref{induction} we have ... with constant \(C < 7\).
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D1, `supp.tex`, in the subsection “Proof of Theorem \ref{th:ConsBounded}”, Lemma \ref{induction} (following Lemma \ref{bound_sum}). The source gives the complete lemma, including the definitions of \(\mathcal F_s(n)\), \(C_p\), and \(\zeta(p)\). This result supports the target proof’s bound on the composition sum \(\sum_{\mathbf a_j\in\mathcal F_{s_j}(n_j)}(n_j/\prod_k a_k^j)^2\). In the target application \(p=2\); D1’s proof of Lemma \ref{lemma:consGeneral} records \(C<7\) after invoking Lemma \ref{induction}, and D1’s later uniform-mixture proof explicitly identifies \(C=4\zeta(2)<7\). The lemma statement itself is complete as supplied. D1 states Lemma \ref{induction} for \(s\ge2\), while the target proof writes the resulting bound for possibly \(s_j=1\); no separate source statement for \(s_j=1\) is printed in this passage. No additional independent source result is organized under this item.
+
+      ##### Lemma \ref{induction}
+      ###### Definitions and notation
+      For integers \(s\ge2\) and \(n\ge s\),
+      \[
+      \mathcal F_s(n)
+      =
+      \left\{
+      \mathbf a\in\{1,\ldots,n\}^s:
+      \sum_{j=1}^s a_j=n
+      \right\}.
+      \]
+      For \(p>1\),
+      \[
+      C_p=2^p\zeta(p),
+      \qquad
+      \zeta(p)=\sum_{a=1}^{\infty}\frac1{a^p}<\infty.
+      \]
+      The source adds that, when the value of \(p\) is clear from the context, the subscript in \(C_p\) is dropped and one writes \(C=C_p\).
+
+      ###### Assumptions
+      Let \(p>1\), and let \(s,n\) be integers with \(s\ge2\) and \(n\ge s\). No further hypotheses are stated for this lemma.
+
+      ###### Statement
+      For every \(p>1\) and for every integers \(s\ge2\) and \(n\ge s\), it holds that
+      \[
+      \sum_{\mathbf a\in\mathcal F_s(n)}
+      \left(
+      \frac{n}{\prod_{j=1}^s a_j}
+      \right)^p
+      <
+      C_p^{\,s-1},
+      \]
+      where
+      \[
+      \mathcal F_s(n)
+      =
+      \left\{
+      \mathbf a\in\{1,\ldots,n\}^s:
+      \sum_{j=1}^s a_j=n
+      \right\}
+      \]
+      and
+      \[
+      C_p=2^p\zeta(p),
+      \qquad
+      \zeta(p)=\sum_{a=1}^{\infty}\frac1{a^p}<\infty.
+      \]
+
+      #### Reference R4
+      Target: Corollary \ref{cor_C}
+      Citation: Moreover, from Corollary \ref{cor_C} and \(A3\) we have ...
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+
+      Source extraction from D1, \texttt{supp.tex}, from the statement of \(\mathrm{Cor}\label{cor\_C}\) immediately following the proof of Proposition \ref{prop:Prior}. This supplies the named corollary used in the current proof in the step “from Corollary \ref{cor_C} and \(A3\).” The corollary gives the first bound on \(C(n,t,t+s)\); the subsequent replacement of \(E(\alpha^{t+s-1})\) by the \(A3\)-bound is a separate downstream use of assumption \(A3\) and is not a hypothesis of the corollary. The displayed statement of Proposition \ref{prop:Prior} itself is not present in the supplied supplement passage; only its proof and the displayed choice of the constant \(G\) are available. No proof of Corollary \ref{cor_C} is retained here.
+
+      ##### Corollary \ref{cor_C}
+
+      ###### Definitions and notation
+      Let \(\alpha>0\), let \(\pi\) be the prior density for \(\alpha\), and let
+      \[
+      \alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1).
+      \]
+      For fixed \(t\ge 1\), integers \(n>s\ge1\), define the prior-integral factor
+      \[
+      C(n,t,t+s)
+      :=
+      \frac{\displaystyle\int_0^\infty \frac{\alpha^{t+s}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha}
+      {\displaystyle\int_0^\infty \frac{\alpha^{t}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha}.
+      \]
+      This is the factor denoted \(C(n,t,t+s)\) in the source; in \eqref{ratios_for_inconsistency} the same prior-dependent factor is denoted \(C(n,t,s)\). It is not the data-dependent set \(C_j\) nor the event \(C^{(n)}\).
+
+      Here \(E(\cdot)\) denotes expectation with respect to \(\pi\), so that
+      \[
+      E(\alpha^{t+s-1})=\int_0^\infty \alpha^{t+s-1}\,\pi(\alpha)\,d\alpha.
+      \]
+      \(\Gamma\) denotes the Gamma function, and
+      \[
+      \gamma(x,y)=\int_0^y z^{x-1}e^{-z}\,dz
+      \]
+      is the lower incomplete Gamma function.
+
+      The positive constant \(G\) is the one “as in Proposition \ref{prop:Prior}.” In the supplied proof of Proposition \ref{prop:Prior}, after the harmless reduction \(\epsilon<1\) permitted by \(A2\), it is chosen as
+      \[
+      G=\frac{4\delta^2}{\epsilon^{t+\beta}\gamma(t+\beta,\epsilon\log 2)}.
+      \]
+
+      ###### Assumptions
+      \(\pi\) satisfies assumptions \(A1\) and \(A2\).
+
+      - \(A1\): \(\pi\) is absolutely continuous with respect to Lebesgue measure, with density still denoted by \(\pi\).
+      - \(A2\): there exist \(\epsilon,\delta,\beta>0\) such that for every \(\alpha\in(0,\epsilon)\),
+        \[
+        \frac1\delta\,\alpha^\beta \le \pi(\alpha)\le \delta\,\alpha^\beta.
+        \]
+
+      These are the hypotheses displayed for Corollary \ref{cor_C}. Assumption \(A3\) is not assumed by the corollary; it is used only afterward in the parent proof.
+
+      ###### Statement
+      Suppose \(\pi\) satisfies assumptions \(A1\) and \(A2\). Then \(G>0\) as in Proposition \ref{prop:Prior} is such that for every \(0<s<n\) and \(n\ge4\),
+      \[
+      C(n,t,t+s)
+      \le
+      \frac{G\Gamma(t+\beta+1)2^s s}{\epsilon}
+      E(\alpha^{t+s-1})
+      \log\!\left\{\frac{n}{1+\epsilon}\right\}^{-1}.
+      \]
+
+      #### Reference R5
+      Target: Lemma \ref{bound_sum}
+      Citation: By \eqref{bound_T}, combined with Lemma \ref{bound_sum}, and \eqref{bound_C} we finally have ...
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D1, \texttt{supp.tex}, Section “Proof of Theorem \ref{th:ConsBounded}”, in the subsection of the same title, Lemma \ref{bound_sum}. This is a supplement-local combinatorial lemma used after \eqref{bound_T} and before \eqref{bound_C}; it bounds the sum of multinomial weights over the tuple set \(\mathbf S\) by \((p^*)^{-s}\). Its supplied proof uses a multinomial-distribution argument. No additional separately stated source result is needed for the lemma’s displayed statement. The earlier display of \(\mathbf S\) in the same proof has \(1\le s_j\le n_j\), while Lemma \ref{bound_sum} itself displays only \(s_j\le n_j\); the latter is preserved exactly below.
+
+      ##### Lemma \ref{bound_sum}
+      ###### Definitions and notation
+      Let \(t\in\mathbb N\). Let \(p_1,\dots,p_t\) be the finite-mixture weights fixed in the surrounding theorem, with \(p_j\in(0,1)\) for every \(j=1,\dots,t\) and \(\sum_{j=1}^t p_j=1\), and set
+      \[
+      p^*=\min_{j\in\{1,\dots,t\}}p_j\in(0,1).
+      \]
+      For \(j=1,\dots,t\), let \(n_j=|C_j|\), where, in the notation of the surrounding proof,
+      \[
+      C_j=\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\}.
+      \]
+      The lemma uses the integers \(n_j\) through the set \(\mathbf S\). For a tuple \(\mathbf s=(s_1,\dots,s_t)\) and \(s=\sum_{j=1}^t s_j\), define
+      \[
+      \mathbf S=\left\{(s_1,\dots,s_t):s_j\le n_j\ \text{and}\ \sum_{j=1}^t s_j=s\right\}.
+      \]
+      The multinomial coefficient is
+      \[
+      \binom{s}{s_1,\dots,s_t}=\frac{s!}{\prod_{j=1}^t s_j!}.
+      \]
+
+      ###### Assumptions
+      Assume \(t\ge1\) is finite, \(p_j\in(0,1)\) for every \(j=1,\dots,t\), and \(\sum_{j=1}^t p_j=1\). Thus \(p^*=\min_{j\in\{1,\dots,t\}}p_j\in(0,1)\). Let \(n_j\) be the integers appearing in the summation set \(\mathbf S\), as in the surrounding proof. The summation is over the set \(\mathbf S\) defined above.
+
+      ###### Statement
+      Let \(p^* = \min_{j \in \{1, \dots, t\}} p_j \in (0,1)\). It holds
+      \[
+      \sum_{\mathbf{s} \in \mathbf{S}}\frac{s!}{\prod_{j = 1}^t s_j!}
+      = \sum_{\mathbf{s}}\binom{s}{s_1, \dots, s_t}
+      \leq (p^*)^{-s},
+      \]
+      where
+      \[
+      \mathbf{S} = \left\{(s_1, \dots, s_t) \, : \, s_j \leq n_j \text{ and } \sum_{j = 1}^t s_j = s \right\}.
+      \]
+    lean_name: paper_dc88427b52844263b5321fc99eb582d8
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

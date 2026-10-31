@@ -1,0 +1,40 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:ff4490ff-eb63-4eb8-b20c-fbe467833bec
+    title: paper_2fbfd1902da645daba7b723031e5be32
+    kind: lemma
+    latex_statement: |-
+      Let \(\Psi=\{k(\cdot\mid\theta):\theta\in\Theta\}\), dominated by \(\mu\), where \(\mu\) is either Lebesgue or counting measure and the common domain is \(\mathbb X\). For \(s\ge1\), \(\mathbb G_s\) denotes the set of exact \(s\)-component mixtures; the sets \(\mathbb G_s\) consist of exact \(s\)-component mixtures with positive weights summing to \(1\) and distinct parameters, so that
+      \[
+      f\in\mathbb G_s\quad\Longleftrightarrow\quad f=\sum_{j=1}^s q_jk(\cdot\mid\theta_j),
+      \]
+      with \(q_j>0\), \(\sum_{j=1}^s q_j=1\), and distinct parameters \(\theta_j\). The convention \(\mathcal P(\mathbb X)\) refers to density objects identified with their probability measures. Following the source, \(f\in\mathcal P(G)\) means that \(f\) is the density of a probability measure \(P\in\mathcal P(G)\). Weak convergence of densities is understood via the corresponding probability measures.
+
+      <!-- formalization-clarifications:v1:9fa6d45b77e4b31bf988456388ad7e5d1e964811d36e9cf84d40903a5909face -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The selected result is the auxiliary pigeonhole lemma stated in supp.tex as Lemma \ref{first_auxiliary} and used in the proof of Proposition \ref{undersmoothing}; it has no numerical constants. The intended order is: fix the ambient objects \(\mathbb X,\Theta,\Psi,\mu\) and a finite \(t\); then take any sequence \(\{f_i\}_{i\ge1}\subset \bigcup_{s<t}\mathbb G_s\) and any weak limit \(f\in\mathcal P(\mathbb X)\); conclude that there exist \(s'<t\) and a sequence \(\{f'_i\}\subset\mathbb G_{s'}\) weakly convergent to \(f\). Thus \(s'\) may depend on the chosen sequence and on \(t\), and \(f'_i\) may depend on the sequence and \(s'\), but \(s'\) is fixed in the limit. There is no uniformity over dimension, random vectors, sample size, distributions, or sets in this lemma. Finiteness of \(t\) is used in the proof line “there are only finitely many \(s<t\)” (target proof), since \(t\in\mathbb N\) is the paper’s convention (main.tex, Section \ref{sec:MM}, and target context); the isolated lemma does not restate \(t\in\mathbb N\) explicitly. The constants \(F,G,\delta,\beta,\epsilon,\rho,D,\nu,K\) etc. elsewhere in supp.tex/main.tex belong to assumptions A1–A3, Proposition \ref{prop:Prior}, Theorems \ref{th:ConsBounded}–\ref{th:ConsNormDelta}, and related results; they are not part of this target lemma.
+
+      2. Norms and mathematical objects. No norm is used in the target statement or its proof. In particular, the arrow \(f_i\to f\) “weakly” is not Euclidean \(l^2\), sup, operator, Frobenius, or \(L^p\) convergence; the target Definitions and notation say explicitly that “weak convergence of densities is understood via the corresponding probability measures.” The source does not specify a weak-convergence topology or metric beyond this measure-theoretic reading. \(\mathbb X\) is the common domain and \(\mu\) is either Lebesgue or counting measure (target Definitions; also supp.tex proof of Proposition \ref{undersmoothing}). \(\mathbb G_s\) means exact \(s\)-component mixtures with positive weights summing to \(1\) and distinct parameters (target Definitions: “\(q_j>0\), \(\sum_{j=1}^s q_j=1\), and distinct parameters \(\theta_j\)”); do not silently replace this by “at most \(s\) components,” by zero weights, or by coefficient vectors not normalized. \(\mathcal P(\mathbb G)\) is used in the source with the abuse that \(f\in\mathcal P(G)\) means \(f\) is the density of a probability measure \(P\in\mathcal P(G)\) (target Definitions). The broader proof of Proposition \ref{undersmoothing} mentions \(\Theta\subseteq\mathbb R^p\), \(\mathbb X\subseteq\mathbb R^q\), closed balls, and a norm \(||\theta_i||\) in assumption H2, but that H2 norm is not used by the target auxiliary lemma and the excerpt does not otherwise specify its norm; those are not target assumptions.
+
+      3. Asymptotics. The only asymptotic operation in the target is the sequential limit \(i\to\infty\) (equivalently a subsequence index \(k\to\infty\) after reindexing) for weak convergence of probability measures. There is no \(O\), \(o\), probability convergence, almost-sure convergence, rate, or uniformity in the target. The limit \(f\) is deterministic relative to the sequence, and \(s'\) is chosen once from the finite set \(\{1,\dots,t-1\}\). The source’s proof writes \(a_s := \sup\{i\ge1: f_i\in\mathbb G_s\}\) and concludes some \(a_{s'}=\infty\); this should be read as “there are infinitely many indices \(i\) with \(f_i\in\mathbb G_{s'}\),” not as a finite maximum. The proof leaves the explicit increasing enumeration of those indices implicit; a faithful formalization may take \(f'_k=f_{i_k}\) for an increasing enumeration \(i_k\) of that infinite index set. Do not import the \(P^{(\infty)}\)-probability or almost-sure limits from main.tex/other supp.tex results into this lemma.
+
+      4. Potentially omitted definitions and side conditions. The target uses \(\bigcup_{s<t}\mathbb G_s\) with \(s\ge1\) from the definition of \(\mathbb G_s\); context indicates \(s\in\{1,\dots,t-1\}\), with \(t\) finite, although the isolated lemma does not spell this out. The premise only says each \(f_i\) belongs to the union; it does not require \(f\in\mathbb G_s\), nor that \(\mathbb G_s\) be disjoint, nor that the representation of a mixture be unique. The source does not state a sigma-algebra, measurability conventions, or whether equality of densities in \(\mathbb G_s\) is pointwise or \(\mu\)-a.e.; “density objects identified with their probability measures” suggests measure/a.e. identification, but the exact formalization is left implicit. The proof uses only the finite pigeonhole principle and the fact that a subsequence of a weakly convergent sequence converges to the same weak limit; it does not use H3, H4, \(Q_0\), separation, support conditions for \(\theta_j^*\), the Schwartz theorem, or Cai2020 Lemma 4.1. Those belong to Proposition \ref{undersmoothing} and its surrounding proof, not to the target lemma; they should not be promoted into target hypotheses merely because the lemma occurs inside that proof.
+      <!-- /formalization-clarifications -->
+
+      Assume a sequence \(\{f_i\}_{i=1}^\infty\subset\bigcup_{s<t}\mathbb G_s\) satisfies \(f_i\to f\in\mathcal P(\mathbb X)\) weakly as \(i\to\infty\). Then there exist \(s'<t\) and a sequence \(\{f'_i\}_{i=1}^\infty\subset\mathbb G_{s'}\) such that \(f'_i\to f\) weakly as \(i\to\infty\).
+    assumptions: []
+    proof_body: |-
+      Define
+      \[
+      a_s := \sup\{i\ge 1 : f_i\in\mathbb G_s\},\qquad s<t.
+      \]
+      Since each \(f_i\in\bigcup_{s<t}\mathbb G_s\) and there are only finitely many \(s<t\), by construction there exists \(s'<t\) such that \(a_{s'}=\infty\). Let \(\{f'_i\}_{i=1}^\infty\) be the subsequence of \(\{f_i\}_{i=1}^\infty\) consisting of the elements belonging to \(\mathbb G_{s'}\). Then \(\{f'_i\}_{i=1}^\infty\subset\mathbb G_{s'}\), and since it is a subsequence of the weakly convergent sequence \(f_i\to f\), it follows that \(f'_i\to f\) weakly as \(i\to\infty\).
+    lean_name: paper_2fbfd1902da645daba7b723031e5be32
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

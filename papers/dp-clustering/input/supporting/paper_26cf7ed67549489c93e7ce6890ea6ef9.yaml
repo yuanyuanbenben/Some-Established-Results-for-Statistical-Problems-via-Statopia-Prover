@@ -1,0 +1,83 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:b78ce9cd-67dd-4a10-b5c6-5852b0357db5
+    title: paper_26cf7ed67549489c93e7ce6890ea6ef9
+    kind: lemma
+    latex_statement: |-
+      For integers \(s\ge2\) and \(n\ge s\), define
+      \[
+      \mathcal F_s(n)=\left\{\mathbf a\in\{1,\dots,n\}^s:\sum_{j=1}^s a_j=n\right\}.
+      \]
+      For \(p>1\), define
+      \[
+      C_p=2^p\zeta(p),\qquad \zeta(p)=\sum_{a=1}^{\infty}\frac1{a^p}<\infty.
+      \]
+
+      <!-- formalization-clarifications:v1:b00896cdc902e3c07313892510e3e091af53b1b6cf80204e55dc2161b75d055b -->
+      Formalization clarifications from source and proof:
+      The owner of the selected statement is supp.tex, Lemma \ref{induction} (reproduced as the target theorem); its proof is self-contained and cites no external result. The paired main.tex supplies related partition notation and unrelated standing assumptions \(A1\)–\(A3\), but those are not hypotheses of the selected lemma. In particular, main.tex Lemma \ref{suff_expectation} uses a weighted partition sum over \(\tau_s(n)\) with an extra \(1/s!\) factor; the selected lemma is a different, simpler sum over ordered tuples and must not be replaced by that partition identity.
+
+      1. Constants and quantifier order. The source order is: for every real \(p>1\), for every integer \(s\ge2\), and for every integer \(n\ge s\), the displayed strict inequality holds (supp.tex, Lemma \ref{induction}: “For every \(p>1\) and for every integers \(s\geq 2\) and \(n\ge s\)”). Thus \(C_p=2^p\zeta(p)\) is quantified after \(p\) and may depend on \(p\), but not on \(s\), \(n\), or the tuple \(\mathbf a\). It is a positive finite constant because \(p>1\) and \(\zeta(p)=\sum_{a=1}^\infty a^{-p}<\infty\). For fixed \(p\), the estimate is uniform over all \(n\ge s\) and all \(\mathbf a\in\mathcal F_s(n)\), but it is not a single estimate uniform in \(s\): the right-hand side is exactly \(C_p^{\,s-1}\), so it varies with \(s\). If \(p\) is an implicit Lean parameter, \(C_p\) must still be a function of that parameter, not a global constant. The source does not assert for arbitrary \(p\) that \(C_p<7\); the later remark \(4\zeta(2)<7\) is only the specialization \(p=2\) used in supp.tex, Lemma \ref{lemma:consGeneral}, and is not part of the target lemma.
+
+      2. Norms and mathematical objects. No norm is used anywhere in the selected statement or proof; the object is the positive real power \((n/\prod_{j=1}^s a_j)^p\) of a product of positive integers. Therefore there is no Euclidean, sup, operator, Frobenius, normalized, or unscaled norm to choose, and the source leaves the norm unspecified because none is present. The ambient object is the finite integer set \(\mathcal F_s(n)=\{\mathbf a\in\{1,\dots,n\}^s:\sum_j a_j=n\}\) (selected Definitions; also supp.tex, Lemma \ref{induction}). This is a set of ordered \(s\)-tuples, not a set of partitions, multisets, or equivalence classes; the proof’s decomposition by \(a_s\) and the remaining tuple in \(\mathcal F_{s-1}(n-a_s)\) confirms the ordered-coordinate interpretation. The product \(\prod_j a_j\) is unscaled and the factor \(n\) is not inside the product. There is no \(1/s!\), \(1/(n-1)!\), or other partition weight in the selected sum, unlike adjacent formulas in the surrounding paper.
+
+      3. Asymptotics. The selected lemma contains no \(O\), \(o\), probability-mode convergence, limit, or asymptotic filter. It is a fully quantitative finite inequality valid for every admissible \(p,s,n\). Do not import an \(n\to\infty\) interpretation from the surrounding Dirichlet-process-mixture paper; the source’s only “uniformity” is the universal quantifier over \(n\ge s\) for fixed \(p\), with the \(s\)-dependence explicitly retained in \(C_p^{\,s-1}\). The strict inequality sign should be preserved as stated; the base-case proof obtains strictness from \(\sum_{a=1}^{n-1}a^{-p}<\zeta(p)\), and the induction step uses the base-case bound with positive summands.
+
+      4. Potentially omitted definitions and side conditions. Here \(p\) is a real parameter with \(p>1\); \(s,n\) are integers with \(s\ge2\) and \(n\ge s\). The zeta function is defined by the series \(\zeta(p)=\sum_{a=1}^{\infty}a^{-p}\), not by analytic continuation, and \(p=1\) is excluded. The index set is finite and implicitly counted with counting measure; no probability events or random variables occur. In the induction proof, \(a_s\) runs over \(1,\dots,n-s+1\), so \(n-a_s\ge s-1\) and the induction hypothesis applies to \(\mathcal F_{s-1}(n-a_s)\). The source does not include assumptions \(A1\)–\(A3\), \(B1\)–\(B3\), or \(H1\)–\(H4\) in the selected lemma, and those must not be added as hypotheses. One original-source textual inconsistency is worth recording: supp.tex, Lemma \ref{induction} displays the induction hypothesis with exponent \(2\) in one line (“\(\left(n/\prod_{j=1}^{s-1}a_j\right)^2<C_p^{s-2}\)”), whereas the lemma statement and the surrounding induction computation use exponent \(p\); the selected proof uses \(p\). This is best treated as an apparent typographical error in the source, not as an additional exponent-\(2\) hypothesis. Apart from that, the selected statement leaves no unresolved convention of norm, measure, or asymptotic mode, because none is used.
+      <!-- /formalization-clarifications -->
+
+      For every \(p>1\) and every pair of integers \(s\ge2\), \(n\ge s\),
+      \[
+      \sum_{\mathbf a\in\mathcal F_s(n)}\left(\frac{n}{\prod_{j=1}^s a_j}\right)^p<C_p^{\,s-1}.
+      \]
+    assumptions: []
+    proof_body: |-
+      We prove the result by induction on \(s\). For the base case \(s=2\), using the strict convexity of \(x\mapsto x^p\) for \(p>1\), for every \(n\ge2\),
+      \[
+      \begin{aligned}
+      \sum_{\mathbf a\in\mathcal F_2(n)} \left(\frac{n}{a_1a_2}\right)^p
+      &=\sum_{a=1}^{n-1}\left\{\frac{n}{a(n-a)}\right\}^p\\
+      &=2^p\sum_{a=1}^{n-1}\left(\frac12\frac1a+\frac12\frac1{n-a}\right)^p\\
+      &\le 2^p\sum_{a=1}^{n-1}\frac12\left(\frac1{a^p}+\frac1{(n-a)^p}\right)
+      =2^p\sum_{a=1}^{n-1}\frac1{a^p}\\
+      &<2^p\zeta(p)=C_p.
+      \end{aligned}
+      \]
+      Thus the claim holds for \(s=2\).
+
+      For the induction step, assume that for some \(s\ge3\) the claim holds with \(s-1\) in place of \(s\), i.e.
+      \[
+      \sum_{\mathbf a\in\mathcal F_{s-1}(m)}
+      \left(\frac{m}{\prod_{j=1}^{s-1}a_j}\right)^p
+      <C_p^{s-2}
+      \]
+      for every \(m\ge s-1\). Then for \(n\ge s\),
+      \[
+      \begin{aligned}
+      \sum_{\mathbf a\in\mathcal F_s(n)}
+      \left(\frac{n}{\prod_{j=1}^{s}a_j}\right)^p
+      &=
+      \sum_{a_s=1}^{n-s+1}
+      \sum_{(a_1,\dots,a_{s-1})\in\mathcal F_{s-1}(n-a_s)}
+      \left(\frac{n}{\prod_{j=1}^{s-1}a_j\,a_s}\right)^p\\
+      &=
+      \sum_{a_s=1}^{n-s+1}
+      \left\{\frac{n}{(n-a_s)a_s}\right\}^p
+      \sum_{(a_1,\dots,a_{s-1})\in\mathcal F_{s-1}(n-a_s)}
+      \left(\frac{n-a_s}{\prod_{j=1}^{s-1}a_j}\right)^p\\
+      &\le C_p^{s-2}
+      \sum_{a_s=1}^{n-s+1}
+      \left\{\frac{n}{(n-a_s)a_s}\right\}^p\\
+      &<C_p^{s-1},
+      \end{aligned}
+      \]
+      where the last strict inequality follows from the base-case estimate applied to the same \(n\), since the final sum is over a subset of \(\{1,\dots,n-1\}\) and all summands are positive. This completes the induction.
+    lean_name: paper_26cf7ed67549489c93e7ce6890ea6ef9
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

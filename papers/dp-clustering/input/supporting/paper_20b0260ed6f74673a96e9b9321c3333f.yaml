@@ -1,0 +1,107 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:b3b9855c-7494-476d-a152-d72f4f2314c7
+    title: paper_20b0260ed6f74673a96e9b9321c3333f
+    kind: lemma
+    latex_statement: |-
+      Let \(X_{1:n}=(X_1,\dots,X_n)\). For \(1\le s\le n\), let \(\tau_s(n)\) denote the set of partitions of \(\{1,\dots,n\}\) into \(s\) nonempty subsets. For \(A=\{A_1,\dots,A_s\}\in\tau_s(n)\), write \(a_j=|A_j|\), \(j=1,\dots,s\). Define
+      \[
+      \mathcal F_s(n)=\{\mathbf a=(a_1,\dots,a_s)\in\{1,\dots,n\}^s:\sum_{j=1}^s a_j=n\}.
+      \]
+      For \(\mathbf a\in\mathcal F_s(n)\), let \(A^{\mathbf a}\) be an arbitrary partition in \(\tau_s(n)\) satisfying \(|A^{\mathbf a}_j|=a_j\), \(j=1,\dots,s\). For a nonempty block \(A\), define the marginal likelihood
+      \[
+      m(X_A)=\int\prod_{i\in A}k(X_i\mid\theta)\,Q_0(d\theta)
+      =\int\prod_{i\in A}k(X_i\mid\theta)\,q_0(\theta)\,d\theta
+      \]
+      when \(Q_0(d\theta)=q_0(\theta)d\theta\).
+
+      <!-- formalization-clarifications:v1:4ec3e3c2a5f5fbbf732cc0125b5b492fbcc8ca7840da68ac5c0d6c4df6e93b68 -->
+      Formalization clarifications from source and proof:
+      These notes are for the selected target, Lemma \ref{suff_expectation} in main.tex (“Assume \((X_1,X_2,\dots)\) is an exchangeable sequence...”), with proof in supp.tex under “Proof of Lemma \ref{suff_expectation}”. The original statement remains authoritative.
+
+      1. Constants and quantifier order. The printed order is: fix an exchangeable sequence \((X_i)\), then for every integer \(n\ge 1\) and every integer \(s\) with \(1\le s\le n\), the displayed equality holds. No quantifier over sample space, kernel \(k\), baseline \(Q_0\), or data law is printed beyond the fixed exchangeable sequence and the fixed marginal likelihood \(m\) appearing in the formula; in Lean such objects are fixed parameters of the lemma, not automatically uniformly quantified. All numerical factors in the target—\(n\), \(s\), \(a_j\), \((n-1)!\), \(s!\), \(\prod_j(a_j-1)!\), and \(n/(s!\prod_j a_j)\)—are deterministic functions of finite indices and partition sizes. There are no unspecified absolute constants and no asymptotic constants in this lemma; do not introduce a \(C\) or infer uniformity over \(n,s,k,Q_0\). The choice of \(A^{\mathbf a}\) may depend on \(n,s,\mathbf a\), and the source says it is “arbitrary” subject to \(|A^{\mathbf a}_j|=a_j\) (main.tex, Lemma \ref{suff_expectation}). The proof’s use of exchangeability indicates, as a proof-based inference rather than an explicit side lemma, that the expected term is independent of which such partition is chosen; this should be proved or handled by a canonical choice in formalization. Repeated block-size entries make the block labels immaterial in the product but still affect how \(\mathcal F_s(n)\) counts ordered size vectors.
+
+      2. Norms and mathematical objects. The target uses no norm or metric: no Euclidean \(\ell^2\), sup, operator, or Frobenius norm is present, and no ambient real vector space is specified. The sample space and parameter space are left unspecified; do not choose a norm or identification. Here \(\tau_s(n)\) is the set of partitions of \(\{1,\dots,n\}\) into \(s\) nonempty blocks, summed once per partition, while \(\mathcal F_s(n)=\{\mathbf a\in\{1,\dots,n\}^s:\sum_j a_j=n\}\) is a set of ordered positive compositions; it is not the set of integer partitions and not \(\tau_s(n)\). The object \(A^{\mathbf a}\) is a partition, not a size vector; \(\mathbf a\) is the ordered size vector. For a block \(A\), \(X_A\) means the restricted family \((X_i)_{i\in A}\), and \(m(X_A)=\int\prod_{i\in A}k(X_i\mid\theta)\,Q_0(d\theta)\); the product is over the block and the integral is in the latent parameter \(\theta\). The equality \(Q_0(d\theta)=q_0(\theta)d\theta\) is only a conditional density case in the definition; do not replace \(Q_0(d\theta)\) by \(q_0(\theta)d\theta\) unless that assumption is added. The denominator is the full-sample marginal \(m(X_{1:n})\), not a posterior normalizer or a norm.
+
+      3. Asymptotics. The target lemma contains no asymptotic notation: no \(O\), \(o\), no probability convergence, no \(L^1\) convergence, and no limiting filter. It is an exact finite-\(n\) equality for each fixed \(n,s\). The phrase “for every \(n\)” is a universal quantifier, not a limit \(n\to\infty\) and not a uniformity statement. The surrounding paper uses \(P^{(\infty)}\)-probability and \(n\to\infty\) in other results, such as Lemma \ref{sufficient} and consistency theorems; those are separate owners/results and should not be imported into Lemma \ref{suff_expectation}. The selected lemma’s References field is empty; its proof invokes no external cited theorem. Citations elsewhere in the paper, such as Miller2013/Miller2014 or Cai2020, belong to other results and do not constrain this finite combinatorial identity.
+
+      4. Potentially omitted definitions and side conditions. The expectation \(E\) is with respect to the data-generating law of \(X_{1:n}\), while the \(Q_0\)-integral is part of \(m\); it is not an expectation over partitions or over the posterior. “Exchangeable” is stated and used, but independence is not an explicit hypothesis of this lemma. The proof groups terms according to the ordered block-size vector \(\mathbf a\) and uses the multinomial coefficient \(\binom{n}{a_1,\dots,a_s}=n!/(a_1!\cdots a_s!)\) (main.tex, target proof; supp.tex, “Proof of Lemma \ref{suff_expectation}”). The supp proof’s displayed \(\binom{n}{a_1\cdots a_j}\) is a typographical defect; the selected proof and the following algebra confirm the multinomial coefficient. The source leaves unspecified measurability, integrability, and positivity of \(m(X_{1:n})\). Since the formula divides by \(m(X_{1:n})\), a formal statement needs a side condition that the ratio is defined and integrable; exchangeability alone does not imply \(m(X_{1:n})\neq0\) almost surely. Do not promote such positivity or integrability as a source assumption; it is an unresolved formal side condition. Also, \(a_j\ge1\) because blocks are nonempty, so \((a_j-1)!\) is an ordinary factorial on nonnegative integers.
+      <!-- /formalization-clarifications -->
+
+      For every \(n\) and every \(1\le s\le n\),
+      \[
+      \mathbb E\left\{\sum_{A\in\tau_s(n)}
+      \frac{\prod_{j=1}^s(a_j-1)!}{(n-1)!}
+      \frac{\prod_{j=1}^s m(X_{A_j})}{m(X_{1:n})}\right\}
+      =
+      \sum_{\mathbf a\in\mathcal F_s(n)}
+      \frac{n}{s!\prod_{j=1}^s a_j}
+      \mathbb E\left\{
+      \frac{\prod_{j=1}^s m(X_{A^{\mathbf a}_j})}{m(X_{1:n})}
+      \right\}.
+      \]
+    assumptions:
+      - Let \((X_1,X_2,\dots)\) be an exchangeable sequence; no further printed hypotheses are imposed.
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      None.
+
+      ### Proof
+      Let
+      \[
+      S_n:=\sum_{A\in\tau_s(n)}
+      \frac{\prod_{j=1}^s(a_j-1)!}{(n-1)!}
+      \frac{\prod_{j=1}^s m(X_{A_j})}{m(X_{1:n})},
+      \]
+      where \(a_j=|A_j|\). It suffices to prove
+      \[
+      \mathbb E(S_n)
+      =
+      \sum_{\mathbf a\in\mathcal F_s(n)}
+      \frac{n}{s!\prod_{j=1}^s a_j}
+      \mathbb E\left\{
+      \frac{\prod_{j=1}^s m(X_{A^{\mathbf a}_j})}{m(X_{1:n})}
+      \right\}.
+      \]
+      Taking expectation with respect to the data-generating distribution and using exchangeability to group the terms according to the ordered block-size vector \(\mathbf a=(a_1,\dots,a_s)\), we have
+      \[
+      \begin{aligned}
+      \mathbb E\{S_n\}
+      &=
+      \sum_{A\in\tau_s(n)}
+      \frac{\prod_{j=1}^s(a_j-1)!}{(n-1)!}
+      \mathbb E\left\{
+      \frac{\prod_{j=1}^s m(X_{A_j})}{m(X_{1:n})}
+      \right\}\\
+      &=
+      \sum_{\mathbf a\in\mathcal F_s(n)}
+      \binom{n}{a_1,\dots,a_s}
+      \frac{\prod_{j=1}^s(a_j-1)!}{s!(n-1)!}
+      \mathbb E\left\{
+      \frac{\prod_{j=1}^s m(X_{A^{\mathbf a}_j})}{m(X_{1:n})}
+      \right\}\\
+      &=
+      \sum_{\mathbf a\in\mathcal F_s(n)}
+      \frac{n!}{a_1!\cdots a_s!}
+      \frac{\prod_{j=1}^s(a_j-1)!}{s!(n-1)!}
+      \mathbb E\left\{
+      \frac{\prod_{j=1}^s m(X_{A^{\mathbf a}_j})}{m(X_{1:n})}
+      \right\}\\
+      &=
+      \sum_{\mathbf a\in\mathcal F_s(n)}
+      \frac{n}{s!\prod_{j=1}^s a_j}
+      \mathbb E\left\{
+      \frac{\prod_{j=1}^s m(X_{A^{\mathbf a}_j})}{m(X_{1:n})}
+      \right\}.
+      \end{aligned}
+      \]
+      This is exactly the desired equality.
+    lean_name: paper_20b0260ed6f74673a96e9b9321c3333f
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: main.tex

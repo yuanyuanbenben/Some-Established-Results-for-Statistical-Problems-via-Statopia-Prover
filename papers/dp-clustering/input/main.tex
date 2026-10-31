@@ -1,0 +1,766 @@
+\documentclass[12pt]{article}
+
+\usepackage{verbatim,color,amssymb}
+\usepackage{amsmath}					
+\usepackage{amsthm}		
+\usepackage{bm}
+\usepackage{dsfont}			
+\usepackage{natbib}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage[mathscr]{euscript}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{bbm}
+
+%\usepackage[bookmarks=false]{hyperref}
+
+%\usepackage{multibib}
+%\newcites{latex}{References}
+
+\usepackage{tabularx, booktabs}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\usepackage{lscape}
+
+
+\usepackage{subfig}
+%\usepackage{caption}
+%\captionsetup[subfigure]{labelformat=parens,labelsep=space,font=small}
+\usepackage{float}
+\usepackage{lineno}
+
+
+\def\pdfshellescape{1}
+
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-36pt}
+\setlength{\oddsidemargin}{15pt}
+\setlength{\evensidemargin}{0pt}
+\tolerance=500
+\renewcommand{\baselinestretch}{1.5}
+
+% Gio comment
+\newcommand{\gio}{\color{red}} 
+\newcommand{\ech}{\color{black}}
+
+\newcommand*{\swap}[2]{#2#1} %% Swap order (used to change order referencees)
+
+%%%%%%%%%%%%%%%
+% Begin New Definitions  %%
+%%%%%%%%%%%%%%%
+%\iffalse
+\newtheorem{Thm}{\underline{\bf Theorem}}
+\newtheorem{Assmp}{{\bf Assumption}}
+\newtheorem{Cond}{\underline{\bf Conditions}}
+\newtheorem{Proof}{Proof}
+\newtheorem*{Proof*}{Proof}
+\newtheorem{Mth}{Main Theorem}
+\newtheorem{Def}{Definition}
+\newtheorem{Rem}{\underline{\bf Remark}}
+\newtheorem{Qes}{Question}
+\newtheorem{Prop}{\underline{\bf Proposition}}
+\newtheorem{Lem}{\underline{\bf Lemma}}
+\newtheorem{Cor}{\underline{\bf Corollary}}
+\newtheorem{Exa}{Example}
+\newtheorem{Eq}{Equation}
+%\fi
+
+\newcommand{\MyProof}{\noindent\textbf{Proof. }}
+\newcommand{\mytilde}[2][1.2]{
+	\mathrel{\overset{\mbox{\tiny #2}}{\scalebox{#1}[1]{$\sim$}}}}
+
+\def\nN{\mathbb{N}}
+\def\rR{\mathbb{R}}
+\def \R {\mathbb{R} }
+\def\eE{\mathbb{E}}
+\def \d {\mathrm{d}}
+
+\def\L{{\cal L}}
+\def\B{{\cal B}}
+\def\C{{\cal C}}
+\def\D{{\cal D}}
+\def\E{{\cal E}}
+\def\F{{\cal F}}
+\def\G{{\cal G}}
+\def\H{{\cal H}}
+\def\I{{\cal I}}
+\def\K{{\cal K}}
+\def\M{{\cal M}}
+\def\N{{\cal N}}
+\def\calP{{\cal P}}
+\def\S{{\cal S}}
+\def\T{{\cal T}}
+\def\U{{\cal U}}
+\def\W{{\cal W}}
+\def\V{{\cal V}}
+\def\X{{\cal X}}
+\def\Z{{\cal Z}}
+\def\Y{{\cal Y}}
+\def\sumi{\sum_{i=1}^n}
+
+\def\scrC{{\mathscr{C}}}
+
+
+\def\diag{\hbox{diag}}
+\def\Ind{\hbox{I}}
+\def\wh{\widehat}
+\def\wt{\widetilde}
+\def\wb{\breve}
+\def\AIC{\hbox{AIC}}
+\def\BIC{\hbox{BIC}}
+\def\diag{\hbox{diag}}
+\def\log{\hbox{log}}
+\def\bias{\hbox{bias}}
+\def\Siuu{\boldSigma_{i,uu}}
+\def\whT{\widehat{\Theta}}
+\def\var{\hbox{var}}
+\def\cov{\hbox{cov}}
+\def\corr{\hbox{corr}}
+\def\sign{\hbox{sign}}
+\def\trace{\hbox{trace}}
+\def\naive{\hbox{naive}}
+\def\vect{\hbox{vec}}
+
+
+\def\Bern{\hbox{Bernoulli}}
+\def\Beta{\hbox{Beta}}
+\def\DE{\hbox{DE}}
+\def\Dir{\hbox{Dir}}
+\def\DP{\hbox{DP}}
+\def\Exp{\hbox{Exp}}
+\def\gIGs{\hbox{g-Inv-Gs}}
+\def\Ga{\hbox{Ga}}
+\def\GP{\hbox{GP}}
+\def\GEM{\hbox{GEM}}
+\def\HC{\hbox{C}^{+}}
+\def\IGs{\hbox{Inv-Gs}}
+\def\IG{\hbox{Inv-Ga}}
+\def\IW{\hbox{IW}}
+\def\MVN{\hbox{MVN}}
+\def\MVL{\hbox{MVL}}
+\def\MVT{\hbox{MVT}}
+\def\Normal{\hbox{Normal}}
+\def\FN{\hbox{Folded-Normal}}
+\def\HN{\hbox{Half-Normal}}
+\def\LN{\hbox{Log-Normal}}
+\def\Poi{\hbox{Poi}}
+\def\SB{\hbox{SB}}
+\def\TN{\hbox{TN}}
+\def\Unif{\hbox{Unif}}
+\def\Mult{\hbox{Mult}}
+\def\Wish{\hbox{W}}
+\def\HOHMM{\hbox{HOHMM}}
+
+\def\ANNALS{{\it Annals of Statistics}}
+\def\ANNALSP{{\it Annals of Probability}}
+\def\ANNALSMS{{\it Annals of Mathematical Statistics}}
+\def\ANNALSAS{{\it Annals of Applied Statistics}}
+\def\ANNALSISM{{\it Annals of the Institute of Statistical Mathematics}}
+\def\AJE{{\it American Journal of Epidemiology}}
+\def\ANIPS{{\it Advances in Neural Information Processing Systems}}
+\def\APLS{{\it Applied Statistics}}
+\def\BA{{\it Bayesian Analysis}}
+\def\BRNL{{\it Bernoulli}}
+\def\BIOK{{\it Biometrika}}
+\def\BIOS{{\it Biostatistics}}
+\def\BMCS{{\it Biometrics}}
+\def\BMCMIDM{{\it BMC Medical Informatics and decision making}}
+\def\BIOINF{{\it Bioinformatics}}
+\def\CANADAJS{{\it Canadian Journal of Statistics}}
+\def\CG{{\it Current Genomics}}
+\def\CDA{{\it Computational Statistics \& Data Analysis}}
+\def\COMMS{{\it Communications in Statistics, Series A}}
+\def\COMMS{{\it Communications in Statistics, Theory \& Methods}}
+\def\COMMSS{{\it Communications in Statistics - Simulation}}
+\def\COMMSSC{{\it Communications in Statistics - Simulation and Computation}}
+\def\EJS{{\it Electronic Journal of Statistics}}
+\def\ECMK{{\it Econometrica}}
+\def\ECTH{{\it Econometric Theory}}
+\def\GENEP{{\it Genetic Epidemiology}}
+\def\JASA{{\it Journal of the American Statistical Association}}
+\def\JRSSB{{\it Journal of the Royal Statistical Society, Series B}}
+\def\JRSSC{{\it Journal of the Royal Statistical Society, Series C}}
+\def\JQT{{\it Journal of Quality Technology}}
+\def\JCGS{{\it Journal of Computational and Graphical Statistics}}
+\def\JCB{{\it Journal of Computational Biology}}
+\def\JAMA{{\it Journal of the American Medical Association}}
+\def\JNUTR{{\it Journal of Nutrition}}
+\def\JABES{{\it Journal of Agricultural, Biological and Environmental Statistics}}
+\def\JBES{{\it Journal of Business and Economic Statistics}}
+\def\JSPI{{\it Journal of Statistical Planning \& Inference}}
+\def\JMA{{\it Journal of Multivariate Analysis}}
+\def\JNS{{\it Journal of Nonparametric Statistics}}
+\def\JSS{{\it Journal of Statistical Software}}
+\def\JECM{{\it Journal of Econometrics}}
+\def\IEEE{{\it IEEE}}
+\def\IEEESPL{{\it IEEE Signal Processing Letters}}
+\def\IEEETIT{{\it IEEE Transactions on Information Theory}}
+\def\LETTERS{{\it Letters in Probability and Statistics}}
+\def\P_25_ICML{{\it Proceedings of the 25th international conference on Machine learning}}
+\def\PLoSCB{{\it PloS Computational Biology}}
+\def\STIM{{\it Statistics in Medicine}}
+\def\SCAN{{\it Scandinavian Journal of Statistics}}
+\def\SMMR{{\it Statistical Methods in Medical Research}}
+\def\SNKH{{\it Sankhy\={a}: The Indian Journal of Statistics}}
+\def\STIM{{\it Statistics in Medicine}}
+\def\STATMED{{\it Statistics in Medicine}}
+\def\STATSCI{{\it Statistical Science}}
+\def\SSNC{{\it Statistica Sinica}}
+\def\SaC{{\it Statistics and Computing}}
+\def\STATSCI{{\it Statistical Science}}
+\def\TECH{{\it Technometrics}}
+
+
+\def\VS{{\vskip 3mm\noindent}}
+\def\refhg{\hangindent=20pt\hangafter=1}
+\def\refmark{\par\vskip 2mm\noindent\refhg}
+\def\itemitem{\par\indent \hangindent2\parindent \textindent}
+\def\refhg{\hangindent=20pt\hangafter=1}
+\def\refmark{\par\vskip 2mm\noindent\refhg}
+\def\povr{\buildrel p\over\longrightarrow}
+\def\ccdot{{\bullet}}
+\def\bse{\begin{eqnarray*}}
+	\def\ese{\end{eqnarray*}}
+\def\be{\begin{eqnarray}}
+	\def\ee{\end{eqnarray}}
+\def\bq{\begin{equation}}
+	\def\eq{\end{equation}}
+\def\pr{\hbox{pr}}
+\def\wh{\widehat}
+
+
+\def\trans{^{\rm T}}
+\def\transs{\hbox{\footnotesize T}}
+\def\rank{{\hbox{rank}}}
+\def\myalpha{{\cal A}}
+\def\th{^{th}}
+\def\bone{{\mathbf 1}}
+\def\Data{{\hbox{Data}}}
+
+
+\def\ba{{\mathbf a}}
+\def\bA{{\mathbf A}}
+\def\bb{{\mathbf b}}
+\def\bB{{\mathbf B}}
+\def\bc{{\mathbf c}}
+\def\bC{{\mathbf C}}
+\def\bd{{\mathbf d}}
+\def\bD{{\mathbf D}}
+\def\b1e{{\mathbf e}}
+\def\b1f{{\mathbf f}}
+\def\bF{{\mathbf F}}
+\def\bG{{\mathbf G}}
+\def\bg{{\mathbf g}}
+\def\bh{{\mathbf h}}
+\def\bH{{\mathbf H}}
+\def\bI{{\mathbf I}}
+\def\bk{{\mathbf k}}
+\def\bM{{\mathbf M}}
+\def\bn{{\mathbf n}}
+\def\bN{{\mathbf N}}
+\def\bp{{\mathbf p}}
+\def\bP{{\mathbf P}}
+\def\br{{\mathbf r}}
+\def\bR{{\mathbf R}}
+\def\bs{{\mathbf s}}
+\def\bS{{\mathbf S}}
+\def\bt{{\mathbf t}}
+\def\bu{{\mathbf u}}
+\def\bU{{\mathbf U}}
+\def\bv{{\mathbf v}}
+\def\bV{{\mathbf V}}
+\def\bw{{\mathbf w}}
+\def\bW{{\mathbf W}}
+\def\bx{{\mathbf x}}
+\def\bX{{\mathbf X}}
+\def\by{{\mathbf y}}
+\def\bY{{\mathbf Y}}
+\def\bz{{\mathbf z}}
+\def\bZ{{\mathbf Z}}
+\def\bS{{\mathbf S}}
+\def\bzero{{\mathbf 0}}
+
+\def\whT{\widehat{\Theta}}
+\def\te{\widetilde{e}}
+\def\te{\widetilde{\epsilon}}
+\def\tp{\widetilde{p}}
+\def\tv{\widetilde{v}}
+\def\tmu{\widetilde{\mu}}
+\def\tsigma{\widetilde{\sigma}}
+
+\newcommand{\etal}{\emph{et al.~}}
+\newcommand{\etam}{\mbox{\boldmath $\eta$}}
+\newcommand{\bmu}{\mbox{\boldmath $\mu$}}
+\newcommand{\bDelta}{\mbox{\boldmath $\Delta$}}
+\newcommand{\bphi}{\mbox{\boldmath $\phi$}}
+\newcommand{\bpi}{\mbox{\boldmath $\pi$}}
+\newcommand{\bPi}{\mbox{\boldmath $\Pi$}}
+\newcommand{\bxi}{\mbox{\boldmath $\xi$}}
+\newcommand{\bepsilon}{\mbox{\boldmath $\epsilon$}}
+\newcommand{\btheta}{\mbox{\boldmath $\theta$}}
+\newcommand{\bTheta}{\mbox{\boldmath $\Theta$}}
+\newcommand{\bbeta}{\mbox{\boldmath $\beta$}}
+\newcommand{\bgamma}{\mbox{\boldmath $\gamma$}}
+\newcommand{\bzeta}{\mbox{\boldmath $\zeta$}}
+\newcommand{\bsigma}{\mbox{\boldmath $\sigma$}}
+\newcommand{\bSigma}{\mbox{\boldmath $\Sigma$}}
+\newcommand{\balpha}{\mbox{\boldmath $\alpha$}}
+\newcommand{\bomega}{\mbox{\boldmath $\omega$}}
+\newcommand{\blambda}{\mbox{\boldmath $\lambda$}}
+\newcommand{\bLambda}{\mbox{\boldmath $\Lambda$}}
+\newcommand{\bOmega}{\mbox{\boldmath $\Omega$}}
+\newcommand{\bPsi}{\mbox{\boldmath $\Psi$}}
+\newcommand{\bpsi}{\mbox{\boldmath $\psi$}}
+\newcommand{\bGamma}{\mbox{\boldmath $\Gamma$}}
+\newcommand{\btau}{\mbox{\boldmath $\tau$}}
+
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand*{\hatequal}{\mathrel{\widehat=}}
+
+
+\def\simind{\stackrel{\mbox{\scriptsize{ind}}}{\sim}}
+\def\simiid{\stackrel{\mbox{\scriptsize{iid}}}{\sim}}
+\def\eqd{\stackrel{\mbox{\scriptsize{d}}}{=}}
+\def\as{\stackrel{\mbox{\scriptsize{a.s.}}}{\longrightarrow}}
+\def\qed{\hfill $\Box$}
+
+\renewcommand\footnoterule{\kern-3pt \hrule \textwidth 2in \kern 2.6pt}
+
+\newcommand*{\myalign}[2]{\multicolumn{1}{#1}{#2}}
+
+\newcommand\Algphase[1]{%
+	\vspace*{-.5\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\textwidth}{0.4pt}%
+	\Statex\hspace*{-\algorithmicindent}\textbf{#1}%
+	\vspace*{-.5\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\textwidth}{0.4pt}%
+}
+
+\def\colblue#1{\textcolor{blue}{\bf #1}}
+\def\colred#1{\textcolor{red}{ #1}}
+\def\colredb#1{\textcolor{red}{\bf #1}}
+\def\highlight#1{\underline{\textcolor{red}{#1}}}
+\def\boxit#1{\vbox{\hrule\hbox{\vrule\kern6pt \vbox{\kern6pt \textcolor{blue}{#1}\kern6pt}\kern6pt\vrule}\hrule}}
+\def\grcomment#1{\vskip 2mm\boxit{\vskip 2mm{\color{blue}\bf#1} {\color{black}\bf -- Gio\vskip 2mm}}\vskip 2mm}
+
+\def\authorfootnote#1{{\let\thefootnote\relax\footnotetext{#1}}}
+
+
+
+%%%%%%%%%%%%%%
+% End New Definitions  %%
+%%%%%%%%%%%%%%
+
+\allowdisplaybreaks
+
+
+\pdfminorversion=4
+
+\begin{document}
+	\thispagestyle{empty}
+	\baselineskip=28pt
+	
+	
+	\begin{center}
+		{\LARGE{\bf Clustering consistency with\\ Dirichlet process mixtures
+		}}
+	\end{center}
+	\baselineskip=12pt
+	\vskip 24pt 
+	
+	
+	%\iffalse
+	\small
+	\baselineskip=14pt
+	\begin{center}
+	Filippo Ascolani$^{a,b}$ (filippo.ascolani@phd.unibocconi.it)\\
+	Antonio Lijoi$^{a,b}$ (antonio.lijoi@unibocconi.it)\\
+	Giovanni Rebaudo$^{b,c}$ (giovanni.rebaudo@austin.utexas.edu)\\
+	Giacomo Zanella$^{a,b}$ (giacomo.zanella@unibocconi.it)
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\vskip 3mm
+	$^{a}$Department of Decision Sciences, Bocconi University,\\
+	via R\"oentgen 1, 20136 Milan, Italy
+	\vskip 4pt 
+	$^{b}$Bocconi Institute for Data Science and Analytics, Bocconi University,\\ 
+	Via Röntgen 1, 20136 Milan, Italy
+	\vskip 4pt 
+	$^{c}$Department of Statistics and Data Sciences,
+	University of Texas at Austin,\\
+	105 East 24th Street D9800, Austin, TX 78712, USA\\	
+\end{center}
+	\vskip 24pt 
+	%\fi
+	
+	
+\pagenumbering{arabic}
+\setcounter{page}{0}
+\newlength{\gnat}
+\setlength{\gnat}{20pt}
+\baselineskip=\gnat
+	
+
+\begin{center}
+	{\Large{\bf Abstract}} 
+\end{center}
+\baselineskip=16pt
+	Dirichlet process mixtures are flexible non-parametric models, particularly suited to density estimation and probabilistic clustering.
+	In this work we study the posterior distribution induced by Dirichlet process mixtures as the sample size increases, and more specifically focus on consistency for the unknown number of clusters when the observed data are generated from a finite mixture. Crucially, we consider the situation where a prior is placed on the concentration parameter of the underlying Dirichlet process. Previous findings in the literature suggest that Dirichlet process mixtures are typically not consistent for the number of clusters if the concentration parameter is held fixed and data come from a finite mixture. Here we show that consistency for the number of clusters can be achieved if the concentration parameter is adapted in a fully Bayesian way, as commonly done in practice. Our results are derived for data coming from a class of finite mixtures, with mild assumptions on the prior for the concentration parameter and for a variety of choices of likelihood kernels for the mixture.
+	
+	\vskip 24pt 
+	
+\noindent\underline{\bf Key Words}: 
+Asymptotic; Bayesian nonparametric; Consistency; Clustering; Dirichlet process mixture; Number of components. 
+	
+\par\medskip\noindent
+\underline{\bf Short/Running Title}: Clustering consistency with DPM
+	
+\vskip 10mm	
+\baselineskip=\gnat	
+
+\section{Introduction}
+Bayesian nonparametric methods have experienced a huge development in the last two decades, often standing out for their flexibility and coherent probabilistic foundations; see the monographs by \cite{Muller2017} and \cite{Subhashis2017} for recent stimulating accounts. 
+The cornerstone of Bayesian nonparametrics is the model based on the Dirichlet process \citep{Ferguson1973b}, which can be expressed as
+%\begin{equation}\label{DPmodel}
+$X_i \mid  \tilde{P} \simiid \tilde{P}$ and $ \tilde{P}\sim \text{DP}(\alpha, Q_0)$, 
+%\end{equation}
+where $\alpha > 0$ is the \emph{concentration parameter} and $Q_0$ is the \emph{baseline distribution} over the sample space $(\mathbb{X}, \mathcal{X})$. 
+The success of the Dirichlet process in actual implementations of the Bayesian approach to nonparametric problems is mostly due to its mathematical tractability, which is highlighted by conjugacy, and flexibility, which is assessed in terms of its large topological support. 
+
+Since $\tilde P$ %The Dirichlet process 
+is almost surely discrete, %and, 
+if one wishes to model continuous data %, it is useful to 
+one may convolve it with a %suitable 
+density kernel $k$ parametrized by a latent variable $\theta$ that is drawn from a Dirichlet process. This %approach leads to 
+yields the popular Dirichlet process mixture %model 
+\citep{Lo1984b}, which  %where
+%\begin{equation}\label{DPMmodel}
+%X_i \mid \theta_i \simind k(\cdot|\theta_i), \quad \theta_i \mid \tilde{P} \simiid \tilde{P}, \quad \tilde{P} \sim \text{DP}(\alpha, Q_0).
+%\end{equation}
+%The Dirichlet process mixture model %in %\eqref{DPMmodel} 
+exhibits appealing %nice 
+asymptotic properties in the context of density estimation: in %mevery 
+several relevant cases, the posterior distribution %of the unknown density 
+concentrates at the true data-generating density %one 
+at the minimax-optimal rate, up to a logarithmic factor, as the sample size increases \citep{Ghosal1999,Ghosal2007}.
+Such a model and mevery of its variants are widely used across scientific areas, thanks also to the availability of a wide variety of efficient computational methods to perform inference, see for instance \cite{Escobar1995a,Escobar1998,Maceachern1998,Neal2000a,Blei2006a}.
+
+
+Thanks to the discreteness of the Dirichlet process, the latent parameters $\theta_i$'s %will 
+exhibit ties with positive probability. Hence, the Dirichlet process mixture model %in \eqref{DPMmodel} 
+is also routinely used to perform clustering since it partitions observations into %clusters 
+groups based on whether their corresponding latent parameters $\theta_i$ coincide or not. The ubiquitous use of Dirichlet process mixtures for clustering motivates the interest in the %it is important to understand 
+asymptotic behaviour of the posterior distribution of the underlying partition, and in particular in 
+%on 
+the inferred number of clusters (i.e.\ subpopulations), as the number of observations increases. \cite{Nguyen2013} showed posterior consistency of the mixing distribution $\tilde{P}$ under general conditions. 
+However, this does not imply consistency for the number of clusters, due to the use of the Wasserstein distance. Indeed, 
+\cite{Miller2013} %provided a negative result, showing 
+proved that Dirichlet process mixtures are not consistent for the number of components when data are generated from a mixture with a single standard normal component. 
+See also \cite{Miller2014} for extensions.
+These results, however, are derived under the assumption that the concentration parameter $\alpha$ is known and fixed.
+This is crucial because the clustering behaviour of Dirichlet process mixtures is governed by the choice of $\alpha$. 
+Indeed, under the Dirichlet process mixture model, %model\eqref{DPMmodel}, 
+the prior probability of observing ties is %purely 
+	a function solely of $\alpha$, since $\text{pr}( \theta_i = \theta_j ) = 1/(\alpha+1)$.
+
+In order to have a more flexible distribution on the clustering of the data, in %several 
+most implementations of the Dirichlet process mixture  %applications 
+a prior $\pi$ for $\alpha$ is specified, leading to a mixing measure that is itself a mixture %mixture %of Dirichlet processes 
+in the sense of \cite{Antoniak1974c}. Here we show that introducing such a prior %further
+ has a major impact on the asymptotic behaviour of the number of clusters, as Dirichlet process mixtures can be consistent for the number of clusters. 
+%In this paper we study the consistency of Dirichlet process mixtures under the commonly used assumption 
+%of assigning a prior $\pi$ on the unknown concentration parameter. We show that Dirichlet process mixtures can be consistent for the number of clusters. 
+We provide consistency results under fairly general conditions on $\pi$ and for a moderately large class of kernels $k$, including uniform and truncated normal distributions.
+Following \cite{Miller2013}, we focus on data-generating mixtures with a single component. Our results also extend to the more general case of finite mixtures with multiple components, when a suitable separation assumption between the elements of the mixtures is fulfilled. Crucially, we prove consistency for cases where using a non-random $\alpha$ %results in 
+yields inconsistency, thus suggesting that %placing 
+a hyperprior may be beneficial even beyond the cases considered here.
+We stress that the framework we study is arguably closer to the way Dirichlet process mixtures are used in practice, compared to holding $\alpha$ fixed. 
+
+
+We note that studying an asymptotic regime where the data-generating truth is a mixture with a finite and fixed number of components entails some degree of model misspecification. Indeed, Dirichlet process mixtures are nonparametric models with an %priori 
+infinite number of components or, in other words, a number of clusters growing with the size of the dataset. Thus, our results can be interpreted as a form of robustness of the prior: if the number of components of the data-generating is finite, it can still be recovered by adapting appropriately the value of $\alpha$, despite the prior is concentrated on mixtures with infinitely mevery components. In particular we show that, under all the data generation mechanisms we consider in the next sections, the posterior distribution of $\alpha$ converges to a point mass at 0 at a specific rate, which is crucial to ensure consistency.
+%Thus, our results can be interpreted as a form of robustness: despite assuming infinitely mevery components \textit{a priori}, if the data-generating truth has finitely mevery of them the model can recover that by adapting appropriately the value of $\alpha$. In particular we show that, under all the considered data generation mechanisms, the posterior distribution of $\alpha$ converges to a point mass at 0 at a specific rate, which is crucial to ensure consistency. 
+See Section \ref{discussion} for more discussion and some related literature.
+
+\section{Dirichlet process mixtures and random \mbox{partitions}}\label{sec:MM}
+Henceforth, we will be focusing on Dirichlet process mixture models with a prior on the concentration parameter, namely %we obtain a mixture model of the following form
+\begin{equation}\label{eq:MixDPM}
+X_i|\theta_i \simind k(\cdot|\theta_i), \quad \theta_i \mid \tilde{P} \simiid \tilde{P}, \quad \tilde{P} \mid \alpha \sim \text{DP}(\alpha,Q_0), \quad \alpha \sim \pi,
+\end{equation}
+where $k(\,\cdot\,|\theta)$ is some density function, for every $\theta$.
+Since we are interested in the distribution of the number of clusters, it is reasonable to rewrite \eqref{eq:MixDPM} in terms of the distribution on partitions, related to the so-called Chinese restaurant process. For every pair of natural numbers $(n, s)$ such that $s\le n$, denote with $\tau_s(n)$ the set of partitions of $\{1,\ldots,n\}$ into $s$ non empty subsets.
+Conditionally on $\alpha$, the sequence $(\theta_i)_{i\ge 1}$ induces a prior distribution on the space of partitions of $\mathds{N}$ that, for every $n\ge 2$, is characterized by 
+
+\begin{equation}\label{eq:EPPFDP}
+\text{pr}(A \mid \alpha)=\dfrac{\alpha^s}{\alpha^{(n)}} \prod_{j=1}^s (a_j-1)!, \quad (A=\{A_1,\ldots,A_s\} \in \tau_s(n), s \le n),
+\end{equation}
+where $\alpha^{(n)} = \alpha \cdots (\alpha+n-1)$ is the ascending factorial and $a_j=|A_j|$ stands for the cardinality of set $A_j$. Conditionally on the partition $A$, the probability distributions of the data $X_{1:n}=(X_1,\dots,X_n)$ and of the cluster-specific parameters $\hat{\theta}_{1:s} = ( \hat{\theta}_1,\ldots,\hat{\theta}_s)$ %and of the associated observations  
+are %given by
+
+\begin{equation}\label{partition_model}
+\text{pr}(X_{1:n} \mid \hat{\theta}_{1:s}, A) = \prod_{j = 1}^s\prod_{i \in A_j} k(X_i \mid \hat{\theta}_j ), \quad
+\text{pr}( \hat{\theta}_{1:s} \mid A, \alpha) = \text{pr}( \hat{\theta}_{1:s} \mid A) = \prod_{j = 1}^s q_0(\hat{\theta}_j).
+\end{equation}
+The number of clusters in a sample of size $n$ is denoted by $K_n$ and under \eqref{eq:MixDPM} it has the following prior distribution 
+
+\[
+\text{pr}( K_n = s) = \int \sum_{A \in \tau_s(n)} \text{pr}( A \mid \alpha )\pi(\mathrm{d}\alpha).
+\]
+Since we %We 
+are concerned with the large sample properties of %in studying 
+$\text{pr}(K_n = s \mid X_{1:n})$, %so we are interested in 
+we focus on the joint distribution of the vector $(X_{1:n}, K_n)$ which, for every $x_{1:n}=(x_1,\dots,x_n)\in \mathbb{X}^n$, is given by
+
+\begin{equation}\label{first_step}
+\text{pr}( X_{1:n}= x_{1:n}, K_n = s ) = \sum_{A \in \tau_s(n)} \text{pr}( A ) \prod_{j = 1}^s m (x_{A_j} ),
+\end{equation} %where
+where pr$(A)=\int \mbox{pr}(A|\alpha)\,\pi(\mathrm{d}\alpha)$ and
+%\begin{equation*}%\label{eq:DPM_M}
+$m(x_{A_j}) = \int \prod_{i \in A_j} k(x_i \mid \theta) q_0(\theta) \mathrm{d}\theta$
+%\end{equation*}
+is the marginal likelihood for the subset of observations identified by $A_j$, given that they are clustered together. We study the asymptotic behaviour of the posterior induced by model \eqref{eq:MixDPM} when the observations are independent and identically distributed samples from a finite mixture, that is we assume the following data generation mechanism
+\begin{equation}\label{true}
+X_i \simiid P = \sum_{j = 1}^t p_jR_j, \quad (i = 1, 2,\dots),
+\end{equation}
+where, for every $t\ge 1$, the $R_j$'s are distinct %is a 
+probability measures on $\mathbb{X}$ %for every $j$, $t \geq 1$, 
+and the $p_j$'s are probability weights, i.e. $p_j\in (0,1)$ for every $j$ and $\sum_j p_j=1$. %probability weights. 
+We will let $P^{(n)}$ and $P^{(\infty)}$ be the product probability measures induced on $\mathbb{X}^n$ and $\mathbb{X}^\infty$ respectively, and denote \eqref{true} by $X_{1:\infty}\sim P^{(\infty)}$. % for brevity.
+In the following, we will consider each $R_j$ to be dominated by a suitable measure and denote the resulting density by $f_j(\cdot) := f(\cdot \mid \theta_j^\ast)$. We say that model in \eqref{eq:MixDPM} is \emph{well-specified} for $P$ if $k(\cdot|\theta)=f(\cdot \mid \theta)$, that is if the data-generating distribution is a mixture of kernels belonging to the same parametric family that defines %the prior in used to to define
+%belongs to the family of kernels in 
+\eqref{eq:MixDPM}.
+
+We say that posterior consistency for the number of clusters holds if $\text{pr}(K_n = t \mid X_{1:n}) \to 1$ as $n\to\infty$ in $P^{(\infty)}$-probability. Note that %here 
+the conditional probability $\text{pr}(K_n = t \mid X_{1:n})$ is defined with respect to the model in \eqref{eq:MixDPM}, while the convergence in probability is with respect to the data-generating process $X_{1:\infty}\sim P^{(\infty)}$. Since $\text{pr}(K_n = t \mid X_{1:n})$ lies between 0 and 1, convergence in $P^{(\infty)}$-probability is equivalent to convergence in $L^1$ with respect to $P^{(\infty)}$ and thus we could equivalently define consistency in terms of $L^1$ convergence.
+
+\section{Main consistency results}\label{sec:consistency_results}
+%Under the setting of \eqref{eq:MixDPM}, we will derive consistency results with priors on $\alpha$ that satisfy the following requirements:
+The investigation of the asymptotics of the number of clusters $K_n$, induced by the model in \eqref{eq:MixDPM}, will rely on the following assumptions on the prior $\pi$ of $\alpha$
+\begin{enumerate}
+\item[$A1.$] \emph{Absolute continuity}: $\pi$ is absolutely continuous with respect to the Lebesgue measure and its density is still denoted as $\pi$;
+\item[$A2.$] \emph{Polynomial behaviour around the origin}: $\exists \, \epsilon $, $\delta$, $\beta$ such that $\forall \alpha \in (0, \epsilon)$ it holds $\frac{1}{\delta}\alpha^\beta \leq \pi(\alpha) \leq \delta \alpha^\beta$;
+\item[$A3.$] \emph{Subfactorial moments}: $ \exists \, D, \nu, \rho > 0$ such that $\int \alpha^s \pi(\alpha) \, d\alpha < D\rho^{-s}\Gamma(\nu+s+1)$ for every $s\ge 1$. 
+\end{enumerate}
+The first two assumptions are sufficient to study the posterior moments of $\alpha$, conditional to the number of groups $K_n$, as will be clarified in Proposition \ref{prop:Prior}. Assumption $A3$, instead, will be useful specifically for consistency purposes: the minimum value of $\rho$ %needed
+required to achieve consistency depends on the problem at hand, that is on the specific choice of $P$ in \eqref{true} and $k$ in \eqref{eq:MixDPM}, as will be stated in Theorems \ref{th:ConsUnif} and \ref{th:ConsNormDelta}. Assumptions $A1$-$A3$ are satisfied by common families of distributions, as displayed in the next lemma.
+\begin{Lem}\label{priors}
+The following choices of $\pi$ satisfy assumptions $A1$, $A2$ and $A3$ (for a fixed $\rho > 0$)
+\begin{itemize}
+\item[{\rm (1)}] every distribution with bounded support that satisfies assumptions $A1$ and $A2$, such as the uniform distribution over $(0,c)$, with $c>0$;
+\item[{\rm (2)}] The Generalized Gamma distribution with density proportional to $\alpha^{d-1}e^{-\left(\frac{\alpha}{a} \right)^p}$, provided that $p > 1$; 
+\item[{\rm (3)}] The Gamma distribution with shape $\nu$ and rate $\rho$.
+\end{itemize}
+\end{Lem}
+Note that the rate parameter of the Gamma distribution corresponds to the quantity $\rho$ in assumption $A3$. 
+
+
+\subsection{General consistency result for location families\\with bounded support}\label{sec:Bound}
+For our general result we consider kernels of the form 
+\begin{equation}\label{data_generating_general}
+\begin{aligned}
+k(x \mid \theta) &= g(x - \theta)%\mathbbm{1}_{[\theta-c , \theta +c ]}(x)
+ &(x\in\mathbb{R}),
+\end{aligned}
+\end{equation}
+where $c > 0$ and $\theta\in\mathbb{R}$ is a location parameter. Here $g$ is a density function on the real line satisfying the following assumptions
+\begin{enumerate}
+	\item[$B1.$] $g$ is strictly positive on some interval $[a,b]$
+	 and 0 elsewhere;
+	\item[$B2.$] $g$ is differentiable with bounded derivative in $(a,b)$; 
+	\item[$B3.$] The base measure $Q_0$ is absolutely continuous with respect to the Lebesgue measure, and its density $q_0$ is bounded. % with bounded density $q_0$. 
+\end{enumerate}
+The above assumptions essentially require that the kernel is a location-family distribution with positive density on a bounded support. The class is fairly general and it includes, as relevant special cases, the uniform distribution and the truncated Gaussian distribution, among others.
+
+When considering a mixture of the kernels in \eqref{data_generating_general} as data generation mechanism satisfying $B1$--$B3$, with true parameters $\theta^* = (\theta_1^*, \dots, \theta_t^*)$, we say that $\theta^*$ is \emph{completely separated} if $|\theta_j^*-\theta_k^*| > b-a$, for every $j \neq k$. This assumption is somewhat restrictive, but sufficient to prove that the addition of a prior on $\alpha$ may solve the inconsistency issue. Indeed, we have the following general consistency result.
+\begin{Thm}\label{th:ConsBounded}
+Suppose $k$ and $q_0$ satisfy assumptions $B1$--$B3$. If $\pi$ satisfies assumptions $A1$--$A3$ with $\rho$ high enough then, for every $P$ as in \eqref{true} with $t \in \{1, 2, \dots\}$, $f_j=k(\cdot|\theta^*_j)$, $\theta^*$ completely separated and $\theta^*_j$ belonging to the interior support of $Q_0$ for every $j$, we have
+
+\[
+\text{pr}(K_n = t \mid X_{1:n}) \to 1 %\quad \text{as } n \to \infty
+\]
+as $n \to \infty$ in $P^{(\infty)}$-probability. On the contrary, if %instead 
+$\pi(\alpha) = \delta_{\alpha^*}(\alpha)$, with $\alpha^* > 0$, then
+\[
+\lim \sup \text{pr}(K_n = t \mid X_{1:n}) < 1
+\]
+as $n \to \infty$ in $P^{(\infty)}$-probability.
+\end{Thm}
+As discussed above, the minimum value of $\rho$ needed depends on the specific function $g$ and prior distribution $Q_0$. Therefore, a prior on the concentration parameter yields consistency when the true data generating distribution meets a condition of complete separability, that informally amounts to having cluster locations sufficiently distinct. Note that this condition is automatically satisfied when $t=1$. We additionally show that, even under such an assumption, the Dirichlet process mixture model with fixed $\alpha$ still fails to be consistent at the number of clusters. 
+Hence, a prior on $\alpha$ %helps overcoming
+is crucial to overcome issues with learning the true number of clusters as the sample size increases.
+
+Moreover, the posterior mass on a smaller number of clusters than the truth vanishes, as explained in the next proposition. The latter holds under mild assumptions on model \eqref{eq:MixDPM}, satisfied either by bounded distributions as above or for instance by the Gaussian kernel.
+
+\newpage
+\begin{Prop}\label{undersmoothing}
+Let $P$ be as in \eqref{true}, with true parameters $\theta^*_1, \dots, \theta^*_t$. Let $\theta_j^*$ belong to the support of $Q_0$ for every $j = 1, \dots, t$ and let $k$ satisfy assumptions $B1$--$B3$ above or $H1$--$H4$ in the supplementary material. Then
+\begin{equation}
+\text{\rm pr}(K_n < t \mid X_{1:n}) \to 0
+\end{equation}
+ in $P^{(\infty)}$-probability as $n \to \infty$.
+\end{Prop}
+
+\subsection{Consistency on specific examples}
+Theorem \ref{th:ConsBounded} requires $\rho$ in assumption $A3$ to be high enough, depending on the specific formulation of the model. In order to provide an example, we focus on the case of uniform kernel and $t = 1$, that is
+\begin{equation}\label{unif_framework}
+f = \text{Unif}(\theta^\ast-c, \theta^\ast+c), \quad k(\cdot| \theta) = \text{Unif}(\theta-c, \theta+c), \quad q_0 = \text{Unif}(\theta^\ast-c, \theta^\ast+c),
+\end{equation}
+where $\theta^\ast \in \mathbb{R}$ is a fixed location parameter and $c>0$. In this setting the marginal distribution is available and with a suitable application of H\"{o}lder's inequality one can %it is possible to 
+prove consistency for specific values of $\rho$.
+
+\begin{Thm}\label{th:ConsUnif}
+Consider $f$, $k$ and $q_0$ as in \eqref{unif_framework}, and assume $\pi$ satisfies %assumptions
+$A1$--$A3$ (with $\rho \ge 38$). Then
+\[
+\text{pr}(K_n = 1 \mid X_{1:n}) \to 1% \quad \text{as } n \to \infty
+\]
+as $n \to \infty$ in $P^{(\infty)}$-probability.
+\end{Thm}
+As a second example, we move beyond bounded kernels and consider a simple, yet interesting, case. More precisely, we specialize model \eqref{eq:MixDPM} to %the case of 
+Gaussian kernels and assume constant data, equal to some fixed real number $\theta^\ast$, setting
+\begin{equation}\label{eq:NormDelta}
+f%f(\theta^\ast) 
+= \delta_{\theta^\ast}, \quad k(\cdot| \theta) = \text{N}(\theta,1), \quad q_0 = \text{N}(0, 1).
+\end{equation}
+Unlike the other examples, this case is not well-specified, as $k(\cdot|\theta)\neq f(\cdot)$ for every $\theta$. This makes the definition of true or data-generating number of clusters more delicate. Nonetheless, being an example with constant data, one would hope the posterior of the number of clusters to concentrate on one cluster. 
+However, even in such a limiting case, % with constant data, 
+\cite{Miller2013} %interestingly 
+show that under \eqref{eq:MixDPM} with fixed concentration parameter $\text{pr}(K_n=1|X_{1:n})$ does not converge to $1$ as $n$ diverges.
+
+Once again, placing a prior on $\alpha$ %changes 
+impacts the posterior asymptotic behaviour of $K_n$ and one achieves consistency, as detailed in the next theorem.
+\begin{Thm}\label{th:ConsNormDelta}
+Consider $(f, k, q_0)$ as in \eqref{eq:NormDelta} and assume $\pi$ satisfies %assumptions
+$A1$--$A3$ (with $\rho > 16$). Then
+\[
+\text{pr}(K_n = 1 \mid X_{1:n}) \to 1 
+\] 
+$P^{(\infty)}$-almost surely as $n\to \infty$.
+\end{Thm}
+Finally, note that %all 
+the previous consistency results are related to another property %result 
+of general interest, namely %which is that 
+the posterior distribution of the concentration parameter converges to a point mass at $0$, %goes to zero 
+if posterior consistency for the number of clusters holds.
+\begin{Prop}\label{prop:PostAlpha}
+%Under every of the settings in Theorems \ref{th:ConsBounded}, \ref{th:ConsUnif}, and \ref{th:ConsNormDelta},
+Let the data be generated as in \eqref{true} with $t \in \mathbb{N}$ and assume $\pi$ satisfies $A1$ and $A2$. Then if $\text{pr}(K_n = t \mid X_{1:n}) \to 1$
+we have
+\[
+\pi(\alpha \mid X_{1:n}) \rightarrow \delta_0 %\quad \text{as } n \to \infty 
+\]
+weakly, as $n \to \infty$, in $P^{(\infty)}$-probability.
+\end{Prop}
+Hence, under the conditions that ensure consistency for the number of clusters, the posterior distribution of the concentration parameter converges to a degenerate distribution at $0$. 
+This is not surprising since the Dirichlet process mixture model is concentrated on mixtures with infinitely mevery components and one way to achieve consistency is to let $\alpha$ tend to zero, which entails that %since it is as if 
+the prior is swamped by the data.
+
+\section{Methodology and proof technique}\label{sec:Methodology}
+\subsection{The role of the prior on the concentration parameter}
+Our proofs of consistency in Theorems \ref{th:ConsBounded}, \ref{th:ConsUnif} and \ref{th:ConsNormDelta} rely on the following lemma.
+\begin{Lem}\label{sufficient}
+The convergence $\text{\rm pr}(K_n = t \mid X_{1:n}) \to 1$ as $n\to\infty$ in $P^{(\infty)}$-probability holds true if and only if one has, in $P^{(\infty)}$-probability,
+\begin{equation}\label{condition}
+\sum_{s \neq t} \frac{\text{\rm pr}(K_n = s \mid X_{1:n})}{\text{\rm pr}(K_n = t \mid X_{1:n})} \to 0 \quad \text{as } n\to\infty\,.
+\end{equation}
+\end{Lem}
+Working with the ratios of conditional probabilities in \eqref{condition} is beneficial, as the marginal distribution of $X_{1:n}$ involved in the definition of $\text{pr}(K_n = t \mid X_{1:n})$ cancels. Also, it is convenient to write such ratios of probabilities as follows:
+ first, recall from \eqref{eq:EPPFDP} and \eqref{first_step} that
+\[
+\text{pr}( X_{1:n}= x_{1:n}, K_n = s ) 
+= \int \dfrac{\alpha^s}{\alpha^{(n)}} \pi(\alpha) \mathrm{d}\alpha \sum_{A \in \tau_s(n)} \prod_{j=1}^s (a_j-1)!m(x_{A_j})
+\]
+for every $s\geq 1$, which implies that
+\begin{equation}\label{newratios}
+\frac{\text{pr}(K_n = s \mid X_{1:n})}{\text{pr}(K_n = t \mid X_{1:n})}  = \underbrace{\frac{\int \dfrac{\alpha^s}{\alpha^{(n)}} \pi(\alpha) \, \mathrm{d}\alpha}{\int \dfrac{\alpha^t}{\alpha^{(n)}} \pi(\alpha) \, \mathrm{d}\alpha}}_{C(n,t, s)}\underbrace{\frac{\sum_{A \in \tau_s(n)}\prod_{j=1}^s(a_j-1)!\prod_{j=1}^s m(X_{A_j})}{\sum_{B \in \tau_t(n)}\prod_{j=1}^t(b_j-1)!\prod_{j=1}^t m(X_{B_j})}}_{R(n,t,s)}.
+\end{equation}
+The decomposition of \eqref{newratios} into the factors $C(n,t,s)$ and $R(n,t,s)$ is useful to understand the role of the prior distribution over $\alpha$, and to compare our results with the one of \citet{Miller2013,Miller2014}. In particular, the term $R(n,t,s)$ does not depend on $\alpha$ and, hence, on the choice of %prior 
+$\pi$. %\textcolor{red}{and remains unchanged even if $\alpha$ is fixed}. 
+This is indeed the key term studied in \citet{Miller2014}, where it is shown that, under some assumptions, $\liminf R(n,t,s)>0$ as $n\to\infty$ in $P^{(\infty)}$-probability, for $t < s$. On the contrary, %the 
+$C(n,t,s)$ incorporates information about $\alpha$ and its prior distribution. 
+In the fixed $\alpha$ case, which can be thought of as having a degenerate prior $\pi=\delta_{\alpha}$ for some $\alpha>0$, the term $C(n,t,s)$ boils down to $\alpha^{s-t}$ %$\alpha^{s-1}$,
+which is constant with respect to $n$. This is sufficient for \citet{Miller2014} to deduce lack of consistency for fixed $\alpha$, which means that
+\begin{equation}\label{eq:inconst_fixed_alpha}
+\lim \sup \, \text{pr}( K_n = t \mid X_{1:n},\alpha) <1
+\end{equation}
+as $n \to \infty$ in $P^{(\infty)}$-probability for every $\alpha>0$.
+
+However, once a non-degenerate prior $\pi$ is employed, %the term 
+$C(n,t,s)$ depends on $n$ and, as we show in the next section, converges to 0 as $n\to\infty$ under mild assumptions on $\pi$. Thus, $\liminf R(n,t,s)>0$ is not everymore sufficient to establish whether consistency holds true or not.
+Instead, one needs to compare the rate at which $C(n,t,s)$ converges to 0 with the behaviour of $R(n,t,s)$, as done in the following sections.
+Note that further lower bounds for $R(n,t,s)$ for general values of $s$ are given in \cite{Miller2014,Yang2019}.
+However, once combined with $C(n,t,s)$, these are too loose %rough 
+to deduce either consistency or lack thereof. Therefore, we need to exploit different techniques to determine the rate of $R(n,t,s)$.
+Since $\text{pr}( K_n = t \mid X_{1:n}) = \int \text{pr}( K_n = t \mid X_{1:n}, \alpha) \pi(\alpha \mid X_{1:n}) \, \mathrm{d}\alpha$, by \eqref{eq:inconst_fixed_alpha} we deduce $\lim \sup \, \text{pr}( K_n = t \mid X_{1:n},\alpha) <1$ for every $\alpha>0$. 
+This, however, does not imply that $\lim\sup\text{pr}( K_n = t \mid X_{1:n})<1$, as one first needs to ascertain whether limit and integral can be interchanged. %because in this case the limit cannot be brought inside the integral.
+The main reason is that, in the asymptotic regime we are considering, the posterior distribution $\pi(\alpha \mid X_{1:n})$ concentrates around $0$ as $n\to\infty$, see Proposition \ref{prop:PostAlpha} above. 
+\subsection{Asymptotic behaviour of the concentration parameter}\label{sec:alpha}
+We are now concerned with studying $C(n,t,s)$ in \eqref{newratios}. 
+We prove that for priors $\pi$ satisfying assumptions $A1$--$A3$ % in section \ref{sec:consistency_results} 
+$C(n,t,s)$ converges to $0$ at a logarithmic rate in $n$.
+The asymptotic behaviour of $C(n,t,s)$ is not specific to some  %unrelated to the choice of 
+kernel $k$ and data generating distribution $f$ and thus can be useful to prove consistency, or lack thereof, for arbitrary Dirichlet process mixture models with random concentration parameter.
+In order to facilitate the intuition, the term $C(n,t,s)$ can be interpreted as a moment of $\alpha$, conditional on the $n$ observations being clustered in $t$ groups. Indeed, under \eqref{eq:MixDPM} it holds
+\[
+\pi(\alpha \mid K_n=t) \propto \frac{\alpha^t}{\alpha^{(n)}} \pi(\alpha)
+\]
+and thus $C(n,t,t+s) = \int \alpha^{s} \pi(\alpha \mid K_n=t) \, d\alpha = E(\alpha^{s} \mid K_n = t)$. Next proposition shows its asymptotic behaviour.
+\begin{Prop}\label{prop:Prior}
+Suppose $\pi$ satisfies %assumptions 
+$A1$--$A2$. Then there exist $F, G >0$ such that for every $0 < s \leq n-t$ %it holds
+\[
+\begin{aligned}
+F \, \frac{\gamma\{t+s+\beta,\epsilon\log(n)\}}{\{\log(n)+1\}^{s}} \leq C(n,t, t+s) \leq \frac{Gs}{\epsilon^s}E(\alpha^{t+s-1})\frac{\gamma\{t+s+\beta,\epsilon\log(n)\}}{\{\log n/(1+\epsilon)\}^{s}},
+\end{aligned}
+\]
+where $\gamma(x,y)$ is the lower incomplete Gamma function and %(\textcolor{blue}{non \`e gi\`a chiaro che il momento \`e calcolato rispeto alla prior?})
+%\textcolor{red}{
+$E(\alpha^s) = \int \alpha^s \pi(\alpha) \, d\alpha$.
+\end{Prop}
+Thus, for a fixed $s$ that does not depend on $n$, $C(n,t,t+s)$ decreases logarithmically as a function of $n$ since $\gamma(x,y) \leq \gamma(x)$ for every $x$ and $y$. Thus, by looking at the ratios in \eqref{newratios}, the addition of a prior favours a smaller number of clusters when $n \to \infty$, with $s$ fixed.
+
+The consistency results of the previous section are established by combining Proposition~\ref{prop:Prior} with suitable upper bounds on $R(n,t,s)$ to prove the convergence in \eqref{condition}, so that
+\[
+E \left\{ \sum_{s = 1}^{n-t} \frac{\text{\rm pr}(K_n = t+s \mid X_{1:n})}{\text{\rm pr}(K_n = t \mid X_{1:n})} \right\} \leq \frac{1}{\log n} \sum_{s = 1}^{n-t}h(s),
+\]
+where $h(s)$ is a %deterministic 
+function that depends on the specific kernel $k$ and is such that $\lim \sup$ $\sum_{s = 1}^{n}h(s) < \infty$ for every $s$. Indeed, instead of proving directly convergence in probability of \eqref{condition}, we show %will prove 
+the stronger $L^1$ convergence. % in, that is a sufficient condition. 
+In this way we will avoid the study of the specific partition at hand. The following lemma shows how the problem simplifies in this case, when $t = 1$.
+\begin{Lem}\label{suff_expectation}
+Assume $(X_1,X_2,\dots)$ is an exchangeable sequence. Then for every $n$
+\begin{equation*}
+	E\left\{\sum_{A \in \tau_s(n)}\frac{\prod_{j=1}^s(a_j-1)!}{(n-1)!}\frac{\prod_{j=1}^s m(X_{A_j})}{m(X_{1:n})} \right\} = \sum_{\bm{a} \in \mathcal{F}_s(n)} \frac{n}{s! \prod_{j=1}^{s} a_j}  E\left\{ \frac{\prod_{j=1}^s m(X_{A^{\bm{a}}_j})}{m(X_{1:n})} \right\},
+\end{equation*}
+where the sum runs over $\mathcal{F}_s(n) = \{ \bm{a} \in \{1,\ldots,n\}^s: \sum_{j = 1}^s a_j=n\}$ and $A^{\bm{a}}$ is an arbitrary partition in $\tau_s(n)$ such that $|A_j^{\bm{a}}| = a_j$ for $j=1,\dots,s$. 
+\end{Lem}
+\section{Discussion}\label{discussion}
+There are mevery avenues to extend our results and some of the tools we introduced here may prove useful to accomplish such tasks. First of all, 
+the separability assumption given in Theorem \ref{th:ConsBounded} could be relaxed to prove consistency in the setting with a general number of components. The main issue is that $R(n,t,s)$ in \eqref{newratios} is harder to study, since it becomes the ratio of sums over the space of partitions: in particular Lemma \ref{suff_expectation} is not easy to generalize and this explains why the case $t = 1$ is simpler to address. 
+Different mixture kernels present similar difficulties, since they require to study $R(n,t,s)$ for each specific case. Summarising, the impact of the prior is fully understood, by Proposition \ref{prop:Prior} above, but a more general positive result would require finer bounds on the likelihood component than the ones available here and in the literature.
+
+Another interesting question worth studying is whether consistency can also be attained by estimating the concentration parameter through maximization of the marginal likelihood, in an empirical Bayes fashion \citep{Liu1996,McAuliffe2006}.
+In this paper we preferred to focus on the fully Bayesian approach because it is arguably the one  %approach 
+most commonly employed by practitioners using Dirichlet process mixtures.
+Moreover, the empirical Bayes estimator of $\alpha$ may not be well defined on $(0,\infty)$ because the marginal likelihood can easily have its maximum at both $0$ or infinity, thus raising theoretical and practical issues.
+
+It is also worth noticing that our consistency results require the kernel to be perfectly specified: even a small amount of misspecification will probably lead the number of clusters to diverge. Indeed, recovering the true density will require an increasing number of components. This phenomenon has been formally studied in \cite{Cai2020} for finite mixture models, when a prior on the number of components is placed.
+
+
+We note that the asymptotic analysis of the posterior distribution of the number of clusters for Dirichlet process mixtures has recently attracted considerable theoretical interest \citep{Yang2019,Ohn2020,Cai2020}, and has motivated various methodological developments \citep{Miller2017,Zeng2020}. \cite{Ohn2020} showed that, if $\alpha$ is sent deterministically to 0 at appropriate rates as $n\to\infty$, the posterior distribution of the number of clusters concentrates on finite values when data are generated from a finite mixture, which is a necessary condition for consistency.  Such results are similar in spirit to ours, although we consider the substantially different setting where $\alpha$ is learned through a prior, which is arguably more natural in a Bayesian framework. 
+Finally, our results also provide an answer, at least partially, to the question of \cite{Yang2019}: \emph{``there exists a natural way to correct the problem instead of truncating the number of clusters?''}, by showing that placing a prior on $\alpha$ can be sufficient to recover consistency. 
+
+\section*{Supplementary material}
+Supplementary material includes all the proofs of the theoretical results.
+
+\bibliographystyle{natbib}
+\bibliography{DPM_biblio}
+
+
+
+\end{document}

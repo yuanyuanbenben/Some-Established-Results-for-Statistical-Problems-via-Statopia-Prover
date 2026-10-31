@@ -1,0 +1,476 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:f77f48e9-e9dd-4937-bd0b-f286100f1e0a
+    title: paper_33963587efec4920b10d414c6b312566
+    kind: lemma
+    latex_statement: |-
+      Let $\alpha>0$, and let $\pi$ be a prior density for $\alpha$. Let
+      \[
+      \alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1)
+      \]
+      be the rising factorial. For fixed $t\ge1$ and positive integers $s,n$ with $0<s<n$, define
+      \[
+      C(n,t,t+s):=\frac{\int_0^\infty\frac{\alpha^{t+s}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha}{\int_0^\infty\frac{\alpha^{t}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha}.
+      \]
+      Here $\mathbb E(\cdot)$ denotes expectation with respect to the prior $\pi$, so
+      \[
+      \mathbb E(\alpha^{t+s-1})=\int_0^\infty\alpha^{t+s-1}\pi(\alpha)\,d\alpha.
+      \]
+      Let
+      \[
+      \gamma(x,y)=\int_0^y z^{x-1}e^{-z}\,dz
+      \]
+      be the lower incomplete Gamma function, and let $\Gamma$ denote the usual Gamma function. Let $G>0$ be the constant “as in Proposition \ref{prop:Prior}”; in the supplied proof of Proposition \ref{prop:Prior}, after the harmless reduction $\epsilon<1$ permitted by A2, it is chosen as
+      \[
+      G=\frac{4\delta^2}{\epsilon^{t+\beta}\gamma(t+\beta,\epsilon\log 2)}.
+      \]
+
+      <!-- formalization-clarifications:v1:a8f873b0c5d7eedbd5f1d7e801fc81eef769a4fd2bbd897e1f36397c5088b84d -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. For the target theorem the intended order is: fix \(t\ge1\); fix the prior density \(\pi\) satisfying A1–A2; choose one A2 witness \((\epsilon,\delta,\beta)>0\), then replace \(\epsilon\) by a smaller value with \(0<\epsilon<1\) (allowed because A2 on \((0,\epsilon)\) restricts to \((0,\epsilon_0)\)); define \(G\) from that reduced \(\epsilon,\delta,\beta,t\) by \(G=4\delta^2/[\epsilon^{t+\beta}\gamma(t+\beta,\epsilon\log2)]\); only then quantify over all integers \(n\ge4\) and all positive integers \(s<n\). Thus \(G\) may depend on \(t,\epsilon,\delta,\beta\), and through the chosen A2 witness possibly on \(\pi\), but it must not depend on \(n\) or \(s\). The source does not canonically select among A2 witnesses; the proof fixes one, and \(G\) is parameter-dependent, not a universal constant over all priors. The target wording “\(t\ge1\) fixed” does not explicitly say integer; the selected proof’s Section 2 argues that the cited upper-bound derivation is integrality-free, while the original Proposition Prior context ordinarily has \(t\) as the number of mixture components. That real-\(t\) extension is a proof-based/synthesized clarification, not an independent source theorem; the original cited Proposition Prior is unambiguous only in its displayed range and context. For R1/Proposition Prior, after fixing \(\pi,t\) and reducing \(\epsilon<1\), the constants \(F,G>0\) are existential and fixed before \(n,s\); the cited universal statement is for \(0<s\le n-t\), with \(G\) independent of \(n,s\). The target’s restriction \(n\ge4\), \(s<n\) is an application restriction and should not be inserted into the cited universal proposition.
+
+      2. Norms and mathematical objects. No Euclidean, sup, operator, Frobenius, or normalized norm occurs in the selected theorem or in R1; all objects are scalar nonnegative integrals over \(\alpha\in(0,\infty)\) with Lebesgue measure. Do not introduce a norm for \(\alpha\), \(C\), or the prior. The source-defined objects are: \(\alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1)\), the rising factorial, not a power and not a falling factorial; \(C(n,t,t+s)\) is exactly the ratio of prior integrals with numerator exponent \(t+s\) and denominator exponent \(t\), not the data partition factor \(R(n,t,s)\) and not a posterior probability; \(\mathbb E(\alpha^{t+s-1})\) is the prior expectation \(\int_0^\infty\alpha^{t+s-1}\pi(\alpha)\,d\alpha\), not an expectation over \(X_{1:\infty}\) and not a conditional posterior moment (the source elsewhere identifies \(C(n,t,t+s)\) with a posterior moment under the DPM model, but the target definition is the integral ratio). The lower incomplete Gamma function is the unnormalized \(\gamma(x,y)=\int_0^y z^{x-1}e^{-z}\,dz\); do not replace it by a normalized incomplete Gamma or by \(\Gamma(x)\). The target’s \(G\) uses \(\gamma(t+\beta,\epsilon\log2)\); R1 uses \(\gamma(t+s+\beta,\epsilon\log n)\), and these must not be swapped. The factor \(\log\{n/(1+\epsilon)\}^{-1}\) means \(1/\log(n/(1+\epsilon))\), not \(\log((n/(1+\epsilon))^{-1})\). The source’s printed R1 denominator \(\{ \log n/(1+\epsilon)\}^{s}\) is evaluated in the proof as \(\{\log(cn)\}^{-s}\) with \(c=(1+\epsilon)^{-1}\), hence means \([\log(n/(1+\epsilon))]^s\), not \((\log n)/(1+\epsilon)\). The exponent in the target expectation is \(t+s-1\); any appearance of \(t+s-\) in the paired supplement’s later inequality is an extraction typo, since the selected statement and proof use \(t+s-1\).
+
+      3. Asymptotics. The selected theorem and R1 are finite-\(n\), finite-\(s\) inequalities. There is no \(O\), \(o\), \(O_P\), \(o_P\), no limiting filter, and no probability-convergence assertion in the target statement itself. The factor \(1/\log(n/(1+\epsilon))\) is an exact nonasymptotic factor, not an equivalence or remainder term. \(n\) and \(s\) range over the printed integers; \(n\to\infty\), “in \(P^{(\infty)}\)-probability,” and \(L^1\) consistency language in the main paper belong to the surrounding consistency results and are not hypotheses of the target theorem. R1 is universal over its printed range \(0<s\le n-t\); the target range \(0<s<n\) is larger when \(t>1\), and the selected proof explicitly splits into \(s\le n-t\) (where R1 is applied) and \(n-t<s\le n-1\) (handled by a separate elementary bound). The cited Proposition Prior should not be invoked outside \(0<s\le n-t\). The source’s original corollary proof invokes R1 over the whole target range; the selected proof notes this is the point requiring completion. No uniformity over priors, over A2 witnesses, or over \(t\) is asserted; \(t\) and the prior are fixed before the constants and before \(n,s\) vary.
+
+      4. Omitted definitions and side conditions. \(\pi\) is a probability density on \((0,\infty)\) with respect to Lebesgue measure; A2 controls only a right-neighborhood of the origin and imposes no tail or moment condition. A3 is explicitly not assumed for the target. The proof defines \(E_s=\mathbb E(\alpha^{t+s-1})\in(0,\infty]\); if \(E_s<\infty\), the proof shows \(N,D<\infty\), \(D>0\), and hence \(C=N/D\) is a well-defined positive real. If \(E_s=+\infty\), the proof treats the right-hand side as extended \(+\infty\) and says the inequality is trivial if \(C\) is well-defined; if both the numerator and denominator integrals are \(+\infty\), the source says the ratio is not a real number and “there is nothing to prove.” This is an unresolved/extended-real edge case: do not silently add a finite-moment hypothesis if the target is to match the source, but a Lean formalization using ordinary reals will need an explicit treatment of the \(E_s=\infty\) and \(N=D=\infty\) cases. The proof also uses \(0<\epsilon<1\), hence \(\log(n/(1+\epsilon))>0\) for \(n\ge4\), and derives \(\delta\ge1\) from A2 (because \(1/\delta\le\pi(\alpha)/\alpha^\beta\le\delta\)); \(\delta\ge1\) is not an extra hypothesis. The positivity and finiteness of \(G\) follow in the proof from \(t+\beta>0\), \(0<\epsilon\log2<\infty\), and \(\gamma(t+\beta,\epsilon\log2)\le\Gamma(t+\beta)<\infty\). The theorem allows \(t\) larger than \(n\) (the source does not require \(t<n\)); the case split remains exhaustive. No events, index sets of partitions, Dirichlet process, sample space, or random vector are part of the target definition of \(C\); those belong to the broader DPM consistency framework and should not be imported into the prior-ratio lemma.
+      <!-- /formalization-clarifications -->
+
+      Let $t\ge1$ be fixed. Assume A1 and A2. Then for every $n\ge4$ and every positive integer $s$ with $0<s<n$,
+      \[
+      C(n,t,t+s)\le\frac{G\Gamma(t+\beta+1)2^s s}{\epsilon}\mathbb E(\alpha^{t+s-1})\log\Bigl\{\frac{n}{1+\epsilon}\Bigr\}^{-1}.
+      \]
+      Here $G$ is as defined in Definitions and notation.
+    assumptions:
+      - |-
+        A1: $\pi$ is absolutely continuous with respect to Lebesgue measure, with density still denoted by $\pi$.
+
+        A2: There exist $\epsilon,\delta,\beta>0$ such that for every $\alpha\in(0,\epsilon)$,
+        \[
+        \frac1\delta\alpha^\beta\le\pi(\alpha)\le\delta\alpha^\beta.
+        \]
+        No further moment condition A3 is assumed for this result.
+    proof_body: |-
+      #### Proof of the theorem
+
+      Fix \(t\ge1\); let \(n\ge4\) and let \(s\) be a positive integer with \(0<s<n\). Assume A1 and A2 with parameters \(\epsilon,\delta,\beta>0\), and let \(G\) be the constant specified in the Definitions. We have to prove
+      \[
+      C(n,t,t+s)\le\frac{G\,\Gamma(t+\beta+1)\,2^{s}s}{\epsilon}\,
+      \mathbb E\bigl(\alpha^{t+s-1}\bigr)\,
+      \log\Bigl\{\frac{n}{1+\epsilon}\Bigr\}^{-1}.
+      \tag{T}
+      \]
+      Throughout we write
+      \[
+      E_s:=\mathbb E(\alpha^{t+s-1})=\int_0^\infty\alpha^{t+s-1}\pi(\alpha)\,d\alpha\in(0,\infty],
+      \qquad
+      L:=\log\frac{n}{1+\epsilon}.
+      \]
+      The lower endpoint is strict: by the lower bound in A2, for \(0<\epsilon<1\),
+      \[
+      E_s\ge\frac1\delta\int_0^\epsilon\alpha^{t+s-1+\beta}\,d\alpha
+      =\frac{\epsilon^{t+s+\beta}}{\delta\,(t+s+\beta)}>0 .
+      \]
+      The proof has two parts. For \(1\le s\le n-t\) we use the prior-ratio bound of Proposition \ref{prop:Prior} together with two elementary computations (Sections 1–3). For \(n-t<s\le n-1\) that proposition is not available; there we prove (T) from a direct estimate on the two integrals defining \(C(n,t,t+s)\), combined with an explicit comparison of constants (Section 4).
+
+      #### 1. Preliminaries
+
+      #### 1.1 The reduction \(\epsilon<1\), the constant \(G\), and \(\delta\ge1\)
+
+      Assumption A2 is local at the origin: if it holds with \((\epsilon,\delta,\beta)\), it holds with the same \(\delta,\beta\) and every \(0<\epsilon_0\le\epsilon\). In the proof of Proposition \ref{prop:Prior} the parameter \(\epsilon\) is replaced by such a value with \(\epsilon<1\), and \(G\) is subsequently chosen as
+      \[
+      G=\frac{4\delta^{2}}{\epsilon^{t+\beta}\,\gamma(t+\beta,\epsilon\log2)} .
+      \tag{1}
+      \]
+      This is precisely the normalization used in the statement: by the Definitions, \(G\) is the constant attached to the \(\epsilon\) obtained after this reduction. Accordingly we fix once and for all a value \(0<\epsilon<1\) for which A2 holds (with the same \(\delta,\beta\)) and work throughout in the reduced regime
+      \[
+      0<\epsilon<1,\qquad 
+      G=\frac{4\delta^{2}}{\epsilon^{t+\beta}\,\gamma(t+\beta,\epsilon\log2)},
+      \]
+      and the symbol \(\epsilon\) occurring in (T) — in \(G\), in \(\log\{n/(1+\epsilon)\}\) and in the factor \(1/\epsilon\) — denotes this reduced value. Since \(t+\beta>0\) and \(0<\epsilon\log2<\infty\), the integrand \(z^{t+\beta-1}e^{-z}\) of \(\gamma(t+\beta,\epsilon\log2)\) is positive and bounded by \(z^{t+\beta-1}\) on \((0,\epsilon\log2)\), so
+      \[
+      0<\gamma(t+\beta,\epsilon\log2)\le\Gamma(t+\beta)<\infty,
+      \qquad\text{hence}\qquad
+      0<G<\infty .
+      \tag{2}
+      \]
+      We also record that \(\log 2<1\), because \(e>2\).
+
+      **Claim:** \(\delta\ge1\). Indeed, for \(\alpha\in(0,\epsilon)\) assumption A2 gives \(\alpha^{\beta}/\delta\le\pi(\alpha)\le\delta\alpha^{\beta}\), whence \(1/\delta\le\delta\).
+
+      #### 1.2 The logarithm \(L\)
+
+      Since \(0<\epsilon<1\) and \(n\ge4\) we have \(1+\epsilon<2\le\sqrt n\), hence
+      \[
+      L=\log\frac{n}{1+\epsilon}>\log\sqrt n=\tfrac12\log n>0 .
+      \tag{3}
+      \]
+
+      #### 1.3 The two integrals defining \(C(n,t,t+s)\), and an elementary bound
+
+      Put
+      \[
+      N:=\int_0^\infty\frac{\alpha^{t+s}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha,
+      \qquad
+      D:=\int_0^\infty\frac{\alpha^{t}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha,
+      \qquad
+      C(n,t,t+s)=\frac ND,
+      \]
+      and set \(v(\alpha):=1/\alpha^{(n)}\) for \(\alpha>0\).
+
+      *Step 1 (the case $E_s=+\infty$; reduction to $E_s<\infty$).* By (2) and (3), $\Gamma(t+\beta+1)\in(0,\infty)$ and $0<G\,2^{s}s/(\epsilon L)<\infty$; hence the right-hand side of (T) is a finite strictly positive number multiplied by $E_s$, and in particular it equals $+\infty$ when $E_s=+\infty$. Suppose then that $E_s=+\infty$. Since $N\ge0$ and, by (7) below, $D>0$, the quotient $C=N/D$ is a well-defined element of $[0,+\infty]$ unless $N=D=+\infty$. If $C$ is well defined, (T) holds trivially, its right-hand side being $+\infty$. If $N=D=+\infty$, the ratio occurring in the Definitions is not a real number, so (T) is not an assertion about a definite quantity and there is nothing to prove. Thus the substantive case is the one in which $E_s$ is finite, and we assume from now on that
+      \[
+      E_s<\infty .
+      \tag{4}
+      \]
+
+      *Step 2 (\(N<\infty\)).* For every \(\alpha>0\),
+      \[
+      \alpha^{(n)}=\alpha\prod_{i=1}^{n-1}(\alpha+i)\ge\alpha\,(n-1)!,
+      \qquad\text{that is,}\qquad
+      \alpha\,v(\alpha)\le\frac{1}{(n-1)!}.
+      \tag{5}
+      \]
+      Consequently, by (4),
+      \[
+      N=\int_0^\infty\alpha^{t+s-1}\,\alpha v(\alpha)\,\pi(\alpha)\,d\alpha
+      \le\frac{E_s}{(n-1)!}<\infty .
+      \tag{6}
+      \]
+
+      *Step 3 (\(D<\infty\)).* On \((0,1)\) we have \(t\ge1\), hence \(\alpha^{t-1}\le1\), and by (5)
+      \[
+      \int_0^1\alpha^{t}v(\alpha)\pi(\alpha)\,d\alpha
+      \le\frac{1}{(n-1)!}\int_0^1\alpha^{t-1}\pi(\alpha)\,d\alpha\le\frac{1}{(n-1)!},
+      \]
+      because \(\pi\) is a probability density. On \((1,\infty)\) we have \(\alpha^{s}\ge1\), so by (6)
+      \[
+      \int_1^\infty\alpha^{t}v(\alpha)\pi(\alpha)\,d\alpha
+      \le\int_1^\infty\alpha^{t+s}v(\alpha)\pi(\alpha)\,d\alpha\le N<\infty .
+      \]
+      Adding the two pieces, \(D<\infty\).
+
+      *Step 4 (\(D>0\)).* For \(0<\alpha<\epsilon\) the rising factorial is increasing in \(\alpha\), so \(\alpha^{(n)}\le\epsilon^{(n)}\), where \(\epsilon^{(n)}=\prod_{i=0}^{n-1}(\epsilon+i)\). Using the lower bound of A2,
+      \[
+      D\ge\int_0^\epsilon\frac{\alpha^{t}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha
+      \ge\frac1\delta\int_0^\epsilon\frac{\alpha^{t+\beta}}{\alpha^{(n)}}\,d\alpha
+      \ge\frac{1}{\delta\,\epsilon^{(n)}}\int_0^\epsilon\alpha^{t+\beta}\,d\alpha
+      =\frac{\epsilon^{t+\beta+1}}{\delta\,(t+\beta+1)\,\epsilon^{(n)}}>0 .
+      \tag{7}
+      \]
+      By Steps 2–4, \(C(n,t,t+s)=N/D\) is a well-defined number in \((0,\infty)\), and it remains to prove (T).
+
+      *Step 5 (the elementary bound used in Section 4).* Combining (6) and (7),
+      \[
+      C(n,t,t+s)\le\frac{E_s}{(n-1)!}\cdot
+      \frac{\delta(t+\beta+1)\,\epsilon^{(n)}}{\epsilon^{t+\beta+1}}
+      =\frac{\delta(t+\beta+1)\,E_s}{\epsilon^{t+\beta}}\cdot
+      \frac{\epsilon^{(n)}}{(n-1)!\,\epsilon}.
+      \]
+      Now \(\epsilon^{(n)}=\epsilon\prod_{i=1}^{n-1}(\epsilon+i)\), so the last factor equals
+      \[
+      \frac{\epsilon^{(n)}}{(n-1)!\,\epsilon}
+      =\prod_{i=1}^{n-1}\frac{\epsilon+i}{i}
+      =\prod_{i=1}^{n-1}\Bigl(1+\frac{\epsilon}{i}\Bigr)
+      \le\prod_{i=1}^{n-1}\Bigl(1+\frac1i\Bigr)
+      = n,
+      \]
+      where \(0<\epsilon<1\) was used in the inequality and the final identity is the telescoping product \(\prod_{i=1}^{n-1}(i+1)/i=n\). Therefore
+      \[
+      C(n,t,t+s)\le\frac{\delta(t+\beta+1)\,n}{\epsilon^{t+\beta}}\,E_s .
+      \tag{8}
+      \]
+
+      #### 2. The prior-ratio upper bound of Proposition \ref{prop:Prior}
+
+      The following bound is the upper half of Proposition \ref{prop:Prior} of the source; we state it as an external dependency, with its printed hypotheses and its printed range for \(s\), and we do not re-prove it.
+
+      **Dependency [R1] (Reference ID R1; Proposition \ref{prop:Prior}, upper bound; content basis: source material, proof in Supplement S.2).** Assume A1 and A2 (with the reduction \(\epsilon<1\) used to define \(G\)), let \(t\ge1\), and let \(n,s\) be positive integers with \(0<s\le n-t\). Then
+      \[
+      C(n,t,t+s)\le\frac{G\,s}{\epsilon^{s}}\,\mathbb E\bigl(\alpha^{t+s-1}\bigr)\,
+      \frac{\gamma\{t+s+\beta,\ \epsilon\log n\}}{\{\log(n/(1+\epsilon))\}^{s}},
+      \tag{R1}
+      \]
+      where \(G\) is the constant (1).
+
+      *Verification of the hypotheses.* The objects of [R1] coincide with those of the theorem: \(C(n,t,t+s)\) is the same ratio of prior integrals (Definitions), \(\mathbb E(\alpha^{t+s-1})\) is the same prior expectation with respect to \(\pi\), \(\alpha^{(n)}\) and \(\gamma\) are the same functions, A1 and A2 hold by assumption and have been reduced to \(\epsilon<1\), and the constant \(G\) of [R1] is exactly the constant (1) which appears in (T).
+
+      *The parameter $t$ is real.* In the source, [R1] is applied with $t$ equal to the number of components of the true mixture, hence an integer, whereas in the present theorem $t\ge1$ is an arbitrary real number. The upper-bound derivation of [R1] uses no arithmetic property of $t$, and we record why each of its steps is integrality-free before applying (R1) with the real parameter $t$. (i) Since $t\ge1$ and $\beta>0$, the exponents $t+\beta$ and $t+s+\beta$ are positive real numbers, and $\alpha^{(n)}=\prod_{i=0}^{n-1}(\alpha+i)$ is a polynomial in $\alpha$, so that $C(n,t,t+s)$ is given by the same formula as in the Definitions for real $t$. (ii) The truncated ratio is controlled by a monotone-likelihood-ratio argument with test function $\alpha\mapsto\alpha^{s}$, which is nondecreasing on $(0,\epsilon]$ exactly because $s\ge1$; the required monotonicity of $\alpha\mapsto(cn)^{-\alpha}\alpha^{-1}\alpha^{(n)}$, where $c=(1+\epsilon)^{-1}$, is verified by differentiating its logarithm, which yields $-\log(cn)+\sum_{i=1}^{n-1}(\alpha+i)^{-1}$, an expression free of $t$. (iii) The change of variable $z=\alpha\log(cn)$ then produces the factor $\{\log(cn)\}^{-s}$ and the incomplete Gamma values $\gamma\{t+\beta,\epsilon\log(cn)\}$ and $\gamma\{t+s+\beta,\epsilon\log(cn)\}$, which are defined for all positive real exponents. (iv) The estimate on $(\epsilon,\infty)$ compares $\alpha^{(n)}$ with $\epsilon^{(n)}$ and evaluates $\int_0^{\epsilon}\alpha^{t+s+\beta-1}\,d\alpha=\epsilon^{t+s+\beta}/(t+s+\beta)$, again with real exponents. (v) All constants produced in the derivation depend on $t$ only through the real quantities $\epsilon^{t+\beta}$, $t+s+\beta$, $\Gamma(t+\beta+1)$ and the two incomplete Gamma values above; in particular the displayed choice (1) of $G$ is a function of real $t$. Hence each step of the source's upper-bound argument remains valid for every real $t\ge1$, and (R1) holds in this generality. (Only this integrality-free character of the derivation is checked here; the bound (R1) itself is the cited external result and is not re-proved.)
+
+      *On the range of $s$.* [R1] is quantified for $0<s\le n-t$, whereas (T) is required for $0<s<n$; the two ranges coincide when $t=1$ but not when $t\ge2$. Accordingly, [R1] is applied below only in the case $1\le s\le n-t$ (Section 3). The remaining range $n-t<s\le n-1$, where [R1] is not available, is treated separately in Section 4 by means of (8). This is precisely the point at which the printed proof of the corollary, which invokes [R1] on the whole range $0<s<n$, needs completion.
+
+      #### 3. Case A: \(1\le s\le n-t\)
+
+      #### 3.1 The incomplete Gamma estimate
+
+      Since \(s\ge1\), the map \(x\mapsto x^{s-1}\) is nonnegative and nondecreasing on \([0,\infty)\); on the range of integration \(0\le x\le\epsilon\log n\) we have \(x^{s-1}\le(\epsilon\log n)^{s-1}\), and \(\epsilon\log n\ge\epsilon\log 4>0\). Hence
+      \[
+      \begin{aligned}
+      \gamma\{t+s+\beta,\ \epsilon\log n\}
+      &=\int_0^{\epsilon\log n}x^{t+s+\beta-1}e^{-x}\,dx
+      =\int_0^{\epsilon\log n}x^{s-1}\,x^{t+\beta}e^{-x}\,dx\\
+      &\le(\epsilon\log n)^{s-1}\int_0^{\epsilon\log n}x^{t+\beta}e^{-x}\,dx
+      \le\epsilon^{s-1}(\log n)^{s-1}\,\Gamma(t+\beta+1),
+      \end{aligned}
+      \tag{9}
+      \]
+      because \(0\le x^{t+\beta}e^{-x}\le x^{t+\beta}\) on the range of integration and \(\int_0^\infty x^{t+\beta}e^{-x}\,dx=\Gamma(t+\beta+1)<\infty\).
+
+      #### 3.2 Insertion into [R1]
+
+      By [R1], (9) and \(E_s\ge0\),
+      \[
+      \begin{aligned}
+      C(n,t,t+s)
+      &\le\frac{G\,s}{\epsilon^{s}}\,E_s\,
+      \frac{\epsilon^{s-1}(\log n)^{s-1}\Gamma(t+\beta+1)}{L^{s}}\\
+      &=\frac{G\,\Gamma(t+\beta+1)\,s}{\epsilon}\,E_s\,
+      \Bigl(\frac{\log n}{L}\Bigr)^{s-1}\frac1L ,
+      \end{aligned}
+      \tag{10}
+      \]
+      where the powers of \(\epsilon\) cancel as \(\epsilon^{s-1}/\epsilon^{s}=\epsilon^{-1}\), and \((\log n)^{s-1}/L^{s}=(\log n/L)^{s-1}/L\).
+
+      #### 3.3 The logarithmic comparison
+
+      By (3) we have \(0<\log n/L<2\). Hence, since \(s\ge1\),
+      \[
+      \Bigl(\frac{\log n}{L}\Bigr)^{s-1}\le 2^{s-1}\le 2^{s},
+      \]
+      where the first inequality is an equality when \(s=1\) and is strict when \(s\ge2\), and the last inequality uses \(1/2\le1\). Substituting into (10) and recalling \(E_s=\mathbb E(\alpha^{t+s-1})\),
+      \[
+      C(n,t,t+s)\le\frac{G\,\Gamma(t+\beta+1)\,s}{\epsilon}\,E_s\,2^{s}\,\frac1L
+      =\frac{G\,\Gamma(t+\beta+1)\,2^{s}s}{\epsilon}\,
+      \mathbb E(\alpha^{t+s-1})\,\log\Bigl\{\frac{n}{1+\epsilon}\Bigr\}^{-1},
+      \]
+      which is exactly (T). This proves (T) whenever \(1\le s\le n-t\).
+
+      #### 4. Case B: \(n-t<s\le n-1\)
+
+      We assume now \(n-t<s\le n-1\); this case is nonempty only for \(t>1\), since for \(t=1\) it would require \(n-1<s\le n-1\). Put
+      \[
+      x:=t+\beta>1,\qquad
+      \gamma_0:=\gamma(t+\beta,\epsilon\log2)=\gamma(x,\epsilon\log2)>0,
+      \]
+      the positivity following because the integrand \(z^{x-1}e^{-z}\) is positive on \((0,\epsilon\log2)\).
+
+      #### 4.1 Reduction to a numerical inequality
+
+      Since \(0<E_s<\infty\) by (4) and the strict positivity recorded after the definition of \(E_s\), the bound (8) reduces (T) to a comparison of the coefficients of \(E_s\): by (8) and the definition (1) of \(G\), it is enough to prove
+      \[
+      \frac{\delta(x+1)n}{\epsilon^{x}}
+      \le
+      \frac{G\Gamma(x+1)2^s s}{\epsilon L}
+      =
+      \frac{4\delta^2\Gamma(x+1)2^s s}{\epsilon^{x}\gamma_0\,\epsilon L}.
+      \]
+      All factors are strictly positive, so multiplying by \(\epsilon^{x}\gamma_0\epsilon L/\delta>0\) and using \(\Gamma(x+1)=x\Gamma(x)\), this is equivalent to
+      \[
+      (x+1)n\gamma_0\epsilon L\le 4\delta x\Gamma(x)2^s s.
+      \tag{11}
+      \]
+
+      #### 4.2 Bound on the left-hand side of (11)
+
+      Since \(e^{-z}\le1\) for \(z\ge0\),
+      \[
+      \gamma_0=\int_0^{\epsilon\log2}z^{x-1}e^{-z}\,dz
+      \le\int_0^{\epsilon\log2}z^{x-1}\,dz
+      =\frac{(\epsilon\log2)^x}{x}.
+      \]
+      Thus
+      \[
+      (x+1)n\gamma_0\epsilon L
+      \le\frac{x+1}{x}(\epsilon\log2)^x n\epsilon L.
+      \]
+      Because \(x>1\), we have \((x+1)/x<2\). Because \(x=t+\beta\ge t\) and \(0<\epsilon\log2<1\), we have \((\epsilon\log2)^x\le(\epsilon\log2)^t=(\log2)^t\epsilon^t\). Finally, \(0<\epsilon<1\) and \(t\ge1\) give \(\epsilon^{t+1}\le1\), while \(L=\log\{n/(1+\epsilon)\}\le\log n\); hence the factor multiplying \(n\) satisfies \((\log2)^t\epsilon^t\cdot\epsilon L=(\log2)^t\epsilon^{t+1}L\le(\log2)^t\log n\). Therefore
+      \[
+      (x+1)n\gamma_0\epsilon L
+      \le2(\log2)^t n\log n.
+      \tag{12}
+      \]
+
+      #### 4.3 Bound on the right-hand side of (11)
+
+      We use that \(\Gamma\) is increasing on \([2,\infty)\). Indeed, \(\log\Gamma\) is convex on \((0,\infty)\), so \(\psi:=(\log\Gamma)'\) is nondecreasing; moreover \(\psi(1)=-\gamma_E\) (Euler's constant) and \(\psi(y+1)=\psi(y)+1/y\), whence \(\psi(2)=1-\gamma_E>0\), so \(\psi>0\) on \([2,\infty)\). Since \(x+1=t+\beta+1>t+1\ge2\), it follows that
+      \[
+      x\Gamma(x)=\Gamma(x+1)\ge\Gamma(t+1).
+      \]
+      Consequently,
+      \[
+      4\delta x\Gamma(x)2^s s
+      \ge4\delta\Gamma(t+1)2^s s
+      \ge4\delta\Gamma(t+1)2^s,
+      \tag{13}
+      \]
+      where \(s\ge1\) was used in the last step.
+
+      #### 4.4 The numerical comparison
+
+      By (12) and (13), (11) follows from
+      \[
+      2(\log2)^t n\log n\le4\delta\Gamma(t+1)2^s.
+      \tag{14}
+      \]
+
+      We first record that for every integer \(n\ge4\),
+      \[
+      n\log n\le2^{n-1}.
+      \tag{15}
+      \]
+      Indeed, for \(n=4,5,6\) we have \(\log n<2\), hence \(n\log n<2n\le2^{n-1}\) (equality in the last step is possible only for \(n=4\), and the first inequality is then strict). For \(n\ge7\), we prove \(n^2\le2^{n-1}\) by induction: \(7^2=49\le64=2^6\); if \(n^2\le2^{n-1}\) for some \(n\ge7\), then
+      \[
+      (n+1)^2=n^2\Bigl(1+\frac1n\Bigr)^2
+      \le n^2\Bigl(\frac87\Bigr)^2
+      <2n^2\le2^n,
+      \]
+      so the inequality holds for \(n+1\). Hence \(n\log n\le n^2\le2^{n-1}\).
+
+      Since \(s>n-t\), we have \(s+t-1>n-1\); hence, by (15) and the strict monotonicity of \(u\mapsto2^{u}\),
+      \[
+      n\log n\le2^{n-1}<2^{s+t-1}.
+      \tag{16}
+      \]
+      Thus
+      \[
+      2(\log2)^t n\log n
+      \le2(\log2)^t2^{s+t-1}
+      =2^s(2\log2)^t.
+      \tag{17}
+      \]
+
+      It remains to prove
+      \[
+      (2\log2)^t\le4\delta\Gamma(t+1).
+      \tag{18}
+      \]
+      Since \(\delta\ge1\), it suffices to prove \((2\log2)^t\le4\Gamma(t+1)\) for \(t\ge1\). Set \(a:=2\log2\). We have \(a<2\) because \(\log2<1\), and \(a>1\) because \(e<4\). Let \(m:=\lfloor t\rfloor\), so \(m\) is an integer with \(1\le m\le t<m+1\). Since \(a>1\),
+      \[
+      a^t<a^{m+1}.
+      \]
+      Since \(a<2\), \(a^{m+1}<2^{m+1}\). We claim that \(2^{m+1}\le4m!\) for every integer \(m\ge1\). Indeed, for \(m=1\) this is \(4\le4\); if it holds for some \(m\ge1\), then
+      \[
+      2^{m+2}=2\cdot2^{m+1}\le8m!\le4(m+1)m!=4(m+1)!,
+      \]
+      because \(8\le4(m+1)\) for \(m\ge1\). Hence \(a^t<4m!\). Finally, \(t+1\ge m+1\ge2\), and \(\Gamma\) is increasing on \([2,\infty)\), so \(\Gamma(t+1)\ge\Gamma(m+1)=m!\). Therefore
+      \[
+      (2\log2)^t=a^t<4m!\le4\Gamma(t+1),
+      \]
+      which proves (18). Combining (16)–(18) gives (14), hence (11), hence the required inequality of Section 4.1; combined with (8) and the definition of \(G\), this gives
+      \[
+      C(n,t,t+s)\le\frac{G\,\Gamma(t+\beta+1)\,2^{s}s}{\epsilon}\,
+      \mathbb E(\alpha^{t+s-1})\,L^{-1},
+      \]
+      that is, (T), also when \(n-t<s\le n-1\).
+
+      #### 5. Conclusion
+
+      Let \(n\ge4\) and let \(s\) be a positive integer with \(0<s<n\). If \(s\le n-t\), (T) is established in Section 3 (using the external dependency [R1], whose hypotheses were verified in Section 2, together with the incomplete Gamma estimate (9) and the logarithmic comparison \(0<\log n/L<2\)). If \(n-t<s\le n-1\), (T) is established in Section 4 (using the elementary bound (8), the definition (1) of \(G\), the bound (12), and the numerical inequalities (15)–(18)). These two cases exhaust the range \(0<s<n\). Hence
+      \[
+      C(n,t,t+s)\le\frac{G\,\Gamma(t+\beta+1)\,2^{s}s}{\epsilon}\,
+      \mathbb E(\alpha^{t+s-1})\,
+      \log\Bigl\{\frac{n}{1+\epsilon}\Bigr\}^{-1}
+      \]
+      for every \(n\ge4\) and every positive integer \(s<n\), as claimed. The proof is complete.
+
+      ### References
+      #### Reference R1
+
+      Target: Proposition \ref{prop:Prior}
+
+      Citation: By Proposition \ref{prop:Prior} we have
+      \[
+      C(n,t,t+s) \leq \frac{Gs}{\epsilon^s}E(\alpha^{t+s-1})\frac{\gamma\{t+s+\beta,\epsilon\log(n)\}}{\log\{n/(1+\epsilon)\}^{s}}.
+      \]
+      Note that
+      \[
+      \gamma\{t+s+\beta,\epsilon\log(n)\} = \int_0^{\epsilon \log (n)} x^{t+s+\beta-1}e^{-x}  \, \mathrm{d} x \leq \epsilon^{s-1}\{\log (n) \}^{s-1}\Gamma(t+\beta+1),
+      \]
+      that implies
+      \[
+      \frac{\gamma\{t+s+\beta,\epsilon\log(n)\}}{\epsilon^s \log^s\{n/(1+\epsilon)\}} \leq \frac{\Gamma(t+\beta+1)}{\epsilon}\left[\frac{\log(n)}{\log\{n/(1+\epsilon)\}} \right]^{s-1}\log\{n/(1+\epsilon)\}^{-1}.
+      \]
+      Moreover, since \(\epsilon < 1\), we have \(\log\{n/(1+\epsilon)\} \geq \frac{1}{2}\log(n)\) for every \(n \geq 4\).
+      Combining the inequalities above we obtain the desired result.
+
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The group below records Proposition 3 (`prop:Prior`), attributed to Ascolani, Lijoi, Rebaudo and Zanella. The statement is as displayed in the main article, and its proof appears in Supplement S.2; the supplementary document labels the target corollary as Corollary S.1. The upper half of the proposition’s two-sided bound is the part invoked in the current target’s proof. The proposition assumes only A1–A2; A3 is not a hypothesis of this proposition. The proof first uses A2 to reduce to \(\epsilon<1\) without loss of generality and then displays the choice of \(G\) that is referred to as “as in Proposition 3” in Corollary S.1 and in the current target. The source prints the upper-bound denominator as \(\{\log n/(1+\epsilon)\}^{s}\); the proof evaluates it via \(c=(1+\epsilon)^{-1}\) and \(\log(cn)=\log(n/(1+\epsilon))\). The retrieved Proposition is quantified for \(0<s\le n-t\), whereas the current target is stated for \(0<s<n\); this range difference is retained rather than silently identified. The incomplete-gamma and logarithm estimates appearing in the current proof are calculation lines in the source proof of Corollary S.1, not separately labeled source results, so they are not promoted here to independent result groups.
+
+      ##### Proposition 3 (Proposition \ref{prop:Prior})
+
+      ###### Definitions and notation
+      Let \(\alpha>0\), and let \(\pi\) be a prior density for the Dirichlet process concentration parameter. Let
+      \[
+      \alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1)
+      \]
+      be the rising factorial. For fixed \(t\) and positive integers \(n,s\), the factor \(C(n,t,t+s)\) denotes the ratio of prior integrals
+      \[
+      C(n,t,t+s)
+      =
+      \frac{\int_0^\infty \frac{\alpha^{t+s}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha}
+      {\int_0^\infty \frac{\alpha^{t}}{\alpha^{(n)}}\,\pi(\alpha)\,d\alpha}.
+      \]
+      In the main-text equation (11), the same prior-dependent factor is written \(C(n,t,s)\) when comparing \(K_n=s\) with \(K_n=t\), with numerator exponent \(\alpha^s\) and denominator exponent \(\alpha^t\); thus \(C(n,t,t+s)\) in the supplement is the same prior-ratio factor with the numerator exponent \(t+s\).
+
+      The symbol
+      \[
+      \gamma(x,y)=\int_0^y z^{x-1}e^{-z}\,dz
+      \]
+      denotes the lower incomplete Gamma function, and \(\Gamma\) denotes the usual Gamma function. The source writes
+      \[
+      E(\alpha^{r})=\int \alpha^{r}\pi(\alpha)\,d\alpha,
+      \]
+      the expectation with respect to the prior \(\pi\). The proposition asserts existence of constants \(F,G>0\). In the proof of Proposition 3, after the reduction \(\epsilon<1\), the displayed choice is
+      \[
+      G=\frac{4\delta^{2}}{\epsilon^{t+\beta}\gamma(t+\beta,\epsilon\log 2)}.
+      \]
+      The source’s upper-bound factor \(\{\log n/(1+\epsilon)\}^{s}\) is evaluated in the proof as
+      \[
+      \{\log(cn)\}^{-s}
+      =
+      \{\log(n/(1+\epsilon))\}^{-s},
+      \qquad c=(1+\epsilon)^{-1}.
+      \]
+
+      ###### Assumptions
+      A1: \(\pi\) is absolutely continuous with respect to Lebesgue measure, and its density is still denoted by \(\pi\).
+
+      A2: There exist \(\epsilon,\delta,\beta>0\) such that for every \(\alpha\in(0,\epsilon)\),
+      \[
+      \frac{1}{\delta}\alpha^{\beta}\le \pi(\alpha)\le \delta\alpha^{\beta}.
+      \]
+
+      No further moment condition A3 is assumed for this proposition.
+
+      ###### Statement
+      Suppose \(\pi\) satisfies A1 and A2. Then there exist \(F,G>0\) such that for every \(0<s\le n-t\),
+      \[
+      F\frac{\gamma\{t+s+\beta,\epsilon\log(n)\}}{\{\log(n)+1\}^{s}}
+      \le
+      C(n,t,t+s)
+      \le
+      \frac{Gs}{\epsilon^{s}}E(\alpha^{t+s-1})
+      \frac{\gamma\{t+s+\beta,\epsilon\log(n)\}}{\{\log(n/(1+\epsilon))\}^{s}},
+      \]
+      where \(\gamma(x,y)\) is the lower incomplete Gamma function and
+      \[
+      E(\alpha^{r})=\int \alpha^{r}\pi(\alpha)\,d\alpha
+      \]
+      denotes expectation with respect to \(\pi\).
+    lean_name: paper_33963587efec4920b10d414c6b312566
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

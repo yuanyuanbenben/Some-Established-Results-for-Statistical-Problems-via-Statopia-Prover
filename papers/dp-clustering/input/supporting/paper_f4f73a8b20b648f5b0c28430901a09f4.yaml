@@ -1,0 +1,382 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:c8559e73-d4c9-4673-a085-4bd271619d15
+    title: paper_f4f73a8b20b648f5b0c28430901a09f4
+    kind: lemma
+    latex_statement: |-
+      The observations and parameters are real-valued in the rescaled location-family setting. Let $t\in\mathbb N$ and let $P=\sum_{j=1}^t p_jR_j$ with $p_j\in(0,1)$, $\sum_{j=1}^t p_j=1$, and $R_j$ distinct probability measures. Let $X_{1:\infty}\sim P^{(\infty)}$, with product laws $P^{(n)}$ on $\mathbb R^n$ and $P^{(\infty)}$ on $\mathbb R^\infty$. The kernel is of location type, $k(x\mid\theta)=g(x-\theta)$, and the baseline is $Q_0(d\theta)=q_0(\theta)d\theta$. After the linear rescaling used in the source, take $[a,b]=[-c,c]$. The support interval comes from B1; the supplied pages do not expand B1–B3.
+
+      For $n$ and $j=1,\dots,t$, define
+      \[
+      C_j=\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\},
+      \qquad n_j=|C_j|,
+      \]
+      which after rescaling is $C_j=\{i:X_i\in[\theta_j^*-c,\theta_j^*+c]\}$. Let
+      \[
+      C^{(n)}=\{n_j>0\text{ for every }j\}.
+      \]
+      The sets $C_j$ are local blocks determined by the rescaled support interval; under complete separation they are disjoint and partition $\{1,\dots,n\}$ almost surely under the mixture. The symbol $C^{(n)}$ denotes the event $\{n_j>0\ \forall j\}$, not the prior-integral factor $C(n,t,t+s)$ and not the sets $C_j$.
+
+      For $s\le n$, $\tau_s(n)$ is the set of partitions of $\{1,\dots,n\}$ into $s$ nonempty subsets. In the grouped step, $\tau_{s_j}(n_j)$ partitions $C_j$ identified with $\{1,\dots,n_j\}$. For $A_j\in\tau_{s_j}(n_j)$, write $A_j=(A^j_1,\dots,A^j_{s_j})$ and $a^j_k=|A^j_k|$. For fixed $s>t$, set
+      \[
+      \mathbf S_s=\{(s_1,\dots,s_t):1\le s_j\le n_j\ \forall j,\ \sum_{j=1}^t s_j=s\}.
+      \]
+      The integer $s$ is fixed before the bound; dependence on $s$ is in $\mathbf S_s$.
+
+      Let $X^j_{(r)}$ denote the $r$-th order statistic of $X_{C_j}$, and define
+      \[
+      Y^j_{n_j}:=\min\left[1,\ n_j(\log n)^{\frac1{2t}}\{c+\theta_j^*-X^j_{(n_j)}\}\right].
+      \]
+      The logarithm base is not stated; any fixed base changes only constants and no uniformity in the base is claimed. The exponent $1/(2t)$ and constants such as $2^t$ and $K$ depend on the fixed $t$.
+
+      Let $N_j$ be the fixed integer threshold and $K>0$ the positive constant furnished by Lemma \ref{denom}. The exact dependence and values of $N_j$ are not supplied; only the existence of a positive constant $K$ as asserted in Lemma \ref{denom} is used here. Define
+      \[
+      \Omega_n=\left\{\text{for every }j=1,\dots,t:\ n_j\ge N_j,\ Y^j_{n_j}\in[1/2,1]\right\}.
+      \]
+      Distances are ordinary absolute value on $\mathbb R$; cardinalities such as $|C_j|$ and $|A^j_k|$ are set sizes.
+
+      <!-- formalization-clarifications:v1:5ea906a659ff5ce4e3213ee80542749356ea4bc6457395824e803babb622b228 -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The intended order is: first fix the finite integer \(t\), the weights \(p_j\), the true separated locations \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\), the rescaled location kernel \(g\) with support scale \(c\), and the baseline density \(q_0\), all satisfying the chosen conditions T1–T4; then choose/exist constants \(m,M,R,U,L\) for that fixed rescaled setup (Definitions and notation: “The constants \(m,M,R,U,L\) are existential for the fixed rescaled data-generating/kernel setup”). Also fix \(s>t\) before the upper-bound expression; \(2^t\), the exponent \(1/(2t)\), and \(K\) may depend on the fixed \(t\), but the target uses one positive \(K\) for all \(j\), not a separate \(K_j\) per group. Lemma denom’s statement is worded “For every \(j\) ... there exists \(K>0\) and \(N_j\)”, which is ambiguous; the target’s single factor \(2^t\sqrt{\log n}/K\) and the product over \(j\) show that the intended use is a common admissible \(K\), while \(N_j\) may depend on \(j\). The proof of Lemma denom suggests the admissible choice \(K=(2Le^{-R})^t\), hence proof-based dependence on \(L,R,t\); the statement itself only asserts existence. The source leaves exact \(N_j\) values and dependence unspecified; they are thresholds from T4/q0 near \(\theta_j^*\), not functions of \(n\) or the data. Lemma denom states \(K^{1/t}\) in its display but the final displayed line of its proof has \(K^{1/(2t)}\); the lemma statement is authoritative, and the target uses the statement’s version. Do not make \(K,m,M,R,U,L,N_j\) uniform over distributions, true locations, sample size \(n\), random data, partitions \(A_j\), or the fixed \(s\) unless separately proved; a Lean parameter that is implicit does not turn a parameter-dependent constant into a uniform one. There is no varying dimension here; \(t\) is finite and fixed.
+
+      2. Norms and mathematical objects. The only norm-like operations are ordinary absolute value on \(\mathbb R\) in \(|\theta_j^*-\theta_k^*|\) and cardinalities such as \(|C_j|\) and \(|A^j_k|\) (Definitions and notation: “Distances are ordinary absolute value on \(\mathbb R\); cardinalities ... are set sizes”). Complete separation is the strict inequality \(|\theta_j^*-\theta_k^*|>b-a\), rescaled to \(>2c\). There is no Euclidean \(l^2\), sup, operator, Frobenius, or normalized norm in the target. The ambient spaces are \(\mathbb R\), \(\mathbb R^n\), and \(\mathbb R^\infty\), with measures \(P^{(n)}\), \(P^{(\infty)}\), and baseline \(Q_0(\mathrm d\theta)\); under B3, \(Q_0\) is absolutely continuous with density \(q_0\), but the source writes both \(Q_0(\mathrm d\theta)\) and \(q_0(\theta)\,\mathrm d\theta\), so in Lean they should be linked by the density assumption rather than silently identified in all contexts. The objects \(C_j\), \(C^{(n)}\), \(\tau_s(n)\), \(\tau_{s_j}(n_j)\), \(A_j=(A^j_1,\dots,A^j_{s_j})\), \(a^j_k=|A^j_k|\), and \(\mathbf S_s\) must be kept distinct: \(C^{(n)}\) is the event \(\{n_j>0\ \forall j\}\), not the prior integral \(C(n,t,t+s)\). In the block integrals, the integration variable \(\theta_h\) in \(\int_{\mathbb R}\prod_{i\in A^j_h}\cdots Q_0(\mathrm d\theta_h)\) is a fresh block variable; it must not be confused with the true parameter \(\theta_j^*\) or with the denominator integration variable \(\theta_j\). The quantity \(X^j_{(n_j)}\) is the maximum order statistic of \(X_{C_j}\); it is defined only when \(n_j>0\), which is why the indicator \(C^{(n)}\), and later \(\Omega_n\), matters. The source leaves the logarithm base unspecified; a fixed base changes only constants and no uniformity in the base is claimed. The selected statement’s \(P=\sum_j p_jR_j\) alone does not by itself imply the source’s partition claim \(C_i\cap C_j=\varnothing\), \(\{1,\dots,n\}=\cup_j C_j\), \(\sum_j n_j=n\); the paired main theorem supplies the well-specified true mixture \(f_j=k(\cdot|\theta_j^*)\), and the proof of Theorem th:ConsBounded explicitly uses this together with B1 support to get the partition almost surely.
+
+      3. Asymptotics. The selected upper-bound result itself contains no \(O\), \(o\), or asymptotic equality; \(T^{(n)}= \frac{2^t\sqrt{\log n}}{K}\cdots \mathbbm 1_{\Omega_n}\) is a random eventwise bound for the fixed \(s>t\), not a claim that \(T^{(n)}\) or the posterior ratio tends to a limit. The asymptotic statements belong to Lemma lemma:Max: for each fixed \(j=1,\dots,t\), \(Y^j_{n_j}\to1\) in \(P^{(\infty)}\)-probability as \(n\to\infty\). In that limit the logarithm is \(\log n\) with the outer sample size \(n\), not \(\log n_j\), while \(n_j=n_j(n)\) is random and grows because \(p_j>0\); do not replace \(\log n\) by \(\log n_j\). Lemma denom is a threshold statement “for all \(n_j\ge N_j\)”, and \(\Omega_n\) records \(n_j\ge N_j\) and \(Y^j_{n_j}\in[1/2,1]\) for every \(j\). The source after defining \(\Omega_n\) says \(P^{(n)}(\Omega_n)\to1\) “thanks to Lemma lemma:Max and Lemma denom”; that probability assertion is not part of the displayed upper-bound conclusion and should not be promoted to a hypothesis of the algebraic bound. The source’s notation between \(P^{(n)}\) and \(P^{(\infty)}\) in that sentence is not fully stable; the surrounding probability statements are on \(P^{(\infty)}\), and the content-basis note records the probability claim separately. No uniformity over \(s\) is asserted in the selected target; later consistency proofs sum over \(s\), but that is outside this selected upper-bound statement.
+
+      4. Potentially omitted definitions and side conditions. The paired main source defines B1 as \(g>0\) on \([a,b]\) and \(0\) elsewhere, B2 as differentiability with bounded derivative on \((a,b)\), and B3 as absolute continuity of \(Q_0\) with bounded density \(q_0\); however, the selected proof uses the explicit working conditions T1–T4, namely \(0<m\le g(x)\le M\) on \([-c,c]\), \(|g'(x)/g(x)|\le R\) on \((-c,c)\), \(q_0(y)+q_0(-y)\le U\) on \([0,2c]\), and \(q_0(\theta)\ge L\) near each \(\theta_j^*\). Use T1–T4 as stated for the target rather than replacing them by weaker or merely related support assumptions. The proof-based partition inference should be derived from complete separation, the true mixture identification \(f_j=k(\cdot|\theta_j^*)\), and B1 support; it should not be inserted as an unrelated extra hypothesis if the source setup can derive it. On \(C^{(n)}\) and hence on \(\Omega_n\), the order statistics are defined; outside those events the displayed formulae involve an indicator and should not be read as asserting meaningful order statistics when \(n_j=0\). The sets \(\tau_{s_j}(n_j)\) require \(1\le s_j\le n_j\), and \(\mathbf S_s\) is data-dependent through the random \(n_j\) even though \(s>t\) is fixed. The source leaves the log base, exact \(N_j\), exact neighborhood shape in T4, and the precise relation between \(Q_0(\mathrm d\theta)\) and \(q_0(\theta)\mathrm d\theta\) unspecified beyond B3; it also does not explicitly restate \(s\le n\), but \(\mathbf S_s\) is empty when no such composition exists. Finally, the only cited results relevant to the selected block are the supplement’s Lemma denom for the denominator lower bound and Lemma lemma:Max for the definition and convergence of \(Y^j_{n_j}\); the target’s application does not change their universal quantified content. Other external references in the supplement occur in unrelated proofs and should not be imported into this target’s hypotheses.
+      <!-- /formalization-clarifications -->
+
+      Let $t\in\mathbb N$, $P=\sum_{j=1}^t p_jR_j$ with $p_j\in(0,1)$, $\sum_j p_j=1$, $k(x\mid\theta)=g(x-\theta)$, and $Q_0(d\theta)=q_0(\theta)d\theta$. After the linear rescaling used in the source, take $[a,b]=[-c,c]$. Assume $X_{1:\infty}\sim P^{(\infty)}$, the true parameter vector is completely separated, $|\theta_j^*-\theta_k^*|>b-a$ $(j\ne k)$, and the working conditions T1–T4 hold. Define $C_j=\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\}$, $n_j=|C_j|$, $C^{(n)}=\{n_j>0\text{ for every }j\}$. For $A_j\in\tau_{s_j}(n_j)$, write $A_j=(A^j_1,\dots,A^j_{s_j})$, $a^j_k=|A^j_k|$. For a fixed $s>t$, set $\mathbf S_s=\{(s_1,\dots,s_t):1\le s_j\le n_j\ \forall j,\ \sum_{j=1}^t s_j=s\}$. Let $X^j_{(r)}$ denote the $r$-th order statistic of $X_{C_j}$, let $N_j$ and $K$ be the threshold and positive constant furnished by Lemma \ref{denom}, and define $Y^j_{n_j}:=\min[1,\ n_j(\log n)^{\frac1{2t}}\{c+\theta_j^*-X^j_{(n_j)}\}]$, $\Omega_n=\{\text{for every }j=1,\dots,t:\ n_j\ge N_j,\ Y^j_{n_j}\in[1/2,1]\}$. Consider
+      \[
+      \Sigma_{n,s}:=
+      \sum_{\mathbf s\in\mathbf S_s}
+      \prod_{j=1}^t
+      \sum_{A_j\in\tau_{s_j}(n_j)}
+      \frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}\,
+      \frac{
+      \prod_{k=1}^{s_j}\int_{\mathbb R}\prod_{i\in A^j_k}\dfrac{g(X_i-\theta_k)}{p_jg(X_i-\theta_j^*)}\,Q_0(d\theta_k)}
+      {\int_{\mathbb R}\prod_{i\in C_j}\dfrac{g(X_i-\theta_j)}{p_jg(X_i-\theta_j^*)}\,Q_0(d\theta_j)}
+      \,\mathbbm 1_{C^{(n)}}.
+      \]
+      Then, with $\Omega_n$ in place of $C^{(n)}$, this object is bounded above by
+      \[
+      T^{(n)}:=
+      \frac{2^t\sqrt{\log n}}{K}
+      \sum_{\mathbf s\in\mathbf S_s}
+      \prod_{j=1}^t
+      \sum_{A_j\in\tau_{s_j}(n_j)}
+      n_j
+      \frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}
+      \prod_{h=1}^{s_j}
+      \int_{\mathbb R}\prod_{i\in A^j_h}\frac{g(X_i-\theta_h)}{g(X_i-\theta_j^*)}\,Q_0(d\theta_h)
+      \,\mathbbm 1_{\Omega_n}.
+      \]
+      Thus the corresponding posterior-ratio contribution with $\Omega_n$ is controlled by $T^{(n)}$.
+    assumptions:
+      - |-
+        Assume $t\in\mathbb N$ and $P=\sum_{j=1}^t p_jR_j$ with $p_j\in(0,1)$, $\sum_{j=1}^t p_j=1$, where $R_j$ are distinct probability measures. Assume $X_{1:\infty}\sim P^{(\infty)}$. The true parameter vector $\theta^*=(\theta_1^*,\dots,\theta_t^*)$ is completely separated:
+        \[
+        |\theta_j^*-\theta_k^*|>b-a\qquad(j\ne k),
+        \]
+        and after rescaling $[a,b]=[-c,c]$ this means $|\theta_j^*-\theta_k^*|>2c$.
+
+        The working conditions T1–T4 hold:
+        \begin{enumerate}
+        \item[(T1)] There exist $m,M$ with
+        \[
+        0<m\le g(x)\le M<\infty\qquad(x\in[-c,c]).
+        \]
+        \item[(T2)] $g$ is differentiable on $(-c,c)$ and there exists $R$ with
+        \[
+        \left|\frac{g'(x)}{g(x)}\right|\le R<\infty\qquad(x\in(-c,c)).
+        \]
+        \item[(T3)] There exists $U>0$ with
+        \[
+        h(y)=q_0(y)+q_0(-y)\le U\qquad(y\in[0,2c]).
+        \]
+        \item[(T4)] There exists $L>0$ such that
+        \[
+        q_0(\theta)\ge L
+        \]
+        for every $\theta$ in a neighborhood of $\theta_j^*$, for every $j=1,\dots,t$.
+        \end{enumerate}
+        The constants $m,M,R,U,L$ are existential for the fixed rescaled data-generating/kernel setup.
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      Let $\Sigma_{n,s}(\Omega_n)$ denote the expression for $\Sigma_{n,s}$ with $\mathbbm 1_{\Omega_n}$ in place of $\mathbbm 1_{C^{(n)}}$.
+
+      ### Proof
+      We show \(\Sigma_{n,s}(\Omega_n)\le T^{(n)}\).
+
+      For each group \(j\), the factors \(p_j^{-a^j_k}\) in the numerator product over the blocks \(A^j_1,\dots,A^j_{s_j}\) multiply to \(p_j^{-n_j}\), because \(\sum_{k=1}^{s_j}a^j_k=n_j\). These cancel the factor \(p_j^{-n_j}\) in the denominator. Thus it suffices to apply [ref:R1] to the denominator without the \(p_j\)-factors. On \(\Omega_n\), we have \(n_j\ge N_j\) and \(Y^j_{n_j}\ge 1/2\). Hence [ref:R1] gives
+      \[
+      \frac{1}{\displaystyle \int_{\mathbb R}\prod_{i\in C_j}\frac{g(X_i-\theta_j)}{g(X_i-\theta_j^*)}\,Q_0(d\theta_j)}
+      \le \frac{2n_j(\log n)^{\frac1{2t}}}{K^{1/t}}.
+      \]
+      Therefore, for each \(\mathbf s=(s_1,\dots,s_t)\in\mathbf S_s\) and each \(A_j\in\tau_{s_j}(n_j)\),
+      \[
+      \begin{aligned}
+      &\frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}
+      \frac{\prod_{k=1}^{s_j}\int_{\mathbb R}\prod_{i\in A^j_k}\frac{g(X_i-\theta_k)}{p_jg(X_i-\theta_j^*)}\,Q_0(d\theta_k)}
+      {\int_{\mathbb R}\prod_{i\in C_j}\frac{g(X_i-\theta_j)}{p_jg(X_i-\theta_j^*)}\,Q_0(d\theta_j)}
+      \\
+      &\qquad\le
+      n_j\frac{2(\log n)^{\frac1{2t}}}{K^{1/t}}
+      \frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}
+      \prod_{k=1}^{s_j}\int_{\mathbb R}\prod_{i\in A^j_k}\frac{g(X_i-\theta_k)}{g(X_i-\theta_j^*)}\,Q_0(d\theta_k).
+      \end{aligned}
+      \]
+      Multiplying over \(j=1,\dots,t\) gives
+      \[
+      \prod_{j=1}^t\frac{2n_j(\log n)^{\frac1{2t}}}{K^{1/t}}
+      =
+      \frac{2^t(\log n)^{1/2}}{K}\prod_{j=1}^t n_j.
+      \]
+      Summing over \(\mathbf s\) and over the partitions \(A_j\in\tau_{s_j}(n_j)\), and including the indicator \(\mathbbm 1_{\Omega_n}\), we obtain
+      \[
+      \Sigma_{n,s}(\Omega_n)\le T^{(n)}
+      :=
+      \frac{2^t\sqrt{\log n}}{K}
+      \sum_{\mathbf s\in\mathbf S_s}
+      \prod_{j=1}^t
+      \sum_{A_j\in\tau_{s_j}(n_j)}
+      n_j
+      \frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}
+      \prod_{h=1}^{s_j}
+      \int_{\mathbb R}\prod_{i\in A^j_h}\frac{g(X_i-\theta_h)}{g(X_i-\theta_j^*)}\,Q_0(d\theta_h)
+      \mathbbm 1_{\Omega_n}.
+      \]
+      Thus the posterior-ratio contribution with \(\Omega_n\) in place of \(C^{(n)}\) is controlled by \(T^{(n)}\).
+
+      ### References
+      #### Reference R1
+      Target: Lemma \ref{denom}
+
+      Citation: For every \(j = 1, \dots, t\) there exists \(K>0\) and \(N_j \in \mathbb{N}\) such that for all \(n_j\geq N_j\) it holds
+      \[
+      \int_\R \prod_{i \in C_j}\frac{g(X_i - \theta_j)}{g(X_i-\theta_j^*)}q_0(\theta_j) \, \mathrm{d}\theta_j 
+      \geq \frac{K^{\frac{1}{t}} Y^j_{n_j} }{n_j(\log(n))^{\frac{1}{2t}}},
+      \]
+      with \(Y^j_{n_j}\) defined in Lemma \ref{lemma:Max}. Define the event
+      \[
+      \Omega_n = \left\{\text{for every $j = 1, \dots, t$ it holds: } n_j \geq N_j, Y^j_{n_j} \in [1/2, 1] \right\}.
+      \]
+      Thus, an upper bound of \eqref{object} with \(\Omega_n\) in place of \(C^{(n)}\) is given by
+      \[
+      T^{(n)} := \frac{2^t\sqrt{\log(n)}}{K}\sum_{\textbf{s}}\prod_{j = 1}^t\sum_{A_j \in \tau_{s_j}(n_j)}n_j\frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}\prod_{h = 1}^{s_j}\int_{\mathbb{R}}\prod_{i \in A^j_h}\frac{g(X_i - \theta_h)}{g(X_i-\theta_j^*)} \, Q_0(\d \theta_h)\mathbbm{1}_{\Omega_n},
+      \]
+      for \(s > t\).
+
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D1, the supplement file `supp.tex`, “Supplementary Materials for Clustering consistency with Dirichlet process mixtures” by Ascolani, Lijoi, Rebaudo and Zanella. The named result is Lemma \ref{denom}, located in the proof of Theorem \ref{th:ConsBounded}; it supports the denominator lower-bound step in the current target. The same source passage cites Lemma \ref{lemma:Max} for the definition of \(Y^j_{n_j}\), so that result is organized separately because \(Y^j_{n_j}\) appears both in Lemma \ref{denom} and in \(\Omega_n\). The displayed inequality labelled \eqref{upper_bound_ratios} in the same source proof is also organized separately because it is exactly the \(T^{(n)}\)-upper-bound conclusion of the current target. The source also records \(P^{(n)}(\Omega_n)\to1\) “thanks to Lemma \ref{lemma:Max} and Lemma \ref{denom}”; that probability statement is not part of the displayed upper-bound conclusion and is not added as a separate result here. Proof-dependency results such as Lemma \ref{denom1} are not copied because they are used only in the proof of Lemma \ref{denom}. The source prints Lemma \ref{denom} with \(K^{1/t}\), while the final displayed line of its proof prints \(K^{1/(2t)}\); the lemma statement is retained as printed. The lemma display uses \(q_0(\theta_j)\,\mathrm d\theta_j\), while the subsequent upper-bound display uses \(Q_0(\d\theta_h)\); both notations are retained as they occur in the source.
+
+      ##### Lemma \ref{denom}
+      ###### Definitions and notation
+      In the proof of Theorem \ref{th:ConsBounded}, through a linear rescaling one may assume \([a,b]=[-c,c]\). The data-generating density is
+      \[
+      f(x)=\sum_{j=1}^t p_j k(x\mid \theta_j^*),\qquad t\in\mathbb N,\quad p_j\in(0,1),\quad \sum_{j=1}^t p_j=1,
+      \]
+      for \(P=\sum_{j=1}^t p_jR_j\), and \(X_{1:\infty}\sim P^{(\infty)}\). The kernel is of location type, \(k(x\mid\theta)=g(x-\theta)\). The baseline is written \(Q_0(\mathrm{d}\theta)\) in the surrounding marginal integrals and as \(q_0(\theta_j)\,\mathrm{d}\theta_j\) in the displayed lemma.
+
+      For \(j=1,\dots,t\), define
+      \[
+      C_j=\left\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\right\},
+      \qquad n_j=|C_j|.
+      \]
+      Under complete separation, the source states
+      \[
+      C_i\cap C_j=\varnothing\quad(i\ne j),
+      \qquad
+      \{1,\dots,n\}=\bigcup_{j=1}^t C_j,
+      \qquad
+      \sum_{j=1}^t n_j=n.
+      \]
+      Also
+      \[
+      C^{(n)}=\{n_j>0\text{ for every }j\}.
+      \]
+      For a nonempty block \(C_j\), the marginal likelihood is
+      \[
+      m(X_{C_j})
+      =
+      \int_{\mathbb R}\prod_{i\in C_j}k(X_i\mid\theta_j)\,Q_0(\mathrm{d}\theta_j)
+      =
+      \int_{\mathbb R}\prod_{i\in C_j}g(X_i-\theta_j)\,Q_0(\mathrm{d}\theta_j).
+      \]
+      \(X^j_{(r)}\) denotes the \(r\)-th order statistic of \(X_{C_j}\). The quantity \(Y^j_{n_j}\) appearing in the lemma is
+      \[
+      Y^j_{n_j}
+      :=
+      \min\left[1,\ n_j(\log(n))^{\frac1{2t}}\{c+\theta_j^*-X^j_{(n_j)}\}\right],
+      \]
+      the definition recalled from Lemma \ref{lemma:Max}.
+
+      ###### Assumptions
+      The following are the rescaled conditions in force in the source proof of Theorem \ref{th:ConsBounded}.
+
+      \begin{enumerate}
+      \item[(T1)] There exist \(m,M\) such that
+      \[
+      0<m\le g(x)\le M<\infty
+      \qquad\text{for every }x\in[-c,c].
+      \]
+
+      \item[(T2)] \(g\) is differentiable on \((-c,c)\) and there exists \(R\) such that
+      \[
+      \left|\frac{g'(x)}{g(x)}\right|\le R<\infty
+      \qquad\text{for every }x\in(-c,c).
+      \]
+
+      \item[(T3)] There exists \(U>0\) such that
+      \[
+      h(y)=q_0(y)+q_0(-y)\le U
+      \qquad\text{for every }y\in[0,2c].
+      \]
+
+      \item[(T4)] There exists \(L>0\) such that
+      \[
+      q_0(\theta)\ge L
+      \]
+      for every \(\theta\) in a neighborhood of \(\theta_j^*\), for every \(j=1,\dots,t\).
+      \end{enumerate}
+
+      The true parameter vector \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\) is completely separated:
+      \[
+      |\theta_j^*-\theta_k^*|>b-a\qquad(j\ne k),
+      \]
+      and after the source rescaling \(|\theta_j^*-\theta_k^*|>2c\). The sets \(C_j\) and integers \(n_j=|C_j|\) are those defined above. The lemma is stated for every \(j=1,\dots,t\) and for all \(n_j\ge N_j\).
+
+      ###### Statement
+      For every \(j = 1, \dots, t\) there exists \(K>0\) and \(N_j \in \mathbb{N}\) such that for all \(n_j\geq N_j\) it holds
+      \[
+      \int_\R \prod_{i \in C_j}\frac{g(X_i - \theta_j)}{g(X_i-\theta_j^*)}q_0(\theta_j) \, \mathrm{d}\theta_j 
+      \geq \frac{K^{\frac{1}{t}} Y^j_{n_j} }{n_j(\log(n))^{\frac{1}{2t}}},
+      \]
+      with \(Y^j_{n_j}\) defined in Lemma \ref{lemma:Max}.
+
+      ##### Lemma \ref{lemma:Max}
+      ###### Definitions and notation
+      The notation is that of the proof of Theorem \ref{th:ConsBounded}: \(C_j\) is the local block
+      \[
+      C_j=\left\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\right\},
+      \qquad n_j=|C_j|,
+      \]
+      and \(X^j_{(r)}\) denotes the \(r\)-th order statistic of \(X_{C_j}\). The variable \(Y^j_{n_j}\) is
+      \[
+      Y^j_{n_j}
+      :=
+      \min\left[1,\ n_j(\log(n))^{\frac{1}{2t}}\{c+\theta_j^*-X^j_{(n_j)}\}\right].
+      \]
+
+      ###### Assumptions
+      The same section-level rescaled setup applies: \(t\in\mathbb N\), \(P=\sum_{j=1}^t p_jR_j\) with \(p_j\in(0,1)\), \(\sum_j p_j=1\), \(X_{1:\infty}\sim P^{(\infty)}\), \(k(x\mid\theta)=g(x-\theta)\), and \(Q_0(\mathrm d\theta)\) is written in density form as \(q_0(\theta)\,\mathrm d\theta\) where the source uses \(q_0\). The true vector \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\) is completely separated, \(|\theta_j^*-\theta_k^*|>b-a\) for \(j\ne k\), and after rescaling \([a,b]=[-c,c]\). Conditions T1–T4 hold:
+      \[
+      0<m\le g(x)\le M<\infty\quad(x\in[-c,c]),
+      \]
+      \[
+      \left|\frac{g'(x)}{g(x)}\right|\le R<\infty\quad(x\in(-c,c)),
+      \]
+      \[
+      h(y)=q_0(y)+q_0(-y)\le U\quad(y\in[0,2c]),
+      \]
+      and
+      \[
+      q_0(\theta)\ge L
+      \]
+      for every \(\theta\) in a neighborhood of \(\theta_j^*\), for every \(j=1,\dots,t\).
+
+      ###### Statement
+      For every \(j = 1, \dots , t\) it holds
+      \[
+      Y^j_{n_j} := \min \left[ 1, n_j(\log(n))^{\frac{1}{2t}}\{c+\theta_j^*-X^j_{(n_j)}\} \right] \to 1
+      \]
+      in \(P^{(\infty)}\)-probability as \(n \to \infty\).
+
+      ##### Upper bound \eqref{upper_bound_ratios}
+      ###### Definitions and notation
+      The source’s equation \eqref{object} is the sum
+      \[
+      \sum_{\textbf{s}}\prod_{j = 1}^t\sum_{A_j \in \tau_{s_j}(n_j)}
+      \frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}
+      \frac{
+      \prod_{k = 1}^{s_j}\int_{\mathbb{R}}\prod_{i \in A^j_k}\frac{g(X_i - \theta_k)}{p_jg(X_i-\theta_j^*)} \, Q_0(\d \theta_k)}
+      {\int_{\mathbb{R}}\prod_{i \in C_j}\frac{g(X_i - \theta_j)}{p_jg(X_i-\theta_j^*)} \, Q_0(\d \theta_j)}
+      \mathbbm{1}_{C^{(n)}},
+      \qquad s>t.
+      \]
+      Here the sum is over
+      \[
+      \textbf{S}
+      =
+      \left\{(s_1, \dots, s_t) \, : \, 1 \leq s_j \leq n_j, \, \forall j, \text{ and } \sum_{j = 1}^ts_j = s \right\}.
+      \]
+      For \(A_j\in\tau_{s_j}(n_j)\), the source writes
+      \[
+      A_j=(A^j_1,\dots,A^j_{s_j}),
+      \qquad
+      a^j_k=|A^j_k|.
+      \]
+      The marginal integrals are
+      \[
+      m(X_{C_j})
+      =
+      \int_{\mathbb{R}}\prod_{i \in C_j}k(X_i \mid \theta_j) \, Q_0(\d \theta_j)
+      =
+      \int_{\mathbb{R}}\prod_{i \in C_j}g(X_i - \theta_j) \, Q_0(\d \theta_j),
+      \]
+      and, for \(h=1,\dots,s_j\),
+      \[
+      m(X_{A^j_h})
+      =
+      \int_{\mathbb{R}}\prod_{i \in A^j_h}k(X_i \mid \theta_h) \, Q_0(\d \theta_h)
+      =
+      \int_{\mathbb{R}}\prod_{i \in A^j_h}g(X_i - \theta_h) \, Q_0(\d \theta_h).
+      \]
+      The event is
+      \[
+      \Omega_n
+      =
+      \left\{\text{for every }j=1,\dots,t:\ n_j\ge N_j,\ Y^j_{n_j}\in[1/2,1]\right\},
+      \]
+      with \(N_j\) and \(K>0\) as furnished by Lemma \ref{denom}, and with \(Y^j_{n_j}\) as in Lemma \ref{lemma:Max}.
+
+      ###### Assumptions
+      The same rescaled setup and section-level conditions apply: \(t\in\mathbb N\), \(P=\sum_{j=1}^t p_jR_j\), \(p_j\in(0,1)\), \(\sum_j p_j=1\), \(X_{1:\infty}\sim P^{(\infty)}\), \(k(x\mid\theta)=g(x-\theta)\), \(Q_0(\d\theta)\) with density notation \(q_0\) in the lemma display, and \(\theta^*=(\theta_1^*,\dots,\theta_t^*)\) completely separated with \(|\theta_j^*-\theta_k^*|>b-a\) for \(j\ne k\), after rescaling \([a,b]=[-c,c]\). Conditions T1–T4 hold:
+      \[
+      0<m\le g(x)\le M<\infty\quad(x\in[-c,c]),
+      \]
+      \[
+      \left|\frac{g'(x)}{g(x)}\right|\le R<\infty\quad(x\in(-c,c)),
+      \]
+      \[
+      h(y)=q_0(y)+q_0(-y)\le U\quad(y\in[0,2c]),
+      \]
+      and
+      \[
+      q_0(\theta)\ge L
+      \]
+      for every \(\theta\) in a neighborhood of \(\theta_j^*\), for every \(j=1,\dots,t\). The sets \(C_j\), the counts \(n_j=|C_j|\), the event \(C^{(n)}\), the partitions \(\tau_{s_j}(n_j)\) and the index \(\mathbf s\in\textbf S\) are as defined above. The result is stated for fixed \(s>t\). \(K>0\) and the thresholds \(N_j\in\mathbb N\) are those from Lemma \ref{denom}, and \(\Omega_n\) is the event displayed above.
+
+      ###### Statement
+      Thus, an upper bound of \eqref{object} with \(\Omega_n\) in place of \(C^{(n)}\) is given by
+      \[
+      T^{(n)} := \frac{2^t\sqrt{\log(n)}}{K}\sum_{\textbf{s}}\prod_{j = 1}^t\sum_{A_j \in \tau_{s_j}(n_j)}n_j\frac{\prod_{k=1}^{s_j}(a^j_k-1)!}{(n_j-1)!}\prod_{h = 1}^{s_j}\int_{\mathbb{R}}\prod_{i \in A^j_h}\frac{g(X_i - \theta_h)}{g(X_i-\theta_j^*)} \, Q_0(\d \theta_h)\mathbbm{1}_{\Omega_n},
+      \]
+      for \(s > t\).
+    lean_name: paper_f4f73a8b20b648f5b0c28430901a09f4
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

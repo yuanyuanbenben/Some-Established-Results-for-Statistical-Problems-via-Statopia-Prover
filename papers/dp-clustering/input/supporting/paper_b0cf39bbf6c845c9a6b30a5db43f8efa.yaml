@@ -1,0 +1,760 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:20bbe141-6c57-4412-bba3-2e45b58e05ff
+    title: paper_b0cf39bbf6c845c9a6b30a5db43f8efa
+    kind: lemma
+    latex_statement: |-
+      The Dirichlet process mixture model is
+      \[
+      X_i\mid\theta_i \simind k(\cdot\mid\theta_i),\qquad
+      \theta_i\mid \tilde P \simiid \tilde P,\qquad
+      \tilde P\mid \alpha \sim \operatorname{DP}(\alpha,Q_0),\qquad
+      \alpha\sim\pi,
+      \]
+      where \(k(\cdot\mid\theta)\) is a density, \(Q_0\) is the base measure, and \(\pi\) is a prior on \(\alpha>0\). The random density is
+      \[
+      h(x)=\int k(x\mid\theta)\,\tilde P(d\theta).
+      \]
+      Here \(K_n\) is the number of clusters in a sample of size \(n\), equivalently the number of distinct latent parameters among \(\theta_1,\dots,\theta_n\). Posterior probabilities are denoted \(\operatorname{pr}(\cdot\mid X_{1:n})\). The laws of \(X_{1:n}\) and \(X_{1:\infty}\) under i.i.d. sampling from \(P\) are denoted \(P^{(n)}\) and \(P^{(\infty)}\), respectively.
+
+      Let \(\{k(\cdot\mid\theta):\theta\in\Theta\}\) be dominated by \(\mu\), where \(\mu\) is either Lebesgue or counting measure and the common domain is \(\mathbb X\). For \(s\ge1\),
+      \[
+      \mathbb G_s
+      =
+      \left\{
+      f=\sum_{j=1}^s q_j k(\cdot\mid\theta_j):
+      q_j>0,\ \sum_{j=1}^s q_j=1,\ 
+      \theta_1,\dots,\theta_s\text{ distinct}
+      \right\},
+      \]
+      i.e. \(\mathbb G_s\) is the set of exact \(s\)-component mixtures. Following the source, \(f\in\mathcal P(G)\) means that \(f\) is the density of a probability measure \(P\in\mathcal P(G)\). Weak convergence of densities is understood via the corresponding probability measures. A weak neighborhood is a neighborhood in the weak topology on probability measures. The notation \(\operatorname{supp}Q_0\) denotes the support of the base measure \(Q_0\).
+
+      For \(P\in\mathbb G_t\) with weights \(\{p_j\}_{j=1}^t\) and parameters \(\{\theta_j^*\}_{j=1}^t\), set
+      \[
+      KL_\epsilon(P)
+      =
+      \left\{
+      h\in\mathcal P(\mathbb X):
+      \int
+      \log\left\{
+      \frac{\sum_{j=1}^{t} p_j k(x\mid\theta_j^*)}{h(x)}
+      \right\}
+      P(dx)
+      <
+      \epsilon
+      \right\},
+      \qquad \epsilon>0.
+      \]
+
+      <!-- formalization-clarifications:v1:16a50579d2d6d443401ffcfef79a44d33a8f91538860b8ec98d05cdb6eb8ea9e -->
+      Formalization clarifications from source and proof:
+      1. Ownership and source status. The target result is the lemma appearing in supp.tex as Lemma \ref{lemma_weak_convergence} and used under “Proof of Proposition \ref{undersmoothing}”; its original proof states: “By assumption \(H4\), the posterior distribution is consistent at \(P\) under the weak topology, in virtue of Schwartz theorem” and then concludes \(\operatorname{pr}(K_n<t\mid X_{1:n})\to0\). The selected block labeled “Target theorem” contains a repaired proof with added material; that repaired proof is not independent source evidence. In particular, the repaired Section 0(a), Section 1, Lemma 4.1, and Remark 6.2 are formalization-useful supplements, but the original sources do not independently supply all of their added assumptions or reconstructions. The external citations are owned by R1, Ghosal–van der Vaart Theorem 6.16, and R2, Example 6.20; both extraction records say the exact original hypotheses, conclusion, notation, and relation to the DPM application are unavailable. The paired R2 organization is explicitly model-organized and not a verbatim source. Thus the source leaves unresolved the precise external Schwartz-theorem hypotheses and the exact role of Example 6.20; do not treat the repaired proof’s self-contained Theorem 1.3 as original source evidence.
+
+      2. Quantifier order for the target statement. The intended order is: fix the model objects \(( \mathbb X,\mu,\{k(\cdot\mid\theta)\},Q_0,\pi)\); assume \(H4\); then for every integer \(t\ge1\) and every \(P\in\mathbb G_t\) with weights \(p_j>0\), \(\sum_j p_j=1\), distinct parameters \(\theta_1^*,\dots,\theta_t^*\), and \(\theta_j^*\in\operatorname{supp}Q_0\) for every \(j\), if there exists a weak neighborhood \(\mathcal U\) of \(P\) such that \(\mathcal U\cap\mathbb G_s=\varnothing\) for every \(s<t\), then \(\operatorname{pr}(K_n<t\mid X_{1:n})\to0\) in \(P^{(\infty)}\)-probability as \(n\to\infty\). The weak neighborhood \(\mathcal U\) may depend on \(P,t\), the weights, the parameters, and the fixed model, but not on \(n\). The theorem does not state uniformity over \(P\), \(t\), \(\mathcal U\), \(\pi\), \(Q_0\), \(k\), \(\mathbb X\), or \(\mu\). This is supported by “Target theorem, Statement” and “Assumptions \(H4\)”: \(H4\) itself is \(\forall P\in\mathbb G_t\ \forall t\ge1\ \forall \epsilon>0\ \operatorname{pr}(h\in KL_\epsilon(P))>0\), with \(\theta_j^*\in\operatorname{supp}Q_0\); it asserts positive prior mass, not a lower bound uniform in \(\epsilon\), \(P\), or \(t\). If \(t=1\), the separation condition is vacuous and the conclusion is trivial because \(K_n\ge1\); this is noted in the selected repaired proof, Section 5, not in the original statement.
+
+      3. Constants and dependence. No numerical constants occur in the target statement. In the original proof of Lemma \ref{lemma_weak_convergence}, the only implicit constants are those hidden in the external Schwartz-consistency citation and the weak neighborhood \(\mathcal U\); the source does not expose their dependence because R1/R2 are unretrieved. In the selected repaired proof, constants such as \(k\), \(\epsilon\), \(M=\max_j\|\varphi_j\|_\infty\), \(c=\epsilon^2/(8M^2)\), and \(4M/\epsilon\) are chosen after fixing \(P\), \(\mathcal U\), and the finite family of bounded continuous test functions defining a basic weak neighborhood; they do not depend on \(n\). The quantity \(r_{n,s}\) and \(\eta_n=\max_{s<t}(4M/\epsilon)r_{n,s}\) are deterministic for fixed \(s,t,\pi\); Lemma 3.2 gives \(r_{n,s}\to0\) for fixed \(s\) and fixed probability prior \(\pi\), while the finite maximum is only for fixed finite \(t\). The source does not state uniformity in \(s\), \(t\), \(\pi\), \(Q_0\), or \(P\). Constants introduced after a random sample, such as block counts in other proofs in supp.tex, may depend on that sample; they must not be treated as absolute constants. The target theorem itself has no random or dimension-dependent constant and no \(n\)-dependent constant.
+
+      4. Norms and topology. The target theorem uses only the weak topology on probability measures; the selected definitions say “Weak convergence of densities is understood via the corresponding probability measures” and “A weak neighborhood is a neighborhood in the weak topology on probability measures.” There is no Euclidean \(l^2\), sup norm, operator norm, Frobenius norm, TV, Hellinger, or density \(L^2\) norm in the target statement. In the repaired proof, a basic weak neighborhood is represented by finitely many bounded continuous test functions: \(V_\epsilon=\{Q: |\int\varphi_j\,dQ-\int\varphi_j\,dP|<\epsilon,\ j=1,\dots,k\}\) (selected repaired proof, (4.1)–(4.2)); this representation is proof-based and standard, not an explicit definition in the original target block. The selected target says \(\mu\) is Lebesgue or counting and the kernels have common domain \(\mathbb X\), but it does not specify Euclidean ambient dimensions \(p,q\) or a norm on \(\theta\). The paired R2 organization mentions \(\mathbb X\subseteq\mathbb R^q\), \(\Theta\subseteq\mathbb R^p\), and \(H2\) uses \(\|\theta_i\|\), but R2 explicitly says “The norm \(\|\theta_i\|\) is not specified in the supplied source.” Do not silently choose the Euclidean norm; for the target theorem, no norm on \(\theta\) is used.
+
+      5. Mathematical objects that must remain exact. \(\mathbb G_s\) is the set of exact \(s\)-component mixtures \(f=\sum_{j=1}^s q_j k(\cdot\mid\theta_j)\) with \(q_j>0\), \(\sum_j q_j=1\), and distinct \(\theta_1,\dots,\theta_s\) (“Target theorem, Definitions and notation”). It is not “at most \(s\)”, not a closure, and not a set allowing zero weights. \(P\in\mathbb G_t\) has density \(p_0(x)=\sum_{j=1}^t p_j k(x\mid\theta_j^*)\) with positive weights. The random density is \(h(x)=\int k(x\mid\theta)\,\tilde P(d\theta)\); it must not be replaced by a finite \(s\)-component mixture merely because \(K_n=s\). The selected repaired proof explicitly warns in Remark 6.1 that the original assertion “conditional on \(K_n<t\), the domain of the posterior distribution is a subset of \(\cup_{s<t}\mathbb G_s\)” is not literally correct because \(h\) retains an infinite residual-mixture component. \(K_n\) is defined as “the number of distinct latent parameters among \(\theta_1,\dots,\theta_n\)” (“Target theorem, Definitions and notation”); it is not the number of atoms of \(\tilde P\), the support size of \(h\), or the number of blocks of the CRP partition unless \(Q_0\) is non-atomic, which the target statement does not state. The KL neighborhood in the target is \(KL_\epsilon(P)=\{h:\int \log(\sum_j p_j k(x\mid\theta_j^*)/h(x))\,P(dx)<\epsilon\}\); its logarithm and division by \(h\) leave positivity/absolute-continuity side conditions implicit in the original definition.
+
+      6. Measures, densities, and coercions. The definitions say that a density is identified with its probability measure: the repaired proof states “A density \(g\) is identified with the probability measure \(P_g(dx)=g(x)\mu(dx)\), so that \(\int\varphi\,dP_g=\int\varphi g\,d\mu\)” (selected repaired proof, Section 0(c)); the original source also says “we will say \(f\in\mathcal P(G)\) when \(f\) is the density of a probability measure” (supp.tex, Proof of Proposition \ref{undersmoothing}). Therefore \(\mathcal U\cap\mathbb G_s=\varnothing\) must be interpreted in the measure topology via \(f\mapsto P_f\), not as a statement about pointwise function equality alone. \(Q_0\) is the base measure on the latent parameter space; \(\pi\) is a probability measure on \(\alpha>0\); \(\alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1)\) is an ascending factorial in the EPPF formula (main.tex, equation \eqref{eq:EPPFDP}; selected repaired proof, Section 0(b)). The marginal \(m(x_B)\) is the block marginal likelihood \(\int\prod_{i\in B}k(x_i\mid\theta)\,Q_0(d\theta)\) (selected repaired proof, Section 0(c)), not a product of one-dimensional marginals.
+
+      7. Asymptotics and probability modes. The target conclusion is pointwise in the fixed data-generating \(P\): for each fixed \(P,t,\mathcal U\), \(\operatorname{pr}(K_n<t\mid X_{1:n})\to0\) in \(P^{(\infty)}\)-probability. Explicitly, for every \(\varepsilon>0\), \(P^{(\infty)}\{\operatorname{pr}(K_n<t\mid X_{1:n})>\varepsilon\}\to0\) as \(n\to\infty\). The limiting variable is \(n\) over positive integers; the randomness is the full i.i.d. sequence \(X_{1:\infty}\sim P^{(\infty)}\), while the posterior probability is a function of \(X_{1:n}\). main.tex notes that for a probability lying in \([0,1]\), convergence in \(P^{(\infty)}\)-probability is equivalent to \(L^1\) convergence (“Since \(\operatorname{pr}(K_n=t\mid X_{1:n})\) lies between 0 and 1…”), but the target theorem itself asserts only probability convergence. There is no \(O\), \(o\), \(O_P\), or \(o_P\) notation in the target statement. The original proof uses the cited weak-posterior-consistency limit \(\operatorname{pr}(h\in\mathcal U^c\mid X_{1:n})\to0\) in \(P^{(\infty)}\)-probability for the fixed weak neighborhood \(\mathcal U\); the source does not state uniformity over weak neighborhoods. The selected repaired proof’s Lemma 1.1 gives only \(\liminf n^{-1}\log W_n\ge-\epsilon\) for each \(\epsilon>0\), with no uniform exponential constant across \(\epsilon\); Lemma 1.2 has constants depending on the chosen weak neighborhood.
+
+      8. \(H4\) and external Schwartz consistency. In the target theorem, \(H4\) is the only stated prior-support assumption: “For every \(P\in\mathbb G_t\), \(t\ge1\), with \(\theta_1^*,\dots,\theta_t^*\in\operatorname{supp}Q_0\), \(\operatorname{pr}(h\in KL_\epsilon(P))>0\) for every \(\epsilon>0\).” The original proof of Lemma \ref{lemma_weak_convergence} invokes R1/R2 to infer weak posterior consistency from \(H4\). The R1/R2 extraction records say the exact statement of Ghosal–van der Vaart Theorem 6.16 and Example 6.20 was not retrieved, and that the target-specific objects \(H4,P,h,\mathcal U,P^{(\infty)}\) are not thereby verified as the external theorem’s hypotheses. The paired R2 organizes a possible \(H1\)–\(H4\) setting, but that organization is not a verbatim reproduction of Example 6.20. Thus, for Lean, the external theorem’s exact hypotheses, constants, and quantifier order remain unspecified; the repaired proof’s Theorem 1.3 is a supplied reconstruction, not original source confirmation. The target theorem does not state \(H1\)–\(H3\) in its own assumptions; do not import them into the selected result merely because the paired R2 context lists them.
+
+      9. Omitted proof objects. The original proof uses the Chinese-restaurant EPPF \(\operatorname{pr}(A\mid\alpha)=\alpha^s/\alpha^{(n)}\prod_{j=1}^s(a_j-1)!\) for partitions \(A=\{A_1,\dots,A_s\}\in\tau_s(n)\) with block sizes \(a_j\) (main.tex, equation \eqref{eq:EPPFDP}); the selected repaired proof defines \(\tau_s(n)\), \(\alpha^{(n)}\), and later \(C_{n,s},Z_{n,s},p_{n,s},r_{n,s}\) in Sections 0(b), 2.1, and 2.1–2.2. These objects are not in the target statement except insofar as \(K_n\) is defined. The original proof’s conditional probabilities and posterior versions are not measure-theoretically specified; the selected repaired proof chooses a regular conditional distribution and handles null denominators in Section 2 and Section 5. That is a proof-level specification, not an original source definition. The source leaves unresolved whether one uses a particular regular conditional version or only almost-sure statements.
+
+      10. Non-atomicity of \(Q_0\) and the original proof gap. The literal target theorem as supplied does not assume \(Q_0\) is non-atomic. However, the original proof’s step “conditional on \(K_n<t\), the domain of the posterior distribution is a subset of \(\cup_{s<t}\mathbb G_s\)” is not literally true for the infinite Dirichlet process mixture; the selected repaired proof says this explicitly in Remark 6.1 and adds in Section 0(a) the standing convention that \(Q_0\) is non-atomic, noting that this convention is an extra hypothesis relative to the literal target theorem and is used for the CRP partition, factorization of marginal likelihoods, and identification of the posterior Dirichlet base atoms. The bounded-support result in main.tex has assumption \(B3\): “\(Q_0\) is absolutely continuous with respect to the Lebesgue measure, and its density \(q_0\) is bounded,” which implies non-atomicity; but the target \(H4\) branch does not state \(B3\). For Lean, do not silently add non-atomicity to the target statement. Without it, the identification of \(K_n\) with CRP block count and the displayed proof are not covered by the original source; the source leaves the atomic case unresolved for this lemma.
+
+      11. Additional side conditions and unresolved ambiguities. The KL integral in \(H4\) uses a logarithm with denominator \(h(x)\); the original source does not spell out extended-real conventions, positivity, or absolute continuity of \(h\) with respect to \(P\). The selected repaired proof’s Section 1 addresses these issues inside a reconstructed proof, but that is not original source evidence. The target statement assumes \(\theta_j^*\in\operatorname{supp}Q_0\), not that \(Q_0\) is continuous or has density. The weak neighborhood \(\mathcal U\) is not described by a basis in the target statement; the repaired proof chooses a basic finite-test-function neighborhood \(V_\epsilon\subseteq\mathcal U\) and a smaller \(V_{\epsilon/2}\), which is proof-level. For \(s<t\), \(\mathbb G_s\) is nonempty in the repaired proof because the distinct true parameters \(\theta_1^*,\dots,\theta_t^*\) supply an \(s\)-subset; this uses that \(P\in\mathbb G_t\) has distinct \(\theta_j^*\). Finally, the original sources distinguish \(P^{(n)}\) and \(P^{(\infty)}\) as the laws of \(X_{1:n}\) and \(X_{1:\infty}\) under i.i.d. sampling from the true \(P\) (“Target theorem, Definitions and notation”; main.tex, equation \eqref{true}), not under the DPM prior; posterior probabilities are computed under the DPM model. That model-versus-truth distinction must be preserved.
+      <!-- /formalization-clarifications -->
+
+      Let assumption \(H4\) be satisfied and let \(P\in\mathbb G_t\) with parameters \(\theta_1^*,\dots,\theta_t^*\) belonging to the support of \(Q_0\). Assume there exists a weak neighborhood \(\mathcal U\) of \(P\) such that \(\mathcal U\cap\mathbb G_s=\varnothing\) for every \(s<t\). Then
+      \[
+      \operatorname{pr}\bigl(K_n<t\mid X_{1:n}\bigr)\longrightarrow0
+      \]
+      in \(P^{(\infty)}\)-probability as \(n\to\infty\).
+    assumptions:
+      - |-
+        \(H4.\) For every \(P\in\mathbb G_t\), \(t\ge1\), with \(\theta_1^*,\dots,\theta_t^*\in\operatorname{supp}Q_0\),
+        \[
+        \operatorname{pr}\bigl(h\in KL_\epsilon(P)\bigr)>0
+        \]
+        for every \(\epsilon>0\), where \(h\) follows the Dirichlet process mixture prior.
+    proof_body: |-
+      #### Proof of the target theorem
+
+      We prove the statement under the definitions and assumptions of the task. The argument keeps the structure of the supplied proof, namely weak posterior consistency of $h$ at $P$ combined with a total-probability inequality, but it repairs the step asserting that conditionally on $K_n<t$ the density $h$ is supported on $\cup_{s<t}\mathbb G_s$. That assertion is not literally true, since $h$ is an infinite mixture even when $K_n<t$. The correct statement, proved in Lemma 4.1, is that conditionally on $K_n=s<t$ the density $h$ lies, with probability tending to one, outside any fixed basic weak neighbourhood of $\mathbb G_s$; this follows from the vanishing posterior mass of the unobserved Dirichlet process atoms and is exactly what the conclusion needs. In addition, the consistency step invoked via Schwartz's theorem is stated in full and proved here (Section 1), so that no part of the argument rests on an unverified citation.
+      One hypothesis is needed in addition to the literal hypotheses of the statement, namely that $Q_0$ is non-atomic. The source assumes a bounded Lebesgue density $q_0$ for $Q_0$ (assumption $B3$) in its bounded-support consistency results, and both of its worked examples have such a density, hence a non-atomic base measure; the branch $H1$--$H4$ used for the present theorem imposes no further condition on $Q_0$, so the convention is added explicitly here. It is what makes the partition (Chinese-restaurant) description of the latent parameters valid. The convention is stated in Section 0(a), and the exact places where it is used, together with what is not covered for an atomic $Q_0$, are recorded in Remark 6.2.
+
+      **Statement proved.** The proof is carried out under the standing convention of Section 0(a) that $Q_0$ is non-atomic; under that convention $K_n$, the number of distinct latent parameters, coincides almost surely with the number of blocks of the associated partition, and this is the quantity treated below. With this convention, let $(H4)$ be satisfied, let $t\ge1$ and let $P\in\mathbb G_t$ have parameters $\theta_1^*,\dots,\theta_t^*\in\operatorname{supp}Q_0$, and assume that there is a weak neighbourhood $\mathcal U$ of $P$ with $\mathcal U\cap\mathbb G_s=\varnothing$ for every $s<t$. Then
+      \[
+      \operatorname{pr}\bigl(K_n<t\mid X_{1:n}\bigr)\longrightarrow 0
+      \qquad\text{in }P^{(\infty)}\text{-probability as }n\to\infty .
+      \]
+      Section 1 proves the Schwartz consistency step from $(H4)$ alone; Sections 2--4 prove the conditional exclusion of the smaller neighbourhood $\mathcal U_0\subseteq\mathcal U$ on $\{K_n<t\}$; Section 5 assembles the two through the total-probability inequality.
+
+
+      #### 0. Conventions and notation
+
+      **(a) The base measure.** In the source, $Q_0$ is assumed to have a bounded density $q_0$ with respect to Lebesgue measure (assumption $B3$) for the bounded-support consistency results, and both worked examples (uniform and Gaussian $Q_0$) are of this kind; such a $Q_0$ is non-atomic. Also, the identity $\operatorname{pr}(\theta_i=\theta_j)=1/(\alpha+1)$, $i\ne j$, quoted in the source, is the value holding for a non-atomic $Q_0$, and it becomes larger when $Q_0$ has atoms. Accordingly we work under the standing assumption that $Q_0$ is non-atomic. Under this assumption the partition of $\{1,\dots,n\}$ induced by the ties $\theta_i=\theta_j$ is exactly the Chinese restaurant partition, so that $K_n$ (the number of distinct latent parameters) coincides almost surely with the number of blocks of that partition. All computations below are computations for this block count, and we identify the two. See Remark 6.2 for a discussion of this convention.
+
+      **(b) Partitions and falling factorials.** For $n\ge1$ and $1\le s\le n$, let $\tau_s(n)$ be the set of partitions $A=\{A_1,\dots,A_s\}$ of $\{1,\dots,n\}$ into $s$ nonempty blocks, and put $a_j=|A_j|$. We write
+      \[
+      \alpha^{(n)}=\alpha(\alpha+1)\cdots(\alpha+n-1)=\frac{\Gamma(\alpha+n)}{\Gamma(\alpha)},\qquad n\ge1,
+      \]
+      and $\alpha^{(0)}=1$.
+
+      **(c) Densities, measures and priors.** Throughout, $\Pi$ denotes the prior law of $h$, so that $\Pi(A)=\operatorname{pr}(h\in A)$, and $\pi$ denotes the prior law of $\alpha$, a probability measure on $(0,\infty)$. A density $g$ is identified with the probability measure $P_g(dx)=g(x)\mu(dx)$, so that $\int\varphi\,dP_g=\int\varphi g\,d\mu$. The true density is
+      \[
+      p_0(x)=\sum_{j=1}^t p_jk(x\mid\theta_j^*);
+      \]
+      its law is $P=P_{p_0}$, and $P^{(n)}$, $P^{(\infty)}$ denote the laws of $X_{1:n}$ and $X_{1:\infty}$. For a block $B$ of a partition we write
+      \[
+      m(x_B)=\int\prod_{i\in B}k(x_i\mid\theta)\,Q_0(d\theta)
+      \]
+      for the corresponding marginal density with respect to $\mu^{|B|}$.
+
+      ---
+
+      #### 1. Weak posterior consistency at $P$ (Schwartz's theorem)
+
+      The first ingredient is that assumption $H4$ implies posterior consistency of $h$ at $P$ in the weak topology. This is the Schwartz theorem cited as [R1], [R2] in the supplied proof; we state it in the precise form needed and prove it, so that the argument is self-contained. We fix the version of the posterior that will be used. For $x_{1:n}$ with $p_0(x_i)>0$ for all $i$, and a measurable set $A$ of densities, set
+      \[
+      \operatorname{pr}(h\in A\mid X_{1:n}=x_{1:n})
+      :=\frac{N_n(A)}{W_n},\qquad
+      N_n(A):=\int_A\prod_{i=1}^n\frac{h(x_i)}{p_0(x_i)}\,\Pi(dh),\qquad
+      W_n:=N_n(\mathcal H),
+      \tag{1.1}
+      \]
+      where $\mathcal H$ is the set of all densities, whenever $W_n<\infty$; if $W_n=0$ the posterior mass is set equal to $0$. Since $P(p_0=0)=\int_{\{p_0=0\}}p_0\,d\mu=0$, the ratios $h(X_i)/p_0(X_i)$ are well defined $P^{(\infty)}$-almost surely, and (1.1) is a version of the posterior (it is a ratio of the joint density of $(X_{1:n},h)$ to the marginal density of $X_{1:n}$). Moreover $0<W_n<\infty$ for $P^{(\infty)}$-almost every $x_{1:n}$, so that (1.1) is well defined almost surely. *Finiteness:* the function $p_n(x)=\int\prod_{i\le n}h(x_i)\,\Pi(dh)$ is the density of the prior predictive law of $X_{1:n}$, hence is finite $\mu^n$-a.e., and $P^n\ll\mu^n$ gives $P^n(p_n=\infty)=0$. *Positivity:* put $N=\{x\in\mathbb X^n:p_n(x)=0\}$. By Tonelli's theorem $\int_N p_n\,dx=\int\Pi(dh)\,P_h^n(N)$, and $p_n$ vanishes on $N$, so $P_h^n(N)=0$ for $\Pi$-almost every $h$. By $(H4)$ the set $\{h:K(P,h)<\infty\}$ has positive $\Pi$-measure, and the set $\{h:P_h^n(N)=0\}$ has full $\Pi$-measure, so their intersection is nonempty; choose $h_0$ in it. Then $\int\log^-(h_0/p_0)\,dP\le K(P,h_0)+1<\infty$, so $P(h_0=0)=0$, i.e.\ $h_0>0$ $P$-a.e.; moreover $\int(p_0/h_0)\,dP_{h_0}=\int p_0\,d\mu=1<\infty$, so $P^n\ll P_{h_0}^n$. Hence $P^n(N)=0$. Therefore $0<W_n=p_n(x)\prod_{i\le n}p_0(x_i)^{-1}<\infty$ for $P^{(\infty)}$-almost every $x_{1:n}$, and (1.1) is a genuine posterior version there.
+
+      **Lemma 1.1** (evidence lower bound; the KL step of Schwartz's theorem). *Assume (H4). Then for every $\epsilon>0$,
+      \[
+      P^{(\infty)}\Bigl(\liminf_{n\to\infty}\frac1n\log W_n\ge-\epsilon\Bigr)=1 .
+      \]*
+
+      *Proof.* Fix $\epsilon>0$ and put $\epsilon_1=\epsilon/2$. By (H4) the set
+      \[
+      B:=\Bigl\{h\in\mathcal H:\ K(P,h):=\int\log\frac{p_0}{h}\,dP<\epsilon_1\Bigr\}
+      \]
+      has mass $b:=\Pi(B)>0$ (here $B$ is measurable for the $\sigma$-algebra of the space of densities on which $\Pi$ is defined, on which $h\mapsto\int\log h\,dP$ is measurable whenever it is finite; this is the standard setting for a prior on densities); let $\Pi_B(dh)=\Pi(dh)/b$ be the normalized restriction. For $h\in\mathcal H$ define $g_h=\log(h/p_0)$ on $\{p_0>0\}$ and $g_h=0$ on $\{p_0=0\}$; the latter set is $P$-null, so this choice is immaterial for $P$-integrals.
+
+      We record three facts valid for every $h\in B$. First,
+      \[
+      \int g_h\,dP=-K(P,h)\in(-\epsilon_1,0].
+      \tag{1.2a}
+      \]
+      Second, by $\log t\le t-1$ applied to $t=h/p_0$ on $\{p_0>0\}$,
+      \[
+      \int g_h^+\,dP=\int_{\{h>p_0\}}p_0\log\frac hp_0\,d\mu\ \le\ \int_{\{h>p_0\}}(h-p_0)\,d\mu\ \le\ \int h\,d\mu=1 .
+      \tag{1.2b}
+      \]
+      Third, since $K(P,h)=\int g_h^-\,dP-\int g_h^+\,dP$ by (1.2a), the two displays give
+      \[
+      \int g_h^-\,dP=K(P,h)+\int g_h^+\,dP\le \epsilon_1+1 .
+      \tag{1.2c}
+      \]
+      In particular $g_h\in L^1(P)$ with $\int|g_h|\,dP\le 2+\epsilon_1$ for every $h\in B$; and $\int g_h^-\,dP<\infty$ forces $P(h=0)=0$, because $h=0$ on a set of positive $P$-measure would make $\int g_h^-\,dP$ infinite. Hence $g_h(X_1)$ is finite $P$-almost surely.
+
+      Define $\bar g(x)=\int_B g_h(x)\,\Pi_B(dh)$. By (1.2b)--(1.2c) and Tonelli's theorem applied to the nonnegative functions $g_h^\pm$,
+      \[
+      \int|\bar g|\,dP\le\int_B\Bigl(\int|g_h|\,dP\Bigr)\Pi_B(dh)\le 2+\epsilon_1<\infty,
+      \qquad
+      \int\bar g\,dP=\int_B\Bigl(\int g_h\,dP\Bigr)\Pi_B(dh)=-\int_B K(P,h)\,\Pi_B(dh)\ \ge\ -\epsilon_1 .
+      \tag{1.3}
+      \]
+      Hence $\bar g\in L^1(P)$ and, by the strong law of large numbers under $P$,
+      \[
+      \frac1n\sum_{i=1}^n\bar g(X_i)\ \longrightarrow\ \int\bar g\,dP\ \ge\ -\epsilon_1
+      \qquad P^{(\infty)}\text{-a.s.}
+      \tag{1.4}
+      \]
+
+      Next, put $S_n(h)=\sum_{i=1}^n g_h(X_i)$. We apply Jensen's inequality in its one-sided form to the probability measure $\Pi_B$: if $\int f^-\,d\Pi_B<\infty$, then $\log\int e^{f}\,d\Pi_B\ge\int f\,d\Pi_B$. Indeed, for the truncation $f_M=f\wedge M$ the bounded case gives $\log\int e^{f_M}\,d\Pi_B\ge\int f_M\,d\Pi_B$; as $M\to\infty$ one has $e^{f_M}\uparrow e^{f}$, so the left side increases to $\log\int e^{f}\,d\Pi_B$ (monotone convergence, with value $+\infty$ allowed), while $f_M^-\le f^-$ is integrable and $f_M\to f$, so $\int f_M\,d\Pi_B\to\int f\,d\Pi_B$ by monotone convergence for the positive parts and dominated convergence for the nonnegative integrable sequence $f_M^-$. We verify the hypothesis for $f=S_n$. Since $S_n^-\le\sum_{i=1}^n g_h^-(X_i)$, Tonelli's theorem for the nonnegative integrand $(h,i,x)\mapsto g_h^-(x)$ gives
+      \[
+      \int_B S_n^-(h)\,\Pi_B(dh)\ \le\ \sum_{i=1}^n\int_B g_h^-(X_i)\,\Pi_B(dh),
+      \]
+      and the right-hand side is finite $P^{(\infty)}$-almost surely. To see this, note that by (1.2b)--(1.2c) and Tonelli's theorem,
+      \[
+      \int\Bigl(\int_B|g_h(x)|\,\Pi_B(dh)\Bigr)\,P(dx)
+      =\int_B\Bigl(\int|g_h|\,dP\Bigr)\,\Pi_B(dh)\le 2+\epsilon_1<\infty ,
+      \]
+      so the function $x\mapsto\int_B|g_h(x)|\,\Pi_B(dh)$ belongs to $L^1(P)$ and is therefore finite at $X_1,\dots,X_n$ almost surely; as this function dominates $\bigl|\int_B g_h(X_i)\,\Pi_B(dh)\bigr|$, the displayed sum is finite almost surely. Consequently the one-sided Jensen inequality applies and
+      \[
+      \log\int_B e^{S_n(h)}\,\Pi_B(dh)\ \ge\ \int_B S_n\,d\Pi_B
+      =\sum_{i=1}^n\int_B g_h(X_i)\,\Pi_B(dh)=\sum_{i=1}^n\bar g(X_i),
+      \tag{1.5}
+      \]
+      the middle identity being Fubini, legitimate because
+      $\int_B\sum_{i\le n}|g_h(X_i)|\,d\Pi_B=\sum_{i\le n}\int_B|g_h(X_i)|\,\Pi_B(dh)<\infty$ almost surely by the preceding display.
+
+      Finally $\prod_{i\le n}\{h(X_i)/p_0(X_i)\}=\exp\{S_n(h)\}$ and therefore
+      \[
+      W_n=\int \exp\{S_n(h)\}\,\Pi(dh)\ \ge\ b\int_B\exp\{S_n(h)\}\,\Pi_B(dh).
+      \]
+      Taking logarithms, dividing by $n$ and inserting (1.5) and (1.4) gives $P^{(\infty)}$-almost surely
+      \[
+      \liminf_{n\to\infty}\frac1n\log W_n\ \ge\ \lim_{n\to\infty}\frac1n\sum_{i=1}^n\bar g(X_i)\ =\ \int\bar g\,dP\ \ge\ -\epsilon_1>-\epsilon ,
+      \]
+      which is the assertion. $\square$
+
+      **Lemma 1.2** (tests for complements of weak neighbourhoods). *Let $V$ be a weak neighbourhood of $P$. Then there exist $c>0$ and test functions $\phi_n:\mathbb X^n\to[0,1]$ such that for all $n$,
+      \[
+      P^n\phi_n\le 2k\,e^{-nc},\qquad \sup_{Q\in V^c}Q^n(1-\phi_n)\le 2\,e^{-nc}.
+      \]*
+
+      *Proof.* By definition of the weak topology there are $k\ge1$, bounded continuous functions $\varphi_1,\dots,\varphi_k$ and $\epsilon>0$ such that the basic weak neighbourhood
+      \[
+      V_\epsilon:=\bigcap_{j=1}^k\Bigl\{Q:\Bigl|\int\varphi_j\,dQ-\int\varphi_j\,dP\Bigr|<\epsilon\Bigr\}
+      \]
+      is contained in $V$. Put $M=\max_j\|\varphi_j\|_\infty$. If $M=0$ then all $\varphi_j$ vanish and $V_\epsilon$ is the set of all probability measures, so that $V^c=\varnothing$ and the claim is void; assume $M>0$ and set $c=\epsilon^2/(8M^2)$. Define
+      \[
+      \phi_n=\mathbf 1\Bigl\{\max_{1\le j\le k}\Bigl|\frac1n\sum_{i=1}^n\varphi_j(X_i)-\int\varphi_j\,dP\Bigr|\ge\frac{\epsilon}{2}\Bigr\}.
+      \]
+      Hoeffding's inequality for averages of independent bounded random variables with $|\varphi_j|\le M$ states that
+      $\operatorname{pr}(|\frac1n\sum_i Y_i-EY_1|\ge t)\le2e^{-nt^2/(2M^2)}$; with $t=\epsilon/2$ the exponent is $nc$. Hence, by the union bound,
+      $P^n\phi_n\le 2k e^{-nc}$. Next let $Q\in V_\epsilon^c$. Then there is $j$ with $|\int\varphi_j\,dQ-\int\varphi_j\,dP|\ge\epsilon$. On the event $\{\phi_n=0\}$ we have $|\frac1n\sum_i\varphi_j(X_i)-\int\varphi_j\,dP|<\epsilon/2$, hence $|\frac1n\sum_i\varphi_j(X_i)-\int\varphi_j\,dQ|\ge\epsilon/2$, and Hoeffding's inequality under $Q$ gives $Q^n(\phi_n=0)\le 2e^{-nc}$. Since $V^c\subseteq V_\epsilon^c$, the asserted bounds hold. $\square$
+
+      **Theorem 1.3.** *Assume (H4). Then for every weak neighbourhood $V$ of $P$,
+      \[
+      \operatorname{pr}(h\in V^c\mid X_{1:n})\longrightarrow0
+      \qquad\text{in }P^{(\infty)}\text{-probability as }n\to\infty .\]*
+
+      *Proof.* Fix a weak neighbourhood $V$ and let $c>0$ and $\phi_n$ be as in Lemma 1.2 (constructed from a basic neighbourhood $V_\epsilon\subseteq V$). Write $A_V=\{h:P_h\in V^c\}$ and abbreviate $N_n=N_n(A_V)$ in the notation of (1.1). Since $\phi_n\in\{0,1\}$,
+      \[
+      \operatorname{pr}(h\in V^c\mid X_{1:n})=\frac{N_n}{W_n}\le\phi_n+(1-\phi_n)\frac{N_n}{W_n}
+      \tag{1.6}
+      \]
+      on $\{W_n>0\}$.
+
+      *Numerator.* Since $h\mapsto P_h^n$ is the law of $X_{1:n}$ given $h$, Tonelli's theorem gives
+      \[
+      E_{P}\bigl[N_n(1-\phi_n)\bigr]
+      =\int_{A_V}P_h^n(1-\phi_n)\,\Pi(dh)
+      \le \sup_{Q\in V^c}Q^n(1-\phi_n)\le 2e^{-nc},
+      \]
+      where we used $A_V\subseteq V^c$ and Lemma 1.2. By Markov's inequality,
+      \[
+      P^{(\infty)}\bigl(N_n(1-\phi_n)\ge 2e^{-nc/2}\bigr)\le e^{-nc/2}.
+      \tag{1.7}
+      \]
+
+      *Denominator.* Apply Lemma 1.1 with $\epsilon=c/8$. On a set of $P^{(\infty)}$-probability one, $\liminf_{n\to\infty}n^{-1}\log W_n\ge-c/8$, hence for such a realization and all sufficiently large $n$
+      \[
+      W_n\ \ge\ e^{-n(c/8+c/8)}=e^{-nc/4},
+      \tag{1.8}
+      \]
+      i.e.\ there is a finite $n_0=n_0(\omega)$ with $W_n\ge e^{-nc/4}$ for all $n\ge n_0$, and $P^{(\infty)}(n_0<\infty)=1$. Consequently $P^{(\infty)}(W_n<e^{-nc/4})\le P^{(\infty)}(n_0>n)\to0$ as $n\to\infty$.
+
+      *Conclusion.* Let $\delta>0$. Define the event
+      \[
+      \Omega_n=\{W_n\ge e^{-nc/4},\ N_n(1-\phi_n)\le 2e^{-nc/2},\ \phi_n=0\}.
+      \]
+      On $\Omega_n$, (1.6) gives $\operatorname{pr}(h\in V^c\mid X_{1:n})\le 2e^{-nc/4}$. Hence, for $n$ so large that $2e^{-nc/4}\le\delta$, one has $\{\operatorname{pr}(h\in V^c\mid X_{1:n})>\delta\}\subseteq\Omega_n^c$, and by (1.7), (1.8) and Lemma 1.2,
+      \[
+      P^{(\infty)}\bigl(\operatorname{pr}(h\in V^c\mid X_{1:n})>\delta\bigr)
+      \le P^{(\infty)}(\Omega_n^c)\le 2k e^{-nc}+e^{-nc/2}+P^{(\infty)}(W_n<e^{-nc/4})\longrightarrow0 .
+      \]
+      As $\delta>0$ was arbitrary, the claim follows. $\square$
+
+      **Corollary 1.4.** *In the setting of the task, assume (H4). Then for every weak neighbourhood $V$ of $P$,
+      \[
+      \operatorname{pr}\bigl(h\in V^c\mid X_{1:n}\bigr)\longrightarrow0
+      \qquad\text{in }P^{(\infty)}\text{-probability as }n\to\infty .
+      \]*
+
+      *Proof.* This is Theorem 1.3 with the prior $\Pi$ the law of $h$ under the Dirichlet process mixture prior and $p_0$ the density of $P\in\mathbb G_t$; hypothesis (H4) of the task is precisely the KL condition used in Lemma 1.1. $\square$
+
+      #### 2. The conditional law of $\alpha$ given $K_n=s$
+
+      The second ingredient is that, conditionally on the event that the partition has $s$ blocks, the concentration parameter is independent of the data, with a law that can be written down explicitly and whose mass drifts to $0$.
+      In this section and in Sections 3--5, $\operatorname{pr}(\cdot\mid X_{1:n})$ denotes a version of the joint posterior law of $(\alpha,\theta_{1:n},\tilde P)$ given $X_{1:n}$, obtained by Bayes' rule from the prior of the task and the likelihood $\prod_{i\le n}k(X_i\mid\theta_i)$. Explicitly, for a measurable set $C$ of triples and $x_{1:n}$ with positive marginal density,
+      \[
+      \operatorname{pr}\bigl((\alpha,\theta_{1:n})\in C\mid X_{1:n}=x_{1:n}\bigr)
+      =\frac{\int_C\prod_{i\le n}k(x_i\mid\theta_i)\,P_\alpha(d\theta_{1:n})\,\pi(d\alpha)}
+      {\int\prod_{i\le n}k(x_i\mid\theta_i)\,P_\alpha(d\theta_{1:n})\,\pi(d\alpha)},
+      \]
+      where $P_\alpha$ is the law of $\theta_{1:n}$ under $\mathrm{DP}(\alpha,Q_0)$; the posterior of $\tilde P$ is then obtained from the conditional law of $\tilde P$ given $(\alpha,\theta_{1:n})$, which does not involve $x_{1:n}$. The posterior probabilities of events determined by $(h,K_n)$ are the push-forwards of this law, and they are the same for every version; on the $P^{(\infty)}$-null set where the denominator vanishes the posterior may be defined arbitrarily. The densities exhibited in (2.4) below are precisely the densities of these joint laws, so all computations of conditional probabilities that follow are computations with these versions.
+      Finally, the posterior distribution of the random density $h=\int k(\cdot\mid\theta)\tilde P(d\theta)$ induced by this joint law coincides with the object defined in (1.1). Indeed, the prior law $\Pi$ of $h$ is the image of the prior law of $\tilde P$, and given $\tilde P$ the observations are i.i.d.\ with density $h$; hence the conditional law of $h$ given $X_{1:n}$ is proportional to $\Pi(dh)\prod_{i=1}^n h(X_i)$, which, after multiplication of numerator and denominator by $\prod_i p_0(X_i)^{-1}$, is exactly (1.1). In particular Theorem 1.3 applies to this posterior.
+
+      **Lemma 2.1.** *Fix $n\ge s\ge1$ and define
+      \[
+      C_{n,s}=\sum_{A\in\tau_s(n)}\prod_{j=1}^s(a_j-1)!,
+      \qquad
+      Z_{n,s}=\int\pi(d\alpha)\,\frac{\alpha^s}{\alpha^{(n)}},
+      \qquad
+      p_{n,s}(d\alpha)=\frac{\pi(d\alpha)\,\alpha^s/\alpha^{(n)}}{Z_{n,s}} .
+      \tag{2.1}
+      \]
+      Then $0<Z_{n,s}<\infty$, and under the Dirichlet process mixture prior the random variables $\alpha$ and $X_{1:n}$ are conditionally independent given $K_n=s$; the regular conditional distribution of $\alpha$ given $(X_{1:n},K_n=s)$ is $p_{n,s}$. In particular
+      \[
+      E\Bigl[\frac{\alpha}{\alpha+n}\,\Bigm|\,X_{1:n},K_n=s\Bigr]
+      =\int\frac{\alpha}{\alpha+n}\,p_{n,s}(d\alpha)=:r_{n,s}
+      \tag{2.2}
+      \]
+      is deterministic, i.e.\ does not depend on $X_{1:n}$.*
+
+      *Proof.* For $A=\{A_1,\dots,A_s\}\in\tau_s(n)$ let $a_j=|A_j|$. The Chinese restaurant representation of the Dirichlet process (which uses that $Q_0$ is non-atomic) gives, conditionally on $\alpha$,
+      \[
+      \operatorname{pr}(\Pi_n=A\mid\alpha)=\frac{\alpha^{s}}{\alpha^{(n)}}\prod_{j=1}^{s}(a_j-1)!,
+      \tag{2.3}
+      \]
+      where $\Pi_n$ denotes the partition of $\{1,\dots,n\}$ into blocks of equal latent parameters; and conditionally on $\Pi_n=A$ and on the $s$ distinct latent values $\hat\theta_1,\dots,\hat\theta_s$, the observations in different blocks are independent with densities $k(\cdot\mid\hat\theta_j)$, the values being independent with law $Q_0$. Integrating out the latent values yields, for the joint density of $(X_{1:n},\Pi_n)$ with respect to $\mu^n\otimes(\text{counting measure})$, the expression
+      \[
+      \operatorname{pr}(X_{1:n}\in dx,\,\Pi_n=A\mid\alpha)
+      =\frac{\alpha^{s}}{\alpha^{(n)}}\Bigl(\prod_{j=1}^{s}(a_j-1)!\Bigr)\prod_{j=1}^{s}m(x_{A_j})\,dx .
+      \tag{2.4}
+      \]
+      Since $\int m(x_B)\,dx_B=1$ for every block $B$, the function
+      \[
+      G_n(x)=\frac{1}{C_{n,s}}\sum_{A\in\tau_s(n)}\Bigl(\prod_{j=1}^{s}(a_j-1)!\Bigr)\prod_{j=1}^{s}m(x_{A_j})
+      \tag{2.5}
+      \]
+      is a probability density on $\mathbb X^n$: indeed each summand integrates to $\prod_j(a_j-1)!$ over $x\in\mathbb X^n$. Summing (2.4) over $A\in\tau_s(n)$ and using $K_n=s\iff\Pi_n$ has $s$ blocks gives
+      \[
+      \operatorname{pr}(X_{1:n}\in dx,\,K_n=s\mid\alpha)=\frac{\alpha^{s}}{\alpha^{(n)}}\,C_{n,s}\,G_n(x)\,dx .
+      \tag{2.6}
+      \]
+      Integrating over $x$ yields $\operatorname{pr}(K_n=s\mid\alpha)=C_{n,s}\alpha^{s}/\alpha^{(n)}$, hence
+      \[
+      \operatorname{pr}(K_n=s)=C_{n,s}Z_{n,s}.
+      \tag{2.7}
+      \]
+      Consequently the joint law of $(X_{1:n},\alpha)$ given $K_n=s$ is proportional to
+      \[
+      \pi(d\alpha)\,\frac{\alpha^{s}}{\alpha^{(n)}}\,G_n(x)\,dx ,
+      \]
+      which factorizes into a function of $\alpha$ and a function of $x$. This proves both the conditional independence and the formula for the conditional law of $\alpha$. Formula (2.2) is then immediate.
+
+      It remains to note that $0<Z_{n,s}<\infty$. Write $w_n(\alpha)=\alpha^s/\alpha^{(n)}=\alpha^{s-1}\Gamma(1+\alpha)/\Gamma(n+\alpha)$. This function is continuous on $(0,\infty)$, bounded (it tends to $0$ as $\alpha\to\infty$ when $n>s$ and to $1$ when $n=s\ge1$, and it has a finite limit as $\alpha\to0$), hence $Z_{n,s}<\infty$. Moreover $\pi$ is a probability measure on $(0,\infty)=\bigcup_{k\ge1}[1/k,k]$, so there are $0<a<b<\infty$ with $\pi([a,b])>0$, and $w_n>0$ on $[a,b]$; hence $Z_{n,s}\ge\pi([a,b])\inf_{[a,b]}w_n>0$. $\square$
+
+      #### 3. Vanishing residual mass of the unobserved Dirichlet process atoms
+
+      **Fact 3.1** (posterior Dirichlet process and its decomposition). *Let $\Pi_n=A=\{A_1,\dots,A_s\}$ with block sizes $n_j=|A_j|$, and let $\hat\theta_1,\dots,\hat\theta_s$ be the distinct latent values. Conditionally on $(\alpha,X_{1:n},\Pi_n=A,\hat\theta_{1:s})$,
+      \[
+      \tilde P\mid \alpha,X_{1:n},A,\hat\theta_{1:s}
+      \ \sim\ \mathrm{DP}\Bigl(\alpha+n,\ \frac{\alpha Q_0+\sum_{j=1}^{s}n_j\delta_{\hat\theta_j}}{\alpha+n}\Bigr).
+      \tag{3.1}
+      \]
+      Consequently there exist independent random objects
+      \[
+      (w_1,\dots,w_s,1-W)\sim\mathrm{Dirichlet}(n_1,\dots,n_s,\alpha),
+      \qquad
+      \tilde P'\sim\mathrm{DP}(\alpha,Q_0),
+      \]
+      with $\sum_{j=1}^s w_j=W$, such that
+      \[
+      \tilde P=\sum_{j=1}^{s}w_j\delta_{\hat\theta_j}+(1-W)\tilde P',
+      \qquad\text{hence}\qquad
+      h=Wf+(1-W)h',
+      \tag{3.2}
+      \]
+      where $f=\sum_{j=1}^s(w_j/W)k(\cdot\mid\hat\theta_j)\in\mathbb G_s$ and $h'=\int k(\cdot\mid\theta)\tilde P'(d\theta)$. In particular $W\sim\mathrm{Beta}(n,\alpha)$, so that
+      \[
+      E[\,1-W\mid\alpha,X_{1:n},\Pi_n=A,\hat\theta_{1:s}\,]=\frac{\alpha}{\alpha+n}.
+      \tag{3.3}
+      \]*
+
+      *Justification.* The conjugacy formula (3.1) is the standard Dirichlet process posterior computation: the Dirichlet process prior is conjugate for i.i.d.\ sampling, with posterior base $\alpha Q_0+\sum_{i\le n}\delta_{\theta_i}$ and posterior concentration $\alpha+n$. The decomposition (3.2) is the standard splitting of a Dirichlet process whose base measure has finitely many atoms: if $\tilde P\sim\mathrm{DP}(M,H)$ and $H_p$ denotes the part of $H$ carried by the atoms $a_1,\dots,a_s$, then $\tilde P=\sum_{k}\tilde P(\{a_k\})\delta_{a_k}+(1-\sum_k\tilde P(\{a_k\}))\tilde P'$ with $(\tilde P(\{a_1\}),\dots,\tilde P(\{a_s\}),1-\sum_k\tilde P(\{a_k\}))\sim\mathrm{Dirichlet}(MH(\{a_1\}),\dots,MH(\{a_s\}),M(1-H_p))$ and $\tilde P'\sim\mathrm{DP}(M(1-H_p),H_{\mathrm{cont}})$ independent. Here $M=\alpha+n$, $H=(\alpha Q_0+\sum_j n_j\delta_{\hat\theta_j})/(\alpha+n)$, and $H(\{\hat\theta_j\})=n_j/(\alpha+n)$ because $Q_0$ is non-atomic; hence the residual mass parameter is $\alpha$ with residual base $Q_0$. The last display follows since the sum of the first $s$ components of a Dirichlet vector with total parameter $\alpha+n$ is $\mathrm{Beta}(n,\alpha)$, whose mean is $n/(\alpha+n)$. $\square$
+      Finally, conditioning on $X_{1:n}$ in addition to $(\alpha,\theta_{1:n},\Pi_n,\hat\theta_{1:s})$ does not change the conditional law of $\tilde P$: the likelihood $\prod_{i\le n}k(X_i\mid\theta_i)$ is a function of $\theta_{1:n}$ alone, so $\tilde P$ and $X_{1:n}$ are conditionally independent given $(\alpha,\theta_{1:n})$, and (3.1) remains valid with $X_{1:n}$ added to the conditioning.
+
+      **Lemma 3.2.** *Fix $s\ge1$ and a probability measure $\pi$ on $(0,\infty)$. With $p_{n,s}$ and $r_{n,s}$ as in (2.1)--(2.2),
+      \[
+      r_{n,s}=\int\frac{\alpha}{\alpha+n}\,p_{n,s}(d\alpha)\longrightarrow0
+      \qquad (n\to\infty).\]*
+
+      *Proof.* Put $w_n(\alpha)=\alpha^{s}/\alpha^{(n)}=\alpha^{s-1}\Gamma(1+\alpha)/\Gamma(n+\alpha)$, so that $p_{n,s}(d\alpha)=\pi(d\alpha)w_n(\alpha)/Z_{n,s}$ with $Z_{n,s}=\int w_n\,d\pi\in(0,\infty)$ by Lemma 2.1.
+
+      Choose $0<a<b<\infty$ with $\pi([a,b])>0$ (possible since $\pi$ is a probability measure on $(0,\infty)=\bigcup_{k\ge1}[1/k,k]$) and a number $K>\max\{2s,b\}$. Since $\alpha\mapsto\Gamma(n+\alpha)$ is smooth and positive on $(0,\infty)$ and $\psi=\Gamma'/\Gamma$, we have for every $\alpha>0$
+      \[
+      \frac{d}{d\alpha}\log w_n(\alpha)
+      =\frac{s-1}{\alpha}+\psi(1+\alpha)-\psi(n+\alpha)
+      =\frac{s-1}{\alpha}-\sum_{i=1}^{n-1}\frac{1}{\alpha+i},
+      \tag{3.4}
+      \]
+      because $\psi(n+\alpha)-\psi(1+\alpha)=\sum_{i=1}^{n-1}(\alpha+i)^{-1}$. For $n\ge 2s$ and $\alpha\ge K>2s$ this derivative is nonpositive: since $\sum_{i=1}^{n-1}(\alpha+i)^{-1}\ge (n-1)/(\alpha+n-1)$, it suffices to verify
+      \[
+      \frac{s-1}{\alpha}\le\frac{n-1}{\alpha+n-1},
+      \qquad\text{i.e.}\qquad
+      (s-1)(\alpha+n-1)\le \alpha(n-1),
+      \]
+      and the difference of the two sides equals
+      \[
+      \alpha(n-1)-(s-1)(\alpha+n-1)=\alpha(n-s)-(s-1)(n-1)\ \ge\ 2s(n-s)-sn=s(n-2s)\ \ge\ 0,
+      \]
+      where we used $\alpha\ge 2s$, $(s-1)(n-1)\le sn$ and $n\ge 2s$. Hence $w_n$ is nonincreasing on $[K,\infty)$, and since $w_n$ is continuous,
+      \[
+      \sup_{\alpha\ge K}w_n(\alpha)=w_n(K)=\frac{K^{s-1}\Gamma(1+K)}{\Gamma(n+K)} .
+      \tag{3.5}
+      \]
+      On the other hand, for $\alpha\in[a,b]$,
+      \[
+      w_n(\alpha)=\frac{\alpha^{s-1}\Gamma(1+\alpha)}{\Gamma(n+\alpha)}\ \ge\ \frac{c_{a,b}}{\Gamma(n+b)},
+      \qquad c_{a,b}:=\inf_{t\in[a,b]}t^{s-1}\Gamma(1+t)>0,
+      \]
+      where the infimum is positive because $t\mapsto t^{s-1}\Gamma(1+t)$ is continuous and strictly positive on the compact interval $[a,b]$, and where we used $n+\alpha\le n+b$ together with the monotonicity of $\Gamma$ on $[2,\infty)$ (indeed $n\ge2$ gives $n+\alpha\ge n+a>2>1.46$, the point where $\Gamma$ attains its minimum). Therefore
+      \[
+      p_{n,s}([K,\infty))
+      =\frac{\int_{[K,\infty)}w_n\,d\pi}{Z_{n,s}}
+      \le
+      \frac{\sup_{\alpha\ge K}w_n(\alpha)}{\pi([a,b])\inf_{\alpha\in[a,b]}w_n(\alpha)}
+      \le C_{s,a,b,K}\,\frac{\Gamma(n+b)}{\Gamma(n+K)},
+      \tag{3.6}
+      \]
+      where $C_{s,a,b,K}=K^{s-1}\Gamma(1+K)/\bigl(\pi([a,b])\,c_{a,b}\bigr)<\infty$. Since $K>b$, Stirling's formula yields
+      \[
+      \frac{\Gamma(n+b)}{\Gamma(n+K)}\sim n^{b-K}\longrightarrow 0,
+      \tag{3.7}
+      \]
+      hence $p_{n,s}([K,\infty))\to0$.
+
+      Finally, for $\alpha<K$ we have $\alpha/(\alpha+n)\le K/n$, while for $\alpha\ge K$ we use $\alpha/(\alpha+n)\le1$. Thus
+      \[
+      r_{n,s}=\int\frac{\alpha}{\alpha+n}\,p_{n,s}(d\alpha)
+      \le \frac{K}{n}+p_{n,s}([K,\infty))\longrightarrow 0,
+      \tag{3.8}
+      \]
+      which proves the lemma. $\square$
+
+      #### 4. Conditional exclusion from a weak neighbourhood
+
+      In this section $\mathcal U$ is the weak neighbourhood of $P$ from the statement, and we write $P_g(dx)=g(x)\mu(dx)$ for a density $g$.
+      In accordance with the convention of the task, a density $g$ is identified with the probability measure $P_g$; correspondingly $\mathbb G_s$ is identified with the set $\{P_f: f\in\mathbb G_s\}$ of probability measures, and the hypothesis $\mathcal U\cap\mathbb G_s=\varnothing$ of the statement is read in this sense (a density $g$ lies in $\mathbb G_s$ precisely when $P_g$ belongs to the set so identified).
+
+      By definition of the weak topology there exist $k\ge1$, bounded continuous functions $\varphi_1,\dots,\varphi_k$ and $\epsilon>0$ such that
+      \[
+      V_\epsilon:=\bigcap_{j=1}^k\Bigl\{Q:\Bigl|\int\varphi_j\,dQ-\int\varphi_j\,dP\Bigr|<\epsilon\Bigr\}\subseteq\mathcal U .
+      \tag{4.1}
+      \]
+      Define the smaller basic neighbourhood
+      \[
+      \mathcal U_0:=V_{\epsilon/2}=\bigcap_{j=1}^k\Bigl\{Q:\Bigl|\int\varphi_j\,dQ-\int\varphi_j\,dP\Bigr|<\epsilon/2\Bigr\}\subseteq\mathcal U,
+      \tag{4.2}
+      \]
+      and put $M=\max_{1\le j\le k}\|\varphi_j\|_\infty$. First note that $\mathbb G_s\ne\varnothing$ for $1\le s\le t$: the parameters $\theta_1^*,\dots,\theta_t^*$ are distinct, so that $s^{-1}\sum_{j=1}^{s}k(\cdot\mid\theta_j^*)\in\mathbb G_s$. Since $\mathcal U\cap\mathbb G_s=\varnothing$ for every $s<t$, every $f\in\mathbb G_s$ with $s<t$ satisfies $P_f\notin\mathcal U$, hence $P_f\notin V_\epsilon$, and therefore there exists $j\in\{1,\dots,k\}$ with
+      \[
+      \Bigl|\int\varphi_j\,dP_f-\int\varphi_j\,dP\Bigr|\ge\epsilon .
+      \tag{4.3}
+      \]
+      If $M=0$ then all $\varphi_j$ vanish and $V_\epsilon$ is the set of all probability measures, so $\mathcal U$ is the set of all probability measures, contradicting $\mathcal U\cap\mathbb G_s=\varnothing$ (as $\mathbb G_s\ne\varnothing$ for $s<t$); hence $M>0$.
+      **Lemma 4.1.** *Fix integers $1\le s<t$ and $n\ge s$, and let $r_{n,s}$ be given by (2.2). Then, for a version of the conditional probability obtained from a regular conditional distribution of $(\alpha,\theta_{1:n},\tilde P)$ given $X_{1:n}$,
+      \[
+      \operatorname{pr}\bigl(h\in\mathcal U_0\mid X_{1:n},\,K_n=s\bigr)\ \le\ \frac{4M}{\epsilon}\,r_{n,s}.
+      \tag{4.4}
+      \]*
+
+      *Proof.* We compute the conditional probability from the joint law of $(X_{1:n},K_n,\tilde P)$, as given by (2.4) and Fact 3.1. Conditionally on $(\alpha,X_{1:n},\Pi_n=A,\hat\theta_{1:s})$, the decomposition (3.2) holds with
+      \[
+      f=\sum_{j=1}^{s}\frac{w_j}{W}\,k(\cdot\mid\hat\theta_j)\in\mathbb G_s,\qquad
+      h'=\int k(\cdot\mid\theta)\,\tilde P'(d\theta),\qquad
+      h=Wf+(1-W)h',
+      \tag{4.5}
+      \]
+      and $f$ is well defined since $W=\sum_j w_j>0$ almost surely. For every bounded continuous $\varphi$,
+      \[
+      \int\varphi\,dP_h-\int\varphi\,dP_f=(1-W)\Bigl(\int\varphi\,dP_{h'}-\int\varphi\,dP_f\Bigr),
+      \]
+      hence
+      \[
+      \Bigl|\int\varphi\,dP_h-\int\varphi\,dP_f\Bigr|\le 2(1-W)\|\varphi\|_\infty .
+      \tag{4.6}
+      \]
+
+      Suppose that $P_h\in\mathcal U_0$. Since $f\in\mathbb G_s$ with $s<t$, (4.3) provides an index $j$ with $\bigl|\int\varphi_j\,dP_f-\int\varphi_j\,dP\bigr|\ge\epsilon$, whereas $P_h\in\mathcal U_0$ gives $\bigl|\int\varphi_j\,dP_h-\int\varphi_j\,dP\bigr|<\epsilon/2$. By the triangle inequality and (4.6),
+      \[
+      \epsilon\ \le\ \Bigl|\int\varphi_j\,dP_f-\int\varphi_j\,dP\Bigr|
+      \le 2(1-W)M+\frac{\epsilon}{2},
+      \]
+      so $1-W\ge\epsilon/(4M)$. Therefore
+      \[
+      \{h\in\mathcal U_0\}\subseteq\{1-W\ge\epsilon/(4M)\}
+      \]
+      (as sets of realizations, conditionally on $(\alpha,X_{1:n},\Pi_n,\hat\theta_{1:s})$), and Markov's inequality in the form $\mathbf 1\{Y\ge a\}\le Y/a$ gives
+      \[
+      \operatorname{pr}\bigl(h\in\mathcal U_0\mid \alpha,X_{1:n},\Pi_n=A,\hat\theta_{1:s}\bigr)
+      \le\frac{4M}{\epsilon}\,E\bigl[1-W\mid \alpha,X_{1:n},\Pi_n=A,\hat\theta_{1:s}\bigr]
+      =\frac{4M}{\epsilon}\cdot\frac{\alpha}{\alpha+n},
+      \tag{4.7}
+      \]
+      by (3.3). The right-hand side does not depend on $A$ or on $\hat\theta_{1:s}$. Moreover, by Lemma 2.1, conditionally on $(X_{1:n},K_n=s)$ the parameter $\alpha$ has law $p_{n,s}$ and is independent of the partition and of the latent values (the joint density (2.4) factorizes into an $\alpha$-dependent factor times a factor depending on $(x,A,\hat\theta_{1:s})$). Hence, mixing (4.7) over the conditional law of $(\alpha,\Pi_n,\hat\theta_{1:s})$ given $(X_{1:n},K_n=s)$,
+      \[
+      \operatorname{pr}\bigl(h\in\mathcal U_0\mid X_{1:n},K_n=s\bigr)
+      \le\frac{4M}{\epsilon}\int\frac{\alpha}{\alpha+n}\,p_{n,s}(d\alpha)=\frac{4M}{\epsilon}\,r_{n,s},
+      \]
+      which is (4.4). $\square$
+
+      #### 5. Completion of the proof
+
+      If $t=1$, then $K_n\ge1$ identically, so $\operatorname{pr}(K_n<1\mid X_{1:n})=0$ and there is nothing to prove. Assume therefore $t\ge2$.
+
+      Let $\mathcal U$, $\mathcal U_0$, $k$, $\varphi_1,\dots,\varphi_k$, $\epsilon$ and $M$ be as in Section 4. By Corollary 1.4 applied to the weak neighbourhood $\mathcal U_0$,
+      \[
+      \operatorname{pr}\bigl(h\in\mathcal U_0^{c}\mid X_{1:n}\bigr)\longrightarrow0
+      \qquad\text{in }P^{(\infty)}\text{-probability}.
+      \tag{5.1}
+      \]
+      By Lemma 3.2 and the fact that $s$ ranges over the finite set $\{1,\dots,t-1\}$,
+      \[
+      \eta_n:=\max_{1\le s<t}\frac{4M}{\epsilon}\,r_{n,s}\longrightarrow0
+      \qquad (n\to\infty)
+      \tag{5.2}
+      \]
+      deterministically. For $n\ge t$ every $s<t$ satisfies $s\le n$, so Lemma 4.1 applies to every $s\in\{1,\dots,t-1\}$.
+      We fix a regular conditional distribution of $(\alpha,\theta_{1:n},\tilde P)$ given $X_{1:n}$; it exists because all the underlying spaces are standard Borel. All conditional probabilities below are computed with this version, so that they are countably additive in the conditioning event; Lemma 4.1 applies to this version, since its bound holds for every version. The limit (5.1) is likewise unaffected by this choice: any two versions of the posterior probability of the event $\{h\in\mathcal U_0^c\}$ agree $P^{(\infty)}$-almost surely, and (5.1) asserts a convergence in $P^{(\infty)}$-probability of that probability.
+
+      On the event $\{\operatorname{pr}(K_n<t\mid X_{1:n})>0\}$ the conditional probability $\operatorname{pr}(h\in\mathcal U_0\mid X_{1:n},K_n<t)$ equals the convex combination
+      \[
+      \sum_{s<t}\operatorname{pr}\bigl(h\in\mathcal U_0\mid X_{1:n},K_n=s\bigr)\,
+      \frac{\operatorname{pr}(K_n=s\mid X_{1:n})}{\operatorname{pr}(K_n<t\mid X_{1:n})},
+      \]
+      and each factor $\operatorname{pr}(h\in\mathcal U_0\mid X_{1:n},K_n=s)$ is at most $\frac{4M}{\epsilon}r_{n,s}\le\eta_n$; hence
+      \[
+      \operatorname{pr}\bigl(h\in\mathcal U_0\mid X_{1:n},K_n<t\bigr)\le\eta_n .
+      \tag{5.3}
+      \]
+      (If $\operatorname{pr}(K_n<t\mid X_{1:n})=0$ the inequality (5.4) below is trivial.)
+
+      By the total probability formula, for $n\ge t$,
+      \[
+      \begin{aligned}
+      \operatorname{pr}(h\in\mathcal U_0^{c}\mid X_{1:n})
+      &=\operatorname{pr}(h\in\mathcal U_0^{c},\,K_n<t\mid X_{1:n})
+      +\operatorname{pr}(h\in\mathcal U_0^{c},\,K_n\ge t\mid X_{1:n})\\
+      &\ge \operatorname{pr}\bigl(h\in\mathcal U_0^{c}\mid X_{1:n},K_n<t\bigr)\,
+      \operatorname{pr}(K_n<t\mid X_{1:n})\\
+      &=\Bigl(1-\operatorname{pr}\bigl(h\in\mathcal U_0\mid X_{1:n},K_n<t\bigr)\Bigr)
+      \operatorname{pr}(K_n<t\mid X_{1:n})\\
+      &\ge(1-\eta_n)\,\operatorname{pr}(K_n<t\mid X_{1:n}).
+      \end{aligned}
+      \tag{5.4}
+      \]
+      Hence, for all $n$ large enough that $\eta_n\le1/2$,
+      \[
+      \operatorname{pr}(K_n<t\mid X_{1:n})
+      \le \frac{1}{1-\eta_n}\,\operatorname{pr}\bigl(h\in\mathcal U_0^{c}\mid X_{1:n}\bigr)
+      \le 2\,\operatorname{pr}\bigl(h\in\mathcal U_0^{c}\mid X_{1:n}\bigr).
+      \tag{5.5}
+      \]
+
+      Let $\varepsilon>0$. By (5.1) and (5.2) there is $n_1$ such that for all $n\ge n_1$
+      \[
+      P^{(\infty)}\Bigl(\operatorname{pr}\bigl(h\in\mathcal U_0^{c}\mid X_{1:n}\bigr)>\frac{\varepsilon}{2}\Bigr)\le\frac{\varepsilon}{2}.
+      \]
+      For $n\ge \max\{n_1,t\}$ with $\eta_n\le 1/2$, (5.5) and the last display give
+      \[
+      P^{(\infty)}\Bigl(\operatorname{pr}(K_n<t\mid X_{1:n})>\varepsilon\Bigr)
+      \le P^{(\infty)}\Bigl(\operatorname{pr}\bigl(h\in\mathcal U_0^{c}\mid X_{1:n}\bigr)>\frac{\varepsilon}{2}\Bigr)
+      \le\frac{\varepsilon}{2}<\varepsilon .
+      \]
+      Since $\varepsilon>0$ was arbitrary,
+      \[
+      \operatorname{pr}(K_n<t\mid X_{1:n})\longrightarrow0
+      \qquad\text{in }P^{(\infty)}\text{-probability},
+      \]
+      which is the asserted conclusion. $\square$
+
+      #### 6. Remarks
+
+      **Remark 6.1** (on the supplied proof). The supplied proof asserts that, conditional on $K_n<t$, "the domain of the posterior distribution is a subset of $\cup_{s<t}\mathbb G_s$'' and hence $\operatorname{pr}(h\in\mathcal U^{c}\mid X_{1:n},K_n<t)=1$. This is not literally correct: even when $K_n=s<t$ the Dirichlet process $\tilde P$ has infinitely many atoms almost surely, so by (3.2)
+      \[
+      h=Wf+(1-W)h',\qquad f\in\mathbb G_s,
+      \]
+      retains an infinite-mixture component of total mass $1-W>0$, and hence $h\notin\mathbb G_s$ in general. What the argument above establishes is the precise replacement (5.3),
+      \[
+      \operatorname{pr}\bigl(h\in\mathcal U_0\mid X_{1:n},K_n<t\bigr)\le\eta_n\longrightarrow0,
+      \]
+      with the slightly smaller basic weak neighbourhood $\mathcal U_0\subseteq\mathcal U$. Two points make this work: (i) the total posterior mass $1-W$ of the unobserved atoms has conditional expectation $E[\alpha/(\alpha+n)\mid X_{1:n},K_n=s]$, which is deterministic by the factorization of Lemma 2.1, and (ii) this expectation tends to zero for every fixed $s$ (Lemma 3.2), whatever the prior $\pi$. Hence $h$ is close to some $f\in\mathbb G_s$ on the finitely many test functions defining the weak neighbourhood, with discrepancy at most $2(1-W)M$, so that $h$ lies outside $\mathcal U_0$ with conditional probability tending to one. This turns the inequality of the original proof into (5.4). All other steps of the source argument, namely weak posterior consistency at $P$ from $H4$ via Schwartz's theorem and the total-probability inequality, are preserved (and the former is proved in Section 1).
+
+      **Remark 6.2** (on the role of non-atomicity of $Q_0$). As explained in Section 0, the proof is carried out under the additional assumption that $Q_0$ is non-atomic. For the source's bounded-support results this is a consequence of assumption $B3$ (bounded Lebesgue density $q_0$) and it holds in both of its worked examples, but the branch $H1$--$H4$ leaves $Q_0$ unrestricted, so relative to the literal hypotheses of the target theorem the convention is an extra hypothesis. It is used at exactly three points: the Chinese restaurant EPPF (2.3), the factorization of the marginal likelihoods in (2.4), and the identification of the atoms of the posterior Dirichlet process base in Fact 3.1. Under this assumption the number of distinct latent parameters equals the number of blocks of the CRP partition almost surely, which is the quantity $K_n$ used throughout the proof. If $Q_0$ were allowed to have atoms, the blocks of the CRP partition would no longer coincide with the classes of equal latent parameters, and the EPPF and the decomposition of Fact 3.1 would have to be replaced by their atomic-base versions; the corresponding statements for the number of distinct values are not covered by the argument given here. More seriously, the implication on which the supplied proof rests fails in the atomic case: if $Q_0$ has atoms $a_1,a_2,a_3$ each of positive mass and $\tilde P\sim\mathrm{DP}(\alpha,Q_0)$ carries positive mass on all three, then $h=\sum_i\tilde P(\{a_i\})k(\cdot\mid a_i)\in\mathbb G_3$ while $K_n=1$ whenever all latent values happen to equal $a_1$; thus $K_n<t$ does not force $h$ to lie near $\cup_{s<t}\mathbb G_s$, and no bound of the form (5.3) can be deduced from that implication. Concretely, for an atomic $Q_0$ with atoms $a_1,a_2,\dots$ of masses $q_1,q_2,\dots$, the probability that $\theta_{1:n}$ takes the distinct values $a_{i_1},\dots,a_{i_s}$ with multiplicities $m_1,\dots,m_s$ is $\prod_{k=1}^s(\alpha q_{i_k})^{(m_k)}/\alpha^{(n)}$ (rising factorials), and the resulting joint law does not factorize as in (2.4); hence the conditional independence of $\alpha$ and $X_{1:n}$ given $K_n=s$ (Lemma 2.1), and with it the explicit bound (4.4), is not available in that form. (Note that the hypothesis that the distinct points $\theta_1^*,\dots,\theta_t^*$ belong to $\operatorname{supp}Q_0$ forces $\operatorname{supp}Q_0$ to contain at least $t$ points.)
+
+      #### Dependency summary
+
+      * **(D1) KL support of the prior, $H4$.** Used in Lemma 1.1 to obtain the exponential lower bound on the evidence $W_n$. This is the only place where the assumption $H4$ enters.
+      * **(D2) Schwartz posterior consistency (Theorem 1.3, Corollary 1.4).** The external result cited as [R1] (Ghosal--van der Vaart, Theorem 6.16) and [R2] (Example 6.20) in the supplied proof. Because the cited statements are not reproducible from the supplied material, the theorem is stated in full and proved in Section 1 from two ingredients that are verified: the KL/evidence bound of Lemma 1.1 and the existence of exponentially powerful tests for complements of weak neighbourhoods, constructed explicitly by Hoeffding's inequality in Lemma 1.2. Thus no unverified outside statement is used downstream. The theorem is used once, to obtain (5.1) for the weak neighbourhood $\mathcal U_0$.
+      * **(D3) Standard Dirichlet process facts.** The Chinese restaurant EPPF (2.3) with its $\alpha^s/\alpha^{(n)}$ weight and the factorized marginal likelihoods (2.4); the conjugacy formula (3.1) for the posterior Dirichlet process; and the splitting of a Dirichlet process with an atomic base (3.2) with Dirichlet weights and independent residual $\mathrm{DP}(\alpha,Q_0)$. These are textbook properties of the Dirichlet process (Ferguson; see also Ghosal--van der Vaart, Chapter 4) and are used in Lemmas 2.1, 3.2 and 4.1; their applicability requires $Q_0$ non-atomic, see Section 0 and Remark 6.2.
+      * **(D4) Standard analytic estimates.** Monotonicity of $\Gamma$ and Stirling's formula $\Gamma(n+b)/\Gamma(n+K)\sim n^{b-K}$ for $K>b$ (used in Lemma 3.2); Hoeffding's inequality for bounded independent random variables (used in Lemma 1.2); Tonelli's theorem, Jensen's inequality in its one-sided form, Markov's inequality, the strong law of large numbers and the elementary identity $\log(h/p_0)\in L^1(P)$ for $h$ in the KL ball (used in Lemma 1.1).
+      * **Conclusion.** Lemma 3.2 gives $\eta_n\to0$; Lemma 4.1 and the convex-combination bound (5.3) give conditional exclusion of the smaller weak neighbourhood $\mathcal U_0$ on $\{K_n<t\}$; Corollary 1.4 gives (5.1); the total-probability inequality (5.4)--(5.5) then yields $\operatorname{pr}(K_n<t\mid X_{1:n})\to0$ in $P^{(\infty)}$-probability, which is the statement.
+
+      ### References
+      #### Reference R1
+      Target: Theorem 6.16
+      Citation: By assumption \(H4\), the posterior distribution is consistent at \(P\) under the weak topology, in virtue of Schwartz theorem (see e.g.Theorem \(6.16\) and Example \(6.20\) in \cite{Subhashis2017}), so that
+      \[
+      \text{pr}(h \in \mathcal{U}^c \mid X_{1:n}) \to 0,
+      \]
+      in \(P^{(\infty)}\)-probability as \(n \to \infty\).
+      Bibliography: Ghosal, S.\ and Van Der Vaart, A.\ W. (2017). \emph{Fundamentals of Nonparametric Bayesian Inference}. Cambridge University Press.
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      model-supplemented
+
+      ##### Content basis
+      Source extraction unavailable. The cited source Ghosal & van der Vaart (2017), Chapter 6, Theorem 6.16 and Example 6.20, could not be retrieved from the supplied material. The retrieval note states that the exact statement, hypotheses involving KL prior mass and test-sequence conditions, conclusion, and the content of Example 6.20 remain unread. The current proof invokes these results in connection with the posterior-consistency step \(\operatorname{pr}(h\in\mathcal U^c\mid X_{1:n})\to0\), but no original source statement is available to reproduce or verify. No reconstruction or supplementation of the external theorem is made here.
+
+      ##### Theorem 6.16
+      Attribution and source location: Ghosal & van der Vaart (2017), Theorem 6.16, as cited in the current proof under the description “Schwartz theorem.”
+
+      ###### Definitions and notation
+      No original definitions or notation from Ghosal & van der Vaart (2017), Theorem 6.16, were retrieved. The exact meanings, domains, and quantifier structure of the objects used in the theorem—including the prior, posterior, KL neighborhoods, test sequences, and the weak-topology consistency statement—are unavailable. The current proof’s objects \(H4\), \(P\), \(h\), \(\mathcal U\), and \(P^{(\infty)}\) are supplied by the current theorem and proof context, not by the unretrieved external theorem.
+
+      ###### Assumptions
+      - The original text of Ghosal & van der Vaart (2017), Theorem 6.16, was not available. Its exact premise set cannot be determined from the supplied material.
+      - The retrieval note states that the exact hypotheses include KL prior mass and test-sequence conditions, but their precise form, constants, quantifiers, domains, and interrelations were not read.
+      - The citation context describes the result as the Schwartz theorem for posterior consistency at \(P\) under the weak topology and uses it together with assumption \(H4\). However, \(H4\) and the weak neighborhood \(\mathcal U\) are conditions from the current theorem/proof context; they are not thereby verified as the original hypotheses of Theorem 6.16.
+      - Any additional regularity, support, measurability, separation, approximation, test-function, or prior-mass conditions required by the external theorem are unresolved and unavailable.
+
+      ###### Statement
+
+      ##### Example 6.20
+      Attribution and source location: Ghosal & van der Vaart (2017), Example 6.20, cited jointly with Theorem 6.16 in the current proof.
+
+      ###### Definitions and notation
+      No original definitions or notation from Example 6.20 were retrieved. The example is cited together with Theorem 6.16 in connection with the Schwartz posterior-consistency step, but its exact objects, notation, and specialization mechanism are unread.
+
+      ###### Assumptions
+      - The original content of Ghosal & van der Vaart (2017), Example 6.20, could not be retrieved.
+      - The citation context gives only that Example 6.20 is cited together with Theorem 6.16 in support of the weak-topology posterior consistency claim.
+      - The example’s exact hypotheses, conclusion, and relation to Theorem 6.16 are unavailable and are not reconstructed here.
+      - Any conditions from Example 6.20 needed to specialize Theorem 6.16 to the current posterior-consistency statement are unresolved.
+
+      ###### Statement
+
+      #### Reference R2
+      Target: Example 6.20
+      Citation: By assumption \(H4\), the posterior distribution is consistent at \(P\) under the weak topology, in virtue of Schwartz theorem (see e.g.Theorem \(6.16\) and Example \(6.20\) in \cite{Subhashis2017}), so that
+      \[
+      \text{pr}(h \in \mathcal{U}^c \mid X_{1:n}) \to 0,
+      \]
+      in \(P^{(\infty)}\)-probability as \(n \to \infty\).
+      Bibliography: Ghosal, S.\ and Van Der Vaart, A.\ W. (2017). \emph{Fundamentals of Nonparametric Bayesian Inference}. Cambridge University Press.
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      model-supplemented
+
+      ##### Content basis
+      Model organization. The original book text of Ghosal and Van Der Vaart (2017), Example 6.20, was not obtained. The supplied citation uses Example 6.20 together with their Theorem 6.16 (Schwartz theorem) to infer weak-topology posterior consistency at \(P\) from the prior KL-support condition \(H4\) under the Dirichlet-process-mixture/kernel conditions \(H1\)–\(H3\) recorded in the shared reading context. The following organizes that mathematical content. It is not a verbatim quotation, and the exact Example 6.20 wording, numbering, and any source-specific split between Theorem 6.16 and Example 6.20 remain unverified.
+
+      ##### Example 6.20 (Ghosal–van der Vaart, 2017; source text unverified)
+      ###### Definitions and notation
+      Let \(\mathbb X\subseteq\mathbb R^q\) and \(\Theta\subseteq\mathbb R^p\), as in the shared reading context. Let \(\mu\) be Lebesgue or counting measure on \(\mathbb X\). For each \(\theta\in\Theta\), \(k(\cdot\mid\theta)\) is a density with respect to \(\mu\); \(k(\cdot\mid\theta)\mu(dx)\) denotes the corresponding probability measure.
+
+      The Dirichlet process mixture model is
+      \[
+      X_i\mid\theta_i \simind k(\cdot\mid\theta_i),\qquad
+      \theta_i\mid \tilde P \simiid \tilde P,\qquad
+      \tilde P\mid\alpha \sim \operatorname{DP}(\alpha,Q_0),\qquad
+      \alpha\sim\pi,
+      \]
+      where \(\pi\) is a prior on \(\alpha>0\). The random density is
+      \[
+      h(x)=\int k(x\mid\theta)\,\tilde P(d\theta).
+      \]
+      Posterior probabilities are denoted \(\operatorname{pr}(\cdot\mid X_{1:n})\).
+
+      The laws of \(X_{1:n}\) and \(X_{1:\infty}\) under i.i.d. sampling from \(P\) are denoted \(P^{(n)}\) and \(P^{(\infty)}\), respectively.
+
+      For \(s\ge1\), the set of exact \(s\)-component mixtures is
+      \[
+      \mathbb G_s
+      =
+      \left\{
+      f=\sum_{j=1}^s q_j k(\cdot\mid\theta_j):
+      q_j>0,\ \sum_{j=1}^s q_j=1,\ \theta_1,\dots,\theta_s
+      \text{ distinct}
+      \right\}.
+      \]
+      For \(P\in\mathbb G_t\) with weights \(p_j\) and parameters \(\theta_j^*\), its density is
+      \[
+      \sum_{j=1}^t p_j k(x\mid\theta_j^*).
+      \]
+      The notation \(\operatorname{supp}Q_0\) denotes the support of the base measure \(Q_0\).
+
+      A weak neighborhood is a neighborhood in the weak topology on probability measures. Weak convergence of densities is understood via the corresponding probability measures.
+
+      For \(P\in\mathbb G_t\) with weights \(\{p_j\}_{j=1}^t\) and parameters \(\{\theta_j^*\}_{j=1}^t\), the KL neighborhood is
+      \[
+      KL_\epsilon(P)
+      =
+      \left\{
+      h\in\mathcal P(\mathbb X):
+      \int
+      \log\left\{
+      \frac{\sum_{j=1}^{t} p_j k(x\mid\theta_j^*)}{h(x)}
+      \right\}
+      P(dx)
+      <
+      \epsilon
+      \right\},
+      \qquad \epsilon>0.
+      \]
+
+      Let \(\bar\Theta\) be the closure of \(\Theta\), and define
+      \[
+      \mathbb B
+      :=
+      \left\{
+      \bar\theta\in\bar\Theta\setminus\Theta:
+      \lim_{\theta\to\bar\theta}
+      \left\{
+      \sup_x k(x\mid\theta)
+      \right\}
+      =
+      \infty
+      \right\}.
+      \]
+
+      ###### Assumptions
+      \(H1.\) For every \(\bar\theta\in\Theta\setminus\mathbb B\), for \(\mu\)-almost every \(x\in\mathbb X\), there exists a neighborhood \(A=A(\bar\theta,x)\subset\Theta\setminus\mathbb B\) of \(\bar\theta\) such that \(\theta\mapsto k(x\mid\theta)\) is continuous on \(A\). Moreover, \(\mathbb B\) is closed.
+
+      \(H2.\) If \(\{\theta_i\}\subset\Theta\) and \(\|\theta_i\|\to\infty\), then for every compact \(K\subset\mathbb X\),
+      \[
+      \int_K k(x\mid\theta_i)\,\mu(dx)\to0.
+      \]
+      If \(\theta_i\to\bar\theta\in\mathbb B\), then there exists \(x^*\in\mathbb X\) such that
+      \[
+      k(\cdot\mid\theta_i)\to\delta_{x^*}
+      \]
+      weakly. The norm \(\|\theta_i\|\) is not specified in the supplied source.
+
+      \(H3.\) If \(f\in\mathbb G_t\), then there is no \(f'\in\mathbb G_s\) with \(s<t\) such that \(f=f'\) \(\mu\)-almost everywhere.
+
+      \(H4.\) For every \(P\in\mathbb G_t\), \(t\ge1\), with \(\theta_1^*,\dots,\theta_t^*\in\operatorname{supp}Q_0\),
+      \[
+      \operatorname{pr}\bigl(h\in KL_\epsilon(P)\bigr)>0
+      \]
+      for every \(\epsilon>0\), where \(h\) follows the Dirichlet process mixture prior.
+
+      Additionally, the true law is a finite mixture: \(t\ge1\), \(P\in\mathbb G_t\) with weights \(p_j>0\), \(\sum_{j=1}^t p_j=1\), distinct parameters \(\theta_1^*,\dots,\theta_t^*\), and
+      \[
+      \theta_j^*\in\operatorname{supp}Q_0
+      \quad\text{for every }j=1,\dots,t.
+      \]
+
+      ###### Statement
+      Assume \(H1\)–\(H4\), and let \(t\ge1\), \(P\in\mathbb G_t\) have density
+      \[
+      \sum_{j=1}^t p_j k(x\mid\theta_j^*),
+      \]
+      where \(p_j>0\), \(\sum_{j=1}^t p_j=1\), the \(\theta_j^*\) are distinct, and \(\theta_j^*\in\operatorname{supp}Q_0\) for every \(j\). Then the posterior distribution of \(h\) is consistent at \(P\) under the weak topology: for every weak neighborhood \(\mathcal U\) of \(P\),
+      \[
+      \operatorname{pr}\bigl(h\in\mathcal U^c\mid X_{1:n}\bigr)\to0
+      \]
+      in \(P^{(\infty)}\)-probability as \(n\to\infty\).
+    lean_name: paper_b0cf39bbf6c845c9a6b30a5db43f8efa
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

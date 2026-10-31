@@ -1,0 +1,578 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:1ed365bc-1f29-4230-a4e3-766906954cdd
+    title: paper_a2bb64c47d4d486d8be39815258273b1
+    kind: lemma
+    latex_statement: |-
+      Reference-specific reading context (definitions, source clues and background; not a list of free hypotheses or an assumed theorem). Preserve original source conditions that explicitly govern this result, including section or appendix standing conditions, with their original scope even when its displayed statement does not repeat them:
+      Deterministic product-ratio estimate comparing $\prod_{i\in C_j} g(x_i-\theta_j)/g(x_i)$ with an indicator describing the window $[x^j_{(n_j)}-c,\,x^j_{(1)}+c]$ together with the small interval $|\theta_j-\theta_j^*|\le 1/n_j$. The supplied statement is reproduced as printed with denominator $g(x_i)$; the source proof uses a without-loss-of-generality normalization $\theta_j^*=0$, in which case an unnormalized formulation restores the denominator as $g(x_i-\theta_j^*)$. This normalization issue is explicitly present in the supplied material and is not silently erased. The lemma uses T1–T2 only; it does not use the density bound T3 or the local lower bound T4. In the cited chain, only the first comparison with the indicator integral is Lemma \ref{denom1}; the final bound $Le^{-R}\min\{1/n_j,\,c-X^j_{(n_j)}\}$ uses T4 and belongs to the target proof. The selected proof also presents a stronger local product-ratio estimate $\prod_{i\in C_j} g(X_i-\theta)/g(X_i)\ge e^{-Rn_j|\theta|}$ for $\theta\in[-A,B]$, and hence Lebesgue-almost everywhere with the indicator $\mathbbm{1}_{[-A,B]}(\theta)$, yielding for $|\theta|\le1/n_j$ the consequence $\prod_{i\in C_j} g(X_i-\theta)/g(X_i)\ge e^{-R}\mathbbm{1}_{[-A,B]}(\theta)$; this stronger local derivation is generated proof work, while Lemma \ref{denom1} remains the independently sourced article/supplement result behind the cited product-ratio comparison.
+
+      Parent-task shared reading context. References here to the selected target, its proof or its dependencies describe the parent consumer, not this fixed target. Do not automatically import the parent's hypotheses, dependency list or conclusions. Preserve relevant definitions and any original source conditions explicitly applying to this result, including conditions inherited by its own source section or appendix; distinguish those from assumptions used only by the parent:
+      Let $t\ge1$. The data are $X_i\sim_{\mathrm{iid}} P=\sum_{j=1}^t p_jR_j$, $i=1,2,\dots$, where the $R_j$ are distinct probability measures on $\mathbb X$, $p_j\in(0,1)$, and $\sum_{j=1}^t p_j=1$. Let $k(x\mid\theta)=g(x-\theta)$ be the location kernel and $Q_0(d\theta)=q_0(\theta)\,d\theta$. The true component densities are $f_j(\cdot)=f(\cdot\mid\theta_j^*)=k(\cdot\mid\theta_j^*)$, and $\theta^*=(\theta_1^*,\dots,\theta_t^*)$ is completely separated: $|\theta_j^*-\theta_k^*|>b-a$ for $j\ne k$. After the linear rescaling used in the source, $[a,b]=[-c,c]$, so complete separation becomes $|\theta_j^*-\theta_k^*|>2c$. For every $n$, define $C_j=\{i\in\{1,\dots,n\}: X_i\in[\theta_j^*-c,\theta_j^*+c]\}$, $n_j=|C_j|$, let $X^j_{(r)}$ denote the $r$-th order statistic of $X_{C_j}$, and define $Y^j_{n_j}:=\min\{1,\; n_j(\log n)^{\frac1{2t}}(c+\theta_j^*-X^j_{(n_j)})\}$. The selected target is stated under the standing assumptions: (T1) there exist $m,M>0$ such that $0<m\le g(x)\le M<\infty$ for every $x\in[-c,c]$; (T2) $g$ is differentiable on $(-c,c)$, and there exists $R<\infty$ with $|g'(x)/g(x)|\le R$ for every $x\in(-c,c)$; (T3) there exists $U>0$ such that $h(y)=q_0(y)+q_0(-y)\le U$ for every $y\in[0,2c]$; (T4) there exists $L>0$ such that $q_0(\theta)\ge L$ in a neighborhood of $\theta_j^*$ for every $j=1,\dots,t$. The selected target uses T1–T4; the external lemma above uses only the product-ratio estimate under T1–T2, while the passage to the final target bound also uses $q_0$ through T4. The local Lemmas 2.1, 3.1, and 4.1 appearing in the selected proof are generated proof work, not independently sourced external results, and are therefore not entered as separate entries in this collection. The final materials note that the selected target cannot be read as a deterministic statement holding uniformly over every data set: in a one-component model with $C_j=\{1,\dots,n\}$, $n_j=n$, $X^j_{(1)}=X^j_{(n_j)}=-c$, one has $A=2c$, $B=0$, and $Y^j_{n_j}=\min\{1,\,2cn(\log n)^{1/2}\}=1$ for all sufficiently large $n$; taking $g(-c)=M$ and $q_0=m$ on $[-c,0]$ gives $I_j=(m/M)^n\int_{-2c}^0 q_0(\theta)\,d\theta=\frac12(m/M)^n$, which decays geometrically, so no fixed $K>0$ and threshold $N_j$ can make the target inequality hold for all large $n$ in every realization. Accordingly, the valid and used reading is almost sure: for every $j=1,\dots,t$ there exist $K>0$ and $N_j\in\mathbb N$ such that, for $P^{(\infty)}$-almost every realization, the target inequality holds for every $n$ with $n_j\ge N_j$. In the proof of Theorem \ref{th:ConsBounded} the bound is applied on the event $\Omega_n$, whose $P^{(\infty)}$-probability tends to one. If $g$ is continuous at $\pm c$, so that $g(\pm c)=e^{p(\pm c)}$ and the extension of Section 2 is the identity, the transfer step disappears and the bound holds for every data set with $n_j\ge N_j$.
+
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The intended reading of the selected lower-bound statement is: first fix \(t\ge1\), \(c>0\), the standing kernel/density objects \(g,q_0,Q_0\), the true weights \(p_j\), true locations \(\theta_j^*\), the complete-separation condition, and \(T1\)–\(T4\); then fix \(j\in\{1,\dots,t\}\); then choose \(N_j\) (and, in the proof, \(K\)); only afterwards quantify over \(n\) and the realization with \(n_j=|C_j|\ge N_j\). Thus \(K\) is not allowed to depend on \(n\), on \(C_j\), on the observations, or on \(Y^j_{n_j}\), and \(N_j\) is not an \(n\)-dependent threshold. The selected proof explicitly states that the same \(K\) works for all \(j\) when the \(T4\) lower bound uses one common \(L\), while only \(N_j\) depends on \(j\) through the \(T4\) neighborhood; the raw quantifier “for every \(j\) there exist \(K\) and \(N_j\)” could syntactically allow \(K\) to depend on \(j\), but the intended source proof constructs a global \(K\). The constants \(m,M,R,U,L\) belong to the fixed assumptions \(T1,T2,T3,T4\); they may depend on the fixed \(g,q_0,c,t\), but not on sample size, \(C_j\), \(n_j\), or \(X_i\). Do not confuse the \(T2\) constant \(R\) with the true component measures \(R_j\). The source’s printed proof of Lemma denom sets \(K=(2Le^{-R})^t\), while the selected repaired proof says the supported constant is \(K=(Le^{-R})^t\) and notes that the printed factor \(2\) cannot be obtained with the same \(L\); the expression \((2L_0e^{-R})^t\) is only a rewriting after replacing \(L\) by an admissible \(L_0=L/2\). The selected statement uses the power \(K^{1/t}\); an intermediate displayed equality in the extracted supplementary proof writing \(K^{1/(2t)}\) is inconsistent with the statement and surrounding algebra and should not be formalized as the target exponent. Complete separation is strict: \(|\theta_j^*-\theta_k^*|>b-a\); after rescaling \([a,b]=[-c,c]\), this becomes \(>2c\), not \(>c\), so do not replace \(b-a\) by \(c\). The main paper states only that each \(\theta_j^*\) belongs to the interior support of \(Q_0\), whereas the selected lower bound assumes the stronger \(T4\): \(q_0\ge L\) on a neighborhood of each \(\theta_j^*\). The source does not justify \(T4\) from mere support membership; for formalization, \(T4\) must be an explicit assumption. The exact shape/openness of the \(T4\) neighborhood is not specified; it is enough to choose \(\delta_j>0\) with \(q_0(\theta)\ge L\) for \(|\theta-\theta_j^*|\le\delta_j\), then choose \(1/N_j\le\delta_j\). If the source’s \(T4\) were interpreted with a different \(L_j\) for each \(j\), then \(K\) could become \(j\)-dependent; the printed \(T4\) text but not every proof detail is explicit on this uniformity.
+
+      2. Norms and mathematical objects. Everything in the selected result is scalar on the real line: the parameter \(\theta\) and observations \(X_i\) are real-valued, and \(|\cdot|\) means ordinary absolute value, not a Euclidean vector norm, sup norm, operator norm, or Frobenius norm. The integral is over \(\mathbb R\) with Lebesgue measure, and \(Q_0(d\theta)=q_0(\theta)d\theta\). The kernel is exactly the location family \(k(x\mid\theta)=g(x-\theta)\); \(g\) is a probability density with the main paper’s support condition “strictly positive on some interval \([a,b]\) and \(0\) elsewhere,” while \(T1\) in the proof records only \(0<m\le g\le M\) on the rescaled interval \([-c,c]\). Do not infer support or nonnegativity outside \([-c,c]\) from \(T1\) alone; use the main \(B1\)-type support condition when needed. The target integral is \(\int_{\mathbb R}\prod_{i\in C_j}g(X_i-\theta_j)/g(X_i-\theta_j^*)\,q_0(\theta_j)\,d\theta_j\). Reference R1/Lemma denom1 prints the denominator as \(g(x_i)\) because its proof says “Without loss of generality assume \(\theta_j^*=0\)”; for general \(\theta_j^*\) the denominator must be restored to \(g(X_i-\theta_j^*)\). The corresponding indicator from R1 is exact: \(\mathbf 1_{[0,1/n_j]}(|\theta_j-\theta_j^*|)\,\mathbf 1_{[X^j_{(n_j)}-c,\,X^j_{(1)}+c]}(\theta_j-\theta_j^*)\) (with endpoint values immaterial almost everywhere). The sets are \(C_j=\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\}\), after rescaling \([\theta_j^*-c,\theta_j^*+c]\), and \(n_j=|C_j|\) is random. The order statistics \(X^j_{(1)},X^j_{(n_j)}\) are taken over \(X_{C_j}\) only, not over the full sample. The random variable is \(Y^j_{n_j}=\min\{1,\,n_j(\log n)^{1/(2t)}(c+\theta_j^*-X^j_{(n_j)})\}\); it uses the upper order statistic/right endpoint gap, the random count \(n_j\), and \(\log n\), not \(\log n_j\). Do not replace \(n_j\) by \(n\), and do not replace the cap \(\min\{1,\cdot\}\) by a max or by \(1\).
+
+      3. Asymptotics. The selected lower-bound statement itself uses no \(O\), \(o\), or little-\(o\) notation. It is a finite-sample lower bound with existential constants and a threshold: for fixed \(j\), there exist \(K>0\) and \(N_j\in\mathbb N\) such that for all \(n\) with \(n_j\ge N_j\) the displayed inequality holds (with the endpoint caveat below). The limiting variable in the surrounding theorem is \(n\to\infty\), while \(n_j\) is a random function of the sample; the condition is on the realized \(n_j\), not a uniformity over all subsets of size \(n_j\). The source’s later use of \(Y^j_{n_j}\to1\) is “in \(P^{(\infty)}\)-probability” (source Lemma Max and the definition of \(\Omega_n\)), and the final consistency proof restricts to the event \(\Omega_n=\{n_j\ge N_j,\ Y^j_{n_j}\in[1/2,1]\ \forall j\}\) whose probability tends to one. Do not replace \(Y^j_{n_j}\) by \(1\) for all sufficiently large \(n\), and do not promote the lower bound to a pointwise statement for every data set unless endpoint continuity is separately imposed. The source does not state uniformity of the lower bound over all choices of \(g,q_0,p_j,\theta^*\) or over all \(j\); constants may depend on the fixed structural assumptions, and only \(N_j\) is explicitly allowed to vary with \(j\) in the proof.
+
+      4. Omitted definitions and side conditions. Here \(t\) is a fixed positive integer, \(p_j\in(0,1)\), \(\sum_{j=1}^t p_j=1\), and the \(R_j\) in the data-generating mixture are distinct true component measures, not the \(T2\) constant \(R\). The true component densities are \(f_j(\cdot)=k(\cdot\mid\theta_j^*)=g(\cdot-\theta_j^*)\). Complete separation plus the bounded support is used in the proof of Theorem ConsBounded to assert that the \(C_j\) are disjoint and cover \(\{1,\dots,n\}\) with probability one; this is a proof-based consequence, not a new definition. The order statistics require \(n_j\ge1\); original \(N_j\in\mathbb N\) is not detailed, while the selected proof takes \(N_j\ge3\), so for Lean include a positive-size side condition or take the selected threshold. The \(T4\) neighborhood must contain the integration interval used near \(\theta_j^*\); under the normalization \(\theta_j^*=0\), the original proof uses a one-sided interval \([-1/n_j,0]\) and the selected proof uses \([-1/n_j,1/n_j]\), so \(N_j\) must satisfy \(1/n_j\le\delta_j\). The source leaves endpoint regularity of \(g\) under \(T1\)–\(T2\) ambiguous: \(B2\) only gives differentiability on the open support, and the values \(g(\pm c)\) need not equal the one-sided limits. The original Lemma denom1 proof writes \(p=\log g\) on \([-c,c]\), but the selected proof repairs this by redefining \(g\) at \(\pm c\) by continuous extension, showing the bound holds \(P^{(\infty)}\)-almost surely for the original kernel and may fail for arbitrary endpoint values on a null set. Thus, for a literal “every data set” formalization one needs an extra endpoint-continuity/endpoint-value hypothesis; the source-supported statement with only \(T1\)–\(T4\) is the almost-sure/on-\(\Omega_n\) version. Finally, \(q_0\) is only used as a density with pointwise lower bounds on specified neighborhoods; point values on Lebesgue-null sets should not be used, and \(q_0\ge L\) should not be extended beyond the \(T4\) neighborhood.
+
+      <!-- formalization-clarifications:v1:cee08c370e9d0035e20aff14f7d41a5a248c705bddd572f5933ec94068dd7cbc -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. For the product-ratio comparison, supp.tex Lemma denom1 is the external owner of the estimate and uses only T1–T2; the final integral lower bound with \(K=(Le^{-R})^t\) and \(Y^j_{n_j}\) is proof work in supp.tex’s proof of Theorem th:ConsBounded and additionally uses T4, not T3. The intended order is: fix \(t,c,g,q_0,Q_0,p_1,\dots,p_t,\theta_1^*,\dots,\theta_t^*\), separation, and T1–T4; then fix \(j\); then choose \(N_j\) (and \(K\)); only afterwards quantify over \(n\) and the realization subject to \(n_j=|C_j|\ge N_j\) (supp.tex, “choose \(N_j\in\mathbb N\) with \(1/N_j\le\delta_j\), \(N_j\ge3\)”). Thus \(K\) must not depend on \(n,C_j,n_j,Y^j_{n_j}\), or the observations; \(N_j\) may depend on \(j\) through the T4 neighborhood but not on \(n\). The raw phrase “for every \(j\) there exist \(K>0\) and \(N_j\)” could syntactically let \(K\) vary with \(j\), but the source proof constructs a global \(K=(Le^{-R})^t\) when the same \(L\) serves all \(j\); if T4 were read with \(L_j\), the displayed algebra would give \(K_j=(L_je^{-R})^t\) (supp.tex, Section 7 “Quantifier order and dependence of the constants”). The constants \(m,M,R,U,L\) are fixed by T1–T4 and may depend on the fixed \(t,c,g,q_0\), but not on sample size, \(C_j\), \(n_j\), or \(X_i\); do not confuse the T2 constant \(R\) with the true component measures \(R_j\). The printed proof of Lemma denom writes \(K=(2Le^{-R})^t\), but the repaired proof states that this factor \(2\) is not obtainable with the same \(L\); using \(L_0=L/2\) rewrites it as \((2L_0e^{-R})^t=(Le^{-R})^t\). The final exponent is \(K^{1/t}\); an intermediate \(K^{1/(2t)}\) in the extracted proof is inconsistent with the displayed algebra and should not be formalized. Separation is strict: main.tex, Theorem th:ConsBounded, says \(|\theta_j^*-\theta_k^*|>b-a\), i.e. \(>2c\) after rescaling, not \(>c\). T4 is explicit in supp.tex’s proof of Theorem th:ConsBounded (“\(\exists L>0\) such that \(q_0(\theta)\ge L\) … for every \(j\)”); main.tex, Theorem th:ConsBounded, only assumes \(\theta_j^*\) lies in the interior support of \(Q_0\), and the source does not derive T4 from that. The exact shape/openness of the T4 neighborhood is not specified; one may choose \(\delta_j>0\) with \(q_0\ge L\) on \(|\theta-\theta_j^*|\le\delta_j\), then require \(1/N_j\le\delta_j\). The source leaves slightly ambiguous whether \(L\) is uniformly common across \(j\) in every proof detail, though the printed T4 uses one \(L\).
+
+      2. Norms and mathematical objects. Everything is scalar on \(\mathbb R\): \(\theta,X_i\) are real and \(|\cdot|\) is ordinary absolute value, not an \(l^2\), sup, operator, Frobenius, normalized, or unscaled vector norm (main.tex, location-family display \(k(x\mid\theta)=g(x-\theta)\)). The integral in the final estimate is over \(\mathbb R\) with Lebesgue measure, and \(Q_0(d\theta)=q_0(\theta)d\theta\). The kernel is exactly the location family \(k(x\mid\theta)=g(x-\theta)\); main.tex B1 says \(g\) is strictly positive on \([a,b]\) and \(0\) elsewhere, while T1 in supp.tex only records \(0<m\le g\le M\) on the rescaled interval \([-c,c]\). Do not infer support or nonnegativity outside \([-c,c]\) from T1 alone. The product ratio in the external Lemma denom1 is printed with denominator \(g(x_i)\), but its proof explicitly says “Without loss of generality assume \(\theta_j^*=0\)” (supp.tex, Lemma denom1 proof). For general \(\theta_j^*\), the source-supported denominator is \(g(X_i-\theta_j^*)\), and the window indicator should be evaluated at \(\theta_j\), equivalently at \(\theta_j-\theta_j^*\) only after shifting the interval. The repaired proof in the selected material marks the literal general statement with denominator \(g(x_i)\) as false; this is not independent source evidence, but it does clarify why the printed normalization cannot be silently removed. With continuous extension \(\widetilde g\) of \(g\) at \(\pm c\), the deterministic product estimate holds for every data set (selected proof, Corollary 4.2 and Theorem 5.1); for the original \(g\), it holds on the full-probability event excluding observations at boundary points, and for every \(\theta_j\) when \(g(\pm c)\) agrees with the one-sided continuous extension or when endpoint values dominate them (supp.tex proof of Theorem th:ConsBounded and selected Theorem 5.1). The sets are \(C_j=\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*-c,\theta_j^*+c]\}\), \(n_j=|C_j|\), and \(X^j_{(r)}\) are order statistics of \(X_{C_j}\) only, not of the full sample. The random variable is \(Y^j_{n_j}=\min\{1,n_j(\log n)^{1/(2t)}(c+\theta_j^*-X^j_{(n_j)})\}\), using the upper order statistic, the random count \(n_j\), and \(\log n\) rather than \(\log n_j\); do not replace \(n_j\) by \(n\) or the cap \(\min\{1,\cdot\}\) by \(1\).
+
+      3. Asymptotics. The selected product-ratio statement uses no \(O,o\), or little-\(o\) notation; it is a finite-sample lower bound under T1–T2 with a fixed \(e^{-R}\). The limiting variable in the surrounding theorem is \(n\to\infty\), while \(n_j\) is random and the condition is on the realized \(n_j\ge N_j\). supp.tex Lemma Max proves \(Y^j_{n_j}\to1\) in \(P^{(\infty)}\)-probability, and supp.tex’s proof of Theorem th:ConsBounded introduces \(\Omega_n=\{\forall j: n_j\ge N_j,\ Y^j_{n_j}\in[1/2,1]\}\) with \(P^{(\infty)}(\Omega_n)\to1\). Thus the final integral lower bound is an almost-sure/on-\(\Omega_n\) statement for every \(n\) with \(n_j\ge N_j\), not a pointwise statement that \(Y^j_{n_j}=1\) for all sufficiently large \(n\). The source does not assert uniformity over all \(g,q_0,p_j,\theta^*\), over all \(j\), or over all subsets of size \(n_j\); constants may depend on fixed structural assumptions, and only \(N_j\) is explicitly allowed to vary with \(j\) in the proof. Without endpoint continuity, the deterministic “every data set, every \(\theta_j\)” statement is not supported; the supported version is almost sure for original \(g\) or deterministic with \(\widetilde g\).
+
+      4. Omitted definitions and side conditions. Here \(t\) is a fixed positive integer, \(p_j\in(0,1)\), \(\sum_j p_j=1\), and the \(R_j\) in \(X_i\sim_{\rm iid}P=\sum_jp_jR_j\) are distinct true probability measures, not the T2 constant \(R\) (main.tex, equation “true”). The true component densities are \(f_j(\cdot)=k(\cdot\mid\theta_j^*)=g(\cdot-\theta_j^*)\). Complete separation plus bounded support is used in supp.tex’s proof of Theorem th:ConsBounded to conclude the \(C_j\) are disjoint and cover \(\{1,\dots,n\}\) with probability one; this is a proof-based consequence, not a new hypothesis. Order statistics require \(n_j\ge1\); the original lemma does not specify the exact \(N_j\), while the selected proof chooses \(N_j\ge3\) and \(1/N_j\le\delta_j\). The T4 neighborhood must contain the integration interval used near \(\theta_j^*\); under normalization the original proof integrates over \([-1/n_j,0]\), the repaired proof over \([-1/n_j,1/n_j]\), so \(N_j\) must ensure \(1/n_j\le\delta_j\). \(q_0\) is only used through pointwise lower bounds on specified neighborhoods; point values on Lebesgue-null sets should not be used, and \(q_0\ge L\) should not be extended beyond the T4 neighborhood. Endpoint regularity of \(g\) is left ambiguous by T1–T2: B2 gives differentiability only on the open support, and \(g(\pm c)\) need not equal the one-sided limits; the original Lemma denom1 proof writes \(p=\log g\) on \([-c,c]\), while the repaired proof handles this by continuous extension and an almost-sure boundary-exclusion event. For a literal “every data set” Lean formalization of the original \(g\) estimate, an extra endpoint-continuity or endpoint-value hypothesis is needed; using \(\widetilde g\), or accepting the almost-sure/\(P^{(\infty)}\)-a.s. statement, avoids that unsupported strengthening. In Lemma denom1 the proof line containing a transition through \(e^{-Rn|\theta_j|}\) appears inconsistent with the claimed \(e^{-R}\) under \(|\theta_j|\le1/n_j\); the statement and the corrected proof use \(n_j|\theta_j|\le1\), so do not formalize \(n\) in place of \(n_j\). The local Lemmas 2.1, 3.1, 4.1 mentioned in the selected proof are generated proof work, not independent external sources; the independently sourced comparison remains supp.tex Lemma denom1, and the passage to the \(T4\)-integral bound is proof work in the selected material.
+      <!-- /formalization-clarifications -->
+
+      Work in the setting of the proof of Theorem \ref{th:ConsBounded} after the linear rescaling $[a,b]=[-c,c]$. The location kernel is $k(x\mid \theta)=g(x-\theta)$. For $j=1,\dots,t$, define $C_j=\{i\in\{1,\dots,n\}: x_i\in[\theta_j^*-c,\theta_j^*+c]\}$, $n_j=|C_j|$, and let $x^j_{(r)}$ denote the $r$-th order statistic of $x_{C_j}$, so that $x^j_{(1)}=\min_{i\in C_j}x_i$ and $x^j_{(n_j)}=\max_{i\in C_j}x_i$. Assume: (T1) there exist $m,M>0$ such that $0<m\le g(x)\le M<\infty$ for every $x\in[-c,c]$; (T2) $g$ is differentiable on $(-c,c)$, and there exists $R<\infty$ such that $|g'(x)/g(x)|\le R$ for every $x\in(-c,c)$. Then, for every $j=1,\dots,t$, $$\prod_{i\in C_j}\frac{g(x_i-\theta_j)}{g(x_i)}\ge e^{-R}\,\mathbbm{1}_{\left[0,\frac1{n_j}\right]}\bigl(|\theta_j-\theta_j^*|\bigr)\,\mathbbm{1}_{\left[x^j_{(n_j)}-c,\,x^j_{(1)}+c\right]}\bigl(\theta_j-\theta_j^*\bigr),$$ with $R$ the constant from T2. The display is meaningful under the usual requirement $n_j\ge1$ for the order statistics and the factor $1/n_j$.
+    assumptions: []
+    proof_body: |-
+      #### Product-ratio estimate for the bounded-support location kernel
+
+      #### 1. Setting and notation
+
+      Fix \(c>0\). Let \(g:\mathbb R\to[0,\infty)\) be the density defining the location kernel
+      \[
+      k(x\mid \theta)=g(x-\theta),
+      \]
+      and suppose \(T1\)--\(T2\) hold:
+
+      - \(T1\): there are \(0<m\le M<\infty\) such that \(m\le g(x)\le M\) for all \(x\in[-c,c]\);
+      - \(T2\): \(g\) is differentiable on \((-c,c)\), and there is \(R<\infty\) such that
+        \[
+        \left|\frac{g'(x)}{g(x)}\right|\le R,\qquad x\in(-c,c).
+        \]
+
+      Fix \(t\ge1\), a true location \(\theta_j^*\in\mathbb R\) for each \(j\in\{1,\dots,t\}\), observations \(x_1,\dots,x_n\in\mathbb R\), and for each \(j\in\{1,\dots,t\}\) set
+      \[
+      C_j=\{i\in\{1,\dots,n\}:x_i\in[\theta_j^*-c,\theta_j^*+c]\},\qquad n_j=|C_j|.
+      \]
+      We assume \(n_j\ge1\), and write \(x^j_{(1)}=\min_{i\in C_j}x_i\), \(x^j_{(n_j)}=\max_{i\in C_j}x_i\).
+
+      It is useful to introduce the centered variables
+      \[
+      y_i:=x_i-\theta_j^*,\qquad \varphi:=\theta_j-\theta_j^*.
+      \]
+      Then
+      \[
+      C_j=\{i:y_i\in[-c,c]\},
+      \]
+      and the centered order statistics are
+      \[
+      y^j_{(r)}:=x^j_{(r)}-\theta_j^*.
+      \]
+      In particular,
+      \[
+      y^j_{(1)}=x^j_{(1)}-\theta_j^*,\qquad
+      y^j_{(n_j)}=x^j_{(n_j)}-\theta_j^*.
+      \]
+
+      The exact statement in the target is the following deterministic inequality:
+      \[
+      \prod_{i\in C_j}\frac{g(x_i-\theta_j)}{g(x_i)}
+      \ge e^{-R}\mathbf 1_{[0,1/n_j]}\bigl(|\theta_j-\theta_j^*|\bigr)
+      \mathbf 1_{[x^j_{(n_j)}-c,\,x^j_{(1)}+c]}\bigl(\theta_j-\theta_j^*\bigr).
+      \tag{1.1}
+      \]
+      In (1.1) the symbol \(\theta_j\) is a free parameter. The source uses the display as a pointwise lower bound that is then integrated over \(\theta_j\), so a sufficient reading is that the inequality holds for every \(\theta_j\in\mathbb R\), and the weaker reading that it holds for Lebesgue-almost every \(\theta_j\) would also suffice for that purpose. As written, (1.1) is not a consequence of \(T1\)--\(T2\) under either reading: Section 2 exhibits data satisfying all the stated hypotheses for which the inequality fails on an interval of values of \(\theta_2\) of positive length. The source proof of Lemma denom1 (the supplementary lemma described in Remark 8.1) uses the normalization \(\theta_j^*=0\); after translating back, both the denominator and the indicator require the centered variables. We first give the explicit counterexample to (1.1), and then prove the exact normalized statement and its correct unnormalized translation.
+
+      #### 1.1 Summary of what is proved
+
+      The display (1.1) is reproduced exactly as it appears in the target, but it inherits two defects from the normalization \(\theta_j^*=0\) used in the source proof of Lemma denom1, and it is insensitive to the values of \(g\) at the two endpoints of the window, which \(T1\)--\(T2\) do not fix beyond the bounds \(m,M\). The document establishes the following statements.
+
+      1. **Section 2.** Under \(T1\)--\(T2\) exactly as stated, (1.1) is false. A data set is exhibited, satisfying in addition \(t=2\), \(p_1=p_2=1/2\), complete separation \(|\theta_1^*-\theta_2^*|>2c\) and \(T3\)--\(T4\), and with every ratio in (1.1) well defined, on which both indicators in (1.1) equal \(1\) while the left-hand side equals \(e^{-5/2}<e^{-1}=e^{-R}\); moreover the failure persists for every \(\theta_2\) in an interval of length \(3/2\), so (1.1) fails even as a statement about Lebesgue-almost every \(\theta_j\). Hence no proof of (1.1) as printed can exist, and the correct display restores the centred denominator and the correctly translated window.
+      2. **Sections 3--5.** The source lemma is proved in the form in which the source uses it, i.e. for the centred kernel: the denominator is \(g(x_i-\theta_j^*)\) and the window indicator is the one attached to \([\theta_j^*-c,\theta_j^*+c]\), translated back to the \(x\)-scale; this is (5.2). The argument is the source one (Lipschitz continuity of \(\log g\) on \([-c,c]\), giving a factor \(e^{-R}\) per observation), with the endpoint values of \(g\) handled by the continuous extension \(\widetilde g\) of Section 3.
+      3. **Section 6.** The endpoint issue is genuine: even for \(\theta_j^*=0\), the deterministic inequality can fail when the observation touches the boundary of its window and \(g(\pm c)\) are assigned values inconsistent with the one-sided limits. With \(\widetilde g\) in place of \(g\) the inequality holds for every data set.
+      4. **Section 7.** The consequence of the product estimate that is actually used in the proof of Theorem th:ConsBounded is derived from \(T4\): the \(Q_0\)-integral of the product is at least \(K^{1/t}Y^j_{n_j}/(n_j(\log n)^{1/(2t)})\) with \(K=(Le^{-R})^t\), with all quantifiers and constant dependencies displayed. No factor \(2\) is available with the same \(L\).
+
+      #### 2. The displayed statement (1.1) is false under \(T1\)--\(T2\)
+
+      Take
+      \[
+      t=2,\qquad p_1=p_2=\frac12,\qquad c=2,\qquad R=1,\qquad
+      \theta_1^*=-\frac52,\qquad \theta_2^*=\frac52,
+      \]
+      and let \(n=2\), \(x_1=-\tfrac32\), \(x_2=\tfrac32\). The true locations are completely separated because
+      \[
+      |\theta_1^*-\theta_2^*|=5>2c=4.
+      \]
+      Define
+      \[
+      g(x)=
+      \begin{cases}
+      C e^x, & -2\le x\le 2,\\[2mm]
+      0, & |x|>2,
+      \end{cases}
+      \qquad
+      C=\frac{1}{e^2-e^{-2}}.
+      \]
+      Then \(g\) is a probability density, strictly positive on \((-2,2)\) and zero outside \([-2,2]\). On \([-2,2]\),
+      \[
+      C e^{-2}\le g(x)\le C e^2,
+      \]
+      so \(T1\) holds with \(m=C e^{-2}\) and \(M=C e^2\). Moreover, on \((-2,2)\),
+      \[
+      \frac{g'(x)}{g(x)}=1,
+      \]
+      so \(T2\) holds with \(R=1\). If one also wants to check the standing density assumptions, take \(q_0\) uniform on \([-5,5]\); then \(T3\) and \(T4\) hold as well, and both \(\theta_1^*=-\tfrac52\) and \(\theta_2^*=\tfrac52\) lie in the interior of the support of \(Q_0\).
+
+      Since \(|g'/g|=1\) on all of \((-2,2)\), the value \(R=1\) is the sharp (smallest) admissible \(T2\) constant for this kernel, hence in particular admissible. The target display asserts the bound with the \(T2\) constant of the kernel; instantiating it at the admissible value \(R=1\) produces, at the data set below, the claim \(e^{-5/2}\ge e^{-1}\), which is false. Thus for this kernel, with the \(T2\) constant taken to be \(R=1\), the hypotheses \(T1\)--\(T2\) hold while the conclusion of the display fails, so the display is not a consequence of \(T1\)--\(T2\). (A larger admissible constant would only shrink the right-hand side \(e^{-R}\) and hence weaken the inequality; the substantive content of the estimate is the bound at the sharp constant, and it is precisely this bound that fails.)
+
+      Now
+      \[
+      C_1=\Bigl\{i\in\{1,2\}:x_i\in\Bigl[-\frac92,-\frac12\Bigr]\Bigr\}=\{1\},
+      \]
+      because \(x_1=-\tfrac32\in[-\tfrac92,-\tfrac12]\) whereas \(x_2=\tfrac32\notin[-\tfrac92,-\tfrac12]\), and
+      \[
+      C_2=\Bigl\{i\in\{1,2\}:x_i\in\Bigl[\frac12,\frac92\Bigr]\Bigr\}=\{2\}.
+      \]
+      Thus \(n_1=n_2=1\) and \(x^2_{(1)}=x^2_{(n_2)}=\tfrac32\). Choose
+      \[
+      \theta_2=\theta_2^*=\frac52.
+      \]
+      Then
+      \[
+      |\theta_2-\theta_2^*|=0\le\frac1{n_2}=1,
+      \]
+      and
+      \[
+      \theta_2-\theta_2^*=0\in\Bigl[-\frac12,\frac72\Bigr]=\Bigl[x^2_{(n_2)}-2,\ x^2_{(1)}+2\Bigr].
+      \]
+      Thus both indicators in (1.1) equal \(1\). But the left-hand side for \(j=2\) is
+      \[
+      \frac{g(x_2-\theta_2)}{g(x_2)}
+      =\frac{g(-1)}{g(3/2)}
+      =\frac{C e^{-1}}{C e^{3/2}}
+      =e^{-5/2}.
+      \]
+      Since
+      \[
+      e^{-5/2}<e^{-1}=e^{-R},
+      \]
+      the inequality (1.1) fails for \(j=2\). All hypotheses \(T1\)--\(T2\) are satisfied, and \(T3\)--\(T4\) can also be satisfied as just noted. Both denominators occurring in this data set are strictly positive, \(g(x_1)=Ce^{-3/2}>0\) and \(g(x_2)=Ce^{3/2}>0\), so the failure is a genuine violation of the inequality and not an undefined or infinite ratio. Therefore the literal deterministic statement with denominator \(g(x_i)\) and with the unshifted indicator argument \(\theta_j-\theta_j^*\) cannot be proved; it is false as stated.
+
+      In fact, for this same data set the failure is not confined to the single value \(\theta_2=\theta_2^*\). For every \(\theta_2\in[2,7/2]\), one has
+      \[
+      |\theta_2-\theta_2^*|=\Bigl|\theta_2-\frac52\Bigr|\le1=\frac1{n_2},
+      \qquad
+      \theta_2-\theta_2^*=\theta_2-\frac52\in\Bigl[-\frac12,\,1\Bigr]\subset\Bigl[-\frac12,\,\frac72\Bigr]=\bigl[x^2_{(n_2)}-2,\ x^2_{(1)}+2\bigr],
+      \]
+      so both indicators in (1.1) equal \(1\); and \(x_2-\theta_2=\tfrac32-\theta_2\in[-2,-\tfrac12]\subset[-2,2]\), so that
+      \[
+      \frac{g(x_2-\theta_2)}{g(x_2)}=\frac{Ce^{3/2-\theta_2}}{Ce^{3/2}}=e^{-\theta_2}\le e^{-2}<e^{-1}=e^{-R}.
+      \]
+      Thus (1.1) fails for every \(\theta_2\) in the interval \([2,7/2]\), which has length \(3/2>0\). Consequently the literal display is false even under the weaker “for Lebesgue-almost every \(\theta_j\)” reading, and not only at isolated parameter values.
+
+
+      Moreover, the failure is not confined to a single isolated data set. If \(x_1\) ranges over a small neighbourhood of \(-\tfrac32\) contained in \((-2,-\tfrac12)\) and \(x_2\) over a small neighbourhood of \(\tfrac32\) contained in \((\tfrac12,2)\), then \(C_1=\{1\}\), \(C_2=\{2\}\), \(n_1=n_2=1\), \(x^2_{(1)}=x^2_{(n_2)}=x_2\), and, with \(\theta_2=\tfrac52\), both indicators in (1.1) are still \(1\); and for \(x_2\in(\tfrac12,2)\) we have \(x_2-\tfrac52\in(-2,-\tfrac12)\subset(-2,2)\), so the left-hand side is still
+      \[
+      \frac{g(x_2-\theta_2)}{g(x_2)}=\frac{Ce^{x_2-5/2}}{Ce^{x_2}}=e^{-5/2}<e^{-1}=e^{-R}.
+      \]
+      The density of \(X_1\) is \(f=p_1g(\cdot-\theta_1^*)+p_2g(\cdot-\theta_2^*)\), which is continuous and satisfies \(f(-\tfrac32)=p_1g(1)>0\) and \(f(\tfrac32)=p_2g(-1)>0\). Hence the neighbourhood in question carries strictly positive \(P^{(2)}\)-probability, so (1.1) fails on a set of positive probability, not merely at one point.
+
+      **Remark 2.1 (the failure is caused by the denominator alone).** In the example \(x^2_{(1)}=x^2_{(n_2)}=\tfrac32\) and \(c=2\), so the window of the second indicator is \([\tfrac32-2,\tfrac32+2]=[-\tfrac12,\tfrac72]\). Both candidate arguments belong to it: the centred one, \(\theta_2-\theta_2^*=0\), and the uncentred one, \(\theta_2=\tfrac52\). Thus the second indicator equals \(1\) under either reading of (1.1), and the first indicator equals \(1\) as well. The only reason the inequality fails is the denominator \(g(x_2)=g(\tfrac32)\): with the corrected denominator one obtains
+      \[
+      \frac{g(x_2-\theta_2)}{g(x_2-\theta_2^*)}=\frac{g(-1)}{g(-1)}=1\ge e^{-1}=e^{-R},
+      \]
+      in agreement with (5.2). The example also satisfies the source support condition: \(g\) is strictly positive on \([-2,2]\) and vanishes outside it.
+
+      #### 3. Continuous extension at the endpoints
+
+      The source proof uses \(\log g\). By \(T2\), \(\log g\) is defined on \((-c,c)\), and for \(x,y\in(-c,c)\), the mean value theorem gives
+      \[
+      |\log g(x)-\log g(y)|
+      \le R|x-y|.
+      \tag{3.1}
+      \]
+      Hence \(\log g\) is Lipschitz on \((-c,c)\). In particular it is uniformly continuous: if \(x_n\uparrow c\), then \((x_n)\) is Cauchy and (3.1) makes the sequence \(\log g(x_n)\) Cauchy, hence convergent; the limit does not depend on the chosen sequence, again by (3.1), and the same argument applies as \(x\downarrow-c\). Therefore the one-sided limits
+      \[
+      \ell_+:=\lim_{x\uparrow c}\log g(x),\qquad
+      \ell_-:=\lim_{x\downarrow -c}\log g(x)
+      \]
+      exist and are finite: by \(T1\), \(\log m\le\log g(x)\le\log M\) for every \(x\in(-c,c)\), hence \(\ell_\pm\in[\log m,\log M]\). Define
+      \[
+      \widetilde g(c):=e^{\ell_+},\qquad
+      \widetilde g(-c):=e^{\ell_-},\qquad
+      \widetilde g(x):=g(x)\quad(x\in\mathbb R,\ x\notin\{-c,c\}).
+      \]
+      Thus \(\widetilde g=g\) except possibly at the two points \(\pm c\); in particular \(\widetilde g=g\) outside \([-c,c]\), so \(\widetilde g\ge0\) on \(\mathbb R\) and all products below are well defined. Moreover, by \(T1\) and the bounds on \(\ell_\pm\),
+      \[
+      m\le\widetilde g(x)\le M,\qquad x\in[-c,c].
+      \]
+      The function \(\widetilde g\) is continuous on the interval \([-c,c]\) (with one-sided continuity at the endpoints), differentiable on \((-c,c)\), and
+      \[
+      \left|\frac{\widetilde g'(x)}{\widetilde g(x)}\right|\le R,\qquad x\in(-c,c).
+      \tag{3.2}
+      \]
+      If \(g\) is already continuous at \(\pm c\), then \(\widetilde g=g\) on \([-c,c]\), and hence on all of \(\mathbb R\).
+
+      #### 4. The normalized product-ratio estimate
+
+      We now prove the source lemma in centered coordinates.
+
+      #### Lemma 4.1 (local product-ratio bound)
+
+      Let \(\widetilde g\) be the continuous extension from Section 3. Let \(\varphi\in\mathbb R\) be such that
+      \[
+      y_i-\varphi\in[-c,c]\qquad\text{for every }i\in C_j.
+      \]
+      Then
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(y_i-\varphi)}{\widetilde g(y_i)}
+      \ge e^{-R n_j|\varphi|}.
+      \tag{4.1}
+      \]
+
+      **Proof.** Put \(p(x):=\log \widetilde g(x)\) for \(x\in[-c,c]\). By (3.2), \(p\) is continuous on \([-c,c]\), differentiable on \((-c,c)\), and
+      \[
+      |p'(x)|\le R,\qquad x\in(-c,c).
+      \]
+      Fix \(i\in C_j\). Both \(y_i\) and \(y_i-\varphi\) lie in \([-c,c]\). If they are equal, the corresponding factor is \(1\). Otherwise let \(I_i\) be the closed interval with endpoints \(y_i\) and \(y_i-\varphi\); its interior is an open interval contained in \((-c,c)\). If \(I_i\neq[-c,c]\), then \(p\) is continuous on the closed interval \(I_i\) and differentiable on its interior, so the mean value theorem applies directly on \(I_i\) (in particular also when \(I_i\) touches exactly one of the endpoints \(\pm c\)) and gives
+      \[
+      |p(y_i-\varphi)-p(y_i)|
+      \le R|(y_i-\varphi)-y_i|
+      =R|\varphi|.
+      \]
+      The remaining case is \(I_i=[-c,c]\), i.e. \(\{y_i,\,y_i-\varphi\}=\{-c,c\}\), so that \(|\varphi|=2c\); applying the same mean value theorem on \([-c+\varepsilon,\,c-\varepsilon]\) for \(0<\varepsilon<c\) and letting \(\varepsilon\downarrow0\), using the continuity of \(p\) on \([-c,c]\) established in Section 3, gives
+      \[
+      |p(c)-p(-c)|\le R\,(2c)=R|\varphi|
+      \]
+      as well. In all cases the stated bound holds.
+      Hence
+      \[
+      \frac{\widetilde g(y_i-\varphi)}{\widetilde g(y_i)}
+      =\exp\{p(y_i-\varphi)-p(y_i)\}
+      \ge e^{-R|\varphi|}.
+      \]
+      Multiplying this inequality over all \(i\in C_j\) gives
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(y_i-\varphi)}{\widetilde g(y_i)}
+      \ge \bigl(e^{-R|\varphi|}\bigr)^{n_j}
+      =e^{-R n_j|\varphi|}.
+      \]
+      \(\square\)
+
+      #### Corollary 4.2 (indicator form)
+
+      For every \(\varphi\in\mathbb R\),
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(y_i-\varphi)}{\widetilde g(y_i)}
+      \ge e^{-R}\mathbf 1_{[0,1/n_j]}(|\varphi|)
+      \mathbf 1_{[y^j_{(n_j)}-c,\,y^j_{(1)}+c]}(\varphi).
+      \tag{4.2}
+      \]
+
+      **Proof.** If the second indicator is \(0\), the right-hand side is \(0\), and the inequality is trivial because the product is nonnegative: the denominators \(\widetilde g(y_i)\) are positive for \(i\in C_j\), and \(\widetilde g\ge0\) everywhere. Suppose therefore that
+      \[
+      \varphi\in[y^j_{(n_j)}-c,\,y^j_{(1)}+c].
+      \]
+      Then for every \(i\in C_j\),
+      \[
+      y_i-\varphi\le y^j_{(n_j)}-\varphi\le c,
+      \]
+      and
+      \[
+      y_i-\varphi\ge y^j_{(1)}-\varphi\ge -c.
+      \]
+      Thus \(y_i-\varphi\in[-c,c]\) for all \(i\), so Lemma 4.1 applies and yields
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(y_i-\varphi)}{\widetilde g(y_i)}
+      \ge e^{-R n_j|\varphi|}.
+      \]
+      If \(|\varphi|\le 1/n_j\), then \(n_j|\varphi|\le1\), hence
+      \[
+      e^{-R n_j|\varphi|}\ge e^{-R}.
+      \]
+      If \(|\varphi|>1/n_j\), the first indicator in (4.2) is \(0\), and the right-hand side is \(0\). In both cases (4.2) follows. \(\square\)
+
+      #### Corollary 4.3 (strong local form and its indicator version)
+
+      If
+      \[
+      \varphi\in\bigl[y^j_{(n_j)}-c,\ y^j_{(1)}+c\bigr],
+      \]
+      then
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(y_i-\varphi)}{\widetilde g(y_i)}
+      \ge e^{-R n_j|\varphi|}.
+      \tag{4.3}
+      \]
+      Equivalently, with
+      \[
+      A_j:=c-y^j_{(n_j)}\ge0,\qquad B_j:=y^j_{(1)}+c\ge0,
+      \]
+      so that \(\bigl[y^j_{(n_j)}-c,\ y^j_{(1)}+c\bigr]=[-A_j,B_j]\), one has for every \(\varphi\in\mathbb R\)
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(y_i-\varphi)}{\widetilde g(y_i)}
+      \ge e^{-R n_j|\varphi|}\,
+      \mathbf 1_{[-A_j,B_j]}(\varphi),
+      \tag{4.4}
+      \]
+      and hence, on the set where \(|\varphi|\le1/n_j\),
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(y_i-\varphi)}{\widetilde g(y_i)}
+      \ge e^{-R}\,
+      \mathbf 1_{[0,1/n_j]}(|\varphi|)\,\mathbf 1_{[-A_j,B_j]}(\varphi),
+      \tag{4.5}
+      \]
+      which is (4.2) written in the notation \(A_j,B_j\).
+
+      **Proof.** The inclusion \(\varphi\in[y^j_{(n_j)}-c,\,y^j_{(1)}+c]\) gives \(y_i-\varphi\in[-c,c]\) for every \(i\in C_j\), exactly as in the proof of Corollary 4.2, so Lemma 4.1 yields (4.3). If \(\varphi\notin[-A_j,B_j]\), the right-hand side of (4.4) is \(0\) and the product is nonnegative; if \(\varphi\in[-A_j,B_j]\), then (4.4) is (4.3). Finally, on the set where \(|\varphi|\le1/n_j\) one has \(e^{-Rn_j|\varphi|}\ge e^{-R}\), which gives (4.5). \(\square\)
+
+      If no endpoint value is used, then \(\widetilde g\) can be replaced by the original \(g\). More precisely, the inequality (4.2) holds for the original \(g\) whenever, for every \(i\in C_j\), neither \(y_i\) nor \(y_i-\varphi\) equals \(\pm c\). In particular, for any data law with nonatomic one-dimensional marginals, this exclusion holds almost surely for each fixed \(\varphi\). If one wants a deterministic statement for all data sets, one should either impose continuity of \(g\) at \(\pm c\), or replace \(g(\pm c)\) by the continuous-extension values \(\widetilde g(\pm c)\). This endpoint issue is separate from the normalization issue and is illustrated in Section 6.
+
+      #### 5. Translation back to the original variables
+
+      Recall \(y_i=x_i-\theta_j^*\) and \(\varphi=\theta_j-\theta_j^*\). Then Lemma 4.1 and Corollary 4.2 become
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(x_i-\theta_j)}{\widetilde g(x_i-\theta_j^*)}
+      \ge e^{-R}\mathbf 1_{[0,1/n_j]}(|\theta_j-\theta_j^*|)
+      \mathbf 1_{[y^j_{(n_j)}-c,\,y^j_{(1)}+c]}(\theta_j-\theta_j^*).
+      \tag{5.1}
+      \]
+      Equivalently, since
+      \[
+      \theta_j-\theta_j^*\in[y^j_{(n_j)}-c,y^j_{(1)}+c]
+      \]
+      is the same as
+      \[
+      \theta_j\in[x^j_{(n_j)}-c,\;x^j_{(1)}+c],
+      \]
+      we may write the indicator in the more natural unnormalized form:
+      \[
+      \boxed{
+      \prod_{i\in C_j}\frac{\widetilde g(x_i-\theta_j)}{\widetilde g(x_i-\theta_j^*)}
+      \ge e^{-R}\mathbf 1_{[0,1/n_j]}(|\theta_j-\theta_j^*|)
+      \mathbf 1_{[x^j_{(n_j)}-c,\,x^j_{(1)}+c]}(\theta_j).
+      }
+      \tag{5.2}
+      \]
+      This is the correct unnormalized translation of the source lemma. In the special case \(\theta_j^*=0\), one has \(y_i=x_i\), \(\varphi=\theta_j\), and (5.1) reduces exactly to
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(x_i-\theta_j)}{\widetilde g(x_i)}
+      \ge e^{-R}\mathbf 1_{[0,1/n_j]}(|\theta_j|)
+      \mathbf 1_{[x^j_{(n_j)}-c,\,x^j_{(1)}+c]}(\theta_j),
+      \tag{5.3}
+      \]
+      which is the source statement in its normalized form.
+
+      **Strong local form in the original variables.** With \(A_j=c-y^j_{(n_j)}\ge0\) and \(B_j=y^j_{(1)}+c\ge0\) as in Corollary 4.3, the condition \(\theta_j-\theta_j^*\in[-A_j,B_j]\) is the same as \(\theta_j\in[x^j_{(n_j)}-c,\,x^j_{(1)}+c]\), so the strong bound (4.4) becomes, after translation,
+      \[
+      \prod_{i\in C_j}\frac{\widetilde g(x_i-\theta_j)}{\widetilde g(x_i-\theta_j^*)}
+      \ \ge\ e^{-R n_j|\theta_j-\theta_j^*|}\,
+      \mathbf 1_{[x^j_{(n_j)}-c,\,x^j_{(1)}+c]}\bigl(\theta_j\bigr).
+      \]
+      This is the source's stronger local product-ratio estimate, transported to the unnormalized variables and supplied with the centred denominator. On the sublevel set \(|\theta_j-\theta_j^*|\le1/n_j\) it reduces to (5.2), because then \(e^{-Rn_j|\theta_j-\theta_j^*|}\ge e^{-R}\). For the original \(g\) the same bound holds for Lebesgue-almost every \(\theta_j\) on the \(P^{(\infty)}\)-full event \(\Omega_0\) of Theorem 5.1: there the denominators \(g(x_i-\theta_j^*)=\widetilde g(x_i-\theta_j^*)\) are positive, and the numerator factors \(g(x_i-\theta_j)\) and \(\widetilde g(x_i-\theta_j)\) differ only at the finitely many \(\theta_j\) with \(x_i-\theta_j=\pm c\) for some \(i\in C_j\).
+
+      #### Theorem 5.1 (the form of the estimate supported by \(T1\)--\(T2\))
+
+      Let \(X_1,X_2,\dots\) be i.i.d. with density \(f=\sum_{h=1}^{t}p_h\,g(\cdot-\theta_h^*)\), and let \(P^{(\infty)}\) denote their joint law. Let
+      \[
+      \Omega_0:=\bigl\{\omega:\ X_i(\omega)\ne\theta_h^*+c\ \text{and}\ X_i(\omega)\ne\theta_h^*-c\ \text{for all } i\ge1,\ h=1,\dots,t\bigr\}.
+      \]
+      Then \(P^{(\infty)}(\Omega_0)=1\). Fix \(j\in\{1,\dots,t\}\), a realization \(\omega\in\Omega_0\), and \(n\ge1\) with \(n_j=|C_j|\ge1\). Then:
+
+      1. \(g(X_i-\theta_j^*)>0\) for every \(i\in C_j\), and for every \(i\in\{1,\dots,n\}\) one has \(X_i\in[\theta_j^*-c,\theta_j^*+c]\) if and only if \(X_i-\theta_j^*\in(-c,c)\);
+      2. for every \(\theta_j\in\mathbb R\setminus E_j\), where \(E_j:=\{X_i-c:\,i\in C_j\}\cup\{X_i+c:\,i\in C_j\}\) is a finite set,
+      \[
+      \prod_{i\in C_j}\frac{g(X_i-\theta_j)}{g(X_i-\theta_j^*)}\ \ge\ e^{-R}\,\mathbf 1_{[0,1/n_j]}\bigl(|\theta_j-\theta_j^*|\bigr)\,\mathbf 1_{[X^j_{(n_j)}-c,\,X^j_{(1)}+c]}\bigl(\theta_j\bigr);
+      \tag{5.4}
+      \]
+      3. if moreover \(g(c)\ge\widetilde g(c)\) and \(g(-c)\ge\widetilde g(-c)\), then (5.4) holds for every \(\theta_j\in\mathbb R\).
+
+      In particular, \(P^{(\infty)}\)-almost surely (5.4) holds simultaneously for all \(n\) with \(n_j\ge1\) and all \(\theta_j\) outside the finite exceptional set \(E_j\); and it holds for every \(\theta_j\) whenever \(g(\pm c)=\widetilde g(\pm c)\), in particular whenever \(g\) is continuous on \([-c,c]\).
+
+      **Proof.** For fixed \(i\) and \(h\), \(P(X_i=\theta_h^*\pm c)=0\), because the law of \(X_i\) is absolutely continuous with density \(f\); there are countably many pairs \((i,h)\) and two boundary points each, so the union of these null sets is null and \(P^{(\infty)}(\Omega_0)=1\). Fix \(\omega\in\Omega_0\) and \(n\) with \(n_j\ge1\); write \(y_i=X_i-\theta_j^*\) and \(\varphi=\theta_j-\theta_j^*\).
+
+      *Part 1.* If \(i\in C_j\), then \(y_i\in[-c,c]\), and \(y_i\ne\pm c\) because \(\omega\in\Omega_0\); hence \(y_i\in(-c,c)\), where \(g=\widetilde g\ge m>0\) by \(T1\) and Section 3. The second assertion is the same statement read backwards.
+
+      *Part 2.* Let \(\theta_j\notin E_j\), i.e. \(y_i-\varphi=X_i-\theta_j\ne\pm c\) for every \(i\in C_j\). If the second indicator in (5.4) vanishes, the right-hand side is \(0\) and the left-hand side is nonnegative, since all denominators \(g(y_i)\) are strictly positive by part 1 and all numerators are nonnegative. If the second indicator equals \(1\), then \(y_i-\varphi\in[-c,c]\) for every \(i\in C_j\), and by the choice of \(\theta_j\) in fact \(y_i-\varphi\in(-c,c)\); hence \(g(y_i-\varphi)=\widetilde g(y_i-\varphi)\) and \(g(y_i)=\widetilde g(y_i)\) for every \(i\in C_j\), so the left-hand side of (5.4) equals the corresponding \(\widetilde g\)-product, and Corollary 4.2 gives the bound \(e^{-R}\).
+
+      *Part 3.* Assume \(g(\pm c)\ge\widetilde g(\pm c)\) and fix an arbitrary \(\theta_j\). If the second indicator vanishes, the inequality is trivial as in part 2. Otherwise \(y_i-\varphi\in[-c,c]\) for all \(i\in C_j\); for those \(i\) with \(y_i-\varphi\in(-c,c)\) we have \(g(y_i-\varphi)=\widetilde g(y_i-\varphi)\), and for those with \(y_i-\varphi=\pm c\) we have \(g(y_i-\varphi)\ge\widetilde g(y_i-\varphi)\). Since \(g(y_i)=\widetilde g(y_i)\) for all \(i\) by part 1, the product of the original ratios dominates the product of the \(\widetilde g\)-ratios, which is at least \(e^{-R}\) by Corollary 4.2. \(\square\)
+
+      Two remarks on the scope of (5.4). First, \(E_j\) is finite, hence Lebesgue-null, so (5.4) holds for Lebesgue-almost every \(\theta_j\) with no side condition on the endpoint values of \(g\); this is all that is needed when the estimate is integrated against \(q_0(\theta_j)\,d\theta_j\), as in Section 7. Second, the hypothesis \(\omega\in\Omega_0\) cannot be dropped: the example of Section 6 has an observation exactly at \(x_1=\theta_1^*-c\), and there (5.4) fails although \(g(-c)>\widetilde g(-c)\). In the mixture model \(\Omega_0\) has full probability, which is why the qualification is harmless.
+
+      The target display (1.1) differs from (5.3) in two places when \(\theta_j^*\neq0\): the denominator should be \(g(x_i-\theta_j^*)\), and the interval indicator should be evaluated at \(\theta_j\) (or, equivalently, the interval should be shifted by \(\theta_j^*\) before being evaluated at \(\theta_j-\theta_j^*\)). The counterexample of Section 2 shows that the unshifted denominator is not merely a harmless notational choice. There is an additional support issue: if \(g\) is supported on \([-c,c]\), as in the location-family setting, then the denominator \(g(x_i)\) in (1.1) can even vanish when \(x_i\notin[-c,c]\), whereas the corrected denominator \(g(x_i-\theta_j^*)\) is positive because \(x_i\in C_j\) gives \(x_i-\theta_j^*\in[-c,c]\).
+
+      #### 6. Endpoint counterexample for the normalized display
+
+      Even after setting \(\theta_j^*=0\), the deterministic inequality with the original endpoint values of \(g\) can fail, because \(T2\) controls \(g\) only on the open interval \((-c,c)\).
+
+      Take \(t=2\), \(p_1=p_2=1/2\), \(c=1\), \(R=1\), \(\theta_1^*=0\), \(\theta_2^*=3\), \(n=2\), \(x_1=-1\), and \(x_2=3\). Complete separation holds because \(|\theta_1^*-\theta_2^*|=3>2c=2\). Let
+      \[
+      g(-1)=C e^3,\qquad
+      g(x)=C e^{x+1}\quad(-1<x<1),\qquad
+      g(1)=C e^2,\qquad
+      g(x)=0\quad(|x|>1),
+      \]
+      where \(C=(e^2-1)^{-1}\). Then \(g\) is a probability density. On \([-1,1]\),
+      \[
+      C\le g(x)\le C e^3,
+      \]
+      so \(T1\) holds, and on \((-1,1)\),
+      \[
+      \frac{g'(x)}{g(x)}=1,
+      \]
+      so \(T2\) holds with \(R=1\). Again \(T3\)--\(T4\) can be arranged, for instance by taking \(q_0\) uniform on \([-3,5]\). We have
+      \[
+      C_1=\{i\in\{1,2\}:x_i\in[-1,1]\}=\{1\},\qquad
+      C_2=\{i\in\{1,2\}:x_i\in[2,4]\}=\{2\},
+      \]
+      so \(n_1=n_2=1\) and \(x^1_{(1)}=x^1_{(n_1)}=-1\). Choose
+      \[
+      \theta_1=-1.
+      \]
+      Then
+      \[
+      |\theta_1-\theta_1^*|=1\le\frac1{n_1},
+      \qquad
+      \theta_1-\theta_1^*=-1\in[-2,0]=[x^1_{(n_1)}-1,\,x^1_{(1)}+1],
+      \]
+      so both indicators in the normalized display are \(1\). But the left-hand side is
+      \[
+      \frac{g(x_1-\theta_1)}{g(x_1)}
+      =\frac{g(0)}{g(-1)}
+      =\frac{C e}{C e^3}
+      =e^{-2}
+      <e^{-1}=e^{-R}.
+      \]
+      Hence the normalized deterministic statement can fail when an observation sits exactly on the boundary of its window and the prescribed endpoint value of \(g\) is inconsistent with the one-sided limit. If \(g(-1)\) is replaced by its continuous-extension value \(C\), the left-hand side becomes \(e\), and the inequality holds. This is exactly the endpoint caveat discussed after Corollary 4.2. Note that \(x_1=\theta_1^*-c\) lies on the boundary of its own window, so this realization has probability zero under any model in which the \(X_i\) have densities; this is why the almost-sure statement of Theorem 5.1 is unaffected by the example.
+
+      #### 7. Consequence for the denominator integral
+
+      For completeness, we record the integral lower bound used in the proof of Theorem th:ConsBounded. The product estimate of Sections 4--5 uses only \(T1\)--\(T2\); in the present section \(T4\) enters through the pointwise lower bound on \(q_0\), while \(T3\) (the two-sided bound on \(h=q_0+q_0(-\cdot)\)) is not needed for a lower bound. Work in centered coordinates \(\theta_j^*=0\), so \(C_j=\{i:y_i\in[-c,c]\}\).
+      \[
+      q_0(\theta)\ge L\qquad(|\theta|\le \delta)
+      \]
+      for some \(L>0\) and \(\delta>0\) (shrinking \(\delta\) if necessary, this follows from any neighborhood version of \(T4\)). Choose \(N_j\) so large that
+      \[
+      \frac1{N_j}\le\delta,\qquad \log N_j\ge1.
+      \]
+      For \(n_j\ge N_j\), Corollary 4.2 with \(\varphi=\theta\) gives
+      \[
+      \begin{aligned}
+      I_j
+      &:=\int_{\mathbb R}
+      \prod_{i\in C_j}\frac{\widetilde g(y_i-\theta)}{\widetilde g(y_i)}
+      \,q_0(\theta)\,d\theta\\
+      &\ge e^{-R}\int_{\mathbb R}
+      \mathbf 1_{[0,1/n_j]}(|\theta|)
+      \mathbf 1_{[y^j_{(n_j)}-c,\,y^j_{(1)}+c]}(\theta)
+      q_0(\theta)\,d\theta.
+      \end{aligned}
+      \tag{7.1}
+      \]
+      On the interval \([-1/n_j,0]\) we have \(|\theta|\le1/n_j\), so the first indicator equals \(1\). Moreover the right endpoint \(y^j_{(1)}+c\) of the second window is nonnegative because \(y^j_{(1)}\ge-c\); hence on \([-1/n_j,0]\) the second indicator reduces to the single condition \(\theta\ge y^j_{(n_j)}-c\). Therefore
+      \[
+      \int_{-1/n_j}^0\mathbf 1_{[y^j_{(n_j)}-c,\,y^j_{(1)}+c]}(\theta)\,q_0(\theta)\,d\theta
+      =\int_{\max\{-1/n_j,\,y^j_{(n_j)}-c\}}^0 q_0(\theta)\,d\theta,
+      \]
+      and the lower limit is \(\le0\) because \(y^j_{(n_j)}\le c\). On that interval \(|\theta|\le1/n_j\le1/N_j\le\delta\), so \(q_0(\theta)\ge L\) by \(T4\), and hence
+      \[
+      I_j\ \ge\ e^{-R}\int_{\max\{-1/n_j,\,y^j_{(n_j)}-c\}}^0 q_0(\theta)\,d\theta
+      \ \ge\ L e^{-R}\Bigl(0-\max\Bigl\{-\frac1{n_j},\,y^j_{(n_j)}-c\Bigr\}\Bigr)
+      =L e^{-R}\min\left\{\frac1{n_j},\,c-y^j_{(n_j)}\right\}.
+      \tag{7.2}
+      \]
+      Put
+      \[
+      Y^j_{n_j}:=\min\left\{1,\;n_j(\log n)^{1/(2t)}\bigl(c-y^j_{(n_j)}\bigr)\right\}.
+      \]
+      Since \(n\ge n_j\ge N_j\ge3\), we have \(\log n\ge1\), and hence
+      \[
+      \min\left\{\frac1{n_j},\,c-y^j_{(n_j)}\right\}
+      \ge
+      \frac{Y^j_{n_j}}{n_j(\log n)^{1/(2t)}}.
+      \tag{7.3}
+      \]
+      Indeed, if \(Y^j_{n_j}=1\), then \(c-y^j_{(n_j)}\ge 1/(n_j(\log n)^{1/(2t)})\), and the same lower bound holds for \(1/n_j\); if \(Y^j_{n_j}<1\), then the minimum in (7.3) equals \(c-y^j_{(n_j)}=Y^j_{n_j}/(n_j(\log n)^{1/(2t)})\). Combining (7.2) and (7.3) yields
+      \[
+      I_j
+      \ge
+      \frac{L e^{-R}\,Y^j_{n_j}}{n_j(\log n)^{1/(2t)}}.
+      \tag{7.4}
+      \]
+      With
+      \[
+      K:=(L e^{-R})^t,
+      \]
+      this is
+      \[
+      I_j\ge \frac{K^{1/t}Y^j_{n_j}}{n_j(\log n)^{1/(2t)}}.
+      \tag{7.5}
+      \]
+      **Quantifier order and dependence of the constants.** All the objects \(t,c,g,q_0,Q_0,p_1,\dots,p_t,\theta_1^*,\dots,\theta_t^*\) and the constants \(m,M,R,U,L\) are those of the standing assumptions; they do not depend on \(n\), on the realization, or on \(j\). Given these, fix \(j\), then choose \(\delta_j>0\) with \(q_0(\theta)\ge L\) for \(|\theta|\le\delta_j\) (possible by \(T4\) after shrinking the neighbourhood) and \(N_j\in\mathbb N\) with
+      \[
+      \frac1{N_j}\le\min\{\delta_j,1\},\qquad N_j\ge3
+      \]
+      (the last requirement gives \(\log n\ge1\) for all \(n\ge N_j\)). Only after these choices is the inequality quantified over \(n\) and over the realization, subject to \(n_j\ge N_j\). The constant
+      \[
+      K=(Le^{-R})^t
+      \]
+      depends only on \(t\), \(L\) and \(R\); in particular it is independent of \(n\), of \(j\), of \(C_j\), of \(n_j\), of \(Y^j_{n_j}\) and of the observations, and the same \(K\) serves for all \(j\) whenever the same \(L\) serves in \(T4\) for all \(j\). If \(T4\) were read with a component-specific constant \(L_j\), the same computation would give \(K_j=(L_je^{-R})^t\). Finally, no factor \(2\) is available with the same \(L\): the printed estimate \(2Le^{-R}\min\{\cdots\}\) is correct only after replacing \(L\) by \(L_0=L/2\), and then \(K=(2L_0e^{-R})^t=(Le^{-R})^t\). For the same reason the final bound carries the exponent \(1/t\) and not \(1/(2t)\): with \(K=(Le^{-R})^t\) the coefficient multiplying \(Y^j_{n_j}/(n_j(\log n)^{1/(2t)})\) is exactly \(K^{1/t}=Le^{-R}\), and an intermediate factor \(K^{1/(2t)}\) occurring in an extracted version of the supplementary proof is inconsistent with the displayed algebra (7.1)--(7.5) and with the target's \(K^{1/t}\).
+
+      **Status of \(T4\).** The hypothesis \(T4\) is not a consequence of the other assumptions and is carried explicitly. The main article assumes only that each \(\theta_j^*\) lies in the interior of the support of \(Q_0\), and interior support membership does not yield a pointwise lower bound \(q_0\ge L\) on a neighbourhood of \(\theta_j^*\): a density may vanish at points, or on a dense subset, of its own support. Thus the passage from the product comparison to (7.6) genuinely uses the extra assumption \(T4\), exactly as recorded in the selected statement, and \(T3\) plays no role in this lower bound.
+
+      **Endpoint values and the almost-sure form.** The observations are generated from the densities \(g(\cdot-\theta_h^*)\), which are bounded on \([-c,c]\); hence no observation equals a boundary point \(\theta_h^*\pm c\) except on a \(P^{(\infty)}\)-null set. On that full-probability event the denominators \(g(y_i)\) coincide with \(\widetilde g(y_i)\). Moreover, for a fixed such data set, the numerator factors built from \(g\) and from \(\widetilde g\) can differ only at those \(\theta\) for which \(y_i-\theta=\pm c\) for some \(i\), and there are only finitely many such \(\theta\). Since \(Q_0\) has density \(q_0\), changing the integrand on a finite set does not change the integral in (7.1). Consequently (7.4), with the original \(g\) in place of \(\widetilde g\), holds \(P^{(\infty)}\)-almost surely for every \(n\) with \(n_j\ge N_j\). The pointwise deterministic inequality for every data set and every \(\theta\) still requires endpoint continuity, or the use of the continuous-extension values \(\widetilde g(\pm c)\).
+
+
+      #### Theorem 7.1 (corrected form of the selected lower-bound statement)
+
+      Fix \(t\ge1\), \(c>0\), the kernel generator \(g\), the density \(q_0\), the weights \(p_1,\dots,p_t\in(0,1)\) with \(\sum_{h=1}^tp_h=1\), and the completely separated true locations \(\theta_1^*,\dots,\theta_t^*\) (\(|\theta_j^*-\theta_k^*|>2c\) for \(j\ne k\)), and assume \(T1\)--\(T4\). Fix \(j\in\{1,\dots,t\}\). Choose \(\delta_j>0\) with \(q_0(\theta)\ge L\) for \(|\theta-\theta_j^*|\le\delta_j\), choose \(N_j\in\mathbb N\) with \(N_j\ge3\) and \(1/N_j\le\min\{\delta_j,1\}\), and put \(K:=(Le^{-R})^t\). Then, on the \(P^{(\infty)}\)-full event \(\Omega_0\) of Theorem 5.1, for every \(n\) whose realized count satisfies \(n_j=|C_j|\ge N_j\),
+      \[
+      \int_{\mathbb R}\prod_{i\in C_j}\frac{g(X_i-\theta_j)}{g(X_i-\theta_j^*)}\,q_0(\theta_j)\,d\theta_j
+      \ \ge\ \frac{K^{1/t}\,Y^j_{n_j}}{n_j(\log n)^{1/(2t)}},
+      \qquad
+      Y^j_{n_j}=\min\Bigl\{1,\ n_j(\log n)^{1/(2t)}\bigl(c+\theta_j^*-X^j_{(n_j)}\bigr)\Bigr\}.
+      \tag{7.6}
+      \]
+      The threshold \(N_j\) and the constant \(K\) are chosen before \(n\) and before the realization are quantified over; \(K\) depends only on \(t\), \(L\), \(R\) and not on \(n\), the realization, \(j\), \(C_j\), \(n_j\), \(Y^j_{n_j}\), or the observations, while \(N_j\) may depend on \(j\) through \(\delta_j\). Thus the intended reading of the selected statement — for each \(j\) there are \(K>0\) and \(N_j\) such that the inequality holds for almost every realization and every \(n\) with \(n_j\ge N_j\) — holds with the corrected denominator \(g(X_i-\theta_j^*)\); with the printed denominator \(g(X_i)\) it is false by Section 2.
+
+      **Proof.** Work in centered coordinates \(y_i=X_i-\theta_j^*\), \(\varphi=\theta_j-\theta_j^*\), and put
+      \[
+      \widetilde I_j:=\int_{\mathbb R}\prod_{i\in C_j}\frac{\widetilde g(y_i-\varphi)}{\widetilde g(y_i)}\,q_0(\theta_j^*+\varphi)\,d\varphi,
+      \]
+      the image, under the change of variables \(\theta_j=\theta_j^*+\varphi\), of the integral in (7.6) when \(g\) is replaced by its continuous extension \(\widetilde g\). The computation (7.1)--(7.5) was carried out for \(\theta_j^*=0\) with the running parameter inserted into \(q_0\); it applies verbatim here with the single change that \(q_0\) is evaluated at \(\theta_j^*+\varphi\), because only the bound \(q_0\ge L\) on the integration range is used, and for \(\varphi\in[-1/n_j,0]\) we have \(|\varphi|\le1/n_j\le1/N_j\le\delta_j\), so that \(q_0(\theta_j^*+\varphi)\ge L\) by the choice of \(\delta_j\). Hence
+      \[
+      \widetilde I_j\ \ge\ L e^{-R}\min\Bigl\{\frac1{n_j},\,c-y^j_{(n_j)}\Bigr\}\ \ge\ \frac{K^{1/t}Y^j_{n_j}}{n_j(\log n)^{1/(2t)}},
+      \]
+      the last step being (7.3). Next, on \(\Omega_0\) one has \(g(y_i)=\widetilde g(y_i)\) for every \(i\in C_j\) by Theorem 5.1, part 1, and for fixed \(\varphi\) the factors \(g(y_i-\varphi)\) and \(\widetilde g(y_i-\varphi)\) can differ only when \(y_i-\varphi=\pm c\), that is, only for \(\varphi\in\{y_i-c,\,y_i+c\}\), a finite set. Since \(q_0\) is a density, changing the integrand on this Lebesgue-null set of values of \(\varphi\) does not change the value of the integral, so the integral in (7.6) equals \(\widetilde I_j\). Combining these facts gives (7.6). \(\square\)
+
+      #### 8. Conclusion
+
+      The conclusions established above are the following.
+
+      **(a) The printed inequality is false under \(T1\)--\(T2\).** With the denominator \(g(x_i)\) and with the window \([x^j_{(n_j)}-c,\,x^j_{(1)}+c]\) applied to the centred argument \(\theta_j-\theta_j^*\), display (1.1) is not implied by the stated hypotheses: Section 2 gives a data set satisfying \(T1\)--\(T2\) (and also \(t=2\), \(p_j\in(0,1)\), \(\sum_jp_j=1\), complete separation and \(T3\)--\(T4\)) with all ratios in the display well defined, on which it fails for every \(\theta_2\) in an interval of length \(3/2\) (hence under both the “for every \(\theta_j\)” and the “for Lebesgue-almost every \(\theta_j\)” readings), the failure persists on a set of positive \(P^{(2)}\)-probability, and Section 6 gives a failure for \(\theta_j^*=0\) with endpoint values of \(g\) that are not the one-sided limits. The source's use of the denominator \(g(x_i)\) is a consequence of its normalization \(\theta_j^*=0\), under which \(g(x_i-\theta_j^*)=g(x_i)\).
+
+      **(b) The corrected product estimate holds under \(T1\)--\(T2\).** With the centred denominator and the correctly translated window,
+      \[
+      \prod_{i\in C_j}\frac{g(x_i-\theta_j)}{g(x_i-\theta_j^*)}
+      \ge e^{-R}\,\mathbf 1_{[0,1/n_j]}\bigl(|\theta_j-\theta_j^*|\bigr)
+      \mathbf 1_{[x^j_{(n_j)}-c,\,x^j_{(1)}+c]}\bigl(\theta_j\bigr)
+      \]
+      holds for every data set with \(n_j\ge1\) and every \(\theta_j\) once \(g\) is replaced by its continuous extension \(\widetilde g\) (Corollary 4.2, transported in Section 5). Consequently it holds for the original \(g\) for every \(\theta_j\) whenever \(g(\pm c)=\widetilde g(\pm c)\) and \(x_i\ne\theta_j^*\pm c\) for all \(i\in C_j\); and in the mixture model of the theorem it holds with the original \(g\) for all \(n\), all \(j\) with \(n_j\ge1\) and all \(\theta_j\) outside the finite exceptional set \(E_j\), \(P^{(\infty)}\)-almost surely (Theorem 5.1). The only constants entering are \emph{m}, \emph{M} and the \emph{R} of \(T2\), which is the Lipschitz constant of \(\log g\) on \((-c,c)\).
+
+      **(c) The \(T4\) integral estimate.** Under \(T4\), and with \(N_j\) chosen so that \(1/N_j\le\delta_j\) and \(\log n\ge1\) for \(n\ge N_j\),
+      \[
+      \int_{\mathbb R}\prod_{i\in C_j}\frac{g(X_i-\theta_j)}{g(X_i-\theta_j^*)}\,q_0(\theta_j)\,d\theta_j
+      \ \ge\ \frac{K^{1/t}\,Y^j_{n_j}}{n_j(\log n)^{1/(2t)}},
+      \qquad K=(Le^{-R})^t,
+      \]
+      \(P^{(\infty)}\)-almost surely, for every \(n\) with \(n_j\ge N_j\); this is Theorem 7.1 (equivalently (7.5)), the form used in the proof of Theorem th:ConsBounded. It holds with the original \(g\) in the integrand because, on the almost-sure event of Theorem 5.1, the integrands built from \(g\) and from \(\widetilde g\) differ only at finitely many values of \(\theta_j\), which do not affect the Lebesgue integral.
+
+      **Remark 8.1 (what is external and what is proved here).** The externally sourced input behind the product comparison is Lemma denom1 of the supplementary material (source id `library:reference:5126797cf2193de7dd2b8420e0bd8daad1face111d081643bff88f069767b8fe`, file `supp.tex`, used there in the proof of Theorem th:ConsBounded; the statement and standing conditions of that theorem are in source id `library:reference:c816336712f69ea6c59eb379ea5cf0f0169083be68b55bd4e05452795f36f323`, file `main.tex`). That lemma states the comparison only under the normalization \(\theta_j^*=0\) and under \(T1\)--\(T2\). Sections 3--5 give a self-contained derivation of that comparison in the exact centered normalization, including the endpoint extension that makes the mean-value argument on \([-c,c]\) legitimate, and Section 5 translates it to the original variables; Section 2 shows that the translation printed in the target display does not follow from the same hypotheses and is in fact false. The step from the pointwise comparison to the \(T4\) lower bound (7.1)--(7.5) and the constant \(K=(Le^{-R})^t\) are not part of that external lemma and are proved here; they use \(T4\) only through \(q_0\ge L\) on a neighborhood of \(\theta_j^*\), and \(T3\) is not used anywhere in this lower bound.
+    lean_name: paper_a2bb64c47d4d486d8be39815258273b1
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

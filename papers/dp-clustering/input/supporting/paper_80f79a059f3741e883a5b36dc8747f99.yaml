@@ -1,0 +1,854 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:1d0c9f76-cf85-4b2c-a172-3585fa335622
+    title: paper_80f79a059f3741e883a5b36dc8747f99
+    kind: lemma
+    latex_statement: |-
+      **Dirichlet process mixture model.** The model is
+      \[
+      X_i\mid\theta_i \simind k(\cdot\mid\theta_i),\qquad
+      \theta_i\mid \tilde P \simiid \tilde P,\qquad
+      \tilde P\mid \alpha \sim \operatorname{DP}(\alpha,Q_0),\qquad
+      \alpha\sim\pi,
+      \]
+      where \(k(\cdot\mid\theta)\) is a density for every \(\theta\), \(\alpha>0\) is the concentration parameter, and \(Q_0\) is the baseline distribution on \((\mathbb X,\mathcal X)\). The number of clusters in a sample of size \(n\) is \(K_n\); equivalently, \(K_n\) is the number of distinct latent parameters among \(\theta_1,\dots,\theta_n\). The posterior probability under this model is denoted \(\operatorname{pr}(\cdot\mid X_{1:n})\). Define
+      \[
+      \underline{\Pi}_n:=\operatorname{pr}(K_n<t\mid X_{1:n}).
+      \]
+
+      **Data-generating mechanism.** The data are
+      \[
+      X_i\simiid P=\sum_{j=1}^t p_jR_j,\qquad i=1,2,\dots,
+      \]
+      where \(t\ge1\), the \(R_j\) are distinct probability measures on \(\mathbb X\), \(p_j\in(0,1)\), and \(\sum_{j=1}^t p_j=1\). The product laws are \(P^{(n)}\) on \(\mathbb X^n\) and \(P^{(\infty)}\) on \(\mathbb X^\infty\). Posterior probabilities are computed under the mixture model, while convergence in probability is with respect to \(X_{1:\infty}\sim P^{(\infty)}\). The support of the baseline probability measure \(Q_0\) is denoted \(\operatorname{supp}Q_0\).
+
+      **Kernel and baseline conditions \(B1\)–\(B3\).** In the \(B1\)–\(B3\) branch the kernel is a location kernel
+      \[
+      k(x\mid\theta)=g(x-\theta),
+      \]
+      and the baseline is \(Q_0(d\theta)=q_0(\theta)\,d\theta\). After the linear rescaling used in the source, one may take \([a,b]=[-c,c]\). The supplied working form of \(B1\)–\(B3\) after this rescaling is \(T1\)–\(T4\):
+      \[
+      \begin{array}{ll}
+      T1. & \exists\,m,M \text{ such that } 0<m\le g(x)\le M<\infty
+      \text{ for every }x\in[-c,c];\\[2mm]
+      T2. & g\text{ is differentiable on }(-c,c),\text{ and }\exists\,R
+      \text{ such that }\left|\dfrac{g'(x)}{g(x)}\right|\le R<\infty
+      \text{ for every }x\in(-c,c);\\[2mm]
+      T3. & \exists\,U>0\text{ such that }
+      h(y)=q_0(y)+q_0(-y)\le U
+      \text{ for every }y\in[0,2c];\\[2mm]
+      T4. & \exists\,L>0\text{ such that }q_0(\theta)\ge L
+      \text{ for every }\theta\text{ in a neighborhood of }\theta_j^*,
+      \text{ for every }j.
+      \end{array}
+      \]
+      The original wording of \(B1\)–\(B3\) is not printed in the supplied material; the above is the rescaled working form.
+
+      **Conditions \(H1\)–\(H4\).** Let \(\mathbb X\subseteq\mathbb R^q\) and \(\Theta\subseteq\mathbb R^p\). The family of kernels is
+      \[
+      \Psi=\{k(\cdot\mid\theta):\theta\in\Theta\},
+      \]
+      dominated by \(\mu\), where \(\mu\) is either Lebesgue or counting measure, with common domain \(\mathbb X\). Let \(\bar\Theta\) be the closure of \(\Theta\), and define the boundary set of singular kernels
+      \[
+      \mathbb B:=\left\{\bar\theta\in\bar\Theta\setminus\Theta:
+      \lim_{\theta\to\bar\theta}\left\{\sup_x k(x\mid\theta)\right\}=\infty\right\}.
+      \]
+      For \(s\ge1\), let \(\mathbb G_s\) be the set of mixtures of exactly \(s\) elements of \(\Psi\):
+      \[
+      f\in\mathbb G_s
+      \quad\Longleftrightarrow\quad
+      f=\sum_{j=1}^s q_j k(\cdot\mid\theta_j),
+      \]
+      with \(q_j>0\) for every \(j\), \(\sum_{j=1}^s q_j=1\), and \(\theta_i\ne\theta_h\) for every \(i\ne h\).
+      Let \(\mathcal P(G)\) denote the set of probability measures on a generic space \(G\); write \(f\in\mathcal P(G)\) when \(f\) is the density of a probability measure \(P\in\mathcal P(G)\). For \(P\in\mathbb G_t\), with weights \(\{p_j\}_{j=1}^t\) and parameters \(\{\theta_j^*\}_{j=1}^t\), the Kullback–Leibler neighborhoods of \(P\) are
+      \[
+      KL_\epsilon(P)
+      :=
+      \left\{
+      h\in\mathcal P(\mathbb X):
+      \int
+      \log\left\{
+      \frac{\sum_{j=1}^{t} p_j k(x\mid\theta_j^*)}{h(x)}
+      \right\}
+      P(dx)
+      <\epsilon
+      \right\},
+      \qquad \epsilon>0.
+      \]
+      A weak neighborhood of \(P\) means a neighborhood of \(P\) in the weak topology on the space of probability measures on \(\mathbb X\).
+
+      The conditions \(H1\)–\(H4\) are:
+
+      \(H1.\) For every \(\bar\theta\in\Theta\setminus\mathbb B\), for \(\mu\)-almost every \(x\in\mathbb X\), there exists \(A:=A(\bar\theta,x)\subset\Theta\setminus\mathbb B\), a neighborhood of \(\bar\theta\), such that the mapping
+      \[
+      \theta\in A\longmapsto k(x\mid\theta)
+      \]
+      is continuous. Moreover, \(\mathbb B\) is closed.
+
+      \(H2.\) Let \(\{\theta_i\}_{i=1}^\infty\subset\Theta\). If \(\|\theta_i\|\to\infty\) as \(i\to\infty\), then for every compact set \(K\subset\mathbb X\),
+      \[
+      \int_K k(x\mid\theta_i)\,\mu(dx)\to0
+      \qquad\text{as }i\to\infty.
+      \]
+      If \(\theta_i\to\bar\theta\in\mathbb B\), then there exists \(x^*\in\mathbb X\) such that
+      \[
+      k(\cdot\mid\theta_i)\to\delta_{x^*}(\cdot)
+      \]
+      weakly as \(i\to\infty\).
+
+      \(H3.\) If \(f\in\mathbb G_t\), then there exist no \(f'\in\mathbb G_s\), with \(s<t\), such that
+      \[
+      f(x)=f'(x)\qquad\text{for }\mu\text{-almost every }x\in\mathbb X.
+      \]
+
+      \(H4.\) For every \(P\in\mathbb G_t\), \(t\ge1\), with \(\theta_1^*,\dots,\theta_t^*\) belonging to the support of \(Q_0\), one has
+      \[
+      \operatorname{pr}\bigl(h\in KL_\epsilon(P)\bigr)>0
+      \qquad\text{for every }\epsilon>0,
+      \]
+      where \(h\) follows the prior distribution in the Dirichlet process mixture model above.
+
+      <!-- formalization-clarifications:v1:c2e4949f8c9b637e8d1286c87e323242f047735ab34954848ed43b4be15a44ae -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. In Prop. undersmoothing (main.tex), the intended reading is pointwise in the fixed objects: fix the data-generating finite mixture \(P=\sum_{j=1}^t p_jR_j\) with finite \(t\ge1\), fixed distinct \(R_j\), fixed weights \(p_j\in(0,1)\), fixed true parameters \(\theta_j^*\) with \(\theta_j^*\in\operatorname{supp}Q_0\), fixed kernel \(k\), baseline \(Q_0\), and concentration prior \(\pi\); then let \(n\to\infty\). The statement “with no condition imposed on \(\pi\), \(t\), or the \(p_j\)” means no additional assumptions such as \(A1\)–\(A3\), separation, moment bounds, or growth restrictions are imposed beyond those displayed. It does not mean uniformity in \(t\), \(p_j\), \(\theta_j^*\), \(\pi\), kernel, baseline, or dimension, and it does not allow constants or objects to depend on \(n\). In the \(H1\)–\(H4\) alternative, \(H4\) itself is universally quantified over every \(P\in\mathbb G_t\), every \(t\ge1\), every such \(\theta^*\), and every \(\epsilon>0\) (“For every \(P\in\mathbb G_t\), \(t\ge1\), ... \(\operatorname{pr}(h\in KL_\epsilon(P))>0\)”); the final undersmoothing conclusion is nevertheless stated for the fixed \(P,t\) of the proposition, not uniformly in them.
+
+      In the \(B1\)–\(B3\)/\(T1\)–\(T4\) branch, \(c>0\) is fixed by the rescaled support interval \([-c,c]\). \(T1\) has constants \(m,M\) depending on \(g\) and \(c\) in the displayed order \(0<m\le g(x)\le M<\infty\) for all \(x\in[-c,c]\). \(T2\) has \(R\) with \(|g'(x)/g(x)|\le R\) for all \(x\in(-c,c)\). \(T3\) has \(U\) with \(q_0(y)+q_0(-y)\le U\) for all \(y\in[0,2c]\). \(T4\) is displayed as \(\exists L>0\) such that \(q_0(\theta)\ge L\) for every \(\theta\) in a neighborhood of \(\theta_j^*\), for every \(j\); the proof uses one common \(L\) and possibly \(j\)-dependent neighborhoods, but the source leaves the exact dependency of the neighborhoods and of \(L\) on \(j,Q_0,\theta_j^*\) only implicit. \(H1\)’s neighborhood \(A(\bar\theta,x)\) may depend on both \(\bar\theta\) and \(x\). In \(H2\), \(x^*\) may depend on the sequence and its limit \(\bar\theta\). The cited Lemma weak_convergence has no numerical constants; the auxiliaries first_auxiliary and second_auxiliary only select subsequences and limiting positive weights. Cai Lemma 4.1 has a fixed integer bound \(k\) in \(\sup_i|\operatorname{supp}\phi_i|\le k\).
+
+      2. Norms and mathematical objects. The only norm-like symbol in the target assumptions is \(\|\theta_i\|\) in \(H2\) (“If \(\|\theta_i\|\to\infty\) ...”), where the ambient spaces are \(\mathbb X\subseteq\mathbb R^q\) and \(\Theta\subseteq\mathbb R^p\). The supplied source does not define whether this is Euclidean \(\ell_2\), sup, or another norm; the proof also uses closed balls \(B_x(\epsilon)\) without specifying the metric. Do not silently replace this by a convenient norm. In the \(B1\)–\(B3\) location branch the objects are real: \(x,\theta\in\mathbb R\), \(k(x\mid\theta)=g(x-\theta)\), and the relevant absolute values are the usual real absolute value, e.g. \(|g'(x)/g(x)|\), \(|\theta_j^*-\theta_k^*|\), \(|\theta|\) in the proof. Kernels \(k(\cdot\mid\theta)\) are densities with respect to \(\mu\), where \(\mu\) is explicitly either Lebesgue or counting measure in the \(H\)-framework; in the \(B\)-branch \(Q_0(d\theta)=q_0(\theta)d\theta\). The baseline \(Q_0\) is the Dirichlet-process base on the latent parameter space in the DPM model and in the support condition \(\theta_j^*\in\operatorname{supp}Q_0\); the generic introductory phrase saying the baseline is on \((\mathbb X,\mathcal X)\) conflicts with the latent-parameter use and should not be copied into the \(H\)-formalization.
+
+      The sets \(\mathbb G_s\) are exact \(s\)-component mixtures: \(q_j>0\), \(\sum q_j=1\), and distinct parameters. Do not replace \(\mathbb G_s\) by “at most \(s\) components”; Lemmas first_auxiliary and second_auxiliary reduce a sequence to some exact \(s'\), but the final neighborhood must satisfy \(\mathcal U\cap\mathbb G_s=\varnothing\) for every \(s<t\). The notation \(f\in\mathcal P(G)\) in the source means that \(f\) is a density of a probability measure, not that \(f\) itself is an abstract measure; weak convergence is for the corresponding probability measures. The KL neighborhood is exactly
+      \[
+      KL_\epsilon(P)=\{h:\int \log\{(\sum_j p_jk(x\mid\theta_j^*))/h(x)\}P(dx)<\epsilon\},
+      \]
+      with \(P\) the true probability and \(h\) the prior random density; it is not a weak neighborhood and the direction must not be reversed. A weak neighborhood is a neighborhood in the weak topology on probability measures.
+
+      An important implicit side condition: \(H4\) and the displayed \(KL_\epsilon(P)\) are stated for \(P\in\mathbb G_t\), and the proof of Prop. undersmoothing explicitly works “Let \(P\in\mathbb G_t\) with parameters \(\theta_1^*,\dots,\theta_t^*\).” The proposition’s displayed sentence only says “with true parameters”; it does not spell out \(R_j=k(\cdot\mid\theta_j^*)\). The reduction via \(H4\) requires the true \(P\) to have density \(\sum_j p_jk(\cdot\mid\theta_j^*)\) (well-specified finite mixture) or an equivalent source statement. This is an implicit/unresolved side condition, not a consequence of merely having \(\theta_j^*\in\operatorname{supp}Q_0\).
+
+      Cai Lemma 4.1, as extracted, only gives \(|\operatorname{supp}\phi|\le k\) for a weak limit of measures with supports of size at most \(k\). The proof of Prop. undersmoothing uses it to obtain an exact \(s\)-atom decomposition in \(\mathbb D_s\) with positive weights; that exact decomposition is not stated by Lemma 4.1 alone and is an unresolved citation-context step.
+
+      3. Asymptotics. The final convergence is \(n\to\infty\), in probability under the data law. Main.tex defines convergence in \(P^{(\infty)}\)-probability for \(X_{1:\infty}\sim P^{(\infty)}\); the selected target statement uses \(P^{(n)}\)-probability. Since the event \(\{K_n<t\}\) depends only on \(X_{1:n}\), \(P^{(n)}\)- and \(P^{(\infty)}\)-probabilities of that event coincide, but this equivalence is a standard inference, not printed in the selected statement. The source notes in main.tex that, for probabilities bounded in \([0,1]\), convergence in \(P^{(\infty)}\)-probability is equivalent to \(L^1\) convergence. There is no Big-\(O\), little-\(o\), or rate assertion in Prop. undersmoothing; the only asymptotic assertions are convergence in probability for the posterior probability, limits \(i\to\infty\) inside \(H1\)–\(H2\), and weak convergence in the auxiliary lemmas. Lemma weak_convergence concludes \(\operatorname{pr}(K_n<t\mid X_{1:n})\to0\) in \(P^{(\infty)}\)-probability under the displayed weak-neighborhood hypothesis; the existence of \(\mathcal U\) is a hypothesis of that lemma, not its conclusion. The auxiliary lemmas first_auxiliary and second_auxiliary are deterministic weak-convergence statements about sequences of mixtures, with no probability-in-data parameter.
+
+      The proof invokes Schwartz posterior consistency via Ghosal–van der Vaart Theorem 6.16 and Example 6.20 (“By assumption \(H4\), the posterior distribution is consistent ... in virtue of Schwartz theorem”). The selected Reference R7 states that the exact book text of Theorem 6.16/Example 6.20 was not retrieved; the provided theorem statement includes standard Schwartz testing hypotheses, whereas the displayed \(H4\) is only a KL prior-support condition. The source’s assertion that \(H4\) suffices is therefore a proof-based citation step; the missing testing/Example 6.20 content is unresolved. Do not add a testing hypothesis to \(H4\) in the target statement, and do not discard the external theorem’s own hypotheses if formalizing the cited Schwartz result itself.
+
+      4. Omitted definitions, events, and side conditions. \(K_n\) is explicitly the number of distinct latent parameters among \(\theta_1,\dots,\theta_n\), equivalently the number of clusters in the sample, not the number of atoms of the random DP mixture density \(h\) globally. The event \(K_n<t\) means \(K_n\in\{1,\dots,t-1\}\) for \(n\ge1\); the posterior probability is under the DPM model with \(\alpha\sim\pi\), while the convergence is over data generated by \(P\). The prior \(\pi\) must be a probability distribution on \(\alpha>0\) for the model, but Prop. undersmoothing imposes no \(A1\)–\(A3\), moment, support, or regularity condition on \(\pi\); any additional regularity needed by the Schwartz theorem is not displayed. The support condition in the proposition is \(\operatorname{supp}Q_0\), not “interior support” (the latter is used in Theorem th:ConsBounded). The \(T4\) lower bound \(q_0\ge L\) near the \(\theta_j^*\) is stronger than mere support and is not part of the printed main.tex \(B3\), which only says \(Q_0\) is absolutely continuous with bounded density. This matters: Lemma th:WeakConsDens claims \(B1\)–\(B3\) imply \(H1\)–\(H4\), but its proof uses \(T1\)–\(T4\), and \(T4\) is not a literal consequence of the printed \(B1\)–\(B3\). The proof of Theorem th:ConsBounded says “Through a linear rescaling ... We rewrite the assumptions on \(g\) and \(Q_0\) as \(T1\)–\(T4\),” so \(T1\)–\(T4\) should be treated as the source’s working rescaled assumptions in that proof, not automatically as an equivalent restatement of the main \(B1\)–\(B3\). This is one of the clearest unresolved source ambiguities affecting formalization.
+
+      Finally, the proof of Lemma weak_convergence uses the intermediate claim that “conditional on \(K_n<t\), the domain of the posterior distribution is a subset of \(\cup_{s<t}\mathbb G_s\),” and hence \(\operatorname{pr}(h\in\mathcal U^c\mid X_{1:n},K_n<t)=1\). The displayed definitions define \(K_n\) through distinct latent parameters and \(h\) as a DP mixture random density; they do not separately define a posterior on \(h\) conditional on \(K_n<t\) as a finite mixture in \(\mathbb G_s\). That conditional-support statement is a proof-based inference, not a definition or hypothesis. Use the stated Lemma weak_convergence as the source result rather than promoting that intermediate conditional identification into the target assumptions.
+      <!-- /formalization-clarifications -->
+
+      Let \(X_i\simiid P=\sum_{j=1}^t p_jR_j\) be as in the data-generating mechanism described in Definitions and notation, with finite \(t\ge1\), distinct \(R_j\), and \(p_j\in(0,1)\). Let the true parameters \(\theta_1^*,\dots,\theta_t^*\) be such that \(\theta_j^*\in\operatorname{supp}Q_0\) for every \(j\). If the kernel \(k\) satisfies assumptions \(B1\)–\(B3\) (or \(H1\)–\(H4\) of the supplement), then, under the Dirichlet process mixture posterior, and with no condition imposed on the prior \(\pi\) on \(\alpha\), nor on \(t\), nor on the weights \(p_j\),
+      \[
+      \underline{\Pi}_n=\operatorname{pr}(K_n<t\mid X_{1:n})\longrightarrow 0
+      \]
+      in \(P^{(n)}\)-probability as \(n\to\infty\).
+    assumptions: []
+    proof_body: |-
+      We follow the proof of Proposition \ref{undersmoothing} in the supplement. Define
+      \[
+      \Psi = \{k(\cdot \mid \theta):\theta\in\Theta\subseteq\mathbb R^p\}
+      \]
+      and, for \(s\ge1\), let \(\mathbb G_s\) be the set of finite mixtures of exactly \(s\) elements of \(\Psi\) with positive weights and distinct parameters. Let \(\mathbb B\subseteq\bar\Theta\setminus\Theta\) be the boundary set of singular kernels, as in the source. Assume the hypotheses \(H1\)–\(H4\) as stated in the proof. The source first proves [ref:R1]: under \(B1\)–\(B3\), assumptions \(H1\)–\(H4\) are fulfilled. Its proof verifies \(H3\) from \(B1\), obtains \(H1\) from \(B2\) and the interval support of \(k(x\mid\theta)=g(x-\theta)\), obtains \(H2\) because \(\theta\) is a location parameter, and proves \(H4\) by constructing the sets \(\mathbb F(\delta,r)\) and showing that, using \(T1\)–\(T4\) (the rewritten \(B1\)–\(B3\)), these sets are contained in Kullback–Leibler neighborhoods \(KL_\epsilon(P)\) with positive prior probability. Therefore, for the \(B1\)–\(B3\) branch we may replace \(B1\)–\(B3\) by \(H1\)–\(H4\); for the stated \(H1\)–\(H4\) branch we argue directly under \(H1\)–\(H4\).
+
+      It remains to show that there exists a weak neighborhood \(\mathcal U\) of \(P\) such that
+      \[
+      \mathcal U\cap \mathbb G_s=\varnothing
+      \qquad\text{for every }s<t.
+      \]
+      Suppose not. Then there is a sequence
+      \[
+      f_i\in\bigcup_{s<t}\mathbb G_s
+      \]
+      converging weakly to \(f\), the density of \(P\). By [ref:R3], passing to a subsequence if necessary, we may suppose that \(f_i\in\mathbb G_s\) for some fixed \(s<t\). By [ref:R4], passing again to a subsequence and removing any weights with limiting mass \(0\) if necessary, we may write
+      \[
+      f_i=\sum_{j=1}^{s}q_{j,i}k(\cdot\mid \theta_{j,i}),
+      \qquad
+      \liminf_i q_{j,i}>0
+      \quad (j=1,\dots,s).
+      \]
+      We now consider the three cases from the source.
+
+      In case (i), some sequence \(\theta_{l,i}\) has \(\limsup_i\|\theta_{l,i}\|=\infty\) along a subsequence. Fix
+      \[
+      0<\epsilon<\liminf_i q_{l,i}
+      \]
+      and choose a compact set \(K\subset\mathbb X\) with \(P(K)>1-\epsilon/4\). By \(H2\), for large \(i\),
+      \[
+      \int_{K^c}f_{r(i)}(x)\,\mu(dx)
+      >
+      q_{l,r(i)}\int_{K^c}k(x\mid\theta_{l,r(i)})\,\mu(dx)
+      >
+      \frac{\epsilon}{2},
+      \]
+      contradicting weak convergence of \(f_i\) to \(P\).
+
+      In case (ii), all parameters \(\theta_{j,i}\) eventually lie in a compact set \(C\subset\Theta\setminus \mathbb B\). Passing to a subsequence, the empirical mixing measures
+      \[
+      \nu_i=\sum_{j=1}^{s}q_{j,i}\delta_{\theta_{j,i}}
+      \]
+      converge weakly to some \(\nu\in\mathcal P(\Theta)\). By [ref:R6], \(\nu\in\mathbb D_s\), so
+      \[
+      \nu=\sum_{j=1}^{s}\tilde q_j\delta_{\tilde\theta_j}
+      \]
+      with \(\tilde q_j>0\) and \(\tilde\theta_j\in C\). By \(H1\), continuity on neighborhoods of the \(\tilde\theta_j\), and compactness, for \(\mu\)-almost every \(x\),
+      \[
+      \sum_{j=1}^{s}q_{j,i}k(x\mid\theta_{j,i})
+      \longrightarrow
+      \sum_{j=1}^{s}\tilde q_j k(x\mid\tilde\theta_j).
+      \]
+      Hence \(f_i\) converges weakly to the \(s\)-component mixture
+      \[
+      \tilde f=\sum_{j=1}^{s}\tilde q_j k(\cdot\mid\tilde\theta_j).
+      \]
+      By uniqueness of the weak limit, \(\tilde f=f\) \(\mu\)-almost surely. Since \(s<t\), this contradicts \(H3\).
+
+      In case (iii), all parameters lie in a compact set \(C\subset\Theta\), but some \(\theta_{l,i}\) approaches the boundary set \(\mathbb B\). Passing to a subsequence,
+      \[
+      \theta_{l,r(i)}\to\bar\theta\in\mathbb B.
+      \]
+      If \(\mu\) is counting measure this is impossible because \(k(x\mid\theta)\le1\). If \(\mu\) is Lebesgue measure, choose \(\epsilon>0\) such that
+      \[
+      P(B_{x^*}(\epsilon))<\frac{\liminf_i q_{l,i}}{4},
+      \]
+      where \(x^*\) is given by \(H2\). Then for large \(i\),
+      \[
+      \int_{B_{x^*}(\epsilon)}f_{r(i)}(x)\,\mu(dx)
+      >
+      q_{l,r(i)}
+      \int_{B_{x^*}(\epsilon)}k(x\mid\theta_{l,r(i)})\,\mu(dx)
+      >
+      \frac{\liminf_i q_{l,i}}{2},
+      \]
+      again contradicting weak convergence to \(P\). Thus no such sequence exists, and the required weak neighborhood \(\mathcal U\) of \(P\), disjoint from \(\bigcup_{s<t}\mathbb G_s\), exists.
+
+      Now apply [ref:R2]. Since \(H4\) holds and the parameters \(\theta_1^*,\dots,\theta_t^*\) belong to \(\operatorname{supp}Q_0\), and since we have found a weak neighborhood \(\mathcal U\) of \(P\) with \(\mathcal U\cap\mathbb G_s=\varnothing\) for every \(s<t\), we get
+      \[
+      \operatorname{pr}(K_n<t\mid X_{1:n})\to0
+      \]
+      in \(P^{(\infty)}\)-probability as \(n\to\infty\). More explicitly, by \(H4\) and [ref:R7], the posterior is weakly consistent at \(P\), so
+      \[
+      \operatorname{pr}(h\in\mathcal U^c\mid X_{1:n})\to0.
+      \]
+      But conditionally on \(K_n<t\), the posterior support lies in \(\bigcup_{s<t}\mathbb G_s\subseteq\mathcal U^c\), hence
+      \[
+      \operatorname{pr}(h\in\mathcal U^c\mid X_{1:n})
+      \ge
+      \operatorname{pr}(K_n<t\mid X_{1:n}).
+      \]
+      Therefore \(\operatorname{pr}(K_n<t\mid X_{1:n})\to0\), which proves Proposition \ref{undersmoothing}. The same conclusion applies under the \(B1\)–\(B3\) branch by the initial reduction to \(H1\)–\(H4\).
+
+      ### References
+      #### Reference R1
+      Target: Lemma \ref{th:WeakConsDens}
+      Citation: “Next Lemma shows that they are satisfied under assumptions \(B1-B3\). \begin{Lem}\label{th:WeakConsDens} Suppose the kernel \(k(x \mid \theta)\) satisfies assumptions \(B1-B3\). Then \(H1-H4\) are fulfilled. \end{Lem}” and “By Lemma \ref{th:WeakConsDens} we can assume \(H1-H4\)”.
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D1, *Supplementary Materials for Clustering consistency with Dirichlet process mixtures*, Section “Proof of Proposition \ref{undersmoothing},” Lemma \ref{th:WeakConsDens} and its proof. The displayed source statement is: “Suppose the kernel \(k(x \mid \theta)\) satisfies assumptions \(B1-B3\). Then \(H1-H4\) are fulfilled.” The proof attributes \(H3\) to \(B1\) and the data-generating setup, \(H1\) to \(B2\) and the interval support of \(k(x\mid\theta)=g(x-\theta)\), \(H2\) to \(\theta\) being a location parameter, and \(H4\) to a construction using \(T1\)–\(T4\). The exact statements of \(B1\)–\(B3\) are not printed in D1; D1 records that \(B1\)–\(B3\) can be rewritten as \(T1\)–\(T4\) in the proof of Theorem \ref{th:ConsBounded}, and those rewritten conditions are supplied below from the reading context. No additional independent source result is organized under this item; the later underclustering convergence is the content of the separately cited Lemma \ref{lemma_weak_convergence} and auxiliary lemmas.
+
+      ##### Lemma \ref{th:WeakConsDens}
+      ###### Definitions and notation
+      Let \(\mathbb X\subseteq\mathbb R^q\) and \(\Theta\subseteq\mathbb R^p\). The family of kernels is
+      \[
+      \Psi=\{k(\cdot\mid\theta):\theta\in\Theta\},
+      \]
+      dominated by \(\mu\), where \(\mu\) is either Lebesgue or counting measure, with common domain \(\mathbb X\). Let \(\bar\Theta\) be the closure of \(\Theta\), and define the boundary set of singular kernels
+      \[
+      \mathbb B:=\left\{\bar\theta\in\bar\Theta\setminus\Theta:
+      \lim_{\theta\to\bar\theta}\left\{\sup_x k(x\mid\theta)\right\}=\infty\right\}.
+      \]
+      Let \(\mathbb G_s\) be the set of mixtures of exactly \(s\) elements of \(\Psi\):
+      \[
+      f\in\mathbb G_s
+      \quad\Longleftrightarrow\quad
+      f=\sum_{j=1}^s q_j k(\cdot\mid\theta_j),
+      \]
+      with \(q_j>0\) for every \(j\), \(\sum_{j=1}^s q_j=1\), and \(\theta_i\ne\theta_h\) for every \(i\ne h\). Let \(\mathcal P(G)\) denote the set of probability measures on a generic space \(G\); write \(f\in\mathcal P(G)\) when \(f\) is the density of a probability measure \(P\in\mathcal P(G)\). For \(P\in\mathbb G_t\), with weights \(\{p_j\}_{j=1}^t\) and parameters \(\{\theta_j^*\}_{j=1}^t\), the Kullback–Leibler neighborhoods of \(P\) are
+      \[
+      KL_\epsilon(P)
+      :=
+      \left\{
+      h\in\mathcal P(\mathbb X):
+      \int
+      \log\left\{
+      \frac{\sum_{j=1}^{t} p_j k(x\mid\theta_j^*)}{h(x)}
+      \right\}
+      P(\mathrm dx)
+      <\epsilon
+      \right\},
+      \qquad \epsilon>0.
+      \]
+      In the \(B1\)–\(B3\) branch the kernel is a location kernel,
+      \[
+      k(x\mid\theta)=g(x-\theta),
+      \]
+      with baseline \(Q_0(\mathrm d\theta)=q_0(\theta)\,\mathrm d\theta\) on the parameter space, and
+      \[
+      h(y)=q_0(y)+q_0(-y).
+      \]
+      After the linear rescaling used in the source, the support interval is \([a,b]=[-c,c]\).
+
+      ###### Assumptions
+      The lemma assumes that the kernel \(k(x\mid\theta)\) satisfies assumptions \(B1\)–\(B3\). The obtained supplement D1 does not print the statements of \(B1\)–\(B3\). It states that, through the linear rescaling \([a,b]=[-c,c]\), the assumptions on \(g\) and \(Q_0\) can be rewritten as \(T1\)–\(T4\). The rewritten conditions available are:
+      \[
+      \begin{array}{ll}
+      T1. & \exists\,m,M \text{ such that } 0<m\le g(x)\le M<\infty
+      \text{ for every }x\in[-c,c];\\[2mm]
+      T2. & g\text{ is differentiable on }(-c,c)\text{ and }\exists\,R
+      \text{ such that }\left|\dfrac{g'(x)}{g(x)}\right|\le R<\infty
+      \text{ for every }x\in(-c,c);\\[2mm]
+      T3. & \exists\,U>0\text{ such that }
+      h(y)=q_0(y)+q_0(-y)\le U
+      \text{ for every }y\in[0,2c];\\[2mm]
+      T4. & \exists\,L>0\text{ such that }q_0(\theta)\ge L
+      \text{ for every }\theta\text{ in a neighborhood of }\theta_j^*,
+      \text{ for every }j.
+      \end{array}
+      \]
+      The proof of \(H1\) also uses the interval support of \(k(x\mid\theta)=g(x-\theta)\): for \(x>\theta+b\) or \(x<\theta+a\), the kernel is \(0\), and \(g\) is continuous on \((a,b)\) by \(B2\). The exact original wording of \(B1\)–\(B3\) remains unavailable in D1.
+
+      ###### Statement
+      Suppose the kernel \(k(x\mid\theta)\) satisfies assumptions \(B1\)–\(B3\). Then \(H1\)–\(H4\) are fulfilled, namely:
+
+      \(H1.\) For every \(\bar\theta\in\Theta\setminus\mathbb B\), for \(\mu\)-almost every \(x\in\mathbb X\), there exists \(A:=A(\bar\theta,x)\subset\Theta\setminus\mathbb B\), a neighborhood of \(\bar\theta\), such that the mapping
+      \[
+      \theta\in A\longmapsto k(x\mid\theta)
+      \]
+      is continuous. Moreover, \(\mathbb B\) is closed.
+
+      \(H2.\) Let \(\{\theta_i\}_{i=1}^\infty\subset\Theta\). If \(\|\theta_i\|\to\infty\) as \(i\to\infty\), then for every compact set \(K\subset\mathbb X\),
+      \[
+      \int_K k(x\mid\theta_i)\,\mu(\mathrm dx)\to0
+      \qquad\text{as }i\to\infty.
+      \]
+      If \(\theta_i\to\bar\theta\in\mathbb B\), then there exists \(x^*\in\mathbb X\) such that
+      \[
+      k(\cdot\mid\theta_i)\to\delta_{x^*}(\cdot)
+      \]
+      weakly as \(i\to\infty\).
+
+      \(H3.\) If \(f\in\mathbb G_t\), then there exist no \(f'\in\mathbb G_s\), with \(s<t\), such that
+      \[
+      f(x)=f'(x)\qquad\text{for }\mu\text{-almost every }x\in\mathbb X.
+      \]
+
+      \(H4.\) For every \(P\in\mathbb G_t\), \(t\ge1\), with \(\theta_1^*,\dots,\theta_t^*\) belonging to the support of \(Q_0\), one has
+      \[
+      \operatorname{pr}\bigl(h\in KL_\epsilon(P)\bigr)>0
+      \qquad\text{for every }\epsilon>0,
+      \]
+      where \(h\) follows the prior distribution in \(\eqref{eq:MixDPM}\). In the shared model this is the Dirichlet process mixture prior:
+      \[
+      h(x)=\int k(x\mid\theta)\,\tilde P(\mathrm d\theta),
+      \qquad
+      \tilde P\mid\alpha\sim\mathrm{DP}(\alpha,Q_0),
+      \qquad
+      \alpha\sim\pi.
+      \]
+
+      #### Reference R2
+      Target: Lemma \ref{lemma_weak_convergence}
+      Citation: “\begin{Lem}\label{lemma_weak_convergence} Let assumption \(H4\) be satisfied and let \(P \in \mathbb{G}_t\) with parameters \(\theta_1^*, \dots, \theta_t^*\) belonging to the support of \(Q_0\). Assume there exists \(\mathcal{U}\) weak neighborhood of \(P\) such that \(\mathcal{U} \cap \mathbb{G}_s = \emptyset\) for every \(s < t\). Then \[\text{pr}\left(K_n < t \mid X_{1:n} \right) \to 0,\] in \(P^{(\infty)}\)-probability as \(n \to \infty\). \end{Lem}” and “By Lemma \ref{lemma_weak_convergence}, it suffices to prove the existence of a weak neighborhood \(\mathcal{U}\) of \(P\) such that \(\mathcal{U} \cap \mathbb{G}_s = \emptyset\), for every \(s < t\).”
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The named result is Lemma \ref{lemma_weak_convergence} in the supplement D1, Section “Proof of Proposition \ref{undersmoothing}”, immediately after Lemma \ref{th:WeakConsDens} and before its own proof. Its statement is quoted unchanged below. The immediately preceding source passages supply the definitions of \(\Psi\), \(\mathbb G_s\), the identification of densities with probability measures, the Kullback–Leibler neighborhoods \(KL_\epsilon(P)\), and assumption \(H4\), all of which are used by the lemma. The proof of the lemma invokes Schwartz theorem (Ghosal and van der Vaart, Theorem 6.16 and Example 6.20) and the assumed weak neighborhood \(\mathcal U\); the proof itself is not reproduced here. The existence of \(\mathcal U\) is an inline hypothesis of this lemma, not a separate source result in this reference item. The reduction from \(B1\)–\(B3\) to \(H1\)–\(H4\) is Lemma \ref{th:WeakConsDens}, a distinct source result organized separately as Reference 1, and is not imported into this R2 group. Some model notation used in the lemma, notably \(K_n\) and \(P^{(\infty)}\), is not displayed in the immediate supplement excerpt and is supplied from the reading context; this is marked below.
+
+      ##### Lemma \ref{lemma_weak_convergence}
+
+      ###### Definitions and notation
+      Let
+      \[
+      \Psi=\left\{k(\cdot\mid\theta):\theta\in\Theta\subseteq\mathbb R^p\right\}
+      \]
+      be the family of kernels, dominated by \(\mu\), where \(\mu\) is either Lebesgue or counting measure, and with common domain \(\mathbb X\subseteq\mathbb R^q\). For \(s\ge1\), let \(\mathbb G_s\) be the set of mixtures of exactly \(s\) elements of \(\Psi\), that is,
+      \[
+      f\in\mathbb G_s
+      \quad\Longleftrightarrow\quad
+      f=\sum_{j=1}^s q_jk(\cdot\mid\theta_j),
+      \]
+      with \(q_j>0\) for every \(j\), \(\sum_{j=1}^s q_j=1\), and \(\theta_i\ne\theta_h\) for every \(i\ne h\).
+
+      Let \(\mathcal P(G)\) denote the set of probability measures on a generic space \(G\). As in the source, we write \(f\in\mathcal P(G)\) when \(f\) is the density of a probability measure \(P\in\mathcal P(G)\); thus \(P\in\mathbb G_t\) means that \(P\) has a density \(f\in\mathbb G_t\). For \(P\in\mathbb G_t\), write its weights as \(\{p_j\}_{j=1}^t\) and its parameters as \(\{\theta_j^*\}_{j=1}^t\).
+
+      For \(\epsilon>0\), the Kullback–Leibler neighborhoods of \(P\) are defined in the source by
+      \[
+      KL_\epsilon(P)
+      :=
+      \left\{
+      h\in\mathcal P(\mathbb X):
+      \int
+      \log\left\{
+      \frac{\sum_{j=1}^{t}p_jk(x\mid\theta_j^*)}{h(x)}
+      \right\}
+      P(\mathrm dx)
+      <\epsilon
+      \right\}.
+      \]
+      In assumption \(H4\) the source writes \(K_\epsilon(P)\) for these Kullback–Leibler neighborhoods.
+
+      The notation \(\operatorname{supp}Q_0\) denotes the support of the baseline probability measure \(Q_0\) on \(\mathbb X\). A weak neighborhood of \(P\) means a neighborhood of \(P\) in the weak topology on the space of probability measures on \(\mathbb X\), i.e. the topology of weak convergence.
+
+      The source refers to the prior distribution in equation \eqref{eq:MixDPM}. In the supplied model context, this is the Dirichlet process mixture model
+      \[
+      X_i\mid\theta_i\simind k(\cdot\mid\theta_i),
+      \qquad
+      \theta_i\mid\tilde P\simiid\tilde P,
+      \qquad
+      \tilde P\mid\alpha\sim\operatorname{DP}(\alpha,Q_0),
+      \qquad
+      \alpha\sim\pi,
+      \]
+      where \(k\) is the kernel, \(Q_0\) is the baseline distribution, and \(\pi\) is a prior on the concentration parameter \(\alpha>0\). The random density \(h\) in \(H4\) follows the prior induced by this Dirichlet process mixture. In this model, \(K_n\) is the number of clusters, equivalently the number of distinct latent parameters, in the first \(n\) observations, and \(\operatorname{pr}(K_n<t\mid X_{1:n})\) is the corresponding posterior probability. The product law of the iid data generated by \(P\) is denoted \(P^{(\infty)}\) on \(\mathbb X^\infty\), so that convergence “in \(P^{(\infty)}\)-probability” means convergence in probability when \(X_{1:\infty}\sim P^{(\infty)}\).
+
+      ###### Assumptions
+      The lemma assumes \(H4\):
+
+      \(H4.\) For every \(P\in\mathbb G_t\), \(t\ge1\), with parameters \(\theta_1^*,\dots,\theta_t^*\) belonging to the support of \(Q_0\), one has
+      \[
+      \operatorname{pr}\bigl(h\in KL_\epsilon(P)\bigr)>0
+      \]
+      for every \(\epsilon>0\), where \(h\) follows the prior distribution in \eqref{eq:MixDPM}.
+
+      The lemma does not invoke \(H1\)–\(H3\) in its displayed statement.
+
+      ###### Statement
+      Let assumption \(H4\) be satisfied and let \(P\in\mathbb G_t\) with parameters \(\theta_1^*,\dots,\theta_t^*\) belonging to the support of \(Q_0\). Assume there exists a weak neighborhood \(\mathcal U\) of \(P\) such that
+      \[
+      \mathcal U\cap\mathbb G_s=\varnothing
+      \qquad\text{for every }s<t.
+      \]
+      Then
+      \[
+      \operatorname{pr}\bigl(K_n<t\mid X_{1:n}\bigr)\longrightarrow0,
+      \]
+      in \(P^{(\infty)}\)-probability as \(n\to\infty\).
+
+      #### Reference R3
+      Target: Lemma \ref{first_auxiliary}
+      Citation: “\begin{Lem}\label{first_auxiliary} Assume a sequence \(\{f_i\}_{i = 1}^\infty \subset \cup_{s < t}\mathbb{G}_s\) is such that \(f_i \to f \in \mathcal{P}(\mathbb{X})\) weakly as \(i \to \infty\). Then there exist \(s' < t\) and a sequence \(\{ f'_i\}_{i = 1}^\infty \subset \mathbb{G}_{s'}\) such that \(f'_i \to f\) weakly as \(i \to \infty\). \end{Lem}” and “By Lemmas \ref{first_auxiliary} and \ref{second_auxiliary} we can assume without loss of generality that \(\{f_i\} \in \mathbb{G}_s\), with \(s < t\)”.
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. Both displayed results are taken from the supplement D1, in the section “Proof of Proposition \ref{undersmoothing}”, immediately after the proof of Lemma \ref{lemma_weak_convergence}. The named result, Lemma \ref{first_auxiliary}, supports the step in the target proof that replaces a sequence in \(\bigcup_{s<t}\mathbb G_s\) by a subsequence lying in one fixed \(\mathbb G_{s'}\) with \(s'<t\). The additional result, Lemma \ref{second_auxiliary}, is invoked in the same cited sentence of the proof and supports the subsequent reduction to \(\mathbb G_s\) with \(\liminf_i q_{j,i}>0\). These statements are locally numbered lemmas in the supplement attributed to Ascolani, Lijoi, Rebaudo and Zanella; no external theorem origin is asserted here. Neither statement by itself establishes the target’s posterior undersmoothing conclusion, and no application conditions are asserted to be discharged in this organization.
+
+      ##### Lemma \ref{first_auxiliary}
+      ###### Definitions and notation
+      Let \(\mathbb X\subseteq \mathbb R^q\). Let
+      \[
+      \Psi=\left\{k(\cdot\mid\theta):\theta\in\Theta\subseteq\mathbb R^p\right\}
+      \]
+      be the family of kernels, dominated by \(\mu\), where \(\mu\) is either Lebesgue or counting measure, with common domain \(\mathbb X\subseteq\mathbb R^q\). For \(s\ge 1\), let \(\mathbb G_s\) be the set of mixtures of exactly \(s\) elements of \(\Psi\), that is,
+      \[
+      f\in\mathbb G_s
+      \quad\Longleftrightarrow\quad
+      f=\sum_{j=1}^s q_j k(\cdot\mid\theta_j),
+      \]
+      with \(q_j>0\) for every \(j\), \(\sum_{j=1}^s q_j=1\), and \(\theta_i\ne\theta_h\) for every \(i\ne h\). Let \(\mathcal P(G)\) be the set of probability measures on a generic space \(G\); with a slight abuse of notation, the source says \(f\in\mathcal P(G)\) when \(f\) is the density of a probability measure \(P\in\mathcal P(G)\). The symbol \(t\) is the fixed positive integer appearing in \(\mathbb G_s\) with \(s<t\).
+
+      ###### Assumptions
+      No additional assumptions are stated for this lemma beyond those in its displayed statement. In particular, the sequence is assumed to lie in \(\bigcup_{s<t}\mathbb G_s\) and to converge weakly to \(f\in\mathcal P(\mathbb X)\) as \(i\to\infty\).
+
+      ###### Statement
+      Assume a sequence \(\{f_i\}_{i=1}^\infty\subset \bigcup_{s<t}\mathbb G_s\) is such that \(f_i\to f\in\mathcal P(\mathbb X)\) weakly as \(i\to\infty\). Then there exist \(s'<t\) and a sequence \(\{f'_i\}_{i=1}^\infty\subset\mathbb G_{s'}\) such that \(f'_i\to f\) weakly as \(i\to\infty\).
+
+      ##### Lemma \ref{second_auxiliary}
+      ###### Definitions and notation
+      Let \(\mathbb X\subseteq\mathbb R^q\), and let
+      \[
+      \Psi=\left\{k(\cdot\mid\theta):\theta\in\Theta\subseteq\mathbb R^p\right\}
+      \]
+      be the family of kernels dominated by \(\mu\), where \(\mu\) is either Lebesgue or counting measure. For \(s\ge 1\), \(\mathbb G_s\) denotes the set of mixtures of exactly \(s\) elements of \(\Psi\):
+      \[
+      f\in\mathbb G_s
+      \quad\Longleftrightarrow\quad
+      f=\sum_{j=1}^s q_j k(\cdot\mid\theta_j),
+      \]
+      with \(q_j>0\) for every \(j\), \(\sum_{j=1}^s q_j=1\), and \(\theta_i\ne\theta_h\) for every \(i\ne h\). The notation \(\mathcal P(\mathbb X)\) denotes the set of probability measures on \(\mathbb X\); the source says \(f\in\mathcal P(\mathbb X)\) when \(f\) is the density of a probability measure \(P\in\mathcal P(\mathbb X)\). In the displayed sequence, the weights and parameters are denoted \(q_{j,i}\) and \(\theta_{j,i}\), and the weights of the sequence \(\{f'_i\}\) are denoted \(q'_{j,i}\).
+
+      ###### Assumptions
+      No additional assumptions are stated for this lemma beyond those in its displayed statement. In particular, the sequence is assumed to have the form
+      \[
+      f_i=\sum_{j=1}^s q_{j,i}k(\cdot\mid\theta_{j,i})\in\mathbb G_s
+      \]
+      and to converge weakly to \(f\in\mathcal P(\mathbb X)\) as \(i\to\infty\).
+
+      ###### Statement
+      Let
+      \[
+      \left\{f_i=\sum_{j=1}^s q_{j,i}k(\cdot\mid\theta_{j,i})\right\}_{i=1}^\infty\subset\mathbb G_s
+      \]
+      be such that \(f_i\to f\in\mathcal P(\mathbb X)\) weakly as \(i\to\infty\). Then there exist \(s'\le s\) and a sequence \(\{f'_i\}_{i=1}^\infty\subset\mathbb G_{s'}\) such that \(f'_i\to f\) weakly as \(i\to\infty\) and
+      \[
+      \liminf_i q'_{j,i}>0
+      \]
+      for every \(j=1,\dots,s'\).
+
+      #### Reference R4
+      Target: Lemma \ref{second_auxiliary}
+      Citation: “\begin{Lem}\label{second_auxiliary} Let \(\left\{ f_i = \sum_{j= 1}^s q_{j,i}k(\cdot \mid \theta_{j,i})\right\}_{i = 1}^\infty \subset \mathbb{G}_s\) be such that \(f_i \to f \in \mathcal{P}(\mathbb{X})\) weakly as \(i \to \infty\). Then there exist \(s' \leq s\) and a sequence \(\{ f'_i\}_{i = 1}^\infty \subset \mathbb{G}_{s'}\) such that \(f'_i \to f\) weakly as \(i \to \infty\) and \(\lim \inf_i q'_{j,i} > 0\) for every \(j = 1, \dots, s'\). \end{Lem}” and “By Lemmas \ref{first_auxiliary} and \ref{second_auxiliary} we can assume without loss of generality that \(\{f_i\} \in \mathbb{G}_s\), with \(s < t\), and \(\lim \inf_i q_{j,i} > 0\) for every \(j = 1, \dots, s\).”
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D1, `supp.tex`, in the section “Proof of Proposition \ref{undersmoothing}”, where the text says “We need two technical Lemmas.” The named result is Lemma \ref{second_auxiliary}; the jointly cited result immediately preceding it is Lemma \ref{first_auxiliary}. The proof of Proposition \ref{undersmoothing} uses them in the passage “By Lemmas \ref{first_auxiliary} and \ref{second_auxiliary} we can assume without loss of generality that \(\{f_i\}\in\mathbb G_s\), with \(s<t\), and \(\liminf_i q_{j,i}>0\) for every \(j=1,\dots,s\).” Lemma \ref{first_auxiliary} supplies passage to a fixed component count \(s'<t\); Lemma \ref{second_auxiliary} supplies reduction to some \(s'\le s\) together with positive limiting weights. The surrounding proof of Proposition \ref{undersmoothing} says “We adapt the proof of Theorem 2.1 in \cite{Cai2020}”, but the two displayed auxiliary lemmas are local statements in the supplied supplement. Their statements do not themselves cite assumptions \(H1\)–\(H4\); those are invoked in the surrounding proof of Proposition \ref{undersmoothing}. This extraction records the source statements and the ambient definition of \(\mathbb G_s\); it does not reproduce their proofs or assert that application conditions for the target theorem have been verified.
+
+      ##### Lemma \ref{second_auxiliary}
+      ###### Definitions and notation
+      Let
+      \[
+      \Psi=\{k(\cdot\mid\theta):\theta\in\Theta\subseteq\mathbb R^p\}
+      \]
+      be the family of kernels, dominated by \(\mu\), where \(\mu\) is either Lebesgue or counting measure, with common domain \(\mathbb X\subseteq\mathbb R^q\).
+
+      For \(s\ge1\), let \(\mathbb G_s\) be the set of mixtures of exactly \(s\) elements of \(\Psi\):
+      \[
+      f\in\mathbb G_s
+      \quad\Longleftrightarrow\quad
+      f=\sum_{j=1}^s q_jk(\cdot\mid\theta_j),
+      \]
+      with \(q_j>0\) for every \(j\), \(\sum_{j=1}^s q_j=1\), and \(\theta_i\ne\theta_h\) for every \(i\ne h\).
+
+      Let \(\mathcal P(\mathbb X)\) denote the set of probability measures on \(\mathbb X\); following the source, \(f\in\mathcal P(\mathbb X)\) means that \(f\) is the density of a probability measure \(P\in\mathcal P(\mathbb X)\). Weak convergence of \(f_i\) to \(f\) is understood in the sense of the corresponding probability measures on \(\mathbb X\).
+
+      In the lemma, the representation of \(f_i\in\mathbb G_s\) is written as
+      \[
+      f_i=\sum_{j=1}^s q_{j,i}k(\cdot\mid\theta_{j,i}),
+      \]
+      with \(q_{j,i}>0\), \(\sum_{j=1}^s q_{j,i}=1\), and distinct \(\theta_{j,i}\)'s for each \(i\). If
+      \[
+      f'_i=\sum_{j=1}^{s'}q'_{j,i}k(\cdot\mid\theta'_{j,i})\in\mathbb G_{s'},
+      \]
+      then the \(q'_{j,i}\) denote the corresponding positive weights.
+
+      ###### Assumptions
+      Let \(s\ge1\) be an integer. Assume that
+      \[
+      \left\{f_i=\sum_{j=1}^s q_{j,i}k(\cdot\mid\theta_{j,i})\right\}_{i=1}^\infty\subset\mathbb G_s
+      \]
+      and that
+      \[
+      f_i\longrightarrow f\in\mathcal P(\mathbb X)
+      \]
+      weakly as \(i\to\infty\). Equivalently, each \(f_i\) is a mixture of exactly \(s\) kernels with positive weights summing to \(1\) and distinct parameters, and the corresponding probability densities converge weakly to the probability density \(f\).
+
+      ###### Statement
+      There exist \(s'\le s\) and a sequence
+      \[
+      \{f'_i\}_{i=1}^\infty\subset\mathbb G_{s'}
+      \]
+      such that
+      \[
+      f'_i\longrightarrow f
+      \]
+      weakly as \(i\to\infty\), and
+      \[
+      \liminf_i q'_{j,i}>0
+      \]
+      for every \(j=1,\dots,s'\).
+
+      ##### Lemma \ref{first_auxiliary}
+      ###### Definitions and notation
+      The kernel family \(\Psi\), the common domain \(\mathbb X\subseteq\mathbb R^q\), the dominating measure \(\mu\), the sets \(\mathbb G_s\), and the convention for \(\mathcal P(\mathbb X)\) are as in the preceding definitions. Here \(t\) is a fixed positive integer, the component count in the ambient statement, and the union \(\bigcup_{s<t}\mathbb G_s\) is over positive integers \(s<t\).
+
+      ###### Assumptions
+      Let \(t\ge1\). Assume that a sequence
+      \[
+      \{f_i\}_{i=1}^\infty\subset\bigcup_{s<t}\mathbb G_s
+      \]
+      satisfies
+      \[
+      f_i\longrightarrow f\in\mathcal P(\mathbb X)
+      \]
+      weakly as \(i\to\infty\).
+
+      ###### Statement
+      There exist \(s'<t\) and a sequence
+      \[
+      \{f'_i\}_{i=1}^\infty\subset\mathbb G_{s'}
+      \]
+      such that
+      \[
+      f'_i\longrightarrow f
+      \]
+      weakly as \(i\to\infty\).
+
+      #### Reference R5
+      Target: Theorem 2.1 in \cite{Cai2020}
+      Citation: “We adapt the proof of Theorem \(2.1\) in \cite{Cai2020}.”
+      Bibliography: Cai, D., Campbell, T., and Broderick, T. (2021). Finite mixture models do not reliably learn the number of components. \emph{38th International Conference on Machine Learning} {\bf{139}}, 1158--1169.
+
+      ##### Use
+      Proof or method citation — original source material
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The obtained original source—Cai, Campbell, and Broderick (2021), arXiv:2007.04470v3 and PMLR v139, cited in the target as \cite{Cai2020}—contains the paper’s Theorem 2.1 (the main result) and, within its proof, Lemma 4.1. The source Theorem 2.1 is not the current target and is not used as a black-box theorem there; the current proof states that it adapts the proof of Theorem 2.1. The relevant source proof passage is the second-step argument: assuming a sequence of finite mixtures with at most \(k\) components converges weakly to \(f_0\), one passes to corresponding mixing measures, splits into compact-support/vanishing-weight behavior and escaping-mass behavior, and uses continuity, mixture-identifiability, degenerate limits, compactness, tightness, \(\mu\)-wideness, and Lemma 4.1 to contradict the possibility of approximation by mixtures with too few components. This source argument supports the current proof’s construction of a weak neighborhood \(\mathcal U\) of \(P\) disjoint from \(\mathbb G_s\) for \(s<t\), especially the compact-parameter case where Lemma 4.1 bounds the support of a limiting mixing measure. The current proof separately invokes Lemma 4.1 in its compact-parameter case, so that lemma is recorded below as an additional source result. The source Theorem 2.1’s own hypotheses—Assumption 3.1 and Assumption 3.6—and its conclusion—posterior divergence for \(f_0\notin\mathbb F\)—are not identical to the current target’s DPMM/\(B1\)–\(B3\) setting; matching those hypotheses to the current proof’s \(H1\)–\(H4\) framework is a local adaptation not performed here. The source statements of Theorem 2.1 and Lemma 4.1 are complete in the supplied material; no source statement is reconstructed, and no new adaptation or bridge is generated.
+
+      ##### Theorem 2.1 in Cai, Campbell, and Broderick (2021)
+
+      ###### Definitions and notation
+      Let \(\mathbb X\) and \(\Theta\) be Polish spaces, with Borel \(\sigma\)-algebras. Let \(\mathscr P(\cdot)\) denote probability measures with the weak topology metrized by the Lévy–Prokhorov distance \(d\). Write \(f_i\Rightarrow f\) when \(d(f_i,f)\to0\), and write \(f_i\leftrightarrow f_i'\) when \(d(f_i,f_i')\to0\) (matching weak limits).
+
+      Let \(\Psi=\{\psi_\theta:\theta\in\Theta\}\) be a family of component distributions dominated by a \(\sigma\)-finite measure \(\mu\), so that \(\psi_\theta\ll\mu\) for all \(\theta\in\Theta\), and \(\psi_\theta(A)\) is measurable in \(\theta\) for measurable \(A\subseteq\mathbb X\). Define
+      \[
+      F(g)=\int_\Theta \psi_\theta\, dg(\theta)
+      \]
+      for mixing measures \(g\in\mathscr P(\Theta)\). Let \(\mathbb G\) be the set of atomic probability measures on \(\Theta\) with finitely many atoms, and let \(\mathbb F\) be the set of finite mixtures of \(\Psi\). A finite mixture has the form
+      \[
+      f=F(g)=\sum_{j=1}^k p_j\psi_{\theta_j},
+      \]
+      where \(g=\sum_{j=1}^k p_j\delta_{\theta_j}\), \(p_j\in[0,1]\), and \(\sum_j p_j=1\).
+
+      In the Bayesian finite mixture model, \(g\sim\Pi\) for a prior \(\Pi\) on \(\mathbb G\), and \(f=F(g)\) is the likelihood distribution. The posterior on mixing measures is, for measurable \(A\subseteq\mathbb G\),
+      \[
+      \Pi(A\mid X_{1:N})
+      =
+      \frac{\int_A \prod_{n=1}^N \frac{df}{d\mu}(X_n)\, d\Pi(g)}
+      {\int_{\mathbb G} \prod_{n=1}^N \frac{df}{d\mu}(X_n)\, d\Pi(g)},
+      \]
+      where \(df/d\mu\) is the density of \(f=F(g)\) with respect to \(\mu\). The posterior \(\Pi(k\mid X_{1:N})\) on the number of components \(k\in\mathbb N\) is obtained by counting the number of atoms in \(g\).
+
+      The KL divergence is
+      \[
+      \operatorname{KL}(f_0,f)
+      :=
+      \begin{cases}
+      \int \log\left(\frac{df_0}{df}\right)df_0, & f_0\ll f,\\
+      \infty, & \text{otherwise}.
+      \end{cases}
+      \]
+      The family \(\Psi\) is continuous if the map \(\theta\mapsto\psi_\theta\) is continuous. It is mixture-identifiable if \(F:\mathbb G\to\mathbb F\) is a bijection. A sequence \((\psi_i)_{i=1}^\infty\) is \(\mu\)-wide if for every closed \(C\) with \(\mu(C)=0\) and every sequence \((\phi_i)_{i=1}^\infty\) with \(\psi_i\leftrightarrow\phi_i\),
+      \[
+      \limsup_{i\to\infty}\phi_i(C)=0.
+      \]
+      The family \(\Psi\) has degenerate limits if for every tight, \(\mu\)-wide sequence \((\psi_{\theta_i})_{i\in\mathbb N}\), the sequence \((\theta_i)_{i\in\mathbb N}\) is relatively compact.
+
+      ###### Assumptions
+      The observations \(X_{1:N}\) are generated i.i.d. from a distribution \(f_0\) that is not a finite mixture of \(\Psi\). The prior \(\Pi\) on \(\mathbb G\) and the component family \(\Psi\) satisfy:
+      - Assumption 3.1: for every \(\epsilon>0\),
+      \[
+      \Pi\bigl(f\in\mathbb F:\operatorname{KL}(f_0,f)<\epsilon\bigr)>0.
+      \]
+      - Assumption 3.6: \(\Psi\) is continuous, is mixture-identifiable, and has degenerate limits.
+
+      The model is the Bayesian finite mixture model with prior \(g\sim\Pi\), likelihood \(f=F(g)\), and posterior defined as above.
+
+      ###### Statement
+      Under these assumptions, the posterior on the number of components diverges: for every \(k\in\mathbb N\),
+      \[
+      \Pi(k\mid X_{1:N})\xrightarrow[N\to\infty]{}0
+      \qquad f_0\text{-a.s.}
+      \]
+      Equivalently, in the notation of the source, for all finite \(k\in\mathbb N\), the posterior probability of exactly \(k\) components tends to \(0\) \(f_0\)-almost surely as the sample size tends to infinity.
+
+      ##### Lemma 4.1 in Cai, Campbell, and Broderick (2021)
+
+      ###### Definitions and notation
+      For a Borel probability measure \(\phi\) on a Polish space, \(\operatorname{supp}\phi\) denotes its support and \(|\operatorname{supp}\phi|\) its cardinality. Weak convergence is denoted \(\phi_i\Rightarrow\phi\).
+
+      ###### Assumptions
+      Let \(\phi,(\phi_i)_{i\in\mathbb N}\) be Borel probability measures on a Polish space such that
+      \[
+      \phi_i\Rightarrow\phi
+      \]
+      and
+      \[
+      \sup_{i\in\mathbb N}|\operatorname{supp}\phi_i|\le k\in\mathbb N.
+      \]
+
+      ###### Statement
+      Then
+      \[
+      |\operatorname{supp}\phi|\le k.
+      \]
+
+      #### Reference R6
+      Target: Lemma 4.1 in \cite{Cai2020}
+      Citation: “By Prokhorov's Theorem \(\mathbb{D}_s\) is also relatively compact, so that there exists a subsequence \(r(i)\) such that \(\nu_{r(i)} = \sum_{j = 1}^sq_{j,r(i)}\delta_{\theta_{j,r(i)}} \to \nu \in \mathcal{P}(\Theta)\) weakly as \(i \to \infty\). By Lemma \(4.1\) in \cite{Cai2020} we have \(\nu \in \mathbb{D}_{s}\), so that \(\nu = \sum_{j = 1}^s\tilde{q}_j\delta_{\tilde{\theta}_j}\) for some \(\tilde{q}_j \in (0,1)\), \(\sum_{j = 1}^s\tilde{q}_j = 1\) and \(\tilde{\theta}_j \in C\), for \(j = 1, \dots, s\).”
+      Bibliography: Cai, D., Campbell, T., and Broderick, T. (2021). Finite mixture models do not reliably learn the number of components. \emph{38th International Conference on Machine Learning} {\bf{139}}, 1158--1169.
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The cited result is Lemma 4.1 of Cai, Campbell and Broderick (2021) (citation key \cite{Cai2020}), displayed in the supplied main-paper PDF at physical page 5 and in the arXiv PDF 2007.04470 at page 9. The supplied supplementary pages do not contain Lemma 4.1. The statement below is the printed lemma with its printed hypotheses and conclusion. The printed lemma gives only an at-most-\(k\) support-cardinality bound for the weak limit. It does not define \(\mathbb D_s\), and it does not by itself state the exact-\(s\)-atom decomposition with positive weights and parameters in a compact set \(C\) used in the citing proof. Those \(\mathbb D_s\)-specific and exact-\(s\)-atom items remain unresolved citation-context/source items, not part of the extracted Lemma 4.1.
+
+      ##### Lemma 4.1 in \cite{Cai2020}
+      ###### Definitions and notation
+      The spaces \(\mathbb X\) and \(\Theta\) are Polish spaces, endowed with their Borel \(\sigma\)-algebras. For a topological space \((\cdot)\), \(\mathscr P(\cdot)\) denotes the set of Borel probability measures on \((\cdot)\), equipped with the weak topology. A Polish space is understood in the standard sense of a separable completely metrizable topological space.
+
+      Weak convergence notation: for \(f_i,f\in \mathscr P(\cdot)\),
+      \[
+      f_i\Rightarrow f
+      \]
+      means
+      \[
+      \lim_{i\to\infty} d(f_i,f)=0,
+      \]
+      where \(d\) is the Lévy–Prokhorov metric.
+
+      **Definition A.1** (Lévy–Prokhorov metric). For \(f,g\in\mathscr P(\mathbb X)\),
+      \[
+      d(f,g)=\inf\{\epsilon>0:\ f(A)<g(A^\epsilon)+\epsilon,\quad g(A)<f(A^\epsilon)+\epsilon\},
+      \]
+      where
+      \[
+      A^\epsilon:=\{y:\rho(x,y)<\epsilon \text{ for some }x\in A\}.
+      \]
+
+      In the printed lemma, \(\operatorname{supp}\phi\) denotes the support of \(\phi\), and \(|\operatorname{supp}\phi|\) denotes its cardinality. Support and cardinality are used with their standard meanings.
+
+      ###### Assumptions
+      - \(\phi\) and \((\phi_i)_{i\in\mathbb N}\) are Borel probability measures on a Polish space.
+      - \(\phi_i\Rightarrow \phi\) weakly; equivalently, in the source notation, \(\lim_{i\to\infty}d(\phi_i,\phi)=0\).
+      - There is \(k\in\mathbb N\) such that
+        \[
+        \sup_i |\operatorname{supp}\phi_i|\le k.
+        \]
+
+      No mixture-specific hypotheses such as continuity, mixture-identifiability, or degenerate limits are part of the printed statement of Lemma 4.1.
+
+      ###### Statement
+      **Lemma 4.1.** *Suppose \(\phi,(\phi_i)_{i\in\mathbb N}\) are Borel probability measures on a Polish space such that \(\phi_i\Rightarrow\phi\) and \(\sup_i |\operatorname{supp}\phi_i|\le k\in\mathbb N\). Then \(|\operatorname{supp}\phi|\le k\).*
+
+      #### Reference R7
+      Target: Schwartz theorem (see e.g. Theorem 6.16 and Example 6.20 in \cite{Subhashis2017})
+      Citation: “By assumption \(H4\), the posterior distribution is consistent at \(P\) under the weak topology, in virtue of Schwartz theorem (see e.g.Theorem \(6.16\) and Example \(6.20\) in \cite{Subhashis2017}), so that \begin{equation}\label{limit} \text{pr}(h \in \mathcal{U}^c \mid X_{1:n}) \to 0, \end{equation} in \(P^{(\infty)}\)-probability as \(n \to \infty\).”
+      Bibliography: Ghosal, S.\ and Van Der Vaart, A.\ W. (2017). \emph{Fundamentals of Nonparametric Bayesian Inference}. Cambridge University Press.
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      model-supplemented
+
+      ##### Content basis
+      Model organization. The exact text of Ghosal and van der Vaart (2017), Theorem 6.16 and Example 6.20, was not retrieved; the attempted source lookup failed with `PDF_URL_NOT_PUBLIC`. The statement below for Theorem 6.16 is therefore the standard Schwartz posterior-consistency theorem, organized from mathematical knowledge and the citation context. It is not presented as a verbatim quotation of the cited book. The citation invokes assumption \(H4\) to conclude weak posterior consistency at \(P\); the supplied material does not contain the full printed content of \(H4\). In the current proof, the conclusion is used for the weak neighborhood \(\mathcal U\) of \(P\) to obtain
+      \[
+      \operatorname{pr}(h\in\mathcal U^c\mid X_{1:n})\to0
+      \]
+      in \(P^{(\infty)}\)-probability as \(n\to\infty\). The separate Example 6.20 is recorded below as an unresolved source reference because its mathematical statement and hypotheses were not obtained.
+
+      ##### Theorem 6.16 (Schwartz theorem, Ghosal–van der Vaart 2017)
+      ###### Definitions and notation
+      Let \((\mathbb X,d)\) be a metric space with Borel \(\sigma\)-field, and let \(\mu\) be a dominating measure on \(\mathbb X\). Let \(P\) be a probability measure on \(\mathbb X\) with density \(p_0=dP/d\mu\). Let \(\Pi\) be a prior distribution on probability densities on \(\mathbb X\), and let \(X_1,\dots,X_n\) be i.i.d. observations. The posterior distribution is
+      \[
+      \Pi(A\mid X_{1:n})
+      =
+      \frac{\int_A \prod_{i=1}^n h(X_i)\,d\Pi(h)}
+      {\int \prod_{i=1}^n h(X_i)\,d\Pi(h)},
+      \]
+      whenever the denominator is positive.
+
+      The weak topology on probability measures is the topology of weak convergence: a sequence \(Q_n\) converges weakly to \(Q\) if
+      \[
+      \int f\,dQ_n\to \int f\,dQ
+      \]
+      for every bounded continuous function \(f\). A weak neighborhood of \(P\) is a set containing a set of the form
+      \[
+      \left\{Q:\ \left|\int f_j\,dQ-\int f_j\,dP\right|<\varepsilon,\ j=1,\dots,k\right\}
+      \]
+      for some \(k\ge1\), bounded continuous functions \(f_1,\dots,f_k\), and \(\varepsilon>0\).
+
+      The Kullback–Leibler divergence is
+      \[
+      K(P,Q)=\int p_0\log\frac{p_0}{q}\,d\mu
+      \]
+      when \(Q\) has density \(q=dQ/d\mu\) and the integral is defined, and \(K(P,Q)=\infty\) otherwise. For \(\varepsilon>0\), the Kullback–Leibler neighborhood of \(P\) is
+      \[
+      K_\varepsilon(P)=\{Q:\ K(P,Q)<\varepsilon\}.
+      \]
+      The prior \(\Pi\) has Kullback–Leibler support at \(P\) if
+      \[
+      \Pi\bigl(K_\varepsilon(P)\bigr)>0
+      \]
+      for every \(\varepsilon>0\).
+
+      For a weak neighborhood \(U\) of \(P\), a sequence of tests is a sequence of measurable functions \(\varphi_n:\mathbb X^n\to[0,1]\). Such tests are exponentially consistent for \(U^c\) against \(P\) if there exist constants \(C>0\) and \(c>0\) such that, for all sufficiently large \(n\),
+      \[
+      \mathbb E_{P}^{\otimes n}\varphi_n
+      \le C e^{-cn},
+      \qquad
+      \sup_{Q\in U^c}\mathbb E_{Q}^{\otimes n}(1-\varphi_n)
+      \le C e^{-cn}.
+      \]
+
+      The posterior is weakly consistent at \(P\) if, for every weak neighborhood \(U\) of \(P\),
+      \[
+      \Pi(U^c\mid X_{1:n})\to0
+      \]
+      in \(P^{(\infty)}\)-probability as \(n\to\infty\).
+
+      ###### Assumptions
+      1. \(X_1,X_2,\dots\) are i.i.d. with law \(P\), where \(P\) has density \(p_0\) with respect to a dominating measure \(\mu\).
+      2. The prior \(\Pi\) is a probability distribution on probability densities, and the posterior \(\Pi(\cdot\mid X_{1:n})\) is well defined \(P^{(\infty)}\)-almost surely.
+      3. The prior has Kullback–Leibler support at \(P\): for every \(\varepsilon>0\),
+         \[
+         \Pi\bigl(K_\varepsilon(P)\bigr)>0.
+         \]
+      4. For every weak neighborhood \(U\) of \(P\), there exist exponentially consistent tests for \(U^c\) against \(P\), i.e. there exist tests \(\varphi_n\) and constants \(C,c>0\) such that
+         \[
+         \mathbb E_{P}^{\otimes n}\varphi_n\le C e^{-cn},
+         \qquad
+         \sup_{Q\in U^c}\mathbb E_{Q}^{\otimes n}(1-\varphi_n)\le C e^{-cn}
+         \]
+         for all sufficiently large \(n\).
+
+      Source-specific caveat: the citation uses an assumption denoted \(H4\) to conclude that the posterior is weakly consistent at \(P\). The supplied material does not contain the exact printed definition of \(H4\). It therefore cannot be determined from the supplied text whether \(H4\) is precisely the Kullback–Leibler prior-support condition, a separately stated testing condition, or a combined source assumption. The theorem above is stated with the standard Schwartz hypotheses explicitly, but it is not asserted to be the exact wording or exact hypothesis packaging of the cited \(H4\).
+
+      ###### Statement
+      Under the assumptions above, the posterior distribution is weakly consistent at \(P\): for every weak neighborhood \(U\) of \(P\),
+      \[
+      \Pi(U^c\mid X_{1:n})\to0
+      \]
+      in \(P^{(\infty)}\)-probability as \(n\to\infty\). Equivalently, for the random posterior density \(h\),
+      \[
+      \operatorname{pr}\bigl(h\in U^c\mid X_{1:n}\bigr)\to0
+      \]
+      in \(P^{(\infty)}\)-probability for every weak neighborhood \(U\) of \(P\).
+
+      ##### Example 6.20 (Ghosal–van der Vaart 2017, source reference)
+      ###### Definitions and notation
+      The ambient definitions are those of Theorem 6.16. No additional definitions can be assigned to Example 6.20 because its exact statement was not supplied.
+
+      ###### Assumptions
+      The supplied retrieval contains no statement of Example 6.20. It is cited in the current proof only as an accompanying source example for the Schwartz-theorem application. The exact hypotheses, objects, quantifiers, and conclusion of Example 6.20 cannot be determined from the supplied material.
+
+      ###### Statement
+      Unavailable in the supplied source material; no separate mathematical statement is reconstructed.
+    lean_name: paper_80f79a059f3741e883a5b36dc8747f99
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: main.tex

@@ -1,0 +1,113 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:3a55d002-758b-46c3-bf9f-ebffcc176bc2
+    title: paper_7aa885023a494b54a3d0f82a9b80e7b2
+    kind: lemma
+    latex_statement: |-
+      Let \(t\in\mathbb N\), \(p_j\in(0,1)\) with \(\sum_{j=1}^t p_j=1\), and let \(P=\sum_{j=1}^t p_jR_j\) be the data-generating distribution with density \(f(x)=\sum_{j=1}^t p_jk(x\mid\theta_j^*)\), where \(k(x\mid\theta)=g(x-\theta)\) and \(Q_0(d\theta)=q_0(\theta)d\theta\). Let \(P^{(n)}\) be the \(n\)-fold product law and \(X_{1:n}\sim P^{(n)}\); expectation is under \(X_{1:n}\sim P^{(n)}\). After the linear rescaling, take \([a,b]=[-c,c]\). Define \(C_j=\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\}\), \(n_j=|C_j|\). For \(s_j\ge1\) with \(s_j\le n_j\), let \(\tau_{s_j}(n_j)\) denote the partitions of \(C_j\), identified with \(\{1,\dots,n_j\}\), into \(s_j\) nonempty blocks. For a partition \(A_j=(A^j_1,\dots,A^j_{s_j})\in\tau_{s_j}(n_j)\), write \(a^j_h=|A^j_h|\) for \(h=1,\dots,s_j\). The constants \(m\) and \(U\) are those from T1 and T3, with \(h(y)=q_0(y)+q_0(-y)\). In the displayed formula, the product over \(h=1,\dots,s_j\) of scalar integrals over \(\theta_h\in\mathbb R\) is the form used; any source printing of an inner domain \(\mathbb R^{s_j}\) with scalar \(\theta_h\) is a notational/printing issue, not an additional assumption.
+
+      <!-- formalization-clarifications:v1:8da481539d9a7d999baf3ec834508388755f65608fcdca517ab7685aec6f86c3 -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The selected target is the local numerator inequality from supp.tex Lemma \ref{numerator}, used in the proof of Theorem \ref{th:ConsBounded}; its own reference list is empty, so the target imports no external theorem. The intended order is: fix \(t,p_j,\theta_j^*,g,q_0,c,P\); choose \(m,M\) from T1 and \(U\) from T3 for those fixed objects; fix \(n\) and \(X_{1:n}\sim P^{(n)}\); then, for each \(j=1,\dots,t\), each \(s_j\) and each partition \(A_j\), prove the inequality. The source explicitly says “The constants \(m\) and \(U\) are those from T1 and T3, with \(h(y)=q_0(y)+q_0(-y)\)” and T1/T3 are stated in the proof of Theorem \ref{th:ConsBounded}. Thus \(m,U\) may depend on \(g,q_0,c\) as parameters, but not on \(n,X_{1:n},j,s_j,A_j,a_h^j,n_j\). \(M\) is part of T1 but does not appear in the displayed RHS. The inequality is per chosen partition, not an assertion that one may replace \(\prod_h 1/(a_h^j+1)\) by its supremum over partitions. A Lean parameter appearing after \(s_j\) or after the random vector \(X_{1:n}\) must not be used to choose \(m\) or \(U\); the source gives no uniformity of \(m,U\) over those objects.
+
+      2. Norms and mathematical objects. No Euclidean, sup, operator, Frobenius, or other vector norm is used in the target. The symbol \(|\theta_h|\) in the proof is the scalar absolute value on \(\mathbb R\), while \(|A_j^h|=a_j^h\) is cardinality; these should not be conflated in Lean. The source clarification says the product over \(h=1,\dots,s_j\) of scalar integrals \(\int_{\mathbb R}\cdots q_0(\theta_h)\,d\theta_h\) is the intended form; an original printing with inner domain \(\mathbb R^{s_j}\) and scalar \(\theta_h\) is a notational/printing issue, not an extra multivariate parameter or multivariate \(q_0\). Also \(k(x\mid\theta)=g(x-\theta)\), \(Q_0(d\theta)=q_0(\theta)d\theta\), and \(h(y)=q_0(y)+q_0(-y)\) is not the same as \(q_0\) or \(Q_0\); the letter \(h\) also indexes blocks, so the block index and the function \(h(y)\) must be kept distinct. The ratio has denominator \(g(X_i-\theta_j^*)\); because \(A_j^h\subseteq C_j\) and \(C_j\) is the support window for component \(j\), this denominator is positive under B1/T1. The source does not insert an extra indicator in the displayed formula for that side condition. The block sizes \(a_h^j\) are positive integers with \(\sum_h a_h^j=n_j\) for a partition of \(C_j\); \(s_j\) is the number of blocks for group \(j\), not the total number of clusters in the full theorem.
+
+      3. Asymptotics. The selected inequality is a finite-\(n\), nonasymptotic bound; it contains no \(O\), \(o\), probability-limit notation, or “eventually” quantifier. It should not be weakened to an asymptotic statement. The surrounding uses of \(n\to\infty\) and \(P^{(\infty)}\)-probability occur in Theorem \ref{th:ConsBounded} and Lemma \ref{sufficient}, not in the target inequality itself. The target gives a bound for each allowed \(s_j\) and partition with explicit dependence on \(s_j\) and \(a_h^j\); no uniformity in \(s_j\) beyond that displayed expression is asserted. Because \(C_j\) and \(n_j\) are random, the condition \(s_j\le n_j\) and the choice of \(A_j\in\tau_{s_j}(n_j)\) are not ordinary deterministic side conditions unless one fixes a conditioning event or works conditionally on the group. The selected statement does not fully spell out that conditioning; the full theorem later handles such events via \(C^{(n)}\) and \(\Omega_n\). This is an unresolved formalization point, not a licence to add a limit or an unstated uniform bound.
+
+      4. Omitted definitions and source ambiguities. Explicitly, \(P=\sum_j p_jR_j\), \(k(x\mid\theta)=g(x-\theta)\), \(Q_0(d\theta)=q_0(\theta)d\theta\), \(P^{(n)}\) is the \(n\)-fold product law, and \(X_{1:n}\sim P^{(n)}\). B1 in main.tex, Section 3.1, says \(g\) is positive on some \([a,b]\) and zero elsewhere; the target rescales to \([a,b]=[-c,c]\) and uses total mass \(1\). T1 and T3 are local explicit assumptions from the proof of Theorem \ref{th:ConsBounded}. The full Theorem \ref{th:ConsBounded} assumes complete separation and \(\theta_j^*\) in the interior support of \(Q_0\), with T4 available in that proof; the selected numerator inequality does not list those as hypotheses, so they should not be imported unless one is formalizing the surrounding theorem. The proof’s step “Without loss of generality assume \(\theta_j^*=0\)” is a proof-based assertion; the final statement keeps \(\theta_j^*\) general, while T3 only bounds \(q_0(y)+q_0(-y)\). The source does not state a translation-invariance or symmetry condition on \(q_0\) that would justify translating the \(q_0\) integral in general. Thus, in Lean, do not silently specialize \(\theta_j^*=0\), do not assume \(q_0\) is symmetric or translation invariant, and treat the proof’s return “from the normalization \(\theta_j^*=0\)” as an unresolved source point. Also, the statement’s expectation under \(P^{(n)}\) conflicts with the proof’s integration over \(x_i\in[-c,c]\) as a block distribution; the source does not display the conditioning on \(C_j\) or the \(p_j\) factor there. This should be marked as a source ambiguity rather than repaired by adding complete separation, a \(p_j\) factor, or a conditional measure unless the full theorem context is being formalized separately.
+      <!-- /formalization-clarifications -->
+
+      Let \(t\in\mathbb N\), \(p_j\in(0,1)\) with \(\sum_{j=1}^t p_j=1\), and let \(P=\sum_{j=1}^t p_jR_j\) be the data-generating distribution with density \(f(x)=\sum_{j=1}^t p_jk(x\mid\theta_j^*)\), \(k(x\mid\theta)=g(x-\theta)\), and \(Q_0(d\theta)=q_0(\theta)d\theta\). Let \(P^{(n)}\) be the \(n\)-fold product law and \(X_{1:n}\sim P^{(n)}\). After the linear rescaling, take \([a,b]=[-c,c]\). Define \(C_j=\{i\in\{1,\dots,n\}:X_i\in[\theta_j^*+a,\theta_j^*+b]\}\), \(n_j=|C_j|\). For \(s_j\ge1\) with \(s_j\le n_j\), let \(\tau_{s_j}(n_j)\) denote the partitions of \(C_j\), identified with \(\{1,\dots,n_j\}\), into \(s_j\) nonempty blocks. For a partition \(A_j=(A^j_1,\dots,A^j_{s_j})\in\tau_{s_j}(n_j)\), write \(a^j_h=|A^j_h|\) for \(h=1,\dots,s_j\). The constants \(m\) and \(U\) are those from T1 and T3, with \(h(y)=q_0(y)+q_0(-y)\). Then for every \(j=1,\dots,t\), every \(s_j\ge1\) in the range \(s_j\le n_j\), and every partition \(A_j\in\tau_{s_j}(n_j)\),
+      \[
+      \mathbb E\left\{
+      \prod_{h=1}^{s_j}\int_{\mathbb R}\prod_{i\in A^j_h}
+      \frac{g(X_i-\theta_h)}{g(X_i-\theta_j^*)}
+      q_0(\theta_h)\,d\theta_h
+      \right\}
+      \le
+      \left(\frac{U}{m}\right)^{s_j}
+      \prod_{h=1}^{s_j}\frac{1}{a^j_h+1}.
+      \]
+    assumptions:
+      - |-
+        B1: \(g\) is positive on \([a,b]\) and zero elsewhere; after rescaling its support is \([-c,c]\) and its total mass is \(1\).
+
+        T1: There exist \(m,M\) with \(0<m\le g(x)\le M<\infty\) for every \(x\in[-c,c]\).
+
+        T3: There exists \(U>0\) with \(h(y)=q_0(y)+q_0(-y)\le U\) for every \(y\in[0,2c]\).
+    proof_body: |-
+      Without loss of generality assume \(\theta_j^*=0\). Write \(a^j_h=|A^j_h|\). Taking the expectation under the relevant block distribution, the left-hand side equals
+      \[
+      \mathbb E\left\{
+      \prod_{h=1}^{s_j}\int_{\mathbb R}\prod_{i\in A^j_h}
+      \frac{g(X_i-\theta_h)}{g(X_i)}
+      q_0(\theta_h)\,d\theta_h
+      \right\}
+      =
+      \prod_{h=1}^{s_j}\left(\int_{-c}^{c}g(x-\theta_h)\,dx\right)^{a^j_h},
+      \]
+      with the \(q_0(\theta_h)\,d\theta_h\) integrals kept outside. For a single \(\theta_h\), the change of variable \(z=x-\theta_h\) gives
+      \[
+      \int_{-c}^{c}g(x-\theta_h)\,dx
+      =
+      \int_{-c-\theta_h}^{c-\theta_h}g(z)\mathbf 1_{[-c,c]}(z)\,dz.
+      \]
+      If \(\theta_h>0\), then
+      \[
+      \int_{-c}^{c}g(x-\theta_h)\,dx
+      =
+      \mathbf 1_{[0,2c]}(\theta_h)\left(1-\int_{c-\theta_h}^{c}g(z)\,dz\right)
+      \le
+      \mathbf 1_{[0,2c]}(\theta_h)(1-m\theta_h).
+      \]
+      The case \(\theta_h<0\) is analogous and yields
+      \[
+      \int_{-c}^{c}g(x-\theta_h)\,dx
+      \le
+      \mathbf 1_{[0,2c]}(|\theta_h|)(1-m|\theta_h|).
+      \]
+      Raising this bound to the power \(a^j_h\) and multiplying over \(h=1,\dots,s_j\), then integrating in \(\theta_h\) with \(q_0\), gives
+      \[
+      \mathbb E\left\{
+      \prod_{h=1}^{s_j}\int_{\mathbb R}\prod_{i\in A^j_h}
+      \frac{g(X_i-\theta_h)}{g(X_i)}
+      q_0(\theta_h)\,d\theta_h
+      \right\}
+      \le
+      \prod_{h=1}^{s_j}\int_{0}^{2c}(1-my)^{a^j_h}h(y)\,dy,
+      \]
+      where \(h(y)=q_0(y)+q_0(-y)\). By T3, \(h(y)\le U\), so
+      \[
+      \int_{0}^{2c}(1-my)^{a^j_h}h(y)\,dy
+      \le
+      U\int_{0}^{2c}(1-my)^{a^j_h}\,dy.
+      \]
+      Using \(u=1-my\),
+      \[
+      \int_{0}^{2c}(1-my)^{a^j_h}\,dy
+      =
+      \frac{1-(1-2mc)^{a^j_h+1}}{m(a^j_h+1)}
+      \le
+      \frac{1}{m(a^j_h+1)}.
+      \]
+      Therefore
+      \[
+      \mathbb E\left\{
+      \prod_{h=1}^{s_j}\int_{\mathbb R}\prod_{i\in A^j_h}
+      \frac{g(X_i-\theta_h)}{g(X_i-\theta_j^*)}
+      q_0(\theta_h)\,d\theta_h
+      \right\}
+      \le
+      \left(\frac{U}{m}\right)^{s_j}
+      \prod_{h=1}^{s_j}\frac{1}{a^j_h+1}.
+      \]
+      Returning from the normalization \(\theta_j^*=0\) gives the stated inequality.
+    lean_name: paper_7aa885023a494b54a3d0f82a9b80e7b2
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex
