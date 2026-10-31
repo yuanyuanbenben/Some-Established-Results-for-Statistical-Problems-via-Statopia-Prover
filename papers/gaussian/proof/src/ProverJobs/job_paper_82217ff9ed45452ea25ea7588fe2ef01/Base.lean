@@ -233,32 +233,6 @@ structure Assumptions (M : Model Ω μ a) (c0 alpha cvar ccirc eps0 Ccor : ℝ) 
 
 end Model
 
-/-- **Main result.** Let `X_1, …, X_n ∈ ℝ^p` satisfy Assumptions 2.1 and 2.2 with
-constants not depending on `n`, let `τ_n ∈ [0,1)` satisfy `(1-τ_n)√(log n) ≳ 1`, and
-set `M_d = max_{j ∈ J(d)} S_{n,j}/σ_j^{τ_n}` with the corresponding Gaussian version
-`M̃_d`.  Then for every fixed `δ ∈ (0,1/2)` the Kolmogorov distances
-`I_n = d_K(L(M_p), L(M_{k_n}))` and `III_n = d_K(L(M̃_{k_n}), L(M̃_p))` satisfy
-`I_n ≲ n^{-1/2+δ}` and `III_n ≲ n^{-1/2+δ}`: there are constants `c₁, c₂ > 0` which
-depend neither on `n`, nor on `p = p n`, nor on the model sequence itself — only on the
-fixed parameters `a, c₀, α, c, c_∘, ε₀, C` and on the fixed `δ` — and there is `n₀ ≥ 1`
-(allowed to depend on the model sequence) with
-`I_n ≤ c₁ n^{-1/2+δ}` and `III_n ≤ c₂ n^{-1/2+δ}` for all `n ≥ n₀`.
-(The intermediate quantity `II_n` is not part of the conclusion.) -/
-private theorem paper_82217ff9ed45452ea25ea7588fe2ef01
-    (a c0 alpha cvar ccirc eps0 Ccor : ℝ)
-    (ha : a ∈ Set.Ioo (0 : ℝ) (1 / 2)) (hc0 : 0 < c0) (halpha : 0 < alpha)
-    (hcvar : 0 < cvar) (hccirc : ccirc ∈ Set.Ioo (0 : ℝ) 1)
-    (heps0 : eps0 ∈ Set.Ioo (0 : ℝ) 1) (hCcor : 0 < Ccor)
-    {δ : ℝ} (hδ : δ ∈ Set.Ioo (0 : ℝ) (1 / 2)) :
-    ∃ c1 c2 : ℝ, 0 < c1 ∧ 0 < c2 ∧
-      ∀ {Ω : Type*} [MeasurableSpace Ω] {μ : Measure Ω} [IsProbabilityMeasure μ]
-        (M : Model Ω μ a) (hM : Model.Assumptions M c0 alpha cvar ccirc eps0 Ccor),
-        ∃ n0 : ℕ, 1 ≤ n0 ∧
-          ∀ n : ℕ, n0 ≤ n →
-            M.In n ≤ c1 * (n : ℝ) ^ (-(1 / 2 : ℝ) + δ) ∧
-            M.IIIn n ≤ c2 * (n : ℝ) ^ (-(1 / 2 : ℝ) + δ)
-:= by
-  sorry
 end
 end Statlib.Imported
 

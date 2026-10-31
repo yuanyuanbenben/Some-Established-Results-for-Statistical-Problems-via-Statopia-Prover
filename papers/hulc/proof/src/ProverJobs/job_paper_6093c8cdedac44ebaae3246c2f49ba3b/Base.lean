@@ -28,21 +28,6 @@ def paperDelta {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) {B : ℕ}
 /-- `P(B; Δ) = (1/2 - Δ)^B + (1/2 + Δ)^B`, with ordinary integer power `B ≥ 1`. -/
 def paperP (B : ℕ) (Δ : ℝ) : ℝ := (1 / 2 - Δ) ^ B + (1 / 2 + Δ) ^ B
 
-/-- **Fixed-`B` coverage lemma.** For a fixed deterministic `B ≥ 1`, a deterministic
-`θ₀ : ℝ`, independent measurable real-valued estimators `θ̂_1, …, θ̂_B` of `θ₀`, and
-`Δ = max_j Med-Bias_{θ₀}(θ̂_j) ∈ [0, 1/2]`, the probability that `θ₀` falls outside the closed
-interval `[min_j θ̂_j, max_j θ̂_j]` is at most `P(B; Δ) = (1/2 - Δ)^B + (1/2 + Δ)^B`.
-This is a finite-sample, exact (non-asymptotic) inequality. -/
-private theorem paper_6093c8cdedac44ebaae3246c2f49ba3b
-    (B : ℕ) (hB : 0 < B) {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
-    (θ₀ : ℝ) (θ : Fin B → Ω → ℝ) (hθ : ∀ j, Measurable (θ j)) (hindep : iIndepFun θ μ)
-    (hΔ : paperDelta μ θ θ₀ hB ∈ Set.Icc (0 : ℝ) (1 / 2)) :
-    μ.real {ω | θ₀ ∉ Set.Icc
-        (Finset.univ.inf' ⟨⟨0, hB⟩, Finset.mem_univ _⟩ (fun j => θ j ω))
-        (Finset.univ.sup' ⟨⟨0, hB⟩, Finset.mem_univ _⟩ (fun j => θ j ω))}
-      ≤ (1 / 2 - paperDelta μ θ θ₀ hB) ^ B + (1 / 2 + paperDelta μ θ θ₀ hB) ^ B
-:= by
-  sorry
 end
 end Statlib.Imported
 

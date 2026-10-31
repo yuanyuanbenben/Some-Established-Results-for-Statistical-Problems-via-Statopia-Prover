@@ -64,38 +64,6 @@ def hmcAcceptance {d : ℕ} (U : HMCState d → ℝ) (ε : ℝ) (L : ℕ) (x0 p0
     ((hmcDensity U (leapfrogPosition U ε L x0 p0) / hmcDensity U x0) *
       Real.exp (kineticEnergy p0 - kineticEnergy (leapfrogMomentum U ε L x0 p0)))
 
-/-- **Negative result for the HMC acceptance probability.** Fix the dimension `d`, the
-potential `U : ℝ^d → [0,∞)` (differentiable, with gradient `∇U`), so that the target measure
-`π ∝ e^{-U}` is finite, and fix the step size `ε > 0` and the number of leapfrog steps
-`L ≥ 1` (so `T = Lε`). Assume
-
-* (17): `‖∇U(x)‖/‖x‖ → +∞` as `‖x‖ → ∞`;
-* (18) corrected (with the factor `3`): there is a fixed `C < ∞` such that for all `x, y`,
-  `‖y‖ ≥ 3‖x‖ ≥ C` implies `‖∇U(y)‖ ≥ 3‖∇U(x)‖`;
-* (19): `U(x) - U(y) - ‖x‖²/2 → -∞` along `‖x‖ → ∞`, `‖y‖ ≥ 2^L ‖x‖` (fixed `L`).
-
-Then for every fixed `δ < 1` with no lower bound on `δ`,
-`sup_{‖p_0‖ ≤ ‖x_0‖^δ} α(x_0, x_{Lε}) → 0` as `‖x_0‖ → ∞`; equivalently, for every `η > 0`
-there is `R` such that `‖x_0‖ ≥ R` and `‖p_0‖ ≤ ‖x_0‖^δ` imply `α(x_0, x_{Lε}) ≤ η`. The
-threshold may depend on `δ, η, U, d, ε, L` and the witnesses of the assumptions, but not on
-`x_0` or `p_0`, with no uniformity in `δ`, `L`, `d` or `U`, and no convergence rate. -/
-private theorem paper_53e951f48c854f4db91e6ecda697ee2b (d : ℕ) (U : HMCState d → ℝ)
-    (hU_nonneg : ∀ x, 0 ≤ U x) (hU_diff : Differentiable ℝ U)
-    (h17 : ∀ M : ℝ, ∃ R : ℝ, ∀ x : HMCState d, R ≤ ‖x‖ → M ≤ ‖gradient U x‖ / ‖x‖)
-    (h18 : ∃ C : ℝ, ∀ x y : HMCState d, C ≤ 3 * ‖x‖ → 3 * ‖x‖ ≤ ‖y‖ →
-      3 * ‖gradient U x‖ ≤ ‖gradient U y‖)
-    (ε : ℝ) (hε : 0 < ε) (L : ℕ) (hL : 1 ≤ L)
-    (h19 : ∀ B : ℝ, ∃ R : ℝ, ∀ x y : HMCState d, R ≤ ‖x‖ → (2 : ℝ) ^ L * ‖x‖ ≤ ‖y‖ →
-      U x - U y - (1 / 2) * ‖x‖ ^ 2 ≤ B) :
-    ∀ δ : ℝ, δ < 1 →
-      Tendsto
-        (fun x0 : HMCState d =>
-          ⨆ p0 : {p : HMCState d // ‖p‖ ≤ ‖x0‖ ^ δ}, hmcAcceptance U ε L x0 p0.val)
-        (Filter.cocompact (HMCState d)) (𝓝 0) ∧
-      (∀ η : ℝ, 0 < η → ∃ R : ℝ, ∀ x0 : HMCState d, R ≤ ‖x0‖ →
-        ∀ p0 : HMCState d, ‖p0‖ ≤ ‖x0‖ ^ δ → hmcAcceptance U ε L x0 p0 ≤ η)
-:= by
-  sorry
 end Statlib.Imported
 end
 

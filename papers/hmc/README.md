@@ -9,7 +9,7 @@ Theorem 2.2 retains one external citation assumption. Corrected Theorem 5.14 has
 | Basic statistic | Value |
 | --- | ---: |
 | Lean source files | 73 |
-| Physical Lean lines | 7,431 |
+| Physical Lean lines | 7,214 |
 | Passed / tasks (main + supporting) | 8/8 (2+6) |
 | Retained external references in full source package | 1 |
 | Cached Statlib modules | 2 |

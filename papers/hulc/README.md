@@ -9,7 +9,7 @@ The final theorem has no nonstandard axioms. Its explicit hypotheses include mea
 | Basic statistic | Value |
 | --- | ---: |
 | Lean source files | 15 |
-| Physical Lean lines | 1,467 |
+| Physical Lean lines | 1,397 |
 | Passed / tasks (main + supporting) | 2/2 (1+1) |
 | Retained external references in full source package | 0 |
 | Cached Statlib modules | 1 |

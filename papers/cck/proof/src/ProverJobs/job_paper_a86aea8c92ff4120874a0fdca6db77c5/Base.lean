@@ -58,18 +58,6 @@ noncomputable def coordPartial {p : ℕ} (j : Fin p) (f : (Fin p → ℝ) → �
     (z : Fin p → ℝ) : ℝ :=
   deriv (fun t : ℝ => f (Function.update z j t)) (z j)
 
-/-- Lemma "second deriv m": for `p ≥ 1`, `β > 0` and `g ∈ C²(ℝ)`, the iterated coordinate
-partial derivative `∂_j ∂_k` of `m = g ∘ F_β` is
-`(g'' ∘ F_β)(z) π_j(z) π_k(z) + β (g' ∘ F_β)(z) w_{jk}(z)`,
-for every `z ∈ ℝ^p` and every pair of coordinate indices `j, k`. -/
-private theorem paper_a86aea8c92ff4120874a0fdca6db77c5
-    (p : ℕ) (hp : 0 < p) (β : ℝ) (hβ : 0 < β) (g : ℝ → ℝ) (hg : ContDiff ℝ 2 g)
-    (z : Fin p → ℝ) (j k : Fin p) :
-    coordPartial j (coordPartial k (compSmoothMax (p := p) g β)) z
-      = deriv (deriv g) (smoothMaxFun β z) * softmaxWt β z j * softmaxWt β z k
-        + β * deriv g (smoothMaxFun β z) * softmaxPair β z j k
-:= by
-  sorry
 end Statlib.Imported
 end
 

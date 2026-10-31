@@ -49,40 +49,5 @@ noncomputable def leapfrogPos {d : ℕ} (U : Config d → ℝ) (ε : ℝ) (L : �
     (x₀ p₀ : Config d) : Config d :=
   ((leapfrogStep U ε)^[L] (x₀, p₀)).1
 
-/-- **Assumption A1** (random number of leapfrog steps) — recorded as an *assumption*.
-
-Let `L ~ 𝔏(·)`, where `𝔏` is a probability distribution on `ℤ₊` (encoded as a probability
-measure on `ℕ` with `𝔏 {0} = 0`), assumed position-independent: `𝔏` is quantified before the
-starting point `(x₀, p₀)` and the step size `ε` (`M = I` throughout). Assumption A1 states
-
-* `ℙ_𝔏[L = 1] > 0`, and
-* for every fixed `(x₀, p₀) ∈ ℝ^{2d}` and every `ε > 0` there is a finite exponent `s`
-  (the paper's non-vacuous reading of the printed "`s < ∞`" is `0 < s`, which is what the
-  Lyapunov/drift use of `e^{s ‖·‖}` requires) such that
-  `𝔼_𝔏[e^{s ‖x_{Lε}‖}] < ∞`,
-
-where `x_{Lε}` is the position after `L` leapfrog steps of size `ε` from `(x₀, p₀)`.
-
-This is an assumption of the source, not a derived theorem: clause 1 fails for `𝔏 = δ₂`
-(a probability on `ℤ₊` with `𝔏 {0} = 0` but `𝔏 {1} = 0`), and clause 2 fails e.g. for
-`U(x) = ‖x‖²/2` with a heavy-tailed law `𝔏`.  Hence both clauses are carried as the hypothesis
-`hA1` and re-exported as the conclusion (the source only ever *assumes* A1).  Quantifier order:
-`d, U, 𝔏` fixed first, then `∀ x₀ ∀ p₀ ∀ ε > 0`, then `∃ s`, so `s` may depend on `x₀, p₀, ε`
-but `𝔏` is the same for all of them; no uniformity in `x₀, p₀` and no uniformity over `L` is
-asserted.  The exponential moment is stated as a finite extended-valued (`ℝ≥0∞`) integral, so no
-integrability of the exponential is smuggled in as an extra hypothesis. -/
-private theorem paper_7ad7b898530c48b2be48d9fe88a3d538 (d : ℕ)
-    (U : Config d → ℝ) (hU_nonneg : ∀ x, 0 ≤ U x) (hU_diff : Differentiable ℝ U)
-    (𝔏 : Measure ℕ) [IsProbabilityMeasure 𝔏] (h𝔏 : 𝔏 {0} = 0)
-    (hA1 : (0 < 𝔏 {1}) ∧
-      ∀ (x₀ p₀ : Config d) (ε : ℝ), 0 < ε →
-        ∃ s : ℝ, 0 < s ∧
-          ∫⁻ L, ENNReal.ofReal (Real.exp (s * ‖leapfrogPos U ε L x₀ p₀‖)) ∂𝔏 < ⊤) :
-    (0 < 𝔏 {1}) ∧
-      ∀ (x₀ p₀ : Config d) (ε : ℝ), 0 < ε →
-        ∃ s : ℝ, 0 < s ∧
-          ∫⁻ L, ENNReal.ofReal (Real.exp (s * ‖leapfrogPos U ε L x₀ p₀‖)) ∂𝔏 < ⊤
-:= by
-  sorry
 end Statlib.Imported
 

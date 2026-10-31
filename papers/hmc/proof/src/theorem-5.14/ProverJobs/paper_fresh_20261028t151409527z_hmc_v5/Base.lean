@@ -95,41 +95,6 @@ def GeometricallyErgodic {d : ℕ} (P : HMCState d → Measure (HMCState d))
       ∀ n : ℕ, ∀ x : HMCState d,
         ENNReal.ofReal (tvDist (kernelPow P n x) π) ≤ M x * (ρ : ℝ≥0∞) ^ n
 
-/-! ## Theorem 5.14 (corrected statement, v5 corrigendum Appendix D)
-
-Throughout `d ≥ 1`: the source's state space is the positive-dimensional Euclidean space
-`ℝ^d` (with a `d`-dimensional momentum variable and a `d × d` mass matrix), so the degenerate
-singleton case `d = 0` is outside its scope.
-Let `π` be a finite target measure with Lebesgue density `π(x) ∝ exp (-U x)`, `U : ℝ^d → [0,∞)`
-differentiable, and consider HMC with mass matrix `M = I`, momentum law `N(0,I)`, leapfrog
-integrator with step-size `ε > 0` and a fixed positive number of leapfrog steps `L`, i.e.
-fixed integration time `T = L ε`.  If
-
-* (17) `‖∇U(x)‖ / ‖x‖ → ∞` as `‖x‖ → ∞`,
-* (18) (corrected form) there is a finite `C` such that `‖y‖ ≥ 3‖x‖ ≥ C` implies
-  `‖∇U(y)‖ ≥ 3‖∇U(x)‖`,
-* (19) `U(x) - U(y) - ‖x‖²/2 → -∞` as `‖x‖ → ∞` with `‖y‖ ≥ 2^L ‖x‖`,
-
-then HMC with fixed integration time `T = L ε` is not geometrically ergodic: there are no
-`ρ < 1` and `π`-a.e. finite `M` with `‖P^n(x,·) - π‖_TV ≤ M(x) ρ^n` for all `n`. -/
-private theorem Theorem_5_14_corrected_statement_and_replacement_proof_in_the_v5_corrigendum_Appendix_D_original_label_thm_light_Use_the
-    (d : ℕ) (U : HMCState d → ℝ) (π : Measure (HMCState d)) (L : ℕ) (ε : ℝ)
-    (hd : 0 < d)
-    (hU_nonneg : ∀ x, 0 ≤ U x)
-    (hU_diff : Differentiable ℝ U)
-    (hπ_finite : IsFiniteMeasure π)
-    (hπ_density : ∃ c : ℝ≥0∞, c ≠ 0 ∧ c ≠ ⊤ ∧
-      π = c • volume.withDensity (fun x => ENNReal.ofReal (Real.exp (-(U x)))))
-    (h_17 : ∀ A : ℝ, ∃ R : ℝ, ∀ x : HMCState d, R < ‖x‖ → A < ‖gradient U x‖ / ‖x‖)
-    (h_18 : ∃ C : ℝ, ∀ x y : HMCState d,
-      3 * ‖x‖ ≤ ‖y‖ → C ≤ 3 * ‖x‖ → 3 * ‖gradient U x‖ ≤ ‖gradient U y‖)
-    (h_19 : ∀ A : ℝ, ∃ R : ℝ, ∀ x y : HMCState d,
-      R < ‖x‖ → (2 : ℝ) ^ L * ‖x‖ ≤ ‖y‖ →
-        U x - U y - (1 / 2) * ‖x‖ ^ 2 < -A)
-    (hL : 0 < L) (hε : 0 < ε) :
-    ¬ GeometricallyErgodic (hmcKernel U L ε) π
-:= by
-  sorry
 end Statlib.Imported
 end
 

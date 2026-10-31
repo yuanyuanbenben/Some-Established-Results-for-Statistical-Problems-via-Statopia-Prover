@@ -1910,27 +1910,5 @@ end Statlib.Imported
 
 namespace Statlib.Imported
 
-private theorem Theorem_2_Comparison_of_distributions_second_conclusion_covariance_only_Kolmogorov_bound_Cprime_Delta_1_3_max_1_log_p_De :
-    ∃ Cprime : ℝ → ℝ → ℝ,
-      (∀ a b : ℝ, 0 < a → 0 < Cprime a b) ∧
-      ∀ (Ω : Type*) [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
-        (p : ℕ) (hp : 2 ≤ p)
-        (SigmaY : Matrix (Fin p) (Fin p) ℝ) (Y : Ω → Fin p → ℝ),
-          Statlib.StatFoundation.RandomVariable.Gaussian.IsCenteredGaussianVector μ Y SigmaY →
-          SigmaY.IsSymm →
-          (∀ j : Fin p, 0 < SigmaY j j) →
-          ∀ (SigmaX : Matrix (Fin p) (Fin p) ℝ) (X : Ω → Fin p → ℝ),
-            Statlib.StatFoundation.RandomVariable.Gaussian.IsCenteredGaussianVector μ X SigmaX →
-            SigmaX.IsSymm →
-            ∀ x : ℝ,
-              |(μ {ω | ∀ j : Fin p, X ω j ≤ x}).toReal
-                  - (μ {ω | ∀ j : Fin p, Y ω j ≤ x}).toReal| ≤
-                Cprime (covDiagMin SigmaY) (covDiagMax SigmaY) *
-                  (if covEntryMaxDiff SigmaX SigmaY = 0 then 0
-                   else (covEntryMaxDiff SigmaX SigmaY) ^ ((1 : ℝ) / 3) *
-                     (max 1 (Real.log ((p : ℝ) / covEntryMaxDiff SigmaX SigmaY))) ^
-                                             ((2 : ℝ) / 3))
-:= by
-  sorry
 end Statlib.Imported
 

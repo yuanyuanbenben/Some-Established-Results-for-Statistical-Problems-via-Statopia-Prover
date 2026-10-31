@@ -9,7 +9,7 @@ The final theorem retains three external citation assumptions, listed exactly in
 | Basic statistic | Value |
 | --- | ---: |
 | Lean source files | 88 |
-| Physical Lean lines | 15,404 |
+| Physical Lean lines | 15,047 |
 | Passed / tasks (main + supporting) | 6/6 (1+5) |
 | Retained external references in full source package | 3 |
 | Cached Statlib modules | 90 |

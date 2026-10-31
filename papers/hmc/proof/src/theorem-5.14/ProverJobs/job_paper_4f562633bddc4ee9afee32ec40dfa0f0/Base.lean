@@ -64,25 +64,6 @@ lemma mhAccept_le_one (piDens : MHState d → ℝ≥0∞) (q : MHState d → MHS
 
 end Defs
 
-/-- Metropolis–Hastings type: the kernel identity `P(x,dy) = α(x,y) Q(x,dy) +
-r(x) δ_x(dy)` (eqn:mhtype) holds, where the two-argument ratio `r(x,y)`
-(eqn:accept) satisfies the density relation on `S` and vanishes off `S`, the
-acceptance probability is `α = 1 ∧ r`, and the one-argument rejection
-probability is `r(x) = 1 - ∫ α(x,y) Q(x,dy)`; equivalently (`∀`-wise, hence
-for every `x` and every measurable set `A`), it holds set-wise. -/
-private theorem paper_4f562633bddc4ee9afee32ec40dfa0f0
-    (d : ℕ)
-    (P Q : Kernel (MHState d) (MHState d)) [IsMarkovKernel P] [IsMarkovKernel Q]
-    (pi : Measure (MHState d)) [IsFiniteMeasure pi]
-    (piDens : MHState d → ℝ≥0∞) (q : MHState d → MHState d → ℝ≥0∞)
-    (hpi : pi = volume.withDensity piDens)
-    (hq : ∀ x, Q x = volume.withDensity (q x)) :
-    IsMHType P Q piDens q ↔
-      ∀ (x : MHState d) (A : Set (MHState d)), MeasurableSet A →
-        (P x) A = ∫⁻ y in A, mhAccept piDens q x y ∂(Q x)
-          + mhRejection Q piDens q x * (Measure.dirac x) A
-:= by
-  sorry
 end Statlib.Imported
 end
 

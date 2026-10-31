@@ -9,7 +9,7 @@ The constant is chosen before the dimension and depends only on the diagonal var
 | Basic statistic | Value |
 | --- | ---: |
 | Lean source files | 78 |
-| Physical Lean lines | 12,356 |
+| Physical Lean lines | 12,223 |
 | Passed / tasks (main + supporting) | 6/6 (1+5) |
 | Retained external references in full source package | 4 |
 | Cached Statlib modules | 122 |

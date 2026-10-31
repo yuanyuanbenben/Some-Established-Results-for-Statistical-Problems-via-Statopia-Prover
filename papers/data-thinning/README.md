@@ -9,7 +9,7 @@ The final theorem has no nonstandard axioms. The exact modeling hypotheses remai
 | Basic statistic | Value |
 | --- | ---: |
 | Lean source files | 5 |
-| Physical Lean lines | 160 |
+| Physical Lean lines | 125 |
 | Passed / tasks (main + supporting) | 1/1 (1+0) |
 | Retained external references in full source package | 0 |
 | Cached Statlib modules | 0 |

@@ -9,7 +9,7 @@ The final theorem has no nonstandard axioms. The complete source package retains
 | Basic statistic | Value |
 | --- | ---: |
 | Lean source files | 11 |
-| Physical Lean lines | 2,141 |
+| Physical Lean lines | 2,079 |
 | Passed / tasks (main + supporting) | 1/1 (1+0) |
 | Retained external references in full source package | 1 |
 | Cached Statlib modules | 0 |

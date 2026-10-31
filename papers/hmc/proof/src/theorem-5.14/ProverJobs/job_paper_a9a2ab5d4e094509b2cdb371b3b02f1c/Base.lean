@@ -35,28 +35,6 @@ structure IsMHType {X : Type*} [MeasurableSpace X]
 /-- The HMC state space `ℝ^d`, carrying the Euclidean (`ℓ²`) norm. -/
 abbrev HMCState (d : ℕ) : Type := EuclideanSpace ℝ (Fin d)
 
-/-- **Proposition 3.5** (source, main.tex). Let `π` be a finite target measure on
-`ℝ^d` (`d ≥ 1`) with a Lebesgue density, and let `P` be a Markov transition
-kernel of Metropolis–Hastings type with candidate kernel `Q`, acceptance
-probability `α : X → X → [0,1]` and one-argument rejection probability
-`r(x) = 1 - ∫ α(x,y) Q(x,dy)`. If `esssup r = 1` (`π`-essentially), then the
-geometric-ergodicity bound
-`‖P^n(x,·) - π(·)‖_TV ≤ M(x) ρ^n` fails to hold: there are no `ρ < 1` (real,
-not assumed nonnegative) and no `π`-a.e. finite `M : X → [0,∞]` such that the
-displayed bound holds for `π`-a.e. `x` and every iteration count `n ≥ 1`. -/
-private theorem paper_a9a2ab5d4e094509b2cdb371b3b02f1c
-    (d : ℕ) (hd : 0 < d)
-    (π : Measure (HMCState d)) (w : HMCState d → ℝ≥0∞) (hw : Measurable w)
-    (hπdens : π = volume.withDensity w) (hπfin : IsFiniteMeasure π)
-    (P Q : Kernel (HMCState d) (HMCState d)) [IsMarkovKernel P] [IsMarkovKernel Q]
-    (α : HMCState d → HMCState d → ℝ) (r : HMCState d → ℝ)
-    (hMH : IsMHType P Q α r) (hesssup : essSup r π = 1) :
-    ¬ ∃ ρ : ℝ, ρ < 1 ∧ ∃ M : HMCState d → ℝ≥0∞,
-      (∀ᵐ x ∂π, M x ≠ ⊤) ∧
-      (∀ᵐ x ∂π, ∀ n : ℕ, 1 ≤ n →
-        (tvDist ((P ^ n) x) π).toReal ≤ (M x).toReal * ρ ^ n)
-:= by
-  sorry
 end
 end Statlib.Imported
 

@@ -48,61 +48,6 @@ def inCI {Ω : Type*} (theta0 : ℝ) (thetaHat : ℕ → Ω → ℝ) (Bst : Ω �
   (∃ j ∈ Finset.Icc 1 (Bst ω), thetaHat j ω ≤ theta0) ∧
     (∃ j ∈ Finset.Icc 1 (Bst ω), theta0 ≤ thetaHat j ω)
 
-/-- **Theorem 1** (`thm:coverage-algorithm-known-Delta`): HulC finite-sample coverage and
-exact coverage under the stated additional conditions.
-
-Let `θ₀ ∈ ℝ`, let `α ∈ (0,1)` and `Δ ∈ [0, 1/2)`, let `B_{α,Δ} ≥ 1` be the smallest integer
-`B` with `P(B; Δ) ≤ α`, let `X₁, …, Xₙ` (`n ≥ B_{α,Δ}`) be independent `𝒳`-valued random
-variables, let `θ̂₁, θ̂₂, …` be independent real estimators with median bias at most `Δ` for
-the batches `1 ≤ j ≤ B_{α,Δ}`, let `S₁, S₂, …` be a random partition of `{1,…,n}` into the
-`B*` batches, and let `U ~ Uniform[0,1]` be independent of the data and the partition.
-Then `ℙ(θ₀ ∈ [min_{1≤j≤B*} θ̂_j, max_{1≤j≤B*} θ̂_j]) ≥ 1 - α`.
-
-Moreover, if additionally `ℙ(θ̂_j ≤ θ₀) = ℙ(θ̂₁ ≤ θ₀)` and `ℙ(θ̂_j = θ₀) = 0` for every
-relevant `j`, and the median bias is exactly `Δ` for every relevant `j`, then
-`ℙ(θ₀ ∈ [min_{1≤j≤B*} θ̂_j, max_{1≤j≤B*} θ̂_j]) = 1 - α`. -/
-private theorem Theorem_1_thm_coverage_algorithm_known_Delta_HulC_finite_sample_coverage_and_exact_coverage_under_the_stated_additional
-    (n : ℕ) (hn : 0 < n)
-    (alpha : ℝ) (halpha_pos : 0 < alpha) (halpha_lt_one : alpha < 1)
-    (Delta : ℝ) (hDelta_nonneg : 0 ≤ Delta) (hDelta_lt_half : Delta < 1 / 2)
-    (theta0 : ℝ)
-    (Balpha : ℕ) (hBalpha_ge_one : 1 ≤ Balpha)
-    (hBalpha_spec : Pmis Delta Balpha ≤ alpha)
-    (hBalpha_min : ∀ B : ℕ, 1 ≤ B → Pmis Delta B ≤ alpha → Balpha ≤ B)
-    {Ω : Type*} [MeasurableSpace Ω] (P : Measure Ω) [IsProbabilityMeasure P]
-    {𝒳 : Type*} [MeasurableSpace 𝒳]
-    (X : Fin n → Ω → 𝒳) (hX_meas : ∀ i, Measurable (X i)) (hX_indep : iIndepFun X P)
-    (thetaHat : ℕ → Ω → ℝ) (hthetaHat_meas : ∀ j, Measurable (thetaHat j))
-    (hthetaHat_indep : iIndepFun (fun j : Fin Balpha => thetaHat ((j : ℕ) + 1)) P)
-    (hmedBias_le : ∀ j : Fin Balpha, medBias P theta0 (thetaHat ((j : ℕ) + 1)) ≤ Delta)
-    (U : Ω → ℝ) (hU_meas : Measurable U)
-    (hU_uniform : Measure.map U P = (volume : Measure ℝ).restrict (Set.Icc 0 1))
-    (hU_indep_data : Indep (MeasurableSpace.comap U (inferInstance : MeasurableSpace ℝ))
-      (⨆ i, MeasurableSpace.comap (X i) (inferInstance : MeasurableSpace 𝒳)) P)
-    (hU_indep_est : Indep (MeasurableSpace.comap U (inferInstance : MeasurableSpace ℝ))
-      (⨆ j : Fin Balpha, MeasurableSpace.comap (thetaHat ((j : ℕ) + 1))
-        (inferInstance : MeasurableSpace ℝ)) P)
-    (S : ℕ → Ω → Set (Fin n))
-    (hU_indep_partition : Indep (MeasurableSpace.comap U (inferInstance : MeasurableSpace ℝ))
-      (⨆ j : ℕ, MeasurableSpace.comap (S j)
-        (inferInstance : MeasurableSpace (Set (Fin n)))) P)
-    (hthetaHat_link : ∀ j : ℕ, MeasurableSpace.comap (thetaHat j)
-        (inferInstance : MeasurableSpace ℝ) ≤
-      (⨆ i, MeasurableSpace.comap (X i) (inferInstance : MeasurableSpace 𝒳)) ⊔
-        MeasurableSpace.comap (S j) (inferInstance : MeasurableSpace (Set (Fin n))))
-
-    (hS_pairwiseDisjoint : ∀ ω, Set.PairwiseDisjoint
-      (↑(Finset.Icc 1 (Bstar U alpha Delta Balpha ω)) : Set ℕ) (fun j => S j ω))
-    (hS_cover : ∀ ω, (⋃ j ∈ Finset.Icc 1 (Bstar U alpha Delta Balpha ω), S j ω) = Set.univ)
-    (hn_ge : Balpha ≤ n) :
-    (P {ω | inCI theta0 thetaHat (Bstar U alpha Delta Balpha) ω}).toReal ≥ 1 - alpha ∧
-      ((∀ j : Fin Balpha, (P {ω | thetaHat ((j : ℕ) + 1) ω ≤ theta0}).toReal
-          = (P {ω | thetaHat 1 ω ≤ theta0}).toReal) →
-        (∀ j : Fin Balpha, P {ω | thetaHat ((j : ℕ) + 1) ω = theta0} = 0) →
-        (∀ j : Fin Balpha, medBias P theta0 (thetaHat ((j : ℕ) + 1)) = Delta) →
-        (P {ω | inCI theta0 thetaHat (Bstar U alpha Delta Balpha) ω}).toReal = 1 - alpha)
-:= by
-  sorry
 end
 end Statlib.Imported
 

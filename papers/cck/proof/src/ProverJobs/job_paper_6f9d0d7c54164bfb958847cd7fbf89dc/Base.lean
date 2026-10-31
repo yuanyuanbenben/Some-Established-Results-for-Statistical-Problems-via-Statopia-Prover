@@ -16,24 +16,5 @@ namespace PaperProofTasks.job_paper_6f9d0d7c54164bfb958847cd7fbf89dc
 namespace Statlib.Imported
 
 
-/-- Smooth-max property (`eq: smooth max property` in the source document).
-
-With the smooth max
-`F_β(z) = β⁻¹ * Real.log (∑ j : Fin p, Real.exp (β * z j))`
-and the coordinatewise maximum `max_{1 ≤ j ≤ p} z_j`, for every positive integer
-`p`, every `z = (z_1, …, z_p)ᵀ ∈ ℝ^p` and every smoothing parameter `β > 0`,
-
-`0 ≤ F_β(z) - max_{1 ≤ j ≤ p} z_j ≤ β⁻¹ * Real.log p`.
-
-This is the elementary deterministic inequality, uniform in `z` for fixed
-`p` and `β`; no probabilistic, asymptotic or norm-based statement is involved. -/
-private theorem paper_6f9d0d7c54164bfb958847cd7fbf89dc
-    (p : ℕ) (hp : 0 < p) (z : EuclideanSpace ℝ (Fin p)) (β : ℝ) (hβ : 0 < β) :
-    0 ≤ Statlib.StatFoundation.Convergence.smoothMax β z -
-          Statlib.StatFoundation.Vocabulary.maxCoord z ∧
-      Statlib.StatFoundation.Convergence.smoothMax β z -
-          Statlib.StatFoundation.Vocabulary.maxCoord z ≤ β⁻¹ * Real.log (p : ℝ)
-:= by
-  sorry
 end Statlib.Imported
 

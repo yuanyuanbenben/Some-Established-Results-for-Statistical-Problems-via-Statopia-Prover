@@ -47,33 +47,5 @@ noncomputable def expMaxCoordDiff {Ω : Type*} [MeasurableSpace Ω] (μ : Measur
         - g (Statlib.StatFoundation.Vocabulary.maxCoord (WithLp.toLp 2 (Y ω)))) ∂μ
 
 
-/-- Theorem `theorem:comparison` (main.tex): comparison of centered Gaussian random
-vectors in `ℝ^p` under the entrywise maximum absolute covariance difference `Δ`,
-for the smooth max `F_β` and the coordinatewise maximum.
-
-`X` and `Y` are centered Gaussian random vectors on the fixed probability space
-`(Ω, μ)` with covariance matrices `Σ^X`, `Σ^Y`; `β > 0`; `g ∈ C²(ℝ)` with bounded
-first and second derivatives. There is no assumption `p ≥ 2`, no positivity of the
-variances, no independence of `X` and `Y`, and no existential constant: the
-coefficients `1/2, 1, 2` are universal while `‖g''‖_∞/2 + β‖g'‖_∞` depends on
-`g, β` and the extra term `2β⁻¹‖g'‖_∞ log p` on `g, β, p`. -/
-private theorem paper_ea9c51e8f7d246ef967b6629540eeb01
-    {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
-    (p : ℕ) (hp : 0 < p)
-    (X Y : Ω → Fin p → ℝ)
-    (SigmaX SigmaY : Matrix (Fin p) (Fin p) ℝ)
-    (hX : Statlib.StatFoundation.RandomVariable.Gaussian.IsCenteredGaussianVector μ X SigmaX)
-    (hY : Statlib.StatFoundation.RandomVariable.Gaussian.IsCenteredGaussianVector μ Y SigmaY)
-    (β : ℝ) (hβ : 0 < β)
-    (g : ℝ → ℝ) (hg : ContDiff ℝ 2 g)
-    (hg1 : BddAbove (Set.range fun z : ℝ => |deriv g z|))
-    (hg2 : BddAbove (Set.range fun z : ℝ => |deriv (deriv g) z|)) :
-      |expSmoothMaxDiff μ X Y β g| ≤
-          (supNormR (deriv (deriv g)) / 2 + β * supNormR (deriv g)) * covDiffMax μ X Y ∧
-        |expMaxCoordDiff μ X Y g| ≤
-          (supNormR (deriv (deriv g)) / 2 + β * supNormR (deriv g)) * covDiffMax μ X Y
-            + 2 * β⁻¹ * supNormR (deriv g) * Real.log (p : ℝ)
-:= by
-  sorry
 end Statlib.Imported
 

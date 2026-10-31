@@ -60,19 +60,5 @@ noncomputable def mixedCoordPartial {p : ℕ} (F : (Fin p → ℝ) → ℝ) (j k
     (z : Fin p → ℝ) : ℝ :=
   coordPartial (fun w => coordPartial F k w) j z
 
-/-- Let `p` be a positive integer and `β > 0`. For `z ∈ ℝ^p` and `1 ≤ j, k ≤ p`:
-`∂_j F_β(z) = π_j(z)` and `∂_j∂_k F_β(z) = β w_{jk}(z)`; moreover
-`π_j(z) ≥ 0`, `∑_j π_j(z) = 1` and `∑_{j,k} |w_{jk}(z)| ≤ 2`, with the
-absolute constant `2` independent of `p, β, z, j, k`. -/
-private theorem paper_68f77b4042a84f6999315e1f7b578de2
-    (p : ℕ) (hp : 0 < p) (β : ℝ) (hβ : 0 < β) :
-    (∀ z : Fin p → ℝ, ∀ j k : Fin p,
-        coordPartial (smoothMaxFn β) j z = softmaxWt β z j ∧
-        mixedCoordPartial (smoothMaxFn β) j k z = β * wMatEntry β z j k) ∧
-      (∀ z : Fin p → ℝ, ∀ j : Fin p, 0 ≤ softmaxWt β z j) ∧
-      (∀ z : Fin p → ℝ, (∑ j : Fin p, softmaxWt β z j) = 1) ∧
-      (∀ z : Fin p → ℝ, (∑ a : Fin p, ∑ b : Fin p, |wMatEntry β z a b|) ≤ 2)
-:= by
-  sorry
 end Statlib.Imported
 

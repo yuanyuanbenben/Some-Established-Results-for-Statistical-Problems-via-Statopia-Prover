@@ -91,39 +91,6 @@ def IsGeometricallyErgodic {d : ℕ} (P : HMCState d → Measure (HMCState d))
       ∀ᵐ x ∂π, ∀ n : ℕ,
         tvDist (kernelPow P n x) π ≤ Mfun x * ENNReal.ofReal (ρ ^ n)
 
-/-- **Theorem 2.2 (`thm:negative`), parts (i) and (ii)** (v5 with corrigendum).
-
-Let `π` be the target distribution on `ℝ^d` with Lebesgue density `π(x) ∝ e^{-U(x)}`,
-and let `P` be the HMC transition kernel with mass matrix `M = I`, step size `ε > 0`
-and leapfrog-count distribution `𝔏` (position independent). Then HMC is *not*
-geometrically ergodic, under either of the following assumptions on `U`:
-
-(i) `‖∇U(x)‖/‖x‖ → ∞` as `‖x‖ → ∞`; there is a fixed `C < ∞` with
-`‖∇U(y)‖ ≥ 3‖∇U(x)‖` whenever `‖y‖ ≥ 2‖x‖ ≥ C`; and for every `L` in the support of
-`𝔏` the joint limit `U(x) - U(y) - ‖x‖²/2 → -∞` holds as `‖x‖ → ∞` with `‖y‖ ≥ 2^L‖x‖`.
-
-(ii) there is an `M < ∞` with `‖∇U(x)‖ ≤ M` for all `x`, and `E_π[e^{s‖x‖}] = ∞` for
-every `s > 0`. -/
-private theorem Theorem_2_2_thm_negative_both_parts_i_and_ii_using_v5_with_corrigendum
-    (d : ℕ) (hd : 0 < d) (U : HMCState d → ℝ) (hU_nonneg : ∀ x, 0 ≤ U x)
-    (hU_diff : Differentiable ℝ U)
-    (ε : ℝ) (hε : 0 < ε) (𝔏 : Measure ℕ) [IsProbabilityMeasure 𝔏]
-    (π : Measure (HMCState d)) [IsProbabilityMeasure π]
-    (hπ : ∃ c : ℝ, 0 < c ∧
-      π = volume.withDensity (fun x => ENNReal.ofReal (c * Real.exp (- U x)))) :
-    ((Tendsto (fun x : HMCState d => ‖gradient U x‖ / ‖x‖)
-          (Filter.cocompact (HMCState d)) Filter.atTop ∧
-        (∃ C : ℝ, ∀ x y : HMCState d, ‖y‖ ≥ 2 * ‖x‖ → C ≤ 2 * ‖x‖ →
-          ‖gradient U y‖ ≥ 3 * ‖gradient U x‖) ∧
-        (∀ L : ℕ, 𝔏 {L} ≠ 0 → ∀ R : ℝ, ∃ K : ℝ, ∀ x y : HMCState d,
-          K ≤ ‖x‖ → (2 : ℝ) ^ L * ‖x‖ ≤ ‖y‖ →
-            U x - U y - (1 / 2) * ‖x‖ ^ 2 ≤ -R)) →
-      ¬ IsGeometricallyErgodic (hmcKernel U ε 𝔏) π) ∧
-    ((∃ M : ℝ, ∀ x : HMCState d, ‖gradient U x‖ ≤ M) ∧
-        (∀ s : ℝ, 0 < s → ∫⁻ x, ENNReal.ofReal (Real.exp (s * ‖x‖)) ∂π = ⊤) →
-      ¬ IsGeometricallyErgodic (hmcKernel U ε 𝔏) π)
-:= by
-  sorry
 end Statlib.Imported
 end
 

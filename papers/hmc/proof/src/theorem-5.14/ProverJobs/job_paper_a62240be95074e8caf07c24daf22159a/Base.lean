@@ -49,30 +49,5 @@ theorem leapfrogPos_add_two {d : ℕ} (U : EuclideanSpace ℝ (Fin d) → ℝ) (
       2 • leapfrogPos U ε x0 p0 (i + 1) - leapfrogPos U ε x0 p0 i
         - ε ^ 2 • gradient U (leapfrogPos U ε x0 p0 (i + 1)) := rfl
 
-/-- **Replacement Lemma 5.16** (supp.tex, "Replacement proofs").
-
-Let `U` be a differentiable potential on `ℝ^d` (with Euclidean norm `‖·‖`) satisfying the growth
-condition (17) `‖∇U(x)‖ / ‖x‖ → ∞` as `‖x‖ → ∞`.  Fix a leapfrog step size `ε > 0`, a number of
-steps `L ≥ 1` and `δ < 1` (no lower bound on `δ`, which need not be an integer).
-
-Then there is a finite threshold `η` (allowed to depend on `d`, `U`, `ε`, `L` and `δ`, but not on
-`x₀` or `p₀`) such that whenever `η < ‖x₀‖` and `‖p₀‖ ≤ ‖x₀‖^δ`, the leapfrog iterates expand
-geometrically: `‖x_{iε}‖ ≥ 3 ‖x_{(i-1)ε}‖` for `i = 1, …, L`, and consequently
-`‖x_{Lε}‖ ≥ 3^L ‖x₀‖`.
-
-Condition (18) (and its corrected form) and condition (19) are *not* hypotheses of this lemma, and
-no distributional assumption on `p₀` is made. -/
-private theorem paper_a62240be95074e8caf07c24daf22159a (d : ℕ)
-    (U : EuclideanSpace ℝ (Fin d) → ℝ) (hU : Differentiable ℝ U)
-    (h17 : Filter.Tendsto (fun x : EuclideanSpace ℝ (Fin d) => ‖gradient U x‖ / ‖x‖)
-      (Filter.cocompact (EuclideanSpace ℝ (Fin d))) Filter.atTop)
-    (ε : ℝ) (hε : 0 < ε) (L : ℕ) (hL : 1 ≤ L) (δ : ℝ) (hδ : δ < 1) :
-    ∃ η : ℝ, ∀ x0 : EuclideanSpace ℝ (Fin d), η < ‖x0‖ →
-      ∀ p0 : EuclideanSpace ℝ (Fin d), ‖p0‖ ≤ ‖x0‖ ^ δ →
-        (∀ i ∈ Finset.Icc 1 L,
-          (3 : ℝ) * ‖leapfrogPos U ε x0 p0 (i - 1)‖ ≤ ‖leapfrogPos U ε x0 p0 i‖) ∧
-        (3 : ℝ) ^ L * ‖x0‖ ≤ ‖leapfrogPos U ε x0 p0 L‖
-:= by
-  sorry
 end Statlib.Imported
 
