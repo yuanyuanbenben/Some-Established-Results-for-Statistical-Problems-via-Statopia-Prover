@@ -11,7 +11,7 @@ Theorem 2.2 retains one external citation assumption. Corrected Theorem 5.14 has
 | Lean source files | 73 |
 | Physical Lean lines | 7,214 |
 | Passed / tasks (main + supporting) | 8/8 (2+6) |
-| Retained external references in full source package | 1 |
+| Used external references (main results) | 1 |
 | Cached Statlib modules | 2 |
 
 [input/](input/) · [Lean source](proof/src/) · [Targets and build configuration](proof/build.json)
@@ -38,9 +38,9 @@ The linked declarations are the public proof entry points. Fully qualified decla
 | Metropolis–Hastings kernel decomposition | `paper_4f562633bddc4ee9afee32ec40dfa0f0` | [Result_r1_f1452eaf9e424e2bb6057a3750b7de24.lean:11](proof/src/theorem-5.14/ProverJobs/paper_fresh_20261028t151409527z_hmc_v5/PaperProofInterfaces/Result_r1_f1452eaf9e424e2bb6057a3750b7de24.lean#L11) |
 | Random integration-time exponential-integrability interface | `paper_7ad7b898530c48b2be48d9fe88a3d538` | [Result_r2_6e683b73033e4102a234a951e6932c5e.lean:10](proof/src/theorem-5.14/ProverJobs/paper_fresh_20261028t151409527z_hmc_v5/PaperProofInterfaces/Result_r2_6e683b73033e4102a234a951e6932c5e.lean#L10) |
 
-## External references
+## External references used by the main results
 
-These are explicit citation axioms in the complete retained source package; they are assumptions, not proofs supplied here. Direct-use links identify proof code, while the last column identifies selected targets whose checked proof dependencies include the citation. Imports alone do not imply use. Ordinary library imports and explicit theorem hypotheses are excluded from the citation count.
+The count is the number of distinct external citation axioms in the actual recursive proof dependencies of the selected main theorem(s). A citation used by several main theorems is counted once. Citations used only by independently checked supporting tasks are excluded, together with unused declarations, ordinary library imports and explicit theorem hypotheses. Direct-use links identify proof code. These citations are assumptions, not proofs supplied here.
 
 | Reference | Axiom declaration | Direct proof uses | Selected targets depending on it |
 | --- | --- | --- | --- |

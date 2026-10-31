@@ -11,7 +11,7 @@ The statements retain explicit leave-one-out and tail-ratio/common-factor hypoth
 | Lean source files | 17 |
 | Physical Lean lines | 2,786 |
 | Passed / tasks (main + supporting) | 3/3 (1+2) |
-| Retained external references in full source package | 0 |
+| Used external references (main results) | 0 |
 | Cached Statlib modules | 1 |
 
 [input/](input/) · [Lean source](proof/src/) · [Targets and build configuration](proof/build.json)
@@ -35,6 +35,6 @@ Additional checked helper (already included in the retained source; not an addit
 
 - [Explicit BH/FDR bound display helper](proof/src/ProverJobs/bh_showcase_workspace_seed_15/Main.lean#L118): `lei_theorem31_explicit_bh_fdr_app_display`.
 
-## External references
+## External references used by the main results
 
 No explicit external citation axioms are retained in this source package.

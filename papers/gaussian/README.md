@@ -11,7 +11,7 @@ The final theorem retains three external citation assumptions, listed exactly in
 | Lean source files | 88 |
 | Physical Lean lines | 15,047 |
 | Passed / tasks (main + supporting) | 6/6 (1+5) |
-| Retained external references in full source package | 3 |
+| Used external references (main results) | 3 |
 | Cached Statlib modules | 90 |
 
 [input/](input/) · [Lean source](proof/src/) · [Targets and build configuration](proof/build.json)
@@ -36,9 +36,9 @@ The linked declarations are the public proof entry points. Fully qualified decla
 | Truncation terms I and III | `paper_82217ff9ed45452ea25ea7588fe2ef01` | [Result_r4_a06a6ac766994714a01a8e915a432c0a.lean:15](proof/src/ProverJobs/paper_fresh_20261028t224543381z_gaussian/PaperProofInterfaces/Result_r4_a06a6ac766994714a01a8e915a432c0a.lean#L15) |
 | High-dimensional truncation error bound | `paper_cb04ce35a04d48a9bf96750470ca0eb0` | [Result_r5_ca80b56b6e6d48af8b8eeb22ad6a917d.lean:13](proof/src/ProverJobs/paper_fresh_20261028t224543381z_gaussian/PaperProofInterfaces/Result_r5_ca80b56b6e6d48af8b8eeb22ad6a917d.lean#L13) |
 
-## External references
+## External references used by the main results
 
-These are explicit citation axioms in the complete retained source package; they are assumptions, not proofs supplied here. Direct-use links identify proof code, while the last column identifies selected targets whose checked proof dependencies include the citation. Imports alone do not imply use. Ordinary library imports and explicit theorem hypotheses are excluded from the citation count.
+The count is the number of distinct external citation axioms in the actual recursive proof dependencies of the selected main theorem(s). A citation used by several main theorems is counted once. Citations used only by independently checked supporting tasks are excluded, together with unused declarations, ordinary library imports and explicit theorem hypotheses. Direct-use links identify proof code. These citations are assumptions, not proofs supplied here.
 
 | Reference | Axiom declaration | Direct proof uses | Selected targets depending on it |
 | --- | --- | --- | --- |

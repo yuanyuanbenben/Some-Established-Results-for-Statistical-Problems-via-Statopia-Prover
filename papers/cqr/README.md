@@ -11,7 +11,7 @@ This is a structural formalization under explicit score-exchangeability and empi
 | Lean source files | 6 |
 | Physical Lean lines | 394 |
 | Passed / tasks (main + supporting) | 6/6 (1+5) |
-| Retained external references in full source package | 0 |
+| Used external references (main results) | 0 |
 | Cached Statlib modules | 5 |
 
 [input/](input/) · [Lean source](proof/src/) · [Targets and build configuration](proof/build.json)
@@ -34,6 +34,6 @@ The linked declarations are the public proof entry points. Fully qualified decla
 | Score exchangeability implies rank-event equiprobability | `cqr_004_rank_events_equiprobable_of_score_exchangeable` | [Main.lean:9](proof/src/ProverJobs/cqr_004_rank_events_equiprobable_of_score_exchangeable/Main.lean#L9) |
 | Split-conformal score miscoverage bound | `cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable` | [Main.lean:14](proof/src/ProverJobs/cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable/Main.lean#L14) |
 
-## External references
+## External references used by the main results
 
 No explicit external citation axioms are retained in this source package.

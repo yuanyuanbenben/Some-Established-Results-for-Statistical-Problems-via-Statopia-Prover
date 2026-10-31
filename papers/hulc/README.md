@@ -11,7 +11,7 @@ The final theorem has no nonstandard axioms. Its explicit hypotheses include mea
 | Lean source files | 15 |
 | Physical Lean lines | 1,397 |
 | Passed / tasks (main + supporting) | 2/2 (1+1) |
-| Retained external references in full source package | 0 |
+| Used external references (main results) | 0 |
 | Cached Statlib modules | 1 |
 
 [input/](input/) · [Lean source](proof/src/) · [Targets and build configuration](proof/build.json)
@@ -32,6 +32,6 @@ The linked declarations are the public proof entry points. Fully qualified decla
 | --- | --- | --- |
 | Fixed-batch hull coverage bound | `paper_6093c8cdedac44ebaae3246c2f49ba3b` | [Result_r1_6db03351f5d34ffeb979aa1f3d18ae44.lean:12](proof/src/ProverJobs/paper_fresh_20261030t143835550708z_hulc/PaperProofInterfaces/Result_r1_6db03351f5d34ffeb979aa1f3d18ae44.lean#L12) |
 
-## External references
+## External references used by the main results
 
 No explicit external citation axioms are retained in this source package.

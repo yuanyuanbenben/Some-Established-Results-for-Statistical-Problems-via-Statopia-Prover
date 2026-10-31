@@ -13,7 +13,7 @@ The undersmoothing result uses the full latent sample, the Dirichlet-moment deno
 | Lean source files | 226 |
 | Physical Lean lines | 50,508 |
 | Passed / tasks (main + supporting) | 17/17 (1+16) |
-| Retained external references in full source package | 1 |
+| Used external references (main results) | 0 |
 | Cached Statlib modules | 4 |
 
 [input/](input/) · [Lean source](proof/src/) · [Targets and build configuration](proof/build.json)
@@ -47,10 +47,12 @@ The undersmoothing result uses the full latent sample, the Dirichlet-moment deno
 
 Each configured case compiles in an isolated environment. The shared `proof/src/` tree deduplicates source modules; the cases keep independently generated namespaces separate. All 17 selected declarations are checked for nonstandard axioms.
 
-## External references
+## External references used by the main results
 
-The complete retained source contains one explicit citation axiom. It is unused by the retained proof code and none of the 17 checked targets depends on it. The main theorem and all selected supporting targets use only Lean's standard axioms. Library imports and explicit theorem hypotheses are excluded from this citation count.
+No selected main or supporting target depends on an external citation axiom. All 17 checked targets use only Lean's standard axioms. The retained unused declaration below is excluded from the count.
 
-| Reference | Axiom declaration | Direct proof uses | Selected targets depending on it |
-| --- | --- | --- | --- |
-| Weak limits preserve a uniform finite support-cardinality bound | [`OfflineCorrectedDP.ext_model_5`, line 990](proof/src/ProverJobs/manual_dp_weakcons_repair_20261031/BoxedWeakCons/CorrectedGeometry.lean#L990) | Unused in retained proof code | None |
+### Unused declarations (excluded from the count)
+
+| Reference | Axiom declaration |
+| --- | --- |
+| Weak limits preserve a uniform finite support-cardinality bound | [`OfflineCorrectedDP.ext_model_5`, line 990](proof/src/ProverJobs/manual_dp_weakcons_repair_20261031/BoxedWeakCons/CorrectedGeometry.lean#L990) |

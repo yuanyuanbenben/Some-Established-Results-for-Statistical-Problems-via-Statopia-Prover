@@ -11,7 +11,7 @@ The final theorem has no nonstandard axioms. The complete source package retains
 | Lean source files | 11 |
 | Physical Lean lines | 2,079 |
 | Passed / tasks (main + supporting) | 1/1 (1+0) |
-| Retained external references in full source package | 1 |
+| Used external references (main results) | 0 |
 | Cached Statlib modules | 0 |
 
 [input/](input/) · [Lean source](proof/src/) · [Targets and build configuration](proof/build.json)
@@ -30,10 +30,14 @@ The linked declarations are the public proof entry points. Fully qualified decla
 
 No separate supporting paper tasks are selected for this package.
 
-## External references
+## External references used by the main results
 
-These are explicit citation axioms in the complete retained source package; they are assumptions, not proofs supplied here. Direct-use links identify proof code, while the last column identifies selected targets whose checked proof dependencies include the citation. Imports alone do not imply use. Ordinary library imports and explicit theorem hypotheses are excluded from the citation count.
+The count is the number of distinct external citation axioms in the actual recursive proof dependencies of the selected main theorem(s). A citation used by several main theorems is counted once. Citations used only by independently checked supporting tasks are excluded, together with unused declarations, ordinary library imports and explicit theorem hypotheses. Direct-use links identify proof code. These citations are assumptions, not proofs supplied here.
 
-| Reference | Axiom declaration | Direct proof uses | Selected targets depending on it |
-| --- | --- | --- | --- |
-| Cauchy–Schwarz and Young inequalities | [`ext_model_1` (line 10)](proof/src/ProverJobs/paper_fresh_20261028t224543381z_eills/ExternalNodes/Node_6515c10a3b2a6920f75d.lean#L10) | Unused in retained proof code | None |
+No selected main or supporting target depends on an external citation axiom.
+
+### Unused declarations (excluded from the count)
+
+| Reference | Axiom declaration |
+| --- | --- |
+| Cauchy–Schwarz and Young inequalities | [`ext_model_1` (line 10)](proof/src/ProverJobs/paper_fresh_20261028t224543381z_eills/ExternalNodes/Node_6515c10a3b2a6920f75d.lean#L10) |

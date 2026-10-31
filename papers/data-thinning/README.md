@@ -11,7 +11,7 @@ The final theorem has no nonstandard axioms. The exact modeling hypotheses remai
 | Lean source files | 5 |
 | Physical Lean lines | 125 |
 | Passed / tasks (main + supporting) | 1/1 (1+0) |
-| Retained external references in full source package | 0 |
+| Used external references (main results) | 0 |
 | Cached Statlib modules | 0 |
 
 [input/](input/) · [Lean source](proof/src/) · [Targets and build configuration](proof/build.json)
@@ -30,6 +30,6 @@ The linked declarations are the public proof entry points. Fully qualified decla
 
 No separate supporting paper tasks are selected for this package.
 
-## External references
+## External references used by the main results
 
 No explicit external citation axioms are retained in this source package.
