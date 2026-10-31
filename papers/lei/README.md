@@ -15,3 +15,26 @@ The statements retain explicit leave-one-out and tail-ratio/common-factor hypoth
 | Cached Statlib modules | 1 |
 
 [input/](input/) · [Lean source](proof/src/) · [Targets and build configuration](proof/build.json)
+
+## Main theorem
+
+| Result | Lean declaration | Source |
+| --- | --- | --- |
+| Theorem 3.1: final BH/FDR bound interface | `app_lei31_theorem31_endpoint` | [Main.lean:12](proof/src/ProverJobs/app_lei31_theorem31_endpoint/Main.lean#L12) |
+
+The linked declarations are the public proof entry points. Fully qualified declaration names and checked modules are listed in [proof/build.json](proof/build.json).
+
+## Supporting tasks
+
+| Task | Lean declaration | Source |
+| --- | --- | --- |
+| Leave-one-out FDR bound | `app_lei31_leave_one_out_fdr` | [Main.lean:10](proof/src/ProverJobs/app_lei31_leave_one_out_fdr/Main.lean#L10) |
+| Tail-ratio excess bound | `app_lei31_tail_ratio_excess` | [Main.lean:8](proof/src/ProverJobs/app_lei31_tail_ratio_excess/Main.lean#L8) |
+
+Additional checked helper (already included in the retained source; not an additional paper task):
+
+- [Explicit BH/FDR bound display helper](proof/src/ProverJobs/bh_showcase_workspace_seed_15/Main.lean#L118): `lei_theorem31_explicit_bh_fdr_app_display`.
+
+## External references
+
+No explicit external citation axioms are retained in this source package.
