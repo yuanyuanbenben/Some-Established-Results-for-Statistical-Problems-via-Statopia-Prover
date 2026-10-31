@@ -1,0 +1,435 @@
+version: v1
+theorem_set: document-goal
+source_tag: document-processing
+theorems:
+  - id: entry:selected:0e3e81cb-c4a3-40e1-86ea-450ff5d8cf5b
+    title: "Theorem 2 (Comparison of distributions; second conclusion: covariance-only Kolmogorov bound Cprime Delta^(1/3) max(1,log(p/Delta))^(2/3), including Delta=0; not the separate first a_p-dependent inequality)"
+    kind: theorem
+    latex_statement: |-
+      Correction dated 2026-10-31, grounded in main.tex Theorem 2 and its paragraph on key features (lines 266 and 297), and supp.tex proof: the earlier generated clarification allowing dimension dependence was erroneous. There must exist a single positive constant function Cprime(a,b), chosen before the dimension p, the probability space and all Gaussian vectors/covariances/thresholds. It depends only on the minimum and maximum diagonal covariance entries of Y. In particular it is independent of p, X, Y beyond these extrema, Delta, and x. This is a parameter-dependent function of a,b, not one scalar universal over all positive variance scales. Only the second covariance-only conclusion is selected; the preceding a_p-dependent bound is context. The matrices are genuine covariance matrices and are symmetric. Since the library Gaussian MGF predicate alone fixes only their symmetric parts, the Lean statement explicitly requires SigmaX.IsSymm and SigmaY.IsSymm to represent those source covariance matrices. These are source object properties, not additional distribution restrictions. No coordinate independence or nonsingular covariance may be added. The Delta=0 right side is exactly zero. The source ap notation has a variance versus standard-deviation ambiguity; the covariance-only target exposes no ap and the repaired proof uses Nazarov directly, without assuming the ambiguous Talagrand formulation.
+
+      For the centered Gaussian random vectors \(X=(X_1,\dots,X_p)^T\) and \(Y=(Y_1,\dots,Y_p)^T\) with covariance matrices \(\Sigma^X=(\sigma^X_{jk})_{1\le j,k\le p}\) and \(\Sigma^Y=(\sigma^Y_{jk})_{1\le j,k\le p}\) introduced in the Assumptions, we use
+      \[
+      \Delta:=\max_{1\le j,k\le p}|\sigma^X_{jk}-\sigma^Y_{jk}|,\qquad
+      a_p:=\Ep\left[\max_{1\le j\le p}(Y_j/\sigma^Y_{jj})\right].
+      \]
+      The Kolmogorov distance between (the distributions) of two real valued random variables \(\xi\) and \(\eta\) is defined by
+      \[
+      \sup_{x\in\RR}|\Pr(\xi\le x)-\Pr(\eta\le x)|.
+      \]
+
+      Suppose that \(p\ge 2\) and \(\sigma^Y_{jj}>0\) for all \(1\le j\le p\). Then
+      \begin{align*}
+      &\sup_{x\in\RR}|\Pr(\max_{1\le j\le p}X_j\le x)-\Pr(\max_{1\le j\le p}Y_j\le x)|\\
+      &\qquad \le C\Delta^{1/3}\bigl\{1\vee a_p^2\vee \log(1/\Delta)\bigr\}^{1/3}\log^{1/3}p,
+      \end{align*}
+      where \(C>0\) depends only on \(\min_{1\le j\le p}\sigma^Y_{jj}\) and \(\max_{1\le j\le p}\sigma^Y_{jj}\) (the right side is understood to be \(0\) when \(\Delta=0\)). Moreover, in the worst case, \(a_p\le\sqrt{2\log p}\), so that
+      \[
+      \sup_{x\in\RR}|\Pr(\max_{1\le j\le p}X_j\le x)-\Pr(\max_{1\le j\le p}Y_j\le x)|
+      \le C'\Delta^{1/3}\{1\vee\log(p/\Delta)\}^{2/3},
+      \]
+      where as before \(C'>0\) depends only on \(\min_{1\le j\le p}\sigma^Y_{jj}\) and \(\max_{1\le j\le p}\sigma^Y_{jj}\).
+    assumptions:
+      - |-
+        Let \(X=(X_1,\dots,X_p)^T\) and \(Y=(Y_1,\dots,Y_p)^T\) be centered Gaussian random vectors in \(\RR^p\) with covariance matrices \(\Sigma^X=(\sigma^X_{jk})_{1\le j,k\le p}\) and \(\Sigma^Y=(\sigma^Y_{jk})_{1\le j,k\le p}\), respectively.
+
+        Suppose that \(p\ge 2\) and \(\sigma^Y_{jj}>0\) for all \(1\le j\le p\).
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      According to \cite{RV09}, Definition 3.1, the Lévy concentration function of a real valued random variable \(\xi\) is defined for \(\epsilon>0\) as
+      \[
+      \LL(\xi,\epsilon)=\sup_{x\in\RR}\Pr(|\xi-x|\le\epsilon).
+      \]
+
+      The proof uses the smooth max function \(F_\beta\) from Theorem \ref{theorem:comparison} and the inequality \((\ref{eq: smooth max property})\) for it. For \(z=(z_1,\dots,z_p)^T\in\RR^p\) and \(\beta>0\), the smooth max function is
+      \[
+      F_\beta(z):=\beta^{-1}\log\left(\sum_{j=1}^p \exp(\beta z_j)\right),
+      \]
+      where \(\beta>0\) is the smoothing parameter. For every \(z\in\RR^p\),
+      \[
+      0\le F_\beta(z)-\max_{1\le j\le p}z_j\le \beta^{-1}\log p.
+      \]
+      Also, for a function \(g:\RR\to\RR\),
+      \[
+      \|g\|_\infty=\sup_{z\in\RR}|g(z)|,
+      \]
+      and \(C^2(\RR)\) denotes the class of twice continuously differentiable real-valued functions on \(\RR\).
+
+      In what follows, let \(C>0\) be a generic constant that depends only on \(\min_{1\le j\le p}\sigma^Y_{jj}\) and \(\max_{1\le j\le p}\sigma^Y_{jj}\), and its value may change from place to place. For \(\beta>0\), define
+      \[
+      e_{p,\beta}:=\beta^{-1}\log p.
+      \]
+      Consider and fix a \(C^2\)-function \(g_0:\RR\to[0,1]\) such that \(g_0(t)=1\) for \(t\le 0\) and \(g_0(t)=0\) for \(t\ge 1\). For example, we may take
+      \[
+      g_0(t)=
+      \begin{cases}
+      0,& t\ge 1,\\
+      30\int_t^1 s^2(1-s)^2\,ds,& 0<t<1,\\
+      1,& t\le 0.
+      \end{cases}
+      \]
+      For given \(x\in\RR\), \(\beta>0\) and \(\delta>0\), define
+      \[
+      g_{x,\beta,\delta}(t)=g_0(\delta^{-1}(t-x-e_{p,\beta})).
+      \]
+      For this function,
+      \[
+      \|g'_{x,\beta,\delta}\|_\infty=\delta^{-1}\|g_0'\|_\infty,\qquad
+      \|g''_{x,\beta,\delta}\|_\infty=\delta^{-2}\|g_0''\|_\infty.
+      \]
+      Moreover,
+      \[
+      1(t\le x+e_{p,\beta})\le g_{x,\beta,\delta}(t)\le 1(t\le x+e_{p,\beta}+\delta),
+      \quad \forall t\in\RR.
+      \]
+
+      ### Proof
+      To prove the final assertion, it is enough to prove the \(a_p\)-dependent comparison inequality, since the final assertion follows from the inequality
+      \[
+      a_p\le\sqrt{2\log p}
+      \]
+      (see, for example, [ref:R1]). We first note that we may assume that \(0<\Delta<1\) since otherwise the proof is trivial (take \(C\ge 2\) in the \(a_p\)-dependent comparison inequality).
+
+      For arbitrary \(x\in\RR\), \(\beta>0\) and \(\delta>0\), observe that
+      \begin{align*}
+      \Pr(\max_{1\le j\le p}X_j\le x)
+      &\le \Pr(F_\beta(X)\le x+e_{p,\beta})
+      \le \Ep[g_{x,\beta,\delta}(F_\beta(X))]\\
+      &\le \Ep[g_{x,\beta,\delta}(F_\beta(Y))] + C(\delta^{-2}+\beta\delta^{-1})\Delta\\
+      &\le \Pr(F_\beta(Y)\le x+e_{p,\beta}+\delta) + C(\delta^{-2}+\beta\delta^{-1})\Delta\\
+      &\le \Pr(\max_{1\le j\le p}Y_j\le x+e_{p,\beta}+\delta) + C(\delta^{-2}+\beta\delta^{-1})\Delta,
+      \end{align*}
+      where the first inequality follows from the inequality \((\ref{eq: smooth max property})\), the second from the displayed inequality for \(g_{x,\beta,\delta}\), the third from [ref:R2], the fourth from the displayed inequality for \(g_{x,\beta,\delta}\), and the last from the inequality \((\ref{eq: smooth max property})\).
+
+      We wish to compare
+      \[
+      \Pr(\max_{1\le j\le p}Y_j\le x+e_{p,\beta}+\delta)
+      \]
+      with
+      \[
+      \Pr(\max_{1\le j\le p}Y_j\le x),
+      \]
+      and this is where the anti-concentration inequality plays its role. By [ref:R3], we have
+      \begin{align*}
+      &\Pr(\max_{1\le j\le p}Y_j\le x+e_{p,\beta}+\delta)
+      -\Pr(\max_{1\le j\le p}Y_j\le x)\\
+      &=\Pr(x<\max_{1\le j\le p}Y_j\le x+e_{p,\beta}+\delta)\\
+      &\le \LL(\max_{1\le j\le p}Y_j,e_{p,\beta}+\delta)\\
+      &\le C(e_{p,\beta}+\delta)\sqrt{1\vee a_p^2\vee \log\{1/(e_{p,\beta}+\delta)\}}\\
+      &\le C(e_{p,\beta}+\delta)\sqrt{1\vee a_p^2\vee \log(1/\delta)}.
+      \end{align*}
+      Therefore,
+      \[
+      \Pr(\max_{1\le j\le p}X_j\le x)-\Pr(\max_{1\le j\le p}Y_j\le x)
+      \le C\left\{(\delta^{-2}+\beta\delta^{-1})\Delta
+      +(e_{p,\beta}+\delta)\sqrt{1\vee a_p^2\vee\log(1/\delta)}\right\}.
+      \]
+      Take
+      \[
+      a=a_p\vee\log^{1/2}(1/\Delta),
+      \]
+      and choose \(\beta\) and \(\delta\) in such a way that
+      \[
+      \beta=\delta^{-1}\log p
+      \quad\text{and}\quad
+      \delta=\Delta^{1/3}(1\vee a)^{-1/3}(2\log p)^{1/3}.
+      \]
+      Recall that \(p\ge 2\) and \(0<\Delta<1\). Observe that
+      \[
+      (\delta^{-2}+\beta\delta^{-1})\Delta
+      \le C\Delta^{1/3}(1\vee a)^{2/3}\log^{1/3}p,
+      \]
+      \[
+      (e_{p,\beta}+\delta)(1\vee a_p)
+      \le C\Delta^{1/3}(1\vee a)^{2/3}\log^{1/3}p,
+      \]
+      and since \(\delta\ge\Delta^{1/3}(1\vee a)^{-1/3}\), we have
+      \[
+      \log(1/\delta)\le (1/3)\log((1\vee a)/\Delta).
+      \]
+      Hence the right side of the multline bound above is bounded by
+      \[
+      C\Delta^{1/3}\{(1\vee a)^{2/3}\log^{1/3}p
+      +(1\vee a)^{-1/3}(\log^{1/3}p)\log^{1/2}((1\vee a)/\Delta)\}.
+      \]
+      In addition, \((1\vee a)^{-1}\log^{1/2}(1\vee a)\) is bounded by a universal constant, so that
+      \[
+      \text{right side of the multline bound above}
+      \le C\Delta^{1/3}\{(1\vee a)^{2/3}\log^{1/3}p
+      +(1\vee a)^{-1/3}(\log^{1/3}p)\log^{1/2}(1/\Delta)\}.
+      \]
+      The second term inside the bracket is bounded by \((\log^{1/3}p)\log^{1/3}(1/\Delta)\) as \((1\vee a)^{-1/3}\le(\log(1/\Delta))^{-1/6}\), and the first term is bounded by
+      \[
+      (1\vee a_p)^{2/3}\log^{1/3}p+(\log^{1/3}p)\log^{1/3}(1/\Delta).
+      \]
+      Adjusting the constant \(C\), the right side of the above displayed equation is bounded by
+      \[
+      C\Delta^{1/3}\{1\vee a_p^2\vee\log(1/\Delta)\}^{1/3}\log^{1/3}p.
+      \]
+
+      For the opposite direction, observe that
+      \begin{align*}
+      \Pr(\max_{1\le j\le p}X_j\le x)
+      &\ge \Pr(F_\beta(X)\le x)
+      \ge \Ep[g_{x-e_{p,\beta}-\delta,\beta,\delta}(F_\beta(X))]\\
+      &\ge \Ep[g_{x-e_{p,\beta}-\delta,\beta,\delta}(F_\beta(Y))]
+      -C(\delta^{-2}+\beta\delta^{-1})\Delta\\
+      &\ge \Pr(F_\beta(Y)\le x-\delta)
+      -C(\delta^{-2}+\beta\delta^{-1})\Delta\\
+      &\ge \Pr(\max_{1\le j\le p}Y_j\le x-e_{p,\beta}-\delta)
+      -C(\delta^{-2}+\beta\delta^{-1})\Delta.
+      \end{align*}
+      The rest of the proof is similar and hence omitted.
+
+      Combining the two directions yields the \(a_p\)-dependent comparison inequality. Together with \(a_p\le\sqrt{2\log p}\) (see, for example, [ref:R1]), this gives the asserted covariance-only bound. \qed
+
+      ### References
+      #### Reference R1
+      Target: Proposition 1.1.3 in \cite{Talagrand2003}
+      Citation: The final assertion follows from the inequality $a_{p} \leq \sqrt{2 \log p}$ (see, for example, \cite{Talagrand2003}, Proposition 1.1.3).
+      Bibliography: Talagrand, M. (2003). {\em Spin Glasses: A Challenge for Mathematicians}. Springer.
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      model-supplemented
+
+      ##### Content basis
+      Model organization. No original text of Talagrand (2003), Proposition 1.1.3, was obtained. The supplied citation reports only the inequality
+      \[
+      a_{p}\le \sqrt{2\log p}
+      \]
+      with attribution to Talagrand (2003), Proposition 1.1.3. The inequality below is therefore a context-generated specialization using the standard Gaussian maximum bound; it is not a verified transcription of the original proposition. The exact original statement and premise set of Proposition 1.1.3 remain unresolved. This inequality supports the passage in the current target from the \(a_p\)-dependent comparison bound to the covariance-only bound; no bridge or discharge of application conditions is asserted here.
+
+      ##### Definitions and notation
+      Let \(p\ge 2\) and let
+      \[
+      Y=(Y_1,\dots,Y_p)^T
+      \]
+      be a centered Gaussian random vector in \(\mathbb R^p\) with covariance matrix
+      \[
+      \Sigma^Y=(\sigma^Y_{jk})_{1\le j,k\le p}.
+      \]
+      Assume \(\sigma^Y_{jj}>0\) for each \(1\le j\le p\), and set
+      \[
+      Z_j:=\frac{Y_j}{\sigma^Y_{jj}},\qquad 1\le j\le p.
+      \]
+      Define
+      \[
+      a_p:=\mathbb E\!\left[\max_{1\le j\le p}\frac{Y_j}{\sigma^Y_{jj}}\right]
+      =\mathbb E\!\left[\max_{1\le j\le p}Z_j\right].
+      \]
+      Also write
+      \[
+      M_p:=\max_{1\le j\le p}Z_j.
+      \]
+
+      ##### Assumptions
+      The integer \(p\) satisfies \(p\ge 2\). The random vector \(Y=(Y_1,\dots,Y_p)^T\) is centered Gaussian in \(\mathbb R^p\), and its diagonal covariance entries satisfy \(\sigma^Y_{jj}>0\) for all \(1\le j\le p\). Equivalently, for these entries, the variables
+      \[
+      Z_j=\frac{Y_j}{\sigma^Y_{jj}}
+      \]
+      are centered Gaussian with unit variance:
+      \[
+      \mathbb E[Z_j]=0,\qquad \mathbb E[Z_j^2]=1,\qquad 1\le j\le p.
+      \]
+      No independence of the \(Z_j\) is required for the Gaussian maximum inequality stated below.
+
+      ##### Statement
+      For the centered Gaussian vector \(Y\) with \(\sigma^Y_{jj}>0\) for all \(1\le j\le p\),
+      \[
+      a_p
+      =\mathbb E\!\left[\max_{1\le j\le p}\frac{Y_j}{\sigma^Y_{jj}}\right]
+      \le \sqrt{2\log p}.
+      \]
+
+      #### Reference R2
+      Target: Theorem \ref{theorem:comparison}
+      Citation: 
+      \[
+      \Pr ( \max_{1 \leq j \leq p} X_{j}   \leq x )
+      \leq \Pr ( F_{\beta} (X) \leq x + e_{p,\beta}) \leq \Ep[g_{x,\beta,\delta}(F_\beta(X))]
+      \leq \Ep[g_{x,\beta,\delta}(F_\beta(Y))] + C(\delta^{-2}+\beta \delta^{-1})\Delta
+      \leq  \Pr ( F_\beta (Y) \leq x+e_{p,\beta}+\delta ) + C(\delta^{-2}+\beta \delta^{-1})\Delta
+      \leq \Pr (\max_{1 \leq j \leq p} Y_{j} \leq x+e_{p,\beta}+\delta ) + C(\delta^{-2}+\beta \delta^{-1})\Delta,
+      \]
+      where the first inequality follows from the inequality \((\ref{eq: smooth max property})\), the second from the inequality \((\ref{eq: property of g})\), the third from Theorem \ref{theorem:comparison}, the fourth from the inequality \((\ref{eq: property of g})\), and the last from the inequality \((\ref{eq: smooth max property})\).
+      Bibliography: main
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. In D2 (`main.tex`), Section “Comparison Bounds and Multiplier Bootstrap”, subsection “Comparison bounds”, the displayed result labelled `theorem:comparison` is titled “Comparison bounds for smooth functions” and is attributed in the supplied bibliography to Chernozhukov, Chetverikov and Kato. It is the source result cited for the third inequality in the current proof’s displayed chain: it bounds the difference of expectations of a smooth function \(g\) evaluated at \(F_\beta(X)\) and \(F_\beta(Y)\) in terms of
+      \[
+      \Delta=\max_{1\le j,k\le p}|\sigma^X_{jk}-\sigma^Y_{jk}|.
+      \]
+      The same source separately displays the elementary inequality labelled `eq: smooth max property`; in the current proof this inequality supports the first and last comparisons between \(\max_j X_j\) (or \(\max_j Y_j\)) and \(F_\beta(X)\) (or \(F_\beta(Y)\)). The present organization does not derive the substitution of the particular \(g_{x,\beta,\delta}\), does not optimize in \(\beta,\delta\), and does not assert that any anti-concentration step has been applied. The current proof also uses the local inequality for \(g_{x,\beta,\delta}\) labelled `eq: property of g`; the supplied D2 excerpt does not contain a separately named source theorem for that local construction. The D2 excerpt does not supply a page number or an external theorem number beyond the label; the statements below are reproduced from the supplied `main.tex` material.
+
+      ##### Theorem [theorem:comparison] (Comparison bounds for smooth functions)
+      ###### Definitions and notation
+      Let
+      \[
+      X=(X_1,\dots,X_p)^T,\qquad Y=(Y_1,\dots,Y_p)^T
+      \]
+      be centered Gaussian random vectors in \(\RR^p\) with covariance matrices
+      \[
+      \Sigma^X=(\sigma^X_{jk})_{1\le j,k\le p},\qquad
+      \Sigma^Y=(\sigma^Y_{jk})_{1\le j,k\le p},
+      \]
+      respectively. Define
+      \[
+      \Delta:=\max_{1\le j,k\le p}|\sigma^X_{jk}-\sigma^Y_{jk}|.
+      \]
+      For \(z=(z_1,\dots,z_p)^T\in\RR^p\) and \(\beta>0\), the smooth max function is
+      \[
+      F_\beta(z):=\beta^{-1}\log\left(\sum_{j=1}^p \exp(\beta z_j)\right),
+      \]
+      where \(\beta>0\) is the smoothing parameter. For a function \(g:\RR\to\RR\),
+      \[
+      \|g\|_\infty=\sup_{z\in\RR}|g(z)|.
+      \]
+      Also \(C^2(\RR)\) denotes the class of twice continuously differentiable real-valued functions on \(\RR\).
+
+      ###### Assumptions
+      Let \(X=(X_1,\dots,X_p)^T\) and \(Y=(Y_1,\dots,Y_p)^T\) be centered Gaussian random vectors in \(\RR^p\) with covariance matrices \(\Sigma^X=(\sigma^X_{jk})_{1\le j,k\le p}\) and \(\Sigma^Y=(\sigma^Y_{jk})_{1\le j,k\le p}\), respectively. Let \(g\in C^2(\RR)\) satisfy
+      \[
+      \|g'\|_\infty\vee\|g''\|_\infty<\infty,
+      \]
+      and let \(\beta>0\). No additional condition \(p\ge2\) and no positivity condition on the variances \(\sigma^Y_{jj}\) are imposed.
+
+      ###### Statement
+      For every \(g\in C^2(\RR)\) with \(\|g'\|_\infty\vee\|g''\|_\infty<\infty\) and every \(\beta>0\),
+      \[
+      \left|\Ep[g(F_\beta(X))-g(F_\beta(Y))]\right|
+      \le \left(\frac{\|g''\|_\infty}{2}+\beta\|g'\|_\infty\right)\Delta,
+      \]
+      and hence
+      \[
+      \left|\Ep\left[g\left(\max_{1\le j\le p}X_j\right)-g\left(\max_{1\le j\le p}Y_j\right)\right]\right|
+      \le \left(\frac{\|g''\|_\infty}{2}+\beta\|g'\|_\infty\right)\Delta
+      +2\beta^{-1}\|g'\|_\infty\log p.
+      \]
+
+      ##### Smooth max property [eq: smooth max property]
+      ###### Definitions and notation
+      For \(z=(z_1,\dots,z_p)^T\in\RR^p\) and \(\beta>0\), define
+      \[
+      F_\beta(z):=\beta^{-1}\log\left(\sum_{j=1}^p \exp(\beta z_j)\right).
+      \]
+      Also write
+      \[
+      \max_{1\le j\le p}z_j
+      \]
+      for the maximum of the coordinates of \(z\).
+
+      ###### Assumptions
+      Let \(p\) be a positive integer, let \(z=(z_1,\dots,z_p)^T\in\RR^p\), and let \(\beta>0\).
+
+      ###### Statement
+      For every \(z\in\RR^p\),
+      \[
+      0\le F_\beta(z)-\max_{1\le j\le p}z_j\le \beta^{-1}\log p.
+      \]
+      This is the inequality labelled `eq: smooth max property` in the source.
+
+      #### Reference R3
+      Target: Theorem \ref{thm:anticoncentration}
+      Citation: By Theorem \ref{thm:anticoncentration}, we have
+      \begin{align*}
+      &\Pr (\max_{1 \leq j \leq p} Y_{j} \leq x+e_{p,\beta}+\delta ) -  \Pr (\max_{1 \leq j \leq p} Y_{j} \leq x ) \\
+      &= \Pr (x < \max_{1 \leq j \leq p} Y_{j} \leq x+e_{p,\beta}+\delta ) \leq \LL ( \max_{1 \leq j \leq p} Y_{j}, e_{p,\beta}+\delta) \\
+      &\leq  C (e_{p,\beta} + \delta) \sqrt{1 \vee a_{p}^{2} \vee \log \{ 1 / (e_{p,\beta} + \delta) \}} \leq  C (e_{p,\beta} + \delta) \sqrt{1 \vee a_{p}^{2} \vee  \log (1 / \delta)}.
+      \end{align*}
+      Bibliography: main
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D2 (`main.tex`), Section “Anti-concentration Bounds.” The definition is attributed in the source to `\cite{RV09}, Definition 3.1`; the theorem carries the source label `\label{thm: anticoncentration}`. The theorem supports the anti-concentration estimate in the cited inequality, bounding the increment probability by the Lévy concentration function at radius \(e_{p,\beta}+\delta\) and then by a constant times \(e_{p,\beta}+\delta\), with dependence on \(a_p\) and logarithmic factors. The unnamed prose bound \(a_p\le \sqrt{2\log p}\) “in the worst case” is attributed in D2 to `\cite{Talagrand2003}, Proposition 1.1.3`; it supports the worst-case \(a_p\) estimate used for the covariance-only conclusion. The source theorem is stated for a generic centered Gaussian vector \(X\); no assertion is made here about application conditions for \(Y\). Statement material is complete; proofs are not extracted.
+
+      ##### Theorem (Anti-concentration)
+      ###### Definitions and notation
+      Let \(X=(X_{1},\dots,X_{p})^{T}\) be a centered Gaussian random vector in \(\RR^{p}\). For each coordinate, set
+      \[
+      \sigma_{j}^{2}:=\Ep[X_{j}^{2}],\qquad 1\le j\le p.
+      \]
+      Moreover, define
+      \[
+      \underline{\sigma}:=\min_{1\le j\le p}\sigma_{j},\qquad
+      \overline{\sigma}:=\max_{1\le j\le p}\sigma_{j},
+      \qquad
+      a_{p}:=\Ep\!\left[\max_{1\le j\le p}\frac{X_{j}}{\sigma_{j}}\right].
+      \]
+      Here \(\Ep\) denotes expectation and \(a\vee b=\max\{a,b\}\).
+
+      **Definition (Lévy concentration function; [\cite{RV09}, Definition 3.1]).** The Lévy concentration function of a real valued random variable \(\xi\) is defined for \(\epsilon>0\) as
+      \[
+      \LL(\xi,\epsilon)
+      =\sup_{x\in\RR}\Pr\bigl(|\xi-x|\le\epsilon\bigr).
+      \]
+
+      ###### Assumptions
+      Let \(X=(X_{1},\dots,X_{p})^{T}\) be a centered Gaussian random vector in \(\RR^{p}\), and suppose that
+      \[
+      \sigma_{j}^{2}:=\Ep[X_{j}^{2}]>0
+      \qquad\text{for all }1\le j\le p.
+      \]
+      The quantities \(\underline{\sigma}\), \(\overline{\sigma}\), and \(a_{p}\) are defined as above.
+
+      ###### Statement
+      Let \((X_{1},\dots,X_{p})^{T}\) be a centered Gaussian random vector in \(\RR^{p}\) with \(\sigma_{j}^{2}:=\Ep[X_{j}^{2}]>0\) for all \(1\le j\le p\). Moreover, let
+      \[
+      \underline{\sigma}:=\min_{1\le j\le p}\sigma_{j},
+      \qquad
+      \overline{\sigma}:=\max_{1\le j\le p}\sigma_{j},
+      \qquad
+      a_{p}:=\Ep\!\left[\max_{1\le j\le p}\frac{X_{j}}{\sigma_{j}}\right].
+      \]
+
+      (i) If the variances are all equal, namely \(\underline{\sigma}=\overline{\sigma}=\sigma\), then for every \(\epsilon>0\),
+      \[
+      \LL\!\left(\max_{1\le j\le p}X_{j},\epsilon\right)
+      \le \frac{4\epsilon(a_{p}+1)}{\sigma}.
+      \]
+
+      (ii) If the variances are not equal, namely \(\underline{\sigma}<\overline{\sigma}\), then for every \(\epsilon>0\),
+      \[
+      \LL\!\left(\max_{1\le j\le p}X_{j},\epsilon\right)
+      \le C\epsilon\left\{a_{p}+\sqrt{1\vee\log(\underline{\sigma}/\epsilon)}\right\},
+      \]
+      where \(C>0\) depends only on \(\underline{\sigma}\) and \(\overline{\sigma}\).
+
+      ##### Worst-case bound for \(a_p\) (unnamed statement following Theorem [Anti-concentration])
+      ###### Definitions and notation
+      Under the setup of the preceding anti-concentration theorem,
+      \[
+      a_{p}:=\Ep\!\left[\max_{1\le j\le p}\frac{X_{j}}{\sigma_{j}}\right],
+      \qquad
+      \sigma_{j}^{2}=\Ep[X_{j}^{2}],
+      \]
+      and the coordinates satisfy \(X_{j}/\sigma_{j}\sim N(0,1)\).
+
+      ###### Assumptions
+      Let \((X_{1},\dots,X_{p})^{T}\) be a centered Gaussian random vector in \(\RR^{p}\) with \(\sigma_{j}^{2}:=\Ep[X_{j}^{2}]>0\) for all \(1\le j\le p\).
+
+      ###### Statement
+      Since \(X_{j}/\sigma_{j}\sim N(0,1)\), by a standard calculation, we have
+      \[
+      a_{p}\le \sqrt{2\log p}
+      \]
+      in the worst case (see, for example, \cite{Talagrand2003}, Proposition 1.1.3).
+    lean_name: Theorem_2_Comparison_of_distributions_second_conclusion_covariance_only_Kolmogorov_bound_Cprime_Delta_1_3_max_1_log_p_De
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics

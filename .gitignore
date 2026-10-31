@@ -1,5 +1,5 @@
-/statlib-contributions/neural-network-approximation/public-import-surface.lean
-/verification/minimal-builds/
+**/.lake/
 **/__pycache__/
-/.lake/
+/.validation/
 !/verification/statlib-cache/**/*.olean
+!/**/proof/cache/**/*.olean

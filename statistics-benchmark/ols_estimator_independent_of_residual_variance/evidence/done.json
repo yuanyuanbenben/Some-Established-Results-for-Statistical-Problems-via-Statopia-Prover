@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-17T21:58:37.816Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q16/experiment/runs/20261017T201452Z-ols_estimator_independent_of_residual_variance-c2fb8c0b",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q16",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q16",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q16/experiment/runs/20261017T201452Z-ols_estimator_independent_of_residual_variance-c2fb8c0b/job_snapshot",
-  "publishedCheckpointDir": null
-}

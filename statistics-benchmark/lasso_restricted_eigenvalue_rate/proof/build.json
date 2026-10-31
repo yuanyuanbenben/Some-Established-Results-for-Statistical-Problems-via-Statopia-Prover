@@ -1,0 +1,35 @@
+{
+  "cases": [
+    {
+      "key": "statistics/lasso_restricted_eigenvalue_rate",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.ProvedNodes.Node_136849786_51737db8_33a7f3f1",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.ProvedNodes.Node_174105582_dad1d727_7418a5fc",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.ProvedNodes.Node_1762459067_67761fda_65535e9c",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.ProvedNodes.Node_2772392877_7f100d52_47bc0ce4",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.ProvedNodes.Node_4162532863_4d0277a7_a0b41224",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.ProvedNodes.Node_570887230_87c93162_7814af42",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.ProvedNodes.Node_3778166416_0746af72_b8e45857",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.ProvedNodes.Node_3915940999_868aa0ce_4de6027a",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.ProvedNodes.Node_4187378725_a4837b16_41ab11d9",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q04.Main",
+          "declaration": "Msc62GroundTruth.lasso_restricted_eigenvalue_rate",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

@@ -1,6 +1,0 @@
--- Server-owned append-only imports for verified Math nodes.
-import ProverJobs.job_paper_a62240be95074e8caf07c24daf22159a.ProvedNodes.Node_1508296774_c3a2de09_b6af2ad8
-import ProverJobs.job_paper_a62240be95074e8caf07c24daf22159a.ProvedNodes.Node_3826631765_1f99c1c7_6928e23f
-
-namespace PaperProofTasks.job_paper_a62240be95074e8caf07c24daf22159a
-

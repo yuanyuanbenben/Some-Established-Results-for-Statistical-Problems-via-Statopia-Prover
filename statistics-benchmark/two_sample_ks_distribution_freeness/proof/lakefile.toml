@@ -1,0 +1,7 @@
+name = "establishedVerification"
+version = "0.1.0"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "5352afccd6866369be9de43f5b7ec47203555f44"

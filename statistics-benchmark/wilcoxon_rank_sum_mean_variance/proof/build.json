@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "key": "statistics/wilcoxon_rank_sum_mean_variance",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.ProvedNodes.Node_1775715242_093567d1_6ebaccf7",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.ProvedNodes.Node_3704713494_2c790cca_6d508c1d",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.ProvedNodes.Node_945440442_dbf9c5cc_12f0b06c",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.ProvedNodes.Node_2649541030_093d648c_c3caed6f",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.ProvedNodes.Node_3130791264_39ee0da9_364b2110",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.ProvedNodes.Node_274088598_752ee41e_3bb2dc4e",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.ProvedNodes.Node_3549867032_1b9e5d41_5b904aad",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q22.Main",
+          "declaration": "Msc62GroundTruth.wilcoxon_rank_sum_mean_variance",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

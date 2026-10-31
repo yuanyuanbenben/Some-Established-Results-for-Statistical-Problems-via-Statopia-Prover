@@ -1,0 +1,154 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:9532e24a-4d7d-4c7d-a59c-1c8b4b7d2378
+    title: paper_a86aea8c92ff4120874a0fdca6db77c5
+    kind: lemma
+    latex_statement: |-
+      For a smooth function \(f:\mathbb R^p\to\mathbb R\), write
+      \[
+      \partial_j f(z)=\frac{\partial f(z)}{\partial z_j},
+      \qquad z=(z_1,\dots,z_p)^T.
+      \]
+      The smooth maximum is
+      \[
+      F_\beta(z)=\beta^{-1}\log\left(\sum_{\ell=1}^p e^{\beta z_\ell}\right),
+      \qquad z=(z_1,\dots,z_p)^T\in\mathbb R^p,
+      \]
+      where the index \(\ell\) in the sum is a summation index, and \(\log\) is the ordinary logarithm inverse to the exponential. Put
+      \[
+      m:=g\circ F_\beta,
+      \]
+      where \(g\in C^2(\mathbb R)\). The symbol \(m\) is the function \(g\circ F_\beta\), not a summation index. Define the weights, as in Lemma \ref{lemma: smooth max property},
+      \[
+      \pi_j(z)=\frac{e^{\beta z_j}}{\sum_{\ell=1}^p e^{\beta z_\ell}},
+      \qquad
+      w_{jk}(z)=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z),
+      \]
+      where \(1(j=k)\) denotes the indicator of the equality \(j=k\). The indices \(j,k\) range over \(\{1,\dots,p\}\).
+
+      <!-- formalization-clarifications:v1:6de3b8b6f8fe0d586eab7cf1ecf99d3cbc23afc428b3eb129d1ad657fdb2c7cb -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifiers. The selected target has no numerical or probabilistic constant, hidden universal constant, or parameter-dependent constant. Its intended order is: let \(p\) be a positive integer, let \(\beta>0\), let \(g\in C^2(\mathbb R)\), then the identity holds for every \(z\in\mathbb R^p\) and every \(1\le j,k\le p\) (“Target theorem, Assumptions” and “Statement”). Thus, for fixed \(p,\beta,g\), the equality is uniform over all \(z\) and all index pairs \(j,k\). The source does not impose \(p\ge2\) here, unlike later comparison theorems in main.tex; do not import \(p\ge2\). It imposes no boundedness, integrability, or sup-norm condition on \(g\), and explicitly says this is a deterministic pointwise identity with “no Gaussian, covariance, or variance condition.” R1’s exact bound \(\sum_{j,k}|w_{jk}(z)|\le2\) is a universal nonasymptotic fact of Lemma “smooth max property”; the constant \(2\) is not a parameter of the target identity and is not needed for it. Constants \(C,C'\) and quantities \(\Delta,a_p\) appearing in main.tex comparison and multiplier results belong to those separate statements; main.tex says, for the distribution comparison, \(C\) depends only on \(\min_j\sigma^Y_{jj}\) and \(\max_j\sigma^Y_{jj}\), but that dependency must not be transferred to the target identity. The source does not discuss families \(g_p\) or uniformity over a class of \(g\); treat \(g\) as an explicit parameter of the stated identity.
+
+      2. Norms and mathematical objects. No norm on \(\mathbb R^p\), no operator norm, Frobenius norm, sup norm, or Euclidean norm occurs in the target statement. The derivatives \(\partial_j\) and \(\partial_j\partial_k\) are ordinary coordinate partial derivatives at \(z\), with \(z=(z_1,\dots,z_p)^T\) in the standard coordinate ambient space (“Definitions and notation”). The object \(F_\beta\) must be the stated smooth maximum \(F_\beta(z)=\beta^{-1}\log(\sum_{\ell=1}^p e^{\beta z_\ell})\), with ordinary natural logarithm and reciprocal \(\beta^{-1}=1/\beta\); it is not the ordinary maximum and must not be replaced by an unshifted or altered log-sum-exp. The weights are exactly the normalized softmax \(\pi_j(z)=e^{\beta z_j}/\sum_{\ell=1}^p e^{\beta z_\ell}\), and \(w_{jk}(z)=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z)\), with \(1(j=k)\) the equality indicator and no additional \(\beta\) inside \(w_{jk}\) (“Definitions and notation”; R1). The function \(m\) is \(g\circ F_\beta\), so \(g'(F_\beta(z))\) and \(g''(F_\beta(z))\) mean composition and evaluation at the scalar \(F_\beta(z)\); the source explicitly warns that \(m\) is not a summation index. If one also formalizes R1’s inequality, \(\sum_{j,k}|w_{jk}(z)|\) is the ordinary unscaled finite double sum over coordinate indices, not a normalized or operator norm. The surrounding main.tex notation \(\|g\|_\infty=\sup_z|g(z)|\) is used in comparison theorems requiring \(\|g'\|_\infty\vee\|g''\|_\infty<\infty\), but that boundedness is not an assumption of the selected identity and must not be added.
+
+      3. Asymptotics. The target result has no \(O\), \(o\), \(o_{\Pr}\), probability limit, filter, or limiting variable. It is an exact equality for every \(z\in\mathbb R^p\) and every \(1\le j,k\le p\), with \(p,\beta,g\) parameters of the identity. R1’s conclusions \(\pi_j\ge0\), \(\sum_j\pi_j=1\), and \(\sum_{j,k}|w_{jk}|\le2\) are exact nonasymptotic facts. The \(o_{\Pr}(1)\) statements in main.tex’s conditional multiplier central limit theorem and the asymptotic discussion of \(a_p\) are separate results and should not be imported into this deterministic smooth-max derivative identity. The source leaves no asymptotic interpretation for the target because no asymptotic notation is present.
+
+      4. Potentially omitted definitions and side conditions. The source fixes \(p\in\mathbb N_{>0}\), \(\beta>0\), \(g:\mathbb R\to\mathbb R\) of class \(C^2\), \(z\in\mathbb R^p\), and indices \(j,k\in\{1,\dots,p\}\) (“Target theorem, Assumptions”). There are no random vectors, probability space, measure, covariance matrix, events, or integrability hypotheses in the target; adding any of these would be unsupported. The equality of indicators \(1(j=k)\) is the Kronecker-type indicator of equality, not a function of \(z\). The original supp.tex states the lemma \(m=g\circ F_\beta\) (“lemma: second deriv m”) with proof only “follows from a direct calculation”; the expanded calculation in the selected block is consistent with that and uses R1’s derivative formulas, but it should not be treated as independent source evidence beyond the direct-calculation statement and R1. R1 attributes the first derivative property to Chatterjee2005b (“The first property was noted in [Chatterjee2005b]”) and says the remaining properties follow by direct calculation; the source does not reproduce Chatterjee’s full theorem or hypotheses, so do not infer extra assumptions from that citation for the target. No missing norm convention or extra regularity assumption is specified; the only regularity assumption needed and stated for the target is \(g\in C^2(\mathbb R)\), with \(F_\beta\) smooth for \(\beta>0\) and finite positive \(p\).
+      <!-- /formalization-clarifications -->
+
+      For every \(z\in\mathbb R^p\) and every \(1\le j,k\le p\),
+      \[
+      \partial_j\partial_k m(z)
+      =
+      (g''\circ F_\beta)(z)\pi_j(z)\pi_k(z)
+      +
+      \beta (g'\circ F_\beta)(z)w_{jk}(z).
+      \]
+    assumptions:
+      - Let \(p\) be a positive integer, let \(\beta>0\), and let \(g\in C^2(\mathbb R)\). This is a deterministic pointwise identity; no Gaussian, covariance, or variance condition is required.
+    proof_body: |-
+      By [ref:R1], for every \(z\in\mathbb R^p\) and \(1\le j,k\le p\),
+      \[
+      \partial_j F_\beta(z)=\pi_j(z),
+      \qquad
+      \partial_j\partial_k F_\beta(z)=\beta w_{jk}(z).
+      \]
+      Since \(m=g\circ F_\beta\), differentiating once gives
+      \[
+      \partial_j m(z)=(g'\circ F_\beta)(z)\pi_j(z).
+      \]
+      Differentiating this expression with respect to \(z_k\) and using the displayed identities for \(F_\beta\) gives
+      \[
+      \begin{aligned}
+      \partial_j\partial_k m(z)
+      &=(g''\circ F_\beta)(z)\pi_k(z)\pi_j(z)
+       +(g'\circ F_\beta)(z)\partial_k\pi_j(z)\\
+      &=(g''\circ F_\beta)(z)\pi_j(z)\pi_k(z)
+       +\beta(g'\circ F_\beta)(z)w_{jk}(z).
+      \end{aligned}
+      \]
+      This proves the lemma.
+
+      ### References
+      #### Reference R1
+      Target: Lemma \ref{lemma: smooth max property}
+
+      Citation: Lemma \ref{lemma: smooth max property}. For every \(1 \leq j,k \leq p\),
+      \[
+      \partial_{j} F_{\beta}(z) = \pi_{j}(z), \quad \partial_{j} \partial_k F_{\beta}(z) = \beta w_{jk} (z),
+      \]
+      where
+      \[
+      \pi_{j}(z)  :=    e^{\beta z_{j}}/{\textstyle \sum}_{m=1}^pe^{\beta z_m}, \ w_{jk}(z) := 1 (j = k) \pi_{j} (z)- \pi_{j}(z) \pi_{k} (z).
+      \]
+      Moreover,
+      \[
+      \pi_{j}(z) \geq 0,  \  {\textstyle \sum}_{j=1}^p \pi_{j} (z) = 1, \ {\textstyle \sum}_{j,k=1}^p |w_{jk}(z)|  \leq 2.
+      \]
+      Proof of Lemma \ref{lemma: smooth max property}: The first property was noted in \cite{Chatterjee2005b}. The other properties follow from a direct calculation.
+
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The result is stated in `supp.tex` in the subsection “Proof of Theorem \ref{theorem:comparison}” as Lemma \ref{lemma: smooth max property}. Its proof attributes the first derivative property to Chatterjee (2005b) [Chatterjee2005b] and says that the remaining properties follow by direct calculation. The lemma supplies the first- and second-derivative formulas for \(F_\beta\) used in the current proof, namely \(\partial_jF_\beta(z)=\pi_j(z)\) and \(\partial_j\partial_kF_\beta(z)=\beta w_{jk}(z)\). The additional conclusions \(\pi_j(z)\ge0\), \(\sum_j\pi_j(z)=1\), and \(\sum_{j,k}|w_{jk}(z)|\le2\) are retained because they are part of the same displayed source lemma. The displayed formula for \(F_\beta\) is taken from the supplied smooth-max setup in the current theorem context; the excerpt from `supp.tex` states the lemma without repeating that definition.
+
+      ##### Lemma \ref{lemma: smooth max property}
+      ###### Definitions and notation
+      For a smooth function \(f:\mathbb R^p\to\mathbb R\), write
+      \[
+      \partial_jf(z)=\frac{\partial f(z)}{\partial z_j},
+      \qquad z=(z_1,\dots,z_p)^T.
+      \]
+      The smooth maximum is
+      \[
+      F_\beta(z)=\beta^{-1}\log\left(\sum_{m=1}^p e^{\beta z_m}\right),
+      \qquad z=(z_1,\dots,z_p)^T\in\mathbb R^p,
+      \]
+      where the index \(m\) in the sum is a summation index. Define
+      \[
+      \pi_j(z):=\frac{e^{\beta z_j}}{\sum_{m=1}^p e^{\beta z_m}},
+      \qquad
+      w_{jk}(z):=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z),
+      \]
+      where \(1(j=k)\) denotes the indicator of the equality \(j=k\). The notation \((z)\) denotes evaluation at \(z\).
+
+      ###### Assumptions
+      Let \(p\) be a positive integer, let \(\beta>0\), and let \(z=(z_1,\dots,z_p)^T\in\mathbb R^p\). The indices \(j,k\) range over \(\{1,\dots,p\}\). The result is a deterministic pointwise statement in \(z\); no Gaussian, covariance, or integrability condition is required for this lemma.
+
+      ###### Statement
+      For every \(1\le j,k\le p\),
+      \[
+      \partial_jF_\beta(z)=\pi_j(z),
+      \qquad
+      \partial_j\partial_kF_\beta(z)=\beta w_{jk}(z),
+      \]
+      where
+      \[
+      \pi_j(z)=\frac{e^{\beta z_j}}{\sum_{m=1}^p e^{\beta z_m}},
+      \qquad
+      w_{jk}(z)=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z).
+      \]
+      Moreover,
+      \[
+      \pi_j(z)\ge0,
+      \qquad
+      \sum_{j=1}^p\pi_j(z)=1,
+      \qquad
+      \sum_{j,k=1}^p|w_{jk}(z)|\le2.
+      \]
+    lean_name: paper_a86aea8c92ff4120874a0fdca6db77c5
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

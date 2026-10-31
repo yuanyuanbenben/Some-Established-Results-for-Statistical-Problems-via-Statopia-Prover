@@ -1,0 +1,1858 @@
+{
+  "cases": [
+    {
+      "key": "statistics/uniform_endpoint_mle_limit",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.ProvedNodes.Node_394219309_051c530b_a4086216",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.ProvedNodes.Node_2515949496_7d7e9f51_0c94a03d",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.ProvedNodes.Node_2623459540_991fa23d_0292b80c",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.ProvedNodes.Node_2594530977_cabbe74c_289788a4",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.ProvedNodes.Node_3356630755_4409a240_0625d2bf",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.ProvedNodes.Node_3661166939_5226b67c_738666ef",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q13.Main",
+          "declaration": "uniform_endpoint_mle_limit",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.HighDim.Vocabulary.Norms"
+        ],
+        "module": "Statlib.HighDim.Basic",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Basic.olean",
+            "sha256": "4deec78ec26ddd80b84e1cd6272512af89663bee4cd7418f0a816726ceced9c3",
+            "bytes": 43624
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.HighDim.Vocabulary.RandomVector",
+          "Statlib.HighDim.Vocabulary.RandomMatrix",
+          "Statlib.HighDim.Basic",
+          "Statlib.StatFoundation.Concentration.ExponentialType.bernstein_sum_meas_abs_ge_le_two_exp",
+          "Statlib.StatFoundation.RandomVariable.SubExponential.subexp_of_mgf_finite",
+          "Statlib.StatFoundation.RandomVariable.SubExponential.subexp_mgf_le_of_sq_subgaussian",
+          "Statlib.StatFoundation.RandomVariable.SubExponential.scalar_sq_centered_exp_integrable",
+          "Statlib.StatFoundation.RandomVariable.SubExponential.scalar_sq_centered_subexponential_explicit"
+        ],
+        "module": "Statlib.HighDim.CovarianceMatrix.SampleCovariance",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/CovarianceMatrix/SampleCovariance.olean",
+            "sha256": "f035cc274e3f1551a1a71b2cabda1abba5f2d6651739133ae5c51b94670e9a45",
+            "bytes": 2166016
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.HighDim.Vocabulary.Norms",
+          "Statlib.HighDim.Vocabulary.Restrictions",
+          "Statlib.HighDim.Vocabulary.QuadraticForms",
+          "Statlib.HighDim.Vocabulary.Spectral",
+          "Statlib.HighDim.Vocabulary.CStarBridge",
+          "Statlib.HighDim.Vocabulary.Quantum",
+          "Statlib.HighDim.Vocabulary.RandomVector",
+          "Statlib.HighDim.Vocabulary.RandomMatrix",
+          "Statlib.HighDim.Vocabulary.Sparse",
+          "Statlib.HighDim.Vocabulary.DesignMatrix",
+          "Statlib.HighDim.Vocabulary.DebiasingLasso",
+          "Statlib.HighDim.Vocabulary.SVD",
+          "Statlib.HighDim.Vocabulary.MatrixCompletion"
+        ],
+        "module": "Statlib.HighDim.Vocabulary",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary.olean",
+            "sha256": "2e53fb436ba0f799d956d09f2161c2fc7b43867b2a3dae8942be2a32c0b72652",
+            "bytes": 44488
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.CStarBridge",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/CStarBridge.olean",
+            "sha256": "986079677602ebec602dd01f6da17be8b12ecb515ca4bf67bc243663ea973639",
+            "bytes": 104864
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.HighDim.Vocabulary.Norms"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.DebiasingLasso",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/DebiasingLasso.olean",
+            "sha256": "54bd2de4d1e85a8aca98acd9f101bf5daf407f9252bd965f1b74dcce2f92712e",
+            "bytes": 59512
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.HighDim.Vocabulary.Norms",
+          "Statlib.HighDim.Vocabulary.Sparse"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.DesignMatrix",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/DesignMatrix.olean",
+            "sha256": "57982099806f981d8a29d0ecf8afdb32b8ab60181d1bf937d19d225b38000788",
+            "bytes": 383496
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.MatrixCompletion",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/MatrixCompletion.olean",
+            "sha256": "bc4fcbfbc70d53a48eaa4b943bfae67cb3c1f1459ff737edafaf8788b023fdcf",
+            "bytes": 249064
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.Norms",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/Norms.olean",
+            "sha256": "7061a9167f36dca984d6686f51303e53ed1ba6a1c1772f26c77490b5c275c8e3",
+            "bytes": 159432
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.HighDim.Vocabulary.Norms"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.QuadraticForms",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/QuadraticForms.olean",
+            "sha256": "6afe760287975b5f7222f85620718e0eb666d915cec8c9659c8a980edb66b9a2",
+            "bytes": 150112
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.Quantum",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/Quantum.olean",
+            "sha256": "2a2da5e0d08753298455f5fce7970d42ef3969636f4ccf49c499c5ac42699393",
+            "bytes": 52264
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.RandomMatrix",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/RandomMatrix.olean",
+            "sha256": "9ebaccdcb737dc2b34c37a475fe68cefe9a8916e7a6403cc1423f1ff792d736f",
+            "bytes": 78512
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.RandomVariable"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.RandomVector",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/RandomVector.olean",
+            "sha256": "e8625c7d5427eda6c792a83fe22774c78914510ef0f99d52186b28ad3e3979cf",
+            "bytes": 131792
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.Restrictions",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/Restrictions.olean",
+            "sha256": "5261d5a509ef4b1cc06b95a41c4c2f106ee057d874dbef631c6c502d2ccff113",
+            "bytes": 82920
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.SVD",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/SVD.olean",
+            "sha256": "abd4c84486def13ce23cb8869b9c95bcb2f93ac7ac99befb3cf79723e47a4290",
+            "bytes": 315784
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.HighDim.Vocabulary.Norms"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.Sparse",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/Sparse.olean",
+            "sha256": "b5052076fd9ec38f70177416b4b937ee112c46e293c9990efab034a13b68c1d7",
+            "bytes": 191472
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.Spectral",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/Spectral.olean",
+            "sha256": "d50363b14c9e0c7bb51e16d4d7c495e193261653aca1bb172c9c0fae2def6418",
+            "bytes": 73584
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.BasicAnalysis.measure_le_ofReal_of_measureReal_le",
+          "Statlib.StatFoundation.BasicAnalysis.exp_neg_sq_div_le_exp_neg_sq_div_of_den_le",
+          "Statlib.StatFoundation.BasicAnalysis.sub_le_abs_sub_of_gap_near",
+          "Statlib.StatFoundation.BasicAnalysis.CompactSelfAdjoint",
+          "Statlib.StatFoundation.BasicAnalysis.SpectralEntropy",
+          "Statlib.StatFoundation.BasicAnalysis.ENNRealBridge",
+          "Statlib.StatFoundation.BasicAnalysis.ExponentialBounds",
+          "Statlib.StatFoundation.BasicAnalysis.TailIntegral",
+          "Statlib.StatFoundation.BasicAnalysis.TaylorExpansions"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis.olean",
+            "sha256": "c04e10839597bc6e0efad089615511cfb3350b9e627cfc44ad2566c6a4469723",
+            "bytes": 44168
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib.Analysis.Normed.Operator.Compact",
+          "Mathlib.Analysis.InnerProductSpace.Rayleigh",
+          "Mathlib.Analysis.InnerProductSpace.Spectrum",
+          "Mathlib.Analysis.InnerProductSpace.Positive",
+          "Mathlib.Analysis.InnerProductSpace.Orthogonal",
+          "Mathlib.Analysis.InnerProductSpace.Orthonormal",
+          "Mathlib.Analysis.InnerProductSpace.PiL2",
+          "Mathlib.Analysis.InnerProductSpace.Continuous",
+          "Mathlib.Analysis.InnerProductSpace.Projection.Basic",
+          "Mathlib.Analysis.InnerProductSpace.l2Space",
+          "Mathlib.Topology.Algebra.InfiniteSum.Basic",
+          "Mathlib.Data.Set.Countable",
+          "Mathlib.Data.Real.Sqrt",
+          "Mathlib.LinearAlgebra.Dimension.Finrank",
+          "Mathlib.LinearAlgebra.Eigenspace.Basic",
+          "Mathlib.Topology.Algebra.Module.LinearMap",
+          "Mathlib.Topology.MetricSpace.Pseudo.Lemmas"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.CompactSelfAdjoint",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/CompactSelfAdjoint.olean",
+            "sha256": "72953acdd7536bedd1bc3675a9c20402970886960ef2a2caf1ba4cb88f758800",
+            "bytes": 2827256
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.ENNRealBridge",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/ENNRealBridge.olean",
+            "sha256": "2bf229c669c32801e59cc74b64ed63634e80dd69601e1f3bfcb4be9dae49405b",
+            "bytes": 145880
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.ExponentialBounds",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/ExponentialBounds.olean",
+            "sha256": "a9d127e0b4a9a37147ded5efa046682a06734da3609e7a3a6a41bbf6cc3caf2f",
+            "bytes": 132928
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.BasicAnalysis.CompactSelfAdjoint",
+          "Statlib.StatFoundation.Vocabulary.CoveringNumbers"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.SpectralEntropy",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/SpectralEntropy.olean",
+            "sha256": "3c62786e8f1f4bb12d549b5bae8e5d49d829119ac4b66ed8e1e6290d93c91c4e",
+            "bytes": 4538256
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.TailIntegral",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/TailIntegral.olean",
+            "sha256": "f4407ce01cad7b16c817d43ecdb1ce151443ef0bfb9b96637b56f4699cb8f566",
+            "bytes": 100744
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.TaylorExpansions",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/TaylorExpansions.olean",
+            "sha256": "3097af12d9efbefa35f4d1e64152506cfe148405c96b9fc69c070d32d86f8117",
+            "bytes": 50328
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.exp_neg_sq_div_le_exp_neg_sq_div_of_den_le",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/exp_neg_sq_div_le_exp_neg_sq_div_of_den_le.olean",
+            "sha256": "d8f6a5f5dfeee0b5e449a25688c6a549aa787c8dc383b6f0ab770a0b6d7a651f",
+            "bytes": 134352
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.measure_le_ofReal_of_measureReal_le",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/measure_le_ofReal_of_measureReal_le.olean",
+            "sha256": "0f5b96d42672cb8cc18655fa91d22546aba8b76b246ed13ca5cace56e4a6da62",
+            "bytes": 55312
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.sub_le_abs_sub_of_gap_near",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/sub_le_abs_sub_of_gap_near.olean",
+            "sha256": "29659f29b10e517270231540901fe13cc0c9e4b08f3e46171127a9f68d7a76ac",
+            "bytes": 102480
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.ExponentialType.bennett_sum_meas_ge_le_exp",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/ExponentialType/bennett_sum_meas_ge_le_exp.olean",
+            "sha256": "209ce01bfbeb14e183093c4770ee4bdf84b884661db200a438e5b7993c24c89f",
+            "bytes": 1191472
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.ExponentialType.bernstein_sum_meas_abs_ge_le_two_exp",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/ExponentialType/bernstein_sum_meas_abs_ge_le_two_exp.olean",
+            "sha256": "274b7702278ede4dcbe4848800ea1a29a840c576dc074fb8f1686f4819278949",
+            "bytes": 629640
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Concentration.MomentType.lyapunov_moment_ineq",
+          "Statlib.StatFoundation.Concentration.MomentType.jensen_inequality_prob",
+          "Statlib.StatFoundation.Concentration.MomentType.von_bahr_esseen",
+          "Statlib.StatFoundation.Concentration.MomentType.paley_zygmund",
+          "Statlib.StatFoundation.Concentration.MomentType.rosenthal_inequality",
+          "Statlib.StatFoundation.Concentration.MomentType.khintchine_inequality",
+          "Statlib.StatFoundation.Concentration.MomentType.cramer_chernoff",
+          "Statlib.StatFoundation.Concentration.MomentType.efron_stein_inequality",
+          "Statlib.StatFoundation.Concentration.MomentType.bdg_upper_l2",
+          "Statlib.StatFoundation.Concentration.MomentType.moment_tail_bound",
+          "Statlib.StatFoundation.Concentration.MomentType.Markov"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType.olean",
+            "sha256": "a8e991f45df84ef986f75463cec3db3ecd2277e5eb3900fba7f216be23e26c89",
+            "bytes": 44416
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.Markov",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/Markov.olean",
+            "sha256": "5e484ca2fb3cdb7b9c59d7cec75d6a78c630557b767bc1095d0ad38086a95976",
+            "bytes": 80488
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.bdg_upper_l2",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/bdg_upper_l2.olean",
+            "sha256": "50d781d1121d83bbd67fccd9222990775ea043ffa9f78a7b009def6c86d9993e",
+            "bytes": 587912
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.cramer_chernoff",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/cramer_chernoff.olean",
+            "sha256": "7429965e84df40228b82b2dd385ed8bf2e478a6cc5ee8b21ccd33460051b7817",
+            "bytes": 166432
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.efron_stein_inequality",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/efron_stein_inequality.olean",
+            "sha256": "bf22cb6c15ac9cd09048b4d2ae0aa448537a05e4117fc85b0b7915d92c14fcf2",
+            "bytes": 1393728
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.jensen_inequality_prob",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/jensen_inequality_prob.olean",
+            "sha256": "56077c61bff1bec31ef8699c2e68927559dec987d8bba9664f08dda069c41f77",
+            "bytes": 595192
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.khintchine_inequality",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/khintchine_inequality.olean",
+            "sha256": "46ea4b25e292cbad26b4a6a083551c4d406ef13068157dbe908243c883189221",
+            "bytes": 2629904
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.lyapunov_moment_ineq",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/lyapunov_moment_ineq.olean",
+            "sha256": "c3f397bf4a6aafae40818ef500c47fc6e8aadcc6946a8db54f270f59419ae263",
+            "bytes": 219152
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.moment_tail_bound",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/moment_tail_bound.olean",
+            "sha256": "c5e0d15747c2115c31e6d2cf835e45a2e7e7d2a9f4a3ba2abb3519f482a10ff5",
+            "bytes": 176184
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.paley_zygmund",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/paley_zygmund.olean",
+            "sha256": "234e439f4d87e3410bbc07665c205882d6b6134bfda3f8364053633c8f84ef1a",
+            "bytes": 629616
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Concentration.MomentType.khintchine_inequality",
+          "Statlib.StatFoundation.Concentration.MomentType.moment_tail_bound",
+          "Statlib.StatFoundation.Vocabulary",
+          "Statlib.StatFoundation.BasicAnalysis",
+          "Statlib.StatFoundation.Concentration.ExponentialType.bennett_sum_meas_ge_le_exp"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.rosenthal_inequality",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/rosenthal_inequality.olean",
+            "sha256": "489701d90b4a4048bc56b5f1e5760bcedb3bb842a5fbf20214d94b9981356771",
+            "bytes": 6240472
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.von_bahr_esseen",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/von_bahr_esseen.olean",
+            "sha256": "066530bbd2cc61d748069449244600118094eededf85553ec815eb98aaddf70e",
+            "bytes": 1659200
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.CharacteristicFunction",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.ConvergenceModes",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.Scheffe",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.Tightness",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.LevyContinuity",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.CramerWold",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.AsymptoticLinear",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.MappingTheorems",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.UniformIntegrability",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.IntegralConvergence",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.Basic",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.Algebra",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.Rate",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraProduct",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.TailGates",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.ConvergenceBridges",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.SlutskyProduct",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.SmoothMax",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.SmoothCutoff",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.GaussianStein",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.GaussianMaxAnticoncentration",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.Nazarov",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.CdfQuantile"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools.olean",
+            "sha256": "c5b183ee3b3c5291439845050c5d988f3da60b20e88971c05d0debe2f77b6fda",
+            "bytes": 46112
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.CramerWold",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.MappingTheorems",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.Algebra",
+          "Statlib.StatFoundation.Vocabulary.FiniteCoordinate"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.AsymptoticLinear",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/AsymptoticLinear.olean",
+            "sha256": "923cfc0499bf0b875115a071e923cfa9f220c3befafe403e3f04da79f4064807",
+            "bytes": 131888
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.MaxType"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.CdfQuantile",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/CdfQuantile.olean",
+            "sha256": "2d98636bfb665cdc0a983229c3297159f0c1da27f8422abd239c5a2b63df8b02",
+            "bytes": 674104
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.CharacteristicFunction",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/CharacteristicFunction.olean",
+            "sha256": "82db658642da47f4d7d602d5193002d4b9fb7edca841b1f8fcb0ee15f7702d56",
+            "bytes": 2043664
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.ConvergenceModes",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/ConvergenceModes.olean",
+            "sha256": "60007eedda68c6c0f6c8f1d5b8c1fbe1fe23be9b9db409dc903656b3136b3d30",
+            "bytes": 836976
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.LevyContinuity",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.ConvergenceBridges",
+          "Statlib.StatFoundation.Vocabulary.FiniteCoordinate"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.CramerWold",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/CramerWold.olean",
+            "sha256": "a961f82a75150f7f279d43e1cacd12c41a12f89fd368418f540b168b14f64953",
+            "bytes": 755768
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Slepian",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_meas_ge_le_exp",
+          "Statlib.StatFoundation.Vocabulary.Resampling",
+          "Statlib.StatFoundation.Vocabulary.MaxType",
+          "Statlib.StatFoundation.Convergence.CentralLimitTheorem.MaxType",
+          "Statlib.StatFoundation.Convergence.Resampling.AntiConcentration",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Standard",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.LogSobolev",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_mgf_eq_of_gaussian",
+          "Mathlib.Order.ConditionallyCompleteLattice.Finset"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.GaussianMaxAnticoncentration",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/GaussianMaxAnticoncentration.olean",
+            "sha256": "6e6f7602d08b40e1c90826a6c1abf926c793188c4ecba3114bb954ecd0c7d2ba",
+            "bytes": 5914520
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Standard",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.LogSobolev"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.GaussianStein",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/GaussianStein.olean",
+            "sha256": "07a6266e1a9999e3cd4d329464c1e27b3664d072190752e58fc61a761e486696",
+            "bytes": 759536
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib.Probability.Moments.CovarianceBilin",
+          "Mathlib.Analysis.InnerProductSpace.WeakOperatorTopology",
+          "Mathlib.Analysis.Matrix.Normed",
+          "Mathlib.Analysis.CStarAlgebra.Matrix",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.UniformIntegrability"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.IntegralConvergence",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/IntegralConvergence.olean",
+            "sha256": "1edb003d8065aeace37ebbeab8c2e5171ce91555972dda86ad29b85d477aae13",
+            "bytes": 1594256
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.Tightness"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.LevyContinuity",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/LevyContinuity.olean",
+            "sha256": "9bc7d47bbff28acd615864264c7062a31b702214c993cb5f341352832c646b99",
+            "bytes": 458096
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.MappingTheorems",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/MappingTheorems.olean",
+            "sha256": "c935665dfa244f3033e637cf37213bdb6f5d56ec3daf31f562893b490865a0c9",
+            "bytes": 740104
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.RandomVariable.Gaussian",
+          "Statlib.StatFoundation.Vocabulary.MaxType",
+          "Statlib.StatFoundation.Vocabulary.FiniteCoordinate",
+          "Statlib.HighDim.CovarianceMatrix.SampleCovariance",
+          "Statlib.StatFoundation.Convergence.Resampling.AntiConcentration",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.CdfQuantile"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.Nazarov",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/Nazarov.olean",
+            "sha256": "3309a16414973318d202e559f07080ad4e62023c9c2b25ab9fd661cb240a77a6",
+            "bytes": 6514472
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.Scheffe",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/Scheffe.olean",
+            "sha256": "194506ac18e27e835b3db77caedb5702781dd72494b71b5c87ede2d543e37487",
+            "bytes": 205240
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.SmoothCutoff",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/SmoothCutoff.olean",
+            "sha256": "d6e2dd6e591c0194a59b7fb1061e765ddef1e0e9b9a7a09dab24226661b7bb1c",
+            "bytes": 1378640
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.MaxType",
+          "Statlib.HighDim.Vocabulary.Norms"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.SmoothMax",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/SmoothMax.olean",
+            "sha256": "128533dc9fecc54653dc08653f4404e469517e554d0dc490ec00cac93855dfae",
+            "bytes": 1589504
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraAdd",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraAddLittle",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraSubBig",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraSubLittle",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraMap",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraFiniteSum",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraDeterministicScale"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.Algebra",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/Algebra.olean",
+            "sha256": "802320e51ba4b8391fff3db136c67637966b341aa42471f7ea9a39e105ff000f",
+            "bytes": 44048
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraAdd",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraAdd.olean",
+            "sha256": "62d157e353c21f9c7b2ee4cc9428cd016031433abb4b8b1feba7e0f125d6ffbb",
+            "bytes": 308096
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraAddLittle",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraAddLittle.olean",
+            "sha256": "260f068ab6fe0666a3699c491839e0f2656abc0439b032ba587df63bdbe59947",
+            "bytes": 178376
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraMap"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraDeterministicScale",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraDeterministicScale.olean",
+            "sha256": "3a51f45a0c9158629ef457291a15713a2ec3d0d3b51c97e400c358f9dbf2a495",
+            "bytes": 171480
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.Basic",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraAdd",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraAddLittle"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraFiniteSum",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraFiniteSum.olean",
+            "sha256": "ee1c767b63973feb27214cb49e6e8bc255476700c8c9b6ef1cdeff598b2ab690",
+            "bytes": 102352
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.Basic"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraMap",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraMap.olean",
+            "sha256": "defc471e1c544678280cc77089123a25e7668ce8bd1a931ae5d2899e5def4d05",
+            "bytes": 339912
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraProductBig",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraProductMixedOBigLittle",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraProductMixedLittleBig"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraProduct",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraProduct.olean",
+            "sha256": "3287bfbaefd3ac141e6b96fcacce50c6d94f0cc63644e99dad63ea48176fd69b",
+            "bytes": 43600
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraProductBig",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraProductBig.olean",
+            "sha256": "c5b56a7b638375db5e126da1119f8928257d1cf5e45c77d9e1d0697433ef43e4",
+            "bytes": 263328
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraProductMixedLittleBig",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraProductMixedLittleBig.olean",
+            "sha256": "4a381701f5b0d8f8f65d2b283cb25a27646f7ba88831d12a24dcb208ea0c8be3",
+            "bytes": 336768
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraProductMixedOBigLittle",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraProductMixedOBigLittle.olean",
+            "sha256": "87cc4b4af137a089bf3f15517d4ca8f2fc69a859b26878755d39a2d48a94c804",
+            "bytes": 305896
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraSubBig",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraSubBig.olean",
+            "sha256": "738cf1986ec8f7f66a1a4fc70544f46c293546cb35a927795f63bdd9f081c0d2",
+            "bytes": 347696
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraSubLittle",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/AlgebraSubLittle.olean",
+            "sha256": "2bbde9965aa8ca2aa6d50b19133369d8486bb70ef60a4a02b28af507f5e069ea",
+            "bytes": 219568
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.Basic",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/Basic.olean",
+            "sha256": "ae4b54c3be96905a7822d40620594c3ce7ca11d99c0e6e9c6ab67bc0c576cabc",
+            "bytes": 337672
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.ConvergenceModes",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.Basic",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateLittle",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateRefinement"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.ConvergenceBridges",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/ConvergenceBridges.olean",
+            "sha256": "a3fca107859b2068e482e4dffb9b739247febd0f42c43fc1a21ea5b45d35e7df",
+            "bytes": 699400
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateBig",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateLittle",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateBounds",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateRefinement"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.Rate",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/Rate.olean",
+            "sha256": "d8b4f27e321b8d4ec763db5880d42486c7bc9b43aab058efcbb2dd34839a6429",
+            "bytes": 43664
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateBig",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/RateBig.olean",
+            "sha256": "20ecdcec929cc0fe4c2c5389d865bcd9fa9edb88148fff196381a1968133fb41",
+            "bytes": 149352
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateBig"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateBounds",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/RateBounds.olean",
+            "sha256": "f23dcd19707df600eab21bb5abe2a5727f70c736036d35697e4e59ade626f8b2",
+            "bytes": 184720
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateLittle",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/RateLittle.olean",
+            "sha256": "7792e8075d224113525529d0eb1180e07b029536ecde0343426f5414366b2e8a",
+            "bytes": 166864
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateBounds"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.RateRefinement",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/RateRefinement.olean",
+            "sha256": "95d088d7cfc62b36f2cb89224aceadb21249ee7f49da907ef5590bdd05e49ca1",
+            "bytes": 246264
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.ConvergenceBridges",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.AlgebraProduct"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.SlutskyProduct",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/SlutskyProduct.olean",
+            "sha256": "3aea3304fe0854897775a243152fdc9482c3b04c6aedc25dcdf0525006c6b514",
+            "bytes": 93480
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.TailGates",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/StochasticOrder/TailGates.olean",
+            "sha256": "b6ca758124f211cb3d7e46d6093255ef8cef1d887a29844b792402d00ab34ef4",
+            "bytes": 199480
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.ConvergenceModes",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.StochasticOrder.ConvergenceBridges",
+          "Statlib.StatFoundation.Vocabulary.StochasticOrder"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.Tightness",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/Tightness.olean",
+            "sha256": "eb8b2db393a5c1e64baf2865efda9962a495427e5077d6dd16aa7450e4be5e7c",
+            "bytes": 463456
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.ConvergenceModes",
+          "Statlib.StatFoundation.Vocabulary.UniformIntegrability"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.AnalysisTools.UniformIntegrability",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/AnalysisTools/UniformIntegrability.olean",
+            "sha256": "88d9ac0c76e92518f0ac61a811e1d08e69891e83f1535346548b1a8076836cd9",
+            "bytes": 187608
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Convergence.AnalysisTools"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.CentralLimitTheorem.LindebergFeller",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/CentralLimitTheorem/LindebergFeller.olean",
+            "sha256": "0afd70def3289c8947669071e8757d4cb701ceadec78e5b12f258cf988073d7a",
+            "bytes": 1545752
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.MaxType",
+          "Statlib.StatFoundation.Vocabulary.FiniteCoordinate",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.CramerWold",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.MappingTheorems"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.CentralLimitTheorem.MaxType",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/CentralLimitTheorem/MaxType.olean",
+            "sha256": "d38b55f7be3effe2dd70abef0d1b71a6c0f4518311e06db28e78442080d6ee23",
+            "bytes": 255800
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.Resampling",
+          "Statlib.StatFoundation.Convergence.CentralLimitTheorem.MaxType"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.Resampling.AntiConcentration",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/Resampling/AntiConcentration.olean",
+            "sha256": "4ae966ac41f6052793de8b1d6bac9068dc64585e473cff9ff7774a5c2bf665cc",
+            "bytes": 205992
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.Resampling",
+          "Statlib.StatFoundation.Vocabulary.MaxType",
+          "Statlib.StatFoundation.Convergence.CentralLimitTheorem.MaxType",
+          "Statlib.StatFoundation.Convergence.Resampling.AntiConcentration",
+          "Statlib.StatFoundation.Vocabulary.FiniteCoordinate",
+          "Statlib.StatFoundation.Convergence.CentralLimitTheorem.LindebergFeller"
+        ],
+        "module": "Statlib.StatFoundation.Convergence.Resampling.BootstrapInterface",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Convergence/Resampling/BootstrapInterface.olean",
+            "sha256": "ab53ffa61082026448f4f195b9d5c094088ce799abe6bea3f86adc36638b8682",
+            "bytes": 5632496
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Standard",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Stein",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Hermite",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.HilbertSpace",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.LogSobolev",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.LipschitzConcentration",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Slepian"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian.olean",
+            "sha256": "779458955e95b3ef7fae2d1c98be3963c2adb1d885509a626c430cdd835e1faa",
+            "bytes": 44288
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib.RingTheory.Polynomial.Hermite.Basic",
+          "Mathlib.Analysis.Calculus.Deriv.Polynomial",
+          "Mathlib.Analysis.Calculus.Deriv.Mul",
+          "Mathlib.MeasureTheory.Measure.CharacteristicFunction",
+          "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Stein"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian.Hermite",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian/Hermite.olean",
+            "sha256": "40f47dfdd1782b3a60376bca7bc83fb954565f48d2fddd94494c4202ae1607c1",
+            "bytes": 1240976
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib.Probability.Distributions.Gaussian.Fernique",
+          "Mathlib.Analysis.InnerProductSpace.Dual"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian.HilbertSpace",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian/HilbertSpace.olean",
+            "sha256": "76f785f8150cc439d05785fdd09d5dc1bffe0653dd6f3b74b5da541dbed89cfe",
+            "bytes": 601984
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.LogSobolev",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_meas_abs_ge_le_two_exp"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian.LipschitzConcentration",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian/LipschitzConcentration.olean",
+            "sha256": "87672c28ae1fa5740f00ae98e02153a11f3d21578cd0b1940b835a6d5fdcdb39",
+            "bytes": 1123824
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib.Analysis.Calculus.MeanValue",
+          "Mathlib.Analysis.Convex.Integral",
+          "Mathlib.Analysis.Normed.Operator.Prod",
+          "Mathlib.Analysis.SpecialFunctions.Log.Basic",
+          "Mathlib.Algebra.Order.Chebyshev",
+          "Statlib.HighDim.Vocabulary",
+          "Statlib.StatFoundation.Concentration.MomentType",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Hermite",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.HilbertSpace",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.sq_le_two_mul_exp"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian.LogSobolev",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian/LogSobolev.olean",
+            "sha256": "5f503bf4e79058ebde9571905874a3d2737e40c8e2fb0a8508478001112ce57e",
+            "bytes": 39208080
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Convergence.AnalysisTools.CramerWold",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Standard",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Stein",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.sq_le_two_mul_exp"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian.Slepian",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian/Slepian.olean",
+            "sha256": "807ada6ad7527c4d39dd28cbc08a84551e7353a8893b4f308eff70a3be7b2bc4",
+            "bytes": 6492072
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib.Probability.Distributions.Gaussian.Real",
+          "Mathlib.Analysis.Calculus.Deriv.Basic",
+          "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+          "Mathlib.Algebra.Polynomial.AlgebraMap",
+          "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+          "Mathlib.MeasureTheory.Integral.Pi",
+          "Mathlib.MeasureTheory.SpecificCodomains.Pi"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian.Standard",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian/Standard.olean",
+            "sha256": "bec385bd4a9e4f699d2d09b3a40ff09b33a54081549958dee855020859fd4fc2",
+            "bytes": 759056
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.RandomVariable.Gaussian.Standard",
+          "Mathlib.Analysis.Calculus.LineDeriv.Basic",
+          "Mathlib.Analysis.Calculus.LineDeriv.Measurable",
+          "Mathlib.Analysis.BoundedVariation",
+          "Mathlib.MeasureTheory.Integral.Prod"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian.Stein",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian/Stein.olean",
+            "sha256": "365f5e13f9d2a1a2a74cf9d2107b6bda4d08130f165018622e09fc406a93b46b",
+            "bytes": 1098776
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_exp_sq_le_at_one_third"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubExponential.scalar_sq_centered_exp_integrable",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubExponential/scalar_sq_centered_exp_integrable.olean",
+            "sha256": "dcfb80e5348c512f2b4b6ed045fae0c644876ab1a102636f50df4b47ee3a3145",
+            "bytes": 229296
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary",
+          "Statlib.StatFoundation.RandomVariable.SubExponential.scalar_sq_centered_exp_integrable",
+          "Statlib.StatFoundation.RandomVariable.SubExponential.subexp_mgf_le_of_sq_subgaussian"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubExponential.scalar_sq_centered_subexponential_explicit",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubExponential/scalar_sq_centered_subexponential_explicit.olean",
+            "sha256": "62c49521669ae004ac11cc284c27a1f31a29d9051c7423b4bf8a9510c34426c3",
+            "bytes": 121616
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_exp_sq_le_at_one_third",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.sq_le_two_mul_exp"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubExponential.subexp_mgf_le_of_sq_subgaussian",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubExponential/subexp_mgf_le_of_sq_subgaussian.olean",
+            "sha256": "0fc5829bcd76628ad47c64da8a3e7f48895a9352ea93e1566efc783587351745",
+            "bytes": 2566424
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubExponential.subexp_of_mgf_finite",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubExponential/subexp_of_mgf_finite.olean",
+            "sha256": "8f87348750e3f8eb69384ecd0e83a3883602e654868792c2d5a08af92653dc01",
+            "bytes": 1927288
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubGaussian.sq_le_two_mul_exp",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubGaussian/sq_le_two_mul_exp.olean",
+            "sha256": "742ce81271a523710f53fcd58ddd0c5a20cae9681c2aab2e868fdf971bd9f5fd",
+            "bytes": 305232
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_meas_abs_ge_le_two_exp"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_exp_sq_le_at_one_third",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubGaussian/subgaussian_exp_sq_le_at_one_third.olean",
+            "sha256": "8e29233a3c624c455eeb0d79241c6f1f8f2e2170cf7aded9db69d964e26288b6",
+            "bytes": 315848
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_meas_abs_ge_le_two_exp",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubGaussian/subgaussian_meas_abs_ge_le_two_exp.olean",
+            "sha256": "c7d532a1124aa7263081dc614ae2940a4e97776965cfa0e348f17169645632b1",
+            "bytes": 137400
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_meas_ge_le_exp",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubGaussian/subgaussian_meas_ge_le_exp.olean",
+            "sha256": "347ee7ee4855ee363818322bf89a08151db64d19922056a178e34f0fb6cd6dec",
+            "bytes": 88296
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_mgf_eq_of_gaussian",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubGaussian/subgaussian_mgf_eq_of_gaussian.olean",
+            "sha256": "42dec648c11093580435ae8486baf7f4c646b329012ef05904545a58559306c9",
+            "bytes": 105008
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Vocabulary.RandomVariable",
+          "Statlib.StatFoundation.Vocabulary.Independence",
+          "Statlib.StatFoundation.Vocabulary.ParametricFamily",
+          "Statlib.StatFoundation.Vocabulary.OrliczNorm",
+          "Statlib.StatFoundation.Vocabulary.EmpiricalProcess",
+          "Statlib.StatFoundation.Vocabulary.CoveringNumbers",
+          "Statlib.StatFoundation.Vocabulary.VCDimension",
+          "Statlib.StatFoundation.Vocabulary.StochasticOrder",
+          "Statlib.StatFoundation.Vocabulary.UniformIntegrability",
+          "Statlib.StatFoundation.Vocabulary.FiniteCoordinate",
+          "Statlib.StatFoundation.Vocabulary.Conformal",
+          "Statlib.StatFoundation.Vocabulary.GaussianCriticalValue",
+          "Statlib.StatFoundation.Vocabulary.MaxType",
+          "Statlib.StatFoundation.Vocabulary.Resampling"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary.olean",
+            "sha256": "0d75c2c1c664dda054e755c72b74b611f2af82d4d8c94829320ee63a263b8b6f",
+            "bytes": 44664
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.Independence"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.Conformal",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/Conformal.olean",
+            "sha256": "28cc6440166ecd1c88908055f0ef53e67247b448c20f16a3cac2b941e14d57c0",
+            "bytes": 77104
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.EmpiricalProcess"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.CoveringNumbers",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/CoveringNumbers.olean",
+            "sha256": "db620ec2aef8f590a21e65267299b0d97f63fc62be9bb18cc6df9d95472d2485",
+            "bytes": 245792
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.EmpiricalProcess",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/EmpiricalProcess.olean",
+            "sha256": "2c1847034cf0dd490f678cb7ca51fb8998e766c0c203333e23942c14e9336dbd",
+            "bytes": 108128
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.StochasticOrder"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.FiniteCoordinate",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/FiniteCoordinate.olean",
+            "sha256": "949f65ab8d9922f3e9c505f54f34e997b5f27003a40163988f7dc72e4306814d",
+            "bytes": 90336
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.GaussianCriticalValue",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/GaussianCriticalValue.olean",
+            "sha256": "73fa1af6617c3c9c3dd50928447b0d942f8f81102e5416fc33af4cd7200a7531",
+            "bytes": 50576
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.Independence",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/Independence.olean",
+            "sha256": "1a77d0dd36c329f15895d1b66c52cc7d743d5c477e0939251b77f22493d6253c",
+            "bytes": 55216
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.MaxType",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/MaxType.olean",
+            "sha256": "99beb3f8b7bdd6492e6fc7f02888b524938e6031199d82a59963ba8265fb4756",
+            "bytes": 66920
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.OrliczNorm",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/OrliczNorm.olean",
+            "sha256": "e5c119153481c4786902366aea7c5bbab50f87ce2b3f644b0ca02651f4dcee62",
+            "bytes": 65328
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.ParametricFamily",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/ParametricFamily.olean",
+            "sha256": "370fcb132fa142cc0a193d8f83768d8ca7f42c9bbe863ee2c42b31754b302bc6",
+            "bytes": 88200
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.RandomVariable",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/RandomVariable.olean",
+            "sha256": "2ab20c5afa14d5b6c2d7b2305789c9ef26fbcda7166f77fbd55aaf4d424c943a",
+            "bytes": 124368
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.MaxType"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.Resampling",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/Resampling.olean",
+            "sha256": "aef93a1291262e6084aeff2cf2d8b3b8bc00cf5bb97a9e9200b9d8a32a51670b",
+            "bytes": 99960
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.StochasticOrder",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/StochasticOrder.olean",
+            "sha256": "649da2c9101df8151746a78910fcb4b9f2e2d5624dd49effed56080170b32c13",
+            "bytes": 120816
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib.MeasureTheory.Function.UniformIntegrable"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.UniformIntegrability",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/UniformIntegrability.olean",
+            "sha256": "cfb6b0958f503d1e2d2cff4ec326b5c5fc5b9da8adee9791183fa02b64b64f35",
+            "bytes": 79504
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.VCDimension",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/VCDimension.olean",
+            "sha256": "30959e4a6f6a32d83ea76ec6cfe74153755351eb53b535f29eea12c1388fdd50",
+            "bytes": 420920
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

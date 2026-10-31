@@ -1,4 +1,0 @@
--- Server-owned direct dependency support for the long-lived Main Writer.
-import ProverJobs.real_main_theorem_d734bdb6a642.ProvedNodes.Node_1648340497_660d8830_976f6e3c
-import ProverJobs.real_main_theorem_d734bdb6a642.ProvedNodes.Node_4115935916_c5a90aa0_e8f22533
-import ProverJobs.real_main_theorem_d734bdb6a642.ProvedNodes.Node_93132176_513605de_8a255754

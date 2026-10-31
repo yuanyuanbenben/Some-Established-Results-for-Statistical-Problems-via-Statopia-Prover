@@ -1,0 +1,76 @@
+{
+  "cases": [
+    {
+      "key": "imo/problem2",
+      "source": "src",
+      "modules": [
+        "ProverJobs.real_main_theorem_e7f39350f194.Vocabulary",
+        "ProverJobs.real_main_theorem_e7f39350f194.Base",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_2572412618_fc84ca75_76d868b1",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_4100268325_31a302d7_f6a0c703",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_3431605529_2a745110_37ebd9aa",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_358362470_f6dd73c9_3c66278a",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_1079600542_410cd104_a404688e",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_726603668_6c32cefd_9f4b3dd2",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_1009185205_43daf791_8c70c533",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_1641763193_b67e03b9_e850df6b",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_393965618_6807243a_6d058c5d",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_1807274513_fb8b9cdc_098b0ba3",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_624265820_ebe43d05_fd04936e",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_2626076788_21f7138a_5b53c3f7",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_2618456207_6af1ee36_6a955f32",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_981975689_c1054012_46ac252e",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_353979784_5af30e36_38420c98",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_1167546614_414fb77c_d86710ea",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_3104088338_a1318138_0aa6cce4",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_3895931102_11f4646c_4d9a9d7e",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_507356754_65c92604_8612fcae",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_1132283172_4e5f8155_fd18bf12",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_2622506937_28956eed_7c1ff975",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_4006387899_007deac2_aab74f68",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_2237241960_78eabb87_2e43ad8f",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_2737272013_69da5b5b_2ef91ffb",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_302587009_faa16c35_f3bee5f9",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_3469497786_231dbb85_34eaf8d3",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_81477081_e9900e38_e6ba2edb",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_1043730491_6ab9cbac_eeca8e5d",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_2602239205_e64b9839_4e704536",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_796628655_a7612b6d_7efadca1",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_1160496100_1a4ca7a9_71914603",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_3691240324_1176a2cb_8a7631d0",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_3179275638_03586b8a_390e08f7",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_3516123686_7891845d_0c45db7d",
+        "ProverJobs.real_main_theorem_e7f39350f194.ProvedNodes.Node_2640265524_f2e3bdd6_25df5117",
+        "ProverJobs.real_main_theorem_e7f39350f194.MainSupport",
+        "ProverJobs.real_main_theorem_e7f39350f194.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.real_main_theorem_e7f39350f194.Main",
+          "declaration": "main_theorem",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HighDim.Vocabulary.Norms",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HighDim/Vocabulary/Norms.olean",
+            "sha256": "7061a9167f36dca984d6686f51303e53ed1ba6a1c1772f26c77490b5c275c8e3",
+            "bytes": 159432
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

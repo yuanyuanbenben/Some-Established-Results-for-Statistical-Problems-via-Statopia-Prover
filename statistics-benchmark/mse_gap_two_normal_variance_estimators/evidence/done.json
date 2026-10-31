@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-18T06:23:51.278Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q38/experiment/runs/20261018T051058Z-mse_gap_two_normal_variance_estimators-e06a0145",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q38",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q38",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q38/experiment/runs/20261018T051058Z-mse_gap_two_normal_variance_estimators-e06a0145/job_snapshot",
-  "publishedCheckpointDir": null
-}

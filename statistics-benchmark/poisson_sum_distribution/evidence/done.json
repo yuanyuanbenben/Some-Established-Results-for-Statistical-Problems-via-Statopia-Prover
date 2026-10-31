@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-18T03:07:31.481Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q30/experiment/runs/20261018T022705Z-poisson_sum_distribution-82fdc699",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q30",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q30",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q30/experiment/runs/20261018T022705Z-poisson_sum_distribution-82fdc699/job_snapshot",
-  "publishedCheckpointDir": null
-}

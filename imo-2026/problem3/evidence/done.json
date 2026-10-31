@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-09-27T22:05:13.544Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_writer_revision_vendor_four_20260927T1711Z/imo2026_p3/experiment/runs/20260927T171232Z-V_eq-380b5532",
-  "jobId": "real_V_eq_15312944933b",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/real_V_eq_15312944933b",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_writer_revision_vendor_four_20260927T1711Z/imo2026_p3/experiment/runs/20260927T171232Z-V_eq-380b5532/job_snapshot",
-  "publishedCheckpointDir": null
-}

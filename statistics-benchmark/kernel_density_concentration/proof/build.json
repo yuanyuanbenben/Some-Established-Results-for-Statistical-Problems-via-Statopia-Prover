@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "key": "statistics/kernel_density_concentration",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes.Node_2101656357_757e486d_9c327da3",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes.Node_2163822838_d5b91ca4_f770ca03",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes.Node_886141048_bc639600_8d1e83e5",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes.Node_612610791_f42c035b_22136fe3",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes.Node_3593846891_8b5f0b2e_64ab2bf3",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes.Node_3754312584_2556f128_aac4c978",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes.Node_4023382197_14c17dfb_9ed69871",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes.Node_3608866754_ebb2fee6_68dae651",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes.Node_4045179614_089f2f1c_67ed62fd",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes.Node_3855570477_39b85b10_0d6d2ce9",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q12.Main",
+          "declaration": "kernel_density_concentration",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.ENNRealBridge",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/ENNRealBridge.olean",
+            "sha256": "2bf229c669c32801e59cc74b64ed63634e80dd69601e1f3bfcb4be9dae49405b",
+            "bytes": 145880
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.ExponentialType.azuma_sum_meas_ge_le_exp",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/ExponentialType/azuma_sum_meas_ge_le_exp.olean",
+            "sha256": "dc2852817512f9d07a288fe18a051dd6d8e8d42fbd0e2024c133e349b24d1214",
+            "bytes": 931664
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

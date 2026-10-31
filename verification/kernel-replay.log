@@ -1,2 +1,0 @@
-{"axiomDeclarations":[],"eligibleDeclarations":5915,"identicalDuplicateTheorems":4,"modules":144,"skippedUnsafeOrPartial":["Statlib.Nonparametric.Approximation.NeuralNetworkAlgebra.fixedDirectionAppend._unsafe_rec","Statlib.Nonparametric.Vocabulary.centeredMonomialFixedWidthBound._unsafe_rec","Statlib.Nonparametric.Vocabulary.centeredMonomialWidthBound._unsafe_rec"],"uniqueDeclarations":5918}
-PASS: eligible safe non-partial declarations accepted by the kernel over public Mathlib/Lean imports; axiom declarations are admitted as axioms

@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "key": "statistics/multinomial_count_moments",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.ProvedNodes.Node_887293322_4a71d68e_98cac379",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.ProvedNodes.Node_1004106233_18e3d102_94116a57",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.ProvedNodes.Node_1296899899_966815e7_fce5f741",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.ProvedNodes.Node_3007476390_3adea497_6be005ff",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.ProvedNodes.Node_1473221386_3b189d61_52afd73c",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.ProvedNodes.Node_3936285520_6207c28e_d3a546fc",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q19.Main",
+          "declaration": "Msc62GroundTruth.multinomial_count_moments",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

@@ -1,9 +1,0 @@
-# Formalization scope and assumptions
-
-The selected source is Theorem 1, `thm:coverage-algorithm-known-Delta`, from *The HulC: Confidence Regions from Convex Hulls*, arXiv:2105.14577v2. It states finite-sample coverage at least `1 - alpha`, and exact coverage under the theorem's additional equal-tail, zero-atom and exact-median-bias conditions. The supporting fixed-batch coverage lemma is included and proved in the integrated package.
-
-The formal statement uses explicit measurable probability spaces and real-valued estimators. Its hypotheses include estimator measurability and independence, the finite median-bias bound, a uniform randomizer, independence of that randomizer from data, estimator and partition sigma-algebras, a measurability link from estimators to data/partition, disjointness/coverage of the selected batches, and the deterministic minimal-batch specification. Read the complete quantified statement in [Main.lean](Main.lean) and the final namespaced entry in [integrated/README.md](integrated/README.md).
-
-The historical pipeline records `assumptionsAutoAdopted: true`, `statementAmended: false`, and successful locked-signature integrity checks. These fields have different scopes: preserving the generated Lean signature does not establish that every explicit modeling condition is equivalent to the original informal algorithm. This archive publishes the actual statement and those modeling conditions; no new exhaustive mathematical fidelity audit or full-paper formalization is claimed.
-
-Original `Base.lean` files contain unused skeleton declarations with `sorry`. The completed final target must be assessed through its recursive dependencies, rather than by the presence or absence of placeholder text anywhere in the package. The isolated integrated-root axiom check is recorded in the project verification report; historical Main's approved child interface is resolved by the integrated child proof.

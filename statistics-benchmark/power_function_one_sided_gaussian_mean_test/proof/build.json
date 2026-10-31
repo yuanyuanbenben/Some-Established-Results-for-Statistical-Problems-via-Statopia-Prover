@@ -1,0 +1,99 @@
+{
+  "cases": [
+    {
+      "key": "statistics/power_function_one_sided_gaussian_mean_test",
+      "source": "src",
+      "modules": [
+        "Main"
+      ],
+      "targets": [
+        {
+          "module": "Main",
+          "declaration": "power_function_one_sided_gaussian_mean_test",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HypothesisTesting.Inference.ConfidenceInterval",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HypothesisTesting/Inference/ConfidenceInterval.olean",
+            "sha256": "7540703b2aa743d29f34ac5d4ff8ba9a56ab5fada253ce86fa6e69a06804c70d",
+            "bytes": 57384
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.HypothesisTesting.NormalTheory.VarianceTest"
+        ],
+        "module": "Statlib.HypothesisTesting.NormalTheory.SampleMean",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HypothesisTesting/NormalTheory/SampleMean.olean",
+            "sha256": "29d53297fcabafec94ee32b2969c8f30b4666d46e4951a4eb4f3f8184c61d9d7",
+            "bytes": 348856
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Probability.ChiSquared",
+          "Statlib.StatFoundation.Probability.FDistribution",
+          "Statlib.HypothesisTesting.Inference.ConfidenceInterval"
+        ],
+        "module": "Statlib.HypothesisTesting.NormalTheory.VarianceTest",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HypothesisTesting/NormalTheory/VarianceTest.olean",
+            "sha256": "625992788a7fd58f2107de8650c1610a31a958e4f0b3c19d78bbeedc71b419a6",
+            "bytes": 3758536
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Probability.ChiSquared",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Probability/ChiSquared.olean",
+            "sha256": "285ace59cb336767c7ed48514779a4b97030e6d02ccb39793d22e6daf992d028",
+            "bytes": 1114776
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Probability.ChiSquared",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Probability.FDistribution",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Probability/FDistribution.olean",
+            "sha256": "3760695dfe3767b9773bc1fd1c46db50c95ef85b9cf47bcdebc3dedc7afa5713",
+            "bytes": 3257376
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

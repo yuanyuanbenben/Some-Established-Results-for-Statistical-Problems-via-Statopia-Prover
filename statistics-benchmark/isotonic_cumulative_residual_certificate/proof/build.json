@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "key": "statistics/isotonic_cumulative_residual_certificate",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q35.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q35.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q35.ProvedNodes.Node_3210606411_004fbd06_18ec203e",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q35.ProvedNodes.Node_2952203734_ccad5d1e_f8c2441e",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q35.ProvedNodes.Node_467254402_5ac6457a_de114efd",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q35.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q35.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q35.Main",
+          "declaration": "isotonic_cumulative_residual_certificate",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

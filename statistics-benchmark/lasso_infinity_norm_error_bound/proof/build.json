@@ -1,0 +1,169 @@
+{
+  "cases": [
+    {
+      "key": "statistics/lasso_infinity_norm_error_bound",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.ProvedNodes.Node_4100084658_beb39d50_47d3a120",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.ProvedNodes.Node_11731219_b8d62fc9_63037dff",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.ProvedNodes.Node_1247330666_ee8168ea_f3a293de",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.ProvedNodes.Node_1420316284_290236b8_d1fde729",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.ProvedNodes.Node_2136473782_eb90246c_2f034c21",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.ProvedNodes.Node_3084854362_14c87009_7e1a5a9c",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.ProvedNodes.Node_35352085_cac9d037_cffdbfa9",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.ProvedNodes.Node_4186121393_be2d5497_608dd8d4",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q08.Main",
+          "declaration": "lasso_infinity_norm_error_bound",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_exp_sq_le_at_one_third",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.sq_le_two_mul_exp"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubExponential.subexp_mgf_le_of_sq_subgaussian",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubExponential/subexp_mgf_le_of_sq_subgaussian.olean",
+            "sha256": "0fc5829bcd76628ad47c64da8a3e7f48895a9352ea93e1566efc783587351745",
+            "bytes": 2566424
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubGaussian.sq_le_two_mul_exp",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubGaussian/sq_le_two_mul_exp.olean",
+            "sha256": "742ce81271a523710f53fcd58ddd0c5a20cae9681c2aab2e868fdf971bd9f5fd",
+            "bytes": 305232
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_meas_abs_ge_le_two_exp"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_exp_sq_le_at_one_third",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubGaussian/subgaussian_exp_sq_le_at_one_third.olean",
+            "sha256": "8e29233a3c624c455eeb0d79241c6f1f8f2e2170cf7aded9db69d964e26288b6",
+            "bytes": 315848
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.SubGaussian.subgaussian_meas_abs_ge_le_two_exp",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/SubGaussian/subgaussian_meas_abs_ge_le_two_exp.olean",
+            "sha256": "c7d532a1124aa7263081dc614ae2940a4e97776965cfa0e348f17169645632b1",
+            "bytes": 137400
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Statistics.Asymptotic.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Statistics.Asymptotic.Contiguity",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Statistics/Asymptotic/Contiguity.olean",
+            "sha256": "5c9ae815e58b08db63e556c46e63a78b66fa057476da4cd174731bd819891140",
+            "bytes": 253768
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Statistics.Asymptotic.Vocabulary",
+          "Statlib.StatFoundation.Statistics.Asymptotic.Contiguity",
+          "Statlib.StatFoundation.Statistics.Estimation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Statistics.Asymptotic.LAN",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Statistics/Asymptotic/LAN.olean",
+            "sha256": "02e2a4cc31174898a7c683319be1c18ef64cd4acd4e67b66d1eeaea42add2f0d",
+            "bytes": 1485400
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Statistics.Asymptotic.Vocabulary",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Statistics/Asymptotic/Vocabulary.olean",
+            "sha256": "869c689b5f4f3598fedcaa265f36827a1249a97cea0425d84ca493d3ee926b9b",
+            "bytes": 84832
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.ParametricFamily"
+        ],
+        "module": "Statlib.StatFoundation.Statistics.Estimation.Vocabulary",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Statistics/Estimation/Vocabulary.olean",
+            "sha256": "3a643a60f95e235a0b7d98999a40be2faa87562eea8d7e25178a6df947e89f94",
+            "bytes": 114456
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.ParametricFamily",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/ParametricFamily.olean",
+            "sha256": "370fcb132fa142cc0a193d8f83768d8ca7f42c9bbe863ee2c42b31754b302bc6",
+            "bytes": 88200
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

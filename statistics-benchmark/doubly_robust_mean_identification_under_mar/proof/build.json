@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "key": "statistics/doubly_robust_mean_identification_under_mar",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q17.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q17.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q17.ProvedNodes.Node_444070725_2ef7631b_919b314f",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q17.ProvedNodes.Node_482029874_f417c92e_c8c152fa",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q17.ProvedNodes.Node_2053934716_e66d820a_94f971d6",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q17.ProvedNodes.Node_329917857_412e8c7d_2e499579",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q17.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q17.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q17.Main",
+          "declaration": "doubly_robust_mean_identification_under_mar",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

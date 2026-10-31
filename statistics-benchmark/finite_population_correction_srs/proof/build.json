@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "key": "statistics/finite_population_correction_srs",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q21.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q21.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q21.ProvedNodes.Node_1343175658_819cdf6e_f9605bef",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q21.ProvedNodes.Node_2596964945_1e623ff4_2e2b106e",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q21.ProvedNodes.Node_2421082732_9eff0878_bd636d34",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q21.ProvedNodes.Node_781651629_73b8feb2_f856f683",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q21.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q21.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q21.Main",
+          "declaration": "Msc62GroundTruth.finite_population_correction_srs",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

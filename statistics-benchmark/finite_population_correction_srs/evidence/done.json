@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-17T23:52:58.976Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q21/experiment/runs/20261017T225415Z-finite_population_correction_srs-1739ee39",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q21",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q21",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q21/experiment/runs/20261017T225415Z-finite_population_correction_srs-1739ee39/job_snapshot",
-  "publishedCheckpointDir": null
-}

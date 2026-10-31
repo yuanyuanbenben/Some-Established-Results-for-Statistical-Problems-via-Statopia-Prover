@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "key": "statistics/kernel_regression_interior_imse_rate",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q09.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q09.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q09.ProvedNodes.Node_2073386701_8222945a_f09b5f00",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q09.ProvedNodes.Node_3172609595_1d5a6f27_98766584",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q09.ProvedNodes.Node_2486692478_7ec19360_287afeec",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q09.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q09.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q09.Main",
+          "declaration": "Msc62GroundTruth.kernel_regression_interior_imse_rate",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

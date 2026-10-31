@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "key": "statistics/extrinsic_sample_mean_on_unit_sphere",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q40.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q40.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q40.ProvedNodes.Node_2474807198_d38bf418_b2bd71be",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q40.ProvedNodes.Node_3652586393_a25bccab_59257ec6",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q40.ProvedNodes.Node_3852170914_d7d89bd9_21230dd8",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q40.ProvedNodes.Node_646129307_86263361_5991a633",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q40.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q40.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q40.Main",
+          "declaration": "extrinsic_sample_mean_on_unit_sphere",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

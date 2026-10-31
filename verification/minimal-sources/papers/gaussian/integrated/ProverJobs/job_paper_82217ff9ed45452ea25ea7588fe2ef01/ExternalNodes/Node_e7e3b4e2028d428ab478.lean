@@ -1,4 +1,0 @@
-import ProverJobs.paper_fresh_20261028t224543381z_gaussian.PaperProofInterfaces.Result_r1_f28e8eaa4e2044afaa45af4508dffc9f
-
-namespace PaperProofTasks.job_paper_82217ff9ed45452ea25ea7588fe2ef01
-

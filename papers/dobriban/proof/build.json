@@ -1,0 +1,49 @@
+{
+  "cases": [
+    {
+      "key": "papers/dobriban",
+      "source": "src",
+      "modules": [
+        "ProverJobs.app_dobriban_theorem1_counterexample_certificate.Main",
+        "ProverJobs.bh_showcase_workspace_seed_01.Main",
+        "ProverJobs.bh_showcase_workspace_seed_02.Main",
+        "ProverJobs.bh_showcase_workspace_seed_03.Main",
+        "ProverJobs.bh_showcase_workspace_seed_04.Main",
+        "ProverJobs.bh_showcase_workspace_seed_05.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.app_dobriban_theorem1_counterexample_certificate.Main",
+          "declaration": "Statlib.MultipleTesting.Dobriban.app_dobriban_theorem1_counterexample_certificate",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib.Probability.Distributions.Gaussian.Real",
+          "Mathlib.Analysis.Calculus.Deriv.Basic",
+          "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+          "Mathlib.Algebra.Polynomial.AlgebraMap",
+          "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+          "Mathlib.MeasureTheory.Integral.Pi",
+          "Mathlib.MeasureTheory.SpecificCodomains.Pi"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian.Standard",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian/Standard.olean",
+            "sha256": "bec385bd4a9e4f699d2d09b3a40ff09b33a54081549958dee855020859fd4fc2",
+            "bytes": 759056
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

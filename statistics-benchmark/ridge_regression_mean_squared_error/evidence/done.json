@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-18T02:12:20.543Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q26/experiment/runs/20261018T005930Z-ridge_regression_mean_squared_error-08499f0b",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q26",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q26",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q26/experiment/runs/20261018T005930Z-ridge_regression_mean_squared_error-08499f0b/job_snapshot",
-  "publishedCheckpointDir": null
-}

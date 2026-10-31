@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "key": "statistics/tikhonov_risk_bound_functional_linear_regression",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.ProvedNodes.Node_2203294958_aa644ea9_93f6db00",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.ProvedNodes.Node_1755229075_e929082f_40c6d88b",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.ProvedNodes.Node_2528240439_5c8c990f_ad21f294",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.ProvedNodes.Node_2066443448_6390c552_29af2dbc",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q27.Main",
+          "declaration": "tikhonov_risk_bound_functional_linear_regression",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

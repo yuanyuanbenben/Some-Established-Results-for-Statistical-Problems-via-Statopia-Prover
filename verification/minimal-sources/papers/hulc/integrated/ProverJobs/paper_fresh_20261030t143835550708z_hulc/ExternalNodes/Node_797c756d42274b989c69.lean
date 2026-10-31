@@ -1,4 +1,0 @@
-import ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_6db03351f5d34ffeb979aa1f3d18ae44
-
-namespace PaperProofTasks.paper_fresh_20261030t143835550708z_hulc
-

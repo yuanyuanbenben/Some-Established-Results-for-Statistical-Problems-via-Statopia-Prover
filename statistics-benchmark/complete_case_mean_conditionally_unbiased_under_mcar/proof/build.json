@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "key": "statistics/complete_case_mean_conditionally_unbiased_under_mcar",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q23.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q23.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q23.ProvedNodes.Node_1923180180_68958706_371c8cfc",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q23.ProvedNodes.Node_218960510_6a22949f_13b0337f",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q23.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q23.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q23.Main",
+          "declaration": "complete_case_mean_conditionally_unbiased_under_mcar",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "key": "statistics/axial_extrinsic_mean_leading_eigenvector",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q28.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q28.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q28.ProvedNodes.Node_2436574301_d58fdb18_c1a4b65f",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q28.ProvedNodes.Node_1405453512_c5985cf9_b8bbeddd",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q28.ProvedNodes.Node_1531792026_97dcbda1_e69988f0",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q28.ProvedNodes.Node_3205143652_e97c7860_d5bfea8a",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q28.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q28.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q28.Main",
+          "declaration": "axial_extrinsic_mean_leading_eigenvector",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

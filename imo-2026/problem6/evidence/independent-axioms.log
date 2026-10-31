@@ -1,3 +1,0 @@
-note: using toolchain 'leanprover/lean4:v4.28.0-rc1' from override set on '/home/ai4stat/statlib'
-note: to remove: elan override unset --path '/home/ai4stat/statlib' | to suppress: ELAN_NO_OVERRIDE_NOTICE=1
-'main_theorem' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,126 @@
+{
+  "cases": [
+    {
+      "key": "papers/cqr",
+      "source": "src",
+      "modules": [
+        "ProverJobs.cqr_001_split_miscoverage_subset_strict_lower_rank_event.Main",
+        "ProverJobs.cqr_002_strict_lower_rank_event_cardinality_bound.Main",
+        "ProverJobs.cqr_003_rank_event_measure_bound_of_equiprobable.Main",
+        "ProverJobs.cqr_004_rank_events_equiprobable_of_score_exchangeable.Main",
+        "ProverJobs.cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable.Main",
+        "ProverJobs.cqr_006_romano_patterson_candes_cqr_finite_sample_miscoverage_bound.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.cqr_006_romano_patterson_candes_cqr_finite_sample_miscoverage_bound.Main",
+          "declaration": "Statlib.Workspace.Conformal.cqr_006_romano_patterson_candes_cqr_finite_sample_miscoverage_bound",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.cqr_001_split_miscoverage_subset_strict_lower_rank_event.Main",
+          "declaration": "Statlib.Workspace.Conformal.cqr_001_split_miscoverage_subset_strict_lower_rank_event",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.cqr_002_strict_lower_rank_event_cardinality_bound.Main",
+          "declaration": "Statlib.Workspace.Conformal.cqr_002_strict_lower_rank_event_cardinality_bound",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.cqr_003_rank_event_measure_bound_of_equiprobable.Main",
+          "declaration": "Statlib.Workspace.Conformal.cqr_003_rank_event_measure_bound_of_equiprobable",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.cqr_004_rank_events_equiprobable_of_score_exchangeable.Main",
+          "declaration": "Statlib.Workspace.Conformal.cqr_004_rank_events_equiprobable_of_score_exchangeable",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable.Main",
+          "declaration": "Statlib.Workspace.Conformal.cqr_005_split_conformal_score_miscoverage_bound_of_exchangeable",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Statistics.Conformal",
+          "Statlib.Nonparametric.Vocabulary.ConformalQuantileRegression"
+        ],
+        "module": "Statlib.Nonparametric.ConformalQuantileRegression",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/Nonparametric/ConformalQuantileRegression.olean",
+            "sha256": "adae23daa120cef497ddb3d73489f84a3cbc26295a68970f0a65fd105f7062e6",
+            "bytes": 122872
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.Nonparametric.Vocabulary.ConformalQuantileRegression",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/Nonparametric/Vocabulary/ConformalQuantileRegression.olean",
+            "sha256": "8d4665100c414355a26f3ff7bd36c4a90091edaf850dca555f933ab98ae834de",
+            "bytes": 71312
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Statlib.StatFoundation.Vocabulary.Conformal"
+        ],
+        "module": "Statlib.StatFoundation.Statistics.Conformal",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Statistics/Conformal.olean",
+            "sha256": "44fe7b5dff9826fd830cc14bdb833e7a75618f05bef328ead7b92d22225bb58a",
+            "bytes": 115512
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.Independence"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.Conformal",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/Conformal.olean",
+            "sha256": "28cc6440166ecd1c88908055f0ef53e67247b448c20f16a3cac2b941e14d57c0",
+            "bytes": 77104
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.Independence",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/Independence.olean",
+            "sha256": "1a77d0dd36c329f15895d1b66c52cc7d743d5c477e0939251b77f22493d6253c",
+            "bytes": 55216
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

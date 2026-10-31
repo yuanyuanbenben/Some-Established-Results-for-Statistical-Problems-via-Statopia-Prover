@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "key": "imo/problem1",
+      "source": "src",
+      "modules": [
+        "ProverJobs.real_main_theorem_f979009c9fbd.Vocabulary",
+        "ProverJobs.real_main_theorem_f979009c9fbd.Base",
+        "ProverJobs.real_main_theorem_f979009c9fbd.ProvedNodes.Node_1605230802_c7534198_daca97f6",
+        "ProverJobs.real_main_theorem_f979009c9fbd.ProvedNodes.Node_571599843_c7abf9a7_16b1ea46",
+        "ProverJobs.real_main_theorem_f979009c9fbd.ProvedNodes.Node_1700959973_f12e7196_95d3dbaf",
+        "ProverJobs.real_main_theorem_f979009c9fbd.ProvedNodes.Node_1799194065_328e73c0_a2f9c43e",
+        "ProverJobs.real_main_theorem_f979009c9fbd.ProvedNodes.Node_3256552224_5ffbc5d4_c887b752",
+        "ProverJobs.real_main_theorem_f979009c9fbd.ProvedNodes.Node_2196151784_b06f43aa_d71a20bb",
+        "ProverJobs.real_main_theorem_f979009c9fbd.ProvedNodes.Node_2501567596_37502bdc_e945184d",
+        "ProverJobs.real_main_theorem_f979009c9fbd.ProvedNodes.Node_2804265859_24cd4c8c_c2d11e57",
+        "ProverJobs.real_main_theorem_f979009c9fbd.MainSupport",
+        "ProverJobs.real_main_theorem_f979009c9fbd.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.real_main_theorem_f979009c9fbd.Main",
+          "declaration": "main_theorem",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

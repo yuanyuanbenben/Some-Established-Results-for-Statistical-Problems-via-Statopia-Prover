@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "key": "statistics/unbiasedness_and_mse_poisson_estimator",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q20.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q20.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q20.ProvedNodes.Node_3985505336_4606d4cd_e2219df6",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q20.ProvedNodes.Node_4171527340_5abf08e7_cb6a2334",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q20.ProvedNodes.Node_4239247027_57d53a0d_95a55ad4",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q20.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q20.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q20.Main",
+          "declaration": "unbiasedness_and_mse_poisson_estimator",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

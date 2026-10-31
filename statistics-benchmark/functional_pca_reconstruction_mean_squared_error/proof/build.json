@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "key": "statistics/functional_pca_reconstruction_mean_squared_error",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.ProvedNodes.Node_1586279299_522770ce_73512733",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.ProvedNodes.Node_2638301687_3687fe5f_29d4ac7c",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.ProvedNodes.Node_714068217_742cf005_d2274bfe",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.ProvedNodes.Node_2870967343_8e3526df_c0be3033",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.ProvedNodes.Node_2667375641_f736d674_e0c24ec2",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.ProvedNodes.Node_2687649175_9357fdde_b7572b89",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q11.Main",
+          "declaration": "functional_pca_reconstruction_mean_squared_error",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

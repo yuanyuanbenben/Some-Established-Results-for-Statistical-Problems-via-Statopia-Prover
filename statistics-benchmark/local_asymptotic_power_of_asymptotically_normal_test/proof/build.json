@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "key": "statistics/local_asymptotic_power_of_asymptotically_normal_test",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q36.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q36.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q36.ProvedNodes.Node_4054383514_ec564b99_5f9e363c",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q36.ProvedNodes.Node_1208565295_ba30b8ee_90fb75a8",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q36.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q36.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q36.Main",
+          "declaration": "local_asymptotic_power_of_asymptotically_normal_test",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

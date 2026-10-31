@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "key": "statistics/brier_score_calibration_decomposition",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q33.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q33.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q33.ProvedNodes.Node_1457182788_f9803ee7_6f4b3769",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q33.ProvedNodes.Node_1747001620_9add0747_06a30b6b",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q33.ProvedNodes.Node_465308033_d7010796_94e72a0d",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q33.ProvedNodes.Node_958340259_479a840d_768872c6",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q33.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q33.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q33.Main",
+          "declaration": "Msc62GroundTruth.brier_score_calibration_decomposition",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

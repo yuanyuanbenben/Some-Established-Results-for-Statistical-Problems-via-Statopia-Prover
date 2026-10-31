@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "key": "statistics/ridge_regression_mean_squared_error",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.ProvedNodes.Node_3749075562_82ca6ac8_7fe8f0fc",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.ProvedNodes.Node_1402057802_aa0b1c9d_a4aa6bfa",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.ProvedNodes.Node_1521777629_f3d38e95_46a080ee",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.ProvedNodes.Node_803344359_2bd487f3_989f23a6",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.ProvedNodes.Node_2978562146_47ebeab7_a33212d3",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.ProvedNodes.Node_4216094757_85bc2c28_e3f0953d",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q26.Main",
+          "declaration": "ridge_regression_mean_squared_error",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

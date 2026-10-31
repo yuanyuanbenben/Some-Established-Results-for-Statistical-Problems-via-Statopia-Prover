@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-18T04:04:06.440Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q31/experiment/runs/20261018T030303Z-cox_risk_set_probability_for_exponential_times-6b8b48ca",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q31",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q31",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q31/experiment/runs/20261018T030303Z-cox_risk_set_probability_for_exponential_times-6b8b48ca/job_snapshot",
-  "publishedCheckpointDir": null
-}

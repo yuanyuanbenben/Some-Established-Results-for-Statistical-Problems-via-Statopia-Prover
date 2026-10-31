@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-18T02:26:51.975Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q27/experiment/runs/20261018T013427Z-tikhonov_risk_bound_functional_linear_regression-986f0940",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q27",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q27",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q27/experiment/runs/20261018T013427Z-tikhonov_risk_bound_functional_linear_regression-986f0940/job_snapshot",
-  "publishedCheckpointDir": null
-}

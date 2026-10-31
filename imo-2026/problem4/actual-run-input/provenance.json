@@ -1,7 +1,0 @@
-{
-  "inputPath": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_p4_guided_20260926T102000Z/imo2026_p4/input/input.lean",
-  "inputHash": "d98b6c0d798282acbb9b1dd3419b918e615face62f4673ce5bc785ff73664735",
-  "sourceProofFile": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_p4_guided_20260926T102000Z/imo2026_p4/input/proof.md",
-  "sourceProofBytes": 10658,
-  "initialMathRouteFile": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_p4_guided_20260926T102000Z/imo2026_p4/input/math-route.json"
-}

@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "key": "statistics/kernel_density_mean_variance",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q10.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q10.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q10.ProvedNodes.Node_710480633_ddaff62b_787260ba",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q10.ProvedNodes.Node_3645602145_3d919080_1492d3c8",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q10.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q10.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q10.Main",
+          "declaration": "kernel_density_mean_variance",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

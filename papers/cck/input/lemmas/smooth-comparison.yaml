@@ -1,0 +1,379 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:c834e0c2-feb9-43f2-a741-a0d465ad0f1f
+    title: paper_ea9c51e8f7d246ef967b6629540eeb01
+    kind: lemma
+    latex_statement: |-
+      Here \(F_\beta(z)=\beta^{-1}\log(\sum_{j=1}^p e^{\beta z_j})\) for \(z=(z_1,\dots,z_p)^T\in\mathbb R^p\) and \(\beta>0\) is the smooth max, and \(\Delta\) is the entrywise maximum absolute covariance difference:
+      \[
+      \Delta:=\max_{1\le j,k\le p}|\sigma^X_{jk}-\sigma^Y_{jk}|,
+      \]
+      where \(\Sigma^X=(\sigma^X_{jk})_{1\le j,k\le p}\) and \(\Sigma^Y=(\sigma^Y_{jk})_{1\le j,k\le p}\) are covariance matrices. The theorem imposes no additional hypothesis \(p\ge2\) and no positivity condition on the variances \(\sigma^Y_{jj}\). It requires \(g\in C^2(\mathbb R)\) with finite first and second derivative sup-norms and \(\beta>0\). We write \(\|g\|_\infty:=\sup_{z\in\mathbb R}|g(z)|\). A centered Gaussian random vector is a mean-zero Gaussian random vector. The coordinatewise maximum is \(\max_{1\le j\le p} z_j\). Expectations are taken on the probability space fixed in the paper’s Notation section.
+
+      <!-- formalization-clarifications:v1:4565e7869bea20faa4134b0a0aa398ce66d149856fdb3dd55e6c375bc43ff0cb -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The target is Theorem theorem:comparison in main.tex, with supporting lemmas in supp.tex. Explicitly, \(p\) is a positive integer; \(X,Y\) are centered Gaussian random vectors in \(\mathbb R^p\) with covariance matrices \(\Sigma^X,\Sigma^Y\); \(\beta>0\); and \(g\in C^2(\mathbb R)\) satisfies \(\|g'\|_\infty\vee\|g''\|_\infty<\infty\). The intended universal statement is: for every such \(p,X,Y\), every \(\beta>0\), and every such \(g\), the displayed comparison inequalities hold. There is no existential “constant \(C\)” in the theorem: the numerical coefficients \(1/2,1,2\) are universal, while the coefficient \(\|g''\|_\infty/2+\beta\|g'\|_\infty\) is explicitly allowed to depend on \(g\) and \(\beta\), and the extra term \(2\beta^{-1}\|g'\|_\infty\log p\) depends on \(g,\beta,p\). The quantity \(\Delta\) depends on \(p,X,Y\). No hidden dependence on \(p\), the covariance matrices, or the Gaussian laws is needed beyond these explicit terms. The theorem itself does not impose uniformity over \(\beta\); the minimization over \(\beta\) appears only in the following Remark in main.tex and is not part of Theorem theorem:comparison. Also, the theorem does not require \(p\ge2\) or \(\sigma^Y_{jj}>0\); those hypotheses appear later in Theorem cor: distances Gaussian to Gaussian, so do not import them here. The source does not specify the joint law/coupling of \(X,Y\) in the theorem; the proof’s “Without loss of generality, assume \(X\) and \(Y\) are independent” is a proof-based reduction by distributional invariance, not an additional hypothesis. For cited results: Lemma lemma: talagrand (supp.tex, attributed there to Talagrand 2003 §A.6, Chen–Goldstein–Shao 2011, and Stein 1981) is a universal Stein identity with no constants and no dependence on the target application; it applies to any centered Gaussian \(W\) in \(\mathbb R^p\) and \(C^1\) \(f\) with \(\mathbb E|\partial_j f(W)|<\infty\). Lemma lemma: smooth max property and Lemma lemma: second deriv m (supp.tex) are deterministic pointwise identities for all positive \(p\), \(\beta>0\), and \(z\in\mathbb R^p\), with the universal constant \(2\) in \(\sum_{j,k}|w_{jk}(z)|\le2\); the first derivative identity is attributed there to Chatterjee 2005b, and the remaining facts to direct calculation.
+
+      2. Norms and mathematical objects. The only function norms in the target are sup norms on \(\mathbb R\): main.tex Notation defines \(\|g\|_\infty=\sup_{z\in\mathbb R}|g(z)|\), and \(\|g'\|_\infty,\|g''\|_\infty\) are the same sup norms of ordinary derivatives. The relation \(a\vee b=\max\{a,b\}\) is defined in main.tex Notation; it is not logical disjunction. The theorem requires bounded first and second derivatives, not bounded \(g\) itself. The covariance difference is the entrywise maximum absolute difference
+      \[
+      \Delta=\max_{1\le j,k\le p}|\sigma^X_{jk}-\sigma^Y_{jk}|,
+      \]
+      not an operator norm, Frobenius norm, Euclidean norm, or normalized matrix norm. Since \(X,Y\) are centered, \(\sigma^X_{jk}=\mathbb E[X_jX_k]\) and similarly for \(Y\); the source does not require positive variances or equality of diagonal entries. The maximum in the consequence is the coordinatewise maximum \(\max_{1\le j\le p} z_j\), not \(\max_j|z_j|\) and not an \(L^\infty\) norm of a vector. The smooth max is exactly
+      \[
+      F_\beta(z)=\beta^{-1}\log\Bigl(\sum_{j=1}^p e^{\beta z_j}\Bigr),\qquad \beta>0,
+      \]
+      with the sum, not an average; replacing it by \(\beta^{-1}\log(p^{-1}\sum_j e^{\beta z_j})\) changes the approximation term. The auxiliary objects in the proof are \(\pi_j(z)=e^{\beta z_j}/\sum_{\ell=1}^p e^{\beta z_\ell}\), \(w_{jk}(z)=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z)\), and \(m=g\circ F_\beta\); \(1(j=k)\) is the indicator of equality. Lemma lemma: smooth max property gives pointwise \(\pi_j\ge0\), \(\sum_j\pi_j=1\), and \(\sum_{j,k}|w_{jk}|\le2\). The source does not use a vector norm in the target theorem. In the proof, the Stein identity is applied to an auxiliary vector of length \(p+1\), \(W=(t^{-1/2}X_j-(1-t)^{-1/2}Y_j,Z(t)^T)^T\), with \(f(W)=\partial_j m(Z(t))\); this auxiliary \(W\) should not be confused with the original \(p\)-dimensional Gaussian vectors.
+
+      3. Asymptotics. Theorem theorem:comparison is a finite-dimensional, non-asymptotic inequality: \(p\) is a fixed positive integer, \(\beta\) is a fixed positive smoothing parameter, and there is no \(O\), \(o\), \(o_{\Pr}\), convergence filter, or limiting variable in the theorem. The \(\log p\) term in the second inequality is exact for the given finite \(p\). The source’s surrounding prose saying the bound depends on dimension only through \(\log p\) is explanatory; it does not assert an asymptotic rate theorem. The Remark after main.tex Theorem theorem:comparison minimizes the second bound over \(\beta>0\) and gives the separate explicit bound \(\|g''\|_\infty\Delta/2+2\|g'\|_\infty\sqrt{2\Delta\log p}\); that optimization is not part of the target theorem and allows \(\beta\) to be chosen after \(p,\Delta,g\). Other asymptotic notation such as \(o_{\Pr}(1)\) in main.tex belongs to later multiplier-bootstrap results, not to this target theorem. The proof integrates over \(t\in[0,1]\); the source does not discuss endpoint singularities of \(t^{-1/2}\) or \((1-t)^{-1/2}\) or the justification for differentiating under the expectation. Those are proof-level technical omissions, not asymptotic hypotheses.
+
+      4. Omitted definitions and side conditions. main.tex Notation fixes the probability space \((\Omega,\mathcal F,\Pr)\) and uses \(\mathbb E\) for expectation; “centered Gaussian” means mean-zero Gaussian, as stated in the selected Definitions. The covariance entries are those of the centered Gaussian vectors. The source does not explicitly define degenerate Gaussian vectors, but Theorem theorem:comparison contains no positivity condition on variances and no \(p\ge2\) condition; the later distribution-comparison theorem explicitly adds \(p\ge2\) and \(\sigma^Y_{jj}>0\), so those must not be imported into the target. The determinant quantity \(\Delta\) may be zero; no positivity of \(\Delta\) is assumed in the target. The assumption \(g\in C^2(\mathbb R)\) and bounded \(g',g''\) suffices for the proof’s Stein and chain-rule use; the source does not explicitly verify the Stein integrability condition for the augmented vector, but bounded \(m\)-derivatives and Gaussian integrability make it a proof-based inference. The proof’s WLOG independence and its use of \(\mathbb E[X_jY_k]=0\) should be justified as above by replacing \(X,Y\) with independent copies having the same marginals; the theorem statement itself does not assert independence. The exact smooth-max approximation used in the proof is explicitly supplied in main.tex as equation \eqref{eq: smooth max property}: \(0\le F_\beta(z)-\max_{1\le j\le p}z_j\le\beta^{-1}\log p\) for all \(z\in\mathbb R^p\), with \(\beta>0\) and positive integer \(p\); the selected proof correctly uses this for \(p=1\) as well. The logarithm is the ordinary logarithm inverse to the exponential appearing in the definition of \(F_\beta\).
+      <!-- /formalization-clarifications -->
+
+      \[
+      \left|\mathbb E[g(F_\beta(X))-g(F_\beta(Y))]\right|\le \left(\frac{\|g''\|_\infty}{2}+\beta\|g'\|_\infty\right)\Delta.
+      \]
+      Consequently,
+      \[
+      \left|\mathbb E\left[g\left(\max_{1\le j\le p}X_j\right)-g\left(\max_{1\le j\le p}Y_j\right)\right]\right|\le \left(\frac{\|g''\|_\infty}{2}+\beta\|g'\|_\infty\right)\Delta+2\beta^{-1}\|g'\|_\infty\log p.
+      \]
+    assumptions:
+      - |-
+        - \(p\) is a positive integer.
+        - \(X=(X_1,\dots,X_p)^T\) and \(Y=(Y_1,\dots,Y_p)^T\) are centered Gaussian random vectors in \(\mathbb R^p\) with covariance matrices \(\Sigma^X=(\sigma^X_{jk})_{1\le j,k\le p}\) and \(\Sigma^Y=(\sigma^Y_{jk})_{1\le j,k\le p}\).
+        - \(\beta>0\).
+        - \(g\in C^2(\mathbb R)\) satisfies \(\|g'\|_\infty\vee\|g''\|_\infty<\infty\).
+    proof_body: |-
+      ### Definitions and notation used in Proof
+      Write \(\partial_j f(z)=\partial f(z)/\partial z_j\). For \(z\in\mathbb R^p\), define
+      \[
+      \pi_j(z)=\frac{e^{\beta z_j}}{\sum_{\ell=1}^p e^{\beta z_\ell}},
+      \qquad
+      w_{jk}(z)=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z).
+      \]
+      For \(g\in C^2(\mathbb R)\), set \(m:=g\circ F_\beta\).
+
+      ### Proof
+      We use Stein’s identity [ref:R1]: for a centered Gaussian vector \(W=(W_1,\dots,W_p)^T\) and a \(C^1\)-function \(f\) with \(\mathbb E|\partial_j f(W)|<\infty\),
+      \[
+      \mathbb E[W_j f(W)]
+      =\sum_{k=1}^p \mathbb E[W_jW_k]\mathbb E[\partial_k f(W)].
+      \]
+      We also use the smooth-max derivative formulas [ref:R2]:
+      \[
+      \partial_j F_\beta(z)=\pi_j(z),\qquad
+      \partial_j\partial_k F_\beta(z)=\beta w_{jk}(z),
+      \]
+      and
+      \[
+      \sum_{j=1}^p \pi_j(z)=1,\qquad
+      \sum_{j,k=1}^p |w_{jk}(z)|\le 2.
+      \]
+      For \(m=g\circ F_\beta\), the chain rule gives [ref:R3]
+      \[
+      \partial_j\partial_k m(z)
+      =(g''\circ F_\beta)(z)\pi_j(z)\pi_k(z)
+      +\beta (g'\circ F_\beta)(z)w_{jk}(z).
+      \]
+      Without loss of generality, assume \(X\) and \(Y\) are independent, so that \(\mathbb E[X_jY_k]=0\) for all \(j,k\). Define the Slepian interpolation
+      \[
+      Z(t):=\sqrt{t}\,X+\sqrt{1-t}\,Y,\qquad t\in[0,1],
+      \]
+      and set
+      \[
+      \Psi(t):=\mathbb E[m(Z(t))].
+      \]
+      Then
+      \[
+      |\mathbb E[m(X)]-\mathbb E[m(Y)]|
+      =|\Psi(1)-\Psi(0)|
+      =\left|\int_0^1 \Psi'(t)\,dt\right|.
+      \]
+      Differentiating and applying Stein’s identity [ref:R1] with
+      \[
+      W=\bigl(t^{-1/2}X_j-(1-t)^{-1/2}Y_j,Z(t)^T\bigr)^T,
+      \qquad f(W)=\partial_j m(Z(t)),
+      \]
+      we obtain
+      \[
+      \Psi'(t)
+      =\frac12\sum_{j=1}^p\mathbb E\!\left[\partial_j m(Z(t))
+      \bigl(t^{-1/2}X_j-(1-t)^{-1/2}Y_j\bigr)\right]
+      =\frac12\sum_{j=1}^p\sum_{k=1}^p
+      (\sigma^X_{jk}-\sigma^Y_{jk})
+      \mathbb E[\partial_j\partial_k m(Z(t))].
+      \]
+      Hence
+      \[
+      \begin{aligned}
+      \left|\int_0^1 \Psi'(t)\,dt\right|
+      &\le \frac12\sum_{j,k=1}^p
+      |\sigma^X_{jk}-\sigma^Y_{jk}|
+      \left|\int_0^1\mathbb E[\partial_j\partial_k m(Z(t))]\,dt\right|\\
+      &\le \frac{\Delta}{2}\int_0^1
+      \sum_{j,k=1}^p
+      \left|\mathbb E[\partial_j\partial_k m(Z(t))]\right|dt.
+      \end{aligned}
+      \]
+      Using the displayed formula for \(\partial_j\partial_k m\),
+      \[
+      \sum_{j,k=1}^p |\partial_j\partial_k m(Z(t))|
+      \le |(g''\circ F_\beta)(Z(t))|
+      +2\beta |(g'\circ F_\beta)(Z(t))|.
+      \]
+      Therefore
+      \[
+      \begin{aligned}
+      |\mathbb E[g(F_\beta(X))-g(F_\beta(Y))]|
+      &\le \Delta\left(
+      \frac12\|g''\|_\infty+\beta\|g'\|_\infty
+      \right).
+      \end{aligned}
+      \]
+      This proves the first assertion.
+
+      For the second assertion, use the smooth-max approximation
+      \[
+      0\le F_\beta(z)-\max_{1\le j\le p}z_j
+      \le \beta^{-1}\log p,\qquad z\in\mathbb R^p.
+      \]
+      Since \(g\) is Lipschitz with constant \(\|g'\|_\infty\),
+      \[
+      \begin{aligned}
+      &\left|\mathbb E\left[g\!\left(\max_{1\le j\le p}X_j\right)
+      -g\!\left(\max_{1\le j\le p}Y_j\right)\right]\right|\\
+      &\le 
+      \left|\mathbb E[g(F_\beta(X))-g(F_\beta(Y))]\right|
+      +2\beta^{-1}\|g'\|_\infty\log p\\
+      &\le
+      \left(\frac{\|g''\|_\infty}{2}+\beta\|g'\|_\infty\right)\Delta
+      +2\beta^{-1}\|g'\|_\infty\log p.
+      \end{aligned}
+      \]
+      This completes the proof.
+
+      ### References
+      #### Reference R1
+      Target: Lemma \ref{lemma: talagrand} (Stein's identity)
+      Citation: “We shall use the following version of Stein's identity. Lemma \ref{lemma: talagrand} Let \(W=(W_1,\dots,W_p)^T\) be a centered Gaussian random vector in \(\mathbb R^p\). Let \(f:\mathbb R^p\to\mathbb R\) be a \(C^1\)-function such that \(\mathbb E[|\partial_j f(W)|]<\infty\) for all \(1\le j\le p\). Then for every \(1\le j\le p\), \(\mathbb E[W_jf(W)]=\sum_{k=1}^p\mathbb E[W_jW_k]\mathbb E[\partial_k f(W)]\).” In the proof of Theorem \ref{theorem:comparison}: “where the second equality follows from applying Lemma \ref{lemma: talagrand} to \(W=(t^{-1/2}X_j-(1-t)^{-1/2}Y_j,Z(t)^T)^T\) and \(f(W)=\partial_j m(Z(t))\).” The source proof of the lemma states: “See Section A.6 of \cite{Talagrand2003}; also \cite{ChenGoldsteinShao2011} and \cite{Stein1981}.”
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from the supplement file D1, in Section “Proofs for Section \ref{sec: Gaus and multiplier}”, immediately after the notation sentence introducing partial derivatives and before the smooth-max lemmas. The displayed result is labeled Lemma \ref{lemma: talagrand} and is titled “Stein’s identity.” Its proof in the source says: “See Section A.6 of \cite{Talagrand2003}; also \cite{ChenGoldsteinShao2011} and \cite{Stein1981}.” Thus the local supplement gives the complete displayed statement, while attributing its external origin to Talagrand (2003), Chen–Goldstein–Shao (2011), and Stein (1981); those external sources were not retrieved here. The lemma supplies the Stein identity invoked in the proof passage cited for the target theorem. No additional independently stated result is needed to organize this cited identity.
+
+      ##### Lemma [lemma: talagrand] (Stein's identity)
+
+      ###### Definitions and notation
+      Let \(p\) be a positive integer. Write
+      \[
+      W=(W_1,\dots,W_p)^T\in\mathbb R^p,
+      \qquad
+      z=(z_1,\dots,z_p)^T,
+      \]
+      and, for a smooth function \(f:\mathbb R^p\to\mathbb R\), define
+      \[
+      \partial_j f(z)=\frac{\partial f(z)}{\partial z_j}.
+      \]
+      The symbol \(\mathbb E\) denotes expectation. A centered Gaussian random vector is a mean-zero Gaussian random vector in \(\mathbb R^p\). A \(C^1\)-function is a continuously differentiable function. In the displayed identity in the Statement, \(\mathbb E[W_jW_k]\) is the \((j,k)\)-entry of the covariance matrix of \(W\), since \(W\) is centered.
+
+      ###### Assumptions
+      - \(W=(W_1,\dots,W_p)^T\) is a centered Gaussian random vector in \(\mathbb R^p\).
+      - \(f:\mathbb R^p\to\mathbb R\) is a \(C^1\)-function.
+      - For every \(1\le j\le p\),
+        \[
+        \mathbb E\bigl[|\partial_j f(W)|\bigr]<\infty.
+        \]
+
+      ###### Statement
+      For every \(1\le j\le p\),
+      \[
+      \mathbb E[W_jf(W)]
+      =
+      \sum_{k=1}^p \mathbb E[W_jW_k]\,\mathbb E[\partial_k f(W)].
+      \]
+
+      #### Reference R2
+      Target: Lemma \ref{lemma: smooth max property}
+      Citation: “We will use the following properties of the smooth max function. Lemma \ref{lemma: smooth max property} For every \(1\le j,k\le p\), \(\partial_jF_\beta(z)=\pi_j(z),\ \partial_j\partial_kF_\beta(z)=\beta w_{jk}(z)\), where \(\pi_j(z)=e^{\beta z_j}/\sum_{m=1}^pe^{\beta z_m}\) and \(w_{jk}(z)=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z)\). Moreover, \(\pi_j(z)\ge0,\ \sum_{j=1}^p\pi_j(z)=1,\ \sum_{j,k=1}^p|w_{jk}(z)|\le2\).” In the proof of Theorem \ref{theorem:comparison}: “By Lemmas \ref{lemma: smooth max property} and \ref{lemma: second deriv m}, \(\sum_{j,k=1}^p|\partial_j\partial_k m(Z(t))|\le |(g''\circ F_\beta)(Z(t))|+2\beta|(g'\circ F_\beta)(Z(t))|\).” The source proof of the lemma states: “The first property was noted in \cite{Chatterjee2005b}. The other properties follow from a direct calculation.”
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D1 (supplement, `supp.tex`), Section “Proofs for Section \ref{sec: Gaus and multiplier}”, subsection “Proof of Theorem \ref{theorem:comparison}”. The named result is Lemma \ref{lemma: smooth max property} in D1. The same passage supplies Lemma \ref{lemma: second deriv m} and the smooth-max approximation inequality referenced as `(\ref{eq: smooth max property})`, both independently used in the Citation’s application inside the proof of Theorem \ref{theorem:comparison}; these are preserved as separate additional results. Attribution in the source: the first derivative property “was noted in \cite{Chatterjee2005b}”; the remaining properties “follow from a direct calculation.” No external original beyond D1 was obtained (the attempted reading of main.tex D2 failed as the source was unavailable), so no main-article statement of `(\ref{eq: smooth max property})` was retrieved; its content is taken from the proof passage of D1. This extraction supports the target’s use of the smooth-max derivative formulas and the bound $\sum_{j,k}|\partial_j\partial_k m|\le |g''\circ F_\beta|+2\beta|g'\circ F_\beta|$; no bridge or discharge of application conditions is asserted.
+
+      ##### Lemma \ref{lemma: smooth max property}
+
+      ###### Definitions and notation
+      For a smooth function \(f:\mathbb R^{p}\to\mathbb R\), write
+      \[
+      \partial_{j} f (z) = \frac{\partial f(z)}{\partial z_{j}}
+      \]
+      for \(z = (z_{1},\dots,z_{p})^{T}\).
+
+      The smooth max function is denoted by \(F_{\beta}\). For \(z\in\mathbb R^p\), define
+      \[
+      \pi_{j}(z) := \frac{e^{\beta z_{j}}}{\sum_{m=1}^p e^{\beta z_m}},
+      \qquad
+      w_{jk}(z) := 1(j = k)\pi_{j}(z)- \pi_{j}(z) \pi_{k}(z),
+      \]
+      where \(1(j=k)\) is the indicator of \(j=k\).
+
+      ###### Assumptions
+      \(1\le j,k\le p\), with \(z=(z_1,\dots,z_p)^T\in\mathbb R^p\) (the displayed identities hold for every such \(j,k,z\)). No further hypothesis is stated in the source lemma.
+
+      ###### Statement
+      For every \(1 \leq j,k \leq p\),
+      \[
+       \partial_{j} F_{\beta}(z) = \pi_{j}(z), \quad \partial_{j} \partial_k F_{\beta}(z) = \beta w_{jk} (z),
+      \]
+      where \(\pi_j\) and \(w_{jk}\) are as defined above. Moreover,
+      \[
+      \pi_{j}(z) \geq 0, \quad \sum_{j=1}^p \pi_{j} (z) = 1, \quad \sum_{j,k=1}^p |w_{jk}(z)|  \leq 2.
+      \]
+
+      ##### Lemma \ref{lemma: second deriv m}
+
+      ###### Definitions and notation
+      Let \(m := g \circ F_{\beta}\) with \(g \in C^{2}(\mathbb R)\), and let \(\pi_{j}\) and \(w_{jk}\) be as defined in Lemma \ref{lemma: smooth max property}, namely
+      \[
+      \pi_{j}(z) = \frac{e^{\beta z_{j}}}{\sum_{m=1}^p e^{\beta z_m}},
+      \qquad
+      w_{jk}(z) = 1(j = k)\pi_{j}(z)- \pi_{j}(z) \pi_{k}(z).
+      \]
+      As above, \(\partial_{j} f (z) = \partial f(z)/\partial z_{j}\).
+
+      ###### Assumptions
+      \(g \in C^{2}(\mathbb R)\) and \(m = g\circ F_\beta\). The identity is asserted for every \(1\le j,k\le p\) and \(z\in\mathbb R^p\).
+
+      ###### Statement
+      For every \(1 \leq j,k \leq p\),
+      \[
+      \partial_{j} \partial_k m(z) =   (g'' \circ F_\beta) (z) \pi_{j} (z) \pi_{k} (z)+ \beta (g' \circ F_\beta) (z) w_{jk}(z),
+      \]
+      where \(\pi_{j}\) and \(w_{jk}\) are defined in Lemma \ref{lemma: smooth max property}.
+
+      ##### Smooth-max approximation inequality (source label `(\ref{eq: smooth max property})`)
+
+      ###### Definitions and notation
+      \(F_\beta(z)=\beta^{-1}\log(\sum_{j=1}^p e^{\beta z_j})\) is the smooth max of \(z=(z_1,\dots,z_p)^T\), and \(\max_{1\le j\le p} z_j\) is the coordinatewise maximum. The source refers to this displayed inequality as “the inequality \((\ref{eq: smooth max property})\)”; its displayed form is not reproduced in the obtained D1 passage (it is presumably displayed in the main file, which was not available), and it is invoked in D1 only by that label.
+
+      ###### Assumptions
+      The inequality is stated in D1 for \(z\in\mathbb R^p\). The exact displayed formula and any accompanying conditions are not present in the obtained D1 text; only its use in the proof of Theorem \(\ref{theorem:comparison}\) is supplied. The needed content is recorded below as a specific missing-source gap rather than reconstructed.
+
+      ###### Statement
+      Missing source information: the displayed inequality labelled `\((\ref{eq: smooth max property})\)` is not contained in the obtained source material. D1 states only: “The second assertion follows from the inequality \((\ref{eq: smooth max property})\).” The current target’s Proof context uses the specialization \(0\le F_\beta(z)-\max_{1\le j\le p}z_j\le \beta^{-1}\log p\) for \(z\in\mathbb R^p\); this specialization is part of the read-only current Proof, not a retrieved external statement, and the source displays for it were not obtained.
+
+      #### Reference R3
+      Target: Lemma \ref{lemma: second deriv m}
+      Citation: “Lemma \ref{lemma: second deriv m} Let \(m:=g\circ F_\beta\) with \(g\in C^2(\mathbb R)\). Then for every \(1\le j,k\le p\), \(\partial_j\partial_k m(z)=(g''\circ F_\beta)(z)\pi_j(z)\pi_k(z)+\beta(g'\circ F_\beta)(z)w_{jk}(z)\), where \(\pi_j\) and \(w_{jk}\) are defined in Lemma \ref{lemma: smooth max property}.” In the proof of Theorem \ref{theorem:comparison}: “By Lemmas \ref{lemma: smooth max property} and \ref{lemma: second deriv m}, \(\sum_{j,k=1}^p|\partial_j\partial_k m(Z(t))|\le |(g''\circ F_\beta)(Z(t))|+2\beta|(g'\circ F_\beta)(Z(t))|\).” The source proof states: “The proof follows from a direct calculation.”
+      Bibliography: supp
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction from D1 (supplement), Section “Proofs for Section \ref{sec: Gaus and multiplier}”, subsection “Proof of Theorem \ref{theorem:comparison}”. The named result is Lemma \ref{lemma: second deriv m}; it supports the current target’s comparison proof by supplying the Hessian formula for \(m=g\circ F_\beta\), which the source uses in the Slepian-interpolation derivative. The same source contains Lemma \ref{lemma: smooth max property}; it is organized below as an additional source result because the citation’s displayed estimate
+      \[
+      \sum_{j,k=1}^p|\partial_j\partial_k m(Z(t))|\le |(g''\circ F_\beta)(Z(t))|+2\beta|(g'\circ F_\beta)(Z(t))|
+      \]
+      directly uses its derivative formulas and sum bounds, as well as its definitions of \(\pi_j\) and \(w_{jk}\). The source proof of Lemma \ref{lemma: second deriv m} says only “The proof follows from a direct calculation”; for Lemma \ref{lemma: smooth max property}, the source says “The first property was noted in \cite{Chatterjee2005b}. The other properties follow from a direct calculation.” The aggregate inequality itself is a proof-level consequence of these two lemmas, not a separately labelled source result, so it is not given its own result group. The base definition \(F_\beta(z)=\beta^{-1}\log\sum_{j=1}^p e^{\beta z_j}\) is supplied by the surrounding target context; D1 uses it without restating it, and D2 was not available for local reading. These lemmas are deterministic and do not require Gaussian, covariance, or variance-positivity hypotheses.
+
+      ##### Lemma \ref{lemma: second deriv m}
+      ###### Definitions and notation
+      For \(z=(z_1,\dots,z_p)^T\in\mathbb R^p\), let
+      \[
+      F_\beta(z):=\beta^{-1}\log\left(\sum_{m=1}^p e^{\beta z_m}\right),\qquad \beta>0,
+      \]
+      be the smooth max. For a smooth function \(f:\mathbb R^p\to\mathbb R\), write
+      \[
+      \partial_j f(z)=\frac{\partial f(z)}{\partial z_j}.
+      \]
+      Define
+      \[
+      \pi_j(z):=\frac{e^{\beta z_j}}{\sum_{m=1}^p e^{\beta z_m}},
+      \qquad
+      w_{jk}(z):=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z),
+      \]
+      where \(1(j=k)=1\) if \(j=k\) and \(0\) otherwise. Here the summation index \(m\) in the denominator is a bound index, distinct from the function \(m=g\circ F_\beta\). The notation \((z)\) denotes evaluation at \(z\). For \(g\in C^2(\mathbb R)\), set
+      \[
+      m:=g\circ F_\beta,
+      \qquad m(z)=g(F_\beta(z)).
+      \]
+      The symbols \(g'\) and \(g''\) denote the ordinary first and second derivatives of \(g\).
+
+      ###### Assumptions
+      Let \(p\) be a positive integer, let \(\beta>0\), let \(g\in C^2(\mathbb R)\), and let \(z\in\mathbb R^p\). Let \(1\le j,k\le p\) be arbitrary indices. No Gaussian distribution, covariance matrix, or positivity condition on variances is assumed; the lemma is a pointwise deterministic identity.
+
+      ###### Statement
+      Let \(m:=g\circ F_\beta\) with \(g\in C^2(\mathbb R)\). Then for every \(z\in\mathbb R^p\) and every \(1\le j,k\le p\),
+      \[
+      \partial_j\partial_k m(z)
+      =(g''\circ F_\beta)(z)\pi_j(z)\pi_k(z)
+      +\beta(g'\circ F_\beta)(z)w_{jk}(z),
+      \]
+      where \(\pi_j\) and \(w_{jk}\) are defined as above and in Lemma \ref{lemma: smooth max property}.
+
+      ##### Lemma \ref{lemma: smooth max property}
+      ###### Definitions and notation
+      For \(z=(z_1,\dots,z_p)^T\in\mathbb R^p\), let
+      \[
+      F_\beta(z):=\beta^{-1}\log\left(\sum_{m=1}^p e^{\beta z_m}\right),\qquad \beta>0.
+      \]
+      For a smooth function \(f:\mathbb R^p\to\mathbb R\), write
+      \[
+      \partial_j f(z)=\frac{\partial f(z)}{\partial z_j}.
+      \]
+      Define
+      \[
+      \pi_j(z):=\frac{e^{\beta z_j}}{\sum_{m=1}^p e^{\beta z_m}},
+      \qquad
+      w_{jk}(z):=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z),
+      \]
+      where \(1(j=k)=1\) if \(j=k\) and \(0\) otherwise. The notation \((z)\) denotes evaluation at \(z\).
+
+      ###### Assumptions
+      Let \(p\) be a positive integer, let \(\beta>0\), and let \(z\in\mathbb R^p\). Let \(1\le j,k\le p\) be arbitrary indices. No Gaussian, covariance, or variance-positivity hypothesis is assumed; the identities and inequalities are pointwise in \(z\).
+
+      ###### Statement
+      For every \(z\in\mathbb R^p\) and every \(1\le j,k\le p\),
+      \[
+      \partial_j F_\beta(z)=\pi_j(z),
+      \qquad
+      \partial_j\partial_k F_\beta(z)=\beta w_{jk}(z),
+      \]
+      where
+      \[
+      \pi_j(z)=\frac{e^{\beta z_j}}{\sum_{m=1}^p e^{\beta z_m}},
+      \qquad
+      w_{jk}(z)=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z).
+      \]
+      Moreover,
+      \[
+      \pi_j(z)\ge 0,
+      \qquad
+      \sum_{j=1}^p \pi_j(z)=1,
+      \qquad
+      \sum_{j,k=1}^p |w_{jk}(z)|\le 2.
+      \]
+    lean_name: paper_ea9c51e8f7d246ef967b6629540eeb01
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: main.tex

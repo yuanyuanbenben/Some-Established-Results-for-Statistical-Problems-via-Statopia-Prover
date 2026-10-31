@@ -1,0 +1,175 @@
+{
+  "cases": [
+    {
+      "key": "papers/hmc/theorem-2.2",
+      "source": "src/theorem-2.2",
+      "modules": [
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.Vocabulary",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.Base",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ExternalNodes.Node_6515c10a3b2a6920f75d",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_1181402470_c76917d4_e33ecdfd",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_2434035012_bf892b59_840b5159",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_3494951458_d9e33482_cc20d841",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_1277695823_4133e1d3_ca2c2343",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_1382433191_3c3c175b_5cc30a56",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_1760066137_9d09a34f_f99c9d1e",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_1514341555_35b36640_9373fa98",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_3672800187_e652fc75_39c024da",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_4216601107_b295b242_d686ddc2",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_2058725449_c65439c0_6cbfcedb",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_2370441094_f2816c1d_79f1d6ed",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_2473568002_d219e28a_0c2a76ae",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_2631634989_f6938273_03115d3b",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_3404074719_54f01d46_a7dd6d8c",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_3566158159_28810915_a20de882",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_60244864_4d03ea71_39f89a4c",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes.Node_987011833_508c1e9b_3cb57f12",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.ProvedNodes",
+        "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.PaperProofInterfaces.Result_r2_efa8fa985bbe48fe90bebe042f1092ee"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.paper_fresh_20261028t224543381z_hmc_22.PaperProofInterfaces.Result_r2_efa8fa985bbe48fe90bebe042f1092ee",
+          "declaration": "PaperProofTasks.paper_fresh_20261028t224543381z_hmc_22.Statlib.Imported.Theorem_2_2_thm_negative_both_parts_i_and_ii_using_v5_with_corrigendum",
+          "allowedAxioms": [
+            "PaperProofTasks.paper_fresh_20261028t224543381z_hmc_22.ext_model_1"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "papers/hmc/theorem-5.14",
+      "source": "src/theorem-5.14",
+      "modules": [
+        "ProverJobs.job_paper_4f562633bddc4ee9afee32ec40dfa0f0.Base",
+        "ProverJobs.job_paper_4f562633bddc4ee9afee32ec40dfa0f0.ProvedNodes",
+        "ProverJobs.job_paper_4f562633bddc4ee9afee32ec40dfa0f0.Vocabulary",
+        "ProverJobs.job_paper_53e951f48c854f4db91e6ecda697ee2b.Base",
+        "ProverJobs.job_paper_53e951f48c854f4db91e6ecda697ee2b.ExternalNodes.Node_f4a8bb342d0a4233af1c",
+        "ProverJobs.job_paper_53e951f48c854f4db91e6ecda697ee2b.ProvedNodes",
+        "ProverJobs.job_paper_53e951f48c854f4db91e6ecda697ee2b.ProvedNodes.Node_1841802883_50746d93_ff08da36",
+        "ProverJobs.job_paper_53e951f48c854f4db91e6ecda697ee2b.ProvedNodes.Node_204287509_2babc882_a5b3181d",
+        "ProverJobs.job_paper_53e951f48c854f4db91e6ecda697ee2b.ProvedNodes.Node_2675730550_7175d3dc_90a64f7e",
+        "ProverJobs.job_paper_53e951f48c854f4db91e6ecda697ee2b.ProvedNodes.Node_2976778130_948d70f1_fe64a026",
+        "ProverJobs.job_paper_53e951f48c854f4db91e6ecda697ee2b.Vocabulary",
+        "ProverJobs.job_paper_7ad7b898530c48b2be48d9fe88a3d538.Base",
+        "ProverJobs.job_paper_7ad7b898530c48b2be48d9fe88a3d538.ProvedNodes",
+        "ProverJobs.job_paper_7ad7b898530c48b2be48d9fe88a3d538.Vocabulary",
+        "ProverJobs.job_paper_a62240be95074e8caf07c24daf22159a.Base",
+        "ProverJobs.job_paper_a62240be95074e8caf07c24daf22159a.ExternalNodes.Node_567cc40dd9e547558ab9",
+        "ProverJobs.job_paper_a62240be95074e8caf07c24daf22159a.ProvedNodes",
+        "ProverJobs.job_paper_a62240be95074e8caf07c24daf22159a.ProvedNodes.Node_1508296774_c3a2de09_b6af2ad8",
+        "ProverJobs.job_paper_a62240be95074e8caf07c24daf22159a.ProvedNodes.Node_3826631765_1f99c1c7_6928e23f",
+        "ProverJobs.job_paper_a62240be95074e8caf07c24daf22159a.Vocabulary",
+        "ProverJobs.job_paper_a9a2ab5d4e094509b2cdb371b3b02f1c.Base",
+        "ProverJobs.job_paper_a9a2ab5d4e094509b2cdb371b3b02f1c.ProvedNodes",
+        "ProverJobs.job_paper_a9a2ab5d4e094509b2cdb371b3b02f1c.ProvedNodes.Node_1980195792_bc5cfc4b_a4f0c978",
+        "ProverJobs.job_paper_a9a2ab5d4e094509b2cdb371b3b02f1c.ProvedNodes.Node_2742352001_844b1090_98f5ce8b",
+        "ProverJobs.job_paper_a9a2ab5d4e094509b2cdb371b3b02f1c.ProvedNodes.Node_787223495_7db0105c_d841aa87",
+        "ProverJobs.job_paper_a9a2ab5d4e094509b2cdb371b3b02f1c.Vocabulary",
+        "ProverJobs.job_paper_b7909512ace54739b0ef8eae60aa82ed.Base",
+        "ProverJobs.job_paper_b7909512ace54739b0ef8eae60aa82ed.ProvedNodes",
+        "ProverJobs.job_paper_b7909512ace54739b0ef8eae60aa82ed.ProvedNodes.Node_120903796_cba0ef30_768cd50a",
+        "ProverJobs.job_paper_b7909512ace54739b0ef8eae60aa82ed.ProvedNodes.Node_3625375570_9c859904_0766658f",
+        "ProverJobs.job_paper_b7909512ace54739b0ef8eae60aa82ed.Vocabulary",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.Base",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ExternalNodes.Node_cfbcd4bc5578482b8771",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_4598ba3bbe264fd0ae3ec2dd30307767",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_5dd9cd994d2449adb01d0a0f42b38c45",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_c98ad05e9014471087e93356330c1538",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_d73899bbfc454de7992b93e067f8c87d",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_f1452eaf9e424e2bb6057a3750b7de24",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r2_388b741cbe374909a3f9937f201e99fc",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r2_6e683b73033e4102a234a951e6932c5e",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_156433356_2ae8be15_b539d48f",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_170196137_a4c2281b_32213050",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_2488397496_e86e6104_3c1855f4",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_2575820610_02f1cc53_62135d8d",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_2756182807_18c8f00c_127f3f92",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_359030125_cafa1cba_3f488281",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_760579675_5c0b5f8c_d5d69200",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_858392357_8c0dfbe1_e730766b",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.ProvedNodes.Node_868581166_a5ae0410_0502f1f7",
+        "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.Vocabulary"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r2_388b741cbe374909a3f9937f201e99fc",
+          "declaration": "PaperProofTasks.paper_fresh_20261028t151409527z_hmc_v5.Statlib.Imported.Theorem_5_14_corrected_statement_and_replacement_proof_in_the_v5_corrigendum_Appendix_D_original_label_thm_light_Use_the",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_4598ba3bbe264fd0ae3ec2dd30307767",
+          "declaration": "PaperProofTasks.job_paper_a9a2ab5d4e094509b2cdb371b3b02f1c.Statlib.Imported.paper_a9a2ab5d4e094509b2cdb371b3b02f1c",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_5dd9cd994d2449adb01d0a0f42b38c45",
+          "declaration": "PaperProofTasks.job_paper_a62240be95074e8caf07c24daf22159a.Statlib.Imported.paper_a62240be95074e8caf07c24daf22159a",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_c98ad05e9014471087e93356330c1538",
+          "declaration": "PaperProofTasks.job_paper_53e951f48c854f4db91e6ecda697ee2b.Statlib.Imported.paper_53e951f48c854f4db91e6ecda697ee2b",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_d73899bbfc454de7992b93e067f8c87d",
+          "declaration": "PaperProofTasks.job_paper_b7909512ace54739b0ef8eae60aa82ed.Statlib.Imported.paper_b7909512ace54739b0ef8eae60aa82ed",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r1_f1452eaf9e424e2bb6057a3750b7de24",
+          "declaration": "PaperProofTasks.job_paper_4f562633bddc4ee9afee32ec40dfa0f0.Statlib.Imported.paper_4f562633bddc4ee9afee32ec40dfa0f0",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261028t151409527z_hmc_v5.PaperProofInterfaces.Result_r2_6e683b73033e4102a234a951e6932c5e",
+          "declaration": "PaperProofTasks.job_paper_7ad7b898530c48b2be48d9fe88a3d538.Statlib.Imported.paper_7ad7b898530c48b2be48d9fe88a3d538",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.MomentType.Markov",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/MomentType/Markov.olean",
+            "sha256": "5e484ca2fb3cdb7b9c59d7cec75d6a78c630557b767bc1095d0ad38086a95976",
+            "bytes": 80488
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib.Probability.Distributions.Gaussian.Real",
+          "Mathlib.Analysis.Calculus.Deriv.Basic",
+          "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+          "Mathlib.Algebra.Polynomial.AlgebraMap",
+          "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+          "Mathlib.MeasureTheory.Integral.Pi",
+          "Mathlib.MeasureTheory.SpecificCodomains.Pi"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian.Standard",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian/Standard.olean",
+            "sha256": "bec385bd4a9e4f699d2d09b3a40ff09b33a54081549958dee855020859fd4fc2",
+            "bytes": 759056
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-17T13:19:33.822Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q04/experiment/runs/20261017T114451Z-lasso_restricted_eigenvalue_rate-1ac6e68d",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q04",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q04",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q04/experiment/runs/20261017T114451Z-lasso_restricted_eigenvalue_rate-1ac6e68d/job_snapshot",
-  "publishedCheckpointDir": null
-}

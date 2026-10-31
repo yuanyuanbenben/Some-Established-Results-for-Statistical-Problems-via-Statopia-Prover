@@ -1,0 +1,31 @@
+{
+  "cases": [
+    {
+      "key": "statistics/ols_estimator_independent_of_residual_variance",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes.Node_415881013_e54b3026_044df4d9",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes.Node_1353280134_668c18e6_a5a2ddf7",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes.Node_359342246_18c0b9ff_8e3dacd9",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes.Node_2860752011_ddd01222_94825b43",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes.Node_34046222_46bb4793_814aefed",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q16.Main",
+          "declaration": "ols_estimator_independent_of_residual_variance",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

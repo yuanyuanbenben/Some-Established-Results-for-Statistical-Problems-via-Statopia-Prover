@@ -1,0 +1,10 @@
+import Statlib.StatFoundation.Statistics.Asymptotic.ScoreCLT
+import Statlib.StatFoundation.Convergence.Resampling.GaussianMaxComparison
+import Statlib.StatFoundation.Convergence.AnalysisTools.GaussianMaxAnticoncentration
+import Statlib.StatFoundation.Statistics.Asymptotic.LAN
+import Statlib.StatFoundation.Convergence.AnalysisTools.SmoothMax
+import Statlib.StatFoundation.Convergence.AnalysisTools.Nazarov
+import ProverJobs.paper_fresh_20261030t163458307499z_cck_comparison.PaperProofInterfaces.Result_r1_b7b4e65b94494f8bbf721c514662f76e
+
+namespace PaperProofTasks.job_paper_ea9c51e8f7d246ef967b6629540eeb01
+

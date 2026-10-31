@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-18T05:22:00.507Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q36/experiment/runs/20261018T042558Z-local_asymptotic_power_of_asymptotically_normal_test-305e50c2",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q36",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q36",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q36/experiment/runs/20261018T042558Z-local_asymptotic_power_of_asymptotically_normal_test-305e50c2/job_snapshot",
-  "publishedCheckpointDir": null
-}

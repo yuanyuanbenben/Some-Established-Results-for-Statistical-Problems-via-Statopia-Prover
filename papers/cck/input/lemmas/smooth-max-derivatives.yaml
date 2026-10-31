@@ -1,0 +1,163 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:3c2fd3cc-8406-4339-a4f0-b1e0362b4ea2
+    title: paper_68f77b4042a84f6999315e1f7b578de2
+    kind: lemma
+    latex_statement: |-
+      The logarithm is the ordinary logarithm inverse to the exponential. Here \(1(j=k)\) denotes the indicator of equality.
+
+      <!-- formalization-clarifications:v1:7ae1bde6ea5b15169ceafe87a376a4473fa880d34314e003b533fc8616c5b85b -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. For the selected target, the text “Let \(p\) be a positive integer and \(\beta>0\)” followed by “for every \(z\in\mathbb R^p\) and every \(1\le j,k\le p\)” gives the intended order
+      \[
+      \forall p\in\mathbb N_{>0}\ \forall \beta>0\ \forall z\in\mathbb R^p\ \forall j,k\in\{1,\dots,p\}.
+      \]
+      There is no random vector, distribution, sample size, set, or external limiting parameter in this target. The constant \(2\) in \(\sum_{j,k=1}^p |w_{jk}(z)|\le 2\) is absolute: it does not depend on \(p,\beta,z\), or the indices. The derivative identities are equalities whose right sides depend on the parameters through \(\beta\), \(p\), and \(z\) via \(\pi_j(z)\) and \(\beta w_{jk}(z)\); do not replace the second derivative by \(w_{jk}\) alone, nor the bound on \(w\) by a bound on the Hessian. An implicit Lean parameter \(p\) or \(\beta\) does not turn the literal \(2\) into a parameter-dependent constant. The proof says “The other properties follow from a direct calculation,” so the detailed algebra for the absolute-sum bound is omitted, but no additional constant or hypothesis is introduced. For the cited external result R1/Chatterjee 2005, the quantifier pattern is over positive dimension \(n\), \(\beta>0\), \(x\in\mathbb R^n\), and \(i\) (or \(i,j\)); its \(n\) is the dimension and its \(p_i(x)\) are weights, not the target’s dimension \(p\). The supplied extract states that no Gaussian law, covariance, independence, or variance-positivity condition is needed for these deterministic derivative formulas. The selected proof explicitly attributes only the first derivative to R1; although the supplied Chatterjee extract also displays the second derivative and nonnegativity/normalization of weights, the absolute-sum bound is not in that supplied passage and is attributed in the target only to “direct calculation.” Do not import constants or asymptotic parameters from the paired paper, such as \(\Delta\), \(C\), \(C'\), \(a_p\), or \(\sigma\)-dependencies, into this deterministic lemma.
+
+      2. Norms and mathematical objects. The target uses only the ordinary real absolute value \(|\cdot|\). The expression \(\sum_{j,k=1}^p |w_{jk}(z)|\le 2\) is a double scalar sum, not a named norm; if one insists on a matrix interpretation, it is the entrywise \(\ell_1\)-sum over the \(p\times p\) matrix \(w(z)\), not the Euclidean, sup, operator, Frobenius, or normalized norm. No norm on \(z\in\mathbb R^p\) appears. The ambient space is \(\mathbb R^p\), and the source defines the smooth max by the exact formula
+      \[
+      F_\beta(z)=\beta^{-1}\log\Bigl(\sum_{m=1}^p e^{\beta z_m}\Bigr),
+      \]
+      so the sum, not an average, is inside the logarithm, and the exponential is \(e^{\beta z_m}\), not \(\beta z_m\), \(e^{\beta}z_m\), or a normalized/max-subtracted variant. The logarithm is explicitly the “ordinary logarithm inverse to the exponential,” i.e. the natural logarithm in Lean. The weight is
+      \[
+      \pi_j(z)=\frac{e^{\beta z_j}}{\sum_{m=1}^p e^{\beta z_m}},
+      \]
+      not the external Chatterjee \(p_i(\mathbf x)\) notation conflated with the dimension \(p\). The object
+      \[
+      w_{jk}(z)=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z)
+      \]
+      is the source-defined matrix used in the second derivative; the Hessian entry is \(\beta w_{jk}(z)\), not \(w_{jk}(z)\). For \(j=k\), \(w_{jj}=\pi_j-\pi_j^2\); for \(j\ne k\), \(w_{jk}=-\pi_j\pi_k\). The indicator \(1(j=k)\) is the equality indicator, not an off-diagonal indicator.
+
+      3. Asymptotics. The selected target has no asymptotic statement: no \(O\), \(o\), \(o_{\Pr}\), probability limit, filter, or \(p\to\infty\). It is a pointwise deterministic identity and inequality, valid for every admissible \(p,\beta,z,j,k\). The source proof’s “direct calculation” does not hide an asymptotic claim or a rate. Although the surrounding paired paper discusses \(p=p_n\), \(o_{\Pr}\), and dimension-free bounds in other theorems, none of those asymptotic or probabilistic meanings belongs to this target unless separately invoked. Consequently, formalizing this lemma should not add a fixed/varying-parameter filter, a sample size \(n\), or a uniformity range in \(p\); the exact source assertion is that the identities and the bound hold for each positive integer \(p\) and each real \(\beta>0\). The source does not specify any asymptotic uniformity for this lemma because it states no asymptotic limit.
+
+      4. Potentially omitted definitions and side conditions. The proof section defines “\(\partial_j f(z)=\partial f(z)/\partial z_j\),” so \(\partial_j\) is the coordinate partial derivative in \(\mathbb R^p\); \(\partial_j\partial_k\) is the corresponding iterated mixed partial, with the usual convention. The source does not give a separate Lean-level definition of mixed partial order, but \(F_\beta\) is obtained from exponential and logarithm with \(\beta>0\), so these partial derivatives exist on all of \(\mathbb R^p\); the displayed formulas are the source’s assertions, not hypotheses to be added. The index set is \(\{1,\dots,p\}\), with \(m\) the summation index in the denominator and \(j,k\) coordinate indices. Positivity \(p>0\) ensures the sum \(\sum_{m=1}^p e^{\beta z_m}\) is over a nonempty finite set, and the denominator is positive because each exponential is positive; \(\beta>0\) is required for \(F_\beta\). The target does not assume \(p\ge2\); in particular \(p=1\) is allowed according to “positive integer.” It does not assume centeredness, covariance structure, independence, measurability, or integrability. The probability-space notation in the paired paper is for other results, not for this deterministic lemma; if the lemma is later applied to a random \(z\), any measurability or integrability needed for that application is an additional application-level condition, not part of the source statement. The source leaves the detailed differentiation algebra and the detailed proof of \(\sum|w_{jk}|\le2\) to “direct calculation”; this is an omitted derivation, not an omitted assumption. The phrase “smooth max” refers to the displayed \(F_\beta\); it should not be replaced by the exact maximum \(\max_m z_m\) or augmented with the separate approximation inequality from the surrounding paper unless that surrounding claim is being formalized separately.
+      <!-- /formalization-clarifications -->
+
+      Let \(p\) be a positive integer and \(\beta>0\). For \(z=(z_1,\dots,z_p)^T\in\mathbb R^p\), define the smooth max
+      \[
+      F_\beta(z)=\beta^{-1}\log\left(\sum_{m=1}^p e^{\beta z_m}\right),
+      \]
+      and set
+      \[
+      \pi_j(z)=\frac{e^{\beta z_j}}{\sum_{m=1}^p e^{\beta z_m}},
+      \qquad
+      w_{jk}(z)=1(j=k)\pi_j(z)-\pi_j(z)\pi_k(z).
+      \]
+      Then for every \(z\in\mathbb R^p\) and every \(1\le j,k\le p\),
+      \[
+      \partial_j F_\beta(z)=\pi_j(z),
+      \qquad
+      \partial_j\partial_k F_\beta(z)=\beta\,w_{jk}(z).
+      \]
+      Moreover,
+      \[
+      \pi_j(z)\ge 0,
+      \qquad
+      \sum_{j=1}^p \pi_j(z)=1,
+      \qquad
+      \sum_{j,k=1}^p |w_{jk}(z)|\le 2.
+      \]
+    assumptions: []
+    proof_body: |-
+      The first property was noted in [ref:R1]. The other properties follow from a direct calculation. These give the displayed first and second derivative identities, together with
+      \[
+      \pi_j(z)\ge0,\qquad \sum_{j=1}^p\pi_j(z)=1,\qquad \sum_{j,k=1}^p |w_{jk}(z)|\le2.
+      \]
+
+      ### References
+      #### Reference R1
+      Target: first property (the identity \(\partial_j F_\beta(z)=\pi_j(z)\) for every \(1\le j,k\le p\))
+      Citation: Proof of Lemma \ref{lemma: smooth max property}: “The first property was noted in \cite{Chatterjee2005b}. The other properties follow from a direct calculation.”
+      Bibliography: Chatterjee, S. (2005). An error bound in the Sudakov-Fernique inequality. arXiv:math/0510424.
+
+      ##### Use
+      Direct result citation
+
+      ##### Source basis
+      source-material
+
+      ##### Content basis
+      Source extraction. The first derivative identity is displayed in Chatterjee (2005), arXiv:math/0510424, in the proof of Theorem 1.2, physical PDF pp. 2–3, after the definition of \(F_\beta\). It supports the first property \(\partial_j F_\beta(z)=\pi_j(z)\) of the current smooth-max lemma. The source uses \(n\), coordinates \(x_i\), vector \(\mathbf x\), and weights \(p_i(\mathbf x)\); its \(p_i\) is the weight denoted \(\pi_j\) in the current proof context, not the dimension. The same located passage also displays the second derivative formula and states the nonnegativity and normalization of the weights; these support the corresponding conclusions of the current smooth-max lemma. The absolute-sum bound \(\sum_{j,k}|w_{jk}(z)|\le 2\) is not displayed in the supplied passage; the current proof assigns the remaining properties to direct calculation rather than to the Chatterjee citation. No Gaussian, covariance, independence, or variance-positivity condition applies to these deterministic formulas.
+
+      ##### First derivative identity for \(F_\beta\) (Chatterjee 2005)
+      ###### Definitions and notation
+      Let \(n\) be a positive integer, let \(\mathbf x=(x_1,\ldots,x_n)\in\mathbb R^n\), and let \(\beta>0\). Define
+      \[
+      F_\beta(\mathbf x)=\beta^{-1}\log\left(\sum_{i=1}^n e^{\beta x_i}\right),
+      \]
+      and, for \(i=1,\ldots,n\),
+      \[
+      p_i(\mathbf x)=\frac{e^{\beta x_i}}{\sum_{j=1}^n e^{\beta x_j}}.
+      \]
+      The source uses the convention \(\mathbf x=(x_1,\ldots,x_n)\). The sum, not the average, is inside the logarithm. Here \(p_i(\mathbf x)\) is the source’s weight notation; \(j\) is a summation index.
+
+      ###### Assumptions
+      - \(\beta>0\).
+      - \(n\) is a positive integer and \(\mathbf x=(x_1,\ldots,x_n)\in\mathbb R^n\).
+      - No Gaussian law, covariance matrix, independence, or positivity of variances is required for this deterministic identity.
+
+      ###### Statement
+      For every \(\mathbf x\in\mathbb R^n\) and every \(i=1,\ldots,n\),
+      \[
+      \frac{\partial F_\beta}{\partial x_i}(\mathbf x)
+      =p_i(\mathbf x)
+      =\frac{e^{\beta x_i}}{\sum_{j=1}^n e^{\beta x_j}}.
+      \]
+
+      ##### Second derivative identity for \(F_\beta\) (adjoining display in Chatterjee 2005)
+      ###### Definitions and notation
+      Let \(n\) be a positive integer, let \(\mathbf x=(x_1,\ldots,x_n)\in\mathbb R^n\), and let \(\beta>0\). Define
+      \[
+      F_\beta(\mathbf x)=\beta^{-1}\log\left(\sum_{i=1}^n e^{\beta x_i}\right),
+      \]
+      and, for \(i=1,\ldots,n\),
+      \[
+      p_i(\mathbf x)=\frac{e^{\beta x_i}}{\sum_{j=1}^n e^{\beta x_j}}.
+      \]
+      In the displayed quotient for \(p_i\), \(j\) is a summation index; in the second derivative display, \(i,j\) are coordinate indices. The sum is inside the logarithm.
+
+      ###### Assumptions
+      - \(\beta>0\).
+      - \(n\) is a positive integer and \(\mathbf x=(x_1,\ldots,x_n)\in\mathbb R^n\).
+      - No Gaussian or covariance hypotheses are required for this deterministic derivative formula.
+
+      ###### Statement
+      For every \(\mathbf x\in\mathbb R^n\) and all \(i,j\in\{1,\ldots,n\}\),
+      \[
+      \frac{\partial^2 F_\beta}{\partial x_j\partial x_i}(\mathbf x)=
+      \begin{cases}
+      \beta\bigl(p_i(\mathbf x)-p_i(\mathbf x)^2\bigr), & \text{if } i=j,\\[1mm]
+      -\beta p_i(\mathbf x)p_j(\mathbf x), & \text{if } i\neq j.
+      \end{cases}
+      \]
+
+      ##### Nonnegativity and normalization of the weights \(p_i\) (Chatterjee 2005)
+      ###### Definitions and notation
+      Let \(n\) be a positive integer, let \(\mathbf x=(x_1,\ldots,x_n)\in\mathbb R^n\), and let \(\beta>0\). For \(i=1,\ldots,n\), set
+      \[
+      p_i(\mathbf x)=\frac{e^{\beta x_i}}{\sum_{j=1}^n e^{\beta x_j}}.
+      \]
+      The source calls these numbers \(p_1(\mathbf x),\ldots,p_n(\mathbf x)\); they are weights on coordinates. The sum in the denominator is over \(j=1,\ldots,n\).
+
+      ###### Assumptions
+      - \(\beta>0\).
+      - \(n\) is a positive integer and \(\mathbf x=(x_1,\ldots,x_n)\in\mathbb R^n\).
+      - No Gaussian or covariance condition is required.
+
+      ###### Statement
+      For each \(\mathbf x\in\mathbb R^n\), the numbers \(p_1(\mathbf x),\ldots,p_n(\mathbf x)\) satisfy
+      \[
+      p_i(\mathbf x)\ge 0 \quad (i=1,\ldots,n),
+      \qquad
+      \sum_{i=1}^n p_i(\mathbf x)=1.
+      \]
+      The source adds that they induce a probability measure on \(\{1,2,\ldots,n\}\).
+    lean_name: paper_68f77b4042a84f6999315e1f7b578de2
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: supp.tex

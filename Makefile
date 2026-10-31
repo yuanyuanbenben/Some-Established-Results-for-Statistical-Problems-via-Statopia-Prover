@@ -1,4 +1,4 @@
-.PHONY: setup verify replay check
+.PHONY: setup verify check
 
 export PYTHONDONTWRITEBYTECODE = 1
 
@@ -7,10 +7,7 @@ setup:
 	lake exe cache get
 
 verify:
-	python3 scripts/verify_minimal.py
-
-replay:
-	python3 scripts/replay_cache.py
+	python3 scripts/verify.py
 
 check:
 	python3 scripts/check_archive.py

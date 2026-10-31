@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "key": "statistics/gumbel_approximation_to_exponential_maximum",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.ProvedNodes.Node_1239051236_4b1511cf_0d4a601d",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.ProvedNodes.Node_2372557247_ba69a24e_468f5f42",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.ProvedNodes.Node_3138288691_f6d99626_7613c66a",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.ProvedNodes.Node_401495820_d3a33ec9_12ddf63d",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.ProvedNodes.Node_493757669_8e9c5e2f_d552fb64",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.ProvedNodes.Node_976089888_701980f3_36b94683",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q25.Main",
+          "declaration": "gumbel_approximation_to_exponential_maximum",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

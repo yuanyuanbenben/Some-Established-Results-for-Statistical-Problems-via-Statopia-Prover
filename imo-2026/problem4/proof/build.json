@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "key": "imo/problem4",
+      "source": "src",
+      "modules": [
+        "ProverJobs.real_main_theorem_3393c3b8aa74.Vocabulary",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.Base",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_734679360_23af815d_b658a6ec",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_944270810_55a7315b_a4d84f90",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_1810606264_793af19a_1d527339",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_3609921484_532dba24_77cffd73",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_389705034_bebdf092_00c99d6f",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_3665352230_eab14143_1fb95821",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes.Node_4212101893_b868743c_15a110b6",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.MainSupport",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.ProvedNodes",
+        "ProverJobs.real_main_theorem_3393c3b8aa74.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.real_main_theorem_3393c3b8aa74.Main",
+          "declaration": "TriangleGame.main_theorem",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

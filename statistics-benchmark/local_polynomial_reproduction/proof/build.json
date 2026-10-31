@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "key": "statistics/local_polynomial_reproduction",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q37.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q37.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q37.ProvedNodes.Node_3849316766_249c6d5e_ca2279fe",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q37.ProvedNodes.Node_593824758_6f8045c5_2b755384",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q37.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q37.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q37.Main",
+          "declaration": "local_polynomial_reproduction",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

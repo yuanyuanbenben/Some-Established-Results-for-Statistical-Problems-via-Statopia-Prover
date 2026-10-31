@@ -1,0 +1,47 @@
+{
+  "cases": [
+    {
+      "key": "statistics/bootstrap_sample_variance_conditional_mean",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.ProvedNodes.Node_1444442084_ecdddf06_0899ce96",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.ProvedNodes.Node_2727953355_20110073_65e94148",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.ProvedNodes.Node_488559670_a6d524b3_eb071a4e",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.ProvedNodes.Node_3259429663_3e1e7d56_9e566880",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.ProvedNodes.Node_3549106997_e1262180_9298e2b7",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.ProvedNodes.Node_48977322_51aaa398_d568d9d3",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q02.Main",
+          "declaration": "bootstrap_sample_variance_conditional_mean",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.HypothesisTesting.Nonparametric.MannWhitney",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/HypothesisTesting/Nonparametric/MannWhitney.olean",
+            "sha256": "38108127ca088241e5921ee14a715bca22bd8c9a6c4415bd0bf33a3547047843",
+            "bytes": 2372488
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

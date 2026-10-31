@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "key": "statistics/poisson_sum_distribution",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q30.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q30.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q30.ProvedNodes.Node_1039099906_8ca3f57f_8a5d5d2e",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q30.ProvedNodes.Node_2879488259_e798087e_56613174",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q30.ProvedNodes.Node_3983978749_db5aa105_ddcea709",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q30.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q30.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q30.Main",
+          "declaration": "Msc62GroundTruth.poisson_sum_distribution",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

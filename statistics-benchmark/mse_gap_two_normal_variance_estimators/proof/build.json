@@ -1,0 +1,128 @@
+{
+  "cases": [
+    {
+      "key": "statistics/mse_gap_two_normal_variance_estimators",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.ProvedNodes.Node_1006963914_bdbc5482_bc7475aa",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.ProvedNodes.Node_1250375089_9039a57c_25f5a737",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.ProvedNodes.Node_2382897187_683a51f9_96947980",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.ProvedNodes.Node_3292011310_9d98c3aa_7c2e0b1c",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.ProvedNodes.Node_449186465_eb0993fd_5afc276b",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.ProvedNodes.Node_32739689_461a334a_cd91235c",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q38.Main",
+          "declaration": "mse_gap_two_normal_variance_estimators",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib.Probability.Distributions.Gaussian.Real",
+          "Mathlib.Analysis.Calculus.Deriv.Basic",
+          "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+          "Mathlib.Algebra.Polynomial.AlgebraMap",
+          "Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral",
+          "Mathlib.MeasureTheory.Integral.Pi",
+          "Mathlib.MeasureTheory.SpecificCodomains.Pi"
+        ],
+        "module": "Statlib.StatFoundation.RandomVariable.Gaussian.Standard",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/RandomVariable/Gaussian/Standard.olean",
+            "sha256": "bec385bd4a9e4f699d2d09b3a40ff09b33a54081549958dee855020859fd4fc2",
+            "bytes": 759056
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Statistics.Asymptotic.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Statistics.Asymptotic.Contiguity",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Statistics/Asymptotic/Contiguity.olean",
+            "sha256": "5c9ae815e58b08db63e556c46e63a78b66fa057476da4cd174731bd819891140",
+            "bytes": 253768
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Statistics.Asymptotic.Vocabulary",
+          "Statlib.StatFoundation.Statistics.Asymptotic.Contiguity",
+          "Statlib.StatFoundation.Statistics.Estimation.Vocabulary"
+        ],
+        "module": "Statlib.StatFoundation.Statistics.Asymptotic.LAN",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Statistics/Asymptotic/LAN.olean",
+            "sha256": "02e2a4cc31174898a7c683319be1c18ef64cd4acd4e67b66d1eeaea42add2f0d",
+            "bytes": 1485400
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Statistics.Asymptotic.Vocabulary",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Statistics/Asymptotic/Vocabulary.olean",
+            "sha256": "869c689b5f4f3598fedcaa265f36827a1249a97cea0425d84ca493d3ee926b9b",
+            "bytes": 84832
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib",
+          "Statlib.StatFoundation.Vocabulary.ParametricFamily"
+        ],
+        "module": "Statlib.StatFoundation.Statistics.Estimation.Vocabulary",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Statistics/Estimation/Vocabulary.olean",
+            "sha256": "3a643a60f95e235a0b7d98999a40be2faa87562eea8d7e25178a6df947e89f94",
+            "bytes": 114456
+          }
+        ]
+      },
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Vocabulary.ParametricFamily",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Vocabulary/ParametricFamily.olean",
+            "sha256": "370fcb132fa142cc0a193d8f83768d8ca7f42c9bbe863ee2c42b31754b302bc6",
+            "bytes": 88200
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

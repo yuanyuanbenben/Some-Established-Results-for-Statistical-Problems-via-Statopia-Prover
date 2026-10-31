@@ -1,91 +1,89 @@
-# Statistics benchmark
+# Statistics problems
 
-83 selected problems: 41 historical single-file results plus 42 Deep replacements. Each directory contains inputs, selected proof sources, measurements and evidence. See [measurement definitions](../evaluation/METHODOLOGY.md). A `proved` record means historical acceptance evidence, not a fresh rebuild performed during collection.
+83 selected statistics results with their mathematical statements and Lean proofs. Every task contains `README.md`, `input/` and `proof/` (Lean sources, required dependency cache and pinned build configuration).
 
-Prices below use the common off-peak tariff in [current report metrics](../evaluation/report-metrics.json). Per-case `metrics.json` preserves original fee fields; normalized values and recovered callback evidence are in [statistics-offpeak.json](../evaluation/statistics-offpeak.json).
-
-| Problem | MSC | Mode | Minutes | Lean lines | Off-peak USD estimate |
-| --- | --- | --- | ---: | ---: | ---: |
-| [clipping_dominates_squared_loss](clipping_dominates_squared_loss/metrics.json) | 62C15 | single-file | 11.47 | 52 | 0.0568 |
-| [least_squares_residual_sum](least_squares_residual_sum/metrics.json) | 62J05 | single-file | 19.84 | 76 | 0.1172 |
-| [average_jackknife_pseudo_value_sample_variance](average_jackknife_pseudo_value_sample_variance/metrics.json) | 62G09 | single-file | 41.10 | 157 | 0.2486 |
-| [bounded_random_sum_mean](bounded_random_sum_mean/metrics.json) | 62E10 | single-file | 34.26 | 117 | 0.2632 |
-| [complete_case_mean_conditionally_unbiased_under_mcar](complete_case_mean_conditionally_unbiased_under_mcar/metrics.json) | 62D10 | deep | 52.22 | 412 | 0.3544 |
-| [extrinsic_sample_mean_on_unit_sphere](extrinsic_sample_mean_on_unit_sphere/metrics.json) | 62R30 | deep | 43.78 | 325 | 0.1989 |
-| [finite_front_door_adjustment](finite_front_door_adjustment/metrics.json) | 62D20 | single-file | 18.60 | 79 | 0.0934 |
-| [finite_weighted_bayes_rule](finite_weighted_bayes_rule/metrics.json) | 62C10 | single-file | 46.62 | 96 | 0.2454 |
-| [fisher_linear_discriminant_optimality](fisher_linear_discriminant_optimality/metrics.json) | 62H30 | single-file | 39.93 | 66 | 0.2689 |
-| [gumbel_approximation_to_exponential_maximum](gumbel_approximation_to_exponential_maximum/metrics.json) | 62G32 | deep | 70.28 | 449 | 0.4282 |
-| [inverse_probability_weighting_identity](inverse_probability_weighting_identity/metrics.json) | 62D20 | single-file | 43.67 | 143 | 0.3242 |
-| [isotonic_cumulative_residual_certificate](isotonic_cumulative_residual_certificate/metrics.json) | 62G08 | deep | 60.98 | 323 | 0.3592 |
-| [kernel_density_normalization](kernel_density_normalization/metrics.json) | 62G07 | single-file | 42.86 | 109 | 0.3368 |
-| [least_squares_pythagorean_identity](least_squares_pythagorean_identity/metrics.json) | 62J05 | single-file | 40.20 | 103 | 0.3094 |
-| [ma1_autocovariance](ma1_autocovariance/metrics.json) | 62M10 | single-file | 26.08 | 152 | 0.1674 |
-| [mse_decomposition_linear_combination](mse_decomposition_linear_combination/metrics.json) | 62F10 | single-file | 31.01 | 93 | 0.2311 |
-| [no_logistic_mle_under_complete_separation](no_logistic_mle_under_complete_separation/metrics.json) | 62J12 | single-file | 24.83 | 104 | 0.1244 |
-| [observed_failure_mass_under_independent_right_censoring](observed_failure_mass_under_independent_right_censoring/metrics.json) | 62N01 | single-file | 7.02 | 51 | 0.0259 |
-| [permutation_p_value_validity](permutation_p_value_validity/metrics.json) | 62G10 | single-file | 19.11 | 99 | 0.0970 |
-| [poisson_binomial_probability_generating_function](poisson_binomial_probability_generating_function/metrics.json) | 62E10 | single-file | 40.42 | 109 | 0.2625 |
-| [sample_maximum_sufficient](sample_maximum_sufficient/metrics.json) | 62B05 | single-file | 43.20 | 243 | 0.3157 |
-| [unbiased_estimation_of_squared_mean](unbiased_estimation_of_squared_mean/metrics.json) | 62G05 | single-file | 41.00 | 116 | 0.3183 |
-| [arma11_mean_recursion](arma11_mean_recursion/metrics.json) | 62M10 | single-file | 18.49 | 62 | 0.1088 |
-| [bernoulli_sum_sufficient](bernoulli_sum_sufficient/metrics.json) | 62B05 | single-file | 47.73 | 146 | 0.2765 |
-| [binary_mean_nonidentification](binary_mean_nonidentification/metrics.json) | 62D10 | single-file | 38.07 | 92 | 0.2541 |
-| [derandomization_under_convex_loss](derandomization_under_convex_loss/metrics.json) | 62C07 | single-file | 6.52 | 36 | 0.0157 |
-| [difference_in_means_unbiased_random_assignment](difference_in_means_unbiased_random_assignment/metrics.json) | 62K99 | single-file | 26.78 | 72 | 0.1735 |
-| [finite_two_point_minimax_lower_bound](finite_two_point_minimax_lower_bound/metrics.json) | 62C20 | single-file | 30.12 | 184 | 0.2122 |
-| [kaplan_meier_jump_mass_identity](kaplan_meier_jump_mass_identity/metrics.json) | 62N02 | single-file | 10.91 | 49 | 0.0486 |
-| [map_zero_one_optimal](map_zero_one_optimal/metrics.json) | 62C10 | single-file | 10.44 | 41 | 0.0381 |
-| [median_minimizes_absolute_deviation](median_minimizes_absolute_deviation/metrics.json) | 62G05 | single-file | 32.06 | 140 | 0.2382 |
-| [negative_binomial_waiting_time_pmf](negative_binomial_waiting_time_pmf/metrics.json) | 62E15 | single-file | 36.79 | 109 | 0.2391 |
-| [paired_block_randomization_unbiased](paired_block_randomization_unbiased/metrics.json) | 62K10 | single-file | 53.50 | 145 | 0.3572 |
-| [randomized_response_unbiased_prevalence](randomized_response_unbiased_prevalence/metrics.json) | 62D05 | deep | 50.78 | 325 | 0.2135 |
-| [unbiasedness_of_empirical_distribution_function](unbiasedness_of_empirical_distribution_function/metrics.json) | 62G30 | single-file | 18.00 | 61 | 0.0970 |
-| [arcsine_bernoulli_mean_clt](arcsine_bernoulli_mean_clt/metrics.json) | 62F12 | deep | 83.50 | 841 | 0.9011 |
-| [asymptotic_normality_of_sample_variance](asymptotic_normality_of_sample_variance/metrics.json) | 62E20 | deep | 141.68 | 1046 | 1.1522 |
-| [axial_extrinsic_mean_leading_eigenvector](axial_extrinsic_mean_leading_eigenvector/metrics.json) | 62R30 | deep | 67.32 | 661 | 0.4796 |
-| [beta_bernoulli_marginal_likelihood](beta_bernoulli_marginal_likelihood/metrics.json) | 62F15 | single-file | 49.09 | 86 | 0.3638 |
-| [binomial_clt_vanishing_probability](binomial_clt_vanishing_probability/metrics.json) | 62E20 | deep | 102.68 | 956 | 1.0610 |
-| [bootstrap_sample_variance_conditional_mean](bootstrap_sample_variance_conditional_mean/metrics.json) | 62G09 | deep | 97.42 | 1056 | 1.0925 |
-| [brier_score_calibration_decomposition](brier_score_calibration_decomposition/metrics.json) | 62M20 | deep | 46.30 | 328 | 0.2841 |
-| [chebyshev_sample_mean_bound](chebyshev_sample_mean_bound/metrics.json) | 62F12 | single-file | 31.77 | 157 | 0.2391 |
-| [cox_risk_set_probability_for_exponential_times](cox_risk_set_probability_for_exponential_times/metrics.json) | 62N01 | deep | 61.25 | 653 | 0.6133 |
-| [doubly_robust_mean_identification_under_mar](doubly_robust_mean_identification_under_mar/metrics.json) | 62D10 | deep | 68.65 | 531 | 0.5446 |
-| [eventual_recovery_unique_frechet_mean_finite_space](eventual_recovery_unique_frechet_mean_finite_space/metrics.json) | 62R20 | deep | 45.22 | 332 | 0.2299 |
-| [exact_student_t_distribution_ols_contrast](exact_student_t_distribution_ols_contrast/metrics.json) | 62J20 | deep | 250.88 | 2699 | 4.7225 |
-| [finite_class_empirical_concentration](finite_class_empirical_concentration/metrics.json) | 62G20 | single-file | 40.02 | 245 | 0.3044 |
-| [finite_population_correction_srs](finite_population_correction_srs/metrics.json) | 62D05 | deep | 58.95 | 561 | 0.4424 |
-| [frisch_waugh_lovell_identity](frisch_waugh_lovell_identity/metrics.json) | 62J05 | deep | 62.23 | 513 | 0.5194 |
-| [functional_pca_reconstruction_mean_squared_error](functional_pca_reconstruction_mean_squared_error/metrics.json) | 62R10 | deep | 100.80 | 646 | 1.0536 |
-| [german_tank_estimator_unbiased](german_tank_estimator_unbiased/metrics.json) | 62F10 | single-file | 48.79 | 189 | 0.3670 |
-| [ipw_identification_under_ignorability](ipw_identification_under_ignorability/metrics.json) | 62D20 | deep | 65.90 | 455 | 0.4934 |
-| [kernel_density_concentration](kernel_density_concentration/metrics.json) | 62G07 | deep | 250.23 | 2248 | 3.6470 |
-| [kernel_density_mean_variance](kernel_density_mean_variance/metrics.json) | 62G07 | deep | 105.78 | 485 | 1.1103 |
-| [kernel_regression_interior_imse_rate](kernel_regression_interior_imse_rate/metrics.json) | 62G08 | deep | 86.13 | 879 | 0.9106 |
-| [lasso_infinity_norm_error_bound](lasso_infinity_norm_error_bound/metrics.json) | 62J07 | deep | 104.27 | 1160 | 1.5326 |
-| [lasso_restricted_eigenvalue_rate](lasso_restricted_eigenvalue_rate/metrics.json) | 62J05 | deep | 94.90 | 1231 | 0.9429 |
-| [leading_functional_pca_perturbation_bound](leading_functional_pca_perturbation_bound/metrics.json) | 62R10 | single-file | 57.78 | 230 | 0.3538 |
-| [leading_principal_component](leading_principal_component/metrics.json) | 62H25 | deep | 71.00 | 619 | 0.5330 |
-| [linear_smoother_risk](linear_smoother_risk/metrics.json) | 62G08 | deep | 71.93 | 463 | 0.3159 |
-| [local_asymptotic_power_of_asymptotically_normal_test](local_asymptotic_power_of_asymptotically_normal_test/metrics.json) | 62F05 | deep | 56.25 | 212 | 0.3477 |
-| [local_polynomial_reproduction](local_polynomial_reproduction/metrics.json) | 62G08 | deep | 47.17 | 263 | 0.3812 |
-| [logistic_score_balance_with_intercept](logistic_score_balance_with_intercept/metrics.json) | 62J12 | single-file | 29.50 | 94 | 0.1897 |
-| [mse_gap_two_normal_variance_estimators](mse_gap_two_normal_variance_estimators/metrics.json) | 62F10 | deep | 73.08 | 1195 | 0.8232 |
-| [multinomial_count_moments](multinomial_count_moments/metrics.json) | 62H10 | deep | 64.07 | 714 | 0.3681 |
-| [ols_estimator_independent_of_residual_variance](ols_estimator_independent_of_residual_variance/metrics.json) | 62J20 | deep | 103.95 | 656 | 1.3348 |
-| [pca_recovers_isotropic_factor_loading_space](pca_recovers_isotropic_factor_loading_space/metrics.json) | 62H25 | deep | 52.40 | 662 | 0.5289 |
-| [poisson_sum_distribution](poisson_sum_distribution/metrics.json) | 62E15 | deep | 40.65 | 308 | 0.3028 |
-| [power_function_one_sided_gaussian_mean_test](power_function_one_sided_gaussian_mean_test/metrics.json) | 62F03 | single-file | 35.11 | 165 | 0.2620 |
-| [ridge_regression_mean_squared_error](ridge_regression_mean_squared_error/metrics.json) | 62J07 | deep | 73.08 | 560 | 0.5284 |
-| [sample_covariance_unbiased](sample_covariance_unbiased/metrics.json) | 62H12 | single-file | 40.88 | 215 | 0.3084 |
-| [sequential_brier_risk_decomposition](sequential_brier_risk_decomposition/metrics.json) | 62M20 | single-file | 43.49 | 369 | 0.3404 |
-| [strict_convexity_of_logistic_loss](strict_convexity_of_logistic_loss/metrics.json) | 62J12 | single-file | 46.52 | 172 | 0.2815 |
-| [studentized_central_limit_theorem](studentized_central_limit_theorem/metrics.json) | 62E20 | deep | 104.73 | 1206 | 1.4741 |
-| [tikhonov_risk_bound_functional_linear_regression](tikhonov_risk_bound_functional_linear_regression/metrics.json) | 62R10 | deep | 52.63 | 410 | 0.2865 |
-| [two_sample_ks_distribution_freeness](two_sample_ks_distribution_freeness/metrics.json) | 62G10 | deep | 74.75 | 994 | 0.8122 |
-| [two_sample_multivariate_central_limit_theorem](two_sample_multivariate_central_limit_theorem/metrics.json) | 62E20 | deep | 305.95 | 2212 | 3.1224 |
-| [unbiasedness_and_mse_poisson_estimator](unbiasedness_and_mse_poisson_estimator/metrics.json) | 62F10 | deep | 149.88 | 342 | 1.1246 |
-| [uniform_endpoint_mle_limit](uniform_endpoint_mle_limit/metrics.json) | 62F12 | deep | 91.38 | 1077 | 1.1827 |
-| [uniform_quantile_convergence](uniform_quantile_convergence/metrics.json) | 62G20 | single-file | 21.78 | 166 | 0.1337 |
-| [unique_optimal_pca_projection](unique_optimal_pca_projection/metrics.json) | 62H25 | deep | 87.08 | 762 | 0.6833 |
-| [wilcoxon_rank_sum_mean_variance](wilcoxon_rank_sum_mean_variance/metrics.json) | 62G10 | deep | 79.55 | 719 | 0.4790 |
+| Task | Lean files | Physical Lean lines | Cached modules |
+| --- | ---: | ---: | ---: |
+| [arcsine_bernoulli_mean_clt](arcsine_bernoulli_mean_clt/README.md) | 9 | 844 | 113 |
+| [arma11_mean_recursion](arma11_mean_recursion/README.md) | 1 | 62 | 0 |
+| [asymptotic_normality_of_sample_variance](asymptotic_normality_of_sample_variance/README.md) | 11 | 1,048 | 113 |
+| [average_jackknife_pseudo_value_sample_variance](average_jackknife_pseudo_value_sample_variance/README.md) | 1 | 157 | 0 |
+| [axial_extrinsic_mean_leading_eigenvector](axial_extrinsic_mean_leading_eigenvector/README.md) | 8 | 661 | 0 |
+| [bernoulli_sum_sufficient](bernoulli_sum_sufficient/README.md) | 1 | 146 | 0 |
+| [beta_bernoulli_marginal_likelihood](beta_bernoulli_marginal_likelihood/README.md) | 1 | 86 | 0 |
+| [binary_mean_nonidentification](binary_mean_nonidentification/README.md) | 1 | 92 | 0 |
+| [binomial_clt_vanishing_probability](binomial_clt_vanishing_probability/README.md) | 11 | 958 | 25 |
+| [bootstrap_sample_variance_conditional_mean](bootstrap_sample_variance_conditional_mean/README.md) | 10 | 1,057 | 1 |
+| [bounded_random_sum_mean](bounded_random_sum_mean/README.md) | 1 | 117 | 0 |
+| [brier_score_calibration_decomposition](brier_score_calibration_decomposition/README.md) | 8 | 328 | 0 |
+| [chebyshev_sample_mean_bound](chebyshev_sample_mean_bound/README.md) | 1 | 157 | 0 |
+| [clipping_dominates_squared_loss](clipping_dominates_squared_loss/README.md) | 1 | 52 | 0 |
+| [complete_case_mean_conditionally_unbiased_under_mcar](complete_case_mean_conditionally_unbiased_under_mcar/README.md) | 6 | 412 | 0 |
+| [cox_risk_set_probability_for_exponential_times](cox_risk_set_probability_for_exponential_times/README.md) | 8 | 653 | 0 |
+| [derandomization_under_convex_loss](derandomization_under_convex_loss/README.md) | 1 | 36 | 0 |
+| [difference_in_means_unbiased_random_assignment](difference_in_means_unbiased_random_assignment/README.md) | 1 | 72 | 0 |
+| [doubly_robust_mean_identification_under_mar](doubly_robust_mean_identification_under_mar/README.md) | 8 | 531 | 0 |
+| [eventual_recovery_unique_frechet_mean_finite_space](eventual_recovery_unique_frechet_mean_finite_space/README.md) | 8 | 333 | 113 |
+| [exact_student_t_distribution_ols_contrast](exact_student_t_distribution_ols_contrast/README.md) | 18 | 2,699 | 0 |
+| [extrinsic_sample_mean_on_unit_sphere](extrinsic_sample_mean_on_unit_sphere/README.md) | 8 | 325 | 0 |
+| [finite_class_empirical_concentration](finite_class_empirical_concentration/README.md) | 1 | 246 | 1 |
+| [finite_front_door_adjustment](finite_front_door_adjustment/README.md) | 1 | 79 | 0 |
+| [finite_population_correction_srs](finite_population_correction_srs/README.md) | 8 | 561 | 0 |
+| [finite_two_point_minimax_lower_bound](finite_two_point_minimax_lower_bound/README.md) | 1 | 184 | 0 |
+| [finite_weighted_bayes_rule](finite_weighted_bayes_rule/README.md) | 1 | 96 | 0 |
+| [fisher_linear_discriminant_optimality](fisher_linear_discriminant_optimality/README.md) | 1 | 66 | 0 |
+| [frisch_waugh_lovell_identity](frisch_waugh_lovell_identity/README.md) | 8 | 513 | 0 |
+| [functional_pca_reconstruction_mean_squared_error](functional_pca_reconstruction_mean_squared_error/README.md) | 10 | 646 | 0 |
+| [german_tank_estimator_unbiased](german_tank_estimator_unbiased/README.md) | 1 | 189 | 0 |
+| [gumbel_approximation_to_exponential_maximum](gumbel_approximation_to_exponential_maximum/README.md) | 10 | 449 | 0 |
+| [inverse_probability_weighting_identity](inverse_probability_weighting_identity/README.md) | 1 | 143 | 0 |
+| [ipw_identification_under_ignorability](ipw_identification_under_ignorability/README.md) | 7 | 455 | 0 |
+| [isotonic_cumulative_residual_certificate](isotonic_cumulative_residual_certificate/README.md) | 7 | 323 | 0 |
+| [kaplan_meier_jump_mass_identity](kaplan_meier_jump_mass_identity/README.md) | 1 | 49 | 0 |
+| [kernel_density_concentration](kernel_density_concentration/README.md) | 14 | 2,250 | 2 |
+| [kernel_density_mean_variance](kernel_density_mean_variance/README.md) | 6 | 485 | 0 |
+| [kernel_density_normalization](kernel_density_normalization/README.md) | 1 | 109 | 0 |
+| [kernel_regression_interior_imse_rate](kernel_regression_interior_imse_rate/README.md) | 7 | 879 | 0 |
+| [lasso_infinity_norm_error_bound](lasso_infinity_norm_error_bound/README.md) | 12 | 1,162 | 9 |
+| [lasso_restricted_eigenvalue_rate](lasso_restricted_eigenvalue_rate/README.md) | 13 | 1,231 | 0 |
+| [leading_functional_pca_perturbation_bound](leading_functional_pca_perturbation_bound/README.md) | 1 | 230 | 0 |
+| [leading_principal_component](leading_principal_component/README.md) | 10 | 619 | 0 |
+| [least_squares_pythagorean_identity](least_squares_pythagorean_identity/README.md) | 1 | 103 | 0 |
+| [least_squares_residual_sum](least_squares_residual_sum/README.md) | 1 | 76 | 0 |
+| [linear_smoother_risk](linear_smoother_risk/README.md) | 9 | 463 | 0 |
+| [local_asymptotic_power_of_asymptotically_normal_test](local_asymptotic_power_of_asymptotically_normal_test/README.md) | 6 | 212 | 0 |
+| [local_polynomial_reproduction](local_polynomial_reproduction/README.md) | 6 | 263 | 0 |
+| [logistic_score_balance_with_intercept](logistic_score_balance_with_intercept/README.md) | 1 | 94 | 0 |
+| [ma1_autocovariance](ma1_autocovariance/README.md) | 1 | 152 | 0 |
+| [map_zero_one_optimal](map_zero_one_optimal/README.md) | 1 | 41 | 0 |
+| [median_minimizes_absolute_deviation](median_minimizes_absolute_deviation/README.md) | 1 | 140 | 0 |
+| [mse_decomposition_linear_combination](mse_decomposition_linear_combination/README.md) | 1 | 93 | 0 |
+| [mse_gap_two_normal_variance_estimators](mse_gap_two_normal_variance_estimators/README.md) | 10 | 1,197 | 6 |
+| [multinomial_count_moments](multinomial_count_moments/README.md) | 10 | 714 | 0 |
+| [negative_binomial_waiting_time_pmf](negative_binomial_waiting_time_pmf/README.md) | 1 | 109 | 0 |
+| [no_logistic_mle_under_complete_separation](no_logistic_mle_under_complete_separation/README.md) | 1 | 104 | 0 |
+| [observed_failure_mass_under_independent_right_censoring](observed_failure_mass_under_independent_right_censoring/README.md) | 1 | 51 | 0 |
+| [ols_estimator_independent_of_residual_variance](ols_estimator_independent_of_residual_variance/README.md) | 9 | 656 | 0 |
+| [paired_block_randomization_unbiased](paired_block_randomization_unbiased/README.md) | 1 | 145 | 0 |
+| [pca_recovers_isotropic_factor_loading_space](pca_recovers_isotropic_factor_loading_space/README.md) | 10 | 662 | 0 |
+| [permutation_p_value_validity](permutation_p_value_validity/README.md) | 1 | 99 | 0 |
+| [poisson_binomial_probability_generating_function](poisson_binomial_probability_generating_function/README.md) | 1 | 109 | 0 |
+| [poisson_sum_distribution](poisson_sum_distribution/README.md) | 7 | 308 | 0 |
+| [power_function_one_sided_gaussian_mean_test](power_function_one_sided_gaussian_mean_test/README.md) | 1 | 166 | 5 |
+| [randomized_response_unbiased_prevalence](randomized_response_unbiased_prevalence/README.md) | 7 | 325 | 0 |
+| [ridge_regression_mean_squared_error](ridge_regression_mean_squared_error/README.md) | 10 | 560 | 0 |
+| [sample_covariance_unbiased](sample_covariance_unbiased/README.md) | 1 | 215 | 0 |
+| [sample_maximum_sufficient](sample_maximum_sufficient/README.md) | 1 | 243 | 0 |
+| [sequential_brier_risk_decomposition](sequential_brier_risk_decomposition/README.md) | 1 | 369 | 0 |
+| [strict_convexity_of_logistic_loss](strict_convexity_of_logistic_loss/README.md) | 1 | 172 | 0 |
+| [studentized_central_limit_theorem](studentized_central_limit_theorem/README.md) | 10 | 1,208 | 113 |
+| [tikhonov_risk_bound_functional_linear_regression](tikhonov_risk_bound_functional_linear_regression/README.md) | 8 | 410 | 0 |
+| [two_sample_ks_distribution_freeness](two_sample_ks_distribution_freeness/README.md) | 11 | 995 | 1 |
+| [two_sample_multivariate_central_limit_theorem](two_sample_multivariate_central_limit_theorem/README.md) | 15 | 2,214 | 26 |
+| [unbiased_estimation_of_squared_mean](unbiased_estimation_of_squared_mean/README.md) | 1 | 116 | 0 |
+| [unbiasedness_and_mse_poisson_estimator](unbiasedness_and_mse_poisson_estimator/README.md) | 7 | 342 | 0 |
+| [unbiasedness_of_empirical_distribution_function](unbiasedness_of_empirical_distribution_function/README.md) | 1 | 61 | 0 |
+| [uniform_endpoint_mle_limit](uniform_endpoint_mle_limit/README.md) | 10 | 1,078 | 114 |
+| [uniform_quantile_convergence](uniform_quantile_convergence/README.md) | 1 | 166 | 0 |
+| [unique_optimal_pca_projection](unique_optimal_pca_projection/README.md) | 11 | 762 | 0 |
+| [wilcoxon_rank_sum_mean_variance](wilcoxon_rank_sum_mean_variance/README.md) | 11 | 719 | 0 |

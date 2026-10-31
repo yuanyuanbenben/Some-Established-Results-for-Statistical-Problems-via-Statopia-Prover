@@ -1,0 +1,27 @@
+{
+  "cases": [
+    {
+      "key": "papers/data-thinning",
+      "source": "src",
+      "modules": [
+        "ProverJobs.paper_fresh_20261028t224543381z_data_thinning.Vocabulary",
+        "ProverJobs.paper_fresh_20261028t224543381z_data_thinning.Base",
+        "ProverJobs.paper_fresh_20261028t224543381z_data_thinning.ProvedNodes.Node_4104113938_66a528d1_b3becaea",
+        "ProverJobs.paper_fresh_20261028t224543381z_data_thinning.ProvedNodes",
+        "ProverJobs.paper_fresh_20261028t224543381z_data_thinning.PaperProofInterfaces.Result_r1_4ef57bb18b204c33b27dd76a319b4312"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.paper_fresh_20261028t224543381z_data_thinning.PaperProofInterfaces.Result_r1_4ef57bb18b204c33b27dd76a319b4312",
+          "declaration": "PaperProofTasks.paper_fresh_20261028t224543381z_data_thinning.Statlib.Imported.Theorem_1_Main_theorem_thm_generalized_thinning",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

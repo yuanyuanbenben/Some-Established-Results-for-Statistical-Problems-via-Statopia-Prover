@@ -1,0 +1,32 @@
+{
+  "cases": [
+    {
+      "key": "statistics/pca_recovers_isotropic_factor_loading_space",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_1618166017_efb9b88b_b00c5a6a",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_1730365501_588c10f1_bd9a4db8",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_1890793592_47ee479f_92694bea",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_2814431898_39cb855d_53790c47",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_422579165_9aacadd7_c664ab51",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes.Node_856236742_c90712bc_09a0ea1b",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q14.Main",
+          "declaration": "pca_recovers_isotropic_factor_loading_space",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

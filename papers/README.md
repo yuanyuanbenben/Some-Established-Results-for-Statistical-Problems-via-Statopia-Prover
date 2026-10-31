@@ -1,33 +1,17 @@
-# Statistical-paper developments
+# Paper results
 
-Each selected development preserves the source paper, organized materials, original manifest, Lean sources and available report, plus usage and timing evidence added for this evaluation.
+One directory per paper. Each contains only input materials, Lean sources, required binary caches, build tools/configuration and a result README. HMC groups both selected theorems; Dobriban and Lei are separate papers.
 
-| Target | Files | Lines |
-| --- | ---: | ---: |
-| gaussian | 88 | 15,388 |
-| [hulc](hulc/README.md) | 15 | 1,468 |
-| eills | 11 | 2,141 |
-| data_thinning | 5 | 160 |
-| hmc_22 | 22 | 4,103 |
-| hmc_v5 | 51 | 3,345 |
-| cqr | 6 | 388 |
-| bh-fdr | 19 | 2,988 |
+| Paper | Lean files | Lean lines | Cached modules | External references | Passed / tasks (main + supporting) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| [CCK — Gaussian comparison and anti-concentration](cck/README.md) | 78 | 12,356 | 122 | 4 | 6/6 (1+5) |
+| [Gaussian approximation — Theorem 3.1](gaussian/README.md) | 88 | 15,404 | 90 | 3 | 6/6 (1+5) |
+| [HulC — Theorem 1](hulc/README.md) | 15 | 1,467 | 1 | 0 | 2/2 (1+1) |
+| [Hamiltonian Monte Carlo](hmc/README.md) | 73 | 7,431 | 2 | 1 | 8/8 (2+6) |
+| [Data thinning — Theorem 1](data-thinning/README.md) | 5 | 160 | 0 | 0 | 1/1 (1+0) |
+| [EILLS — Theorem 4.2](eills/README.md) | 11 | 2,141 | 0 | 1 | 1/1 (1+0) |
+| [Conformalized quantile regression](cqr/README.md) | 6 | 394 | 5 | 0 | 6/6 (1+5) |
+| [Dobriban — BH/FDR counterexample](dobriban/README.md) | 6 | 1,789 | 1 | 0 | 1/1 (1+0) |
+| [Lei — BH/FDR interfaces](lei/README.md) | 17 | 2,786 | 1 | 0 | 3/3 (1+2) |
 
-Counts use the complete integrated package, including retained support modules. Repeated reading copies and ZIP contents are excluded. Historical timing and fee evidence is retained in per-case files but is not part of the revised paper presentation.
-
-## Earlier curated examples
-
-- [CQR](cqr/README.md): six nodes, score-exchangeability/quantile-count hypotheses, lower-coverage core.
-- [BH/FDR](bh-fdr/README.md): four displayed nodes plus fifteen fixed support modules, explicit certificates and input assumptions.
-
-These two examples are reconstructed from embedded proofs in the existing curated YAML fixtures, with no new timing or usage claim.
-
-## Reproduction and current boundaries
-
-Use `make verify` from the project root to build the corresponding sources in `verification/minimal-sources/`. Original `Main.lean`, task reading snapshots and integrated module trees remain unchanged. Each case retains its original input TeX/YAML and paper PDFs; available proof reports remain as PDFs. Duplicate integrated-proof ZIPs, workflow TODO projections and report TeX were moved outside the project.
-
-[Current validation](../verification/VALIDATION.md) reports actual recursive root axioms separately from retained registry entries: Gaussian has three citation assumptions, HMC 2.2 has one, and the remaining inspected case roots have none. Input skeletons and unused historical support declarations can still contain placeholders.
-
-## Additional HulC result
-
-[HulC — Theorem 1](hulc/README.md) adds finite-sample coverage and exact coverage under the stated conditions, together with its proved fixed-batch lemma. The new archive includes the paper PDF, original Main/Supp TeX, structured inputs, 15 integrated Lean modules, report PDF and verification/provenance evidence. Its explicit modeling hypotheses and automatic-condition-adoption flag are disclosed in [FORMALIZATION.md](hulc/FORMALIZATION.md). HULC's later run remains outside the original five-paper timing/cost aggregate.
+Lines count the current Lean source files, including supporting modules. External references count distinct explicit citation axioms throughout the complete source package, including unused declarations; library imports and theorem hypotheses are excluded. Passed/tasks counts selected main and supporting tasks under their permitted external assumptions, excluding internal helper modules and fixed seed modules. Total: **34/34 tasks (10 main + 24 supporting), 9 external references**.

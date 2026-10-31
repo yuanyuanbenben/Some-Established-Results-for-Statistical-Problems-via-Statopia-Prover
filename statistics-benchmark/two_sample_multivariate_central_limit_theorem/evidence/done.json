@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-17T15:13:10.598Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q01/experiment/runs/20261017T100726Z-two_sample_multivariate_central_limit_theorem-1c7f2de6",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q01",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q01",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q01/experiment/runs/20261017T100726Z-two_sample_multivariate_central_limit_theorem-1c7f2de6/job_snapshot",
-  "publishedCheckpointDir": null
-}

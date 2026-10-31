@@ -1,0 +1,56 @@
+version: v1
+theorem_set: paper-proof-group
+source_tag: document-processing
+theorems:
+  - id: entry:selected:b8836c39-5e98-4a05-b3e3-bb1564889237
+    title: paper_6f9d0d7c54164bfb958847cd7fbf89dc
+    kind: lemma
+    latex_statement: |-
+      Uses the smooth max
+      \[
+      F_\beta(z)=\beta^{-1}\log\left(\sum_{j=1}^p e^{\beta z_j}\right)
+      \]
+      for \(z=(z_1,\dots,z_p)^T\in\mathbb R^p\) and \(\beta>0\); the elementary deterministic inequality below is labelled eq: smooth max property.
+
+      <!-- formalization-clarifications:v1:9b6550043bdf8a8583365741fd5773e470089645165c36baa6a61cd70edf9e0b -->
+      Formalization clarifications from source and proof:
+      1. Constants and quantifier order. The selected smooth-max inequality is owned by main.tex’s display defining \(F_\beta\) and the following “eq: smooth max property” sentence: “an elementary calculation shows that for every \(z\in\mathbb R^p\), \(0\le F_\beta(z)-\max_{1\le j\le p}z_j\le \beta^{-1}\log p\).” The target Statement makes the order explicit: for every positive integer \(p\), every \(z=(z_1,\dots,z_p)^T\in\mathbb R^p\), and every \(\beta>0\). There is no hidden universal constant \(C\): the only bound is the parameter-dependent quantity \(\beta^{-1}\log p\), which may depend on \(p\) and \(\beta\) but not on \(z\). It is uniform in \(z\) for fixed \(p,\beta\), but the source does not assert uniformity in \(p\) or \(\beta\). Making \(\beta\) or \(p\) implicit in Lean does not make the bound independent of them. Since \(\beta\) is quantified after \(p\) and \(z\), any chosen positive \(\beta\), possibly depending on \(p,z\) in an application, satisfies the inequality, but the theorem itself gives only the exact bound with that chosen \(\beta\). No random vector, distribution, sample size, or set enters. The target allows \(p=1\) by “positive integer \(p\);” later conditions such as \(p\ge2\) belong to other results, e.g. main.tex’s anticoncentration corollary, and must not be imported.
+
+      2. Norms and mathematical objects. The target uses no norm. The objects are exactly the finite real vector \(z=(z_1,\dots,z_p)^T\), the coordinatewise maximum \(\max_{1\le j\le p}z_j\), and main.tex’s smooth max \(F_\beta(z)=\beta^{-1}\log(\sum_{j=1}^p e^{\beta z_j})\). This is not \(\max_j|z_j|\), not a Euclidean, sup, operator, Frobenius, normalized, or scaled norm, and not a replacement by the maximum function. The transpose is only notation; the index set is \(\{1,\dots,p\}\) and the sum is finite over all coordinates. The paired supp.tex Lemma “smooth max property” defines \(\partial_jF_\beta=\pi_j\) and \(\partial_j\partial_kF_\beta=\beta w_{jk}\); that derivative lemma is not a hypothesis for the target inequality and its objects \(\pi_j,w_{jk}\) should not be substituted for \(F_\beta\) or the maximum.
+
+      3. Asymptotics. The selected inequality is deterministic and non-asymptotic. It contains no \(O\), \(o\), \(o_{\Pr}\), \(O_{\Pr}\), probability, filter, or limiting variable. The variables \(p\) and \(\beta\) are fixed quantified parameters; the source does not state a limit as \(p\to\infty\) or \(\beta\to0\). The exact assertion is the displayed bound for every admissible triple. The later \(o_{\Pr}(1)\) conditions in main.tex’s multiplier central limit theorem and the examples are separate results and are not part of this smooth-max property.
+
+      4. Omitted definitions and side conditions. The target requires only \(p\in\mathbb N_{>0}\), \(z\in\mathbb R^p\), and \(\beta>0\); main.tex says “where \(\beta>0\) is the smoothing parameter.” No probability space, Gaussian covariance, nondegeneracy condition, event, measure, or \(p\ge2\) assumption is needed. The source writes \(e^{\beta z_j}\) and \(\log\) but does not separately state the logarithm base in this display; the natural logarithm is the conventional reading, but the base is not explicitly defined by the source, so this is the main unresolved notational ambiguity. The selected proof’s \(M(z)=\max_jz_j\) and inequalities \(e^{\beta z_j}\le e^{\beta M(z)}\), \(\sum_j e^{\beta z_j}\ge e^{\beta M(z)}\) agree with main.tex’s “elementary calculation” and introduce no extra hypothesis. The citations to Talagrand2003 and Panchenko2013 in main.tex are only contextual, “This smooth max function arises in the definition of ‘free energy’ in spin glasses,” and Chatterjee2005b in supp.tex is cited there for the derivative property, not for this deterministic inequality.
+      <!-- /formalization-clarifications -->
+
+      For every positive integer \(p\), every \(z=(z_1,\dots,z_p)^T\in\mathbb R^p\), and every \(\beta>0\),
+      \[
+      0\le F_\beta(z)-\max_{1\le j\le p}z_j\le \beta^{-1}\log p.
+      \]
+    assumptions: []
+    proof_body: |-
+      The source states that the inequality follows by an elementary calculation. Explicitly, let \(M(z)=\max_{1\le j\le p}z_j\). Since \(z_j\le M(z)\) for every \(j\), we have
+      \[
+      \sum_{j=1}^p e^{\beta z_j}\le p\,e^{\beta M(z)},
+      \]
+      so
+      \[
+      F_\beta(z)=\beta^{-1}\log\left(\sum_{j=1}^p e^{\beta z_j}\right)
+      \le M(z)+\beta^{-1}\log p.
+      \]
+      Conversely, since \(\sum_{j=1}^p e^{\beta z_j}\ge e^{\beta M(z)}\),
+      \[
+      F_\beta(z)\ge M(z).
+      \]
+      Therefore
+      \[
+      0\le F_\beta(z)-\max_{1\le j\le p}z_j\le \beta^{-1}\log p.
+      \]
+      This is the elementary calculation referred to in the source.
+    lean_name: paper_6f9d0d7c54164bfb958847cd7fbf89dc
+    lean_namespace: Statlib.Imported
+    layer: formalization
+    priority: 3
+    dependencies: []
+    notes: generated from a persisted ordinary goal; no attack-DAG dependency semantics
+source_document: main.tex

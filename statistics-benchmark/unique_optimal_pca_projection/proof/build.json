@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "key": "statistics/unique_optimal_pca_projection",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.ProvedNodes.Node_231152612_c7bdfebf_9dc2168f",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.ProvedNodes.Node_2617968406_fa05324d_304836a0",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.ProvedNodes.Node_3038386786_a9667efa_83774f27",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.ProvedNodes.Node_3178897791_ea4b1220_26234e39",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.ProvedNodes.Node_3808411263_c3a7b8bc_9072c367",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.ProvedNodes.Node_405419422_e48aae78_9d577ee3",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.ProvedNodes.Node_4070169760_207a1beb_80083a9d",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q29.Main",
+          "declaration": "unique_optimal_pca_projection",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

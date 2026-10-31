@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "key": "imo/problem3",
+      "source": "src",
+      "modules": [
+        "ProverJobs.real_V_eq_15312944933b.Vocabulary",
+        "ProverJobs.real_V_eq_15312944933b.Base",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_1288731108_fe11829c_6c0fbee5",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_1162978405_2cbda557_cccee682",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_1499306708_29a62a2a_c3ee751f",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_4187789835_5e30027a_b70d8f47",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_4221689064_d3ddf0ec_fbe161c8",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_2471006781_90e3b0f3_b4dd7482",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_1153730635_3a67f9ee_6853e7b7",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_247222274_f4a96af6_4b656963",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_3358436945_300d0d3a_563d9d50",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_158273889_304075e3_abf0ec42",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_255061405_785d7120_2a1785a2",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_2695346019_c5493af6_1c088893",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_2798148667_8bcde5b0_9857b7f6",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_3426023923_ba29e974_d4c2d78c",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_2436669274_aeaf0633_24808446",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_2789815743_0d7f93cf_e8db38f5",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_428735515_34bc9020_214f2330",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_2170517157_b55dd4e4_4000b667",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_689319304_41a3eefa_c0bba1a5",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_3338307534_b988b604_80c841fd",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_262241132_29716162_66876a25",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_1713139905_c209ee41_4a5b99f3",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_3200008108_17e56165_e20ae208",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_3322926854_a1826859_e20c4f6c",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_2445022674_8afd0c25_fbcfa7f9",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_3449704327_7cf17c98_c0badce1",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_901974942_c7be0ac8_5f6106c2",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_1937137240_45ae93aa_d1366699",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_3723013110_f47aad67_7cd68bc9",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_951219948_a078b303_8e27ca79",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_934911440_5487385c_6cfc3bfb",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_3886798737_08bdef52_f40a7bbb",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_1763956908_225d779d_bad86c20",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_1642795503_352290b3_4ab74713",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_4092604145_3ac20b10_9427093c",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_1733068511_28bb1d76_7e68b264",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_2999225285_90342243_ea48111e",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_417417277_983ad4da_c1219d40",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_3072499416_ba39391c_ab2fe261",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_2583178723_e50b326f_abb8efa0",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_258886546_cb96d69f_eaf2fd75",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_64757959_89ee7b39_ade6efd3",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_781820246_3d08e56a_6bdd9b59",
+        "ProverJobs.real_V_eq_15312944933b.ProvedNodes.Node_3641882566_571fb3c0_21131618",
+        "ProverJobs.real_V_eq_15312944933b.MainSupport",
+        "ProverJobs.real_V_eq_15312944933b.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.real_V_eq_15312944933b.Main",
+          "declaration": "LiuBangXiangYu.V_eq",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

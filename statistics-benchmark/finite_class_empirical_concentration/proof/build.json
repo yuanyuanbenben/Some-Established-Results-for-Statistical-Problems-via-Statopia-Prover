@@ -1,0 +1,38 @@
+{
+  "cases": [
+    {
+      "key": "statistics/finite_class_empirical_concentration",
+      "source": "src",
+      "modules": [
+        "Main"
+      ],
+      "targets": [
+        {
+          "module": "Main",
+          "declaration": "Msc62GroundTruth.finite_class_empirical_concentration",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.Concentration.ExponentialType.hoeffding_bounded_sum_meas_abs_ge_le_two_exp",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/Concentration/ExponentialType/hoeffding_bounded_sum_meas_abs_ge_le_two_exp.olean",
+            "sha256": "23c0a2ad672effadc44e6205f1945c7dfd9c15fbbd22193b2e7bebaee79eaee1",
+            "bytes": 324064
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

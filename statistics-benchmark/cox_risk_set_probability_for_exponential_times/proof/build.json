@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "key": "statistics/cox_risk_set_probability_for_exponential_times",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q31.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q31.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q31.ProvedNodes.Node_2533135513_78bc87cd_d2405e6f",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q31.ProvedNodes.Node_294271807_892f3447_b07075a5",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q31.ProvedNodes.Node_3031005534_a772eef4_53bd4e6c",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q31.ProvedNodes.Node_4101882941_149a37f4_dd24b75a",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q31.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q31.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q31.Main",
+          "declaration": "cox_risk_set_probability_for_exponential_times",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

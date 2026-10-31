@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-18T05:57:11.896Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q37/experiment/runs/20261018T051013Z-local_polynomial_reproduction-38961f7e",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q37",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q37",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q37/experiment/runs/20261018T051013Z-local_polynomial_reproduction-38961f7e/job_snapshot",
-  "publishedCheckpointDir": null
-}

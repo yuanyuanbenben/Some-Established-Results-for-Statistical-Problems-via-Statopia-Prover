@@ -1,0 +1,31 @@
+{
+  "cases": [
+    {
+      "key": "statistics/linear_smoother_risk",
+      "source": "src",
+      "modules": [
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q24.Vocabulary",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q24.Base",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q24.ProvedNodes.Node_1492331787_7aa815be_a8ce4006",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q24.ProvedNodes.Node_3144086322_3ff63bdf_1eb4bc8d",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q24.ProvedNodes.Node_256592153_d1df539a_a9eade84",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q24.ProvedNodes.Node_164904365_da5689c8_f2899239",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q24.ProvedNodes.Node_667819182_4a89c02f_f31a339e",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q24.ProvedNodes",
+        "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q24.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.deep_benchmark42_3p_2k5_20261017T100521Z_q24.Main",
+          "declaration": "linear_smoother_risk",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

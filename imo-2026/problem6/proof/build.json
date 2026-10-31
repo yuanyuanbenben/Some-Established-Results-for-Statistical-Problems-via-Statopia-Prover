@@ -1,0 +1,36 @@
+{
+  "cases": [
+    {
+      "key": "imo/problem6",
+      "source": "src",
+      "modules": [
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.Vocabulary",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.Base",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_3776635361_5eaf0306_47c63d95",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_1231998112_26c8ceab_5b4097d6",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_1319170121_dbae7a97_29dbe775",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_2755318678_16f2be55_fa9b4632",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_3315247046_78d260c2_b5b0898c",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_835102445_1358d677_25013d58",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_2246720384_db986540_9bc93e2b",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_230051687_03829abe_7482e2dd",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_2027774880_d06a152e_dd4a1ad2",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes.Node_223591304_f93b617c_2e5dfa7e",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.ProvedNodes",
+        "ProverJobs.real_main_theorem_edd06e2c7e6c.Main"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.real_main_theorem_edd06e2c7e6c.Main",
+          "declaration": "main_theorem",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": []
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}

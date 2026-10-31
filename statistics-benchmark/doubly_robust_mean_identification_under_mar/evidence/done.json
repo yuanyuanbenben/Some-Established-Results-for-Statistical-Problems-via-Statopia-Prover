@@ -1,9 +1,0 @@
-{
-  "finishedAt": "2026-10-17T22:29:21.298Z",
-  "finalStatus": "proved",
-  "runDir": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q17/experiment/runs/20261017T212054Z-doubly_robust_mean_identification_under_mar-fe394602",
-  "jobId": "deep_benchmark42_3p_2k5_20261017T100521Z_q17",
-  "jobDir": "/home/ai4stat/statlib/ProverJobs/deep_benchmark42_3p_2k5_20261017T100521Z_q17",
-  "jobSnapshot": "/home/ai4stat/prover_long_test/docs/mode_compare/deep_benchmark42_3p_2k5_20261017T100521Z/q17/experiment/runs/20261017T212054Z-doubly_robust_mean_identification_under_mar-fe394602/job_snapshot",
-  "publishedCheckpointDir": null
-}

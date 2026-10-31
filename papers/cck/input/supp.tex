@@ -1,0 +1,601 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[numbers]{natbib}
+% \usepackage[dvips]{graphicx}
+% \usepackage{epsfig,epstopdf}
+% \usepackage[dvipdfm]{hyperref}
+
+%\oddsidemargin +0.1in
+% \evensidemargin +0.1in
+%\topmargin 0pt \textheight 8.7in \textwidth 6.35in
+%\linespread{1.3}\parskip .05in
+
+
+%% ---------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{theorem}{Theorem}
+% \newtheorem{algorithm}{Algorithm}[section]
+% \newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+% \newtheorem{assumption}{C\!\!}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+% \newtheorem{step}{Step}
+\newtheorem{remark}{Comment}
+% \numberwithin{remark}{section}
+\newtheorem{example}{Example}
+%\numberwithin{equation}{section}
+
+
+%\newcommand{\cite}{\cite}
+% \newcommand{\cite}{\cite}
+
+\newcommand{\eps}{\varepsilon}
+% \newcommand{\eg}{e.g., \xspace}
+% \newcommand{\ie}{i.e.,\xspace}
+% \newcommand{\etc}{etc.\@\xspace}
+% \newcommand{\iid}{\emph{i.i.d.}\ }
+% \newcommand{\etal}{et.\ al.\ }
+% \newcommand{\PP}{P}
+% \newcommand{\be}{\begin{eqnarray}}
+% \newcommand{\ee}{\end{eqnarray}}
+% \newcommand{\ind}{ \overset{d}{\longrightarrow}}
+% \newcommand{\inp}{ \overset{p}{\longrightarrow}}
+% \newcommand{\ba}{\begin{array}}
+% \newcommand{\ea}{\end{array}}
+% \newcommand{\bs}{\begin{align}\begin{split}\nonumber}
+% \newcommand{\bsnumber}{\begin{align}\begin{split}}
+% \newcommand{\es}{\end{split}\end{align}}
+% \newcommand{\doublespace}{\linespread{1.1}}
+% \newcommand{\singlespace}{\linespread{0.85}}
+% \newcommand{\fns}{\singlespace\footnotesize}
+% \newcommand{\cooldate}{\begin{flushright}\footnotesize\today\normalsize\end{flushright}}
+
+% \newcommand{\sss}{\scriptscriptstyle}
+% \newcommand{\n}{n}
+% \newcommand{\inpr}{ \overset{p^*_{\scriptscriptstyle n}}{\longrightarrow}}
+% \newcommand{\T}{ \scriptscriptstyle T}
+\newcommand{\LL}{ \mathcal{L}}
+% \newcommand{\M}{ \scriptscriptstyle M}
+% \newcommand{\al}{ \scriptscriptstyle A}
+% \renewcommand{\(}{\left(}
+% \renewcommand{\)}{\right)}
+\renewcommand{\hat}{\widehat}
+
+\newcommand{\Pn}{\Pr_n}
+\newcommand{\Pp}{\mathbf{P}}
+\newcommand{\Ep}{{\mathrm{E}}}
+\newcommand{\barEp}{\bar \Ep}
+\newcommand{\En}{{\mathbb{E}_n}}
+% \newcommand{\Ena}{{\mathbb{E}_{n_a}}}
+% \newcommand{\Enb}{{\mathbb{E}_{n_b}}}
+% \newcommand{\Enk}{{\mathbb{E}_{n_k}}}
+% \newcommand{\LASSO}{\sqrt{\text{Lasso}}}
+
+
+\renewcommand{\Pr}{{\mathrm{P}}}
+\newcommand{\barf}{\overline{f}}
+% \newcommand{\barfp}{\overline{f'}}
+% \newcommand{\Uniform}{{\text{Uniform}}}
+% \newcommand{\diam}{{\text{diam}}}
+% \newcommand{\trace}{{\text{trace}}}
+\newcommand{\RR}{\mathbb{R}}
+% \def\mK{{\mathcal K}}
+% \newcommand{\expect}{\mathcal{E}}
+% \def\z{{d}}
+% \def\x{{x}}
+% \def\supp{{\rm support}}
+% \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+% \newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+% \newcommand{\semin}[1]{\phi_{{\rm min}}(#1)}
+% \newcommand{\semax}[1]{\phi_{{\rm max}}(#1)}
+% \renewcommand{\hat}{\widehat}
+% \renewcommand{\leq}{\leqslant}
+% \renewcommand{\geq}{\geqslant}
+% \renewcommand{\qed}{\hfill{\tiny \ensuremath{\blacksquare} }}%
+% \newcommand{\sign}{ {\rm sign}}
+
+% \DeclareMathOperator{\pr}{pr}
+
+
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\Var}{Var}
+
+\begin{document}\section{Proofs for Section \ref{sec: Gaus and multiplier}}
+\label{sec: proof for section 2}
+
+\subsection{Proof of Theorem  \ref{theorem:comparison}}
+
+Here for a smooth function $f: \RR^{p} \to \RR$, we write $\partial_{j} f (z) = \partial f(z)/\partial z_{j}$ for $z = (z_{1},\dots,z_{p})^{T}$.
+We shall use the following version of Stein's identity.
+
+\begin{lemma}[Stein's identity]
+\label{lemma: talagrand}
+Let $W =(W_{1},\dots,W_{p})^{T}$ be a centered Gaussian random vector in $\RR^{p}$.
+Let $f: \RR^{p} \to \RR$ be a $C^1$-function such that $\Ep [ |\partial_{j} f(W) | ] < \infty$ for all $1 \leq j \leq p$. Then for every $1 \leq j \leq p$,
+\begin{equation*}
+\Ep[W_{j}f(W)]=\sum_{k=1}^p\Ep[W_{j} W_{k}] \Ep [\partial_k f (W)].
+\end{equation*}
+\end{lemma}
+\begin{proof}[Proof of Lemma \ref{lemma: talagrand}]
+See Section A.6 of \cite{Talagrand2003}; also \cite{ChenGoldsteinShao2011} and \cite{Stein1981}.
+\end{proof}
+
+We will use the following properties of the smooth max function.
+
+\begin{lemma}
+\label{lemma: smooth max property}
+For every $1 \leq j,k \leq p$,
+\begin{equation*}
+ \partial_{j} F_{\beta}(z) = \pi_{j}(z), \quad \partial_{j} \partial_k F_{\beta}(z) = \beta w_{jk} (z),
+\end{equation*}
+where
+\begin{equation*}
+\pi_{j}(z)  :=    e^{\beta z_{j}}/{\textstyle \sum}_{m=1}^pe^{\beta z_m}, \ w_{jk}(z) := 1 (j = k) \pi_{j} (z)- \pi_{j}(z) \pi_{k} (z).
+\end{equation*}
+% where $(z)$ denotes evaluation at $z$.
+Moreover,
+\begin{equation*}
+\pi_{j}(z) \geq 0,  \  {\textstyle \sum}_{j=1}^p \pi_{j} (z) = 1, \ {\textstyle \sum}_{j,k=1}^p |w_{jk}(z)|  \leq 2.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}[Proof of Lemma \ref{lemma: smooth max property}]
+The first property was noted in \cite{Chatterjee2005b}.  The other properties follow from a direct calculation.
+\end{proof}
+
+\begin{lemma}\label{lemma: second deriv m}
+Let $m := g \circ F_{\beta}$ with $g \in C^{2}(\RR)$. Then for every $1 \leq j,k \leq p$,
+\begin{align*}
+\partial_{j} \partial_k m(z) =   (g'' \circ F_\beta) (z) \pi_{j} (z) \pi_{k} (z)+ \beta (g' \circ F_\beta) (z) w_{jk}(z),
+\end{align*}
+where $\pi_{j}$ and $w_{jk}$ are defined in Lemma \ref{lemma: smooth max property}.
+
+\end{lemma}
+\begin{proof}[Proof of lemma \ref{lemma: second deriv m}]
+The proof follows from a direct calculation.
+\end{proof}
+
+
+
+\begin{proof}[Proof of Theorem \ref{theorem:comparison}]
+Without loss of generality, we may assume that $X$ and $Y$ are independent, so that $\Ep[X_{j} Y_k]=0$ for all $1 \leq j,k \leq p$.
+Consider the following Slepian interpolation between $X$ and $Y$:
+\begin{equation*}
+Z(t):=\sqrt{t} X+\sqrt{1-t} Y, \ t \in [0,1].
+\end{equation*}
+Let $m := g \circ F_\beta$ and $\Psi(t):=\Ep[m (Z(t))]$.
+Then
+\begin{equation*}
+|\Ep[m(X)]-\Ep[ m(Y) ]|= | \Psi (1) - \Psi (0)| =\left |\int_{0}^{1} \Psi'(t) dt\right|.
+\end{equation*}
+Here we have
+\begin{align*}
+\Psi'(t) & = \frac{1}{2} \sum_{j=1}^p \Ep [ \partial_{j} m(Z(t)) (t^{-1/2}X_{j}-(1-t)^{-1/2}Y_{j}) ]  \\
+& = \frac{1}{2} \sum_{j=1}^p \sum_{k=1}^p (\sigma_{jk}^{X}-\sigma_{jk}^{Y}) \Ep[\partial_{j} \partial_k m (Z(t)) ],
+\end{align*}
+where the second equality follows from applying Lemma \ref{lemma: talagrand} to $W = (t^{-1/2}X_{j}-(1-t)^{-1/2}Y_{j}, Z(t)^{T})^{T}$
+and $f(W)=\partial_{j} m(Z(t))$. Hence
+\begin{align*}
+\left |\int_{0}^{1} \Psi'(t) dt\right|
+&\leq \frac{1}{2} \sum_{j,k=1}^{p} | \sigma_{jk}^{X}-\sigma_{jk}^{Y} | \left | \int_0^1 \Ep [\partial_{j} \partial_k m(Z(t))] dt \right| \\
+&\leq \frac{1}{2} \max_{1 \leq j,k \leq p} | \sigma_{jk}^{X}-\sigma_{jk}^{Y} | \int_0^1 \sum_{j,k=1}^{p} \left | \Ep[\partial_{j} \partial_k m(Z(t))]\right | dt   \\
+&= \frac{\Delta}{2} \int_0^1 \sum_{j,k=1}^{p} \left | \Ep[\partial_{j} \partial_k m(Z(t))]\right | dt.
+\end{align*}
+By Lemmas \ref{lemma: smooth max property} and \ref{lemma: second deriv m},
+\begin{equation*}
+\sum_{j,k=1}^{p} |\partial_{j} \partial_k m(Z(t))|   \leq   | (g'' \circ F_{\beta})(Z(t))| + 2 \beta | (g' \circ F_{\beta})(Z(t))|.
+\end{equation*}
+Therefore, we have
+\begin{align*}
+&\left|\Ep[g(F_{\beta}(X))-g(F_{\beta}(Y))]\right| \\
+&\leq  \Delta \times  \left \{  \frac{1}{2} \int_0^1 \Ep[ | (g'' \circ F_{\beta})(Z(t))| ] dt +  \beta \int_0^1 \Ep [| (g' \circ F_{\beta})(Z(t))| ]dt\right \}  \\
+&\leq  \Delta ( \| g'' \|_{\infty}/2 + \beta \| g' \|_{\infty}),
+\end{align*}
+which leads to the first assertion. The second assertion follows from the inequality (\ref{eq: smooth max property}). This completes the proof.
+\end{proof}
+
+\subsection{Proof of Theorem \ref{cor: distances Gaussian to Gaussian}}
+The final assertion follows from the inequality $a_{p} \leq \sqrt{2 \log p}$ (see, for example, \cite{Talagrand2003}, Proposition 1.1.3).
+Hence we prove (\ref{eq: K-distance}).
+We first note that we may assume that $0 < \Delta < 1$ since otherwise the proof is trivial (take $C \geq 2$ in (\ref{eq: K-distance})).
+In what follows, let  $C>0$ be a generic constant that depends only on $\min_{1 \leq j \leq p} \sigma_{jj}^{Y}$ and $\max_{1 \leq j \leq p} \sigma_{jj}^{Y}$, and its value may change from place to place.
+For $\beta > 0$, define $e_{p,\beta} := \beta^{-1} \log p$.
+Consider and fix a $C^{2}$-function $g_0:\RR \to [0,1]$ such that $g_0(t)=1$ for $t \leq 0$ and $g_0(t)=0$ for $t \geq 1$. For example, we may take
+\begin{equation*}
+g_{0}(t) =
+\begin{cases}
+0, & t \geq 1, \\
+30\int_{t}^{1} s^{2}(1-s)^{2} ds, & 0 < t < 1, \\
+1, & t \leq 0.
+\end{cases}
+\end{equation*}
+For given $x \in \RR, \beta > 0$ and $\delta > 0$,  define $g_{x,\beta,\delta} (t)=g_0(\delta^{-1}(t-x-e_{p,\beta}))$.  For this function $g_{x,\beta,\delta}$, $\| g_{x,\beta,\delta}' \|_{\infty} = \delta^{-1} \| g_{0}' \|_{\infty}$ and $\| g_{x,\beta,\delta}'' \|_{\infty} = \delta^{-2} \| g_{0}'' \|_{\infty}$. Moreover,
+\begin{equation}
+1(t \leq x+e_{p,\beta}) \leq g_{x,\beta,\delta}(t) \leq 1(t \leq x + e_{p,\beta} + \delta), \ \forall t \in \RR. \label{eq: property of g}
+\end{equation}
+
+For arbitrary $x \in \RR, \beta > 0$ and $\delta > 0$, observe that
+\begin{align}
+\Pr ( \max_{1 \leq j \leq p} X_{j}   \leq x )
+&\leq \Pr ( F_{\beta} (X) \leq x + e_{p,\beta}) \leq \Ep[g_{x,\beta,\delta}(F_\beta(X))] \notag \\
+&\leq \Ep[g_{x,\beta,\delta}(F_\beta(Y))] + C(\delta^{-2}+\beta \delta^{-1})\Delta \notag  \\
+&\leq  \Pr ( F_\beta (Y) \leq x+e_{p,\beta}+\delta ) + C(\delta^{-2}+\beta \delta^{-1})\Delta \notag \\
+&\leq \Pr (\max_{1 \leq j \leq p} Y_{j} \leq x+e_{p,\beta}+\delta ) + C(\delta^{-2}+\beta \delta^{-1})\Delta, \label{eq: Kdistance-intermediate}
+\end{align}
+where the first inequality follows from the inequality (\ref{eq: smooth max property}), the second from the inequality (\ref{eq: property of g}),  the third from Theorem \ref{theorem:comparison}, the fourth from the inequality (\ref{eq: property of g}), and the last from the inequality (\ref{eq: smooth max property}).
+We wish to compare $\Pr (\max_{1 \leq j \leq p} Y_{j} \leq x+e_{p,\beta}+\delta) $ with $\Pr (\max_{1 \leq j \leq p} Y_{j} \leq x ) $, and this is where the anti-concentration inequality plays its role.
+By Theorem \ref{thm: anticoncentration}, we have
+\begin{align}
+&\Pr (\max_{1 \leq j \leq p} Y_{j} \leq x+e_{p,\beta}+\delta ) -  \Pr (\max_{1 \leq j \leq p} Y_{j} \leq x ) \notag \\
+&= \Pr (x < \max_{1 \leq j \leq p} Y_{j} \leq x+e_{p,\beta}+\delta ) \leq \LL ( \max_{1 \leq j \leq p} Y_{j}, e_{p,\beta}+\delta) \label{eq: Kdistance-intermediate2} \\
+&\leq  C (e_{p,\beta} + \delta) \sqrt{1 \vee a_{p}^{2} \vee \log \{ 1 / (e_{p,\beta} + \delta) \}} \leq  C (e_{p,\beta} + \delta) \sqrt{1 \vee a_{p}^{2} \vee  \log (1 / \delta)}. \notag
+\end{align}
+Therefore,
+\begin{multline}
+\Pr ( \max_{1\leq j\leq p}X_{j}\leq x ) -  \Pr (\max_{1\leq j\leq p}Y_{j}\leq x)  \\
+\leq C  \left \{ (\delta^{-2}+\beta \delta^{-1})\Delta +  (e_{p,\beta}+\delta)\sqrt{1 \vee a_{p}^{2} \vee \log(1/\delta)}  \right \}. \label{normalcomp}
+\end{multline}
+Take $a = a_{p} \vee \log^{1/2}(1/\Delta)$, and choose  $\beta$ and $\delta$ in such a way that
+\begin{equation*}
+\beta = \delta^{-1}\log p \ \text{and} \ \delta = \Delta^{1/3} (1 \vee a)^{-1/3} (2\log p)^{1/3}.
+\end{equation*}
+Recall that $p \geq 2$ and $0 < \Delta < 1$. Observe that $(\delta^{-2}+\beta \delta^{-1})\Delta \leq C \Delta^{1/3} (1 \vee a)^{2/3} \log^{1/3} p, (e_{p,\beta}+\delta) (1 \vee a_{p}) \leq C \Delta^{1/3} (1 \vee a)^{2/3} \log^{1/3} p$, and since $\delta \geq \Delta^{1/3} (1 \vee a)^{-1/3}$, we have  $\log (1/\delta) \leq (1/3) \log ((1 \vee a)/\Delta)$. Hence the right side on (\ref{normalcomp}) is bounded by $C \Delta^{1/3} \{ (1 \vee a)^{2/3} \log^{1/3} p + (1 \vee a)^{-1/3} ( \log^{1/3} p ) \log^{1/2}((1 \vee a)/\Delta) \}$. In addition, $(1 \vee a)^{-1} \log^{1/2} (1 \vee a)$ is bounded by a universal constant, so that
+\begin{multline*}
+\text{right side of (\ref{normalcomp})} \\
+\leq C \Delta^{1/3} \{ (1 \vee a)^{2/3} \log^{1/3} p + (1 \vee a)^{-1/3} ( \log^{1/3} p ) \log^{1/2}(1/\Delta) \}.
+\end{multline*}
+The second term inside the bracket is bounded by $( \log^{1/3} p ) \log^{1/3}(1/\Delta)$ as $(1 \vee a)^{-1/3} \leq (\log (1/\Delta))^{-1/6}$,
+and first term is bound by $(1 \vee a_{p})^{2/3} \log^{1/3} p + ( \log^{1/3} p ) \log^{1/3}(1/\Delta)$. Adjusting the constant $C$, the right side on the above displayed equation is bounded by $C \Delta^{1/3} \{ 1 \vee a_{p}^{2} \vee \log(1/\Delta) \}^{1/3} \log^{1/3}p$.
+
+For the opposite direction, observe that
+\begin{align*}
+\Pr ( \max_{1 \leq j \leq p} X_{j}   \leq x )
+&\geq \Pr ( F_{\beta} (X) \leq x) \geq \Ep[g_{x-e_{p,\beta}-\delta,\beta,\delta}(F_\beta(X))] \\
+&\geq \Ep[g_{x-e_{p,\beta}-\delta,\beta,\delta}(F_\beta(Y))] - C(\delta^{-2}+\beta \delta^{-1})\Delta \\
+&\geq \Pr (F_{\beta}(Y) \leq x - \delta ) - C(\delta^{-2}+\beta \delta^{-1})\Delta \\
+&\geq \Pr (\max_{1 \leq j \leq p} Y_{j} \leq x - e_{p,\beta} -  \delta ) - C(\delta^{-2}+\beta \delta^{-1})\Delta.
+\end{align*}
+The rest of the proof is similar and hence omitted.
+\qed
+
+
+\section{Proof of Theorem \ref{thm: anticoncentration}}
+\label{sec: proof for section 3}
+
+The proof of Theorem  \ref{thm: anticoncentration} uses some properties of Gaussian measures.
+We begin with preparing technical tools. The following two facts were essentially noted in \cite{Y65,Y68} (note: \cite{Y65} and \cite{Y68} did not contain a proof of Lemma \ref{lemma: Y65-1}, which we find non-trivial). For the sake of completeness, we give their proofs after the proof of Theorem \ref{thm: anticoncentration}.
+\begin{lemma}
+\label{lemma: Y65-1}
+Let $(W_{1},\dots,W_{p})^{T}$ be a (not necessarily centered) Gaussian random vector in $\RR^{p}$ with $\Var(W_{j}) = 1$ for all $1 \leq j \leq p$.  Suppose that $\Corr(W_{j},W_{k})<1$ whenever $j \neq k$. Then the distribution of $\max_{1 \leq j \leq p} W_{j}$ is absolutely continuous with respect to the Lebesgue measure and a version of the density is given by
+\begin{equation}
+f(x) = \phi(x) \sum_{j=1}^{p} e^{ \Ep[W_{j}] x-(\Ep[W_{j}])^2/2 } \cdot \Pr\left (W_{k} \leq x, \forall k \neq j \mid W_{j} = x \right). \label{density}
+\end{equation}
+\end{lemma}
+
+\begin{lemma}
+\label{lemma: Y65-2}
+Let $(W_{0},W_{1},\dots,W_{p})^{T}$ be  a (not necessarily centered) Gaussian random vector with $\Var(W_{j}) =1 $ for all $0 \leq j \leq p$. Suppose that $\Ep[W_{0} ]\geq 0$. Then the map
+\begin{equation}\label{eq: prob}
+x \mapsto  e^{ \Ep[W_{0} ] x-(\Ep[W_{0}])^2/2 } \cdot\Pr( W_{j} \leq x, 1 \leq \forall j \leq p  \mid W_{0} = x)
+\end{equation}
+is non-decreasing on $\RR$.
+\end{lemma}
+
+Let us also recall (a version of) the Gaussian concentration (more precisely, deviation) inequality. See,  for example,  \cite{L01}, Theorem 7.1, for its proof.
+\begin{lemma}\label{thm3}
+Let $(X_{1},\dots,X_{p})^{T}$ be a centered Gaussian random vector in $\RR^{p}$ with $\max_{1 \leq j \leq p} \Ep [X_{j}^{2}] \leq  \sigma^{2}$ for some $\sigma^{2}> 0$. Then for every $r > 0$,
+\begin{equation*}
+\Pr  ( \max_{1 \leq j \leq p} X_{j} \geq \Ep [ \max_{ 1 \leq j \leq p} X_{j}  ] + r ) \leq e^{-r^{2}/(2\sigma^{2})}.
+\end{equation*}
+\end{lemma}
+
+We are now in position to prove Theorem \ref{thm: anticoncentration}.
+
+\begin{proof}[Proof of Theorem \ref{thm: anticoncentration}]
+The proof consists of three steps.
+
+{\bf Step 1}. This step reduces the analysis to the unit variance case. Pick any $x\geq0$. Let $W_{j} :=(X_{j}-x)/\sigma_{j}+x/\underline{\sigma}$.
+Then $\Ep[W_{j}]\geq 0$ and $\Var (W_{j})=1$. Define $Z:= \max_{1 \leq j \leq p} W_{j}$.
+Then we have
+\begin{align*}
+&\Pr (  |\max_{1 \leq j \leq p}X_{j}-x |\leq \epsilon ) \leq \Pr\left(\left|\max_{1 \leq j \leq p}\frac{X_{j}-x}{\sigma_j}\right|\leq \frac{\epsilon}{\underline{\sigma}}\right) \\
+&\quad \leq \sup_{y\in\RR}\Pr\left(\left|\max_{1 \leq j \leq p}\frac{X_{j}-x}{\sigma_j}+\frac{x}{\underline{\sigma}}-y\right|\leq \frac{\epsilon}{\underline{\sigma}}\right) =\sup_{y\in\RR}\Pr\left(\left|Z-y\right|\leq \frac{\epsilon}{\underline{\sigma}}\right).
+\end{align*}
+
+
+{\bf Step 2}. This step bounds the density of $Z$.
+Without loss of generality, we may assume  that $\Corr (W_{j},W_{k})<1$ whenever $j \neq k$. Since the marginal distribution of $W_{j}$ is $N(\mu_{j},1)$ where $\mu_{j}:=\Ep[W_{j}]=(x/\underline{\sigma}-x/\sigma_j)\geq 0$, by Lemma \ref{lemma: Y65-1}, $Z$ has density of the form
+\begin{equation}\label{eq: density form}
+f_{p}(z) = \phi(z) G_{p} (z),
+\end{equation}
+where the map $z \mapsto G_{p}(z)$ is non-decreasing by Lemma \ref{lemma: Y65-2}. Define $\bar{z}:= (1/\underline{\sigma}-1/\overline{\sigma})x$, so that $\mu_{j}\leq \bar{z}$ for every $1 \leq j \leq p$. Moreover, define $\bar{Z}:=\max_{1 \leq j \leq p}(W_{j}-\mu_{j})$.  Then
+\begin{align*}
+&\int_{z}^{\infty} \phi (u) du G_{p}(z) \leq \int_{z}^{\infty} \phi(u) G_{p}(u) du = \Pr( Z> z) \\
+&\qquad \leq \Pr( \bar{Z} > z - \bar{z} ) \leq  \exp \left \{ -\frac{(z-\bar{z}-\Ep[ \bar{Z}  ])_{+}^{2}}{2} \right \},
+\end{align*}
+where the last inequality is due to the Gaussian concentration inequality (Lemma \ref{thm3}).
+Note that $W_{j}-\mu_{j}=X_{j}/\sigma_{j}$, so that
+\begin{equation*}
+\Ep[\bar{Z}]=\Ep [ \max_{1 \leq j \leq p}(X_{j}/\sigma_{j}) ] =: a_p.
+\end{equation*}
+Therefore, for every $z \in \RR$,
+\begin{equation}\label{eq: bound Gn}
+G_{p} (z) \leq \frac{1}{1-\Phi(z)} \exp \left \{ -\frac{(z-\bar{z}-a_p)_{+}^{2}}{2} \right \}.
+\end{equation}
+Mill's inequality states that for $z>0$,
+\begin{equation*}
+z \leq \frac{\phi(z)}{1-\Phi (z)}\leq z \frac{1+z^2}{z^2},
+\end{equation*}
+and in particular $(1+z^2)/z^2 \leq 2$ when $z>1$. Moreover, $\phi(z)/\{ 1-\Phi(z) \}\leq 1.53 \leq 2 $ for  $z \in (-\infty, 1)$.  Therefore,
+\begin{equation*}
+\phi(z)/\{ 1-\Phi(z) \} \leq 2 (z \vee 1),  \ \forall z \in \RR.
+\end{equation*}
+Hence we conclude from this, (\ref{eq: bound Gn}), and (\ref{eq: density form}) that
+\begin{equation*}
+f_{p}(z) \leq 2(z \vee 1) \exp \left \{  -\frac{(z-\bar{z}-a_p)_{+}^{2}}{2} \right \}, \ \forall z \in \RR.
+\end{equation*}
+
+
+{\bf Step 3}. By Step 2, for every $y \in \RR$ and $t > 0$,  we have
+\begin{align*}
+\Pr\left( | Z - y | \leq t \right) &= \int_{y -t}^{y+t} f_{p}(z) dz
+\leq 2 t \max_{z \in [y -t, y+t]}f_{p}(z)  \leq 4 t (\bar{z}+ a_p + 1),
+\end{align*}
+where the last inequality follows from the fact that the map $z \mapsto z e^{-(z-a)^{2}/2}$ (with $a > 0$) is non-increasing on $[a+1,\infty)$.
+Combining this inequality with  Step 1, for every $x \geq 0$ and $\epsilon > 0$, we have
+\begin{equation}
+\Pr ( | \max_{1 \leq j \leq p}X_{j} - x | \leq \epsilon ) \leq 4 \epsilon \{  (1/\underline{\sigma}-1/\overline{\sigma}) |x|+a_p + 1 \} /\underline{\sigma}.  \label{eq: anticoncentration main}
+\end{equation}
+This inequality also holds for $x<0$ by the similar argument, and hence it holds
+for every $x \in \RR$.
+
+If  $\underline{\sigma}=\overline{\sigma} =\sigma$, then we have
+\begin{equation*}
+\Pr ( | \max_{1 \leq j \leq p}X_{j} - x | \leq \epsilon ) \leq 4 \epsilon (a_p + 1)/\sigma, \ \forall  x \in \RR, \ \forall \epsilon > 0,
+\end{equation*}
+which leads to the first assertion of the theorem.
+
+On the other hand, consider the case where $\underline{\sigma} < \overline{\sigma}$. Suppose first that $0 < \epsilon \leq \underline{\sigma}$.
+By the Gaussian concentration inequality (Lemma \ref{thm3}), for $|x|\geq \epsilon+\overline \sigma(a_p+\sqrt{2\log(\underline{\sigma}/\epsilon)})$, we have
+\begin{align}
+&\Pr ( | \max_{1 \leq j \leq p} X_{j}-x|\leq\epsilon ) \leq \Pr (\max_{1 \leq j \leq p}X_{j} \geq |x|-\epsilon ) \notag \\
+&\quad \leq \Pr \left (\max_{1 \leq j \leq p}X_{j}\geq \Ep[\max_{1 \leq j \leq p}X_{j}] +\overline{\sigma}\sqrt{2\log(\underline{\sigma}/\epsilon)} \right ) \leq \epsilon/\underline{\sigma}. \label{eq: anticoncentration tail}
+\end{align}
+For  $|x| \leq \epsilon+\overline \sigma(a_p+\sqrt{2\log(\underline{\sigma}/\epsilon)})$, by  (\ref{eq: anticoncentration main}) and using $\epsilon \leq \underline{\sigma}$, we have
+\begin{align}
+&\Pr ( | \max_{1 \leq j \leq p}X_{j} - x | \leq \epsilon ) \notag \\
+&\quad \leq 4 \epsilon \{ (\overline{\sigma}/\underline{\sigma}) a_{p} +  (\overline{\sigma}/\underline{\sigma}-1)\sqrt{2\log(\underline{\sigma}/\epsilon)}   + 2 - \underline{\sigma}/\overline{\sigma}\}/\underline{\sigma}.
+ \label{eq: anticoncentration non-tail}
+\end{align}
+Combining (\ref{eq: anticoncentration tail}) and (\ref{eq: anticoncentration non-tail}), we obtain the inequality in (ii) for $0 < \epsilon \leq \underline{\sigma}$ (with a suitable choice of $C$). If $\epsilon> \underline{\sigma}$, the inequality in (ii) trivially follows by taking $C \geq 1/\underline{\sigma}$.  This completes the proof.
+\end{proof}
+
+
+\begin{proof}[Proof of Lemma \ref{lemma: Y65-1}]
+Let $M := \max_{1 \leq j \leq p} W_{j}$.
+The absolute continuity of the distribution of $M$ is deduced from the fact that $\Pr(M \in A) \leq \sum_{j=1}^{p} \Pr(W_{j} \in A)$ for every Borel measurable subset $A$ of $\RR$.
+Hence, to show that a version of the density of $M$ is given by (\ref{density}), it is enough to show that $\lim_{\epsilon \downarrow 0} \epsilon^{-1} \Pr(x < M \leq x+\epsilon)$ equals the right side on (\ref{density}) for a.e. $x \in \RR$.
+
+For every $x \in \RR$ and $\epsilon > 0$, observe that
+\begin{align*}
+& \{ x < M \leq x + \epsilon \} \\
+& = \{ \exists i_{0}, W_{i_{0}} > x \ \text{and} \ \forall i,  W_{i} \leq x +\epsilon  \} \\
+&= \{ \exists i_{1}, x < W_{i_{1}} \leq x + \epsilon \ \text{and} \ \forall i \neq i_{1}, W_{i} \leq x \} \\
+&\quad \cup \{ \exists i_{1}, \exists i_{2}, x < W_{i_{1}} \leq x + \epsilon, x < W_{i_{2}} \leq x + \epsilon \ \text{and} \ \forall i \notin \{ i_{1},i_{2} \},   W_{i} \leq x \} \\
+&\qquad \qquad \vdots \\
+&\quad \cup \{ \forall i, x < W_{i} \leq x + \epsilon \} \\
+&=: A^{x,\epsilon}_{1} \cup A^{x,\epsilon}_{2} \cup \cdots \cup A^{x,\epsilon}_{p}.
+\end{align*}
+Note that the events $A^{x,\epsilon}_{1},A^{x,\epsilon}_{2},\dots,A^{x,\epsilon}_{p}$ are disjoint. For $A^{x,\epsilon}_{1}$, since
+\begin{equation*}
+A^{x,\epsilon}_{1} = \cup_{i=1}^{p} \{ x < W_{i} \leq x+\epsilon \ \text{and} \ W_{j} \leq x, \forall j \neq i \},
+\end{equation*}
+where the events on the right side are disjoint, we have
+\begin{align*}
+\Pr(A^{x,\epsilon}_{1}) &= \sum_{i=1}^{p} \Pr(x < W_{i} \leq x+\epsilon \ \text{and} \ W_{j} \leq x, \forall j \neq i) \\
+&= \sum_{i=1}^{p} \int_{x}^{x+\epsilon} \Pr(W_{j} \leq x, \forall j \neq i \mid W_{i} = u) \phi(u-\mu_{i}) du,
+\end{align*}
+where $\mu_{i} := \Ep [ W_{i} ]$.
+We show that for every $1 \leq i \leq p$ and a.e. $x \in \RR$, the map $u \mapsto \Pr(W_{j} \leq x, \forall j \neq i \mid W_{i} = u)$ is right continuous at $x$.
+Let $X_{j}=W_{j}-\mu_{j}$ so that $X_{j}$ are standard Gaussian random variables. Then
+\begin{equation*}
+\Pr(W_{j} \leq x, \forall j \neq i \mid W_{i} = u)=\Pr(X_{j} \leq x-\mu_{j}, \forall j \neq i \mid X_{i} = u-\mu_{i}).
+\end{equation*}
+Pick $i=1$. Let $V_{j} = X_{j} - \Ep[ X_{j} X_{1}] X_{1}$ be the residual from the orthogonal projection of $X_{j}$ on $X_{1}$.
+Note that the vector $(V_{j})_{2 \leq j \leq p}$ and $X_{1}$ are jointly Gaussian and uncorrelated, and hence independent, by which we have
+\begin{align*}
+&\Pr(X_{j} \leq x-\mu_{j}, 2 \leq \forall j \leq p \mid X_{1} = u-\mu_{1}) \\
+&= \Pr(V_{j} \leq x-\mu_{j}-\Ep[ X_{j} X_{1}] (u-\mu_{1}), 2 \leq \forall j \leq p \mid X_{1} = u-\mu_{1}) \\
+&=  \Pr(V_{j} \leq x-\mu_{j}-\Ep[ X_{j} X_{1}] (u-\mu_{1}), 2 \leq \forall j \leq p).
+\end{align*}
+Define $J := \{ j \in \{ 2,\dots,p \} : \Ep[ X_{j} X_{1}] \leq 0 \}$ and $J^{c} := \{ 2,\dots, p\} \backslash J$. Then
+\begin{align*}
+&\Pr(V_{j} \leq x-\mu_{j}-\Ep[ X_{j} X_{1}] (u-\mu_{1}), 2 \leq \forall j \leq p) \\
+&\to \Pr( V_{j} \leq x_j, \forall j \in J, V_{j'} < x_{j'}, \forall j' \in J^{c}), \ \text{as} \ u \downarrow x,
+\end{align*}
+where $x_j=x-\mu_{j}-\Ep[X_{j}X_1](x-\mu_{1})$.
+Here each $V_{j}$ either degenerates to $0$ (which occurs only when $X_{j}$ and $X_{1}$ are perfectly negatively correlated, that is, $\Ep [ X_{j} X_{1} ] = -1$) or has a non-degenerate Gaussian distribution, and hence for every $x \in \RR$ expect for at most $(p-1)$ points $(\mu_{1}+\mu_{j})/2, 2 \leq j \leq p$,
+\begin{align*}
+\Pr( V_{j} \leq x_j, \forall j \in J, V_{j'} < x_{j'}, \forall j' \in J^{c}) &=  \Pr( V_{j} \leq x_{j}, 2 \leq \forall j \leq p ) \\
+&= \Pr(W_{j} \leq x, 2 \leq \forall j \leq p \mid W_{1} = x).
+\end{align*}
+Hence for $i=1$ and a.e. $x \in \RR$, the map $u \mapsto \Pr(W_{i} \leq x, \forall j \neq i \mid W_{i} = u)$ is right continuous at $x$. The same conclusion clearly holds for $2 \leq i \leq p$.
+Therefore, we conclude that, for a.e. $x \in \RR$, as $\epsilon \downarrow 0$,
+\begin{eqnarray*}
+\frac{1}{\epsilon} \Pr(A_{1}^{x,\epsilon}) &\to& \sum_{i=1}^{p} \Pr(W_{j} \leq x, \forall j \neq i \mid W_{i} = x)\phi(x-\mu_{i})\\
+&=&\phi(x)\sum_{i=1}^{p} e^{\mu_{i}x-\mu_{i}^2/2} \Pr(W_{j} \leq x, \forall j \neq i \mid W_{i} = x).
+\end{eqnarray*}
+
+
+
+In the rest of the proof, we  show that, for every $2 \leq i \leq p$ and $x \in \RR$, $\Pr(A_{i}^{x,\epsilon}) = o(\epsilon)$ as $\epsilon \downarrow 0$, which leads to the desired conclusion. Fix any $2 \leq i \leq p$. The probability $\Pr(A_{i}^{x,\epsilon})$ is bounded by a sum of terms of the form  $\Pr(x < W_{j} \leq x+\epsilon, x < W_{k} \leq x+\epsilon)$ with $j \neq k$. Recall that $\Corr(W_{j},W_{k})<1$. Assume that $\Corr(W_{j},W_{k})=-1$. Then for  every $x \in \RR$, $\Pr(x < W_{j} \leq x+\epsilon, x < W_{k} \leq x+\epsilon)$ is zero for sufficiently small $\epsilon$. Otherwise, $(W_{j},W_{k})^{T}$ obeys a two-dimensional, non-degenerate Gaussian distribution and hence $\Pr(x < W_{j} \leq x+\epsilon, x < W_{k} \leq x+\epsilon) = O(\epsilon^{2}) = o(\epsilon)$ as $\epsilon \downarrow 0$ for every $x \in \RR$. This completes the proof.
+\end{proof}
+
+\begin{proof}[Proof of Lemma \ref{lemma: Y65-2}]
+Since $\Ep [ W_{0} ] \geq 0$, the map $x \mapsto \exp( \Ep[ W_{0} ] x- (\Ep[ W_{0} ])^{2} )$ is non-decreasing. Thus it suffices to show that the map
+\begin{equation}\label{eq: reduced probability}
+x \mapsto \Pr ( W_{1} \leq x, \dots,  W_{p} \leq x \mid W_{0} =x)
+\end{equation}
+is non-decreasing.
+As in the proof of Lemma \ref{lemma: Y65-1}, let $X_{j}=W_{j}-\Ep [ W_{j} ]$ and let $V_{j} = X_{j} - \Ep[ X_{j} X_{0}] X_{0}$ be the residual from the orthogonal projection of $X_{j}$ on $X_{0}$.  Note that the vector $(V_{j})_{1 \leq j \leq p}$ and $X_{0}$ are independent.
+Hence the  probability in (\ref{eq: reduced probability}) equals
+\begin{align*}
+&\Pr(V_{j} \leq x-\mu_{j} - \Ep[X_{j}X_{0}](x-\Ep[ W_{0} ] ),  1  \leq \forall j \leq p \mid X_{0}=x-\Ep[ W_{0} ])\\
+&=\Pr(V_{j} \leq x-\mu_{j} - \Ep[X_{j}X_{0}](x-\Ep[ W_{0} ]),  1  \leq \forall j \leq p),
+\end{align*}
+where the latter is non-decreasing in $x$ on $\RR$ since $\Ep[X_{j}X_{0}] \leq 1$.
+\end{proof}
+
+\appendix
+
+\section{Proof of Lemma \ref{lem: Delta estimate}}
+
+Lemma \ref{lem: Delta estimate} follows from the following maximal inequality and H\"{o}lder's inequality. Here we write $a \lesssim b$  if $a$ is smaller than or equal to $b$ up to a universal positive constant.
+
+\begin{lemma}
+\label{lem: maximal ineq}
+Let $Z_{1},\dots,Z_{n}$ be independent random vectors in $\RR^{p}$ with $p \geq 2$. Define $M := \max_{1 \leq i \leq n} \max_{1 \leq j \leq p} | Z_{ij} |$ and $\sigma^{2} := \max_{1 \leq j \leq p} \sum_{i=1}^{n} \Ep [ Z_{ij}^{2} ]$.
+Then
+\begin{equation*}
+\Ep [\max_{1 \leq j \leq p} | {\textstyle \sum}_{i=1}^{n} (Z_{ij} - \Ep [Z_{ij}]) | ] \lesssim (\sigma \sqrt{\log p} + \sqrt{\Ep [ M^{2} ]} \log p).
+\end{equation*}
+\end{lemma}
+
+We shall use the following lemma.
+
+\begin{lemma}
+\label{lem: maximal ineq nonnegative}
+Let $V_{1},\dots,V_{n}$ be independent random vectors in $\RR^{p}$ with $p \geq 2$ such that $V_{ij} \geq 0$ for all $1 \leq i \leq n$ and $1 \leq j \leq p$. Then
+\begin{equation*}
+\Ep [ \max_{1 \leq j \leq p} {\textstyle \sum}_{i=1}^{n} V_{ij} ] \lesssim \max_{1 \leq j \leq p} \Ep [ {\textstyle \sum}_{i=1}^{n} V_{ij} ] + \Ep [ \max_{1 \leq i \leq n} \max_{1 \leq j \leq p} V_{ij} ] \log p.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}[Proof of Lemma \ref{lem: maximal ineq nonnegative}]
+We make use of the symmetrization technique. Let $\eps_{1},\dots,\eps_{n}$ be independent Rademacher random variables (that is, $\Pr (\eps_{i} = 1) = \Pr ( \eps_{i} = -1) = 1/2$) independent of $V_{1}^{n} := \{ V_{1},\dots,V_{n} \}$.
+Then by the triangle inequality and  Lemma 2.3.1 in \cite{VW96},
+\begin{align*}
+I := \Ep [ \max_{1 \leq j \leq p} {\textstyle \sum}_{i=1}^{n} V_{ij} ] &\leq \max_{1 \leq j \leq p} \Ep [ {\textstyle \sum}_{i=1}^{n} V_{ij} ] + \Ep [ \max_{1 \leq j \leq p} | {\textstyle \sum}_{i=1}^{n} (V_{ij} - \Ep [ V_{ij} ]) |] \\
+&\leq \max_{1 \leq j \leq p} \Ep [ {\textstyle \sum}_{i=1}^{n} V_{ij} ] + 2\Ep [ \max_{1 \leq j \leq p} | {\textstyle \sum}_{i=1}^{n} \eps_{i} V_{ij}  |].
+\end{align*}
+By Lemmas 2.2.2 and 2.2.7 in \cite{VW96}, we have
+\begin{align*}
+\Ep [ \max_{1 \leq j \leq p} | {\textstyle \sum}_{i=1}^{n} \eps_{i} V_{ij}  | \mid V_{1}^{n} ] &\lesssim \max_{1 \leq j \leq p} ({\textstyle \sum}_{i=1}^{n} V_{ij}^{2})^{1/2}  \sqrt{\log p}\\
+&\leq   \sqrt{B \log p} \max_{1 \leq j \leq p} ({\textstyle \sum}_{i=1}^{n} V_{ij})^{1/2},
+\end{align*}
+where $B := \max_{1 \leq i \leq n} \max_{1 \leq j \leq p} V_{ij}$. Hence by Fubini's theorem and the Cauchy-Schwarz inequality,
+\begin{align*}
+\Ep [ \max_{1 \leq j \leq p} | {\textstyle \sum}_{i=1}^{n} \eps_{i} V_{ij}  | ] &\lesssim \sqrt{\Ep [ B ] \log p} ( \Ep [ \max_{1 \leq j \leq p} {\textstyle \sum}_{i=1}^{n} V_{ij} ])^{1/2} \\
+& = \sqrt{\Ep [ B ] \log p}  \sqrt{I}.
+\end{align*}
+Therefore, we have
+\begin{equation*}
+I \lesssim \max_{1 \leq j \leq p} \Ep [ {\textstyle \sum}_{i=1}^{n} V_{ij} ] + \sqrt{\Ep [ B ] \log p} \sqrt{I} =: a + b \sqrt{I}.
+\end{equation*}
+Solving this inequality, we conclude that $I \lesssim a + b^{2}$.
+\end{proof}
+
+\begin{proof}[Proof of Lemma \ref{lem: maximal ineq}]
+Let $\eps_{1},\dots,\eps_{n}$ be independent Rademacher random variables independent of $Z_{1},\dots,Z_{n}$. Then arguing as in the previous proof, we have
+\begin{align*}
+\Ep [\max_{1 \leq j \leq p} | {\textstyle \sum}_{i=1}^{n} (Z_{ij} - \Ep [Z_{ij}]) | ]
+&\leq 2 \Ep [\max_{1 \leq j \leq p} | {\textstyle \sum}_{i=1}^{n} \eps_{i}Z_{ij} | ] \\
+&\lesssim \Ep [ \max_{1 \leq j \leq p} ( {\textstyle \sum}_{i=1}^{n} Z_{ij}^{2} )^{1/2} ]  \sqrt{\log p} \\
+&\leq (\Ep [ \max_{1 \leq j \leq p} {\textstyle \sum}_{i=1}^{n} Z_{ij}^{2}  ] )^{1/2} \sqrt{\log p}. \quad (\text{Jensen})
+\end{align*}
+By Lemma \ref{lem: maximal ineq nonnegative} applied to $V_{ij} = Z_{ij}^{2}$, we have
+\begin{equation*}
+\Ep [ \max_{1 \leq j \leq p} {\textstyle \sum}_{i=1}^{n} Z_{ij}^{2}  ] \lesssim \sigma^{2} + \Ep [ M^{2} ] \log p.
+\end{equation*}
+This implies the desired conclusion.
+\end{proof}
+
+\section*{Acknowledgments}
+V. Chernozhukov and D. Chetverikov  are supported by a National Science Foundation grant. K. Kato is supported by the Grant-in-Aid for Young Scientists (B) (22730179, 25780152), the Japan Society for the Promotion of Science. We would like to thank the Editors and an anonymous referee for their careful review.
+
+\begin{thebibliography}{99}
+\bibitem[Adler and Taylor(2007)]{AdlerTaylor2007}
+Adler, R. and Taylor, J. (2007). {\em Random Fields and Geometry}. Springer.
+\bibitem[Ball(1993)]{Ball1993}
+Ball, K. (1993). The reverse isoperimetric problem for Gaussian measure. {\em Discrete Comput. Geom.} \textbf{10} 411-420.
+\bibitem[Bentkus(2003)]{Bentkus2003}
+Bentkus, V. (2003). On the dependence of the Berry-Esseen bound on dimension. {\em J. Statist. Plann. Infer.} \textbf{113} 385-402.
+\bibitem[Borell(1975)]{B75}
+Borell, C. (1975). The Brunn-Minkowski inequality in Gauss space. {\em Invent. Math.} \textbf{30} 205-216.
+\bibitem[B\"{u}hlmann and van de Geer(2011)]{BV11}
+B\"{u}hlmann, P. and van de Geer, S. (2011). {\em Statistics for High-Dimensional Data: Methods,Theory and Applications}. Springer.
+% \bibitem[Chatterjee(2005a)]{Chatterjee2005a}
+% Chatterjee, S. (2005a). A simple invariance theorem. arXiv:math/0508213.
+\bibitem[Candes and Tao(2007)]{CandesTao2007}
+Candes, E. and Tao, T. (2007). The Dantzig selector: statistical estimation when $p$ is much larger than $n$. {\em Ann. Statist.} \textbf{35} 2313-2351.
+\bibitem[Chatterjee(2005)]{Chatterjee2005b}
+Chatterjee, S. (2005). An error bound in the Sudakov-Fernique inequality. arXiv:math/0510424.
+% \bibitem[Chatterjee and Meckes(2008)]{ChatterjeeMeckes2008}
+% Chatterjee, S. and Meckes, E. (2008). Multivariate normal approximation using exchangeable pairs. {\em ALEA Lat. Am. J. Probab. Math. Stat.}
+\bibitem[Chen et al.(2011)]{ChenGoldsteinShao2011}
+Chen, L., Goldstein, L. and Shao, Q.-M.  (2011). {\em Normal Approximation by Stein's Method}. Springer.
+%\bibitem[Chernozhukov et al.(2012)]{CCK12a}
+%Chernozhukov, V., Chetverikov, D. and Kato, K. (2012). Gaussian approximation of suprema of empirical processes.
+\bibitem[Chernozhukov et al.(2013a)]{CCK12}
+Chernozhukov, V., Chetverikov, D. and Kato, K. (2013a). Gaussian approximations and multiplier bootstrap for maxima of sums of high-dimensional random vectors.  {\em Ann. Statist}. \textbf{41} 2786-2819.
+\bibitem[Chernozhukov et al.(2013b)]{CCK13}
+Chernozhukov, V., Chetverikov, D. and Kato, K. (2013b). Anti-concentration and honest, adaptive confidence bands. arXiv:1303:7152.
+\bibitem[Dudley(1999)]{D99}
+Dudley, R.M. (1999). {\em Uniform Central Limit Theorems}. Cambridge University Press.
+% \bibitem[Galambos(1977)]{G77}
+% Galambos, J. (1977). {\em The Asymptotic Theory of Extreme Order Statistics}. John Wiley \& Sons.
+\bibitem[Gordon(1985)]{G85}
+Gordon, Y. (1985). Some inequalities for Gaussian processes and applications. {\em Israel J. Math. } \textbf{50} 265-289.
+%\bibitem[Harsha et al.(2012)]{HKM2012}
+%Harsha, P., Klivans, A., and Meka, R. (2012). An invariance principle for polytopes. {\em Journal of the ACM} \textbf{59}.
+\bibitem[Kilvans et al.(2008)]{Klivans08}
+Klivans, A.R., O'Donnell, R., and Servedio, R.A. (2008). Learning geometric concepts via Gaussian surface area. In: {\em Proc. 49th IEEE Symp. on Foundations of Comp. Science (FOCS)}  pp. 541-550.
+\bibitem[Leadbetter et al.(1983)]{Leadbetter1983}
+Leadbetter, M., Lindgren, G. and Rootz\'{e}n, H.  (1983). {\em Extremes and Related Properties of Random Sequences and Processes}. Springer.
+\bibitem[Ledoux(2001)]{L01}
+Ledoux, M. (2001). {\em Concentration of Measure Phenomenon}. American Mathematical Society.
+\bibitem[Ledoux and Talagrand(1991)]{LT91}
+Ledoux, M. and Talagrand, M. (1991). {\em Probability in Banach Spaces}. Springer.
+\bibitem[Li and Shao(1991)]{LS01}
+Li, W. and Shao, Q.-M. (2001). Gaussian processes: inequalities, small ball probabilities and applications. In: {\em Handbook of Statistics Vol. 19},  pp. 533-597. North-Holland.
+\bibitem[Li and Shao(2002)]{LS02}
+Li, W. and Shao, Q.-M. (2002). A normal comparison inequality and applications. {\em Probab. Theory Relat. Fields} \textbf{122} 494-508.
+\bibitem[Nazarov(2003)]{Nazarov03}
+Nazarov, F. (2003). On the maximal perimeter of a convex set in $\RR^n$ with respect to a Gaussian measure. In: {\em Geometric Aspects of Functional Analysis}, Lecture Notes in Mathematics \textbf{1807}, pp. 169-187. Springer.
+\bibitem[Nourdin and Viens(2009)]{NV09}
+Nourdin, I. and Viens, F.G. (2009). Density formula and concentration inequalities with Malliavin calculus. {\em Electron. J. Probab.} \textbf{14} 2287-2309.
+\bibitem[Panchenko(2013)]{Panchenko2013}
+Panchenko, D. (2013). {\em The Sherrington-Kirkpatrick Model}. Springer.
+\bibitem[Rudelson and Vershynin(2008)]{RV08}
+Rudelson, M. and Vershynin, R. (2008).  The Littlewood-Offord problem and invertibility of random matrices. {\em Adv. Math.}  \textbf{218} 600-633.
+\bibitem[Rudelson and Vershynin(2009)]{RV09}
+Rudelson, M. and Vershynin, R. (2009). Smallest singular value of a random rectangular matrix. {\em Commun. Pure Appl. Anal.} \textbf{62} 1707-1739.
+% \bibitem[Talagrand(1996)]{T96}
+% Talagrand, M. (1996). New concentration inequalities in product spaces. {\em Invent. Math. } \textbf{126}  503-563.
+\bibitem[Slepian(1962)]{Slepian1962}
+Slepian, D. (1962). The one-sided barrier problem for Gaussian noise. {\em Bell Syst. Tech. J.} \textbf{41} 463-501.
+% \bibitem[Smirnov(1950)]{Smirnov1950}
+% Smirnov, N. (1950). On the construction of confidence regions for the density of distribution of random variables. {\em Doklady Akad. Nauk SSSR}  \textbf{74} 189-191.
+\bibitem[Stein(1981)]{Stein1981}
+Stein, C. (1981). Estimation of the mean of a multivariate normal distribution. {\em Ann. Statist.} \textbf{9} 1135-1151.
+\bibitem[Sudakov and Tsirel'son(1978)]{ST78}
+Sudakov, V.N. and Tsirel'son, B.S. (1978). Extremal properties of half-spaces for spherically invariant measures. {\em J. Soviet Math.} \textbf{9} 9-18.
+\bibitem[Talagrand(2003)]{Talagrand2003}
+Talagrand, M. (2003). {\em Spin Glasses: A Challenge for Mathematicians}.  Springer.
+\bibitem[van der Vaart and Wellner(1996)]{VW96}
+van der Vaart, A.W. and Wellner, J.A. (1996). {\em Weak Convergence and Empirical Processes: With Applications to Statistics}. Springer.
+\bibitem[Vershynin and Rudelson(2007)]{VR07}
+Vershynin, R. and Rudelson, M. (2007). Anti-concentration inequalities. Conference Proceeding for Phenomena in High Dimensions, Samos, Greece.
+\bibitem[Yan(2009)]{Y09}
+Yan, L. (2009). Comparison inequalities for one sided normal probabilities. {\em J. Theoret. Probab.} \textbf{22} 827-836.
+\bibitem[Ylvisaker(1965)]{Y65}
+Ylvisaker, D. (1965). The expected number of zeros of a stationary Gaussian process. {\em Ann. Math. Statist.} \textbf{36} 1043-1046.
+\bibitem[Ylvisaker(1968)]{Y68}
+Ylvisaker, D. (1968). A note on the absence of tangencies in Gaussian sample paths. {\em Ann. Math. Statist.} \textbf{39} 261-262.
+\end{thebibliography}
+\end{document}

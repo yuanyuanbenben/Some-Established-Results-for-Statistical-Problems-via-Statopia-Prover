@@ -1,0 +1,57 @@
+{
+  "cases": [
+    {
+      "key": "papers/hulc",
+      "source": "src",
+      "modules": [
+        "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.Base",
+        "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.ProvedNodes.Node_1024464762_c87d6fc0_a568f946",
+        "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.ProvedNodes.Node_3135439720_9bebc028_77bf57ee",
+        "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.ProvedNodes",
+        "ProverJobs.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.Vocabulary",
+        "ProverJobs.paper_fresh_20261030t143835550708z_hulc.Base",
+        "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ExternalNodes.Node_797c756d42274b989c69",
+        "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_6db03351f5d34ffeb979aa1f3d18ae44",
+        "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_f59ddd7685054a2c91a43999dd384b62",
+        "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_1460261823_45140d86_8dc8b477",
+        "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_1727152864_9ef8801e_d19f31cd",
+        "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_3519240212_d3830931_82d98ed5",
+        "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes.Node_411957280_656443f1_12135cce",
+        "ProverJobs.paper_fresh_20261030t143835550708z_hulc.ProvedNodes",
+        "ProverJobs.paper_fresh_20261030t143835550708z_hulc.Vocabulary"
+      ],
+      "targets": [
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_f59ddd7685054a2c91a43999dd384b62",
+          "declaration": "PaperProofTasks.paper_fresh_20261030t143835550708z_hulc.Statlib.Imported.Theorem_1_thm_coverage_algorithm_known_Delta_HulC_finite_sample_coverage_and_exact_coverage_under_the_stated_additional",
+          "allowedAxioms": []
+        },
+        {
+          "module": "ProverJobs.paper_fresh_20261030t143835550708z_hulc.PaperProofInterfaces.Result_r1_6db03351f5d34ffeb979aa1f3d18ae44",
+          "declaration": "PaperProofTasks.job_paper_6093c8cdedac44ebaae3246c2f49ba3b.Statlib.Imported.paper_6093c8cdedac44ebaae3246c2f49ba3b",
+          "allowedAxioms": []
+        }
+      ]
+    }
+  ],
+  "cache": {
+    "modules": [
+      {
+        "imports": [
+          "Init",
+          "Mathlib"
+        ],
+        "module": "Statlib.StatFoundation.BasicAnalysis.measure_le_ofReal_of_measureReal_le",
+        "files": [
+          {
+            "path": "lib/lean/Statlib/StatFoundation/BasicAnalysis/measure_le_ofReal_of_measureReal_le.olean",
+            "sha256": "0f5b96d42672cb8cc18655fa91d22546aba8b76b246ed13ca5cace56e4a6da62",
+            "bytes": 55312
+          }
+        ]
+      }
+    ]
+  },
+  "leanVersion": "Lean (version 4.28.0-rc1, x86_64-unknown-linux-gnu, commit 3b0f2862196c6a8af9eb0025ee650252694013dd, Release)",
+  "mathlibRevision": "5352afccd6866369be9de43f5b7ec47203555f44"
+}
