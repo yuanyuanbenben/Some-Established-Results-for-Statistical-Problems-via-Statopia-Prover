@@ -6,7 +6,7 @@ One directory per paper. Each contains only input materials, Lean sources, requi
 | --- | ---: | ---: | ---: | ---: | ---: |
 | [CCK — Gaussian comparison and anti-concentration](cck/README.md) | 78 | 12,223 | 122 | 1 | 6/6 (1+5) |
 | [Gaussian approximation — Theorem 3.1](gaussian/README.md) | 88 | 15,047 | 90 | 3 | 6/6 (1+5) |
-| [DP clustering — Theorem 1](dp-clustering/README.md) | 226 | 50,508 | 4 | 0 | 17/17 (1+16) |
+| [DP clustering — Theorem 1](dp-clustering/README.md) | 218 | 34,932 | 4 | 0 | 16/16 (1+15) |
 | [HulC — Theorem 1](hulc/README.md) | 15 | 1,397 | 1 | 0 | 2/2 (1+1) |
 | [Hamiltonian Monte Carlo](hmc/README.md) | 73 | 7,214 | 2 | 1 | 8/8 (2+6) |
 | [Data thinning — Theorem 1](data-thinning/README.md) | 5 | 125 | 0 | 0 | 1/1 (1+0) |
@@ -15,6 +15,6 @@ One directory per paper. Each contains only input materials, Lean sources, requi
 | [Dobriban — BH/FDR counterexample](dobriban/README.md) | 6 | 1,789 | 1 | 0 | 1/1 (1+0) |
 | [Lei — BH/FDR interfaces](lei/README.md) | 17 | 2,786 | 1 | 0 | 3/3 (1+2) |
 
-Lines count the current Lean source files, including supporting modules. Used external references count distinct citation axioms in the actual recursive proof dependencies of the selected main theorem(s), counted once per paper. Citations used only by independent supporting tasks, unused declarations, library imports and explicit theorem hypotheses are excluded. Passed/tasks counts selected main and supporting tasks under their permitted external assumptions, excluding internal helper modules and fixed seed modules. Total: **51/51 tasks (11 main + 40 supporting), 5 used external references**.
+Lines count the current Lean source files, including supporting modules. Used external references count distinct citation axioms in the actual recursive proof dependencies of the selected main theorem(s), counted once per paper. Citations used only by independent supporting tasks, unused declarations, library imports and explicit theorem hypotheses are excluded. Passed/tasks counts selected main and supporting tasks under their permitted external assumptions, excluding internal helper modules and fixed seed modules. Total: **50/50 tasks (11 main + 39 supporting), 5 used external references**.
 
 DP counts selected task instances under the contracts stated in its summary; its two denom1 instances correspond to one source lemma.
